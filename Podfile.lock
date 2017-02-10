@@ -3,17 +3,26 @@ PODS:
   - AlamofireObjectMapper (4.0.1):
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 2.0)
+  - APIKit (3.1.1):
+    - Result (~> 3.0)
+  - Himotoki (3.0.0)
   - ObjectMapper (2.2.2)
+  - Result (3.1.0)
 
 DEPENDENCIES:
   - Alamofire
   - AlamofireObjectMapper
+  - APIKit
+  - Himotoki
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   AlamofireObjectMapper: 842d2eed43a4d0593ff0110d54ac86a170c4519c
+  APIKit: 7460983f490d3bde6aaaaa4164d18c9865a6f91d
+  Himotoki: df74b01035e86e021b7b04a15b033a7fd189b84f
   ObjectMapper: 9e385c2295bcc4e16eabbcfc85db801442bba545
+  Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
 
-PODFILE CHECKSUM: 131e2f2509bcb0eb17e7cbb866dde2675c47c105
+PODFILE CHECKSUM: 116a070ec9c09e9d8e9e8ee852c7a28a5d717c1d
 
 COCOAPODS: 1.1.1
