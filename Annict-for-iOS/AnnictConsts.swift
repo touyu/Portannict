@@ -12,7 +12,7 @@ class AnnictConsts {
     
     static let rootURI = "https://api.annict.com"
     
-    static let redirectURI = "urn:ietf:wg:oauth:2.0:oob"
+    static let redirectURI = "annict://oauth"
     
     static var clientID: String {
         guard let clientID = ProcessInfo.processInfo.environment["annict_client_id"] else {
@@ -28,5 +28,28 @@ class AnnictConsts {
             return ""
         }
         return clientID
+    }
+    
+    static func oauthURL() -> URL? {
+        var oauthURL = "\(AnnictConsts.rootURI)/oauth/authorize"
+        oauthURL += "?client_id=\(AnnictConsts.clientID)"
+        oauthURL += "&response_type=code"
+        oauthURL += "&redirect_uri=\(redirectURI)"
+        oauthURL += "&scope=read+write"
+        return URL(string: oauthURL)
+    }
+    
+    static var accessToken: String {
+        get {
+            if let accessToken = UserDefaults.standard.string(forKey: "annict_access_token") {
+                return accessToken
+            } else {
+                return ""
+            }
+        }
+        set(newValue) {
+            UserDefaults.standard.set(newValue, forKey: "annict_access_token")
+            UserDefaults.standard.synchronize()
+        }
     }
 }
