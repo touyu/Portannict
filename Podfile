@@ -8,6 +8,8 @@ target 'Annict-for-iOS' do
   # Pods for Annict-for-iOS
   pod 'Alamofire'
   pod 'AlamofireObjectMapper'
+  pod 'APIKit'
+  pod 'Himotoki'
 
   target 'Annict-for-iOSTests' do
     inherit! :search_paths

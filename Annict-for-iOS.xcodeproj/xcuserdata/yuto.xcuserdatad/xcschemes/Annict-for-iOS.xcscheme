@@ -81,6 +81,18 @@
             ReferencedContainer = "container:Annict-for-iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "annict_client_id"
+            value = "1ee001b1da88e242db68fa73058d3bc4d4429da0da4c0cb206b068efd9f0a97f"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "annict_client_secret"
+            value = "19a61c37a010f1f2c77746aaff6ba6d2d6c91cc96f10a5b5f2c234f13da8c69e"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

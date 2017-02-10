@@ -11,13 +11,22 @@
 		6D6918BB9D9DBF83D45BEE6D /* Pods_Annict_for_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2584CCB72E336560154CFF19 /* Pods_Annict_for_iOS.framework */; };
 		A5B4BEE147637886DADD700D /* Pods_Annict_for_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DDAF0557DD3C020D70D067E /* Pods_Annict_for_iOSTests.framework */; };
 		D137D6801E4D735E00F0FCFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D137D67F1E4D735E00F0FCFB /* AppDelegate.swift */; };
-		D137D6821E4D735E00F0FCFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D137D6811E4D735E00F0FCFB /* ViewController.swift */; };
-		D137D6851E4D735E00F0FCFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D137D6831E4D735E00F0FCFB /* Main.storyboard */; };
 		D137D6871E4D735E00F0FCFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D137D6861E4D735E00F0FCFB /* Assets.xcassets */; };
 		D137D68A1E4D735E00F0FCFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D137D6881E4D735E00F0FCFB /* LaunchScreen.storyboard */; };
 		D137D6951E4D735E00F0FCFB /* Annict_for_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D137D6941E4D735E00F0FCFB /* Annict_for_iOSTests.swift */; };
 		D137D6A01E4D735E00F0FCFB /* Annict_for_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D137D69F1E4D735E00F0FCFB /* Annict_for_iOSUITests.swift */; };
-		D137D6AE1E4D772100F0FCFB /* AnnictAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D137D6AD1E4D772000F0FCFB /* AnnictAPIClient.swift */; };
+		D195D0ED1E4DE3D6004B6B15 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D195D0EC1E4DE3D6004B6B15 /* Home.storyboard */; };
+		D195D0EF1E4DE3F0004B6B15 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0EE1E4DE3F0004B6B15 /* HomeViewController.swift */; };
+		D195D0F41E4DE677004B6B15 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0F31E4DE677004B6B15 /* Notification+Extension.swift */; };
+		D195D0F81E4DE919004B6B15 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0F71E4DE919004B6B15 /* UIViewController+Extension.swift */; };
+		D195D0FD1E4DEE49004B6B15 /* CheckingLoginStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0FC1E4DEE49004B6B15 /* CheckingLoginStateViewController.swift */; };
+		D195D0FF1E4DEED6004B6B15 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0FE1E4DEED6004B6B15 /* HomeNavigationController.swift */; };
+		D195D1031E4DF000004B6B15 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D1021E4DF000004B6B15 /* UIColor+Extensions.swift */; };
+		D1FEDCFF1E4D7CD300EFA42F /* AnnictConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */; };
+		D1FEDD021E4D844000EFA42F /* AnnictOauthTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */; };
+		D1FEDD041E4D883600EFA42F /* Annict.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD031E4D883600EFA42F /* Annict.swift */; };
+		D1FEDD061E4D9A8400EFA42F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD051E4D9A8400EFA42F /* LoginViewController.swift */; };
+		D1FEDD081E4D9B4000EFA42F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FEDD071E4D9B4000EFA42F /* Login.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +57,6 @@
 		C083440EFE0BAD13C7927C45 /* Pods-Annict-for-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOSUITests/Pods-Annict-for-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D137D67C1E4D735E00F0FCFB /* Annict-for-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Annict-for-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D137D67F1E4D735E00F0FCFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D137D6811E4D735E00F0FCFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D137D6841E4D735E00F0FCFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D137D6861E4D735E00F0FCFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D137D6891E4D735E00F0FCFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D137D68B1E4D735E00F0FCFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,7 +66,18 @@
 		D137D69B1E4D735E00F0FCFB /* Annict-for-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Annict-for-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D137D69F1E4D735E00F0FCFB /* Annict_for_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annict_for_iOSUITests.swift; sourceTree = "<group>"; };
 		D137D6A11E4D735E00F0FCFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D137D6AD1E4D772000F0FCFB /* AnnictAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPIClient.swift; sourceTree = "<group>"; };
+		D195D0EC1E4DE3D6004B6B15 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		D195D0EE1E4DE3F0004B6B15 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D195D0F31E4DE677004B6B15 /* Notification+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
+		D195D0F71E4DE919004B6B15 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		D195D0FC1E4DEE49004B6B15 /* CheckingLoginStateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckingLoginStateViewController.swift; sourceTree = "<group>"; };
+		D195D0FE1E4DEED6004B6B15 /* HomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
+		D195D1021E4DF000004B6B15 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictConsts.swift; sourceTree = "<group>"; };
+		D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictOauthTokenResponse.swift; sourceTree = "<group>"; };
+		D1FEDD031E4D883600EFA42F /* Annict.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annict.swift; sourceTree = "<group>"; };
+		D1FEDD051E4D9A8400EFA42F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D1FEDD071E4D9B4000EFA42F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		F9339B8A79435C4F1C352458 /* Pods-Annict-for-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,13 +157,13 @@
 		D137D67E1E4D735E00F0FCFB /* Annict-for-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				D137D67F1E4D735E00F0FCFB /* AppDelegate.swift */,
-				D137D6811E4D735E00F0FCFB /* ViewController.swift */,
-				D137D6AD1E4D772000F0FCFB /* AnnictAPIClient.swift */,
-				D137D6831E4D735E00F0FCFB /* Main.storyboard */,
 				D137D6861E4D735E00F0FCFB /* Assets.xcassets */,
-				D137D6881E4D735E00F0FCFB /* LaunchScreen.storyboard */,
+				D137D67F1E4D735E00F0FCFB /* AppDelegate.swift */,
 				D137D68B1E4D735E00F0FCFB /* Info.plist */,
+				D1FEDD091E4DDE1700EFA42F /* Controllers */,
+				D1FEDD001E4D841A00EFA42F /* Models */,
+				D195D0F21E4DE62E004B6B15 /* Extensions */,
+				D1FEDD0A1E4DDE2900EFA42F /* Storyboards */,
 			);
 			path = "Annict-for-iOS";
 			sourceTree = "<group>";
@@ -166,6 +184,63 @@
 				D137D6A11E4D735E00F0FCFB /* Info.plist */,
 			);
 			path = "Annict-for-iOSUITests";
+			sourceTree = "<group>";
+		};
+		D195D0F21E4DE62E004B6B15 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D195D0F31E4DE677004B6B15 /* Notification+Extension.swift */,
+				D195D0F71E4DE919004B6B15 /* UIViewController+Extension.swift */,
+				D195D1021E4DF000004B6B15 /* UIColor+Extensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		D195D0FA1E4DED42004B6B15 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D195D0EE1E4DE3F0004B6B15 /* HomeViewController.swift */,
+				D195D0FE1E4DEED6004B6B15 /* HomeNavigationController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		D195D0FB1E4DEE11004B6B15 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D195D0FC1E4DEE49004B6B15 /* CheckingLoginStateViewController.swift */,
+				D1FEDD051E4D9A8400EFA42F /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		D1FEDD001E4D841A00EFA42F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D1FEDD031E4D883600EFA42F /* Annict.swift */,
+				D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */,
+				D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D1FEDD091E4DDE1700EFA42F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D195D0FA1E4DED42004B6B15 /* Home */,
+				D195D0FB1E4DEE11004B6B15 /* Login */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D1FEDD0A1E4DDE2900EFA42F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D195D0EC1E4DE3D6004B6B15 /* Home.storyboard */,
+				D1FEDD071E4D9B4000EFA42F /* Login.storyboard */,
+				D137D6881E4D735E00F0FCFB /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,9 +362,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1FEDD081E4D9B4000EFA42F /* Login.storyboard in Resources */,
 				D137D68A1E4D735E00F0FCFB /* LaunchScreen.storyboard in Resources */,
 				D137D6871E4D735E00F0FCFB /* Assets.xcassets in Resources */,
-				D137D6851E4D735E00F0FCFB /* Main.storyboard in Resources */,
+				D195D0ED1E4DE3D6004B6B15 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,9 +528,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D137D6821E4D735E00F0FCFB /* ViewController.swift in Sources */,
-				D137D6AE1E4D772100F0FCFB /* AnnictAPIClient.swift in Sources */,
+				D195D0FF1E4DEED6004B6B15 /* HomeNavigationController.swift in Sources */,
+				D195D0F41E4DE677004B6B15 /* Notification+Extension.swift in Sources */,
+				D195D0FD1E4DEE49004B6B15 /* CheckingLoginStateViewController.swift in Sources */,
+				D1FEDD061E4D9A8400EFA42F /* LoginViewController.swift in Sources */,
+				D1FEDCFF1E4D7CD300EFA42F /* AnnictConsts.swift in Sources */,
+				D1FEDD041E4D883600EFA42F /* Annict.swift in Sources */,
+				D1FEDD021E4D844000EFA42F /* AnnictOauthTokenResponse.swift in Sources */,
 				D137D6801E4D735E00F0FCFB /* AppDelegate.swift in Sources */,
+				D195D1031E4DF000004B6B15 /* UIColor+Extensions.swift in Sources */,
+				D195D0F81E4DE919004B6B15 /* UIViewController+Extension.swift in Sources */,
+				D195D0EF1E4DE3F0004B6B15 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,14 +574,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D137D6831E4D735E00F0FCFB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D137D6841E4D735E00F0FCFB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D137D6881E4D735E00F0FCFB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -713,6 +789,7 @@
 				D137D6A61E4D735E00F0FCFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D137D6A71E4D735E00F0FCFB /* Build configuration list for PBXNativeTarget "Annict-for-iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -721,6 +798,7 @@
 				D137D6A91E4D735E00F0FCFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D137D6AA1E4D735E00F0FCFB /* Build configuration list for PBXNativeTarget "Annict-for-iOSUITests" */ = {
 			isa = XCConfigurationList;
@@ -729,6 +807,7 @@
 				D137D6AC1E4D735E00F0FCFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

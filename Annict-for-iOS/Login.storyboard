@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wak-gg-X3Z">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Checking Login State View Controller-->
+        <scene sceneID="tbM-PN-coU">
+            <objects>
+                <viewController storyboardIdentifier="CheckingLoginStateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wak-gg-X3Z" customClass="CheckingLoginStateViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uXZ-58-YnD"/>
+                        <viewControllerLayoutGuide type="bottom" id="MGI-IH-Mis"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eJ2-Q9-M4G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EZj-jA-eHB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-753" y="141"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="wWY-W8-a4x">
+            <objects>
+                <viewController id="DA9-lk-6dx" customClass="LoginViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="D9k-n9-ami"/>
+                        <viewControllerLayoutGuide type="bottom" id="iJ7-bM-LRn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eBT-4w-ctQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="annict_icon" translatesAutoresizingMaskIntoConstraints="NO" id="siP-jA-kc2">
+                                <rect key="frame" x="137" y="150" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="GjM-OM-R42"/>
+                                    <constraint firstAttribute="height" constant="100" id="jmt-IB-3Du"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIc-sz-NFx">
+                                <rect key="frame" x="62" y="517" width="250" height="50"/>
+                                <color key="backgroundColor" red="0.95686274509803915" green="0.25882352941176467" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Hkq-HF-06t"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapedLoginButton:" destination="DA9-lk-6dx" eventType="touchUpInside" id="fcQ-Q4-m8F"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="siP-jA-kc2" firstAttribute="centerX" secondItem="eBT-4w-ctQ" secondAttribute="centerX" id="5I2-ai-qDl"/>
+                            <constraint firstItem="dIc-sz-NFx" firstAttribute="width" secondItem="eBT-4w-ctQ" secondAttribute="width" multiplier="2/3" id="MxP-Nb-ueo"/>
+                            <constraint firstItem="iJ7-bM-LRn" firstAttribute="top" secondItem="dIc-sz-NFx" secondAttribute="bottom" constant="100" id="Wrb-Ie-n5f"/>
+                            <constraint firstItem="siP-jA-kc2" firstAttribute="centerY" secondItem="eBT-4w-ctQ" secondAttribute="centerY" multiplier="3/5" id="h01-KG-Q3C"/>
+                            <constraint firstItem="dIc-sz-NFx" firstAttribute="centerX" secondItem="siP-jA-kc2" secondAttribute="centerX" id="ogA-KS-fbb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F8x-ap-xD6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="157.59999999999999" y="151.57421289355324"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="annict_icon" width="114" height="114"/>
+    </resources>
+</document>
