@@ -46,8 +46,8 @@ class LoginViewController: UIViewController {
     }
     
     fileprivate func sendOauthToken(code: String) {
-        let request = Annict.OauthToken(code: code)
-        Annict.send(request) { response in
+        let request = AnnictAPI.OauthToken(code: code)
+        AnnictAPI.send(request) { response in
             switch response {
             case .success(let result):
                 AnnictConsts.accessToken = result.accessToken

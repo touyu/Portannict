@@ -15,7 +15,10 @@ class CheckingLoginStateViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if !AnnictConsts.accessToken.isEmpty {
+        if AnnictConsts.accessToken.isEmpty {
+            let loginVC = LoginViewController.instantiate(withStoryboard: "Login")
+            self.present(loginVC, animated: false, completion: nil)
+        } else {
             let homeVC = HomeNavigationController.instantiate(withStoryboard: "Home")
             self.present(homeVC, animated: false, completion: nil)
         }

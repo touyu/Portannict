@@ -30,7 +30,7 @@
         <!--Login View Controller-->
         <scene sceneID="wWY-W8-a4x">
             <objects>
-                <viewController id="DA9-lk-6dx" customClass="LoginViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DA9-lk-6dx" customClass="LoginViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D9k-n9-ami"/>
                         <viewControllerLayoutGuide type="bottom" id="iJ7-bM-LRn"/>

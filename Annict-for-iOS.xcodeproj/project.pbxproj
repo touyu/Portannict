@@ -22,9 +22,11 @@
 		D195D0FD1E4DEE49004B6B15 /* CheckingLoginStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0FC1E4DEE49004B6B15 /* CheckingLoginStateViewController.swift */; };
 		D195D0FF1E4DEED6004B6B15 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0FE1E4DEED6004B6B15 /* HomeNavigationController.swift */; };
 		D195D1031E4DF000004B6B15 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D1021E4DF000004B6B15 /* UIColor+Extensions.swift */; };
+		D195D1081E4E098A004B6B15 /* AnnictWorksResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D1071E4E098A004B6B15 /* AnnictWorksResponse.swift */; };
+		D195D10A1E4E3189004B6B15 /* AnnictAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D1091E4E3189004B6B15 /* AnnictAPIRequest.swift */; };
 		D1FEDCFF1E4D7CD300EFA42F /* AnnictConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */; };
 		D1FEDD021E4D844000EFA42F /* AnnictOauthTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */; };
-		D1FEDD041E4D883600EFA42F /* Annict.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD031E4D883600EFA42F /* Annict.swift */; };
+		D1FEDD041E4D883600EFA42F /* AnnictAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD031E4D883600EFA42F /* AnnictAPI.swift */; };
 		D1FEDD061E4D9A8400EFA42F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD051E4D9A8400EFA42F /* LoginViewController.swift */; };
 		D1FEDD081E4D9B4000EFA42F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FEDD071E4D9B4000EFA42F /* Login.storyboard */; };
 /* End PBXBuildFile section */
@@ -73,9 +75,11 @@
 		D195D0FC1E4DEE49004B6B15 /* CheckingLoginStateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckingLoginStateViewController.swift; sourceTree = "<group>"; };
 		D195D0FE1E4DEED6004B6B15 /* HomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
 		D195D1021E4DF000004B6B15 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		D195D1071E4E098A004B6B15 /* AnnictWorksResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictWorksResponse.swift; sourceTree = "<group>"; };
+		D195D1091E4E3189004B6B15 /* AnnictAPIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPIRequest.swift; sourceTree = "<group>"; };
 		D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictConsts.swift; sourceTree = "<group>"; };
 		D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictOauthTokenResponse.swift; sourceTree = "<group>"; };
-		D1FEDD031E4D883600EFA42F /* Annict.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annict.swift; sourceTree = "<group>"; };
+		D1FEDD031E4D883600EFA42F /* AnnictAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPI.swift; sourceTree = "<group>"; };
 		D1FEDD051E4D9A8400EFA42F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D1FEDD071E4D9B4000EFA42F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		F9339B8A79435C4F1C352458 /* Pods-Annict-for-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -214,12 +218,22 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		D195D1061E4E096D004B6B15 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */,
+				D195D1071E4E098A004B6B15 /* AnnictWorksResponse.swift */,
+			);
+			name = Responses;
+			sourceTree = "<group>";
+		};
 		D1FEDD001E4D841A00EFA42F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D1FEDD031E4D883600EFA42F /* Annict.swift */,
+				D1FEDD031E4D883600EFA42F /* AnnictAPI.swift */,
+				D195D1091E4E3189004B6B15 /* AnnictAPIRequest.swift */,
 				D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */,
-				D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */,
+				D195D1061E4E096D004B6B15 /* Responses */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -533,11 +547,13 @@
 				D195D0FD1E4DEE49004B6B15 /* CheckingLoginStateViewController.swift in Sources */,
 				D1FEDD061E4D9A8400EFA42F /* LoginViewController.swift in Sources */,
 				D1FEDCFF1E4D7CD300EFA42F /* AnnictConsts.swift in Sources */,
-				D1FEDD041E4D883600EFA42F /* Annict.swift in Sources */,
+				D1FEDD041E4D883600EFA42F /* AnnictAPI.swift in Sources */,
 				D1FEDD021E4D844000EFA42F /* AnnictOauthTokenResponse.swift in Sources */,
+				D195D10A1E4E3189004B6B15 /* AnnictAPIRequest.swift in Sources */,
 				D137D6801E4D735E00F0FCFB /* AppDelegate.swift in Sources */,
 				D195D1031E4DF000004B6B15 /* UIColor+Extensions.swift in Sources */,
 				D195D0F81E4DE919004B6B15 /* UIViewController+Extension.swift in Sources */,
+				D195D1081E4E098A004B6B15 /* AnnictWorksResponse.swift in Sources */,
 				D195D0EF1E4DE3F0004B6B15 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
