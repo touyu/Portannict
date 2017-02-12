@@ -9,44 +9,28 @@
     </dependencies>
     <scenes>
         <!--Annict Me Works View Controller-->
-        <scene sceneID="C6a-hy-NPC">
+        <scene sceneID="BMB-2u-jBR">
             <objects>
-                <viewController storyboardIdentifier="AnnictMeWorksViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IrJ-gA-ykH" customClass="AnnictMeWorksViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="JCd-tm-niE"/>
-                        <viewControllerLayoutGuide type="bottom" id="8Sr-Qp-dm9"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Bpl-X2-faf">
+                <tableViewController storyboardIdentifier="AnnictMeWorksViewController" id="qub-Wf-LNC" customClass="AnnictMeWorksViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="97" sectionHeaderHeight="28" sectionFooterHeight="28" id="dl9-IY-mPQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="97" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YY7-d1-nS3">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="YY7-d1-nS3" firstAttribute="centerX" secondItem="Bpl-X2-faf" secondAttribute="centerX" id="NZQ-0J-5xs"/>
-                            <constraint firstItem="YY7-d1-nS3" firstAttribute="centerY" secondItem="Bpl-X2-faf" secondAttribute="centerY" id="Qf2-9T-Nr3"/>
-                            <constraint firstItem="YY7-d1-nS3" firstAttribute="height" secondItem="Bpl-X2-faf" secondAttribute="height" id="Xca-gM-oFr"/>
-                            <constraint firstItem="YY7-d1-nS3" firstAttribute="width" secondItem="Bpl-X2-faf" secondAttribute="width" id="lKP-vS-bIl"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="D9D-aI-XDo"/>
-                    <connections>
-                        <outlet property="tableView" destination="YY7-d1-nS3" id="kxh-Ul-1vM"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6cX-KL-EqI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <outlet property="dataSource" destination="qub-Wf-LNC" id="t9B-jm-goB"/>
+                            <outlet property="delegate" destination="qub-Wf-LNC" id="QgP-Hn-xqZ"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jip-nA-xmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6" y="37"/>
+            <point key="canvasLocation" x="-7" y="36"/>
         </scene>
         <!--Annict Me Works Tab Navigation Controller-->
         <scene sceneID="Yaa-Yz-9HU">
             <objects>
                 <navigationController storyboardIdentifier="AnnictMeWorksTabNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GAE-Ta-b8w" customClass="AnnictMeWorksTabNavigationController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Xme-yb-rLp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Xme-yb-rLp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.97254901959999995" green="0.35686274509999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
