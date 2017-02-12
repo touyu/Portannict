@@ -29,6 +29,8 @@ class AnnictMeWorksTabViewController: ButtonBarPagerTabStripViewController {
         buttonBarView.removeFromSuperview()
         navigationController?.navigationBar.addSubview(buttonBarView)
         
+        containerView.backgroundColor = UIColor(hex: 0xF2F2F2)
+        
         changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
             guard changeCurrentIndex == true else { return }
             

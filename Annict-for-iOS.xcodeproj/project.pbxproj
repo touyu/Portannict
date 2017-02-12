@@ -241,8 +241,8 @@
 			isa = PBXGroup;
 			children = (
 				D195D0EE1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift */,
-				D14FF4E91E50371D00AD9913 /* AnnictMeWorksTabViewController.swift */,
 				D14FF4EB1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift */,
+				D14FF4E91E50371D00AD9913 /* AnnictMeWorksTabViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";

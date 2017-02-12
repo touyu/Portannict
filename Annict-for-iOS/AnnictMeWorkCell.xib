@@ -28,7 +28,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvd-HT-4F5">
-                                <rect key="frame" x="95" y="30" width="248" height="19.5"/>
+                                <rect key="frame" x="95" y="22.5" width="248" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -40,16 +40,45 @@
                                     <constraint firstAttribute="height" constant="1" id="yn5-xT-h5z"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4a2-Y0-ETQ">
+                                <rect key="frame" x="258" y="51" width="69" height="20"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCS-gh-iJv">
+                                        <rect key="frame" x="0.0" y="0.0" width="30.5" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="FkH-zK-cIq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxe-nl-tkp">
+                                        <rect key="frame" x="38.5" y="0.0" width="30.5" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="DPP-Ai-mu8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="C1Z-kO-ycz"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Jvd-HT-4F5" firstAttribute="trailing" secondItem="3j6-fV-D9l" secondAttribute="trailing" id="2IX-xh-1b6"/>
-                            <constraint firstItem="Jvd-HT-4F5" firstAttribute="centerY" secondItem="T8z-n3-H7d" secondAttribute="centerY" id="8bc-lM-t4o"/>
+                            <constraint firstItem="Jvd-HT-4F5" firstAttribute="centerY" secondItem="T8z-n3-H7d" secondAttribute="centerY" constant="-8" id="8bc-lM-t4o"/>
                             <constraint firstAttribute="bottom" secondItem="nHA-jU-sJw" secondAttribute="bottom" id="F1R-ym-0MO"/>
                             <constraint firstItem="nHA-jU-sJw" firstAttribute="centerX" secondItem="3j6-fV-D9l" secondAttribute="centerX" id="JOr-FN-EMW"/>
                             <constraint firstItem="T8z-n3-H7d" firstAttribute="leading" secondItem="3j6-fV-D9l" secondAttribute="leading" id="Tpm-Pc-aUu"/>
                             <constraint firstItem="Jvd-HT-4F5" firstAttribute="leading" secondItem="T8z-n3-H7d" secondAttribute="trailing" constant="16" id="au1-Tt-WEd"/>
                             <constraint firstItem="T8z-n3-H7d" firstAttribute="centerY" secondItem="3j6-fV-D9l" secondAttribute="centerY" id="dY1-Es-XvV"/>
+                            <constraint firstItem="4a2-Y0-ETQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="T8z-n3-H7d" secondAttribute="trailing" constant="8" id="eFB-ga-bR6"/>
+                            <constraint firstAttribute="trailing" secondItem="4a2-Y0-ETQ" secondAttribute="trailing" constant="16" id="hKa-1j-n5y"/>
+                            <constraint firstAttribute="bottom" secondItem="4a2-Y0-ETQ" secondAttribute="bottom" constant="8" id="v1e-F8-RkD"/>
                             <constraint firstItem="T8z-n3-H7d" firstAttribute="height" secondItem="3j6-fV-D9l" secondAttribute="height" constant="-1" id="yuh-Z2-d0T"/>
                             <constraint firstItem="nHA-jU-sJw" firstAttribute="width" secondItem="3j6-fV-D9l" secondAttribute="width" id="zFS-By-I7K"/>
                         </constraints>
@@ -67,6 +96,8 @@
             <connections>
                 <outlet property="baseView" destination="3j6-fV-D9l" id="lob-IO-plI"/>
                 <outlet property="iconImageView" destination="T8z-n3-H7d" id="8Zs-JM-be8"/>
+                <outlet property="tag1" destination="Yxe-nl-tkp" id="XcZ-Dl-1o8"/>
+                <outlet property="tag2" destination="WCS-gh-iJv" id="tMc-2G-tQO"/>
                 <outlet property="titleLabel" destination="Jvd-HT-4F5" id="m6K-mL-RG9"/>
             </connections>
             <point key="canvasLocation" x="17.5" y="35"/>

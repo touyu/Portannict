@@ -31,11 +31,15 @@ extension AnnictWorksResponse: Decodable {
 struct AnnictWorkResponse {
     var id: Int
     var title: String
+    var mediaText: String
+    var seasonNameText: String
     var twitterUserName: String?
     
     init (_ e: Extractor) {
         id = try! e <| "id"
         title = try! e <| "title"
+        mediaText = try! e <| "media_text"
+        seasonNameText = try! e <| "season_name_text"
         twitterUserName = try! e <|? "twitter_username"
     }
 }

@@ -18,10 +18,14 @@ class AnnictMeWorkCell: UITableViewCell {
     @IBOutlet dynamic fileprivate weak var titleLabel: UILabel!
     @IBOutlet dynamic fileprivate weak var iconImageView: UIImageView!
     
+    @IBOutlet weak var tag1: UILabel!
+    @IBOutlet weak var tag2: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         self.initBaseView()
+        self.initTags()
     }
     
     override func prepareForReuse() {
@@ -33,6 +37,10 @@ class AnnictMeWorkCell: UITableViewCell {
     func set(work: AnnictWorkResponse) {
         self.titleLabel.text = work.title
         self.setTwitterIcon(imageView: iconImageView, username: work.twitterUserName)
+        self.tag1.text = "  \(work.mediaText)  "
+        self.tag1.alpha = 1
+        self.tag2.text = "  \(work.seasonNameText)  "
+        self.tag2.alpha = 1
     }
     
     fileprivate func setTwitterIcon(imageView: UIImageView!, username: String?) {
@@ -46,5 +54,17 @@ class AnnictMeWorkCell: UITableViewCell {
     fileprivate func initBaseView() {
         self.baseView.layer.masksToBounds = true
         self.baseView.layer.cornerRadius = 4
+    }
+    
+    fileprivate func initTags() {
+        let tagLabels = [tag1, tag2]
+        
+        for tagLabel in tagLabels {
+            tagLabel?.alpha = 0
+            tagLabel?.textColor = UIColor.white
+            tagLabel?.backgroundColor = UIColor.annictPink
+            tagLabel?.layer.masksToBounds = true
+            tagLabel?.layer.cornerRadius = 2
+        }
     }
 }
