@@ -50,9 +50,10 @@ extension AnnictAPI {
         var filterStatus: FilterStatus?
         var filterSeason: (year: Int, season: Season?)?
         
-        init(filterStatus: FilterStatus? = nil,
+        init(page: Int = 1,
+             filterStatus: FilterStatus? = nil,
              filterSeason: (year: Int, season: Season?)? = nil) {
-            self.page = 1
+            self.page = page
             self.sort = .season
             self.order = .descending
             self.filterStatus = filterStatus
