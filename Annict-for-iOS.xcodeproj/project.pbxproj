@@ -25,7 +25,6 @@
 		D195D0F41E4DE677004B6B15 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0F31E4DE677004B6B15 /* Notification+Extension.swift */; };
 		D195D0F81E4DE919004B6B15 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0F71E4DE919004B6B15 /* UIViewController+Extension.swift */; };
 		D195D0FD1E4DEE49004B6B15 /* CheckingLoginStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0FC1E4DEE49004B6B15 /* CheckingLoginStateViewController.swift */; };
-		D195D0FF1E4DEED6004B6B15 /* AnnictMeWorksNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0FE1E4DEED6004B6B15 /* AnnictMeWorksNavigationController.swift */; };
 		D195D1031E4DF000004B6B15 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D1021E4DF000004B6B15 /* UIColor+Extension.swift */; };
 		D195D1081E4E098A004B6B15 /* AnnictWorksResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D1071E4E098A004B6B15 /* AnnictWorksResponse.swift */; };
 		D195D10A1E4E3189004B6B15 /* AnnictAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D1091E4E3189004B6B15 /* AnnictAPIRequest.swift */; };
@@ -88,7 +87,6 @@
 		D195D0F31E4DE677004B6B15 /* Notification+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		D195D0F71E4DE919004B6B15 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		D195D0FC1E4DEE49004B6B15 /* CheckingLoginStateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckingLoginStateViewController.swift; sourceTree = "<group>"; };
-		D195D0FE1E4DEED6004B6B15 /* AnnictMeWorksNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictMeWorksNavigationController.swift; sourceTree = "<group>"; };
 		D195D1021E4DF000004B6B15 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		D195D1071E4E098A004B6B15 /* AnnictWorksResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictWorksResponse.swift; sourceTree = "<group>"; };
 		D195D1091E4E3189004B6B15 /* AnnictAPIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPIRequest.swift; sourceTree = "<group>"; };
@@ -243,7 +241,6 @@
 			isa = PBXGroup;
 			children = (
 				D195D0EE1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift */,
-				D195D0FE1E4DEED6004B6B15 /* AnnictMeWorksNavigationController.swift */,
 				D14FF4E91E50371D00AD9913 /* AnnictMeWorksTabViewController.swift */,
 				D14FF4EB1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift */,
 			);
@@ -604,7 +601,6 @@
 			files = (
 				D14FF4EA1E50371D00AD9913 /* AnnictMeWorksTabViewController.swift in Sources */,
 				D195D11B1E4F928A004B6B15 /* UITableView+Extension.swift in Sources */,
-				D195D0FF1E4DEED6004B6B15 /* AnnictMeWorksNavigationController.swift in Sources */,
 				D13E33901E50507600A0CEF6 /* String+Extension.swift in Sources */,
 				D195D0F41E4DE677004B6B15 /* Notification+Extension.swift in Sources */,
 				D195D0FD1E4DEE49004B6B15 /* CheckingLoginStateViewController.swift in Sources */,
