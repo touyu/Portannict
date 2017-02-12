@@ -20,8 +20,8 @@ class LoginViewController: UIViewController {
         super.viewWillAppear(animated)
         
         if !AnnictConsts.accessToken.isEmpty {
-            let annictMeWorksNC = AnnictMeWorksNavigationController.instantiate(withStoryboard: "AnnictMeWorks")
-            self.present(annictMeWorksNC, animated: false, completion: nil)
+            let annictMeWorksTabNavigationController = AnnictMeWorksTabNavigationController.instantiate(withStoryboard: "AnnictMeWorks")
+            self.present(annictMeWorksTabNavigationController, animated: false, completion: nil)
         }
     }
     
@@ -54,8 +54,8 @@ class LoginViewController: UIViewController {
                 
                 // 画面遷移
                 if !AnnictConsts.accessToken.isEmpty {
-                    let annictMeWorksNC = AnnictMeWorksNavigationController.instantiate(withStoryboard: "AnnictMeWorks")
-                    self.present(annictMeWorksNC, animated: false, completion: nil)
+                    let annictMeWorksTabNavigationController = AnnictMeWorksTabNavigationController.instantiate(withStoryboard: "AnnictMeWorks")
+                    self.present(annictMeWorksTabNavigationController, animated: false, completion: nil)
                 }
             case .failure(let error):
                 print(error)

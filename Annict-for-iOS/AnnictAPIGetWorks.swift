@@ -9,7 +9,13 @@
 import APIKit
 import Himotoki
 
-
+enum AnimeStatus: String {
+    case wannaWatch = "wanna_watch"
+    case watching = "watching"
+    case watched = "watched"
+    case onHold = "on_hold"
+    case stopWatching = "stop_watching"
+}
 
 extension AnnictAPI {
     
@@ -28,20 +34,14 @@ extension AnnictAPI {
             case descending = "desc"
         }
         
-        enum FilterStatus: String {
-            case wannaWatch = "wanna_watch"
-            case watching = "watching"
-            case watched = "watched"
-            case onHold = "on_hold"
-            case stopWatching = "stop_watching"
-        }
-        
         enum Season: String {
             case spring = "spring"
             case summer = "summer"
             case autumn = "autumn"
             case winter = "winter"
         }
+        
+        typealias FilterStatus = AnimeStatus
         
         var page: Int
         var sort: Sort

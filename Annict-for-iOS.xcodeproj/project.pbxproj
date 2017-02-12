@@ -16,6 +16,8 @@
 		D137D6951E4D735E00F0FCFB /* Annict_for_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D137D6941E4D735E00F0FCFB /* Annict_for_iOSTests.swift */; };
 		D137D6A01E4D735E00F0FCFB /* Annict_for_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D137D69F1E4D735E00F0FCFB /* Annict_for_iOSUITests.swift */; };
 		D14FF4D71E5024A500AD9913 /* AnnictAPIGetWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14FF4D61E5024A500AD9913 /* AnnictAPIGetWorks.swift */; };
+		D14FF4EA1E50371D00AD9913 /* AnnictMeWorksTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14FF4E91E50371D00AD9913 /* AnnictMeWorksTabViewController.swift */; };
+		D14FF4EC1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14FF4EB1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift */; };
 		D195D0ED1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D195D0EC1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard */; };
 		D195D0EF1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0EE1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift */; };
 		D195D0F41E4DE677004B6B15 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0F31E4DE677004B6B15 /* Notification+Extension.swift */; };
@@ -73,6 +75,8 @@
 		D137D69F1E4D735E00F0FCFB /* Annict_for_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annict_for_iOSUITests.swift; sourceTree = "<group>"; };
 		D137D6A11E4D735E00F0FCFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D14FF4D61E5024A500AD9913 /* AnnictAPIGetWorks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPIGetWorks.swift; sourceTree = "<group>"; };
+		D14FF4E91E50371D00AD9913 /* AnnictMeWorksTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictMeWorksTabViewController.swift; sourceTree = "<group>"; };
+		D14FF4EB1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictMeWorksTabNavigationController.swift; sourceTree = "<group>"; };
 		D195D0EC1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AnnictMeWorks.storyboard; sourceTree = "<group>"; };
 		D195D0EE1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictMeWorksViewController.swift; sourceTree = "<group>"; };
 		D195D0F31E4DE677004B6B15 /* Notification+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
@@ -224,6 +228,8 @@
 			children = (
 				D195D0EE1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift */,
 				D195D0FE1E4DEED6004B6B15 /* AnnictMeWorksNavigationController.swift */,
+				D14FF4E91E50371D00AD9913 /* AnnictMeWorksTabViewController.swift */,
+				D14FF4EB1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -579,6 +585,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D14FF4EA1E50371D00AD9913 /* AnnictMeWorksTabViewController.swift in Sources */,
 				D195D11B1E4F928A004B6B15 /* UITableView+Extension.swift in Sources */,
 				D195D0FF1E4DEED6004B6B15 /* AnnictMeWorksNavigationController.swift in Sources */,
 				D195D0F41E4DE677004B6B15 /* Notification+Extension.swift in Sources */,
@@ -591,6 +598,7 @@
 				D137D6801E4D735E00F0FCFB /* AppDelegate.swift in Sources */,
 				D195D1031E4DF000004B6B15 /* UIColor+Extension.swift in Sources */,
 				D195D0F81E4DE919004B6B15 /* UIViewController+Extension.swift in Sources */,
+				D14FF4EC1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift in Sources */,
 				D195D1171E4F8BD7004B6B15 /* AnnictMeWorkCell.swift in Sources */,
 				D195D1081E4E098A004B6B15 /* AnnictWorksResponse.swift in Sources */,
 				D195D0EF1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift in Sources */,

@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import XLPagerTabStrip
 
 
 // MARK: - AnnictMeWorksViewController
 
 class AnnictMeWorksViewController: UIViewController {
+    
+    // 外部から指定
+    var mode: AnimeStatus?
     
     @IBOutlet dynamic private weak var tableView: UITableView!
     
@@ -31,7 +35,8 @@ class AnnictMeWorksViewController: UIViewController {
     }
     
     fileprivate func getMeWorks() {
-        let request = AnnictAPI.GetMeWorks(filterStatus: .watching)
+        guard let filterStatus = mode else { return }
+        let request = AnnictAPI.GetMeWorks(filterStatus: filterStatus)
         AnnictAPIClient.send(request) { response in
             switch response {
             case .success(let value):
@@ -57,5 +62,12 @@ extension AnnictMeWorksViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(with: AnnictMeWorkCell.self, for: indexPath)
         cell.set(work: works[indexPath.row])
         return cell
+    }
+}
+
+
+extension AnnictMeWorksViewController: IndicatorInfoProvider {
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        return IndicatorInfo(title: mode?.rawValue ?? "")
     }
 }
