@@ -20,8 +20,8 @@ class LoginViewController: UIViewController {
         super.viewWillAppear(animated)
         
         if !AnnictConsts.accessToken.isEmpty {
-            let homeVC = HomeNavigationController.instantiate(withStoryboard: "Home")
-            self.present(homeVC, animated: true, completion: nil)
+            let annictMeWorksNC = AnnictMeWorksNavigationController.instantiate(withStoryboard: "AnnictMeWorks")
+            self.present(annictMeWorksNC, animated: false, completion: nil)
         }
     }
     
@@ -52,6 +52,11 @@ class LoginViewController: UIViewController {
             case .success(let result):
                 AnnictConsts.accessToken = result.accessToken
                 
+                // 画面遷移
+                if !AnnictConsts.accessToken.isEmpty {
+                    let annictMeWorksNC = AnnictMeWorksNavigationController.instantiate(withStoryboard: "AnnictMeWorks")
+                    self.present(annictMeWorksNC, animated: false, completion: nil)
+                }
             case .failure(let error):
                 print(error)
             }

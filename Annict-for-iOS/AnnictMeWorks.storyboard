@@ -8,11 +8,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home Navigation Controller-->
+        <!--Annict Me Works Navigation Controller-->
         <scene sceneID="v6q-pc-ZtX">
             <objects>
-                <navigationController storyboardIdentifier="HomeNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZDh-fX-pRI" customClass="HomeNavigationController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="dXY-dZ-Vr8">
+                <navigationController storyboardIdentifier="AnnictMeWorksNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZDh-fX-pRI" customClass="AnnictMeWorksNavigationController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="dXY-dZ-Vr8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="-838" y="179"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Annict Me Works View Controller-->
         <scene sceneID="C6a-hy-NPC">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IrJ-gA-ykH" customClass="HomeViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AnnictMeWorksViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IrJ-gA-ykH" customClass="AnnictMeWorksViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JCd-tm-niE"/>
                         <viewControllerLayoutGuide type="bottom" id="8Sr-Qp-dm9"/>
@@ -39,13 +39,28 @@
                     <view key="view" contentMode="scaleToFill" id="Bpl-X2-faf">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="97" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YY7-d1-nS3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YY7-d1-nS3" firstAttribute="centerX" secondItem="Bpl-X2-faf" secondAttribute="centerX" id="NZQ-0J-5xs"/>
+                            <constraint firstItem="YY7-d1-nS3" firstAttribute="centerY" secondItem="Bpl-X2-faf" secondAttribute="centerY" id="Qf2-9T-Nr3"/>
+                            <constraint firstItem="YY7-d1-nS3" firstAttribute="height" secondItem="Bpl-X2-faf" secondAttribute="height" id="Xca-gM-oFr"/>
+                            <constraint firstItem="YY7-d1-nS3" firstAttribute="width" secondItem="Bpl-X2-faf" secondAttribute="width" id="lKP-vS-bIl"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="D9D-aI-XDo"/>
+                    <connections>
+                        <outlet property="tableView" destination="YY7-d1-nS3" id="kxh-Ul-1vM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6cX-KL-EqI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-98" y="179"/>
+            <point key="canvasLocation" x="-98.400000000000006" y="178.56071964017991"/>
         </scene>
     </scenes>
 </document>

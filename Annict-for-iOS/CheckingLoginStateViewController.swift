@@ -19,8 +19,8 @@ class CheckingLoginStateViewController: UIViewController {
             let loginVC = LoginViewController.instantiate(withStoryboard: "Login")
             self.present(loginVC, animated: false, completion: nil)
         } else {
-            let homeVC = HomeNavigationController.instantiate(withStoryboard: "Home")
-            self.present(homeVC, animated: false, completion: nil)
+            let annictMeWorksNC = AnnictMeWorksNavigationController.instantiate(withStoryboard: "AnnictMeWorks")
+            self.present(annictMeWorksNC, animated: false, completion: nil)
         }
     }
 }
