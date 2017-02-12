@@ -9,6 +9,7 @@ target 'Annict-for-iOS' do
   pod 'APIKit'
   pod 'Himotoki'
   pod 'Kingfisher'
+  pod 'XLPagerTabStrip', '~> 7.0'
 
   target 'Annict-for-iOSTests' do
     inherit! :search_paths
