@@ -68,6 +68,6 @@ extension AnnictMeWorksViewController: UITableViewDataSource {
 
 extension AnnictMeWorksViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: mode?.rawValue ?? "")
+        return IndicatorInfo(title: mode!.rawValue.localized(withTableName: "AnnictBaseLocalizable"))
     }
 }

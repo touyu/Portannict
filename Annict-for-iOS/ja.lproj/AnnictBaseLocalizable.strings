@@ -1,0 +1,13 @@
+//
+//  AnnictBaseLocalizable.strings
+//  Annict-for-iOS
+//
+//  Created by Yuto Akiba on 2017/02/12.
+//  Copyright © 2017年 Yuto Akiba. All rights reserved.
+//
+
+"wanna_watch" = "見たい";
+"watching" = "見てる";
+"watched" = "見た";
+"on_hold" = "中断";
+"stop_watching" = "中止";
