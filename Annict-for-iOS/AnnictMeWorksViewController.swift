@@ -30,6 +30,7 @@ class AnnictMeWorksViewController: UIViewController {
     
     fileprivate func initTableView() {
         self.tableView.dataSource = self
+        self.tableView.delegate = self
         self.tableView.contentInset.top = 8
         self.tableView.register(cellType: AnnictMeWorkCell.self)
     }
@@ -65,6 +66,12 @@ extension AnnictMeWorksViewController: UITableViewDataSource {
     }
 }
 
+extension AnnictMeWorksViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let annictDetailAnimeInfoVC = AnnictDetailAnimeInfoViewController.instantiate(withStoryboard: "AnnictWorks")
+        self.navigationController?.pushViewController(annictDetailAnimeInfoVC, animated: true)
+    }
+}
 
 extension AnnictMeWorksViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {

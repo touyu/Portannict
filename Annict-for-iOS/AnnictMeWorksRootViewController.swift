@@ -1,5 +1,5 @@
 //
-//  AnnictMeWorksTabViewController.swift
+//  AnnictMeWorksRootViewController.swift
 //  Annict-for-iOS
 //
 //  Created by Yuto Akiba on 2017/02/12.
@@ -11,25 +11,18 @@ import UIKit
 import XLPagerTabStrip
 
 
+// MARK: - AnnictMeWorksRootViewController
 
-class AnnictMeWorksTabViewController: ButtonBarPagerTabStripViewController {
-    
+class AnnictMeWorksRootViewController: ButtonBarPagerTabStripViewController {
     override func viewDidLoad() {
-        
         // set up style before super view did load is executed
         settings.style.buttonBarBackgroundColor = .white
         settings.style.buttonBarItemBackgroundColor = .white
-        settings.style.buttonBarItemFont = .systemFont(ofSize: 16)
+        settings.style.buttonBarItemFont = .systemFont(ofSize: 16, weight: UIFontWeightThin)
         settings.style.buttonBarItemsShouldFillAvailableWidth = true
         settings.style.selectedBarBackgroundColor = UIColor.annictPink
         settings.style.selectedBarHeight = 2.0
         //-
-        super.viewDidLoad()
-        
-        buttonBarView.removeFromSuperview()
-        navigationController?.navigationBar.addSubview(buttonBarView)
-        
-        containerView.backgroundColor = UIColor(hex: 0xF2F2F2)
         
         changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
             guard changeCurrentIndex == true else { return }
@@ -48,6 +41,11 @@ class AnnictMeWorksTabViewController: ButtonBarPagerTabStripViewController {
                 oldCell?.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
             }
         }
+        
+        super.viewDidLoad()
+        
+        self.navigationItem.title = "Annict"
+        containerView.backgroundColor = UIColor(hex: 0xF2F2F2)
     }
     
     override public func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
@@ -62,21 +60,5 @@ class AnnictMeWorksTabViewController: ButtonBarPagerTabStripViewController {
         let e = AnnictMeWorksViewController.instantiate(withStoryboard: "AnnictMeWorks")
         e.mode = .stopWatching
         return [a, b, c, d, e]
-    }
-    
-    override func reloadPagerTabStripView() {
-//        isReload = true
-        if arc4random() % 2 == 0 {
-            pagerBehaviour = .progressive(skipIntermediateViewControllers: arc4random() % 2 == 0, elasticIndicatorLimit: arc4random() % 2 == 0 )
-        }
-        else {
-            pagerBehaviour = .common(skipIntermediateViewControllers: arc4random() % 2 == 0)
-        }
-        super.reloadPagerTabStripView()
-    }
-    
-    override func configureCell(_ cell: ButtonBarViewCell, indicatorInfo: IndicatorInfo) {
-        super.configureCell(cell, indicatorInfo: indicatorInfo)
-        cell.backgroundColor = .clear
     }
 }

@@ -46,50 +46,73 @@
         <scene sceneID="Yaa-Yz-9HU">
             <objects>
                 <navigationController storyboardIdentifier="AnnictMeWorksTabNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GAE-Ta-b8w" customClass="AnnictMeWorksTabNavigationController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Xme-yb-rLp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Xme-yb-rLp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.97254901959999995" green="0.35686274509999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.97254901959999995" green="0.35686274509999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="pgv-5X-oAq" kind="relationship" relationship="rootViewController" id="mR0-7r-EJp"/>
+                        <segue destination="2bj-i2-pe4" kind="relationship" relationship="rootViewController" id="VKL-EW-g1i"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Skl-2F-mjp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="711" y="38"/>
         </scene>
-        <!--Annict Me Works Tab View Controller-->
-        <scene sceneID="H7P-6R-n5H">
+        <!--Annict Me Works Root View Controller-->
+        <scene sceneID="qar-ly-DxP">
             <objects>
-                <viewController storyboardIdentifier="AnnictMeWorksTabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pgv-5X-oAq" customClass="AnnictMeWorksTabViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AnnictMeWorksRootViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2bj-i2-pe4" customClass="AnnictMeWorksRootViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="OZD-ng-6yl"/>
-                        <viewControllerLayoutGuide type="bottom" id="yub-am-shs"/>
+                        <viewControllerLayoutGuide type="top" id="8Z9-cS-N7O"/>
+                        <viewControllerLayoutGuide type="bottom" id="o9J-Qh-FSx"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="sno-sO-1FA">
+                    <view key="view" contentMode="scaleToFill" id="1jo-Xh-0jV">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NLH-Za-hjq">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4N-Ua-6GX">
+                                <rect key="frame" x="0.0" y="39" width="375" height="564"/>
                             </scrollView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ooa-b7-qVh" customClass="ButtonBarView" customModule="XLPagerTabStrip">
+                                <rect key="frame" x="0.0" y="-1" width="375" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="MAU-af-eKh"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bm4-Y1-Ruo">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NLH-Za-hjq" firstAttribute="height" secondItem="sno-sO-1FA" secondAttribute="height" id="3L5-dJ-ke0"/>
-                            <constraint firstItem="NLH-Za-hjq" firstAttribute="centerY" secondItem="sno-sO-1FA" secondAttribute="centerY" id="8zK-J9-P9D"/>
-                            <constraint firstItem="NLH-Za-hjq" firstAttribute="width" secondItem="sno-sO-1FA" secondAttribute="width" id="Hp4-Ed-ZxQ"/>
-                            <constraint firstItem="NLH-Za-hjq" firstAttribute="centerX" secondItem="sno-sO-1FA" secondAttribute="centerX" id="s4R-QR-JQH"/>
+                            <constraint firstItem="g4N-Ua-6GX" firstAttribute="width" secondItem="1jo-Xh-0jV" secondAttribute="width" id="8DL-Ma-RpE"/>
+                            <constraint firstItem="g4N-Ua-6GX" firstAttribute="centerX" secondItem="1jo-Xh-0jV" secondAttribute="centerX" id="LYC-mv-fkJ"/>
+                            <constraint firstItem="ooa-b7-qVh" firstAttribute="centerX" secondItem="1jo-Xh-0jV" secondAttribute="centerX" id="RdM-TK-82Y"/>
+                            <constraint firstItem="g4N-Ua-6GX" firstAttribute="top" secondItem="ooa-b7-qVh" secondAttribute="bottom" id="SQp-kL-L4U"/>
+                            <constraint firstItem="ooa-b7-qVh" firstAttribute="top" secondItem="8Z9-cS-N7O" secondAttribute="bottom" constant="-1" id="cf2-ba-hF8"/>
+                            <constraint firstItem="ooa-b7-qVh" firstAttribute="width" secondItem="1jo-Xh-0jV" secondAttribute="width" id="jcA-PV-ilG"/>
+                            <constraint firstItem="o9J-Qh-FSx" firstAttribute="top" secondItem="g4N-Ua-6GX" secondAttribute="bottom" id="kt9-4b-GGl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="asi-is-kxS"/>
+                    <navigationItem key="navigationItem" id="gCs-l9-L6s"/>
                     <connections>
-                        <outlet property="containerView" destination="NLH-Za-hjq" id="AgU-da-ua5"/>
+                        <outlet property="buttonBarView" destination="ooa-b7-qVh" id="gxY-b8-eLE"/>
+                        <outlet property="containerView" destination="g4N-Ua-6GX" id="pW6-LD-tCq"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6Ai-bB-2ZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aa9-iU-mgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1376.8" y="36.431784107946029"/>
+            <point key="canvasLocation" x="1376.8" y="-701.19940029985014"/>
         </scene>
     </scenes>
 </document>

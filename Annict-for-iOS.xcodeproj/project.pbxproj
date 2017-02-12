@@ -17,8 +17,10 @@
 		D137D6A01E4D735E00F0FCFB /* Annict_for_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D137D69F1E4D735E00F0FCFB /* Annict_for_iOSUITests.swift */; };
 		D13E338A1E504F9300A0CEF6 /* AnnictBaseLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D13E338C1E504F9300A0CEF6 /* AnnictBaseLocalizable.strings */; };
 		D13E33901E50507600A0CEF6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13E338F1E50507600A0CEF6 /* String+Extension.swift */; };
+		D13E33931E505B0C00A0CEF6 /* AnnictWorks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13E33921E505B0C00A0CEF6 /* AnnictWorks.storyboard */; };
+		D13E33951E505B3E00A0CEF6 /* AnnictDetailAnimeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13E33941E505B3E00A0CEF6 /* AnnictDetailAnimeInfoViewController.swift */; };
+		D13E33991E505E9600A0CEF6 /* AnnictMeWorksRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13E33981E505E9600A0CEF6 /* AnnictMeWorksRootViewController.swift */; };
 		D14FF4D71E5024A500AD9913 /* AnnictAPIGetWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14FF4D61E5024A500AD9913 /* AnnictAPIGetWorks.swift */; };
-		D14FF4EA1E50371D00AD9913 /* AnnictMeWorksTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14FF4E91E50371D00AD9913 /* AnnictMeWorksTabViewController.swift */; };
 		D14FF4EC1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14FF4EB1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift */; };
 		D195D0ED1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D195D0EC1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard */; };
 		D195D0EF1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0EE1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift */; };
@@ -79,8 +81,10 @@
 		D13E338D1E504F9B00A0CEF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/AnnictBaseLocalizable.strings; sourceTree = "<group>"; };
 		D13E338E1E504FB300A0CEF6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/AnnictBaseLocalizable.strings; sourceTree = "<group>"; };
 		D13E338F1E50507600A0CEF6 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		D13E33921E505B0C00A0CEF6 /* AnnictWorks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AnnictWorks.storyboard; sourceTree = "<group>"; };
+		D13E33941E505B3E00A0CEF6 /* AnnictDetailAnimeInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictDetailAnimeInfoViewController.swift; sourceTree = "<group>"; };
+		D13E33981E505E9600A0CEF6 /* AnnictMeWorksRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictMeWorksRootViewController.swift; sourceTree = "<group>"; };
 		D14FF4D61E5024A500AD9913 /* AnnictAPIGetWorks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPIGetWorks.swift; sourceTree = "<group>"; };
-		D14FF4E91E50371D00AD9913 /* AnnictMeWorksTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictMeWorksTabViewController.swift; sourceTree = "<group>"; };
 		D14FF4EB1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictMeWorksTabNavigationController.swift; sourceTree = "<group>"; };
 		D195D0EC1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AnnictMeWorks.storyboard; sourceTree = "<group>"; };
 		D195D0EE1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictMeWorksViewController.swift; sourceTree = "<group>"; };
@@ -242,7 +246,8 @@
 			children = (
 				D195D0EE1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift */,
 				D14FF4EB1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift */,
-				D14FF4E91E50371D00AD9913 /* AnnictMeWorksTabViewController.swift */,
+				D13E33981E505E9600A0CEF6 /* AnnictMeWorksRootViewController.swift */,
+				D13E33941E505B3E00A0CEF6 /* AnnictDetailAnimeInfoViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				D195D0EC1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard */,
+				D13E33921E505B0C00A0CEF6 /* AnnictWorks.storyboard */,
 				D1FEDD071E4D9B4000EFA42F /* Login.storyboard */,
 				D137D6881E4D735E00F0FCFB /* LaunchScreen.storyboard */,
 			);
@@ -435,6 +441,7 @@
 				D195D1191E4F8C2D004B6B15 /* AnnictMeWorkCell.xib in Resources */,
 				D137D68A1E4D735E00F0FCFB /* LaunchScreen.storyboard in Resources */,
 				D13E338A1E504F9300A0CEF6 /* AnnictBaseLocalizable.strings in Resources */,
+				D13E33931E505B0C00A0CEF6 /* AnnictWorks.storyboard in Resources */,
 				D137D6871E4D735E00F0FCFB /* Assets.xcassets in Resources */,
 				D195D0ED1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard in Resources */,
 			);
@@ -599,7 +606,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D14FF4EA1E50371D00AD9913 /* AnnictMeWorksTabViewController.swift in Sources */,
+				D13E33991E505E9600A0CEF6 /* AnnictMeWorksRootViewController.swift in Sources */,
 				D195D11B1E4F928A004B6B15 /* UITableView+Extension.swift in Sources */,
 				D13E33901E50507600A0CEF6 /* String+Extension.swift in Sources */,
 				D195D0F41E4DE677004B6B15 /* Notification+Extension.swift in Sources */,
@@ -616,6 +623,7 @@
 				D195D1171E4F8BD7004B6B15 /* AnnictMeWorkCell.swift in Sources */,
 				D195D1081E4E098A004B6B15 /* AnnictWorksResponse.swift in Sources */,
 				D195D0EF1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift in Sources */,
+				D13E33951E505B3E00A0CEF6 /* AnnictDetailAnimeInfoViewController.swift in Sources */,
 				D14FF4D71E5024A500AD9913 /* AnnictAPIGetWorks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
