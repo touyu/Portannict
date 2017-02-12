@@ -1,8 +1,8 @@
 //
-//  AnnictAPI.swift
+//  AnnictAPIGetWorks.swift
 //  Annict-for-iOS
 //
-//  Created by Yuto Akiba on 2017/02/10.
+//  Created by Yuto Akiba on 2017/02/12.
 //  Copyright © 2017年 Yuto Akiba. All rights reserved.
 //
 
@@ -10,33 +10,11 @@ import APIKit
 import Himotoki
 
 
-// MARK: - AnnictAPI
 
-final class AnnictAPI: Session {
-
-    struct OauthToken: AnnictAPIRequest {
-        var code: String
-        
-        typealias Response = AnnictOauthTokenResponse
-        
-        var method: HTTPMethod {
-            return .post
-        }
-        
-        var path: String {
-            return "/oauth/token"
-        }
-        
-        var parameters: Any? {
-            return [
-                "client_id": AnnictConsts.clientID,
-                "client_secret": AnnictConsts.clientSecret,
-                "grant_type": "authorization_code",
-                "redirect_uri": AnnictConsts.redirectURI,
-                "code": code
-            ]
-        }
-    }
+extension AnnictAPI {
+    
+    
+    // MARK: - GetWorks
     
     class GetWorks: AnnictAPIRequest {
         enum Sort: String {
@@ -108,6 +86,9 @@ final class AnnictAPI: Session {
             return params
         }
     }
+    
+    
+    // MARK: - GetMeWorks
     
     final class GetMeWorks: GetWorks {
         override var path: String {

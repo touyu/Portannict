@@ -2,17 +2,20 @@ PODS:
   - APIKit (3.1.1):
     - Result (~> 3.0)
   - Himotoki (3.0.0)
+  - Kingfisher (3.3.4)
   - Result (3.1.0)
 
 DEPENDENCIES:
   - APIKit
   - Himotoki
+  - Kingfisher
 
 SPEC CHECKSUMS:
   APIKit: 7460983f490d3bde6aaaaa4164d18c9865a6f91d
   Himotoki: df74b01035e86e021b7b04a15b033a7fd189b84f
+  Kingfisher: 35f289f015d26e81ea6c85048718c6205f3933c6
   Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
 
-PODFILE CHECKSUM: 4919971c2e1c4038a93bc8eede3209db89c4c6b5
+PODFILE CHECKSUM: 25e23c8f84f0a797783efe55030f816dabada06f
 
 COCOAPODS: 1.1.1

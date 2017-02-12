@@ -8,6 +8,7 @@ target 'Annict-for-iOS' do
   # Pods for Annict-for-iOS
   pod 'APIKit'
   pod 'Himotoki'
+  pod 'Kingfisher'
 
   target 'Annict-for-iOSTests' do
     inherit! :search_paths

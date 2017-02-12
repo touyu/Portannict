@@ -58,7 +58,12 @@
     <dict>
         <key>NSExceptionDomains</key>
         <dict>
-            <key>img.tweetimag.es</key>
+            <key>furyu.nazo.cc</key>
+            <dict>
+                <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+            </dict>
+            <key>pbs.twimg.com</key>
             <dict>
                 <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
                 <true/>

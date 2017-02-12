@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 
 // MARK: - AnnictMeWorkCell
@@ -23,8 +24,23 @@ class AnnictMeWorkCell: UITableViewCell {
         self.initBaseView()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.iconImageView.image = nil
+    }
+    
     func set(work: AnnictWorkResponse) {
         self.titleLabel.text = work.title
+        self.setTwitterIcon(imageView: iconImageView, username: work.twitterUserName)
+    }
+    
+    fileprivate func setTwitterIcon(imageView: UIImageView!, username: String?) {
+        if let username = username {
+            let url = URL(string: "http://furyu.nazo.cc/twicon/\(username)/original")!
+//            print("loading...\(url.absoluteString)")
+            imageView.kf.setImage(with: url)
+        }
     }
     
     fileprivate func initBaseView() {

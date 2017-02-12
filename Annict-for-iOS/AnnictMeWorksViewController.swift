@@ -32,7 +32,7 @@ class AnnictMeWorksViewController: UIViewController {
     
     fileprivate func getMeWorks() {
         let request = AnnictAPI.GetMeWorks(filterStatus: .watching)
-        AnnictAPI.send(request) { response in
+        AnnictAPIClient.send(request) { response in
             switch response {
             case .success(let value):
                 self.works = value.works
