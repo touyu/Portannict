@@ -19,6 +19,8 @@
 		D13BD2CE1E50707F006CDF2E /* AnnictEpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D13BD2CD1E50707F006CDF2E /* AnnictEpisodeCell.xib */; };
 		D13BD2D01E5072AA006CDF2E /* AnnictAPIGetEpisodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13BD2CF1E5072AA006CDF2E /* AnnictAPIGetEpisodes.swift */; };
 		D13BD2D41E507410006CDF2E /* AnnictEpisodesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13BD2D31E507410006CDF2E /* AnnictEpisodesResponse.swift */; };
+		D13BD2DD1E50A395006CDF2E /* AnnictSubtextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13BD2DC1E50A395006CDF2E /* AnnictSubtextCell.swift */; };
+		D13BD2DF1E50A3A7006CDF2E /* AnnictSubtextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D13BD2DE1E50A3A7006CDF2E /* AnnictSubtextCell.xib */; };
 		D13E338A1E504F9300A0CEF6 /* AnnictBaseLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D13E338C1E504F9300A0CEF6 /* AnnictBaseLocalizable.strings */; };
 		D13E33901E50507600A0CEF6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13E338F1E50507600A0CEF6 /* String+Extension.swift */; };
 		D13E33931E505B0C00A0CEF6 /* AnnictWorks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13E33921E505B0C00A0CEF6 /* AnnictWorks.storyboard */; };
@@ -87,6 +89,8 @@
 		D13BD2CD1E50707F006CDF2E /* AnnictEpisodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnictEpisodeCell.xib; sourceTree = "<group>"; };
 		D13BD2CF1E5072AA006CDF2E /* AnnictAPIGetEpisodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPIGetEpisodes.swift; sourceTree = "<group>"; };
 		D13BD2D31E507410006CDF2E /* AnnictEpisodesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictEpisodesResponse.swift; sourceTree = "<group>"; };
+		D13BD2DC1E50A395006CDF2E /* AnnictSubtextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictSubtextCell.swift; sourceTree = "<group>"; };
+		D13BD2DE1E50A3A7006CDF2E /* AnnictSubtextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnictSubtextCell.xib; sourceTree = "<group>"; };
 		D13E33861E504EF900A0CEF6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		D13E338D1E504F9B00A0CEF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/AnnictBaseLocalizable.strings; sourceTree = "<group>"; };
 		D13E338E1E504FB300A0CEF6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/AnnictBaseLocalizable.strings; sourceTree = "<group>"; };
@@ -252,6 +256,15 @@
 			name = AnnictEpisodeCell;
 			sourceTree = "<group>";
 		};
+		D13BD2E01E50A3B5006CDF2E /* AnnictSubtextCell */ = {
+			isa = PBXGroup;
+			children = (
+				D13BD2DC1E50A395006CDF2E /* AnnictSubtextCell.swift */,
+				D13BD2DE1E50A3A7006CDF2E /* AnnictSubtextCell.xib */,
+			);
+			name = AnnictSubtextCell;
+			sourceTree = "<group>";
+		};
 		D13E33871E504F1D00A0CEF6 /* Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +337,7 @@
 			children = (
 				D13BD2C91E50703B006CDF2E /* AnnictMeWorkCell */,
 				D13BD2CC1E507069006CDF2E /* AnnictEpisodeCell */,
+				D13BD2E01E50A3B5006CDF2E /* AnnictSubtextCell */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -485,6 +499,7 @@
 				D13E338A1E504F9300A0CEF6 /* AnnictBaseLocalizable.strings in Resources */,
 				D13BD2CE1E50707F006CDF2E /* AnnictEpisodeCell.xib in Resources */,
 				D13E33931E505B0C00A0CEF6 /* AnnictWorks.storyboard in Resources */,
+				D13BD2DF1E50A3A7006CDF2E /* AnnictSubtextCell.xib in Resources */,
 				D137D6871E4D735E00F0FCFB /* Assets.xcassets in Resources */,
 				D195D0ED1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard in Resources */,
 			);
@@ -670,6 +685,7 @@
 				D14FF4EC1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift in Sources */,
 				D195D1171E4F8BD7004B6B15 /* AnnictMeWorkCell.swift in Sources */,
 				D195D1081E4E098A004B6B15 /* AnnictWorksResponse.swift in Sources */,
+				D13BD2DD1E50A395006CDF2E /* AnnictSubtextCell.swift in Sources */,
 				D195D0EF1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift in Sources */,
 				D13E33951E505B3E00A0CEF6 /* AnnictDetailAnimeInfoTabViewController.swift in Sources */,
 				D14FF4D71E5024A500AD9913 /* AnnictAPIGetWorks.swift in Sources */,

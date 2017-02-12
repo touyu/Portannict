@@ -33,14 +33,20 @@ struct AnnictWorkResponse {
     var title: String
     var mediaText: String
     var seasonNameText: String
+    var officialSiteURL: String?
+    var wikipediaURL: String?
     var twitterUserName: String?
+    var twitterHashTag: String?
     
     init (_ e: Extractor) {
         id = try! e <| "id"
         title = try! e <| "title"
         mediaText = try! e <| "media_text"
         seasonNameText = try! e <| "season_name_text"
+        officialSiteURL = try! e <|? "official_site_url"
+        wikipediaURL = try! e <|? "wikipedia_url"
         twitterUserName = try! e <|? "twitter_username"
+        twitterHashTag = try! e <|? "twitter_hashtag"
     }
 }
 

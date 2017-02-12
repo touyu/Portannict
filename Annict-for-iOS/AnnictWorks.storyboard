@@ -80,12 +80,27 @@
                     <view key="view" contentMode="scaleToFill" id="RXI-cs-jZm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C8c-xa-fNP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C8c-xa-fNP" firstAttribute="centerX" secondItem="RXI-cs-jZm" secondAttribute="centerX" id="JqW-rA-4WO"/>
+                            <constraint firstItem="C8c-xa-fNP" firstAttribute="width" secondItem="RXI-cs-jZm" secondAttribute="width" id="Xjt-nc-wZj"/>
+                            <constraint firstItem="C8c-xa-fNP" firstAttribute="centerY" secondItem="RXI-cs-jZm" secondAttribute="centerY" id="tL9-fE-HeQ"/>
+                            <constraint firstItem="C8c-xa-fNP" firstAttribute="height" secondItem="RXI-cs-jZm" secondAttribute="height" id="xb1-wj-FXa"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="C8c-xa-fNP" id="TWA-0U-o04"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jl-si-yLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="852" y="169"/>
+            <point key="canvasLocation" x="852" y="168.6656671664168"/>
         </scene>
         <!--Annict Episode View Controller-->
         <scene sceneID="LBi-Z7-QVB">
