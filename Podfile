@@ -6,8 +6,6 @@ target 'Annict-for-iOS' do
   use_frameworks!
 
   # Pods for Annict-for-iOS
-  pod 'Alamofire'
-  pod 'AlamofireObjectMapper'
   pod 'APIKit'
   pod 'Himotoki'
 

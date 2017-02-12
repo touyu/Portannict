@@ -9,22 +9,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Alamofire.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>AlamofireObjectMapper.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Himotoki.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -52,11 +37,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2F5622F3B18DF497981AB58C6D1FC72F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>335B12EDA6B9CC6986307EE000FBA4C9</key>
 		<dict>
 			<key>primary</key>
@@ -67,27 +47,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>35DF6B0A0E526ED53C7F22AF7FB15C5A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>3CAF2DFADEB8F0738869A90E9E89E526</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9502FB01641FBABB78522037E882757B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>A53E967FC9ED288C3F28D9F66A6DF89C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B51DAEF536DBD55E4DC51CFC96B4617A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
