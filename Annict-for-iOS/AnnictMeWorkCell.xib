@@ -21,8 +21,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3j6-fV-D9l">
                         <rect key="frame" x="15.5" y="8" width="343" height="79.5"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="annict_icon" translatesAutoresizingMaskIntoConstraints="NO" id="T8z-n3-H7d">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T8z-n3-H7d">
                                 <rect key="frame" x="0.0" y="1" width="79" height="78.5"/>
+                                <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="T8z-n3-H7d" secondAttribute="height" multiplier="1:1" id="1HL-L5-CqN"/>
                                 </constraints>
@@ -103,7 +104,4 @@
             <point key="canvasLocation" x="17.5" y="35"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="annict_icon" width="114" height="114"/>
-    </resources>
 </document>
