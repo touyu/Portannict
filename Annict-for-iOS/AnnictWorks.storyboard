@@ -103,37 +103,22 @@
             <point key="canvasLocation" x="852" y="168.6656671664168"/>
         </scene>
         <!--Annict Episode View Controller-->
-        <scene sceneID="LBi-Z7-QVB">
+        <scene sceneID="Zet-j9-bM9">
             <objects>
-                <viewController storyboardIdentifier="AnnictEpisodeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="izc-24-bFk" customClass="AnnictEpisodeViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4Dv-qb-X4P"/>
-                        <viewControllerLayoutGuide type="bottom" id="oq5-iH-4Rv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="D7n-zs-jwE">
+                <tableViewController storyboardIdentifier="AnnictEpisodeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JBM-gB-6Nu" customClass="AnnictEpisodeViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="Snf-6i-7lE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mWS-Rj-ff0">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="mWS-Rj-ff0" firstAttribute="width" secondItem="D7n-zs-jwE" secondAttribute="width" id="cfi-uR-daj"/>
-                            <constraint firstItem="mWS-Rj-ff0" firstAttribute="centerY" secondItem="D7n-zs-jwE" secondAttribute="centerY" id="fzI-wz-dRN"/>
-                            <constraint firstItem="mWS-Rj-ff0" firstAttribute="centerX" secondItem="D7n-zs-jwE" secondAttribute="centerX" id="xoM-cd-nZg"/>
-                            <constraint firstItem="mWS-Rj-ff0" firstAttribute="height" secondItem="D7n-zs-jwE" secondAttribute="height" id="zTC-vT-ihp"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="mWS-Rj-ff0" id="pLW-66-0Bd"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xlo-oY-tgS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <connections>
+                            <outlet property="dataSource" destination="JBM-gB-6Nu" id="Rch-Ln-70c"/>
+                            <outlet property="delegate" destination="JBM-gB-6Nu" id="VJ9-bW-dSV"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Bx-cg-7V6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1524" y="168.6656671664168"/>
+            <point key="canvasLocation" x="1630" y="164"/>
         </scene>
     </scenes>
 </document>

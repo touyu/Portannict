@@ -28,6 +28,7 @@ class AnnictMeWorksViewController: UITableViewController {
         super.viewDidLoad()
     
         self.initTableView()
+        
         let indicator = self.initIndicatorView()
         self.getMeWorks() { _ in
             indicator.stopAnimating()
