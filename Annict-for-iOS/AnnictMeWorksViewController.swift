@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
 
@@ -68,7 +69,8 @@ extension AnnictMeWorksViewController: UITableViewDataSource {
 
 extension AnnictMeWorksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let annictDetailAnimeInfoVC = AnnictDetailAnimeInfoViewController.instantiate(withStoryboard: "AnnictWorks")
+        let annictDetailAnimeInfoVC = AnnictDetailAnimeInfoTabViewController.instantiate(withStoryboard: "AnnictWorks")
+        annictDetailAnimeInfoVC.work = works[indexPath.row]
         self.navigationController?.pushViewController(annictDetailAnimeInfoVC, animated: true)
     }
 }

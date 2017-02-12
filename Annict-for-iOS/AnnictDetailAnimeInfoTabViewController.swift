@@ -1,5 +1,5 @@
 //
-//  AnnictMeWorksRootViewController.swift
+//  AnnictDetailAnimeInfoTabViewController.swift
 //  Annict-for-iOS
 //
 //  Created by Yuto Akiba on 2017/02/12.
@@ -11,9 +11,13 @@ import UIKit
 import XLPagerTabStrip
 
 
-// MARK: - AnnictMeWorksRootViewController
+// MARK: - AnnictDetailAnimeInfoViewController
 
-class AnnictMeWorksRootViewController: ButtonBarPagerTabStripViewController {
+class AnnictDetailAnimeInfoTabViewController: ButtonBarPagerTabStripViewController {
+    
+    // 外部から指定
+    var work: AnnictWorkResponse!
+    
     override func viewDidLoad() {
         // set up style before super view did load is executed
         settings.style.buttonBarBackgroundColor = .white
@@ -44,21 +48,13 @@ class AnnictMeWorksRootViewController: ButtonBarPagerTabStripViewController {
         
         super.viewDidLoad()
         
-        self.navigationItem.title = "Annict"
-        containerView.backgroundColor = UIColor(hex: 0xF2F2F2)
+        self.navigationItem.title = work.title
     }
     
     override public func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        let a = AnnictMeWorksViewController.instantiate(withStoryboard: "AnnictMeWorks")
-        a.mode = .watching
-        let b = AnnictMeWorksViewController.instantiate(withStoryboard: "AnnictMeWorks")
-        b.mode = .wannaWatch
-        let c = AnnictMeWorksViewController.instantiate(withStoryboard: "AnnictMeWorks")
-        c.mode = .watched
-        let d = AnnictMeWorksViewController.instantiate(withStoryboard: "AnnictMeWorks")
-        d.mode = .onHold
-        let e = AnnictMeWorksViewController.instantiate(withStoryboard: "AnnictMeWorks")
-        e.mode = .stopWatching
-        return [a, b, c, d, e]
+        let a = AnnictDetailAnimeInfoViewController.instantiate(withStoryboard: "AnnictWorks")
+        let b = AnnictEpisodeViewController.instantiate(withStoryboard: "AnnictWorks")
+        b.workID = work.id
+        return [a, b]
     }
 }

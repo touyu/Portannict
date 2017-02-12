@@ -8,12 +8,17 @@
 
 import UIKit
 
+import XLPagerTabStrip
+
 
 // MARK: - AnnictDetailAnimeInfoViewController
 
 class AnnictDetailAnimeInfoViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+}
 
+extension AnnictDetailAnimeInfoViewController: IndicatorInfoProvider {
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        return IndicatorInfo(title: "基本情報")
     }
 }

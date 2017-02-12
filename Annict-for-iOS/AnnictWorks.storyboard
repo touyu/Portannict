@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Annict Detail Anime Info View Controller-->
+        <!--Annict Detail Anime Info Tab View Controller-->
         <scene sceneID="qaf-Tt-LeF">
             <objects>
-                <viewController storyboardIdentifier="AnnictDetailAnimeInfoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pVj-fk-T6n" customClass="AnnictDetailAnimeInfoViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AnnictDetailAnimeInfoTabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pVj-fk-T6n" customClass="AnnictDetailAnimeInfoTabViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mLm-6E-XhO"/>
                         <viewControllerLayoutGuide type="bottom" id="oFB-vD-ecy"/>
@@ -19,12 +19,106 @@
                     <view key="view" contentMode="scaleToFill" id="ljG-SQ-oAL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="b5N-By-Nfk" customClass="ButtonBarView" customModule="XLPagerTabStrip">
+                                <rect key="frame" x="0.0" y="63" width="375" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="OJT-tS-nLm"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="g3z-Ns-oWl">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kBC-jk-yfw">
+                                <rect key="frame" x="0.0" y="104" width="375" height="563"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wyd-xF-jMf">
+                                <rect key="frame" x="0.0" y="103" width="375" height="1"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="27X-7r-O7O"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kBC-jk-yfw" firstAttribute="centerX" secondItem="ljG-SQ-oAL" secondAttribute="centerX" id="3aO-di-LeV"/>
+                            <constraint firstItem="b5N-By-Nfk" firstAttribute="centerX" secondItem="ljG-SQ-oAL" secondAttribute="centerX" id="9Ev-aa-dgT"/>
+                            <constraint firstItem="kBC-jk-yfw" firstAttribute="width" secondItem="ljG-SQ-oAL" secondAttribute="width" id="Aad-Nd-vRW"/>
+                            <constraint firstItem="wyd-xF-jMf" firstAttribute="centerX" secondItem="ljG-SQ-oAL" secondAttribute="centerX" id="Eu2-YS-kWV"/>
+                            <constraint firstItem="kBC-jk-yfw" firstAttribute="top" secondItem="wyd-xF-jMf" secondAttribute="bottom" id="Ewh-TP-fPh"/>
+                            <constraint firstItem="wyd-xF-jMf" firstAttribute="top" secondItem="b5N-By-Nfk" secondAttribute="bottom" id="b44-Tp-MOQ"/>
+                            <constraint firstItem="b5N-By-Nfk" firstAttribute="width" secondItem="ljG-SQ-oAL" secondAttribute="width" id="kXu-p3-bHR"/>
+                            <constraint firstItem="b5N-By-Nfk" firstAttribute="top" secondItem="mLm-6E-XhO" secondAttribute="bottom" constant="-1" id="kyM-Ze-euG"/>
+                            <constraint firstItem="oFB-vD-ecy" firstAttribute="top" secondItem="kBC-jk-yfw" secondAttribute="bottom" id="kza-1L-FFN"/>
+                            <constraint firstItem="wyd-xF-jMf" firstAttribute="width" secondItem="ljG-SQ-oAL" secondAttribute="width" id="lq1-LY-gou"/>
+                        </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="buttonBarView" destination="b5N-By-Nfk" id="uBV-KO-DLe"/>
+                        <outlet property="containerView" destination="kBC-jk-yfw" id="YPC-Jv-gsj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G5L-kp-Sd9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116" y="164"/>
+            <point key="canvasLocation" x="116" y="163.26836581709148"/>
+        </scene>
+        <!--Annict Detail Anime Info View Controller-->
+        <scene sceneID="jY9-60-6cu">
+            <objects>
+                <viewController storyboardIdentifier="AnnictDetailAnimeInfoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Zd-VT-NOg" customClass="AnnictDetailAnimeInfoViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="saT-tN-dMZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="cXq-Cg-C3m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RXI-cs-jZm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3jl-si-yLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="852" y="169"/>
+        </scene>
+        <!--Annict Episode View Controller-->
+        <scene sceneID="LBi-Z7-QVB">
+            <objects>
+                <viewController storyboardIdentifier="AnnictEpisodeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="izc-24-bFk" customClass="AnnictEpisodeViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Dv-qb-X4P"/>
+                        <viewControllerLayoutGuide type="bottom" id="oq5-iH-4Rv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D7n-zs-jwE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mWS-Rj-ff0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mWS-Rj-ff0" firstAttribute="width" secondItem="D7n-zs-jwE" secondAttribute="width" id="cfi-uR-daj"/>
+                            <constraint firstItem="mWS-Rj-ff0" firstAttribute="centerY" secondItem="D7n-zs-jwE" secondAttribute="centerY" id="fzI-wz-dRN"/>
+                            <constraint firstItem="mWS-Rj-ff0" firstAttribute="centerX" secondItem="D7n-zs-jwE" secondAttribute="centerX" id="xoM-cd-nZg"/>
+                            <constraint firstItem="mWS-Rj-ff0" firstAttribute="height" secondItem="D7n-zs-jwE" secondAttribute="height" id="zTC-vT-ihp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="mWS-Rj-ff0" id="pLW-66-0Bd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xlo-oY-tgS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1524" y="168.6656671664168"/>
         </scene>
     </scenes>
 </document>
