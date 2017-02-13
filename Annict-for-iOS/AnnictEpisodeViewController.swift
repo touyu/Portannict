@@ -111,6 +111,16 @@ extension AnnictEpisodeViewController {
     }
 }
 
+extension AnnictEpisodeViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let annictRecordsViewController = AnnictRecordsTabViewController.instantiate(withStoryboard: "AnnictWorks")
+        annictRecordsViewController.episodeID = episodes[indexPath.row].id
+        self.navigationController?.pushViewController(annictRecordsViewController, animated: true)
+    }
+}
+
 extension AnnictEpisodeViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "エピソード")
