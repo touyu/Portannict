@@ -52,4 +52,14 @@ class AnnictConsts {
             UserDefaults.standard.synchronize()
         }
     }
+    
+    static var userID: Int? {
+        get {
+            return UserDefaults.standard.integer(forKey: "annict_user_id")
+        }
+        set(newValue) {
+            UserDefaults.standard.set(newValue, forKey: "annict_user_id")
+            UserDefaults.standard.synchronize()
+        }
+    }
 }

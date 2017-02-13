@@ -10,6 +10,12 @@ import UIKit
 
 class AnnictRecordCell: UITableViewCell {
     
+    var record: AnnictRecordResponse? {
+        get {
+            return self.setedRecord
+        }
+    }
+    
     @IBOutlet dynamic fileprivate weak var usernameLabel: UILabel!
     @IBOutlet dynamic fileprivate weak var timeLabel: UILabel!
     @IBOutlet dynamic fileprivate weak var commentLabel: UILabel!
@@ -19,7 +25,10 @@ class AnnictRecordCell: UITableViewCell {
     @IBOutlet dynamic fileprivate weak var star4: UIImageView!
     @IBOutlet dynamic fileprivate weak var star5: UIImageView!
     
+    fileprivate var setedRecord: AnnictRecordResponse?
+    
     func set(record: AnnictRecordResponse) {
+        self.setedRecord = record
         self.usernameLabel.text = record.user.name
         self.commentLabel.text = record.comment
         let date = self.convertDate(dateString: record.createdAt)

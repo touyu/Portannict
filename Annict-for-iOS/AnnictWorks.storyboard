@@ -138,6 +138,69 @@
             </objects>
             <point key="canvasLocation" x="2378" y="169"/>
         </scene>
+        <!--Annict Post Records Navigation Controller-->
+        <scene sceneID="AE3-VV-XTi">
+            <objects>
+                <navigationController storyboardIdentifier="AnnictPostRecordsNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fcg-Vd-X2K" customClass="AnnictPostRecordsNavigationController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Zw7-GI-x1x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="AJ4-Kd-8ob" kind="relationship" relationship="rootViewController" id="9fE-BD-k9d"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EDQ-72-4qY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3078" y="-505"/>
+        </scene>
+        <!--Annict Post Records View Controller-->
+        <scene sceneID="s0Y-Ur-d5w">
+            <objects>
+                <viewController storyboardIdentifier="AnnictPostRecordsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AJ4-Kd-8ob" customClass="AnnictPostRecordsViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KaG-t0-ynl"/>
+                        <viewControllerLayoutGuide type="bottom" id="3bx-Z7-1f0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FEY-5g-tC7">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qkL-Rf-wOf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qkL-Rf-wOf" firstAttribute="centerX" secondItem="FEY-5g-tC7" secondAttribute="centerX" id="CSn-Ca-YcT"/>
+                            <constraint firstItem="qkL-Rf-wOf" firstAttribute="height" secondItem="FEY-5g-tC7" secondAttribute="height" id="FXP-kI-Igh"/>
+                            <constraint firstItem="qkL-Rf-wOf" firstAttribute="centerY" secondItem="FEY-5g-tC7" secondAttribute="centerY" id="Mky-pl-0N2"/>
+                            <constraint firstItem="qkL-Rf-wOf" firstAttribute="width" secondItem="FEY-5g-tC7" secondAttribute="width" id="iKa-Pf-bhW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="bhd-DJ-ox7">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="af4-Mf-lfq">
+                            <color key="tintColor" red="0.97254901959999995" green="0.35686274509999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="tapedCancelButton:" destination="AJ4-Kd-8ob" id="9TM-IX-Jef"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="記録する" id="6xo-M9-T3h">
+                            <color key="tintColor" red="0.97254901959999995" green="0.35686274509999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="tapedPostRecordButton:" destination="AJ4-Kd-8ob" id="pkX-1X-wGd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="qkL-Rf-wOf" id="rBg-K5-UcE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L0m-Bu-4RB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3784.8000000000002" y="-505.09745127436287"/>
+        </scene>
         <!--Annict Records Tab View Controller-->
         <scene sceneID="TIm-I3-373">
             <objects>
@@ -189,6 +252,14 @@
                             <constraint firstItem="7qd-nX-F7G" firstAttribute="width" secondItem="iwi-5b-6wz" secondAttribute="width" id="tuQ-yh-kP2"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="JuI-RI-RNV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="ZHv-ey-78k">
+                            <color key="tintColor" red="0.97254901959999995" green="0.35686274509999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="tapedPostButton:" destination="kgU-W9-ch6" id="izf-jw-gRQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="buttonBarView" destination="7qd-nX-F7G" id="g8Z-lQ-rXU"/>

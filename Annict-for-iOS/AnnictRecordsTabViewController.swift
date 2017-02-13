@@ -57,4 +57,16 @@ class AnnictRecordsTabViewController: ButtonBarPagerTabStripViewController {
         b.mode = .comment
         return [a, b]
     }
+    
+    @IBAction func tapedPostButton(_ sender: Any) {
+        let annictPostRecordsViewController = AnnictPostRecordsNavigationController.instantiate(withStoryboard: "AnnictWorks")
+        annictPostRecordsViewController.episodeID = episodeID
+        annictPostRecordsViewController.dissmissAction = { _ in
+            for viewController in self.viewControllers {
+                guard let viewController = viewController as? AnnictRecordsViewController else { continue }
+                viewController.refreshTableView()
+            }
+        }
+        self.present(annictPostRecordsViewController, animated: true, completion: nil)
+    }
 }

@@ -44,6 +44,11 @@ class AnnictRecordsViewController: UITableViewController {
         }
     }
     
+    func refreshTableView() {
+        self.currentPage = 0
+        self.getRecords()
+    }
+    
     fileprivate func initTableView() {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -147,6 +152,44 @@ extension AnnictRecordsViewController {
 
         if indexPath.row == pagingPoint && self.state == .idol {
             self.getRecords()
+        }
+    }
+}
+
+extension AnnictRecordsViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard let cell = tableView.cellForRow(at: indexPath) as? AnnictRecordCell else { return }
+        if let record = cell.record, record.user.id == AnnictConsts.userID {
+            self.showActionSheet(recordID: record.id, indexPath: indexPath)
+        }
+    }
+    
+    fileprivate func showActionSheet(recordID: Int, indexPath: IndexPath) {
+        let actionSheet = UIAlertController(title: "", message: "選択してください", preferredStyle: .actionSheet)
+        let delete = UIAlertAction(title: "記録を削除", style: .destructive, handler: { _ in
+            self.records.remove(at: indexPath.row)
+            self.tableView.reloadData()
+            self.deleteMeRecord(recordID: recordID) { _ in
+                self.refreshTableView()
+            }
+        })
+        let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        actionSheet.addAction(delete)
+        actionSheet.addAction(cancel)
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
+    fileprivate func deleteMeRecord(recordID: Int, completionHandler: (() -> Void)? = nil ) {
+        let request = AnnictAPI.DeleteMeRecord(id: recordID)
+        AnnictAPIClient.send(request) { response in
+            switch response {
+            case .success:
+                completionHandler?()
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 }
