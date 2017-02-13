@@ -2,5 +2,4 @@
 Annict for iOS Beta
 
 ## UI
-
-![Annict-for-iOS-UI](http://imgur.com/a/pSAKu "Annict-for-iOS-UI")
+<img src="http://i.imgur.com/nQDM8P1.png" width="300">
