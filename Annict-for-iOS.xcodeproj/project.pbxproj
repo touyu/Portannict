@@ -21,6 +21,13 @@
 		D13BD2D41E507410006CDF2E /* AnnictEpisodesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13BD2D31E507410006CDF2E /* AnnictEpisodesResponse.swift */; };
 		D13BD2DD1E50A395006CDF2E /* AnnictSubtextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13BD2DC1E50A395006CDF2E /* AnnictSubtextCell.swift */; };
 		D13BD2DF1E50A3A7006CDF2E /* AnnictSubtextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D13BD2DE1E50A3A7006CDF2E /* AnnictSubtextCell.xib */; };
+		D13BD2E21E5154AA006CDF2E /* AnnictRecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13BD2E11E5154AA006CDF2E /* AnnictRecordsViewController.swift */; };
+		D13BD2E71E51563E006CDF2E /* AnnictRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13BD2E61E51563E006CDF2E /* AnnictRecordCell.swift */; };
+		D13BD2E91E515659006CDF2E /* AnnictRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D13BD2E81E515659006CDF2E /* AnnictRecordCell.xib */; };
+		D13BD2EB1E515913006CDF2E /* AnnictRecordsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13BD2EA1E515913006CDF2E /* AnnictRecordsResponse.swift */; };
+		D13BD2ED1E5159CC006CDF2E /* AnnictUsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13BD2EC1E5159CC006CDF2E /* AnnictUsersResponse.swift */; };
+		D13BD2EF1E515ABE006CDF2E /* AnnictAPIGetRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13BD2EE1E515ABE006CDF2E /* AnnictAPIGetRecords.swift */; };
+		D13BD2F11E516979006CDF2E /* AnnictRecordsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13BD2F01E516979006CDF2E /* AnnictRecordsTabViewController.swift */; };
 		D13E338A1E504F9300A0CEF6 /* AnnictBaseLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D13E338C1E504F9300A0CEF6 /* AnnictBaseLocalizable.strings */; };
 		D13E33901E50507600A0CEF6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13E338F1E50507600A0CEF6 /* String+Extension.swift */; };
 		D13E33931E505B0C00A0CEF6 /* AnnictWorks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13E33921E505B0C00A0CEF6 /* AnnictWorks.storyboard */; };
@@ -91,6 +98,13 @@
 		D13BD2D31E507410006CDF2E /* AnnictEpisodesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictEpisodesResponse.swift; sourceTree = "<group>"; };
 		D13BD2DC1E50A395006CDF2E /* AnnictSubtextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictSubtextCell.swift; sourceTree = "<group>"; };
 		D13BD2DE1E50A3A7006CDF2E /* AnnictSubtextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnictSubtextCell.xib; sourceTree = "<group>"; };
+		D13BD2E11E5154AA006CDF2E /* AnnictRecordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictRecordsViewController.swift; sourceTree = "<group>"; };
+		D13BD2E61E51563E006CDF2E /* AnnictRecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictRecordCell.swift; sourceTree = "<group>"; };
+		D13BD2E81E515659006CDF2E /* AnnictRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnictRecordCell.xib; sourceTree = "<group>"; };
+		D13BD2EA1E515913006CDF2E /* AnnictRecordsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictRecordsResponse.swift; sourceTree = "<group>"; };
+		D13BD2EC1E5159CC006CDF2E /* AnnictUsersResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictUsersResponse.swift; sourceTree = "<group>"; };
+		D13BD2EE1E515ABE006CDF2E /* AnnictAPIGetRecords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPIGetRecords.swift; sourceTree = "<group>"; };
+		D13BD2F01E516979006CDF2E /* AnnictRecordsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictRecordsTabViewController.swift; sourceTree = "<group>"; };
 		D13E33861E504EF900A0CEF6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		D13E338D1E504F9B00A0CEF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/AnnictBaseLocalizable.strings; sourceTree = "<group>"; };
 		D13E338E1E504FB300A0CEF6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/AnnictBaseLocalizable.strings; sourceTree = "<group>"; };
@@ -234,6 +248,8 @@
 				D13E33941E505B3E00A0CEF6 /* AnnictDetailAnimeInfoTabViewController.swift */,
 				D13E339A1E506DF100A0CEF6 /* AnnictDetailAnimeInfoViewController.swift */,
 				D13E339C1E506E7900A0CEF6 /* AnnictEpisodeViewController.swift */,
+				D13BD2E11E5154AA006CDF2E /* AnnictRecordsViewController.swift */,
+				D13BD2F01E516979006CDF2E /* AnnictRecordsTabViewController.swift */,
 			);
 			name = Detail;
 			sourceTree = "<group>";
@@ -265,6 +281,15 @@
 			name = AnnictSubtextCell;
 			sourceTree = "<group>";
 		};
+		D13BD2E31E515605006CDF2E /* AnnictRecordCell */ = {
+			isa = PBXGroup;
+			children = (
+				D13BD2E61E51563E006CDF2E /* AnnictRecordCell.swift */,
+				D13BD2E81E515659006CDF2E /* AnnictRecordCell.xib */,
+			);
+			name = AnnictRecordCell;
+			sourceTree = "<group>";
+		};
 		D13E33871E504F1D00A0CEF6 /* Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +304,7 @@
 				D1FEDD031E4D883600EFA42F /* AnnictAPOauthTokenI.swift */,
 				D14FF4D61E5024A500AD9913 /* AnnictAPIGetWorks.swift */,
 				D13BD2CF1E5072AA006CDF2E /* AnnictAPIGetEpisodes.swift */,
+				D13BD2EE1E515ABE006CDF2E /* AnnictAPIGetRecords.swift */,
 			);
 			name = AnnictAPI;
 			sourceTree = "<group>";
@@ -320,6 +346,8 @@
 				D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */,
 				D195D1071E4E098A004B6B15 /* AnnictWorksResponse.swift */,
 				D13BD2D31E507410006CDF2E /* AnnictEpisodesResponse.swift */,
+				D13BD2EA1E515913006CDF2E /* AnnictRecordsResponse.swift */,
+				D13BD2EC1E5159CC006CDF2E /* AnnictUsersResponse.swift */,
 			);
 			name = Responses;
 			sourceTree = "<group>";
@@ -338,6 +366,7 @@
 				D13BD2C91E50703B006CDF2E /* AnnictMeWorkCell */,
 				D13BD2CC1E507069006CDF2E /* AnnictEpisodeCell */,
 				D13BD2E01E50A3B5006CDF2E /* AnnictSubtextCell */,
+				D13BD2E31E515605006CDF2E /* AnnictRecordCell */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -502,6 +531,7 @@
 				D13BD2DF1E50A3A7006CDF2E /* AnnictSubtextCell.xib in Resources */,
 				D137D6871E4D735E00F0FCFB /* Assets.xcassets in Resources */,
 				D195D0ED1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard in Resources */,
+				D13BD2E91E515659006CDF2E /* AnnictRecordCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,8 +700,11 @@
 				D13E33901E50507600A0CEF6 /* String+Extension.swift in Sources */,
 				D195D0F41E4DE677004B6B15 /* Notification+Extension.swift in Sources */,
 				D195D0FD1E4DEE49004B6B15 /* CheckingLoginStateViewController.swift in Sources */,
+				D13BD2E71E51563E006CDF2E /* AnnictRecordCell.swift in Sources */,
 				D1FEDD061E4D9A8400EFA42F /* LoginViewController.swift in Sources */,
+				D13BD2ED1E5159CC006CDF2E /* AnnictUsersResponse.swift in Sources */,
 				D13BD2D41E507410006CDF2E /* AnnictEpisodesResponse.swift in Sources */,
+				D13BD2F11E516979006CDF2E /* AnnictRecordsTabViewController.swift in Sources */,
 				D1FEDCFF1E4D7CD300EFA42F /* AnnictConsts.swift in Sources */,
 				D1FEDD041E4D883600EFA42F /* AnnictAPOauthTokenI.swift in Sources */,
 				D1FEDD021E4D844000EFA42F /* AnnictOauthTokenResponse.swift in Sources */,
@@ -679,10 +712,13 @@
 				D13BD2CB1E507053006CDF2E /* AnnictEpisodeCell.swift in Sources */,
 				D137D6801E4D735E00F0FCFB /* AppDelegate.swift in Sources */,
 				D13E339D1E506E7900A0CEF6 /* AnnictEpisodeViewController.swift in Sources */,
+				D13BD2EB1E515913006CDF2E /* AnnictRecordsResponse.swift in Sources */,
 				D195D1031E4DF000004B6B15 /* UIColor+Extension.swift in Sources */,
 				D195D0F81E4DE919004B6B15 /* UIViewController+Extension.swift in Sources */,
 				D13E339B1E506DF100A0CEF6 /* AnnictDetailAnimeInfoViewController.swift in Sources */,
+				D13BD2E21E5154AA006CDF2E /* AnnictRecordsViewController.swift in Sources */,
 				D14FF4EC1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift in Sources */,
+				D13BD2EF1E515ABE006CDF2E /* AnnictAPIGetRecords.swift in Sources */,
 				D195D1171E4F8BD7004B6B15 /* AnnictMeWorkCell.swift in Sources */,
 				D195D1081E4E098A004B6B15 /* AnnictWorksResponse.swift in Sources */,
 				D13BD2DD1E50A395006CDF2E /* AnnictSubtextCell.swift in Sources */,

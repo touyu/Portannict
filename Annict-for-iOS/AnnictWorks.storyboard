@@ -120,5 +120,84 @@
             </objects>
             <point key="canvasLocation" x="1630" y="164"/>
         </scene>
+        <!--Annict Records View Controller-->
+        <scene sceneID="NJ2-uF-Ifu">
+            <objects>
+                <tableViewController storyboardIdentifier="AnnictRecordsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Idc-if-9cs" customClass="AnnictRecordsViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="0ze-eL-vq8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="Idc-if-9cs" id="1VU-Lg-r9s"/>
+                            <outlet property="delegate" destination="Idc-if-9cs" id="GSg-pm-Y0G"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iHj-Yd-Fgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2378" y="169"/>
+        </scene>
+        <!--Annict Records Tab View Controller-->
+        <scene sceneID="TIm-I3-373">
+            <objects>
+                <viewController storyboardIdentifier="AnnictRecordsTabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kgU-W9-ch6" customClass="AnnictRecordsTabViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mPk-zp-R5b"/>
+                        <viewControllerLayoutGuide type="bottom" id="XM8-3H-7f5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iwi-5b-6wz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7qd-nX-F7G" customClass="ButtonBarView" customModule="XLPagerTabStrip">
+                                <rect key="frame" x="0.0" y="63" width="375" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="vLc-8s-RHt"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="c83-qc-BTw">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LhH-ac-Uup">
+                                <rect key="frame" x="0.0" y="104" width="375" height="563"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="urm-1d-Nvd">
+                                <rect key="frame" x="0.0" y="103" width="375" height="1"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Xzk-BU-JcD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7qd-nX-F7G" firstAttribute="top" secondItem="mPk-zp-R5b" secondAttribute="bottom" constant="-1" id="2tm-j6-Bx6"/>
+                            <constraint firstItem="urm-1d-Nvd" firstAttribute="centerX" secondItem="iwi-5b-6wz" secondAttribute="centerX" id="Cdv-6C-bnk"/>
+                            <constraint firstItem="LhH-ac-Uup" firstAttribute="width" secondItem="iwi-5b-6wz" secondAttribute="width" id="KiY-s5-3Yk"/>
+                            <constraint firstItem="XM8-3H-7f5" firstAttribute="top" secondItem="LhH-ac-Uup" secondAttribute="bottom" id="Wie-tt-L66"/>
+                            <constraint firstItem="LhH-ac-Uup" firstAttribute="top" secondItem="urm-1d-Nvd" secondAttribute="bottom" id="cJe-QJ-Var"/>
+                            <constraint firstItem="urm-1d-Nvd" firstAttribute="width" secondItem="iwi-5b-6wz" secondAttribute="width" id="hnZ-uw-M3N"/>
+                            <constraint firstItem="urm-1d-Nvd" firstAttribute="top" secondItem="7qd-nX-F7G" secondAttribute="bottom" id="lMN-ey-4H1"/>
+                            <constraint firstItem="7qd-nX-F7G" firstAttribute="centerX" secondItem="iwi-5b-6wz" secondAttribute="centerX" id="pd3-xk-SRg"/>
+                            <constraint firstItem="LhH-ac-Uup" firstAttribute="centerX" secondItem="iwi-5b-6wz" secondAttribute="centerX" id="tRw-pb-8Rg"/>
+                            <constraint firstItem="7qd-nX-F7G" firstAttribute="width" secondItem="iwi-5b-6wz" secondAttribute="width" id="tuQ-yh-kP2"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="buttonBarView" destination="7qd-nX-F7G" id="g8Z-lQ-rXU"/>
+                        <outlet property="containerView" destination="LhH-ac-Uup" id="9Lz-P9-vcw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9SA-Ho-77C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3078" y="163"/>
+        </scene>
     </scenes>
 </document>

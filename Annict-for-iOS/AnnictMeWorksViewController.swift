@@ -13,6 +13,7 @@ import XLPagerTabStrip
 enum TableViewState {
     case loading
     case idol
+    case complete
 }
 
 // MARK: - AnnictMeWorksViewController
