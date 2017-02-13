@@ -15,6 +15,7 @@ extension AnnictAPI {
     
     struct GetEpisodes: AnnictAPIRequest {
         var workID: Int? = nil
+        var page: Int = 1
         
         typealias Response = AnnictEpisodesResponse
         
@@ -30,6 +31,8 @@ extension AnnictAPI {
             var params:[String: Any] = [:]
             params["access_token"] = AnnictConsts.accessToken
             params["filter_work_id"] = self.workID ?? nil
+            params["page"] = page
+            params["per_page"] = 30
             params["sort_sort_number"] = "asc"
             return params
         }
