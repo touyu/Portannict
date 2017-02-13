@@ -22,8 +22,8 @@ class CheckingLoginStateViewController: UIViewController {
 //            let annictMeWorksNC = AnnictMeWorksNavigationController.instantiate(withStoryboard: "AnnictMeWorks")
 //            self.present(annictMeWorksNC, animated: false, completion: nil)
             
-            let annictMeWorksTabNavigationController = AnnictMeWorksTabNavigationController.instantiate(withStoryboard: "AnnictMeWorks")
-            self.present(annictMeWorksTabNavigationController, animated: false, completion: nil)
+            let annictTabBarController = AnnictTabBarController.instantiate(withStoryboard: "AnnictMeWorks")
+            self.present(annictTabBarController, animated: false, completion: nil)
         }
     }
 }

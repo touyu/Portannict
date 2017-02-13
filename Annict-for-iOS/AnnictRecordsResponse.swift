@@ -31,6 +31,7 @@ struct AnnictRecordResponse {
     var rating: Int?
     var createdAt: String?
     var user: AnnictUserResponse
+    var work: AnnictWorkResponse
     
     init (_ e: Extractor) {
         id = try! e <| "id"
@@ -38,6 +39,7 @@ struct AnnictRecordResponse {
         rating = try! e <|? "rating"
         createdAt = try! e <|? "created_at"
         user = try! e <| "user"
+        work = try! e <| "work"
     }
 }
 

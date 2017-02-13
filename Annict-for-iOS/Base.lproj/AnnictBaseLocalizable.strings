@@ -13,3 +13,6 @@
 "watched" = "Completed";
 "on_hold" = "On Hold";
 "stop_watching" = "Dropped";
+
+"profile" = "Profile";
+"search" = "Search";

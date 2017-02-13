@@ -35,6 +35,11 @@ enum AnimeStatus: String {
     }
 }
 
+enum Order: String {
+    case ascending = "asc"
+    case descending = "desc"
+}
+
 extension AnnictAPI {
     
     
@@ -47,11 +52,6 @@ extension AnnictAPI {
             case watchersCount = "sort_watchers_count"
         }
         
-        enum Order: String {
-            case ascending = "asc"
-            case descending = "desc"
-        }
-        
         enum Season: String {
             case spring = "spring"
             case summer = "summer"
@@ -62,20 +62,27 @@ extension AnnictAPI {
         typealias FilterStatus = AnimeStatus
         
         var page: Int
+        var perPage: Int
         var sort: Sort
         var order: Order
         
         var filterStatus: FilterStatus?
         var filterSeason: (year: Int, season: Season?)?
+        var filterTitle: String?
         
         init(page: Int = 1,
+             parPage: Int = 30,
              filterStatus: FilterStatus? = nil,
-             filterSeason: (year: Int, season: Season?)? = nil) {
+             filterSeason: (year: Int, season: Season?)? = nil,
+             filterTitle: String? = nil,
+             sort: Sort = .season) {
             self.page = page
-            self.sort = .season
+            self.perPage = parPage
+            self.sort = sort
             self.order = .descending
             self.filterStatus = filterStatus
             self.filterSeason = filterSeason
+            self.filterTitle = filterTitle
         }
         
         typealias Response = AnnictWorksResponse
@@ -85,19 +92,18 @@ extension AnnictAPI {
         }
         
         var path: String {
-            return "/v1/me/works"
+            return "/v1/works"
         }
         
         var parameters: Any? {
             var params:[String: Any] = [
                 "access_token": AnnictConsts.accessToken,
                 "page": page,
-                "per_page": 30,
+                "per_page": perPage,
                 sort.rawValue: order.rawValue,
                 ]
-            if let filterStatus = filterStatus {
-                params["filter_status"] = filterStatus.rawValue
-            }
+            params["filter_status"] = filterStatus?.rawValue ?? nil
+            params["filter_title"] = filterTitle ?? nil
             if let filterSeason = filterSeason {
                 let season = filterSeason.season?.rawValue ?? "all"
                 params["filter_season"] = "\(filterSeason.year)-\(season)"

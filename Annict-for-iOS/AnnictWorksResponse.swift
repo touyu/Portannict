@@ -32,7 +32,7 @@ struct AnnictWorkResponse {
     var id: Int
     var title: String
     var mediaText: String
-    var seasonNameText: String
+    var seasonNameText: String?
     var officialSiteURL: String?
     var wikipediaURL: String?
     var twitterUserName: String?
@@ -42,7 +42,7 @@ struct AnnictWorkResponse {
         id = try! e <| "id"
         title = try! e <| "title"
         mediaText = try! e <| "media_text"
-        seasonNameText = try! e <| "season_name_text"
+        seasonNameText = try! e <|? "season_name_text"
         officialSiteURL = try! e <|? "official_site_url"
         wikipediaURL = try! e <|? "wikipedia_url"
         twitterUserName = try! e <|? "twitter_username"

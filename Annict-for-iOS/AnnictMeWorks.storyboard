@@ -24,12 +24,97 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jip-nA-xmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7" y="36"/>
+            <point key="canvasLocation" x="2103" y="36"/>
+        </scene>
+        <!--Annict Tab Bar Controller-->
+        <scene sceneID="kUr-3l-Rn9">
+            <objects>
+                <tabBarController storyboardIdentifier="AnnictTabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1VW-rf-ajZ" customClass="AnnictTabBarController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="C5I-ah-nA9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.20000000000000001" green="0.28235294117647058" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="GAE-Ta-b8w" kind="relationship" relationship="viewControllers" id="4kr-BE-bbx"/>
+                        <segue destination="hJm-j0-ZNo" kind="relationship" relationship="viewControllers" id="R5P-a1-P8L"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mAu-LA-y9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6" y="36"/>
+        </scene>
+        <!--Annict Search Navigation Controller-->
+        <scene sceneID="ptF-om-Y6l">
+            <objects>
+                <navigationController storyboardIdentifier="AnnictSearchNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hJm-j0-ZNo" customClass="AnnictSearchNavigationController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" image="search" id="wPk-Bb-kwL" customClass="AnnictTabBarItem" customModule="Annict_for_iOS" customModuleProvider="target"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="6cM-J4-gnh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.97254901959999995" green="0.35686274509999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Bpt-vL-nSx" kind="relationship" relationship="rootViewController" id="X2a-KI-JMa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="phy-HA-CxB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="700" y="-642"/>
+        </scene>
+        <!--Annict Search View Controller-->
+        <scene sceneID="pgA-F3-tec">
+            <objects>
+                <viewController storyboardIdentifier="AnnictSearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Bpt-vL-nSx" customClass="AnnictSearchViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RnF-sg-PMv"/>
+                        <viewControllerLayoutGuide type="bottom" id="jrH-TR-hbP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yxF-zI-GEy">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="92" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="thd-lI-m9G">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="LMF-W8-q6P">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <color key="tintColor" red="0.97254901959999995" green="0.35686274509999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="thd-lI-m9G" firstAttribute="height" secondItem="yxF-zI-GEy" secondAttribute="height" id="XTw-4E-krS"/>
+                            <constraint firstItem="thd-lI-m9G" firstAttribute="centerX" secondItem="yxF-zI-GEy" secondAttribute="centerX" id="aZ8-uf-Mzc"/>
+                            <constraint firstItem="thd-lI-m9G" firstAttribute="centerY" secondItem="yxF-zI-GEy" secondAttribute="centerY" id="g7G-Da-s7I"/>
+                            <constraint firstItem="thd-lI-m9G" firstAttribute="width" secondItem="yxF-zI-GEy" secondAttribute="width" id="zAB-Mp-fuJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="K8e-b9-LZl"/>
+                    <connections>
+                        <outlet property="searchBar" destination="LMF-W8-q6P" id="puV-a2-57q"/>
+                        <outlet property="tableView" destination="thd-lI-m9G" id="LYw-FE-r39"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xU6-bq-xhd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1408.8" y="-643.62818590704649"/>
         </scene>
         <!--Annict Me Works Tab Navigation Controller-->
         <scene sceneID="Yaa-Yz-9HU">
             <objects>
                 <navigationController storyboardIdentifier="AnnictMeWorksTabNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GAE-Ta-b8w" customClass="AnnictMeWorksTabNavigationController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" image="person" id="OTX-6Z-a6G" customClass="AnnictTabBarItem" customModule="Annict_for_iOS" customModuleProvider="target">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Xme-yb-rLp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -60,7 +145,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4N-Ua-6GX">
-                                <rect key="frame" x="0.0" y="40" width="375" height="563"/>
+                                <rect key="frame" x="0.0" y="40" width="375" height="514"/>
                             </scrollView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ooa-b7-qVh" customClass="ButtonBarView" customModule="XLPagerTabStrip">
                                 <rect key="frame" x="0.0" y="-1" width="375" height="40"/>
@@ -109,4 +194,8 @@
             <point key="canvasLocation" x="1408.8" y="36.431784107946029"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="person" width="20" height="27"/>
+        <image name="search" width="24" height="24"/>
+    </resources>
 </document>

@@ -12,8 +12,20 @@ import Himotoki
 extension AnnictAPI {
     
     struct GetRecords: AnnictAPIRequest {
-        var episodeID: Int? = nil
-        var page: Int = 1
+        var episodeID: Int?
+        var page: Int
+        var perPage: Int
+        var sortID: Order
+        
+        init(episodeID: Int? = nil,
+             page: Int = 1,
+             perPage: Int = 30,
+             sortID: Order = .descending) {
+            self.episodeID = episodeID
+            self.page = page
+            self.perPage = perPage
+            self.sortID = sortID
+        }
         
         typealias Response = AnnictRecordsResponse
         
@@ -30,8 +42,8 @@ extension AnnictAPI {
             params["access_token"] = AnnictConsts.accessToken
             params["filter_episode_id"] = self.episodeID ?? nil
             params["page"] = page
-            params["per_page"] = 30
-            params["sort_id"] = "desc"
+            params["per_page"] = perPage
+            params["sort_id"] = sortID.rawValue
             return params
         }
     }

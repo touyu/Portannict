@@ -39,8 +39,10 @@ class AnnictMeWorkCell: UITableViewCell {
         self.setTwitterIcon(imageView: iconImageView, username: work.twitterUserName)
         self.tag1.text = "  \(work.mediaText)  "
         self.tag1.alpha = 1
-        self.tag2.text = "  \(work.seasonNameText)  "
-        self.tag2.alpha = 1
+        if let seasonNameText = work.seasonNameText {
+            self.tag2.text = "  \(seasonNameText)  "
+            self.tag2.alpha = 1
+        }
     }
     
     fileprivate func setTwitterIcon(imageView: UIImageView!, username: String?) {

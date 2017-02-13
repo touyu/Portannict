@@ -10,6 +10,9 @@
 		3059339C71A3A2D356795991 /* Pods_Annict_for_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3292F339920C72D7CB167AC8 /* Pods_Annict_for_iOSUITests.framework */; };
 		6D6918BB9D9DBF83D45BEE6D /* Pods_Annict_for_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2584CCB72E336560154CFF19 /* Pods_Annict_for_iOS.framework */; };
 		A5B4BEE147637886DADD700D /* Pods_Annict_for_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DDAF0557DD3C020D70D067E /* Pods_Annict_for_iOSTests.framework */; };
+		D113CF0C1E51F5CD0083ED7D /* AnnictTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113CF0B1E51F5CD0083ED7D /* AnnictTabBarController.swift */; };
+		D113CF0E1E52090A0083ED7D /* AnnictTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */; };
+		D113CF101E520CB00083ED7D /* AnnictSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113CF0F1E520CB00083ED7D /* AnnictSearchViewController.swift */; };
 		D137D6801E4D735E00F0FCFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D137D67F1E4D735E00F0FCFB /* AppDelegate.swift */; };
 		D137D6871E4D735E00F0FCFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D137D6861E4D735E00F0FCFB /* Assets.xcassets */; };
 		D137D68A1E4D735E00F0FCFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D137D6881E4D735E00F0FCFB /* LaunchScreen.storyboard */; };
@@ -58,6 +61,7 @@
 		D195D1171E4F8BD7004B6B15 /* AnnictMeWorkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D1161E4F8BD7004B6B15 /* AnnictMeWorkCell.swift */; };
 		D195D1191E4F8C2D004B6B15 /* AnnictMeWorkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D195D1181E4F8C2D004B6B15 /* AnnictMeWorkCell.xib */; };
 		D195D11B1E4F928A004B6B15 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D11A1E4F928A004B6B15 /* UITableView+Extension.swift */; };
+		D1A43E401E520E0000EE40CB /* AnnictSearchNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A43E3F1E520E0000EE40CB /* AnnictSearchNavigationController.swift */; };
 		D1FEDCFF1E4D7CD300EFA42F /* AnnictConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */; };
 		D1FEDD021E4D844000EFA42F /* AnnictOauthTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */; };
 		D1FEDD041E4D883600EFA42F /* AnnictAPOauthTokenI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD031E4D883600EFA42F /* AnnictAPOauthTokenI.swift */; };
@@ -91,6 +95,9 @@
 		46C9A2474E67FF5BCE0487B4 /* Pods-Annict-for-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOSTests/Pods-Annict-for-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		74B456129E1F029CEA246F31 /* Pods-Annict-for-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOSTests/Pods-Annict-for-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C083440EFE0BAD13C7927C45 /* Pods-Annict-for-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOSUITests/Pods-Annict-for-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D113CF0B1E51F5CD0083ED7D /* AnnictTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictTabBarController.swift; sourceTree = "<group>"; };
+		D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictTabBarItem.swift; sourceTree = "<group>"; };
+		D113CF0F1E520CB00083ED7D /* AnnictSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictSearchViewController.swift; sourceTree = "<group>"; };
 		D137D67C1E4D735E00F0FCFB /* Annict-for-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Annict-for-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D137D67F1E4D735E00F0FCFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D137D6861E4D735E00F0FCFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,6 +154,7 @@
 		D195D1161E4F8BD7004B6B15 /* AnnictMeWorkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictMeWorkCell.swift; sourceTree = "<group>"; };
 		D195D1181E4F8C2D004B6B15 /* AnnictMeWorkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnictMeWorkCell.xib; sourceTree = "<group>"; };
 		D195D11A1E4F928A004B6B15 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		D1A43E3F1E520E0000EE40CB /* AnnictSearchNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictSearchNavigationController.swift; sourceTree = "<group>"; };
 		D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictConsts.swift; sourceTree = "<group>"; };
 		D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictOauthTokenResponse.swift; sourceTree = "<group>"; };
 		D1FEDD031E4D883600EFA42F /* AnnictAPOauthTokenI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPOauthTokenI.swift; sourceTree = "<group>"; };
@@ -378,9 +386,10 @@
 		D195D0FA1E4DED42004B6B15 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				D195D0EE1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift */,
+				D113CF0B1E51F5CD0083ED7D /* AnnictTabBarController.swift */,
 				D14FF4EB1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift */,
 				D13E33981E505E9600A0CEF6 /* AnnictMeWorksTabViewController.swift */,
+				D195D0EE1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -409,6 +418,7 @@
 		D195D1141E4F8AE3004B6B15 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */,
 				D195D1151E4F8AF9004B6B15 /* Cells */,
 			);
 			name = Views;
@@ -442,6 +452,8 @@
 				D195D0FA1E4DED42004B6B15 /* Home */,
 				D13BD2C81E506FE0006CDF2E /* Detail */,
 				D195D0FB1E4DEE11004B6B15 /* Login */,
+				D113CF0F1E520CB00083ED7D /* AnnictSearchViewController.swift */,
+				D1A43E3F1E520E0000EE40CB /* AnnictSearchNavigationController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -778,14 +790,18 @@
 				D13E339B1E506DF100A0CEF6 /* AnnictDetailAnimeInfoViewController.swift in Sources */,
 				D13BD3081E51DCE5006CDF2E /* AnnictAPIDeleteMeRecord.swift in Sources */,
 				D13BD2E21E5154AA006CDF2E /* AnnictRecordsViewController.swift in Sources */,
+				D113CF0C1E51F5CD0083ED7D /* AnnictTabBarController.swift in Sources */,
 				D14FF4EC1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift in Sources */,
 				D13BD2EF1E515ABE006CDF2E /* AnnictAPIGetRecords.swift in Sources */,
+				D113CF0E1E52090A0083ED7D /* AnnictTabBarItem.swift in Sources */,
 				D13BD3031E51BA57006CDF2E /* AnnictTextViewCell.swift in Sources */,
 				D195D1171E4F8BD7004B6B15 /* AnnictMeWorkCell.swift in Sources */,
 				D195D1081E4E098A004B6B15 /* AnnictWorksResponse.swift in Sources */,
+				D1A43E401E520E0000EE40CB /* AnnictSearchNavigationController.swift in Sources */,
 				D13BD2F71E51A9F7006CDF2E /* AnnictPostRecordsViewController.swift in Sources */,
 				D13BD2DD1E50A395006CDF2E /* AnnictSubtextCell.swift in Sources */,
 				D195D0EF1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift in Sources */,
+				D113CF101E520CB00083ED7D /* AnnictSearchViewController.swift in Sources */,
 				D13E33951E505B3E00A0CEF6 /* AnnictDetailAnimeInfoTabViewController.swift in Sources */,
 				D13BD2F51E519D76006CDF2E /* AnnictAPIPostStatuses.swift in Sources */,
 				D14FF4D71E5024A500AD9913 /* AnnictAPIGetWorks.swift in Sources */,

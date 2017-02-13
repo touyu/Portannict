@@ -19,10 +19,6 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if !AnnictConsts.accessToken.isEmpty {
-            let annictMeWorksTabNavigationController = AnnictMeWorksTabNavigationController.instantiate(withStoryboard: "AnnictMeWorks")
-            self.present(annictMeWorksTabNavigationController, animated: false, completion: nil)
-        }
     }
     
     @IBAction func tapedLoginButton(_ sender: UIButton) {
@@ -54,8 +50,8 @@ class LoginViewController: UIViewController {
                 
                 // 画面遷移
                 if !AnnictConsts.accessToken.isEmpty {
-                    let annictMeWorksTabNavigationController = AnnictMeWorksTabNavigationController.instantiate(withStoryboard: "AnnictMeWorks")
-                    self.present(annictMeWorksTabNavigationController, animated: false, completion: nil)
+                    let annictTabBarController = AnnictTabBarController.instantiate(withStoryboard: "AnnictMeWorks")
+                    self.present(annictTabBarController, animated: false, completion: nil)
                 }
             case .failure(let error):
                 print(error)

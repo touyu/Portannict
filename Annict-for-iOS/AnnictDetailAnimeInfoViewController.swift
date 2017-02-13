@@ -68,8 +68,10 @@ class AnnictDetailAnimeInfoViewController: UIViewController {
         }
         dataSources.append((title: "メディア", subtext: work.mediaText))
         memoTags.append(.media)
-        dataSources.append((title: "リリース時期", subtext: work.seasonNameText))
-        memoTags.append(.release)
+        if let seasonNameText = work.seasonNameText {
+            dataSources.append((title: "リリース時期", subtext: seasonNameText))
+            memoTags.append(.release)
+        }
         if let twiterUsername = work.twitterUserName, !(twiterUsername.isEmpty) {
             dataSources.append((title: "Twitterアカウント", subtext: "@\(twiterUsername)"))
             memoTags.append(.account)

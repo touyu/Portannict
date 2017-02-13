@@ -44,7 +44,7 @@ class AnnictMeWorksTabViewController: ButtonBarPagerTabStripViewController {
         
         super.viewDidLoad()
         
-        self.navigationItem.title = "Annict"
+        self.navigationItem.title = "profile".localized(withTableName: "AnnictBaseLocalizable")
         containerView.backgroundColor = UIColor(hex: 0xF2F2F2)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
