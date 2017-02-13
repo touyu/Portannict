@@ -123,6 +123,7 @@ extension AnnictMeWorksViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let annictDetailAnimeInfoVC = AnnictDetailAnimeInfoTabViewController.instantiate(withStoryboard: "AnnictWorks")
         annictDetailAnimeInfoVC.work = works[indexPath.row]
+        annictDetailAnimeInfoVC.status = self.mode
         self.navigationController?.pushViewController(annictDetailAnimeInfoVC, animated: true)
     }
 }

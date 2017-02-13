@@ -17,6 +17,7 @@ class AnnictDetailAnimeInfoTabViewController: ButtonBarPagerTabStripViewControll
     
     // 外部から指定
     var work: AnnictWorkResponse!
+    var status: AnimeStatus?
     
     override func viewDidLoad() {
         // set up style before super view did load is executed
@@ -54,6 +55,7 @@ class AnnictDetailAnimeInfoTabViewController: ButtonBarPagerTabStripViewControll
     override public func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         let a = AnnictDetailAnimeInfoViewController.instantiate(withStoryboard: "AnnictWorks")
         a.work = work
+        a.status = self.status
         let b = AnnictEpisodeViewController.instantiate(withStoryboard: "AnnictWorks")
         b.workID = work.id
         return [a, b]

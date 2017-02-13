@@ -18,6 +18,7 @@ class AnnictDetailAnimeInfoViewController: UIViewController {
     
     // 外部から指定
     var work: AnnictWorkResponse!
+    var status: AnimeStatus?
     
     enum BasicInfo {
         case status
@@ -49,7 +50,9 @@ class AnnictDetailAnimeInfoViewController: UIViewController {
     }
     
     fileprivate func initDataSource() {
-        dataSources.append((title: "ステータス", subtext: "見てる"))
+        if let status = self.status {
+            dataSources.append((title: "ステータス", subtext: status.rawValue.localized(withTableName: "AnnictBaseLocalizable")))
+        }
         memoTags.append(.status)
         dataSources.append((title: "メディア", subtext: work.mediaText))
         memoTags.append(.media)
