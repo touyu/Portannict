@@ -6,6 +6,7 @@
 //  Copyright © 2017年 Yuto Akiba. All rights reserved.
 //
 
+"no_select" = "未選択";
 "wanna_watch" = "見たい";
 "watching" = "見てる";
 "watched" = "見た";

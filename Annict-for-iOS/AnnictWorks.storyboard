@@ -199,5 +199,54 @@
             </objects>
             <point key="canvasLocation" x="3078" y="163"/>
         </scene>
+        <!--Annict Select Status View Controller-->
+        <scene sceneID="f2G-dc-CfW">
+            <objects>
+                <viewController storyboardIdentifier="AnnictSelectStatusViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="biv-OM-1VS" customClass="AnnictSelectStatusViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fgc-GK-fsn"/>
+                        <viewControllerLayoutGuide type="bottom" id="8AC-Kq-Kr9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="23b-Dx-R2K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oUR-Dc-jiy">
+                                <rect key="frame" x="0.0" y="64" width="375" height="543"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3H-Oc-1mJ">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.97254901959999995" green="0.35686274509999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapedDoneButton:" destination="biv-OM-1VS" eventType="touchUpInside" id="GPK-Ok-tEt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="m3H-Oc-1mJ" firstAttribute="top" secondItem="oUR-Dc-jiy" secondAttribute="bottom" id="7hq-Yp-Rdk"/>
+                            <constraint firstItem="oUR-Dc-jiy" firstAttribute="width" secondItem="23b-Dx-R2K" secondAttribute="width" id="QFp-lj-14w"/>
+                            <constraint firstItem="m3H-Oc-1mJ" firstAttribute="width" secondItem="23b-Dx-R2K" secondAttribute="width" id="brq-E3-vpx"/>
+                            <constraint firstItem="oUR-Dc-jiy" firstAttribute="top" secondItem="fgc-GK-fsn" secondAttribute="bottom" id="f8w-sU-JFB"/>
+                            <constraint firstItem="8AC-Kq-Kr9" firstAttribute="top" secondItem="oUR-Dc-jiy" secondAttribute="bottom" constant="60" id="iMB-Dk-NCR"/>
+                            <constraint firstItem="m3H-Oc-1mJ" firstAttribute="centerX" secondItem="oUR-Dc-jiy" secondAttribute="centerX" id="p4X-8o-Tnp"/>
+                            <constraint firstItem="8AC-Kq-Kr9" firstAttribute="top" secondItem="m3H-Oc-1mJ" secondAttribute="bottom" id="rl4-9H-NQZ"/>
+                            <constraint firstItem="oUR-Dc-jiy" firstAttribute="centerX" secondItem="23b-Dx-R2K" secondAttribute="centerX" id="ryF-pn-7RW"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="oUR-Dc-jiy" id="tNh-gJ-Gkq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O8V-Cs-GoO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3786.4000000000001" y="162.3688155922039"/>
+        </scene>
     </scenes>
 </document>

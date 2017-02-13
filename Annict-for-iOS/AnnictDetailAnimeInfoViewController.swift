@@ -18,7 +18,13 @@ class AnnictDetailAnimeInfoViewController: UIViewController {
     
     // 外部から指定
     var work: AnnictWorkResponse!
-    var status: AnimeStatus?
+    var status: AnimeStatus? {
+        didSet {
+            if self.tableView != nil {
+                self.initDataSource()
+            }
+        }
+    }
     
     enum BasicInfo {
         case status
@@ -32,7 +38,11 @@ class AnnictDetailAnimeInfoViewController: UIViewController {
     
     @IBOutlet dynamic fileprivate weak var tableView: UITableView!
     
-    fileprivate var dataSources:[(title: String, subtext: String)] = []
+    fileprivate var dataSources:[(title: String, subtext: String)] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     fileprivate var memoTags:[BasicInfo] = []
     
     override func viewDidLoad() {
@@ -50,10 +60,12 @@ class AnnictDetailAnimeInfoViewController: UIViewController {
     }
     
     fileprivate func initDataSource() {
+        var dataSources: [(title: String, subtext: String)] = []
+        
         if let status = self.status {
-            dataSources.append((title: "ステータス", subtext: status.rawValue.localized(withTableName: "AnnictBaseLocalizable")))
+            dataSources.append((title: "ステータス", subtext: status.localizedString))
+            memoTags.append(.status)
         }
-        memoTags.append(.status)
         dataSources.append((title: "メディア", subtext: work.mediaText))
         memoTags.append(.media)
         dataSources.append((title: "リリース時期", subtext: work.seasonNameText))
@@ -73,6 +85,21 @@ class AnnictDetailAnimeInfoViewController: UIViewController {
         if let wikipediaURL = work.wikipediaURL, !(wikipediaURL.isEmpty) {
             dataSources.append((title: "Wikipedia", subtext: ""))
             memoTags.append(.wikipedia)
+        }
+        
+        self.dataSources = dataSources
+    }
+    
+    fileprivate func updateMeStatuses(newStatus: AnimeStatus, completionHandler: ((_ status: AnimeStatus?) -> Void)?) {
+        let request = AnnictAPI.PostStatuses(workID: work.id, kind: newStatus)
+        AnnictAPIClient.send(request) { response in
+            switch response {
+            case .success():
+                completionHandler?(newStatus)
+            case .failure(let error):
+                print(error)
+                completionHandler?(nil)
+            }
         }
     }
 }
@@ -95,6 +122,24 @@ extension AnnictDetailAnimeInfoViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch memoTags[indexPath.row] {
+        case .status:
+            let annictSelectStatusViewController = AnnictSelectStatusViewController.instantiate(withStoryboard: "AnnictWorks")
+            annictSelectStatusViewController.defaultStatus = status ?? .noSelect
+            annictSelectStatusViewController.changeAnimeStatus = { newStatus in
+                // 更新中と表示させる
+                let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AnnictSubtextCell
+                cell?.set(information: (title: "ステータス", subtext: "更新中..."))
+                
+                // 結果を表示させる
+                self.updateMeStatuses(newStatus: newStatus) { status in
+                    if let newStatus = status {
+                        self.status = newStatus
+                    } else {
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+            self.navigationController?.pushViewController(annictSelectStatusViewController, animated: true)
         case .account:
             guard let account = work.twitterUserName else { return }
             let url = "https://twitter.com/\(account)"

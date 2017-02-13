@@ -10,11 +10,29 @@ import APIKit
 import Himotoki
 
 enum AnimeStatus: String {
+    case noSelect = "no_select"
     case wannaWatch = "wanna_watch"
     case watching = "watching"
     case watched = "watched"
     case onHold = "on_hold"
     case stopWatching = "stop_watching"
+    
+    var localizedString: String {
+        return self.rawValue.localized(withTableName: "AnnictBaseLocalizable")
+    }
+    
+    static func getList() -> [AnimeStatus] {
+        return [.noSelect, .wannaWatch, watching, .watched, .onHold, .stopWatching]
+    }
+    
+    static func getLocalizedList() -> [String] {
+        return [AnimeStatus.noSelect.localizedString,
+         AnimeStatus.wannaWatch.localizedString,
+         AnimeStatus.watching.localizedString,
+         AnimeStatus.watched.localizedString,
+         AnimeStatus.onHold.localizedString,
+         AnimeStatus.stopWatching.localizedString]
+    }
 }
 
 extension AnnictAPI {
