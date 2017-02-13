@@ -38,7 +38,10 @@ class AnnictRecordsViewController: UITableViewController {
         super.viewDidLoad()
         
         self.initTableView()
-        self.getRecords()
+        let indicotor = self.initIndicatorView()
+        self.getRecords() { _ in
+            indicotor.stopAnimating()
+        }
     }
     
     fileprivate func initTableView() {
@@ -46,6 +49,30 @@ class AnnictRecordsViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
         tableView.register(cellType: AnnictRecordCell.self)
+        self.initRefreshControl()
+    }
+    
+    fileprivate func initRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(self.pulledTableView(_:)), for: .valueChanged)
+        refreshControl.tintColor = UIColor.annictPink.withAlphaComponent(0.7)
+        self.refreshControl = refreshControl
+    }
+    
+    func pulledTableView(_ refreshControl: UIRefreshControl) {
+        self.currentPage = 0
+        self.getRecords() { _ in
+            self.refreshControl?.endRefreshing()
+        }
+    }
+    
+    fileprivate func initIndicatorView() -> UIActivityIndicatorView {
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        indicator.center = CGPoint(x: view.bounds.midX, y: 16)
+        indicator.color = .annictPink
+        view.addSubview(indicator)
+        indicator.startAnimating()
+        return indicator
     }
     
     fileprivate func getRecords(completionHandler: (() -> Void)? = nil) {

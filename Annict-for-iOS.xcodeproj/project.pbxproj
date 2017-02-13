@@ -248,8 +248,8 @@
 				D13E33941E505B3E00A0CEF6 /* AnnictDetailAnimeInfoTabViewController.swift */,
 				D13E339A1E506DF100A0CEF6 /* AnnictDetailAnimeInfoViewController.swift */,
 				D13E339C1E506E7900A0CEF6 /* AnnictEpisodeViewController.swift */,
-				D13BD2E11E5154AA006CDF2E /* AnnictRecordsViewController.swift */,
 				D13BD2F01E516979006CDF2E /* AnnictRecordsTabViewController.swift */,
+				D13BD2E11E5154AA006CDF2E /* AnnictRecordsViewController.swift */,
 			);
 			name = Detail;
 			sourceTree = "<group>";
