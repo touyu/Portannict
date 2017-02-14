@@ -26,7 +26,11 @@ class AnnictSearchViewController: UIViewController {
         searchBar.delegate = self
         
         self.initTableView()
-        self.getPopularAnime()
+        
+        let indicator = self.initIndicatorView()
+        self.getPopularAnime() { _ in
+            indicator.stopAnimating()
+        }
     }
     
     fileprivate func initTableView() {
@@ -36,17 +40,28 @@ class AnnictSearchViewController: UIViewController {
 //        self.initRefreshControl()
     }
     
-    fileprivate func getPopularAnime() {
+    fileprivate func getPopularAnime(completionHandler: (() -> Void)? = nil) {
         let request = AnnictAPI.GetRecords(perPage: 20)
         AnnictAPIClient.send(request) { response in
             switch response {
             case .success(let value):
                 // 最近見られたアニメから重複を無くして返す
                 self.popularAnimes = value.records.map { $0.work }.reduce([]) {$0.0.map{$0.id}.contains($0.1.id) ? $0.0 : $0.0 + [$0.1] }
+                completionHandler?()
             case .failure(let error):
                 print(error)
+                completionHandler?()
             }
         }
+    }
+    
+    fileprivate func initIndicatorView() -> UIActivityIndicatorView {
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        indicator.center = CGPoint(x: view.bounds.midX, y: 24 + searchBar.bounds.height)
+        indicator.color = .annictPink
+        view.addSubview(indicator)
+        indicator.startAnimating()
+        return indicator
     }
 }
 

@@ -30,7 +30,7 @@
         <scene sceneID="kUr-3l-Rn9">
             <objects>
                 <tabBarController storyboardIdentifier="AnnictTabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1VW-rf-ajZ" customClass="AnnictTabBarController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="C5I-ah-nA9">
+                    <tabBar key="tabBar" contentMode="scaleToFill" itemPositioning="fill" id="C5I-ah-nA9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -51,7 +51,7 @@
             <objects>
                 <navigationController storyboardIdentifier="AnnictSearchNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hJm-j0-ZNo" customClass="AnnictSearchNavigationController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" image="search" id="wPk-Bb-kwL" customClass="AnnictTabBarItem" customModule="Annict_for_iOS" customModuleProvider="target"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="6cM-J4-gnh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="6cM-J4-gnh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">

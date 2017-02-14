@@ -214,6 +214,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D11BF4E81E5331340042A40A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				D113CF0F1E520CB00083ED7D /* AnnictSearchViewController.swift */,
+				D1A43E3F1E520E0000EE40CB /* AnnictSearchNavigationController.swift */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
 		D137D6731E4D735E00F0FCFB = {
 			isa = PBXGroup;
 			children = (
@@ -449,11 +458,10 @@
 		D1FEDD091E4DDE1700EFA42F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D195D0FB1E4DEE11004B6B15 /* Login */,
 				D195D0FA1E4DED42004B6B15 /* Home */,
 				D13BD2C81E506FE0006CDF2E /* Detail */,
-				D195D0FB1E4DEE11004B6B15 /* Login */,
-				D113CF0F1E520CB00083ED7D /* AnnictSearchViewController.swift */,
-				D1A43E3F1E520E0000EE40CB /* AnnictSearchNavigationController.swift */,
+				D11BF4E81E5331340042A40A /* Search */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

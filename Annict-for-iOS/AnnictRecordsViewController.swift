@@ -73,7 +73,7 @@ class AnnictRecordsViewController: UITableViewController {
     
     fileprivate func initIndicatorView() -> UIActivityIndicatorView {
         let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-        indicator.center = CGPoint(x: view.bounds.midX, y: 16)
+        indicator.center = CGPoint(x: view.bounds.midX, y: 24)
         indicator.color = .annictPink
         view.addSubview(indicator)
         indicator.startAnimating()
