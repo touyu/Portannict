@@ -37,6 +37,7 @@ class AnnictMeWorkCell: UITableViewCell {
     func set(work: AnnictWorkResponse) {
         self.titleLabel.text = work.title
         self.setTwitterIcon(imageView: iconImageView, username: work.twitterUserName)
+//        self.setAnimeIcon(imageView: iconImageView, title: work.title)
         self.tag1.text = "  \(work.mediaText)  "
         self.tag1.alpha = 1
         if let seasonNameText = work.seasonNameText {
@@ -48,10 +49,24 @@ class AnnictMeWorkCell: UITableViewCell {
     fileprivate func setTwitterIcon(imageView: UIImageView!, username: String?) {
         if let username = username {
             let url = URL(string: "http://furyu.nazo.cc/twicon/\(username)/original")!
-//            print("loading...\(url.absoluteString)")
             imageView.kf.setImage(with: url)
         }
     }
+    
+//    fileprivate func setAnimeIcon(imageView: UIImageView!, title: String) {
+//        let request = RakutenAPI.GetRakutenItems(keyword: title)
+//        RakutenAPIClient.send(request) { response in
+//            switch response {
+//            case .success(let value):
+//                guard let items = value.items else { return }
+//                guard let imageURL = items.first?.mediumImageURLs?.first else { return }
+//                let url = URL(string: imageURL)!
+//                imageView.kf.setImage(with: url)
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//    }
     
     fileprivate func initBaseView() {
         self.baseView.layer.masksToBounds = true

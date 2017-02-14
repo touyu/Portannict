@@ -13,6 +13,9 @@
 		D113CF0C1E51F5CD0083ED7D /* AnnictTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113CF0B1E51F5CD0083ED7D /* AnnictTabBarController.swift */; };
 		D113CF0E1E52090A0083ED7D /* AnnictTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */; };
 		D113CF101E520CB00083ED7D /* AnnictSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113CF0F1E520CB00083ED7D /* AnnictSearchViewController.swift */; };
+		D11BF4EB1E533D680042A40A /* RakutenAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF4EA1E533D680042A40A /* RakutenAPIRequest.swift */; };
+		D11BF4ED1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF4EC1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift */; };
+		D11BF4F01E5344980042A40A /* RakutenItemsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF4EF1E5344980042A40A /* RakutenItemsResponse.swift */; };
 		D137D6801E4D735E00F0FCFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D137D67F1E4D735E00F0FCFB /* AppDelegate.swift */; };
 		D137D6871E4D735E00F0FCFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D137D6861E4D735E00F0FCFB /* Assets.xcassets */; };
 		D137D68A1E4D735E00F0FCFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D137D6881E4D735E00F0FCFB /* LaunchScreen.storyboard */; };
@@ -98,6 +101,9 @@
 		D113CF0B1E51F5CD0083ED7D /* AnnictTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictTabBarController.swift; sourceTree = "<group>"; };
 		D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictTabBarItem.swift; sourceTree = "<group>"; };
 		D113CF0F1E520CB00083ED7D /* AnnictSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictSearchViewController.swift; sourceTree = "<group>"; };
+		D11BF4EA1E533D680042A40A /* RakutenAPIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RakutenAPIRequest.swift; sourceTree = "<group>"; };
+		D11BF4EC1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RakutenAPIGetRakutenItems.swift; sourceTree = "<group>"; };
+		D11BF4EF1E5344980042A40A /* RakutenItemsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RakutenItemsResponse.swift; sourceTree = "<group>"; };
 		D137D67C1E4D735E00F0FCFB /* Annict-for-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Annict-for-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D137D67F1E4D735E00F0FCFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D137D6861E4D735E00F0FCFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -221,6 +227,24 @@
 				D1A43E3F1E520E0000EE40CB /* AnnictSearchNavigationController.swift */,
 			);
 			name = Search;
+			sourceTree = "<group>";
+		};
+		D11BF4E91E533D420042A40A /* Rakuten */ = {
+			isa = PBXGroup;
+			children = (
+				D11BF4EA1E533D680042A40A /* RakutenAPIRequest.swift */,
+				D11BF4EC1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift */,
+				D11BF4EE1E5344770042A40A /* Responses */,
+			);
+			name = Rakuten;
+			sourceTree = "<group>";
+		};
+		D11BF4EE1E5344770042A40A /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				D11BF4EF1E5344980042A40A /* RakutenItemsResponse.swift */,
+			);
+			name = Responses;
 			sourceTree = "<group>";
 		};
 		D137D6731E4D735E00F0FCFB = {
@@ -369,6 +393,7 @@
 		D14FF4D51E50245900AD9913 /* AnnictAPI */ = {
 			isa = PBXGroup;
 			children = (
+				D195D1091E4E3189004B6B15 /* AnnictAPIRequest.swift */,
 				D1FEDD031E4D883600EFA42F /* AnnictAPOauthTokenI.swift */,
 				D14FF4D61E5024A500AD9913 /* AnnictAPIGetWorks.swift */,
 				D13BD2CF1E5072AA006CDF2E /* AnnictAPIGetEpisodes.swift */,
@@ -376,6 +401,7 @@
 				D13BD2F41E519D76006CDF2E /* AnnictAPIPostStatuses.swift */,
 				D13BD3051E51C700006CDF2E /* AnnictAPIPostMeRecords.swift */,
 				D13BD3071E51DCE5006CDF2E /* AnnictAPIDeleteMeRecord.swift */,
+				D195D1061E4E096D004B6B15 /* Responses */,
 			);
 			name = AnnictAPI;
 			sourceTree = "<group>";
@@ -447,10 +473,9 @@
 		D1FEDD001E4D841A00EFA42F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D14FF4D51E50245900AD9913 /* AnnictAPI */,
-				D195D1091E4E3189004B6B15 /* AnnictAPIRequest.swift */,
 				D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */,
-				D195D1061E4E096D004B6B15 /* Responses */,
+				D14FF4D51E50245900AD9913 /* AnnictAPI */,
+				D11BF4E91E533D420042A40A /* Rakuten */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -781,6 +806,7 @@
 				D13BD2E71E51563E006CDF2E /* AnnictRecordCell.swift in Sources */,
 				D1FEDD061E4D9A8400EFA42F /* LoginViewController.swift in Sources */,
 				D13BD2ED1E5159CC006CDF2E /* AnnictUsersResponse.swift in Sources */,
+				D11BF4ED1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift in Sources */,
 				D13BD2D41E507410006CDF2E /* AnnictEpisodesResponse.swift in Sources */,
 				D13BD2F11E516979006CDF2E /* AnnictRecordsTabViewController.swift in Sources */,
 				D1FEDCFF1E4D7CD300EFA42F /* AnnictConsts.swift in Sources */,
@@ -793,6 +819,7 @@
 				D13BD2FC1E51ADC3006CDF2E /* AnnictRatingCell.swift in Sources */,
 				D13E339D1E506E7900A0CEF6 /* AnnictEpisodeViewController.swift in Sources */,
 				D13BD2EB1E515913006CDF2E /* AnnictRecordsResponse.swift in Sources */,
+				D11BF4EB1E533D680042A40A /* RakutenAPIRequest.swift in Sources */,
 				D195D1031E4DF000004B6B15 /* UIColor+Extension.swift in Sources */,
 				D195D0F81E4DE919004B6B15 /* UIViewController+Extension.swift in Sources */,
 				D13E339B1E506DF100A0CEF6 /* AnnictDetailAnimeInfoViewController.swift in Sources */,
@@ -808,6 +835,7 @@
 				D1A43E401E520E0000EE40CB /* AnnictSearchNavigationController.swift in Sources */,
 				D13BD2F71E51A9F7006CDF2E /* AnnictPostRecordsViewController.swift in Sources */,
 				D13BD2DD1E50A395006CDF2E /* AnnictSubtextCell.swift in Sources */,
+				D11BF4F01E5344980042A40A /* RakutenItemsResponse.swift in Sources */,
 				D195D0EF1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift in Sources */,
 				D113CF101E520CB00083ED7D /* AnnictSearchViewController.swift in Sources */,
 				D13E33951E505B3E00A0CEF6 /* AnnictDetailAnimeInfoTabViewController.swift in Sources */,
