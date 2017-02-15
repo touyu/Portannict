@@ -49,6 +49,10 @@ class AnnictMeWorksTabViewController: ButtonBarPagerTabStripViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        reloadPagerTabStripView()
+    }
+    
     override public func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         let a = AnnictMeWorksViewController.instantiate(withStoryboard: "AnnictMeWorks")
         a.mode = .watching
