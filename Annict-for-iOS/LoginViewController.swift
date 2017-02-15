@@ -16,14 +16,22 @@ import APIKit
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet dynamic fileprivate weak var loginButton: UIButton!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.initUI()
     }
     
     @IBAction func tapedLoginButton(_ sender: UIButton) {
         guard let url = AnnictConsts.oauthURL() else { return }
         self.openSafariViewController(url: url)
+    }
+    
+    fileprivate func initUI() {
+        self.loginButton.layer.masksToBounds = true
+        self.loginButton.layer.cornerRadius = 4
     }
     
     fileprivate func openSafariViewController(url: URL) {

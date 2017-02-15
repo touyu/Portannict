@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,11 +40,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="annict_icon" translatesAutoresizingMaskIntoConstraints="NO" id="siP-jA-kc2">
-                                <rect key="frame" x="137" y="150" width="100" height="100"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="annict_for_iOS_logo" translatesAutoresizingMaskIntoConstraints="NO" id="siP-jA-kc2">
+                                <rect key="frame" x="62" y="139" width="250" height="122"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="GjM-OM-R42"/>
-                                    <constraint firstAttribute="height" constant="100" id="jmt-IB-3Du"/>
+                                    <constraint firstAttribute="width" secondItem="siP-jA-kc2" secondAttribute="height" multiplier="425:207" id="nT9-fO-N1q"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIc-sz-NFx">
@@ -52,7 +52,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Hkq-HF-06t"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -68,15 +68,19 @@
                             <constraint firstItem="iJ7-bM-LRn" firstAttribute="top" secondItem="dIc-sz-NFx" secondAttribute="bottom" constant="100" id="Wrb-Ie-n5f"/>
                             <constraint firstItem="siP-jA-kc2" firstAttribute="centerY" secondItem="eBT-4w-ctQ" secondAttribute="centerY" multiplier="3/5" id="h01-KG-Q3C"/>
                             <constraint firstItem="dIc-sz-NFx" firstAttribute="centerX" secondItem="siP-jA-kc2" secondAttribute="centerX" id="ogA-KS-fbb"/>
+                            <constraint firstItem="siP-jA-kc2" firstAttribute="width" secondItem="eBT-4w-ctQ" secondAttribute="width" multiplier="2/3" id="tF3-HO-pQI"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="dIc-sz-NFx" id="xST-bd-UH7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F8x-ap-xD6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="157.59999999999999" y="151.57421289355324"/>
+            <point key="canvasLocation" x="-81" y="141"/>
         </scene>
     </scenes>
     <resources>
-        <image name="annict_icon" width="114" height="114"/>
+        <image name="annict_for_iOS_logo" width="1275" height="621"/>
     </resources>
 </document>
