@@ -17,6 +17,8 @@
 		D11BF4ED1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF4EC1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift */; };
 		D11BF4F01E5344980042A40A /* RakutenItemsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF4EF1E5344980042A40A /* RakutenItemsResponse.swift */; };
 		D11BF4F51E537F9F0042A40A /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF4F41E537F9F0042A40A /* Async.swift */; };
+		D12F4EB41E54139200EB0651 /* AnnictRecentlyAnimeSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F4EB31E54139200EB0651 /* AnnictRecentlyAnimeSectionCell.swift */; };
+		D12F4EB61E54139B00EB0651 /* AnnictRecentlyAnimeSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D12F4EB51E54139B00EB0651 /* AnnictRecentlyAnimeSectionCell.xib */; };
 		D137D6801E4D735E00F0FCFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D137D67F1E4D735E00F0FCFB /* AppDelegate.swift */; };
 		D137D6871E4D735E00F0FCFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D137D6861E4D735E00F0FCFB /* Assets.xcassets */; };
 		D137D68A1E4D735E00F0FCFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D137D6881E4D735E00F0FCFB /* LaunchScreen.storyboard */; };
@@ -106,6 +108,8 @@
 		D11BF4EC1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RakutenAPIGetRakutenItems.swift; sourceTree = "<group>"; };
 		D11BF4EF1E5344980042A40A /* RakutenItemsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RakutenItemsResponse.swift; sourceTree = "<group>"; };
 		D11BF4F41E537F9F0042A40A /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		D12F4EB31E54139200EB0651 /* AnnictRecentlyAnimeSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictRecentlyAnimeSectionCell.swift; sourceTree = "<group>"; };
+		D12F4EB51E54139B00EB0651 /* AnnictRecentlyAnimeSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnictRecentlyAnimeSectionCell.xib; sourceTree = "<group>"; };
 		D137D67C1E4D735E00F0FCFB /* Annict-for-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Annict-for-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D137D67F1E4D735E00F0FCFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D137D6861E4D735E00F0FCFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -255,6 +259,23 @@
 				D11BF4F41E537F9F0042A40A /* Async.swift */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		D12F4EB21E54137300EB0651 /* AnnictRecentlyAnimeSectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				D12F4EB31E54139200EB0651 /* AnnictRecentlyAnimeSectionCell.swift */,
+				D12F4EB51E54139B00EB0651 /* AnnictRecentlyAnimeSectionCell.xib */,
+			);
+			name = AnnictRecentlyAnimeSectionCell;
+			sourceTree = "<group>";
+		};
+		D12F4EB71E54193300EB0651 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				D12F4EB21E54137300EB0651 /* AnnictRecentlyAnimeSectionCell */,
+			);
+			name = Search;
 			sourceTree = "<group>";
 		};
 		D137D6731E4D735E00F0FCFB = {
@@ -478,6 +499,7 @@
 				D13BD2CC1E507069006CDF2E /* AnnictEpisodeCell */,
 				D13BD2E01E50A3B5006CDF2E /* AnnictSubtextCell */,
 				D13BD2FA1E51ADA5006CDF2E /* Records */,
+				D12F4EB71E54193300EB0651 /* Search */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -639,6 +661,7 @@
 				D13BD2CE1E50707F006CDF2E /* AnnictEpisodeCell.xib in Resources */,
 				D13E33931E505B0C00A0CEF6 /* AnnictWorks.storyboard in Resources */,
 				D13BD2DF1E50A3A7006CDF2E /* AnnictSubtextCell.xib in Resources */,
+				D12F4EB61E54139B00EB0651 /* AnnictRecentlyAnimeSectionCell.xib in Resources */,
 				D13BD2FE1E51ADDC006CDF2E /* AnnictRatingCell.xib in Resources */,
 				D13BD3011E51BA4E006CDF2E /* AnnictTextViewCell.xib in Resources */,
 				D137D6871E4D735E00F0FCFB /* Assets.xcassets in Resources */,
@@ -846,6 +869,7 @@
 				D195D1081E4E098A004B6B15 /* AnnictWorksResponse.swift in Sources */,
 				D1A43E401E520E0000EE40CB /* AnnictSearchNavigationController.swift in Sources */,
 				D13BD2F71E51A9F7006CDF2E /* AnnictPostRecordsViewController.swift in Sources */,
+				D12F4EB41E54139200EB0651 /* AnnictRecentlyAnimeSectionCell.swift in Sources */,
 				D13BD2DD1E50A395006CDF2E /* AnnictSubtextCell.swift in Sources */,
 				D11BF4F01E5344980042A40A /* RakutenItemsResponse.swift in Sources */,
 				D195D0EF1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift in Sources */,

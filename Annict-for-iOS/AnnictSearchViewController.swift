@@ -13,6 +13,14 @@ class AnnictSearchViewController: UIViewController {
     @IBOutlet dynamic fileprivate weak var searchBar: UISearchBar!
     @IBOutlet dynamic fileprivate weak var tableView: UITableView!
     
+    fileprivate var sectionHeight: CGFloat = 40
+    
+    fileprivate var sectionTitle: String = "最近見られたアニメ" {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
     fileprivate var popularAnimes: [AnnictWorkResponse] = [] {
         didSet {
             self.tableView.reloadData()
@@ -50,6 +58,7 @@ class AnnictSearchViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.register(cellType: AnnictMeWorkCell.self)
+        self.tableView.register(cellType: AnnictRecentlyAnimeSectionCell.self)
 //        self.initRefreshControl()
     }
     
@@ -70,7 +79,7 @@ class AnnictSearchViewController: UIViewController {
     
     fileprivate func initIndicatorView() -> UIActivityIndicatorView {
         let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-        indicator.center = CGPoint(x: view.bounds.midX, y: 24 + searchBar.bounds.height)
+        indicator.center = CGPoint(x: view.bounds.midX, y: 24 + searchBar.bounds.height + sectionHeight)
         indicator.color = .annictPink
         view.addSubview(indicator)
         indicator.startAnimating()
@@ -79,18 +88,40 @@ class AnnictSearchViewController: UIViewController {
 }
 
 extension AnnictSearchViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return popularAnimes.count
+        if section == 0 {
+            return 1
+        } else {
+            return popularAnimes.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(with: AnnictMeWorkCell.self, for: indexPath)
-        cell.set(work: popularAnimes[indexPath.row])
-        return cell
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(with: AnnictRecentlyAnimeSectionCell.self, for: indexPath)
+            cell.set(title: self.sectionTitle)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(with: AnnictMeWorkCell.self, for: indexPath)
+            cell.set(work: popularAnimes[indexPath.row])
+            return cell
+        }
     }
 }
 
 extension AnnictSearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return sectionHeight
+        } else {
+            return 97
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let annictDetailAnimeInfoVC = AnnictDetailAnimeInfoTabViewController.instantiate(withStoryboard: "AnnictWorks")
         annictDetailAnimeInfoVC.work = popularAnimes[indexPath.row]
@@ -110,13 +141,19 @@ extension AnnictSearchViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         
         if searchBar.text?.isEmpty ?? true {
-            self.getPopularAnime()
+            self.sectionTitle = "最近見られたアニメ"
+            self.popularAnimes = []
+            let indicator = self.initIndicatorView()
+            self.getPopularAnime() { _ in
+                indicator.stopAnimating()
+            }
         }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
             // 初期化
+            self.sectionTitle = ""
             self.popularAnimes = []
         }
     }
@@ -126,19 +163,25 @@ extension AnnictSearchViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         
         // 初期化
+        self.sectionTitle = "検索結果"
         self.popularAnimes = []
         
-        self.searchAnime(title: searchBar.text)
+        let indicator = self.initIndicatorView()
+        self.searchAnime(title: searchBar.text) { _ in
+            indicator.stopAnimating()
+        }
     }
     
-    fileprivate func searchAnime(title: String?) {
+    fileprivate func searchAnime(title: String?, completionHandler: (() -> Void)? = nil) {
         let request = AnnictAPI.GetWorks(filterTitle: title)
         AnnictAPIClient.send(request) { response in
             switch response {
             case .success(let value):
                 self.popularAnimes = value.works
+                completionHandler?()
             case .failure(let error):
                 print(error)
+                completionHandler?()
             }
         }
     }
