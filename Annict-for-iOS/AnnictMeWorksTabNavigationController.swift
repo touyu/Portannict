@@ -13,6 +13,5 @@ class AnnictMeWorksTabNavigationController: UINavigationController {
         super.viewDidLoad()
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationBar.shadowImage = UIImage()
-        
     }
 }

@@ -61,6 +61,7 @@ extension AnnictAPI {
         
         typealias FilterStatus = AnimeStatus
         
+        var id: Int?
         var page: Int
         var perPage: Int
         var sort: Sort
@@ -70,12 +71,14 @@ extension AnnictAPI {
         var filterSeason: (year: Int, season: Season?)?
         var filterTitle: String?
         
-        init(page: Int = 1,
+        init(id: Int? = nil,
+             page: Int = 1,
              parPage: Int = 30,
              filterStatus: FilterStatus? = nil,
              filterSeason: (year: Int, season: Season?)? = nil,
              filterTitle: String? = nil,
              sort: Sort = .season) {
+            self.id = id
             self.page = page
             self.perPage = parPage
             self.sort = sort
@@ -102,6 +105,7 @@ extension AnnictAPI {
                 "per_page": perPage,
                 sort.rawValue: order.rawValue,
                 ]
+            params["filter_ids"] = id ?? nil
             params["filter_status"] = filterStatus?.rawValue ?? nil
             params["filter_title"] = filterTitle ?? nil
             if let filterSeason = filterSeason {

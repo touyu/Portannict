@@ -51,9 +51,10 @@
             <objects>
                 <navigationController storyboardIdentifier="AnnictSearchNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hJm-j0-ZNo" customClass="AnnictSearchNavigationController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" image="search" id="wPk-Bb-kwL" customClass="AnnictTabBarItem" customModule="Annict_for_iOS" customModuleProvider="target"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="6cM-J4-gnh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="6cM-J4-gnh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.97254901959999995" green="0.35686274509999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.97254901959999995" green="0.35686274509999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>

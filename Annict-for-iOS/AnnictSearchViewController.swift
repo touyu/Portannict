@@ -23,6 +23,7 @@ class AnnictSearchViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = "search".localized(withTableName: "AnnictBaseLocalizable")
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         searchBar.delegate = self
         
         self.initTableView()
@@ -33,9 +34,21 @@ class AnnictSearchViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.shadowImage = nil
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
     fileprivate func initTableView() {
         self.tableView.dataSource = self
-//        self.tableView.delegate = self
+        self.tableView.delegate = self
         self.tableView.register(cellType: AnnictMeWorkCell.self)
 //        self.initRefreshControl()
     }
@@ -74,6 +87,15 @@ extension AnnictSearchViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(with: AnnictMeWorkCell.self, for: indexPath)
         cell.set(work: popularAnimes[indexPath.row])
         return cell
+    }
+}
+
+extension AnnictSearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let annictDetailAnimeInfoVC = AnnictDetailAnimeInfoTabViewController.instantiate(withStoryboard: "AnnictWorks")
+        annictDetailAnimeInfoVC.work = popularAnimes[indexPath.row]
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.pushViewController(annictDetailAnimeInfoVC, animated: true)
     }
 }
 

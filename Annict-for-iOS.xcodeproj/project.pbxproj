@@ -16,6 +16,7 @@
 		D11BF4EB1E533D680042A40A /* RakutenAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF4EA1E533D680042A40A /* RakutenAPIRequest.swift */; };
 		D11BF4ED1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF4EC1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift */; };
 		D11BF4F01E5344980042A40A /* RakutenItemsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF4EF1E5344980042A40A /* RakutenItemsResponse.swift */; };
+		D11BF4F51E537F9F0042A40A /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF4F41E537F9F0042A40A /* Async.swift */; };
 		D137D6801E4D735E00F0FCFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D137D67F1E4D735E00F0FCFB /* AppDelegate.swift */; };
 		D137D6871E4D735E00F0FCFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D137D6861E4D735E00F0FCFB /* Assets.xcassets */; };
 		D137D68A1E4D735E00F0FCFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D137D6881E4D735E00F0FCFB /* LaunchScreen.storyboard */; };
@@ -104,6 +105,7 @@
 		D11BF4EA1E533D680042A40A /* RakutenAPIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RakutenAPIRequest.swift; sourceTree = "<group>"; };
 		D11BF4EC1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RakutenAPIGetRakutenItems.swift; sourceTree = "<group>"; };
 		D11BF4EF1E5344980042A40A /* RakutenItemsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RakutenItemsResponse.swift; sourceTree = "<group>"; };
+		D11BF4F41E537F9F0042A40A /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		D137D67C1E4D735E00F0FCFB /* Annict-for-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Annict-for-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D137D67F1E4D735E00F0FCFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D137D6861E4D735E00F0FCFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -247,6 +249,14 @@
 			name = Responses;
 			sourceTree = "<group>";
 		};
+		D11BF4F11E5358D60042A40A /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				D11BF4F41E537F9F0042A40A /* Async.swift */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
 		D137D6731E4D735E00F0FCFB = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +291,7 @@
 				D195D0F21E4DE62E004B6B15 /* Extensions */,
 				D1FEDD0A1E4DDE2900EFA42F /* Storyboards */,
 				D13E33871E504F1D00A0CEF6 /* Support */,
+				D11BF4F11E5358D60042A40A /* Utility */,
 			);
 			path = "Annict-for-iOS";
 			sourceTree = "<group>";
@@ -393,6 +404,7 @@
 		D14FF4D51E50245900AD9913 /* AnnictAPI */ = {
 			isa = PBXGroup;
 			children = (
+				D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */,
 				D195D1091E4E3189004B6B15 /* AnnictAPIRequest.swift */,
 				D1FEDD031E4D883600EFA42F /* AnnictAPOauthTokenI.swift */,
 				D14FF4D61E5024A500AD9913 /* AnnictAPIGetWorks.swift */,
@@ -473,7 +485,6 @@
 		D1FEDD001E4D841A00EFA42F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */,
 				D14FF4D51E50245900AD9913 /* AnnictAPI */,
 				D11BF4E91E533D420042A40A /* Rakuten */,
 			);
@@ -799,6 +810,7 @@
 				D13BD2D01E5072AA006CDF2E /* AnnictAPIGetEpisodes.swift in Sources */,
 				D13BD2F31E518A4B006CDF2E /* AnnictSelectStatusViewController.swift in Sources */,
 				D13E33991E505E9600A0CEF6 /* AnnictMeWorksTabViewController.swift in Sources */,
+				D11BF4F51E537F9F0042A40A /* Async.swift in Sources */,
 				D195D11B1E4F928A004B6B15 /* UITableView+Extension.swift in Sources */,
 				D13E33901E50507600A0CEF6 /* String+Extension.swift in Sources */,
 				D195D0F41E4DE677004B6B15 /* Notification+Extension.swift in Sources */,

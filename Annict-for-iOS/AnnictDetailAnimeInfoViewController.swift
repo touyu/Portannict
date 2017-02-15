@@ -26,6 +26,14 @@ class AnnictDetailAnimeInfoViewController: UIViewController {
         }
     }
     
+    @IBOutlet dynamic fileprivate weak var tableView: UITableView!
+    
+    fileprivate var dataSources:[(title: String, subtext: String)] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
     enum BasicInfo {
         case status
         case media
@@ -36,14 +44,15 @@ class AnnictDetailAnimeInfoViewController: UIViewController {
         case wikipedia
     }
     
-    @IBOutlet dynamic fileprivate weak var tableView: UITableView!
-    
-    fileprivate var dataSources:[(title: String, subtext: String)] = [] {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
     fileprivate var memoTags:[BasicInfo] = []
+    
+    enum AcquisitionOfStatus {
+        case getting
+        case updating
+        case completion
+    }
+    
+    fileprivate var acquisition: AcquisitionOfStatus = .completion
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +74,12 @@ class AnnictDetailAnimeInfoViewController: UIViewController {
         if let status = self.status {
             dataSources.append((title: "ステータス", subtext: status.localizedString))
             memoTags.append(.status)
+            self.acquisition = .completion
+        } else {
+            dataSources.append((title: "ステータス", subtext: "取得中..."))
+            memoTags.append(.status)
+            self.acquisition = .getting
+            self.getAnimeStatus()
         }
         dataSources.append((title: "メディア", subtext: work.mediaText))
         memoTags.append(.media)
@@ -104,6 +119,12 @@ class AnnictDetailAnimeInfoViewController: UIViewController {
             }
         }
     }
+    
+    fileprivate func getAnimeStatus() {
+        Async.getStatus(workID: work.id) { status in
+            self.status = status
+        }
+    }
 }
 
 
@@ -125,15 +146,22 @@ extension AnnictDetailAnimeInfoViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         switch memoTags[indexPath.row] {
         case .status:
+            // ステータスの取得状況がcompletion以外のときは選択できないようにする
+            if self.acquisition != .completion {
+                return
+            }
+            
             let annictSelectStatusViewController = AnnictSelectStatusViewController.instantiate(withStoryboard: "AnnictWorks")
             annictSelectStatusViewController.defaultStatus = status ?? .noSelect
             annictSelectStatusViewController.changeAnimeStatus = { newStatus in
                 // 更新中と表示させる
                 let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AnnictSubtextCell
                 cell?.set(information: (title: "ステータス", subtext: "更新中..."))
+                self.acquisition = .updating
                 
                 // 結果を表示させる
                 self.updateMeStatuses(newStatus: newStatus) { status in
+                    self.acquisition = .completion
                     if let newStatus = status {
                         self.status = newStatus
                     } else {
