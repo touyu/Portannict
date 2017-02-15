@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YearPickerView" customModule="Annict_for_iOS" customModuleProvider="target">
+            <connections>
+                <outlet property="pickerView" destination="AWu-44-PJH" id="cHI-5Q-OCk"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="VXe-xf-vCv">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AWu-44-PJH">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
+                </pickerView>
+            </subviews>
+            <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="AWu-44-PJH" firstAttribute="width" secondItem="VXe-xf-vCv" secondAttribute="width" id="0Fc-a1-KBd"/>
+                <constraint firstItem="AWu-44-PJH" firstAttribute="centerX" secondItem="VXe-xf-vCv" secondAttribute="centerX" id="MCg-cl-UXz"/>
+                <constraint firstItem="AWu-44-PJH" firstAttribute="centerY" secondItem="VXe-xf-vCv" secondAttribute="centerY" id="NMZ-54-lXi"/>
+                <constraint firstAttribute="bottom" secondItem="AWu-44-PJH" secondAttribute="bottom" id="lex-oc-OEq"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="1.5" y="196"/>
+        </view>
+    </objects>
+</document>

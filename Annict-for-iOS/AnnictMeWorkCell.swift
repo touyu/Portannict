@@ -48,8 +48,9 @@ class AnnictMeWorkCell: UITableViewCell {
     
     fileprivate func setTwitterIcon(imageView: UIImageView!, username: String?) {
         if let username = username {
-            let url = URL(string: "http://furyu.nazo.cc/twicon/\(username)/original")!
-            imageView.kf.setImage(with: url)
+            if let url = URL(string: "http://furyu.nazo.cc/twicon/\(username)/original") {
+                imageView.kf.setImage(with: url)
+            }
         }
     }
     

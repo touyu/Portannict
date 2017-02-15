@@ -19,6 +19,12 @@
 		D11BF4F51E537F9F0042A40A /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF4F41E537F9F0042A40A /* Async.swift */; };
 		D12F4EB41E54139200EB0651 /* AnnictRecentlyAnimeSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F4EB31E54139200EB0651 /* AnnictRecentlyAnimeSectionCell.swift */; };
 		D12F4EB61E54139B00EB0651 /* AnnictRecentlyAnimeSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D12F4EB51E54139B00EB0651 /* AnnictRecentlyAnimeSectionCell.xib */; };
+		D12F4EBA1E544E1A00EB0651 /* AnnictSeasonTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F4EB91E544E1A00EB0651 /* AnnictSeasonTabViewController.swift */; };
+		D12F4EBC1E544F3D00EB0651 /* AnnictSeasonTabNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F4EBB1E544F3D00EB0651 /* AnnictSeasonTabNavigationController.swift */; };
+		D12F4EBE1E54526E00EB0651 /* AnnictSeasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F4EBD1E54526E00EB0651 /* AnnictSeasonViewController.swift */; };
+		D12F4EC21E5476A300EB0651 /* YearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F4EC11E5476A300EB0651 /* YearPickerView.swift */; };
+		D12F4EC41E5476AD00EB0651 /* YearPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D12F4EC31E5476AD00EB0651 /* YearPickerView.xib */; };
+		D12F4EC81E547ADC00EB0651 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F4EC71E547ADC00EB0651 /* UIView+Extension.swift */; };
 		D137D6801E4D735E00F0FCFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D137D67F1E4D735E00F0FCFB /* AppDelegate.swift */; };
 		D137D6871E4D735E00F0FCFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D137D6861E4D735E00F0FCFB /* Assets.xcassets */; };
 		D137D68A1E4D735E00F0FCFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D137D6881E4D735E00F0FCFB /* LaunchScreen.storyboard */; };
@@ -110,6 +116,12 @@
 		D11BF4F41E537F9F0042A40A /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		D12F4EB31E54139200EB0651 /* AnnictRecentlyAnimeSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictRecentlyAnimeSectionCell.swift; sourceTree = "<group>"; };
 		D12F4EB51E54139B00EB0651 /* AnnictRecentlyAnimeSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnictRecentlyAnimeSectionCell.xib; sourceTree = "<group>"; };
+		D12F4EB91E544E1A00EB0651 /* AnnictSeasonTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictSeasonTabViewController.swift; sourceTree = "<group>"; };
+		D12F4EBB1E544F3D00EB0651 /* AnnictSeasonTabNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictSeasonTabNavigationController.swift; sourceTree = "<group>"; };
+		D12F4EBD1E54526E00EB0651 /* AnnictSeasonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictSeasonViewController.swift; sourceTree = "<group>"; };
+		D12F4EC11E5476A300EB0651 /* YearPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearPickerView.swift; sourceTree = "<group>"; };
+		D12F4EC31E5476AD00EB0651 /* YearPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YearPickerView.xib; sourceTree = "<group>"; };
+		D12F4EC71E547ADC00EB0651 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D137D67C1E4D735E00F0FCFB /* Annict-for-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Annict-for-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D137D67F1E4D735E00F0FCFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D137D6861E4D735E00F0FCFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -278,6 +290,25 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
+		D12F4EB81E544DF700EB0651 /* Season */ = {
+			isa = PBXGroup;
+			children = (
+				D12F4EBB1E544F3D00EB0651 /* AnnictSeasonTabNavigationController.swift */,
+				D12F4EB91E544E1A00EB0651 /* AnnictSeasonTabViewController.swift */,
+				D12F4EBD1E54526E00EB0651 /* AnnictSeasonViewController.swift */,
+			);
+			name = Season;
+			sourceTree = "<group>";
+		};
+		D12F4EC91E547B6300EB0651 /* YearPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				D12F4EC11E5476A300EB0651 /* YearPickerView.swift */,
+				D12F4EC31E5476AD00EB0651 /* YearPickerView.xib */,
+			);
+			name = YearPickerView;
+			sourceTree = "<group>";
+		};
 		D137D6731E4D735E00F0FCFB = {
 			isa = PBXGroup;
 			children = (
@@ -443,6 +474,7 @@
 			isa = PBXGroup;
 			children = (
 				D195D0F31E4DE677004B6B15 /* Notification+Extension.swift */,
+				D12F4EC71E547ADC00EB0651 /* UIView+Extension.swift */,
 				D195D0F71E4DE919004B6B15 /* UIViewController+Extension.swift */,
 				D195D1021E4DF000004B6B15 /* UIColor+Extension.swift */,
 				D195D11A1E4F928A004B6B15 /* UITableView+Extension.swift */,
@@ -487,6 +519,7 @@
 			isa = PBXGroup;
 			children = (
 				D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */,
+				D12F4EC91E547B6300EB0651 /* YearPickerView */,
 				D195D1151E4F8AF9004B6B15 /* Cells */,
 			);
 			name = Views;
@@ -520,6 +553,7 @@
 				D195D0FA1E4DED42004B6B15 /* Home */,
 				D13BD2C81E506FE0006CDF2E /* Detail */,
 				D11BF4E81E5331340042A40A /* Search */,
+				D12F4EB81E544DF700EB0651 /* Season */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -667,6 +701,7 @@
 				D137D6871E4D735E00F0FCFB /* Assets.xcassets in Resources */,
 				D195D0ED1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard in Resources */,
 				D13BD2E91E515659006CDF2E /* AnnictRecordCell.xib in Resources */,
+				D12F4EC41E5476AD00EB0651 /* YearPickerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -844,6 +879,7 @@
 				D11BF4ED1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift in Sources */,
 				D13BD2D41E507410006CDF2E /* AnnictEpisodesResponse.swift in Sources */,
 				D13BD2F11E516979006CDF2E /* AnnictRecordsTabViewController.swift in Sources */,
+				D12F4EBC1E544F3D00EB0651 /* AnnictSeasonTabNavigationController.swift in Sources */,
 				D1FEDCFF1E4D7CD300EFA42F /* AnnictConsts.swift in Sources */,
 				D1FEDD041E4D883600EFA42F /* AnnictAPOauthTokenI.swift in Sources */,
 				D13BD2F91E51AA95006CDF2E /* AnnictPostRecordsNavigationController.swift in Sources */,
@@ -857,14 +893,18 @@
 				D11BF4EB1E533D680042A40A /* RakutenAPIRequest.swift in Sources */,
 				D195D1031E4DF000004B6B15 /* UIColor+Extension.swift in Sources */,
 				D195D0F81E4DE919004B6B15 /* UIViewController+Extension.swift in Sources */,
+				D12F4EC21E5476A300EB0651 /* YearPickerView.swift in Sources */,
 				D13E339B1E506DF100A0CEF6 /* AnnictDetailAnimeInfoViewController.swift in Sources */,
+				D12F4EC81E547ADC00EB0651 /* UIView+Extension.swift in Sources */,
 				D13BD3081E51DCE5006CDF2E /* AnnictAPIDeleteMeRecord.swift in Sources */,
 				D13BD2E21E5154AA006CDF2E /* AnnictRecordsViewController.swift in Sources */,
+				D12F4EBA1E544E1A00EB0651 /* AnnictSeasonTabViewController.swift in Sources */,
 				D113CF0C1E51F5CD0083ED7D /* AnnictTabBarController.swift in Sources */,
 				D14FF4EC1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift in Sources */,
 				D13BD2EF1E515ABE006CDF2E /* AnnictAPIGetRecords.swift in Sources */,
 				D113CF0E1E52090A0083ED7D /* AnnictTabBarItem.swift in Sources */,
 				D13BD3031E51BA57006CDF2E /* AnnictTextViewCell.swift in Sources */,
+				D12F4EBE1E54526E00EB0651 /* AnnictSeasonViewController.swift in Sources */,
 				D195D1171E4F8BD7004B6B15 /* AnnictMeWorkCell.swift in Sources */,
 				D195D1081E4E098A004B6B15 /* AnnictWorksResponse.swift in Sources */,
 				D1A43E401E520E0000EE40CB /* AnnictSearchNavigationController.swift in Sources */,

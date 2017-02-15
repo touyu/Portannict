@@ -24,7 +24,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jip-nA-xmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2103" y="36"/>
+            <point key="canvasLocation" x="2122" y="-645"/>
         </scene>
         <!--Annict Tab Bar Controller-->
         <scene sceneID="kUr-3l-Rn9">
@@ -39,7 +39,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="GAE-Ta-b8w" kind="relationship" relationship="viewControllers" id="4kr-BE-bbx"/>
-                        <segue destination="hJm-j0-ZNo" kind="relationship" relationship="viewControllers" id="R5P-a1-P8L"/>
+                        <segue destination="bLi-62-9SM" kind="relationship" relationship="viewControllers" id="OhA-iv-5lg"/>
+                        <segue destination="hJm-j0-ZNo" kind="relationship" relationship="viewControllers" id="Etb-Mv-ype"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mAu-LA-y9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -51,7 +52,7 @@
             <objects>
                 <navigationController storyboardIdentifier="AnnictSearchNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hJm-j0-ZNo" customClass="AnnictSearchNavigationController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" image="search" id="wPk-Bb-kwL" customClass="AnnictTabBarItem" customModule="Annict_for_iOS" customModuleProvider="target"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="6cM-J4-gnh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="6cM-J4-gnh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.97254901959999995" green="0.35686274509999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -66,7 +67,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="phy-HA-CxB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="700" y="-642"/>
+            <point key="canvasLocation" x="710" y="36"/>
         </scene>
         <!--Annict Search View Controller-->
         <scene sceneID="pgA-F3-tec">
@@ -107,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xU6-bq-xhd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1408.8" y="-643.62818590704649"/>
+            <point key="canvasLocation" x="1409" y="36"/>
         </scene>
         <!--Annict Me Works Tab Navigation Controller-->
         <scene sceneID="Yaa-Yz-9HU">
@@ -131,7 +132,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Skl-2F-mjp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="711" y="38"/>
+            <point key="canvasLocation" x="710" y="-644"/>
         </scene>
         <!--Annict Me Works Tab View Controller-->
         <scene sceneID="qar-ly-DxP">
@@ -192,11 +193,113 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aa9-iU-mgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1408.8" y="36.431784107946029"/>
+            <point key="canvasLocation" x="1409" y="-645"/>
+        </scene>
+        <!--Annict Season Tab Navigation Controller-->
+        <scene sceneID="0K8-nH-bcv">
+            <objects>
+                <navigationController storyboardIdentifier="AnnictSeasonTabNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bLi-62-9SM" customClass="AnnictSeasonTabNavigationController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="tv" id="r8W-hp-8Nb" customClass="AnnictTabBarItem" customModule="Annict_for_iOS" customModuleProvider="target"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="W6V-jD-3yc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.97254901959999995" green="0.35686274509999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.97254901959999995" green="0.35686274509999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wgl-TC-9CW" kind="relationship" relationship="rootViewController" id="jPT-Vo-QB4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L6M-pB-NbE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="710" y="714"/>
+        </scene>
+        <!--Annict Season Tab View Controller-->
+        <scene sceneID="c7k-Xz-3vC">
+            <objects>
+                <viewController storyboardIdentifier="AnnictSeasonTabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wgl-TC-9CW" customClass="AnnictSeasonTabViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VKg-xO-35c"/>
+                        <viewControllerLayoutGuide type="bottom" id="HZQ-Hw-OCN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PTW-F8-NB0">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O96-yU-VJO">
+                                <rect key="frame" x="0.0" y="40" width="375" height="514"/>
+                            </scrollView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xCl-de-jlR" customClass="ButtonBarView" customModule="XLPagerTabStrip">
+                                <rect key="frame" x="0.0" y="-1" width="375" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="RoT-3I-s87"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lAM-ah-SmS">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z9U-FM-qon">
+                                <rect key="frame" x="0.0" y="39" width="375" height="1"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="YeV-Zh-gIc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xCl-de-jlR" firstAttribute="centerX" secondItem="PTW-F8-NB0" secondAttribute="centerX" id="70X-Kl-5Ac"/>
+                            <constraint firstItem="HZQ-Hw-OCN" firstAttribute="top" secondItem="O96-yU-VJO" secondAttribute="bottom" id="7G0-ZU-KI3"/>
+                            <constraint firstItem="xCl-de-jlR" firstAttribute="width" secondItem="PTW-F8-NB0" secondAttribute="width" id="K0H-ff-Qcf"/>
+                            <constraint firstItem="z9U-FM-qon" firstAttribute="width" secondItem="PTW-F8-NB0" secondAttribute="width" id="NiU-qo-VOg"/>
+                            <constraint firstItem="z9U-FM-qon" firstAttribute="centerX" secondItem="PTW-F8-NB0" secondAttribute="centerX" id="UE9-SS-BwH"/>
+                            <constraint firstItem="O96-yU-VJO" firstAttribute="width" secondItem="PTW-F8-NB0" secondAttribute="width" id="a7c-ab-Wsh"/>
+                            <constraint firstItem="z9U-FM-qon" firstAttribute="top" secondItem="xCl-de-jlR" secondAttribute="bottom" id="hhk-D3-9E6"/>
+                            <constraint firstItem="O96-yU-VJO" firstAttribute="top" secondItem="z9U-FM-qon" secondAttribute="bottom" id="ieM-es-6UH"/>
+                            <constraint firstItem="O96-yU-VJO" firstAttribute="centerX" secondItem="PTW-F8-NB0" secondAttribute="centerX" id="tOP-NR-Sg9"/>
+                            <constraint firstItem="xCl-de-jlR" firstAttribute="top" secondItem="VKg-xO-35c" secondAttribute="bottom" constant="-1" id="tZk-PH-D7f"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="sxd-mu-12C"/>
+                    <connections>
+                        <outlet property="buttonBarView" destination="xCl-de-jlR" id="JTL-4y-EYj"/>
+                        <outlet property="containerView" destination="O96-yU-VJO" id="cHr-jK-TFc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5PG-A6-1OJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1409" y="714"/>
+        </scene>
+        <!--Annict Season View Controller-->
+        <scene sceneID="AEk-Di-7ET">
+            <objects>
+                <tableViewController storyboardIdentifier="AnnictSeasonViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dvW-YY-zFW" customClass="AnnictSeasonViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="97" sectionHeaderHeight="28" sectionFooterHeight="28" id="wvN-XR-5vE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <outlet property="dataSource" destination="dvW-YY-zFW" id="4MD-Tz-mnX"/>
+                            <outlet property="delegate" destination="dvW-YY-zFW" id="pC4-Ng-ztJ"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NYX-EF-bZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2121" y="714"/>
         </scene>
     </scenes>
     <resources>
         <image name="person" width="20" height="27"/>
         <image name="search" width="24" height="24"/>
+        <image name="tv" width="25" height="23"/>
     </resources>
 </document>

@@ -40,6 +40,41 @@ enum Order: String {
     case descending = "desc"
 }
 
+enum Season: String {
+    case spring = "spring"
+    case summer = "summer"
+    case autumn = "autumn"
+    case winter = "winter"
+    
+    static var current: Season {
+        let calendar = Calendar(identifier: .gregorian)
+        let month = calendar.component(.month, from: Date())
+        switch month {
+        case 1, 2, 3:
+            return .winter
+        case 4, 5, 6:
+            return .spring
+        case 7, 8, 9:
+            return .summer
+        default:
+            return .autumn
+        }
+    }
+    
+    var number: Int {
+        switch self {
+        case .spring:
+            return 0
+        case .summer:
+            return 1
+        case .autumn:
+            return 2
+        case .winter:
+            return 3
+        }
+    }
+}
+
 extension AnnictAPI {
     
     
@@ -50,13 +85,6 @@ extension AnnictAPI {
             case id = "sort_id"
             case season = "sort_season"
             case watchersCount = "sort_watchers_count"
-        }
-        
-        enum Season: String {
-            case spring = "spring"
-            case summer = "summer"
-            case autumn = "autumn"
-            case winter = "winter"
         }
         
         typealias FilterStatus = AnimeStatus
