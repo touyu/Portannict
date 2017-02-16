@@ -48,7 +48,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIc-sz-NFx">
                                 <rect key="frame" x="62" y="517" width="250" height="50"/>
-                                <color key="backgroundColor" red="0.95686274509803915" green="0.25882352941176467" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.97254901960784312" green="0.35686274509803922" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Hkq-HF-06t"/>
                                 </constraints>
