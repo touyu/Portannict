@@ -155,7 +155,7 @@
 		D13BD3021E51BA57006CDF2E /* AnnictTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictTextViewCell.swift; sourceTree = "<group>"; };
 		D13BD3051E51C700006CDF2E /* AnnictAPIPostMeRecords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPIPostMeRecords.swift; sourceTree = "<group>"; };
 		D13BD3071E51DCE5006CDF2E /* AnnictAPIDeleteMeRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPIDeleteMeRecord.swift; sourceTree = "<group>"; };
-		D13E33861E504EF900A0CEF6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		D13E33861E504EF900A0CEF6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D13E338D1E504F9B00A0CEF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/AnnictBaseLocalizable.strings; sourceTree = "<group>"; };
 		D13E338E1E504FB300A0CEF6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/AnnictBaseLocalizable.strings; sourceTree = "<group>"; };
 		D13E338F1E50507600A0CEF6 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -230,20 +230,22 @@
 		D11BF4E81E5331340042A40A /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				D113CF0F1E520CB00083ED7D /* AnnictSearchViewController.swift */,
 				D1A43E3F1E520E0000EE40CB /* AnnictSearchNavigationController.swift */,
+				D113CF0F1E520CB00083ED7D /* AnnictSearchViewController.swift */,
 			);
 			name = Search;
+			path = Search;
 			sourceTree = "<group>";
 		};
 		D11BF4E91E533D420042A40A /* Rakuten */ = {
 			isa = PBXGroup;
 			children = (
-				D11BF4EA1E533D680042A40A /* RakutenAPIRequest.swift */,
-				D11BF4EC1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift */,
 				D11BF4EE1E5344770042A40A /* Responses */,
+				D11BF4EC1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift */,
+				D11BF4EA1E533D680042A40A /* RakutenAPIRequest.swift */,
 			);
 			name = Rakuten;
+			path = Rakuten;
 			sourceTree = "<group>";
 		};
 		D11BF4EE1E5344770042A40A /* Responses */ = {
@@ -252,6 +254,7 @@
 				D11BF4EF1E5344980042A40A /* RakutenItemsResponse.swift */,
 			);
 			name = Responses;
+			path = Responses;
 			sourceTree = "<group>";
 		};
 		D11BF4F11E5358D60042A40A /* Utility */ = {
@@ -260,6 +263,7 @@
 				D11BF4F41E537F9F0042A40A /* Async.swift */,
 			);
 			name = Utility;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		D12F4EB21E54137300EB0651 /* AnnictRecentlyAnimeSectionCell */ = {
@@ -269,6 +273,7 @@
 				D12F4EB51E54139B00EB0651 /* AnnictRecentlyAnimeSectionCell.xib */,
 			);
 			name = AnnictRecentlyAnimeSectionCell;
+			path = AnnictRecentlyAnimeSectionCell;
 			sourceTree = "<group>";
 		};
 		D12F4EB71E54193300EB0651 /* Search */ = {
@@ -277,6 +282,7 @@
 				D12F4EB21E54137300EB0651 /* AnnictRecentlyAnimeSectionCell */,
 			);
 			name = Search;
+			path = Search;
 			sourceTree = "<group>";
 		};
 		D12F4EB81E544DF700EB0651 /* Season */ = {
@@ -287,6 +293,7 @@
 				D12F4EBD1E54526E00EB0651 /* AnnictSeasonViewController.swift */,
 			);
 			name = Season;
+			path = Season;
 			sourceTree = "<group>";
 		};
 		D12F4EC91E547B6300EB0651 /* YearPickerView */ = {
@@ -296,6 +303,7 @@
 				D12F4EC31E5476AD00EB0651 /* YearPickerView.xib */,
 			);
 			name = YearPickerView;
+			path = YearPickerView;
 			sourceTree = "<group>";
 		};
 		D137D6731E4D735E00F0FCFB = {
@@ -304,8 +312,8 @@
 				D137D67E1E4D735E00F0FCFB /* Annict-for-iOS */,
 				D137D6931E4D735E00F0FCFB /* Annict-for-iOSTests */,
 				D137D69E1E4D735E00F0FCFB /* Annict-for-iOSUITests */,
-				D137D67D1E4D735E00F0FCFB /* Products */,
 				AD6DDBA827920CE6310BBE0B /* Frameworks */,
+				D137D67D1E4D735E00F0FCFB /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -322,16 +330,16 @@
 		D137D67E1E4D735E00F0FCFB /* Annict-for-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				D137D6861E4D735E00F0FCFB /* Assets.xcassets */,
-				D137D67F1E4D735E00F0FCFB /* AppDelegate.swift */,
-				D137D68B1E4D735E00F0FCFB /* Info.plist */,
-				D1FEDD001E4D841A00EFA42F /* Models */,
-				D195D1141E4F8AE3004B6B15 /* Views */,
 				D1FEDD091E4DDE1700EFA42F /* Controllers */,
 				D195D0F21E4DE62E004B6B15 /* Extensions */,
+				D1FEDD001E4D841A00EFA42F /* Models */,
 				D1FEDD0A1E4DDE2900EFA42F /* Storyboards */,
 				D13E33871E504F1D00A0CEF6 /* Support */,
 				D11BF4F11E5358D60042A40A /* Utility */,
+				D195D1141E4F8AE3004B6B15 /* Views */,
+				D137D67F1E4D735E00F0FCFB /* AppDelegate.swift */,
+				D137D6861E4D735E00F0FCFB /* Assets.xcassets */,
+				D137D68B1E4D735E00F0FCFB /* Info.plist */,
 			);
 			path = "Annict-for-iOS";
 			sourceTree = "<group>";
@@ -360,13 +368,14 @@
 				D13E33941E505B3E00A0CEF6 /* AnnictDetailAnimeInfoTabViewController.swift */,
 				D13E339A1E506DF100A0CEF6 /* AnnictDetailAnimeInfoViewController.swift */,
 				D13E339C1E506E7900A0CEF6 /* AnnictEpisodeViewController.swift */,
+				D13BD2F81E51AA95006CDF2E /* AnnictPostRecordsNavigationController.swift */,
+				D13BD2F61E51A9F7006CDF2E /* AnnictPostRecordsViewController.swift */,
 				D13BD2F01E516979006CDF2E /* AnnictRecordsTabViewController.swift */,
 				D13BD2E11E5154AA006CDF2E /* AnnictRecordsViewController.swift */,
 				D13BD2F21E518A4B006CDF2E /* AnnictSelectStatusViewController.swift */,
-				D13BD2F81E51AA95006CDF2E /* AnnictPostRecordsNavigationController.swift */,
-				D13BD2F61E51A9F7006CDF2E /* AnnictPostRecordsViewController.swift */,
 			);
 			name = Detail;
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		D13BD2C91E50703B006CDF2E /* AnnictMeWorkCell */ = {
@@ -376,6 +385,7 @@
 				D195D1181E4F8C2D004B6B15 /* AnnictMeWorkCell.xib */,
 			);
 			name = AnnictMeWorkCell;
+			path = AnnictMeWorkCell;
 			sourceTree = "<group>";
 		};
 		D13BD2CC1E507069006CDF2E /* AnnictEpisodeCell */ = {
@@ -385,6 +395,7 @@
 				D13BD2CD1E50707F006CDF2E /* AnnictEpisodeCell.xib */,
 			);
 			name = AnnictEpisodeCell;
+			path = AnnictEpisodeCell;
 			sourceTree = "<group>";
 		};
 		D13BD2E01E50A3B5006CDF2E /* AnnictSubtextCell */ = {
@@ -394,6 +405,7 @@
 				D13BD2DE1E50A3A7006CDF2E /* AnnictSubtextCell.xib */,
 			);
 			name = AnnictSubtextCell;
+			path = AnnictSubtextCell;
 			sourceTree = "<group>";
 		};
 		D13BD2E31E515605006CDF2E /* AnnictRecordCell */ = {
@@ -403,16 +415,18 @@
 				D13BD2E81E515659006CDF2E /* AnnictRecordCell.xib */,
 			);
 			name = AnnictRecordCell;
+			path = AnnictRecordCell;
 			sourceTree = "<group>";
 		};
 		D13BD2FA1E51ADA5006CDF2E /* Records */ = {
 			isa = PBXGroup;
 			children = (
-				D13BD2E31E515605006CDF2E /* AnnictRecordCell */,
 				D13BD2FF1E51B633006CDF2E /* AnnictRatingCell */,
+				D13BD2E31E515605006CDF2E /* AnnictRecordCell */,
 				D13BD3041E51BA5B006CDF2E /* AnnictTextViewCell */,
 			);
 			name = Records;
+			path = Records;
 			sourceTree = "<group>";
 		};
 		D13BD2FF1E51B633006CDF2E /* AnnictRatingCell */ = {
@@ -422,6 +436,7 @@
 				D13BD2FD1E51ADDC006CDF2E /* AnnictRatingCell.xib */,
 			);
 			name = AnnictRatingCell;
+			path = AnnictRatingCell;
 			sourceTree = "<group>";
 		};
 		D13BD3041E51BA5B006CDF2E /* AnnictTextViewCell */ = {
@@ -431,6 +446,7 @@
 				D13BD3001E51BA4E006CDF2E /* AnnictTextViewCell.xib */,
 			);
 			name = AnnictTextViewCell;
+			path = AnnictTextViewCell;
 			sourceTree = "<group>";
 		};
 		D13E33871E504F1D00A0CEF6 /* Support */ = {
@@ -439,47 +455,51 @@
 				D13E338C1E504F9300A0CEF6 /* AnnictBaseLocalizable.strings */,
 			);
 			name = Support;
+			path = Support;
 			sourceTree = "<group>";
 		};
 		D14FF4D51E50245900AD9913 /* AnnictAPI */ = {
 			isa = PBXGroup;
 			children = (
-				D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */,
-				D195D1091E4E3189004B6B15 /* AnnictAPIRequest.swift */,
-				D1FEDD031E4D883600EFA42F /* AnnictAPOauthTokenI.swift */,
-				D14FF4D61E5024A500AD9913 /* AnnictAPIGetWorks.swift */,
+				D195D1061E4E096D004B6B15 /* Responses */,
+				D13BD3071E51DCE5006CDF2E /* AnnictAPIDeleteMeRecord.swift */,
 				D13BD2CF1E5072AA006CDF2E /* AnnictAPIGetEpisodes.swift */,
 				D13BD2EE1E515ABE006CDF2E /* AnnictAPIGetRecords.swift */,
-				D13BD2F41E519D76006CDF2E /* AnnictAPIPostStatuses.swift */,
+				D14FF4D61E5024A500AD9913 /* AnnictAPIGetWorks.swift */,
 				D13BD3051E51C700006CDF2E /* AnnictAPIPostMeRecords.swift */,
-				D13BD3071E51DCE5006CDF2E /* AnnictAPIDeleteMeRecord.swift */,
-				D195D1061E4E096D004B6B15 /* Responses */,
+				D13BD2F41E519D76006CDF2E /* AnnictAPIPostStatuses.swift */,
+				D195D1091E4E3189004B6B15 /* AnnictAPIRequest.swift */,
+				D1FEDD031E4D883600EFA42F /* AnnictAPOauthTokenI.swift */,
+				D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */,
 			);
 			name = AnnictAPI;
+			path = AnnictAPI;
 			sourceTree = "<group>";
 		};
 		D195D0F21E4DE62E004B6B15 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				D195D0F31E4DE677004B6B15 /* Notification+Extension.swift */,
-				D12F4EC71E547ADC00EB0651 /* UIView+Extension.swift */,
-				D195D0F71E4DE919004B6B15 /* UIViewController+Extension.swift */,
+				D13E338F1E50507600A0CEF6 /* String+Extension.swift */,
 				D195D1021E4DF000004B6B15 /* UIColor+Extension.swift */,
 				D195D11A1E4F928A004B6B15 /* UITableView+Extension.swift */,
-				D13E338F1E50507600A0CEF6 /* String+Extension.swift */,
+				D12F4EC71E547ADC00EB0651 /* UIView+Extension.swift */,
+				D195D0F71E4DE919004B6B15 /* UIViewController+Extension.swift */,
 			);
 			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D195D0FA1E4DED42004B6B15 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				D113CF0B1E51F5CD0083ED7D /* AnnictTabBarController.swift */,
 				D14FF4EB1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift */,
 				D13E33981E505E9600A0CEF6 /* AnnictMeWorksTabViewController.swift */,
 				D195D0EE1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift */,
+				D113CF0B1E51F5CD0083ED7D /* AnnictTabBarController.swift */,
 			);
 			name = Home;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		D195D0FB1E4DEE11004B6B15 /* Login */ = {
@@ -489,40 +509,44 @@
 				D1FEDD051E4D9A8400EFA42F /* LoginViewController.swift */,
 			);
 			name = Login;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		D195D1061E4E096D004B6B15 /* Responses */ = {
 			isa = PBXGroup;
 			children = (
-				D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */,
-				D195D1071E4E098A004B6B15 /* AnnictWorksResponse.swift */,
 				D13BD2D31E507410006CDF2E /* AnnictEpisodesResponse.swift */,
+				D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */,
 				D13BD2EA1E515913006CDF2E /* AnnictRecordsResponse.swift */,
 				D13BD2EC1E5159CC006CDF2E /* AnnictUsersResponse.swift */,
+				D195D1071E4E098A004B6B15 /* AnnictWorksResponse.swift */,
 			);
 			name = Responses;
+			path = Responses;
 			sourceTree = "<group>";
 		};
 		D195D1141E4F8AE3004B6B15 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */,
-				D12F4EC91E547B6300EB0651 /* YearPickerView */,
 				D195D1151E4F8AF9004B6B15 /* Cells */,
+				D12F4EC91E547B6300EB0651 /* YearPickerView */,
+				D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */,
 			);
 			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		D195D1151E4F8AF9004B6B15 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				D13BD2C91E50703B006CDF2E /* AnnictMeWorkCell */,
 				D13BD2CC1E507069006CDF2E /* AnnictEpisodeCell */,
+				D13BD2C91E50703B006CDF2E /* AnnictMeWorkCell */,
 				D13BD2E01E50A3B5006CDF2E /* AnnictSubtextCell */,
 				D13BD2FA1E51ADA5006CDF2E /* Records */,
 				D12F4EB71E54193300EB0651 /* Search */,
 			);
 			name = Cells;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		D1FEDD001E4D841A00EFA42F /* Models */ = {
@@ -532,18 +556,20 @@
 				D11BF4E91E533D420042A40A /* Rakuten */,
 			);
 			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		D1FEDD091E4DDE1700EFA42F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D195D0FB1E4DEE11004B6B15 /* Login */,
-				D195D0FA1E4DED42004B6B15 /* Home */,
 				D13BD2C81E506FE0006CDF2E /* Detail */,
+				D195D0FA1E4DED42004B6B15 /* Home */,
+				D195D0FB1E4DEE11004B6B15 /* Login */,
 				D11BF4E81E5331340042A40A /* Search */,
 				D12F4EB81E544DF700EB0651 /* Season */,
 			);
 			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		D1FEDD0A1E4DDE2900EFA42F /* Storyboards */ = {
@@ -551,10 +577,11 @@
 			children = (
 				D195D0EC1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard */,
 				D13E33921E505B0C00A0CEF6 /* AnnictWorks.storyboard */,
-				D1FEDD071E4D9B4000EFA42F /* Login.storyboard */,
 				D137D6881E4D735E00F0FCFB /* LaunchScreen.storyboard */,
+				D1FEDD071E4D9B4000EFA42F /* Login.storyboard */,
 			);
 			name = Storyboards;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -918,6 +945,7 @@
 				D13E33861E504EF900A0CEF6 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		D13E338C1E504F9300A0CEF6 /* AnnictBaseLocalizable.strings */ = {
@@ -927,6 +955,7 @@
 				D13E338E1E504FB300A0CEF6 /* ja */,
 			);
 			name = AnnictBaseLocalizable.strings;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
