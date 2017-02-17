@@ -233,7 +233,6 @@
 				D1A43E3F1E520E0000EE40CB /* AnnictSearchNavigationController.swift */,
 				D113CF0F1E520CB00083ED7D /* AnnictSearchViewController.swift */,
 			);
-			name = Search;
 			path = Search;
 			sourceTree = "<group>";
 		};
@@ -244,7 +243,6 @@
 				D11BF4EC1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift */,
 				D11BF4EA1E533D680042A40A /* RakutenAPIRequest.swift */,
 			);
-			name = Rakuten;
 			path = Rakuten;
 			sourceTree = "<group>";
 		};
@@ -253,7 +251,6 @@
 			children = (
 				D11BF4EF1E5344980042A40A /* RakutenItemsResponse.swift */,
 			);
-			name = Responses;
 			path = Responses;
 			sourceTree = "<group>";
 		};
@@ -262,7 +259,6 @@
 			children = (
 				D11BF4F41E537F9F0042A40A /* Async.swift */,
 			);
-			name = Utility;
 			path = Utility;
 			sourceTree = "<group>";
 		};
@@ -272,7 +268,6 @@
 				D12F4EB31E54139200EB0651 /* AnnictRecentlyAnimeSectionCell.swift */,
 				D12F4EB51E54139B00EB0651 /* AnnictRecentlyAnimeSectionCell.xib */,
 			);
-			name = AnnictRecentlyAnimeSectionCell;
 			path = AnnictRecentlyAnimeSectionCell;
 			sourceTree = "<group>";
 		};
@@ -281,7 +276,6 @@
 			children = (
 				D12F4EB21E54137300EB0651 /* AnnictRecentlyAnimeSectionCell */,
 			);
-			name = Search;
 			path = Search;
 			sourceTree = "<group>";
 		};
@@ -292,7 +286,6 @@
 				D12F4EB91E544E1A00EB0651 /* AnnictSeasonTabViewController.swift */,
 				D12F4EBD1E54526E00EB0651 /* AnnictSeasonViewController.swift */,
 			);
-			name = Season;
 			path = Season;
 			sourceTree = "<group>";
 		};
@@ -302,7 +295,6 @@
 				D12F4EC11E5476A300EB0651 /* YearPickerView.swift */,
 				D12F4EC31E5476AD00EB0651 /* YearPickerView.xib */,
 			);
-			name = YearPickerView;
 			path = YearPickerView;
 			sourceTree = "<group>";
 		};
@@ -374,7 +366,6 @@
 				D13BD2E11E5154AA006CDF2E /* AnnictRecordsViewController.swift */,
 				D13BD2F21E518A4B006CDF2E /* AnnictSelectStatusViewController.swift */,
 			);
-			name = Detail;
 			path = Detail;
 			sourceTree = "<group>";
 		};
@@ -384,7 +375,6 @@
 				D195D1161E4F8BD7004B6B15 /* AnnictMeWorkCell.swift */,
 				D195D1181E4F8C2D004B6B15 /* AnnictMeWorkCell.xib */,
 			);
-			name = AnnictMeWorkCell;
 			path = AnnictMeWorkCell;
 			sourceTree = "<group>";
 		};
@@ -394,7 +384,6 @@
 				D13BD2CA1E507053006CDF2E /* AnnictEpisodeCell.swift */,
 				D13BD2CD1E50707F006CDF2E /* AnnictEpisodeCell.xib */,
 			);
-			name = AnnictEpisodeCell;
 			path = AnnictEpisodeCell;
 			sourceTree = "<group>";
 		};
@@ -404,7 +393,6 @@
 				D13BD2DC1E50A395006CDF2E /* AnnictSubtextCell.swift */,
 				D13BD2DE1E50A3A7006CDF2E /* AnnictSubtextCell.xib */,
 			);
-			name = AnnictSubtextCell;
 			path = AnnictSubtextCell;
 			sourceTree = "<group>";
 		};
@@ -414,7 +402,6 @@
 				D13BD2E61E51563E006CDF2E /* AnnictRecordCell.swift */,
 				D13BD2E81E515659006CDF2E /* AnnictRecordCell.xib */,
 			);
-			name = AnnictRecordCell;
 			path = AnnictRecordCell;
 			sourceTree = "<group>";
 		};
@@ -425,7 +412,6 @@
 				D13BD2E31E515605006CDF2E /* AnnictRecordCell */,
 				D13BD3041E51BA5B006CDF2E /* AnnictTextViewCell */,
 			);
-			name = Records;
 			path = Records;
 			sourceTree = "<group>";
 		};
@@ -435,7 +421,6 @@
 				D13BD2FB1E51ADC3006CDF2E /* AnnictRatingCell.swift */,
 				D13BD2FD1E51ADDC006CDF2E /* AnnictRatingCell.xib */,
 			);
-			name = AnnictRatingCell;
 			path = AnnictRatingCell;
 			sourceTree = "<group>";
 		};
@@ -445,7 +430,6 @@
 				D13BD3021E51BA57006CDF2E /* AnnictTextViewCell.swift */,
 				D13BD3001E51BA4E006CDF2E /* AnnictTextViewCell.xib */,
 			);
-			name = AnnictTextViewCell;
 			path = AnnictTextViewCell;
 			sourceTree = "<group>";
 		};
@@ -454,7 +438,6 @@
 			children = (
 				D13E338C1E504F9300A0CEF6 /* AnnictBaseLocalizable.strings */,
 			);
-			name = Support;
 			path = Support;
 			sourceTree = "<group>";
 		};
@@ -472,7 +455,6 @@
 				D1FEDD031E4D883600EFA42F /* AnnictAPOauthTokenI.swift */,
 				D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */,
 			);
-			name = AnnictAPI;
 			path = AnnictAPI;
 			sourceTree = "<group>";
 		};
@@ -486,7 +468,6 @@
 				D12F4EC71E547ADC00EB0651 /* UIView+Extension.swift */,
 				D195D0F71E4DE919004B6B15 /* UIViewController+Extension.swift */,
 			);
-			name = Extensions;
 			path = Extensions;
 			sourceTree = "<group>";
 		};
@@ -498,7 +479,6 @@
 				D195D0EE1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift */,
 				D113CF0B1E51F5CD0083ED7D /* AnnictTabBarController.swift */,
 			);
-			name = Home;
 			path = Home;
 			sourceTree = "<group>";
 		};
@@ -508,7 +488,6 @@
 				D195D0FC1E4DEE49004B6B15 /* CheckingLoginStateViewController.swift */,
 				D1FEDD051E4D9A8400EFA42F /* LoginViewController.swift */,
 			);
-			name = Login;
 			path = Login;
 			sourceTree = "<group>";
 		};
@@ -521,7 +500,6 @@
 				D13BD2EC1E5159CC006CDF2E /* AnnictUsersResponse.swift */,
 				D195D1071E4E098A004B6B15 /* AnnictWorksResponse.swift */,
 			);
-			name = Responses;
 			path = Responses;
 			sourceTree = "<group>";
 		};
@@ -532,7 +510,6 @@
 				D12F4EC91E547B6300EB0651 /* YearPickerView */,
 				D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */,
 			);
-			name = Views;
 			path = Views;
 			sourceTree = "<group>";
 		};
@@ -545,7 +522,6 @@
 				D13BD2FA1E51ADA5006CDF2E /* Records */,
 				D12F4EB71E54193300EB0651 /* Search */,
 			);
-			name = Cells;
 			path = Cells;
 			sourceTree = "<group>";
 		};
@@ -555,7 +531,6 @@
 				D14FF4D51E50245900AD9913 /* AnnictAPI */,
 				D11BF4E91E533D420042A40A /* Rakuten */,
 			);
-			name = Models;
 			path = Models;
 			sourceTree = "<group>";
 		};
@@ -568,7 +543,6 @@
 				D11BF4E81E5331340042A40A /* Search */,
 				D12F4EB81E544DF700EB0651 /* Season */,
 			);
-			name = Controllers;
 			path = Controllers;
 			sourceTree = "<group>";
 		};
@@ -580,7 +554,6 @@
 				D137D6881E4D735E00F0FCFB /* LaunchScreen.storyboard */,
 				D1FEDD071E4D9B4000EFA42F /* Login.storyboard */,
 			);
-			name = Storyboards;
 			path = Storyboards;
 			sourceTree = "<group>";
 		};

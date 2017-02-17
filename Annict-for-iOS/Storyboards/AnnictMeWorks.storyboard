@@ -67,7 +67,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="phy-HA-CxB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="710" y="36"/>
+            <point key="canvasLocation" x="710" y="714"/>
         </scene>
         <!--Annict Search View Controller-->
         <scene sceneID="pgA-F3-tec">
@@ -108,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xU6-bq-xhd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1409" y="36"/>
+            <point key="canvasLocation" x="1409" y="714"/>
         </scene>
         <!--Annict Me Works Tab Navigation Controller-->
         <scene sceneID="Yaa-Yz-9HU">
@@ -155,8 +155,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="MAU-af-eKh"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bm4-Y1-Ruo">
-                                    <size key="itemSize" width="50" height="50"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Bm4-Y1-Ruo">
+                                    <size key="itemSize" width="0.0" height="0.0"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -215,7 +215,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L6M-pB-NbE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="710" y="714"/>
+            <point key="canvasLocation" x="710" y="36"/>
         </scene>
         <!--Annict Season Tab View Controller-->
         <scene sceneID="c7k-Xz-3vC">
@@ -238,8 +238,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="RoT-3I-s87"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lAM-ah-SmS">
-                                    <size key="itemSize" width="50" height="50"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="lAM-ah-SmS">
+                                    <size key="itemSize" width="0.0" height="0.0"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -276,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5PG-A6-1OJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1409" y="714"/>
+            <point key="canvasLocation" x="1409" y="36"/>
         </scene>
         <!--Annict Season View Controller-->
         <scene sceneID="AEk-Di-7ET">
@@ -294,7 +294,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NYX-EF-bZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2121" y="714"/>
+            <point key="canvasLocation" x="2121" y="36"/>
         </scene>
     </scenes>
     <resources>
