@@ -1,4 +1,4 @@
-# Annict-for-iOS
+# Portannict
 Annict for iOS Beta
 
 ## Icon
