@@ -53,29 +53,20 @@
                                     <action selector="tapedLoginButton:" destination="DA9-lk-6dx" eventType="touchUpInside" id="fcQ-Q4-m8F"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Annict" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8A-Ys-ent">
-                                <rect key="frame" x="0.0" y="152.5" width="375" height="95.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="80"/>
-                                <color key="textColor" red="0.97254901959999995" green="0.35686274509999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="for iOS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lde-Zh-AlX">
-                                <rect key="frame" x="0.0" y="248" width="375" height="48"/>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Portannict" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8A-Ys-ent">
+                                <rect key="frame" x="0.0" y="163" width="375" height="76.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="64"/>
                                 <color key="textColor" red="0.97254901959999995" green="0.35686274509999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Lde-Zh-AlX" firstAttribute="width" secondItem="eBT-4w-ctQ" secondAttribute="width" id="4OD-fq-Qnb"/>
                             <constraint firstItem="dIc-sz-NFx" firstAttribute="centerX" secondItem="eBT-4w-ctQ" secondAttribute="centerX" id="7Lu-xy-gT9"/>
                             <constraint firstItem="I8A-Ys-ent" firstAttribute="centerY" secondItem="eBT-4w-ctQ" secondAttribute="centerY" multiplier="3/5" id="INl-2C-Oni"/>
                             <constraint firstItem="I8A-Ys-ent" firstAttribute="width" secondItem="eBT-4w-ctQ" secondAttribute="width" id="Ks1-6X-2vh"/>
                             <constraint firstItem="dIc-sz-NFx" firstAttribute="width" secondItem="eBT-4w-ctQ" secondAttribute="width" multiplier="2/3" id="MxP-Nb-ueo"/>
                             <constraint firstItem="iJ7-bM-LRn" firstAttribute="top" secondItem="dIc-sz-NFx" secondAttribute="bottom" constant="100" id="Wrb-Ie-n5f"/>
-                            <constraint firstItem="Lde-Zh-AlX" firstAttribute="centerX" secondItem="I8A-Ys-ent" secondAttribute="centerX" id="Y1I-0s-jaz"/>
-                            <constraint firstItem="Lde-Zh-AlX" firstAttribute="top" secondItem="I8A-Ys-ent" secondAttribute="bottom" id="lYA-nk-pvt"/>
                             <constraint firstItem="I8A-Ys-ent" firstAttribute="centerX" secondItem="eBT-4w-ctQ" secondAttribute="centerX" id="mTQ-11-Wml"/>
                         </constraints>
                     </view>
