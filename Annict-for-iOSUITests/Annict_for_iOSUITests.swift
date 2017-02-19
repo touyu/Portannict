@@ -18,9 +18,17 @@ class Annict_for_iOSUITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        let application = XCUIApplication()
+        application.launchEnvironment = ProcessInfo.processInfo.environment
+        setupSnapshot(application)
+        application.launch()
+        
+        snapshot("tab 0")
+        let tabbar = application.tabBars.element(boundBy: 0)
+        tabbar.buttons.element(boundBy: 1).tap()
+        snapshot("tab 1")
+        tabbar.buttons.element(boundBy: 2).tap()
+        snapshot("tab 2")
     }
     
     override func tearDown() {
