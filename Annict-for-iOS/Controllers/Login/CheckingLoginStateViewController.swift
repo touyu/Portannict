@@ -15,13 +15,10 @@ class CheckingLoginStateViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if AnnictConsts.accessToken.isEmpty {
+        if AnnictConsts.accessToken.isEmpty && !AppConfig.isTesting() {
             let loginVC = LoginViewController.instantiate(withStoryboard: "Login")
             self.present(loginVC, animated: false, completion: nil)
         } else {
-//            let annictMeWorksNC = AnnictMeWorksNavigationController.instantiate(withStoryboard: "AnnictMeWorks")
-//            self.present(annictMeWorksNC, animated: false, completion: nil)
-            
             let annictTabBarController = AnnictTabBarController.instantiate(withStoryboard: "AnnictMeWorks")
             self.present(annictTabBarController, animated: false, completion: nil)
         }

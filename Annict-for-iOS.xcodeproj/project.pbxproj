@@ -76,6 +76,18 @@
 		D195D1191E4F8C2D004B6B15 /* AnnictMeWorkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D195D1181E4F8C2D004B6B15 /* AnnictMeWorkCell.xib */; };
 		D195D11B1E4F928A004B6B15 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D11A1E4F928A004B6B15 /* UITableView+Extension.swift */; };
 		D1A43E401E520E0000EE40CB /* AnnictSearchNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A43E3F1E520E0000EE40CB /* AnnictSearchNavigationController.swift */; };
+		D1AC3D9F1E59B3EC00BF4AC2 /* APIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13101E81E55E73800023D70 /* APIKit.framework */; };
+		D1AC3DA01E59B3EC00BF4AC2 /* Himotoki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13101E91E55E73800023D70 /* Himotoki.framework */; };
+		D1AC3DA11E59B3EC00BF4AC2 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13101EA1E55E73800023D70 /* Kingfisher.framework */; };
+		D1AC3DA21E59B3EC00BF4AC2 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13101EB1E55E73800023D70 /* Result.framework */; };
+		D1AC3DA31E59B3EC00BF4AC2 /* XLPagerTabStrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13101EC1E55E73800023D70 /* XLPagerTabStrip.framework */; };
+		D1AC3DA41E59B3FF00BF4AC2 /* APIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13101E81E55E73800023D70 /* APIKit.framework */; };
+		D1AC3DA51E59B3FF00BF4AC2 /* Himotoki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13101E91E55E73800023D70 /* Himotoki.framework */; };
+		D1AC3DA61E59B3FF00BF4AC2 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13101EA1E55E73800023D70 /* Kingfisher.framework */; };
+		D1AC3DA71E59B3FF00BF4AC2 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13101EB1E55E73800023D70 /* Result.framework */; };
+		D1AC3DA81E59B3FF00BF4AC2 /* XLPagerTabStrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13101EC1E55E73800023D70 /* XLPagerTabStrip.framework */; };
+		D1AC3DAA1E59C25200BF4AC2 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC3DA91E59C25200BF4AC2 /* AppConfig.swift */; };
+		D1AC3DAC1E59D16F00BF4AC2 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC3DAB1E59D16F00BF4AC2 /* SnapshotHelper.swift */; };
 		D1FEDCFF1E4D7CD300EFA42F /* AnnictConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */; };
 		D1FEDD021E4D844000EFA42F /* AnnictOauthTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */; };
 		D1FEDD041E4D883600EFA42F /* AnnictAPOauthTokenI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD031E4D883600EFA42F /* AnnictAPOauthTokenI.swift */; };
@@ -178,6 +190,8 @@
 		D195D1181E4F8C2D004B6B15 /* AnnictMeWorkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnictMeWorkCell.xib; sourceTree = "<group>"; };
 		D195D11A1E4F928A004B6B15 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		D1A43E3F1E520E0000EE40CB /* AnnictSearchNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictSearchNavigationController.swift; sourceTree = "<group>"; };
+		D1AC3DA91E59C25200BF4AC2 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		D1AC3DAB1E59D16F00BF4AC2 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictConsts.swift; sourceTree = "<group>"; };
 		D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictOauthTokenResponse.swift; sourceTree = "<group>"; };
 		D1FEDD031E4D883600EFA42F /* AnnictAPOauthTokenI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPOauthTokenI.swift; sourceTree = "<group>"; };
@@ -202,6 +216,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1AC3D9F1E59B3EC00BF4AC2 /* APIKit.framework in Frameworks */,
+				D1AC3DA01E59B3EC00BF4AC2 /* Himotoki.framework in Frameworks */,
+				D1AC3DA11E59B3EC00BF4AC2 /* Kingfisher.framework in Frameworks */,
+				D1AC3DA21E59B3EC00BF4AC2 /* Result.framework in Frameworks */,
+				D1AC3DA31E59B3EC00BF4AC2 /* XLPagerTabStrip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +228,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1AC3DA41E59B3FF00BF4AC2 /* APIKit.framework in Frameworks */,
+				D1AC3DA51E59B3FF00BF4AC2 /* Himotoki.framework in Frameworks */,
+				D1AC3DA61E59B3FF00BF4AC2 /* Kingfisher.framework in Frameworks */,
+				D1AC3DA71E59B3FF00BF4AC2 /* Result.framework in Frameworks */,
+				D1AC3DA81E59B3FF00BF4AC2 /* XLPagerTabStrip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				D11BF4F41E537F9F0042A40A /* Async.swift */,
+				D1AC3DA91E59C25200BF4AC2 /* AppConfig.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -349,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				D137D69F1E4D735E00F0FCFB /* Annict_for_iOSUITests.swift */,
+				D1AC3DAB1E59D16F00BF4AC2 /* SnapshotHelper.swift */,
 				D137D6A11E4D735E00F0FCFB /* Info.plist */,
 			);
 			path = "Annict-for-iOSUITests";
@@ -582,12 +608,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D137D6A71E4D735E00F0FCFB /* Build configuration list for PBXNativeTarget "Annict-for-iOSTests" */;
 			buildPhases = (
-				6CDBAA44BCE70D64EC1E8847 /* [CP] Check Pods Manifest.lock */,
 				D137D68C1E4D735E00F0FCFB /* Sources */,
 				D137D68D1E4D735E00F0FCFB /* Frameworks */,
 				D137D68E1E4D735E00F0FCFB /* Resources */,
-				047213A7FE6CA546DC8BD7C4 /* [CP] Embed Pods Frameworks */,
-				E937D0E3503A37FDFA254D8A /* [CP] Copy Pods Resources */,
+				D1AC3D9D1E59B26C00BF4AC2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -603,12 +627,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D137D6AA1E4D735E00F0FCFB /* Build configuration list for PBXNativeTarget "Annict-for-iOSUITests" */;
 			buildPhases = (
-				3D99B2E49B23E3C239398066 /* [CP] Check Pods Manifest.lock */,
 				D137D6971E4D735E00F0FCFB /* Sources */,
 				D137D6981E4D735E00F0FCFB /* Frameworks */,
 				D137D6991E4D735E00F0FCFB /* Resources */,
-				3002FA22E09F6F8880903DE0 /* [CP] Embed Pods Frameworks */,
-				0D7A251C81CA281462303F78 /* [CP] Copy Pods Resources */,
+				D1AC3D9E1E59B2B400BF4AC2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -708,81 +730,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		047213A7FE6CA546DC8BD7C4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Annict-for-iOSTests/Pods-Annict-for-iOSTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0D7A251C81CA281462303F78 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Annict-for-iOSUITests/Pods-Annict-for-iOSUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3002FA22E09F6F8880903DE0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Annict-for-iOSUITests/Pods-Annict-for-iOSUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3D99B2E49B23E3C239398066 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		6CDBAA44BCE70D64EC1E8847 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 		D13101F21E55E74C00023D70 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -801,20 +748,41 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
-		E937D0E3503A37FDFA254D8A /* [CP] Copy Pods Resources */ = {
+		D1AC3D9D1E59B26C00BF4AC2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/APIKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Himotoki.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/XLPagerTabStrip.framework",
 			);
-			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Annict-for-iOSTests/Pods-Annict-for-iOSTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		D1AC3D9E1E59B2B400BF4AC2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/APIKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Himotoki.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/XLPagerTabStrip.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -850,6 +818,7 @@
 				D13E339D1E506E7900A0CEF6 /* AnnictEpisodeViewController.swift in Sources */,
 				D13BD2EB1E515913006CDF2E /* AnnictRecordsResponse.swift in Sources */,
 				D11BF4EB1E533D680042A40A /* RakutenAPIRequest.swift in Sources */,
+				D1AC3DAA1E59C25200BF4AC2 /* AppConfig.swift in Sources */,
 				D195D1031E4DF000004B6B15 /* UIColor+Extension.swift in Sources */,
 				D195D0F81E4DE919004B6B15 /* UIViewController+Extension.swift in Sources */,
 				D12F4EC21E5476A300EB0651 /* YearPickerView.swift in Sources */,
@@ -892,6 +861,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D137D6A01E4D735E00F0FCFB /* Annict_for_iOSUITests.swift in Sources */,
+				D1AC3DAC1E59D16F00BF4AC2 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1071,6 +1041,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = V8AZ23YEL4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Annict-for-iOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.YutoAkiba.Annict-for-iOSTests";
@@ -1086,6 +1060,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = V8AZ23YEL4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Annict-for-iOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.YutoAkiba.Annict-for-iOSTests";
@@ -1100,6 +1078,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = V8AZ23YEL4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Annict-for-iOSUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.YutoAkiba.Annict-for-iOSUITests";
@@ -1114,6 +1096,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = V8AZ23YEL4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Annict-for-iOSUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.YutoAkiba.Annict-for-iOSUITests";

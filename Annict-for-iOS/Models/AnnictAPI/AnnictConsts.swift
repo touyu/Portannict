@@ -41,6 +41,13 @@ class AnnictConsts {
     
     static var accessToken: String {
         get {
+            if AppConfig.isTesting() {
+                guard let annictAccessToken = ProcessInfo.processInfo.environment["annict_access_token"] else {
+                    assertionFailure("env['annict_access_token'] is not set.")
+                    return ""
+                }
+                return annictAccessToken
+            }
             if let accessToken = UserDefaults.standard.string(forKey: "annict_access_token") {
                 return accessToken
             } else {
