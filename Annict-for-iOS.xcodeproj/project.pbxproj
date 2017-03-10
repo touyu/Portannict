@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		379E7DD72861BAC29EBAE0AB /* Pods_Annict_for_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47D8127FB87B435E6F54E888 /* Pods_Annict_for_iOS.framework */; };
+		62D4E3428E157A6DCCD1DEC3 /* Pods_Annict_for_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568B38E2C913181675189D9B /* Pods_Annict_for_iOSTests.framework */; };
 		D113CF0C1E51F5CD0083ED7D /* AnnictTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113CF0B1E51F5CD0083ED7D /* AnnictTabBarController.swift */; };
 		D113CF0E1E52090A0083ED7D /* AnnictTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */; };
 		D113CF101E520CB00083ED7D /* AnnictSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113CF0F1E520CB00083ED7D /* AnnictSearchViewController.swift */; };
@@ -68,7 +70,6 @@
 		D195D0EF1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0EE1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift */; };
 		D195D0F41E4DE677004B6B15 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0F31E4DE677004B6B15 /* Notification+Extension.swift */; };
 		D195D0F81E4DE919004B6B15 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0F71E4DE919004B6B15 /* UIViewController+Extension.swift */; };
-		D195D0FD1E4DEE49004B6B15 /* CheckingLoginStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0FC1E4DEE49004B6B15 /* CheckingLoginStateViewController.swift */; };
 		D195D1031E4DF000004B6B15 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D1021E4DF000004B6B15 /* UIColor+Extension.swift */; };
 		D195D1081E4E098A004B6B15 /* AnnictWorksResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D1071E4E098A004B6B15 /* AnnictWorksResponse.swift */; };
 		D195D10A1E4E3189004B6B15 /* AnnictAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D1091E4E3189004B6B15 /* AnnictAPIRequest.swift */; };
@@ -92,7 +93,12 @@
 		D1FEDD021E4D844000EFA42F /* AnnictOauthTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */; };
 		D1FEDD041E4D883600EFA42F /* AnnictAPOauthTokenI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD031E4D883600EFA42F /* AnnictAPOauthTokenI.swift */; };
 		D1FEDD061E4D9A8400EFA42F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD051E4D9A8400EFA42F /* LoginViewController.swift */; };
-		D1FEDD081E4D9B4000EFA42F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FEDD071E4D9B4000EFA42F /* Login.storyboard */; };
+		D1FEEFA31E72E0B9004D4D28 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FEEFA21E72E0B9004D4D28 /* Login.storyboard */; };
+		D1FEEFA51E72E0E4004D4D28 /* ReviewLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEEFA41E72E0E4004D4D28 /* ReviewLoginViewController.swift */; };
+		D1FEEFA71E72E0F8004D4D28 /* CheckingLoginStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEEFA61E72E0F8004D4D28 /* CheckingLoginStateViewController.swift */; };
+		D1FEEFAA1E72E11D004D4D28 /* FIRDatabaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEEFA91E72E11D004D4D28 /* FIRDatabaseClient.swift */; };
+		D1FEEFAC1E72E23C004D4D28 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1FEEFAB1E72E23C004D4D28 /* GoogleService-Info.plist */; };
+		D87B1BBFE1F496752EBC12BC /* Pods_Annict_for_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8AF127708753608F186D305 /* Pods_Annict_for_iOSUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +119,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F443094A85625B40265ED14 /* Pods-Annict-for-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOSUITests/Pods-Annict-for-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3998A217BBFFD1BFD5152B08 /* Pods-Annict-for-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOSUITests/Pods-Annict-for-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		47D8127FB87B435E6F54E888 /* Pods_Annict_for_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Annict_for_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		568B38E2C913181675189D9B /* Pods_Annict_for_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Annict_for_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BD2AD07787E8E76D4854131 /* Pods-Annict-for-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOSTests/Pods-Annict-for-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5DBD9C55A9D833CFDED35B82 /* Pods-Annict-for-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		6D28F9B5CC108F60AAD883F3 /* Pods-Annict-for-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		99C9C1BD02AF7F9B989A6D54 /* Pods-Annict-for-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOSTests/Pods-Annict-for-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		D113CF0B1E51F5CD0083ED7D /* AnnictTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictTabBarController.swift; sourceTree = "<group>"; };
 		D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictTabBarItem.swift; sourceTree = "<group>"; };
 		D113CF0F1E520CB00083ED7D /* AnnictSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictSearchViewController.swift; sourceTree = "<group>"; };
@@ -182,7 +196,6 @@
 		D195D0EE1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictMeWorksViewController.swift; sourceTree = "<group>"; };
 		D195D0F31E4DE677004B6B15 /* Notification+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		D195D0F71E4DE919004B6B15 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		D195D0FC1E4DEE49004B6B15 /* CheckingLoginStateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckingLoginStateViewController.swift; sourceTree = "<group>"; };
 		D195D1021E4DF000004B6B15 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		D195D1071E4E098A004B6B15 /* AnnictWorksResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictWorksResponse.swift; sourceTree = "<group>"; };
 		D195D1091E4E3189004B6B15 /* AnnictAPIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPIRequest.swift; sourceTree = "<group>"; };
@@ -196,7 +209,12 @@
 		D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictOauthTokenResponse.swift; sourceTree = "<group>"; };
 		D1FEDD031E4D883600EFA42F /* AnnictAPOauthTokenI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPOauthTokenI.swift; sourceTree = "<group>"; };
 		D1FEDD051E4D9A8400EFA42F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		D1FEDD071E4D9B4000EFA42F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		D1FEEFA21E72E0B9004D4D28 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		D1FEEFA41E72E0E4004D4D28 /* ReviewLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewLoginViewController.swift; sourceTree = "<group>"; };
+		D1FEEFA61E72E0F8004D4D28 /* CheckingLoginStateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckingLoginStateViewController.swift; sourceTree = "<group>"; };
+		D1FEEFA91E72E11D004D4D28 /* FIRDatabaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRDatabaseClient.swift; sourceTree = "<group>"; };
+		D1FEEFAB1E72E23C004D4D28 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E8AF127708753608F186D305 /* Pods_Annict_for_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Annict_for_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +227,7 @@
 				D13101EF1E55E73800023D70 /* Kingfisher.framework in Frameworks */,
 				D13101F01E55E73800023D70 /* Result.framework in Frameworks */,
 				D13101F11E55E73800023D70 /* XLPagerTabStrip.framework in Frameworks */,
+				379E7DD72861BAC29EBAE0AB /* Pods_Annict_for_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +240,7 @@
 				D1AC3DA11E59B3EC00BF4AC2 /* Kingfisher.framework in Frameworks */,
 				D1AC3DA21E59B3EC00BF4AC2 /* Result.framework in Frameworks */,
 				D1AC3DA31E59B3EC00BF4AC2 /* XLPagerTabStrip.framework in Frameworks */,
+				62D4E3428E157A6DCCD1DEC3 /* Pods_Annict_for_iOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,12 +253,26 @@
 				D1AC3DA61E59B3FF00BF4AC2 /* Kingfisher.framework in Frameworks */,
 				D1AC3DA71E59B3FF00BF4AC2 /* Result.framework in Frameworks */,
 				D1AC3DA81E59B3FF00BF4AC2 /* XLPagerTabStrip.framework in Frameworks */,
+				D87B1BBFE1F496752EBC12BC /* Pods_Annict_for_iOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		68058F70F12C916877F7EC99 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5DBD9C55A9D833CFDED35B82 /* Pods-Annict-for-iOS.debug.xcconfig */,
+				6D28F9B5CC108F60AAD883F3 /* Pods-Annict-for-iOS.release.xcconfig */,
+				5BD2AD07787E8E76D4854131 /* Pods-Annict-for-iOSTests.debug.xcconfig */,
+				99C9C1BD02AF7F9B989A6D54 /* Pods-Annict-for-iOSTests.release.xcconfig */,
+				3998A217BBFFD1BFD5152B08 /* Pods-Annict-for-iOSUITests.debug.xcconfig */,
+				1F443094A85625B40265ED14 /* Pods-Annict-for-iOSUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AD6DDBA827920CE6310BBE0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +281,9 @@
 				D13101EA1E55E73800023D70 /* Kingfisher.framework */,
 				D13101EB1E55E73800023D70 /* Result.framework */,
 				D13101EC1E55E73800023D70 /* XLPagerTabStrip.framework */,
+				47D8127FB87B435E6F54E888 /* Pods_Annict_for_iOS.framework */,
+				568B38E2C913181675189D9B /* Pods_Annict_for_iOSTests.framework */,
+				E8AF127708753608F186D305 /* Pods_Annict_for_iOSUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -331,6 +368,7 @@
 				D137D69E1E4D735E00F0FCFB /* Annict-for-iOSUITests */,
 				AD6DDBA827920CE6310BBE0B /* Frameworks */,
 				D137D67D1E4D735E00F0FCFB /* Products */,
+				68058F70F12C916877F7EC99 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -357,6 +395,7 @@
 				D137D67F1E4D735E00F0FCFB /* AppDelegate.swift */,
 				D137D6861E4D735E00F0FCFB /* Assets.xcassets */,
 				D137D68B1E4D735E00F0FCFB /* Info.plist */,
+				D1FEEFAB1E72E23C004D4D28 /* GoogleService-Info.plist */,
 			);
 			path = "Annict-for-iOS";
 			sourceTree = "<group>";
@@ -511,8 +550,9 @@
 		D195D0FB1E4DEE11004B6B15 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				D195D0FC1E4DEE49004B6B15 /* CheckingLoginStateViewController.swift */,
 				D1FEDD051E4D9A8400EFA42F /* LoginViewController.swift */,
+				D1FEEFA41E72E0E4004D4D28 /* ReviewLoginViewController.swift */,
+				D1FEEFA61E72E0F8004D4D28 /* CheckingLoginStateViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -554,6 +594,7 @@
 		D1FEDD001E4D841A00EFA42F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D1FEEFA81E72E109004D4D28 /* Firebase */,
 				D14FF4D51E50245900AD9913 /* AnnictAPI */,
 				D11BF4E91E533D420042A40A /* Rakuten */,
 			);
@@ -578,9 +619,17 @@
 				D195D0EC1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard */,
 				D13E33921E505B0C00A0CEF6 /* AnnictWorks.storyboard */,
 				D137D6881E4D735E00F0FCFB /* LaunchScreen.storyboard */,
-				D1FEDD071E4D9B4000EFA42F /* Login.storyboard */,
+				D1FEEFA21E72E0B9004D4D28 /* Login.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		D1FEEFA81E72E109004D4D28 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				D1FEEFA91E72E11D004D4D28 /* FIRDatabaseClient.swift */,
+			);
+			name = Firebase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -590,10 +639,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D137D6A41E4D735E00F0FCFB /* Build configuration list for PBXNativeTarget "Annict-for-iOS" */;
 			buildPhases = (
+				CE1446F7CE0C8A70B7C185DE /* [CP] Check Pods Manifest.lock */,
 				D137D6781E4D735E00F0FCFB /* Sources */,
 				D137D6791E4D735E00F0FCFB /* Frameworks */,
 				D137D67A1E4D735E00F0FCFB /* Resources */,
 				D13101F21E55E74C00023D70 /* ShellScript */,
+				280DFD4581229F710BC843AD /* [CP] Embed Pods Frameworks */,
+				13180C037BF822BB59411E80 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -608,10 +660,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D137D6A71E4D735E00F0FCFB /* Build configuration list for PBXNativeTarget "Annict-for-iOSTests" */;
 			buildPhases = (
+				15BE3189B3EEE25841165F60 /* [CP] Check Pods Manifest.lock */,
 				D137D68C1E4D735E00F0FCFB /* Sources */,
 				D137D68D1E4D735E00F0FCFB /* Frameworks */,
 				D137D68E1E4D735E00F0FCFB /* Resources */,
 				D1AC3D9D1E59B26C00BF4AC2 /* ShellScript */,
+				B8E95096674CEE9923B5D344 /* [CP] Embed Pods Frameworks */,
+				3E411522B22948B8943640E1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -627,10 +682,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D137D6AA1E4D735E00F0FCFB /* Build configuration list for PBXNativeTarget "Annict-for-iOSUITests" */;
 			buildPhases = (
+				CD061B680050020D3EB50973 /* [CP] Check Pods Manifest.lock */,
 				D137D6971E4D735E00F0FCFB /* Sources */,
 				D137D6981E4D735E00F0FCFB /* Frameworks */,
 				D137D6991E4D735E00F0FCFB /* Resources */,
 				D1AC3D9E1E59B2B400BF4AC2 /* ShellScript */,
+				2F853F4A73378E52E50BC24E /* [CP] Embed Pods Frameworks */,
+				BBC53F2FFE978F4201EC6A5E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -696,9 +754,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1FEDD081E4D9B4000EFA42F /* Login.storyboard in Resources */,
 				D195D1191E4F8C2D004B6B15 /* AnnictMeWorkCell.xib in Resources */,
 				D137D68A1E4D735E00F0FCFB /* LaunchScreen.storyboard in Resources */,
+				D1FEEFAC1E72E23C004D4D28 /* GoogleService-Info.plist in Resources */,
+				D1FEEFA31E72E0B9004D4D28 /* Login.storyboard in Resources */,
 				D13E338A1E504F9300A0CEF6 /* AnnictBaseLocalizable.strings in Resources */,
 				D13BD2CE1E50707F006CDF2E /* AnnictEpisodeCell.xib in Resources */,
 				D13E33931E505B0C00A0CEF6 /* AnnictWorks.storyboard in Resources */,
@@ -730,6 +789,141 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		13180C037BF822BB59411E80 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		15BE3189B3EEE25841165F60 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		280DFD4581229F710BC843AD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2F853F4A73378E52E50BC24E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Annict-for-iOSUITests/Pods-Annict-for-iOSUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E411522B22948B8943640E1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Annict-for-iOSTests/Pods-Annict-for-iOSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8E95096674CEE9923B5D344 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Annict-for-iOSTests/Pods-Annict-for-iOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBC53F2FFE978F4201EC6A5E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Annict-for-iOSUITests/Pods-Annict-for-iOSUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD061B680050020D3EB50973 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CE1446F7CE0C8A70B7C185DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		D13101F21E55E74C00023D70 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -798,13 +992,14 @@
 				D11BF4F51E537F9F0042A40A /* Async.swift in Sources */,
 				D195D11B1E4F928A004B6B15 /* UITableView+Extension.swift in Sources */,
 				D13E33901E50507600A0CEF6 /* String+Extension.swift in Sources */,
+				D1FEEFAA1E72E11D004D4D28 /* FIRDatabaseClient.swift in Sources */,
 				D195D0F41E4DE677004B6B15 /* Notification+Extension.swift in Sources */,
-				D195D0FD1E4DEE49004B6B15 /* CheckingLoginStateViewController.swift in Sources */,
 				D13BD2E71E51563E006CDF2E /* AnnictRecordCell.swift in Sources */,
 				D1FEDD061E4D9A8400EFA42F /* LoginViewController.swift in Sources */,
 				D13BD2ED1E5159CC006CDF2E /* AnnictUsersResponse.swift in Sources */,
 				D11BF4ED1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift in Sources */,
 				D13BD2D41E507410006CDF2E /* AnnictEpisodesResponse.swift in Sources */,
+				D1FEEFA51E72E0E4004D4D28 /* ReviewLoginViewController.swift in Sources */,
 				D13BD2F11E516979006CDF2E /* AnnictRecordsTabViewController.swift in Sources */,
 				D12F4EBC1E544F3D00EB0651 /* AnnictSeasonTabNavigationController.swift in Sources */,
 				D1FEDCFF1E4D7CD300EFA42F /* AnnictConsts.swift in Sources */,
@@ -812,6 +1007,7 @@
 				D13BD2F91E51AA95006CDF2E /* AnnictPostRecordsNavigationController.swift in Sources */,
 				D1FEDD021E4D844000EFA42F /* AnnictOauthTokenResponse.swift in Sources */,
 				D195D10A1E4E3189004B6B15 /* AnnictAPIRequest.swift in Sources */,
+				D1FEEFA71E72E0F8004D4D28 /* CheckingLoginStateViewController.swift in Sources */,
 				D13BD2CB1E507053006CDF2E /* AnnictEpisodeCell.swift in Sources */,
 				D137D6801E4D735E00F0FCFB /* AppDelegate.swift in Sources */,
 				D13BD2FC1E51ADC3006CDF2E /* AnnictRatingCell.swift in Sources */,
@@ -1001,6 +1197,7 @@
 		};
 		D137D6A51E4D735E00F0FCFB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DBD9C55A9D833CFDED35B82 /* Pods-Annict-for-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = V8AZ23YEL4;
@@ -1019,6 +1216,7 @@
 		};
 		D137D6A61E4D735E00F0FCFB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D28F9B5CC108F60AAD883F3 /* Pods-Annict-for-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = V8AZ23YEL4;
@@ -1037,6 +1235,7 @@
 		};
 		D137D6A81E4D735E00F0FCFB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BD2AD07787E8E76D4854131 /* Pods-Annict-for-iOSTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1056,6 +1255,7 @@
 		};
 		D137D6A91E4D735E00F0FCFB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99C9C1BD02AF7F9B989A6D54 /* Pods-Annict-for-iOSTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1075,6 +1275,7 @@
 		};
 		D137D6AB1E4D735E00F0FCFB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3998A217BBFFD1BFD5152B08 /* Pods-Annict-for-iOSUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = V8AZ23YEL4;
@@ -1093,6 +1294,7 @@
 		};
 		D137D6AC1E4D735E00F0FCFB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F443094A85625B40265ED14 /* Pods-Annict-for-iOSUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = V8AZ23YEL4;
