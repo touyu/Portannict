@@ -8,6 +8,8 @@
 
 import Foundation
 
+import Keys
+
 class AnnictConsts {
     
     static let rootURI = "https://api.annict.com"
@@ -15,19 +17,11 @@ class AnnictConsts {
     static let redirectURI = "annict://oauth"
     
     static var clientID: String {
-        guard let clientID = ProcessInfo.processInfo.environment["annict_client_id"] else {
-            assertionFailure("env['annict_client_id'] is not set.")
-            return ""
-        }
-        return clientID
+        return AnnictForIOSKeys().annictClientID
     }
     
     static var clientSecret: String {
-        guard let clientID = ProcessInfo.processInfo.environment["annict_client_secret"] else {
-            assertionFailure("env['annict_client_secret'] is not set.")
-            return ""
-        }
-        return clientID
+        return AnnictForIOSKeys().annictClientSecret
     }
     
     static func oauthURL() -> URL? {
@@ -42,11 +36,7 @@ class AnnictConsts {
     static var accessToken: String {
         get {
             if AppConfig.isTesting() {
-                guard let annictAccessToken = ProcessInfo.processInfo.environment["annict_access_token"] else {
-                    assertionFailure("env['annict_access_token'] is not set.")
-                    return ""
-                }
-                return annictAccessToken
+                return AnnictForIOSKeys().annictAccessToken
             }
             if let accessToken = UserDefaults.standard.string(forKey: "annict_access_token") {
                 return accessToken

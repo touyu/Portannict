@@ -20,3 +20,11 @@ target 'Annict-for-iOS' do
   end
 
 end
+
+plugin 'cocoapods-keys', {
+  :project => "Annict-for-iOS",
+  :keys => [
+    "AnnictClientID",
+    "AnnictClientSecret",
+    "AnnictAccessToken"
+]}
