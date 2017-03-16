@@ -17,16 +17,8 @@ class CheckingLoginStateViewController: UIViewController {
         super.viewDidAppear(animated)
         
         if AnnictConsts.accessToken.isEmpty && !AppConfig.isTesting() {
-            FIRDatabaseClient().getBoolValue(path: "isReview") { isReview in
-                if isReview {
-                    print("reviewing now !!")
-                    let reviewLoginVC = ReviewLoginViewController.instantiate(withStoryboard: "Login")
-                    self.present(reviewLoginVC, animated: false, completion: nil)
-                } else {
-                    let loginVC = LoginViewController.instantiate(withStoryboard: "Login")
-                    self.present(loginVC, animated: false, completion: nil)
-                }
-            }
+            let loginVC = LoginViewController.instantiate(withStoryboard: "Login")
+            self.present(loginVC, animated: false, completion: nil)
         } else {
             let annictTabBarController = AnnictTabBarController.instantiate(withStoryboard: "AnnictMeWorks")
             self.present(annictTabBarController, animated: false, completion: nil)

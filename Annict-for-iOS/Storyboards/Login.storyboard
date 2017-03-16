@@ -119,7 +119,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="tapedLoginButton:" destination="DA9-lk-6dx" eventType="touchUpInside" id="UQC-L5-9x0"/>
                                     <action selector="tapedLoginButton:" destination="vfw-IE-w0b" eventType="touchUpInside" id="cWk-xd-7uy"/>
                                 </connections>
                             </button>
