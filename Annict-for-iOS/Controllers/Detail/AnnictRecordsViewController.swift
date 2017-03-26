@@ -163,6 +163,8 @@ extension AnnictRecordsViewController {
         guard let cell = tableView.cellForRow(at: indexPath) as? AnnictRecordCell else { return }
         if let record = cell.record, record.user.id == AnnictConsts.userID {
             self.showActionSheet(recordID: record.id, indexPath: indexPath)
+        } else {
+            self.showReportActionSheet()
         }
     }
     
@@ -191,6 +193,15 @@ extension AnnictRecordsViewController {
                 print(error)
             }
         }
+    }
+    
+    fileprivate func showReportActionSheet() {
+        let actionSheet = UIAlertController(title: "", message: "選択してください", preferredStyle: .actionSheet)
+        let delete = UIAlertAction(title: "この記録を通報する", style: .destructive, handler: nil)
+        let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        actionSheet.addAction(delete)
+        actionSheet.addAction(cancel)
+        present(actionSheet, animated: true, completion: nil)
     }
 }
 
