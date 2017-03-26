@@ -16,4 +16,16 @@ extension StoryBoardInstantiatable where Self: UIViewController {
         let storyboard = UIStoryboard(name: storyboard, bundle: nil)
         return storyboard.instantiateViewController(withIdentifier: String(describing: self)) as! Self
     }
+    
+    static func instantiate(withStoryboard storyboard: AnnictStoryboard) -> Self {
+        let storyboard = UIStoryboard(name: storyboard.rawValue, bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: String(describing: self)) as! Self
+    }
+}
+
+enum AnnictStoryboard: String {
+    case annictMeWorks  = "AnnictMeWorks"
+    case annictWorks    = "AnnictWorks"
+    case login          = "Login"
+    case setting        = "Setting"
 }

@@ -64,6 +64,9 @@
 		D13E33991E505E9600A0CEF6 /* AnnictMeWorksTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13E33981E505E9600A0CEF6 /* AnnictMeWorksTabViewController.swift */; };
 		D13E339B1E506DF100A0CEF6 /* AnnictDetailAnimeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13E339A1E506DF100A0CEF6 /* AnnictDetailAnimeInfoViewController.swift */; };
 		D13E339D1E506E7900A0CEF6 /* AnnictEpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13E339C1E506E7900A0CEF6 /* AnnictEpisodeViewController.swift */; };
+		D147C0921E8010FE00E612D6 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D147C0911E8010FE00E612D6 /* Setting.storyboard */; };
+		D147C0951E80127600E612D6 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D147C0941E80127600E612D6 /* SettingTableViewController.swift */; };
+		D147C0971E80129500E612D6 /* SettingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D147C0961E80129500E612D6 /* SettingNavigationController.swift */; };
 		D14FF4D71E5024A500AD9913 /* AnnictAPIGetWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14FF4D61E5024A500AD9913 /* AnnictAPIGetWorks.swift */; };
 		D14FF4EC1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14FF4EB1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift */; };
 		D195D0ED1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D195D0EC1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard */; };
@@ -190,6 +193,9 @@
 		D13E33981E505E9600A0CEF6 /* AnnictMeWorksTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictMeWorksTabViewController.swift; sourceTree = "<group>"; };
 		D13E339A1E506DF100A0CEF6 /* AnnictDetailAnimeInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictDetailAnimeInfoViewController.swift; sourceTree = "<group>"; };
 		D13E339C1E506E7900A0CEF6 /* AnnictEpisodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictEpisodeViewController.swift; sourceTree = "<group>"; };
+		D147C0911E8010FE00E612D6 /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		D147C0941E80127600E612D6 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		D147C0961E80129500E612D6 /* SettingNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingNavigationController.swift; sourceTree = "<group>"; };
 		D14FF4D61E5024A500AD9913 /* AnnictAPIGetWorks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPIGetWorks.swift; sourceTree = "<group>"; };
 		D14FF4EB1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictMeWorksTabNavigationController.swift; sourceTree = "<group>"; };
 		D195D0EC1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AnnictMeWorks.storyboard; sourceTree = "<group>"; };
@@ -506,6 +512,15 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		D147C0931E80125400E612D6 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				D147C0941E80127600E612D6 /* SettingTableViewController.swift */,
+				D147C0961E80129500E612D6 /* SettingNavigationController.swift */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
 		D14FF4D51E50245900AD9913 /* AnnictAPI */ = {
 			isa = PBXGroup;
 			children = (
@@ -606,6 +621,7 @@
 			children = (
 				D13BD2C81E506FE0006CDF2E /* Detail */,
 				D195D0FA1E4DED42004B6B15 /* Home */,
+				D147C0931E80125400E612D6 /* Setting */,
 				D195D0FB1E4DEE11004B6B15 /* Login */,
 				D11BF4E81E5331340042A40A /* Search */,
 				D12F4EB81E544DF700EB0651 /* Season */,
@@ -620,6 +636,7 @@
 				D13E33921E505B0C00A0CEF6 /* AnnictWorks.storyboard */,
 				D137D6881E4D735E00F0FCFB /* LaunchScreen.storyboard */,
 				D1FEEFA21E72E0B9004D4D28 /* Login.storyboard */,
+				D147C0911E8010FE00E612D6 /* Setting.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -761,6 +778,7 @@
 				D13E338A1E504F9300A0CEF6 /* AnnictBaseLocalizable.strings in Resources */,
 				D13BD2CE1E50707F006CDF2E /* AnnictEpisodeCell.xib in Resources */,
 				D13E33931E505B0C00A0CEF6 /* AnnictWorks.storyboard in Resources */,
+				D147C0921E8010FE00E612D6 /* Setting.storyboard in Resources */,
 				D13BD2DF1E50A3A7006CDF2E /* AnnictSubtextCell.xib in Resources */,
 				D12F4EB61E54139B00EB0651 /* AnnictRecentlyAnimeSectionCell.xib in Resources */,
 				D13BD2FE1E51ADDC006CDF2E /* AnnictRatingCell.xib in Resources */,
@@ -1019,6 +1037,7 @@
 				D195D0F81E4DE919004B6B15 /* UIViewController+Extension.swift in Sources */,
 				D12F4EC21E5476A300EB0651 /* YearPickerView.swift in Sources */,
 				D13E339B1E506DF100A0CEF6 /* AnnictDetailAnimeInfoViewController.swift in Sources */,
+				D147C0971E80129500E612D6 /* SettingNavigationController.swift in Sources */,
 				D12F4EC81E547ADC00EB0651 /* UIView+Extension.swift in Sources */,
 				D13BD3081E51DCE5006CDF2E /* AnnictAPIDeleteMeRecord.swift in Sources */,
 				D13BD2E21E5154AA006CDF2E /* AnnictRecordsViewController.swift in Sources */,
@@ -1033,6 +1052,7 @@
 				D195D1081E4E098A004B6B15 /* AnnictWorksResponse.swift in Sources */,
 				D1A43E401E520E0000EE40CB /* AnnictSearchNavigationController.swift in Sources */,
 				D13BD2F71E51A9F7006CDF2E /* AnnictPostRecordsViewController.swift in Sources */,
+				D147C0951E80127600E612D6 /* SettingTableViewController.swift in Sources */,
 				D12F4EB41E54139200EB0651 /* AnnictRecentlyAnimeSectionCell.swift in Sources */,
 				D13BD2DD1E50A395006CDF2E /* AnnictSubtextCell.swift in Sources */,
 				D11BF4F01E5344980042A40A /* RakutenItemsResponse.swift in Sources */,

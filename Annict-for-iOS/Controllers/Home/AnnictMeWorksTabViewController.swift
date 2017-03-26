@@ -69,4 +69,9 @@ class AnnictMeWorksTabViewController: ButtonBarPagerTabStripViewController {
         e.mode = .stopWatching
         return [a, b, c, d, e]
     }
+
+    @IBAction func tappedSettingButton(_ sender: Any) {
+        let settingNavigationController = SettingNavigationController.instantiate(withStoryboard: .setting)
+        self.present(settingNavigationController, animated: true, completion: nil)
+    }
 }
