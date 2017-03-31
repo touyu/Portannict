@@ -26,5 +26,8 @@ plugin 'cocoapods-keys', {
   :keys => [
     "AnnictClientID",
     "AnnictClientSecret",
-    "AnnictAccessToken"
+    "AnnictAccessToken",
+    "AnnictIDForReview",
+    "AnnictPassForReview",
+    "AnnictAccessTokenForReview"
 ]}
