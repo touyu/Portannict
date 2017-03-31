@@ -105,8 +105,6 @@ class AnnictMeWorksTabViewController: ButtonBarPagerTabStripViewController {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         super.scrollViewDidScroll(scrollView)
         
-        print(scrollView.contentOffset.y)
-        
         if scrollView.tag == 1 {
             
             if scrollView.contentOffset.y > Const.profileViewHeight {
@@ -137,7 +135,6 @@ class AnnictMeWorksTabViewController: ButtonBarPagerTabStripViewController {
 
 extension AnnictMeWorksTabViewController: AnnictMeWorksViewControllerDelegate {
     func didScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset.y)
         
         let parentScrollView = self.scrollView!
         let childScrollView = scrollView
