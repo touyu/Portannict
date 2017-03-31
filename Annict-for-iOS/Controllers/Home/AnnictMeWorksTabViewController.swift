@@ -20,6 +20,7 @@ class AnnictMeWorksTabViewController: ButtonBarPagerTabStripViewController {
     
     struct Const {
         static var tableViewContentInsetTop: CGFloat = 8.0
+        static var profileViewHeight: CGFloat = 200.0
     }
     
     override func viewDidLoad() {
@@ -107,20 +108,16 @@ class AnnictMeWorksTabViewController: ButtonBarPagerTabStripViewController {
         print(scrollView.contentOffset.y)
         
         if scrollView.tag == 1 {
-            if scrollView.contentOffset.y > 200 {
+            
+            if scrollView.contentOffset.y > Const.profileViewHeight {
                 // 親スクロールをtableViewに伝搬させる
-                propagateScrollToTableView(float: scrollView.contentOffset.y - 200)
-                scrollView.contentOffset.y = 200
-            } else {
-                // tableViewがスクロールされている状態のとき、tableViewをスクロールさせる
-                let tableView = self.getCurrentTableView()
-                if tableView.contentOffset.y > -Const.tableViewContentInsetTop {
-                    propagateScrollToTableView(float: scrollView.contentOffset.y - 200)
-                    scrollView.contentOffset.y = 200
-                }
+                propagateScrollToTableView(float: scrollView.contentOffset.y - Const.profileViewHeight)
+                scrollView.contentOffset.y = Const.profileViewHeight
             }
             
-            containerView.isUserInteractionEnabled = (scrollView.contentOffset.y == 200)
+            if scrollView.contentOffset.y < 0 {
+                scrollView.contentOffset.y = 0
+            }
         }
     }
     
@@ -142,10 +139,21 @@ extension AnnictMeWorksTabViewController: AnnictMeWorksViewControllerDelegate {
     func didScroll(_ scrollView: UIScrollView) {
         print(scrollView.contentOffset.y)
         
-        if scrollView.contentOffset.y < -Const.tableViewContentInsetTop && self.scrollView.contentOffset.y <= 200 {
-            containerView.isUserInteractionEnabled = false
-            self.scrollView.contentOffset.y += Const.tableViewContentInsetTop + scrollView.contentOffset.y
-            scrollView.contentOffset.y = -Const.tableViewContentInsetTop
+        let parentScrollView = self.scrollView!
+        let childScrollView = scrollView
+
+        
+        // tableView上スクロール
+        if childScrollView.contentOffset.y > -Const.tableViewContentInsetTop {
+            if parentScrollView.contentOffset.y >= 0 && parentScrollView.contentOffset.y < Const.profileViewHeight {
+                parentScrollView.contentOffset.y += Const.tableViewContentInsetTop + childScrollView.contentOffset.y
+                childScrollView.contentOffset.y = -Const.tableViewContentInsetTop
+            }
+        } else {
+            if parentScrollView.contentOffset.y > 0 && parentScrollView.contentOffset.y <= Const.profileViewHeight {
+                parentScrollView.contentOffset.y += Const.tableViewContentInsetTop + childScrollView.contentOffset.y
+                childScrollView.contentOffset.y = -Const.tableViewContentInsetTop
+            }
         }
     }
 }
