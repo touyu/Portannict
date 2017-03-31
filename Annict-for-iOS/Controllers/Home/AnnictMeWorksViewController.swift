@@ -10,6 +10,10 @@ import UIKit
 
 import XLPagerTabStrip
 
+protocol AnnictMeWorksViewControllerDelegate {
+    func didScroll(_ scrollView: UIScrollView)
+}
+
 enum TableViewState {
     case loading
     case idol
@@ -20,8 +24,13 @@ enum TableViewState {
 
 class AnnictMeWorksViewController: UITableViewController {
     
+    struct Consts {
+        static var contentInsetTop: CGFloat = 8.0
+    }
+    
     // 外部から指定
     var mode: AnimeStatus?
+    var delegate: AnnictMeWorksViewControllerDelegate?
     
     fileprivate var works: [AnnictWorkResponse] = [] {
         didSet {
@@ -46,7 +55,7 @@ class AnnictMeWorksViewController: UITableViewController {
     fileprivate func initTableView() {
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.contentInset.top = 8
+        self.tableView.contentInset.top = Consts.contentInsetTop
         self.tableView.register(cellType: AnnictMeWorkCell.self)
         self.initRefreshControl()
     }
@@ -125,6 +134,12 @@ extension AnnictMeWorksViewController {
         annictDetailAnimeInfoVC.work = works[indexPath.row]
         annictDetailAnimeInfoVC.status = self.mode
         self.navigationController?.pushViewController(annictDetailAnimeInfoVC, animated: true)
+    }
+}
+
+extension AnnictMeWorksViewController {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        delegate?.didScroll(scrollView)
     }
 }
 
