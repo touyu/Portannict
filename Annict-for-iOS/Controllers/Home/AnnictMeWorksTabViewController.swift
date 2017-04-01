@@ -20,7 +20,8 @@ class AnnictMeWorksTabViewController: ButtonBarPagerTabStripViewController {
     
     struct Const {
         static var tableViewContentInsetTop: CGFloat = 8.0
-        static var profileViewHeight: CGFloat = 200.0
+        static var profileViewHeight: CGFloat = 300.0
+        static var tabBarHeight: CGFloat = 49
     }
     
     override func viewDidLoad() {
@@ -65,6 +66,7 @@ class AnnictMeWorksTabViewController: ButtonBarPagerTabStripViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         self.scrollView.contentSize = self.baseView.bounds.size
         self.containerView.frame.size.height = self.view.bounds.height
     }

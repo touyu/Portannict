@@ -69,6 +69,9 @@
 		D147C0971E80129500E612D6 /* SettingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D147C0961E80129500E612D6 /* SettingNavigationController.swift */; };
 		D14FF4D71E5024A500AD9913 /* AnnictAPIGetWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14FF4D61E5024A500AD9913 /* AnnictAPIGetWorks.swift */; };
 		D14FF4EC1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14FF4EB1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift */; };
+		D16F6B9D1E8ECFBD00523839 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16F6B9C1E8ECFBD00523839 /* UserProfileView.swift */; };
+		D16F6B9F1E8ECFCE00523839 /* UserProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D16F6B9E1E8ECFCE00523839 /* UserProfileView.xib */; };
+		D16F6BA21E8ED1B400523839 /* AnnictAPIGetMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16F6BA11E8ED1B400523839 /* AnnictAPIGetMe.swift */; };
 		D195D0ED1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D195D0EC1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard */; };
 		D195D0EF1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0EE1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift */; };
 		D195D0F41E4DE677004B6B15 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0F31E4DE677004B6B15 /* Notification+Extension.swift */; };
@@ -198,6 +201,9 @@
 		D147C0961E80129500E612D6 /* SettingNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingNavigationController.swift; sourceTree = "<group>"; };
 		D14FF4D61E5024A500AD9913 /* AnnictAPIGetWorks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPIGetWorks.swift; sourceTree = "<group>"; };
 		D14FF4EB1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictMeWorksTabNavigationController.swift; sourceTree = "<group>"; };
+		D16F6B9C1E8ECFBD00523839 /* UserProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		D16F6B9E1E8ECFCE00523839 /* UserProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileView.xib; sourceTree = "<group>"; };
+		D16F6BA11E8ED1B400523839 /* AnnictAPIGetMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPIGetMe.swift; sourceTree = "<group>"; };
 		D195D0EC1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AnnictMeWorks.storyboard; sourceTree = "<group>"; };
 		D195D0EE1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictMeWorksViewController.swift; sourceTree = "<group>"; };
 		D195D0F31E4DE677004B6B15 /* Notification+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
@@ -526,6 +532,7 @@
 			children = (
 				D195D1061E4E096D004B6B15 /* Responses */,
 				D13BD3071E51DCE5006CDF2E /* AnnictAPIDeleteMeRecord.swift */,
+				D16F6BA11E8ED1B400523839 /* AnnictAPIGetMe.swift */,
 				D13BD2CF1E5072AA006CDF2E /* AnnictAPIGetEpisodes.swift */,
 				D13BD2EE1E515ABE006CDF2E /* AnnictAPIGetRecords.swift */,
 				D14FF4D61E5024A500AD9913 /* AnnictAPIGetWorks.swift */,
@@ -536,6 +543,15 @@
 				D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */,
 			);
 			path = AnnictAPI;
+			sourceTree = "<group>";
+		};
+		D16F6BA01E8ED02F00523839 /* UserProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				D16F6B9C1E8ECFBD00523839 /* UserProfileView.swift */,
+				D16F6B9E1E8ECFCE00523839 /* UserProfileView.xib */,
+			);
+			name = UserProfileView;
 			sourceTree = "<group>";
 		};
 		D195D0F21E4DE62E004B6B15 /* Extensions */ = {
@@ -590,6 +606,7 @@
 				D195D1151E4F8AF9004B6B15 /* Cells */,
 				D12F4EC91E547B6300EB0651 /* YearPickerView */,
 				D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */,
+				D16F6BA01E8ED02F00523839 /* UserProfileView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -786,6 +803,7 @@
 				D137D6871E4D735E00F0FCFB /* Assets.xcassets in Resources */,
 				D195D0ED1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard in Resources */,
 				D13BD2E91E515659006CDF2E /* AnnictRecordCell.xib in Resources */,
+				D16F6B9F1E8ECFCE00523839 /* UserProfileView.xib in Resources */,
 				D12F4EC41E5476AD00EB0651 /* YearPickerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1019,6 +1037,7 @@
 				D13BD2D41E507410006CDF2E /* AnnictEpisodesResponse.swift in Sources */,
 				D1FEEFA51E72E0E4004D4D28 /* ReviewLoginViewController.swift in Sources */,
 				D13BD2F11E516979006CDF2E /* AnnictRecordsTabViewController.swift in Sources */,
+				D16F6BA21E8ED1B400523839 /* AnnictAPIGetMe.swift in Sources */,
 				D12F4EBC1E544F3D00EB0651 /* AnnictSeasonTabNavigationController.swift in Sources */,
 				D1FEDCFF1E4D7CD300EFA42F /* AnnictConsts.swift in Sources */,
 				D1FEDD041E4D883600EFA42F /* AnnictAPOauthTokenI.swift in Sources */,
@@ -1031,6 +1050,7 @@
 				D13BD2FC1E51ADC3006CDF2E /* AnnictRatingCell.swift in Sources */,
 				D13E339D1E506E7900A0CEF6 /* AnnictEpisodeViewController.swift in Sources */,
 				D13BD2EB1E515913006CDF2E /* AnnictRecordsResponse.swift in Sources */,
+				D16F6B9D1E8ECFBD00523839 /* UserProfileView.swift in Sources */,
 				D11BF4EB1E533D680042A40A /* RakutenAPIRequest.swift in Sources */,
 				D1AC3DAA1E59C25200BF4AC2 /* AppConfig.swift in Sources */,
 				D195D1031E4DF000004B6B15 /* UIColor+Extension.swift in Sources */,

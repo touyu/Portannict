@@ -30,12 +30,16 @@ struct AnnictUserResponse {
     var username: String?
     var name: String?
     var description: String?
+    var avatarURL: String?
+    var backgroundImageURL: String?
     
     init (_ e: Extractor) {
         id = try! e <| "id"
         username = try! e <|? "username"
         name = try! e <|? "name"
         description = try! e <|? "description"
+        avatarURL = try! e <|? "avatar_url"
+        backgroundImageURL = try! e <|? "background_image_url"
     }
 }
 

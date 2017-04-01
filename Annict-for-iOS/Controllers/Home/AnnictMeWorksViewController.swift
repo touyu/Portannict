@@ -26,6 +26,7 @@ class AnnictMeWorksViewController: UITableViewController {
     
     struct Consts {
         static var contentInsetTop: CGFloat = 8.0
+        static var contentInsetButton: CGFloat = 8.0
     }
     
     // 外部から指定
@@ -55,7 +56,9 @@ class AnnictMeWorksViewController: UITableViewController {
     fileprivate func initTableView() {
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.contentInset.top = Consts.contentInsetTop
+        let insets = UIEdgeInsets(top: Consts.contentInsetTop, left: 0, bottom: Consts.contentInsetButton, right: 0)
+        self.tableView.contentInset = insets
+        self.tableView.scrollIndicatorInsets = insets
         self.tableView.register(cellType: AnnictMeWorkCell.self)
         self.initRefreshControl()
     }
