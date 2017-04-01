@@ -125,7 +125,11 @@ class AnnictDetailAnimeInfoViewController: UIViewController {
         AnnictAPIClient.send(request) { [weak self] response in
             switch response {
             case .success(let value):
-                self?.status = value.works.first?.status
+                guard let status = value.works.first?.status else {
+                    self?.status = .noSelect
+                    return
+                }
+                self?.status = status
             case .failure(let error):
                 print(error)
             }
