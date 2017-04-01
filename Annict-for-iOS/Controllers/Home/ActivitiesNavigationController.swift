@@ -9,5 +9,9 @@
 import UIKit
 
 class ActivitiesNavigationController: UINavigationController {
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationBar.shadowImage = UIImage()
+    }
 }

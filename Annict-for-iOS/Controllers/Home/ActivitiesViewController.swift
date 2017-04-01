@@ -22,6 +22,7 @@ class ActivitiesViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = "home".localized(withTableName: "AnnictBaseLocalizable")
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -33,6 +34,18 @@ class ActivitiesViewController: UIViewController {
                                        AnnictActivityCreateMultipleRecordsCell.self])
         
         getMeFollowingActivities()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.shadowImage = nil
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     fileprivate func getMeFollowingActivities() {
@@ -83,9 +96,14 @@ extension ActivitiesViewController: UITableViewDelegate {
         
         guard let action = activities[indexPath.row].action else { return }
         
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
         switch action {
         case .createRecord:
-            break
+            guard let episodeID = activities[indexPath.row].episode?.id else { return }
+            let annictRecordsTabViewController = AnnictRecordsTabViewController.instantiate(withStoryboard: .annictWorks)
+            annictRecordsTabViewController.episodeID = episodeID
+            self.navigationController?.pushViewController(annictRecordsTabViewController, animated: true)
         case .createStatus, .createMultipleRecords:
             guard let work = activities[indexPath.row].work else { return }
             let annictDetailAnimeInfoTabViewController = AnnictDetailAnimeInfoTabViewController.instantiate(withStoryboard: .annictWorks)
