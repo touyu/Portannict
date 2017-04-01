@@ -186,7 +186,6 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="375" id="1tY-xn-PWF"/>
                                             <constraint firstAttribute="bottom" secondItem="g4N-Ua-6GX" secondAttribute="bottom" id="5kC-d9-M7V"/>
                                             <constraint firstItem="ooa-b7-qVh" firstAttribute="top" secondItem="tWF-80-wsd" secondAttribute="top" constant="300" id="Ade-YX-Utv"/>
                                             <constraint firstItem="8Dd-XH-26j" firstAttribute="centerX" secondItem="tWF-80-wsd" secondAttribute="centerX" id="BJk-9o-Pbf"/>
@@ -208,6 +207,7 @@
                                     <constraint firstItem="tWF-80-wsd" firstAttribute="top" secondItem="5jR-Ol-FUg" secondAttribute="top" id="4ch-gg-sEa"/>
                                     <constraint firstAttribute="trailing" secondItem="tWF-80-wsd" secondAttribute="trailing" id="Eep-Qf-4Cu"/>
                                     <constraint firstItem="tWF-80-wsd" firstAttribute="leading" secondItem="5jR-Ol-FUg" secondAttribute="leading" id="Ikd-aE-yTH"/>
+                                    <constraint firstItem="tWF-80-wsd" firstAttribute="width" secondItem="5jR-Ol-FUg" secondAttribute="width" id="f6d-JM-K0u"/>
                                     <constraint firstAttribute="bottom" secondItem="tWF-80-wsd" secondAttribute="bottom" id="vPV-hU-qaV"/>
                                 </constraints>
                             </scrollView>

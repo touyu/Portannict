@@ -67,8 +67,8 @@ class AnnictMeWorksTabViewController: ButtonBarPagerTabStripViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.scrollView.contentSize = self.baseView.bounds.size
-        self.containerView.frame.size.height = self.view.bounds.height
+        self.scrollView.contentSize.height = self.view.bounds.height + Const.profileViewHeight
+        self.containerView.frame.size.height = self.view.bounds.height - (buttonBarView.bounds.height + Const.tabBarHeight)
     }
     
     override func viewWillAppear(_ animated: Bool) {
