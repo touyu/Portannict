@@ -31,8 +31,7 @@ class AnnictRecordCell: UITableViewCell {
         self.setedRecord = record
         self.usernameLabel.text = record.user?.name
         self.commentLabel.text = record.comment
-        let date = self.convertDate(dateString: record.createdAt)
-        self.timeLabel.text = self.convertString(date: date)
+        self.initTimeLabel(createdAt: record.createdAt)
         self.initStars(rating: record.rating)
     }
     
@@ -48,17 +47,9 @@ class AnnictRecordCell: UITableViewCell {
         }
     }
     
-    fileprivate func convertDate(dateString: String?) -> Date? {
-        guard let dateString = dateString else { return nil }
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        return formatter.date(from: dateString)
-    }
-    
-    fileprivate func convertString(date: Date?) -> String {
-        guard let date = date else { return "" }
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        return formatter.string(from: date)
+    private func initTimeLabel(createdAt: String?) {
+        guard let createdAt = createdAt else { return }
+        let date = Date(dateString: createdAt, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+        timeLabel.text = date.timeAgoSinceNow
     }
 }
