@@ -18,6 +18,7 @@ class UserProfileView: UIView {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var recordsLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -90,5 +91,9 @@ class UserProfileView: UIView {
         }
         
         self.descriptionLabel.text = userData.description
+        
+        if let recordsCount = userData.recordsCount {
+            self.recordsLabel.text = "Records \(recordsCount)"
+        }
     }
 }

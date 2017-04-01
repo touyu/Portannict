@@ -32,6 +32,7 @@ struct AnnictUserResponse {
     var description: String?
     var avatarURL: String?
     var backgroundImageURL: String?
+    var recordsCount: Int?
     
     init (_ e: Extractor) {
         id = try! e <| "id"
@@ -40,6 +41,7 @@ struct AnnictUserResponse {
         description = try! e <|? "description"
         avatarURL = try! e <|? "avatar_url"
         backgroundImageURL = try! e <|? "background_image_url"
+        recordsCount = try! e <|? "records_count"
     }
     
     init (dictionary: [String: Any]) {
@@ -48,7 +50,8 @@ struct AnnictUserResponse {
         name = dictionary["name"] as? String
         description = dictionary["description"]  as? String
         avatarURL = dictionary["avatarURL"] as? String
-        backgroundImageURL = dictionary["backgroundImageURL"]  as? String
+        backgroundImageURL = dictionary["backgroundImageURL"] as? String
+        recordsCount = dictionary["records_count"] as? Int
     }
     
     func toDictionary() -> [String: Any] {
@@ -59,6 +62,7 @@ struct AnnictUserResponse {
         dictionary["description"] = description
         dictionary["avatarURL"] = avatarURL
         dictionary["backgroundImageURL"] = backgroundImageURL
+        dictionary["records_count"] = recordsCount
         return dictionary
     }
 }

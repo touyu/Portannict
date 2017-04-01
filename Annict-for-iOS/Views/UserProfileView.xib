@@ -15,6 +15,7 @@
                 <outlet property="backgroundImageView" destination="Enh-2p-mgH" id="Dob-1U-K8v"/>
                 <outlet property="descriptionLabel" destination="sLN-9L-cve" id="kkr-8I-OiS"/>
                 <outlet property="nameLabel" destination="IKv-zl-iGD" id="xD8-zb-fRL"/>
+                <outlet property="recordsLabel" destination="eMK-bP-YuP" id="DFs-bq-9Fh"/>
                 <outlet property="username" destination="o6e-1g-cQQ" id="tNG-td-6Md"/>
             </connections>
         </placeholder>
@@ -60,11 +61,19 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Records 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMK-bP-YuP">
+                                <rect key="frame" x="241" y="59" width="126" height="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.1643100792253521" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="eMK-bP-YuP" secondAttribute="trailing" constant="8" id="1I4-Fx-Hs1"/>
                             <constraint firstItem="o6e-1g-cQQ" firstAttribute="width" secondItem="xbt-jX-rrf" secondAttribute="width" multiplier="3/4" id="7wG-s3-kVg"/>
                             <constraint firstItem="o6e-1g-cQQ" firstAttribute="top" secondItem="IKv-zl-iGD" secondAttribute="bottom" constant="4" id="8xr-mR-SSG"/>
+                            <constraint firstItem="eMK-bP-YuP" firstAttribute="leading" secondItem="P1i-Ch-ZT8" secondAttribute="trailing" constant="8" id="B94-c3-jk4"/>
                             <constraint firstItem="o6e-1g-cQQ" firstAttribute="centerX" secondItem="IKv-zl-iGD" secondAttribute="centerX" id="Lnx-4t-O9C"/>
                             <constraint firstItem="sLN-9L-cve" firstAttribute="top" secondItem="o6e-1g-cQQ" secondAttribute="bottom" constant="8" id="Zbq-j2-oBh"/>
                             <constraint firstItem="sLN-9L-cve" firstAttribute="width" secondItem="xbt-jX-rrf" secondAttribute="width" multiplier="3/4" id="aCA-7V-7ep"/>
@@ -72,6 +81,7 @@
                             <constraint firstItem="sLN-9L-cve" firstAttribute="centerX" secondItem="o6e-1g-cQQ" secondAttribute="centerX" id="ifz-AN-h31"/>
                             <constraint firstItem="P1i-Ch-ZT8" firstAttribute="top" secondItem="xbt-jX-rrf" secondAttribute="top" constant="24" id="kTw-3I-PbH"/>
                             <constraint firstItem="P1i-Ch-ZT8" firstAttribute="centerX" secondItem="xbt-jX-rrf" secondAttribute="centerX" id="mQS-9p-dGk"/>
+                            <constraint firstItem="eMK-bP-YuP" firstAttribute="centerY" secondItem="P1i-Ch-ZT8" secondAttribute="centerY" id="oK7-xO-idP"/>
                             <constraint firstItem="IKv-zl-iGD" firstAttribute="top" secondItem="P1i-Ch-ZT8" secondAttribute="bottom" constant="8" id="sfv-yA-1n3"/>
                             <constraint firstItem="IKv-zl-iGD" firstAttribute="width" secondItem="xbt-jX-rrf" secondAttribute="width" multiplier="3/4" id="umR-Gu-HAr"/>
                         </constraints>
