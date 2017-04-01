@@ -68,7 +68,7 @@ class AnnictSearchViewController: UIViewController {
             switch response {
             case .success(let value):
                 // 最近見られたアニメから重複を無くして返す
-                self.popularAnimes = value.records.map { $0.work }.reduce([]) {$0.0.map{$0.id}.contains($0.1.id) ? $0.0 : $0.0 + [$0.1] }
+                self.popularAnimes = value.records.map { $0.work! }.reduce([]) {$0.0.map{$0.id}.contains($0.1.id) ? $0.0 : $0.0 + [$0.1] }
                 completionHandler?()
             case .failure(let error):
                 print(error)

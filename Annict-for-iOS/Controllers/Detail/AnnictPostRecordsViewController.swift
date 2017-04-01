@@ -68,7 +68,7 @@ class AnnictPostRecordsViewController: UIViewController {
             switch response {
             case .success(let value):
                 // 自分のユーザーIDを保存
-                AnnictConsts.userID = value.user.id
+                AnnictConsts.userID = value.user?.id
                 completionHandler?()
             case .failure(let error):
                 print(error)

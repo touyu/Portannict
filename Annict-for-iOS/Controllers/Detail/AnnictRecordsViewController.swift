@@ -161,7 +161,7 @@ extension AnnictRecordsViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         guard let cell = tableView.cellForRow(at: indexPath) as? AnnictRecordCell else { return }
-        if let record = cell.record, record.user.id == AnnictConsts.userID {
+        if let record = cell.record, record.user?.id == AnnictConsts.userID {
             self.showActionSheet(recordID: record.id, indexPath: indexPath)
         } else {
             self.showReportActionSheet()

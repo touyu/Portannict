@@ -8,9 +8,31 @@
 
 import APIKit
 import Himotoki
+import Result
 
 
-typealias AnnictAPIClient = Session
+class AnnictAPIClient: Session {
+    @discardableResult
+    override class func send<Request : AnnictAPIRequest>(_ request: Request, callbackQueue: CallbackQueue? = nil, handler: @escaping (Result<Request.Response, SessionTaskError>) -> Void) -> SessionTask? {
+        print("\n\n-----🚀 [AnnictAPIClient] REQUEST 🚀-----")
+        do {
+            let urlRequest = try request.buildURLRequest()
+            if let HTTPMethod = urlRequest.httpMethod {
+                print("[\(HTTPMethod)]")
+            }
+            
+            if let url = urlRequest.url?.absoluteURL {
+                print(url)
+            }
+            
+            print("\n\n")
+        } catch {
+            print("----- [AnnictAPIClient] ERROR: buildURLRequest -----")
+        }
+
+        return super.send(request, callbackQueue: callbackQueue, handler: handler)
+    }
+}
 
 
 // MARK: - AnnictAPI

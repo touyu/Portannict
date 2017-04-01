@@ -8,6 +8,7 @@ target 'Annict-for-iOS' do
   # Pods for Annict-for-iOS
   pod 'Firebase'
   pod 'Firebase/Database'
+  pod 'DateToolsSwift'
 
   target 'Annict-for-iOSTests' do
     inherit! :search_paths

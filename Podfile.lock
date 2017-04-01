@@ -1,4 +1,5 @@
 PODS:
+  - DateToolsSwift (2.0.3)
   - Firebase (3.14.0):
     - Firebase/Core (= 3.14.0)
   - Firebase/Core (3.14.0):
@@ -22,6 +23,7 @@ PODS:
   - Keys (1.0.0)
 
 DEPENDENCIES:
+  - DateToolsSwift
   - Firebase
   - Firebase/Database
   - Keys (from `Pods/CocoaPodsKeys`)
@@ -31,6 +33,7 @@ EXTERNAL SOURCES:
     :path: Pods/CocoaPodsKeys
 
 SPEC CHECKSUMS:
+  DateToolsSwift: bf69bf9056d9e53c5c03f06e51f219b9b8b02f9e
   Firebase: 85a581fb04e44f63ae9f4fbc8d6dabf4a4c18653
   FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
   FirebaseCore: 225d40532489835a034b8f4e2c9c87fbf4f615a2
@@ -39,6 +42,6 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
 
-PODFILE CHECKSUM: 88d5a3c6103123f1227c6fd8b0bff6f4d65d3875
+PODFILE CHECKSUM: 0adcf8074f1d11bd8a00586ac48d49ce1631fcf1
 
 COCOAPODS: 1.2.0

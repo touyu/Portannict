@@ -29,7 +29,7 @@ class AnnictRecordCell: UITableViewCell {
     
     func set(record: AnnictRecordResponse) {
         self.setedRecord = record
-        self.usernameLabel.text = record.user.name
+        self.usernameLabel.text = record.user?.name
         self.commentLabel.text = record.comment
         let date = self.convertDate(dateString: record.createdAt)
         self.timeLabel.text = self.convertString(date: date)

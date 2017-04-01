@@ -19,4 +19,8 @@ extension UIColor {
     static var annictPink: UIColor {
         return UIColor(hex: 0xf85b73)
     }
+    
+    static var annictBlue: UIColor {
+        return UIColor(hex: 0x0366d6)
+    }
 }
