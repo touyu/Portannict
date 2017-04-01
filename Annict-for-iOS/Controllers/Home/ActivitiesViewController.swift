@@ -29,7 +29,8 @@ class ActivitiesViewController: UIViewController {
         tableView.estimatedRowHeight = 240
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(cellTypes: [AnnictActivityCreateStatusCell.self,
-                                       AnnictActivityCreateRecordCell.self])
+                                       AnnictActivityCreateRecordCell.self,
+                                       AnnictActivityCreateMultipleRecordsCell.self])
         
         getMeFollowingActivities()
     }
@@ -65,7 +66,7 @@ extension ActivitiesViewController: UITableViewDataSource {
             cell.set(activity: activity)
             return cell
         case .createMultipleRecords:
-            let cell = tableView.dequeueReusableCell(with: AnnictActivityCreateStatusCell.self, for: indexPath)
+            let cell = tableView.dequeueReusableCell(with: AnnictActivityCreateMultipleRecordsCell.self, for: indexPath)
             cell.set(activity: activity)
             return cell
         case .createStatus:

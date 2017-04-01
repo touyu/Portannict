@@ -76,6 +76,8 @@
 		D14F6D401E8FABDA00A079EB /* AnnictActivityCreateStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14F6D3F1E8FABDA00A079EB /* AnnictActivityCreateStatusCell.xib */; };
 		D14F6D451E8FD24500A079EB /* AnnictActivityCreateRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F6D441E8FD24500A079EB /* AnnictActivityCreateRecordCell.swift */; };
 		D14F6D471E8FD25F00A079EB /* AnnictActivityCreateRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14F6D461E8FD25F00A079EB /* AnnictActivityCreateRecordCell.xib */; };
+		D14F6D4B1E8FFE0C00A079EB /* AnnictActivityCreateMultipleRecordsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14F6D4A1E8FFE0C00A079EB /* AnnictActivityCreateMultipleRecordsCell.xib */; };
+		D14F6D4D1E8FFE1400A079EB /* AnnictActivityCreateMultipleRecordsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F6D4C1E8FFE1400A079EB /* AnnictActivityCreateMultipleRecordsCell.swift */; };
 		D14FF4D71E5024A500AD9913 /* AnnictAPIGetWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14FF4D61E5024A500AD9913 /* AnnictAPIGetWorks.swift */; };
 		D14FF4EC1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14FF4EB1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift */; };
 		D16F6B9D1E8ECFBD00523839 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16F6B9C1E8ECFBD00523839 /* UserProfileView.swift */; };
@@ -217,6 +219,8 @@
 		D14F6D3F1E8FABDA00A079EB /* AnnictActivityCreateStatusCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnictActivityCreateStatusCell.xib; sourceTree = "<group>"; };
 		D14F6D441E8FD24500A079EB /* AnnictActivityCreateRecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictActivityCreateRecordCell.swift; sourceTree = "<group>"; };
 		D14F6D461E8FD25F00A079EB /* AnnictActivityCreateRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnictActivityCreateRecordCell.xib; sourceTree = "<group>"; };
+		D14F6D4A1E8FFE0C00A079EB /* AnnictActivityCreateMultipleRecordsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnictActivityCreateMultipleRecordsCell.xib; sourceTree = "<group>"; };
+		D14F6D4C1E8FFE1400A079EB /* AnnictActivityCreateMultipleRecordsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictActivityCreateMultipleRecordsCell.swift; sourceTree = "<group>"; };
 		D14FF4D61E5024A500AD9913 /* AnnictAPIGetWorks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnnictAPIGetWorks.swift; path = ../AnnictAPIGetWorks.swift; sourceTree = "<group>"; };
 		D14FF4EB1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictMeWorksTabNavigationController.swift; sourceTree = "<group>"; };
 		D16F6B9C1E8ECFBD00523839 /* UserProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
@@ -605,6 +609,25 @@
 			name = AnnictActivityCreateRecordCell;
 			sourceTree = "<group>";
 		};
+		D14F6D481E8FFC9B00A079EB /* AnnictActivityCells */ = {
+			isa = PBXGroup;
+			children = (
+				D14F6D3C1E8FAB9E00A079EB /* AnnictActivityCreateStatusCell */,
+				D14F6D431E8FD21600A079EB /* AnnictActivityCreateRecordCell */,
+				D14F6D491E8FFDEC00A079EB /* AnnictActivityCreateMultipleRecordsCell */,
+			);
+			name = AnnictActivityCells;
+			sourceTree = "<group>";
+		};
+		D14F6D491E8FFDEC00A079EB /* AnnictActivityCreateMultipleRecordsCell */ = {
+			isa = PBXGroup;
+			children = (
+				D14F6D4C1E8FFE1400A079EB /* AnnictActivityCreateMultipleRecordsCell.swift */,
+				D14F6D4A1E8FFE0C00A079EB /* AnnictActivityCreateMultipleRecordsCell.xib */,
+			);
+			name = AnnictActivityCreateMultipleRecordsCell;
+			sourceTree = "<group>";
+		};
 		D14FF4D51E50245900AD9913 /* AnnictAPI */ = {
 			isa = PBXGroup;
 			children = (
@@ -687,8 +710,7 @@
 		D195D1151E4F8AF9004B6B15 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				D14F6D3C1E8FAB9E00A079EB /* AnnictActivityCreateStatusCell */,
-				D14F6D431E8FD21600A079EB /* AnnictActivityCreateRecordCell */,
+				D14F6D481E8FFC9B00A079EB /* AnnictActivityCells */,
 				D13BD2CC1E507069006CDF2E /* AnnictEpisodeCell */,
 				D13BD2C91E50703B006CDF2E /* AnnictMeWorkCell */,
 				D13BD2E01E50A3B5006CDF2E /* AnnictSubtextCell */,
@@ -885,6 +907,7 @@
 				D13BD2E91E515659006CDF2E /* AnnictRecordCell.xib in Resources */,
 				D16F6B9F1E8ECFCE00523839 /* UserProfileView.xib in Resources */,
 				D12F4EC41E5476AD00EB0651 /* YearPickerView.xib in Resources */,
+				D14F6D4B1E8FFE0C00A079EB /* AnnictActivityCreateMultipleRecordsCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1138,6 +1161,7 @@
 				D195D0F81E4DE919004B6B15 /* UIViewController+Extension.swift in Sources */,
 				D12F4EC21E5476A300EB0651 /* YearPickerView.swift in Sources */,
 				D13E339B1E506DF100A0CEF6 /* AnnictDetailAnimeInfoViewController.swift in Sources */,
+				D14F6D4D1E8FFE1400A079EB /* AnnictActivityCreateMultipleRecordsCell.swift in Sources */,
 				D147C0971E80129500E612D6 /* SettingNavigationController.swift in Sources */,
 				D14F6D341E8FA18500A079EB /* ActivitiesViewController.swift in Sources */,
 				D12F4EC81E547ADC00EB0651 /* UIView+Extension.swift in Sources */,

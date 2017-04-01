@@ -27,6 +27,7 @@ extension AnnictEpisodesResponse: Decodable {
 
 struct AnnictEpisodeResponse {
     var id: Int
+    var sortNumber: Int?
     var numberText: String?
     var title: String?
     
@@ -34,6 +35,7 @@ struct AnnictEpisodeResponse {
         id = try! e <| "id"
         numberText = try! e <|? "number_text"
         title = try! e <|? "title"
+        sortNumber = try! e <|? "sort_number"
     }
 }
 

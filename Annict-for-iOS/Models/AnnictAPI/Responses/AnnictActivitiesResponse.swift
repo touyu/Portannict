@@ -38,6 +38,7 @@ struct AnnictActivityResponse {
     var work: AnnictWorkResponse?
     var record: AnnictRecordResponse?
     var episode: AnnictEpisodeResponse?
+    var multipleRecords: [AnnictMultipleRecord]?
     private var actionString: String?
     private var statusString: String?
     
@@ -60,11 +61,28 @@ struct AnnictActivityResponse {
         statusString = try! e <|? ["status", "kind"]
         record = try! e <|? "record"
         episode = try! e <|? "episode"
+        multipleRecords = try! e <||? "multiple_record"
     }
 }
 
 extension AnnictActivityResponse: Decodable {
     static func decode(_ e: Extractor) throws -> AnnictActivityResponse {
         return try castOrFail(AnnictActivityResponse(e))
+    }
+}
+
+struct AnnictMultipleRecord {
+    var record: AnnictRecordResponse?
+    var episode: AnnictEpisodeResponse?
+    
+    init (_ e: Extractor) {
+        record = try! e <|? "record"
+        episode = try! e <|? "episode"
+    }
+}
+
+extension AnnictMultipleRecord: Decodable {
+    static func decode(_ e: Extractor) throws -> AnnictMultipleRecord {
+        return try castOrFail(AnnictMultipleRecord(e))
     }
 }
