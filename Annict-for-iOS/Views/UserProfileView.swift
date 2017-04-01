@@ -62,8 +62,8 @@ class UserProfileView: UIView {
     }
     
     fileprivate func initButtons() {
-        self.followButton.setTitle("フォロー", for: .normal)
-        self.followerButton.setTitle("フォロワー", for: .normal)
+        self.followButton.setTitle("follow".localized(withTableName: "AnnictBaseLocalizable"), for: .normal)
+        self.followerButton.setTitle("follower".localized(withTableName: "AnnictBaseLocalizable"), for: .normal)
         
         self.followButton.layer.masksToBounds = true
         self.followButton.layer.cornerRadius = 4
@@ -111,7 +111,7 @@ class UserProfileView: UIView {
         self.descriptionLabel.text = userData.description
         
         if let recordsCount = userData.recordsCount {
-            self.recordsLabel.text = "Records \(recordsCount)"
+            self.recordsLabel.text = "\(recordsCount) Records"
         }
     }
 }
