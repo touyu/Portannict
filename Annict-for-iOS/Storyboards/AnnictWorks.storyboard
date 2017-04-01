@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -284,30 +284,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oUR-Dc-jiy">
-                                <rect key="frame" x="0.0" y="64" width="375" height="543"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3H-Oc-1mJ">
-                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
-                                <color key="backgroundColor" red="0.97254901959999995" green="0.35686274509999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Done">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="tapedDoneButton:" destination="biv-OM-1VS" eventType="touchUpInside" id="GPK-Ok-tEt"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="m3H-Oc-1mJ" firstAttribute="top" secondItem="oUR-Dc-jiy" secondAttribute="bottom" id="7hq-Yp-Rdk"/>
                             <constraint firstItem="oUR-Dc-jiy" firstAttribute="width" secondItem="23b-Dx-R2K" secondAttribute="width" id="QFp-lj-14w"/>
-                            <constraint firstItem="m3H-Oc-1mJ" firstAttribute="width" secondItem="23b-Dx-R2K" secondAttribute="width" id="brq-E3-vpx"/>
                             <constraint firstItem="oUR-Dc-jiy" firstAttribute="top" secondItem="fgc-GK-fsn" secondAttribute="bottom" id="f8w-sU-JFB"/>
-                            <constraint firstItem="8AC-Kq-Kr9" firstAttribute="top" secondItem="oUR-Dc-jiy" secondAttribute="bottom" constant="60" id="iMB-Dk-NCR"/>
-                            <constraint firstItem="m3H-Oc-1mJ" firstAttribute="centerX" secondItem="oUR-Dc-jiy" secondAttribute="centerX" id="p4X-8o-Tnp"/>
-                            <constraint firstItem="8AC-Kq-Kr9" firstAttribute="top" secondItem="m3H-Oc-1mJ" secondAttribute="bottom" id="rl4-9H-NQZ"/>
+                            <constraint firstItem="8AC-Kq-Kr9" firstAttribute="top" secondItem="oUR-Dc-jiy" secondAttribute="bottom" id="iMB-Dk-NCR"/>
                             <constraint firstItem="oUR-Dc-jiy" firstAttribute="centerX" secondItem="23b-Dx-R2K" secondAttribute="centerX" id="ryF-pn-7RW"/>
                         </constraints>
                     </view>

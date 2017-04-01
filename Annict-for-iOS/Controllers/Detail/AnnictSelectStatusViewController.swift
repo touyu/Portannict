@@ -48,13 +48,6 @@ class AnnictSelectStatusViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.tableFooterView = UIView()
     }
-    
-    @IBAction func tapedDoneButton(_ sender: UIButton) {
-        if self.defaultStatus != selectedItem {
-            self.changeAnimeStatus?(selectedItem)
-        }
-        _ = self.navigationController?.popViewController(animated: true)
-    }
 }
 
 extension AnnictSelectStatusViewController: UITableViewDataSource {
@@ -92,6 +85,11 @@ extension AnnictSelectStatusViewController: UITableViewDelegate {
         
         // チェックマークを入れる
         cell?.accessoryType = .checkmark
+        
+        if self.defaultStatus != selectedItem {
+            self.changeAnimeStatus?(selectedItem)
+        }
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
