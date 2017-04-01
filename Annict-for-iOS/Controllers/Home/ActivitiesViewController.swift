@@ -80,5 +80,17 @@ extension ActivitiesViewController: UITableViewDataSource {
 extension ActivitiesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard let action = activities[indexPath.row].action else { return }
+        
+        switch action {
+        case .createRecord:
+            break
+        case .createStatus, .createMultipleRecords:
+            guard let work = activities[indexPath.row].work else { return }
+            let annictDetailAnimeInfoTabViewController = AnnictDetailAnimeInfoTabViewController.instantiate(withStoryboard: .annictWorks)
+            annictDetailAnimeInfoTabViewController.work = work
+            self.navigationController?.pushViewController(annictDetailAnimeInfoTabViewController, animated: true)
+        }
     }
 }

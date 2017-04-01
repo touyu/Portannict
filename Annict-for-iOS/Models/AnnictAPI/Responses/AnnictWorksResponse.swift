@@ -37,6 +37,12 @@ struct AnnictWorkResponse {
     var wikipediaURL: String?
     var twitterUserName: String?
     var twitterHashTag: String?
+    private var statusString: String?
+    
+    var status: AnimeStatus? {
+        guard let statusString = self.statusString else { return nil }
+        return AnimeStatus(rawValue: statusString)
+    }
     
     init (_ e: Extractor) {
         id = try! e <| "id"
@@ -47,6 +53,7 @@ struct AnnictWorkResponse {
         wikipediaURL = try! e <|? "wikipedia_url"
         twitterUserName = try! e <|? "twitter_username"
         twitterHashTag = try! e <|? "twitter_hashtag"
+        statusString = try! e <|? ["status", "kind"]
     }
 }
 

@@ -15,7 +15,6 @@
 		D11BF4EB1E533D680042A40A /* RakutenAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF4EA1E533D680042A40A /* RakutenAPIRequest.swift */; };
 		D11BF4ED1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF4EC1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift */; };
 		D11BF4F01E5344980042A40A /* RakutenItemsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF4EF1E5344980042A40A /* RakutenItemsResponse.swift */; };
-		D11BF4F51E537F9F0042A40A /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF4F41E537F9F0042A40A /* Async.swift */; };
 		D12F4EB41E54139200EB0651 /* AnnictRecentlyAnimeSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F4EB31E54139200EB0651 /* AnnictRecentlyAnimeSectionCell.swift */; };
 		D12F4EB61E54139B00EB0651 /* AnnictRecentlyAnimeSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D12F4EB51E54139B00EB0651 /* AnnictRecentlyAnimeSectionCell.xib */; };
 		D12F4EBA1E544E1A00EB0651 /* AnnictSeasonTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F4EB91E544E1A00EB0651 /* AnnictSeasonTabViewController.swift */; };
@@ -150,7 +149,6 @@
 		D11BF4EA1E533D680042A40A /* RakutenAPIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RakutenAPIRequest.swift; sourceTree = "<group>"; };
 		D11BF4EC1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RakutenAPIGetRakutenItems.swift; sourceTree = "<group>"; };
 		D11BF4EF1E5344980042A40A /* RakutenItemsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RakutenItemsResponse.swift; sourceTree = "<group>"; };
-		D11BF4F41E537F9F0042A40A /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		D12F4EB31E54139200EB0651 /* AnnictRecentlyAnimeSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictRecentlyAnimeSectionCell.swift; sourceTree = "<group>"; };
 		D12F4EB51E54139B00EB0651 /* AnnictRecentlyAnimeSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnictRecentlyAnimeSectionCell.xib; sourceTree = "<group>"; };
 		D12F4EB91E544E1A00EB0651 /* AnnictSeasonTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictSeasonTabViewController.swift; sourceTree = "<group>"; };
@@ -352,7 +350,6 @@
 		D11BF4F11E5358D60042A40A /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				D11BF4F41E537F9F0042A40A /* Async.swift */,
 				D1AC3DA91E59C25200BF4AC2 /* AppConfig.swift */,
 			);
 			path = Utility;
@@ -1128,7 +1125,6 @@
 				D13BD2D01E5072AA006CDF2E /* AnnictAPIGetEpisodes.swift in Sources */,
 				D13BD2F31E518A4B006CDF2E /* AnnictSelectStatusViewController.swift in Sources */,
 				D13E33991E505E9600A0CEF6 /* AnnictMeWorksTabViewController.swift in Sources */,
-				D11BF4F51E537F9F0042A40A /* Async.swift in Sources */,
 				D195D11B1E4F928A004B6B15 /* UITableView+Extension.swift in Sources */,
 				D13E33901E50507600A0CEF6 /* String+Extension.swift in Sources */,
 				D1FEEFAA1E72E11D004D4D28 /* FIRDatabaseClient.swift in Sources */,

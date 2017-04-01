@@ -121,8 +121,14 @@ class AnnictDetailAnimeInfoViewController: UIViewController {
     }
     
     fileprivate func getAnimeStatus() {
-        Async.getStatus(workID: work.id) { status in
-            self.status = status
+        let request = AnnictAPI.GetMeWorks(id: work.id)
+        AnnictAPIClient.send(request) { [weak self] response in
+            switch response {
+            case .success(let value):
+                self?.status = value.works.first?.status
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 }
