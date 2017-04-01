@@ -19,6 +19,8 @@ class UserProfileView: UIView {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var recordsLabel: UILabel!
+    @IBOutlet weak var followButton: UIButton!
+    @IBOutlet weak var followerButton: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,12 +52,28 @@ class UserProfileView: UIView {
         }
         
         self.initAvatarImageView()
+        self.initButtons()
         self.getMe()
     }
     
     fileprivate func initAvatarImageView() {
         avatarImageView.layer.masksToBounds = true
         avatarImageView.layer.cornerRadius = 8
+    }
+    
+    fileprivate func initButtons() {
+        self.followButton.setTitle("フォロー", for: .normal)
+        self.followerButton.setTitle("フォロワー", for: .normal)
+        
+        self.followButton.layer.masksToBounds = true
+        self.followButton.layer.cornerRadius = 4
+        self.followButton.layer.borderWidth = 1
+        self.followButton.layer.borderColor = UIColor.white.cgColor
+        
+        self.followerButton.layer.masksToBounds = true
+        self.followerButton.layer.cornerRadius = 4
+        self.followerButton.layer.borderWidth = 1
+        self.followerButton.layer.borderColor = UIColor.white.cgColor
     }
     
     fileprivate func getMe() {
