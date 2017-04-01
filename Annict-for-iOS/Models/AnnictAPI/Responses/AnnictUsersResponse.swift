@@ -41,6 +41,26 @@ struct AnnictUserResponse {
         avatarURL = try! e <|? "avatar_url"
         backgroundImageURL = try! e <|? "background_image_url"
     }
+    
+    init (dictionary: [String: Any]) {
+        id = dictionary["id"] as! Int
+        username = dictionary["username"] as? String
+        name = dictionary["name"] as? String
+        description = dictionary["description"]  as? String
+        avatarURL = dictionary["avatarURL"] as? String
+        backgroundImageURL = dictionary["backgroundImageURL"]  as? String
+    }
+    
+    func toDictionary() -> [String: Any] {
+        var dictionary = [String: Any]()
+        dictionary["id"] = id
+        dictionary["username"] = username
+        dictionary["name"] = name
+        dictionary["description"] = description
+        dictionary["avatarURL"] = avatarURL
+        dictionary["backgroundImageURL"] = backgroundImageURL
+        return dictionary
+    }
 }
 
 extension AnnictUserResponse: Decodable {

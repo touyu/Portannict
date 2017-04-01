@@ -58,28 +58,37 @@ class UserProfileView: UIView {
     }
     
     fileprivate func getMe() {
+        if let userData = AnnictConsts.userData {
+            self.setData(userData: userData)
+        }
+        
         let request = AnnictAPI.GetMe()
         AnnictAPIClient.send(request) { [weak self] response in
             switch response {
             case .success(let value):
-                if let urlString = value.avatarURL, let url = URL(string: urlString) {
-                    self?.avatarImageView.kf.setImage(with: url)
-                }
-                
-                if let backgroundImageURLString = value.backgroundImageURL, let backgroundImageURL = URL(string: backgroundImageURLString) {
-                    self?.backgroundImageView.kf.setImage(with: backgroundImageURL)
-                }
-                
-                self?.nameLabel.text = value.name
-                
-                if let username = value.username {
-                    self?.username.text = "@" + username
-                }
-                
-                self?.descriptionLabel.text = value.description
+                AnnictConsts.userData = value
+                self?.setData(userData: value)
             case .failure(let error):
                 print(error)
             }
         }
+    }
+    
+    fileprivate func setData(userData: AnnictUserResponse) {
+        if let urlString = userData.avatarURL, let url = URL(string: urlString) {
+            self.avatarImageView.kf.setImage(with: url)
+        }
+        
+        if let backgroundImageURLString = userData.backgroundImageURL, let backgroundImageURL = URL(string: backgroundImageURLString) {
+            self.backgroundImageView.kf.setImage(with: backgroundImageURL)
+        }
+        
+        self.nameLabel.text = userData.name
+        
+        if let username = userData.username {
+            self.username.text = "@" + username
+        }
+        
+        self.descriptionLabel.text = userData.description
     }
 }

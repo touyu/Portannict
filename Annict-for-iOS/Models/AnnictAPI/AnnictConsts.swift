@@ -59,4 +59,16 @@ class AnnictConsts {
             UserDefaults.standard.synchronize()
         }
     }
+    
+    static var userData: AnnictUserResponse? {
+        get {
+            guard let dictionary = UserDefaults.standard.dictionary(forKey: "annict_user_data") else { return nil }
+            return AnnictUserResponse(dictionary: dictionary)
+        }
+        set(newValue) {
+            let dictionary = newValue?.toDictionary()
+            UserDefaults.standard.set(dictionary, forKey: "annict_user_data")
+            UserDefaults.standard.synchronize()
+        }
+    }
 }
