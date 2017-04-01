@@ -45,6 +45,18 @@ class AnnictActivityCreateRecordCell: UITableViewCell {
         self.initUI()
     }
     
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        animeImageView.backgroundColor = UIColor(hex: 0xC8C8C8)
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        
+        animeImageView.backgroundColor = UIColor(hex: 0xC8C8C8)
+    }
+    
     func set(activity: AnnictActivityResponse) {
         self.activity = activity
     }
