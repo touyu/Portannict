@@ -18,6 +18,10 @@ class AnnictMeWorksTabViewController: ButtonBarPagerTabStripViewController {
     @IBOutlet weak var baseView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    private var isScrolledTableView: Bool {
+        return getCurrentTableView().contentOffset.y > -Const.tableViewContentInsetTop
+    }
+    
     struct Const {
         static var tableViewContentInsetTop: CGFloat = 8.0
         static var profileViewHeight: CGFloat = 300.0
@@ -113,10 +117,11 @@ class AnnictMeWorksTabViewController: ButtonBarPagerTabStripViewController {
                 // 親スクロールをtableViewに伝搬させる
                 propagateScrollToTableView(float: scrollView.contentOffset.y - Const.profileViewHeight)
                 scrollView.contentOffset.y = Const.profileViewHeight
-            }
-            
-            if scrollView.contentOffset.y < 0 {
-                scrollView.contentOffset.y = 0
+            } else if scrollView.contentOffset.y > 0 && scrollView.contentOffset.y < Const.profileViewHeight {
+                if isScrolledTableView {
+                    propagateScrollToTableView(float: scrollView.contentOffset.y - Const.profileViewHeight)
+                    scrollView.contentOffset.y = Const.profileViewHeight
+                }
             }
         }
     }
@@ -141,17 +146,24 @@ extension AnnictMeWorksTabViewController: AnnictMeWorksViewControllerDelegate {
         let parentScrollView = self.scrollView!
         let childScrollView = scrollView
 
+        let childContentOffsetY = childScrollView.contentOffset.y
         
         // tableView上スクロール
-        if childScrollView.contentOffset.y > -Const.tableViewContentInsetTop {
+        if childContentOffsetY > -Const.tableViewContentInsetTop {
             if parentScrollView.contentOffset.y >= 0 && parentScrollView.contentOffset.y < Const.profileViewHeight {
-                parentScrollView.contentOffset.y += Const.tableViewContentInsetTop + childScrollView.contentOffset.y
+                // tableViewを固定
                 childScrollView.contentOffset.y = -Const.tableViewContentInsetTop
+                // scrollViewを動かす
+                parentScrollView.contentOffset.y += Const.tableViewContentInsetTop + childContentOffsetY
             }
         } else {
             if parentScrollView.contentOffset.y > 0 && parentScrollView.contentOffset.y <= Const.profileViewHeight {
-                parentScrollView.contentOffset.y += Const.tableViewContentInsetTop + childScrollView.contentOffset.y
+                // tableViewを固定
                 childScrollView.contentOffset.y = -Const.tableViewContentInsetTop
+                // scrollViewを動かす
+                parentScrollView.contentOffset.y += Const.tableViewContentInsetTop + childContentOffsetY
+            } else if parentScrollView.contentOffset.y < 0 {
+                parentScrollView.contentOffset.y = 0
             }
         }
     }
