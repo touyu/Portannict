@@ -8,6 +8,9 @@
 
 import UIKit
 
+import Reachability
+
+
 class AnnictSearchViewController: UIViewController {
     
     @IBOutlet dynamic fileprivate weak var searchBar: UISearchBar!

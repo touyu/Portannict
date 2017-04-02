@@ -9,6 +9,7 @@
 import UIKit
 
 import XLPagerTabStrip
+import DZNEmptyDataSet
 
 
 // MARK: - AnnictRecordsViewController
@@ -31,17 +32,27 @@ class AnnictRecordsViewController: UITableViewController {
         }
     }
     
-    fileprivate var state = TableViewState.idol
+    fileprivate var state = TableViewState.idol {
+        didSet {
+            tableView.reloadEmptyDataSet()
+        }
+    }
     fileprivate var currentPage = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.initTableView()
-        let indicotor = self.initIndicatorView()
-        self.getRecords() { _ in
-            indicotor.stopAnimating()
+        initTableView()
+        startRefreshControlAnimation()
+        getRecords() { [weak self] _ in
+            self?.refreshControl?.endRefreshing()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        initReachability()
     }
     
     func refreshTableView() {
@@ -54,6 +65,8 @@ class AnnictRecordsViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
         tableView.register(cellType: AnnictRecordCell.self)
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
         self.initRefreshControl()
     }
     
@@ -64,20 +77,16 @@ class AnnictRecordsViewController: UITableViewController {
         self.refreshControl = refreshControl
     }
     
-    func pulledTableView(_ refreshControl: UIRefreshControl) {
-        self.currentPage = 0
-        self.getRecords() { _ in
-            self.refreshControl?.endRefreshing()
-        }
+    fileprivate func startRefreshControlAnimation() {
+        tableView.contentOffset.y = -self.refreshControl!.bounds.height
+        self.refreshControl?.beginRefreshing()
     }
     
-    fileprivate func initIndicatorView() -> UIActivityIndicatorView {
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-        indicator.center = CGPoint(x: view.bounds.midX, y: 24)
-        indicator.color = .annictPink
-        view.addSubview(indicator)
-        indicator.startAnimating()
-        return indicator
+    func pulledTableView(_ refreshControl: UIRefreshControl) {
+        self.currentPage = 0
+        self.getRecords() { [weak self] _ in
+            self?.refreshControl?.endRefreshing()
+        }
     }
     
     fileprivate func getRecords(completionHandler: (() -> Void)? = nil) {
@@ -97,7 +106,7 @@ class AnnictRecordsViewController: UITableViewController {
                 completionHandler?()
             case .failure(let error):
                 print(error)
-                self?.state = .idol
+                self?.state = .error
                 completionHandler?()
             }
         }
@@ -130,6 +139,14 @@ class AnnictRecordsViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    private func initReachability() {
+        ReachabilityHelper.observe(whenReachable: { [weak self] _ in
+            if self?.state == .error {
+                self?.getRecords()
+            }
+            }, whenUnreachable: nil)
     }
 }
 
@@ -208,5 +225,52 @@ extension AnnictRecordsViewController {
 extension AnnictRecordsViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: mode.rawValue)
+    }
+}
+
+extension AnnictRecordsViewController: DZNEmptyDataSetSource {
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        switch state {
+        case .error:
+            return DZNEmptyDataSetHelper.NetworkError.title
+        case .complete:
+            return DZNEmptyDataSetHelper.Empty.title
+        default:
+            return NSAttributedString()
+        }
+    }
+    
+    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+        switch self.state {
+        case .error:
+            return DZNEmptyDataSetHelper.NetworkError.buttonTitle
+        case .complete:
+            return nil
+        default:
+            return NSAttributedString()
+        }
+    }
+    
+    func buttonBackgroundImage(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> UIImage! {
+        return DZNEmptyDataSetHelper.NetworkError.buttonBackgroundImage(view: view, state: state)
+    }
+}
+
+extension AnnictRecordsViewController: DZNEmptyDataSetDelegate {
+    func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
+        startRefreshControlAnimation()
+        getRecords() { [weak self] _ in
+            self?.refreshControl?.endRefreshing()
+        }
+    }
+    
+    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+        switch state {
+        case .error, .complete:
+            return true
+        default:
+            return false
+        }
     }
 }

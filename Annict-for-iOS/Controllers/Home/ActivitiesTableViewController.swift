@@ -8,9 +8,18 @@
 
 import UIKit
 
+import DZNEmptyDataSet
+import Reachability
+
+
 class ActivitiesTableViewController: UITableViewController {
     
-    fileprivate var state = TableViewState.idol
+    fileprivate var state = TableViewState.idol {
+        didSet {
+            tableView.reloadEmptyDataSet()
+        }
+    }
+    
     fileprivate var currentPage = 0
     
     fileprivate var activities: [AnnictActivityResponse] = [] {
@@ -36,6 +45,7 @@ class ActivitiesTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        initReachability()
         navigationController?.navigationBar.shadowImage = nil
     }
     
@@ -66,11 +76,15 @@ class ActivitiesTableViewController: UITableViewController {
                     self?.activities += value.activities
                 }
                 self?.currentPage += 1
-                self?.state = .idol
+                if value.activities.isEmpty {
+                    self?.state = .complete
+                } else {
+                    self?.state = .idol
+                }
                 completionHandler?()
             case .failure(let error):
                 print(error)
-                self?.state = .idol
+                self?.state = .error
                 completionHandler?()
             }
         }
@@ -79,6 +93,8 @@ class ActivitiesTableViewController: UITableViewController {
     private func initTableView() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
         tableView.tableFooterView = UIView()
         tableView.estimatedRowHeight = 240
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -94,9 +110,17 @@ class ActivitiesTableViewController: UITableViewController {
         self.refreshControl = refreshControl
     }
     
-    private func startRefreshControlAnimation() {
+    fileprivate func startRefreshControlAnimation() {
         tableView.contentOffset.y = -self.refreshControl!.bounds.height
         self.refreshControl?.beginRefreshing()
+    }
+    
+    private func initReachability() {
+        ReachabilityHelper.observe(whenReachable: { [weak self] _ in
+            if self?.state == .error {
+                self?.getMeFollowingActivities()
+            }
+        }, whenUnreachable: nil)
     }
 }
 
@@ -153,5 +177,33 @@ extension ActivitiesTableViewController {
         if indexPath.row == activities.count - 20 && self.state == .idol {
             getMeFollowingActivities()
         }
+    }
+}
+
+extension ActivitiesTableViewController: DZNEmptyDataSetSource {
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return DZNEmptyDataSetHelper.NetworkError.title
+    }
+    
+    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+        return DZNEmptyDataSetHelper.NetworkError.buttonTitle
+    }
+    
+    func buttonBackgroundImage(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> UIImage! {
+        return DZNEmptyDataSetHelper.NetworkError.buttonBackgroundImage(view: view, state: state)
+    }
+}
+
+extension ActivitiesTableViewController: DZNEmptyDataSetDelegate {
+    func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
+        startRefreshControlAnimation()
+        getMeFollowingActivities() { [weak self] _ in
+            self?.refreshControl?.endRefreshing()
+        }
+    }
+    
+    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+        return state == .error ? true : false
     }
 }
