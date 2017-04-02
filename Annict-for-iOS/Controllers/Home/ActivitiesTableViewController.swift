@@ -14,13 +14,17 @@ import Reachability
 
 class ActivitiesTableViewController: UITableViewController {
     
-    fileprivate var state = TableViewState.idol
+    fileprivate var state = TableViewState.idol {
+        didSet {
+            tableView.reloadEmptyDataSet()
+        }
+    }
+    
     fileprivate var currentPage = 0
     
     fileprivate var activities: [AnnictActivityResponse] = [] {
         didSet {
             tableView.reloadData()
-            tableView.reloadEmptyDataSet()
         }
     }
     
@@ -33,10 +37,8 @@ class ActivitiesTableViewController: UITableViewController {
         initTableView()
         initRefreshControl()
         startRefreshControlAnimation()
-        getMeFollowingActivities() { [weak self] error in
-            if error == nil {
-                self?.refreshControl?.endRefreshing()
-            }
+        getMeFollowingActivities() { [weak self] _ in
+            self?.refreshControl?.endRefreshing()
         }
     }
     
@@ -55,14 +57,12 @@ class ActivitiesTableViewController: UITableViewController {
     
     @objc private func pulledTableView(_ refreshControl: UIRefreshControl) {
         currentPage = 0
-        getMeFollowingActivities() { [weak self] error in
-            if error == nil {
-                self?.refreshControl?.endRefreshing()
-            }
+        getMeFollowingActivities() { [weak self] _ in
+            self?.refreshControl?.endRefreshing()
         }
     }
     
-    fileprivate func getMeFollowingActivities(completionHandler: ((_ error: Error?) -> Void)? = nil) {
+    fileprivate func getMeFollowingActivities(completionHandler: (() -> Void)? = nil) {
         let nextPage = self.currentPage+1
         state = .loading
         let request = AnnictAPI.GetMeFollowingActivities(page: nextPage)
@@ -81,11 +81,11 @@ class ActivitiesTableViewController: UITableViewController {
                 } else {
                     self?.state = .idol
                 }
-                completionHandler?(nil)
+                completionHandler?()
             case .failure(let error):
                 print(error)
                 self?.state = .error
-                completionHandler?(error)
+                completionHandler?()
             }
         }
     }
@@ -110,7 +110,7 @@ class ActivitiesTableViewController: UITableViewController {
         self.refreshControl = refreshControl
     }
     
-    private func startRefreshControlAnimation() {
+    fileprivate func startRefreshControlAnimation() {
         tableView.contentOffset.y = -self.refreshControl!.bounds.height
         self.refreshControl?.beginRefreshing()
     }
@@ -118,11 +118,7 @@ class ActivitiesTableViewController: UITableViewController {
     private func initReachability() {
         ReachabilityHelper.observe(whenReachable: { [weak self] _ in
             if self?.state == .error {
-                self?.getMeFollowingActivities() { [weak self] error in
-                    if error == nil {
-                        self?.refreshControl?.endRefreshing()
-                    }
-                }
+                self?.getMeFollowingActivities()
             }
         }, whenUnreachable: nil)
     }
@@ -186,19 +182,28 @@ extension ActivitiesTableViewController {
 
 extension ActivitiesTableViewController: DZNEmptyDataSetSource {
     
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return DZNEmptyDataSetHelper.NetworkError.title
+    }
+    
     func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
-        return NSAttributedString(
-            string: "Create New Stream",
-            attributes: [
-                NSFontAttributeName: UIFont.systemFont(ofSize: 16),
-                NSForegroundColorAttributeName: UIColor(hex: 0x1E1E1E)
-            ]
-        )
+        return DZNEmptyDataSetHelper.NetworkError.buttonTitle
+    }
+    
+    func buttonBackgroundImage(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> UIImage! {
+        return DZNEmptyDataSetHelper.NetworkError.buttonBackgroundImage(view: view, state: state)
     }
 }
 
 extension ActivitiesTableViewController: DZNEmptyDataSetDelegate {
+    func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
+        startRefreshControlAnimation()
+        getMeFollowingActivities() { [weak self] _ in
+            self?.refreshControl?.endRefreshing()
+        }
+    }
+    
     func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
-        return state != .loading ? true : false
+        return state == .error ? true : false
     }
 }

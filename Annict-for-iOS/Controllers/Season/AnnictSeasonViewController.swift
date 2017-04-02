@@ -33,8 +33,8 @@ class AnnictSeasonViewController: UITableViewController {
         self.initTableView()
         self.initRefreshControl()
         self.startRefreshControlAnimation()
-        self.getAnimes() { [weak self] error in
-            if error == nil {
+        self.getAnimes() { [weak self] _ in
+            if self?.state != .error {
                 self?.refreshControl?.endRefreshing()
             }
         }
@@ -53,7 +53,7 @@ class AnnictSeasonViewController: UITableViewController {
         self.tableView.register(cellType: AnnictMeWorkCell.self)
     }
     
-    fileprivate func getAnimes(completionHandler: ((_ error: Error?) -> Void)? = nil) {
+    fileprivate func getAnimes(completionHandler: (() -> Void)? = nil) {
         let nextPage = self.currentPage+1
         self.state = .loading
         let request = AnnictAPI.GetWorks(page: nextPage, filterSeason: (year: year, season: season))
@@ -72,11 +72,11 @@ class AnnictSeasonViewController: UITableViewController {
                 } else {
                     self.state = .idol
                 }
-                completionHandler?(nil)
+                completionHandler?()
             case .failure(let error):
                 print(error)
                 self.state = .error
-                completionHandler?(error)
+                completionHandler?()
             }
         }
     }
@@ -95,8 +95,8 @@ class AnnictSeasonViewController: UITableViewController {
     
     func pulledTableView(_ refreshControl: UIRefreshControl) {
         self.currentPage = 0
-        self.getAnimes() { [weak self] error in
-            if error == nil {
+        self.getAnimes() { [weak self] _ in
+            if self?.state != .error {
                 self?.refreshControl?.endRefreshing()
             }
         }
@@ -105,8 +105,8 @@ class AnnictSeasonViewController: UITableViewController {
     private func initReachability() {
         ReachabilityHelper.observe(whenReachable: { [weak self] _ in
             if self?.state == .error {
-                self?.getAnimes() { [weak self] error in
-                    if error == nil {
+                self?.getAnimes() { [weak self] _ in
+                    if self?.state != .error {
                         self?.refreshControl?.endRefreshing()
                     }
                 }

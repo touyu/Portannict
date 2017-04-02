@@ -82,6 +82,8 @@
 		D155B6931E90E6BD00DB0A96 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D155B6921E90E6BD00DB0A96 /* DZNEmptyDataSet.framework */; };
 		D155B6951E90EEA100DB0A96 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D155B6941E90EEA100DB0A96 /* Reachability.framework */; };
 		D155B6971E90F46B00DB0A96 /* ReachabilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155B6961E90F46B00DB0A96 /* ReachabilityHelper.swift */; };
+		D155B6991E913F7C00DB0A96 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155B6981E913F7C00DB0A96 /* UIImage+Extension.swift */; };
+		D155B69B1E91429C00DB0A96 /* DZNEmptyDataSetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155B69A1E91429C00DB0A96 /* DZNEmptyDataSetHelper.swift */; };
 		D16F6B9D1E8ECFBD00523839 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16F6B9C1E8ECFBD00523839 /* UserProfileView.swift */; };
 		D16F6B9F1E8ECFCE00523839 /* UserProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D16F6B9E1E8ECFCE00523839 /* UserProfileView.xib */; };
 		D16F6BA21E8ED1B400523839 /* AnnictAPIGetMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16F6BA11E8ED1B400523839 /* AnnictAPIGetMe.swift */; };
@@ -227,6 +229,8 @@
 		D155B6921E90E6BD00DB0A96 /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Carthage/Build/iOS/DZNEmptyDataSet.framework; sourceTree = "<group>"; };
 		D155B6941E90EEA100DB0A96 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 		D155B6961E90F46B00DB0A96 /* ReachabilityHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityHelper.swift; sourceTree = "<group>"; };
+		D155B6981E913F7C00DB0A96 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		D155B69A1E91429C00DB0A96 /* DZNEmptyDataSetHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZNEmptyDataSetHelper.swift; sourceTree = "<group>"; };
 		D16F6B9C1E8ECFBD00523839 /* UserProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		D16F6B9E1E8ECFCE00523839 /* UserProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileView.xib; sourceTree = "<group>"; };
 		D16F6BA11E8ED1B400523839 /* AnnictAPIGetMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnnictAPIGetMe.swift; path = ../AnnictAPIGetMe.swift; sourceTree = "<group>"; };
@@ -362,6 +366,7 @@
 			children = (
 				D1AC3DA91E59C25200BF4AC2 /* AppConfig.swift */,
 				D155B6961E90F46B00DB0A96 /* ReachabilityHelper.swift */,
+				D155B69A1E91429C00DB0A96 /* DZNEmptyDataSetHelper.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -668,6 +673,7 @@
 				D195D11A1E4F928A004B6B15 /* UITableView+Extension.swift */,
 				D12F4EC71E547ADC00EB0651 /* UIView+Extension.swift */,
 				D195D0F71E4DE919004B6B15 /* UIViewController+Extension.swift */,
+				D155B6981E913F7C00DB0A96 /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1180,6 +1186,7 @@
 				D14F6D361E8FA72300A079EB /* AnnictAPIGetMeFollowingActivities.swift in Sources */,
 				D113CF0C1E51F5CD0083ED7D /* AnnictTabBarController.swift in Sources */,
 				D14FF4EC1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift in Sources */,
+				D155B69B1E91429C00DB0A96 /* DZNEmptyDataSetHelper.swift in Sources */,
 				D155B6971E90F46B00DB0A96 /* ReachabilityHelper.swift in Sources */,
 				D14F6D321E8FA16900A079EB /* ActivitiesNavigationController.swift in Sources */,
 				D13BD2EF1E515ABE006CDF2E /* AnnictAPIGetRecords.swift in Sources */,
@@ -1197,6 +1204,7 @@
 				D11BF4F01E5344980042A40A /* RakutenItemsResponse.swift in Sources */,
 				D14F6D3B1E8FA7D700A079EB /* AnnictActivitiesResponse.swift in Sources */,
 				D195D0EF1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift in Sources */,
+				D155B6991E913F7C00DB0A96 /* UIImage+Extension.swift in Sources */,
 				D113CF101E520CB00083ED7D /* AnnictSearchViewController.swift in Sources */,
 				D13E33951E505B3E00A0CEF6 /* AnnictDetailAnimeInfoTabViewController.swift in Sources */,
 				D13BD2F51E519D76006CDF2E /* AnnictAPIPostStatuses.swift in Sources */,
