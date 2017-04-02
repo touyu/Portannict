@@ -24,7 +24,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jip-nA-xmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2121" y="714"/>
+            <point key="canvasLocation" x="1998" y="714"/>
         </scene>
         <!--Annict Tab Bar Controller-->
         <scene sceneID="kUr-3l-Rn9">
@@ -150,46 +150,31 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="bEV-fr-zeh" kind="relationship" relationship="rootViewController" id="Auf-e2-nzV"/>
+                        <segue destination="AyY-cD-Q5p" kind="relationship" relationship="rootViewController" id="gij-vU-59x"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n4R-ds-taO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="710" y="-1307"/>
         </scene>
-        <!--Activities View Controller-->
-        <scene sceneID="ufy-hR-06m">
+        <!--Activities Table View Controller-->
+        <scene sceneID="l8z-MD-I4Y">
             <objects>
-                <viewController storyboardIdentifier="ActivitiesViewController" id="bEV-fr-zeh" customClass="ActivitiesViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="0WZ-VX-yUq"/>
-                        <viewControllerLayoutGuide type="bottom" id="vuX-4x-qZ5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Hbd-ep-kgg">
+                <tableViewController storyboardIdentifier="ActivitiesTableViewController" id="AyY-cD-Q5p" customClass="ActivitiesTableViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="guu-rd-Iiu">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ysc-Cr-PfK">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Ysc-Cr-PfK" firstAttribute="top" secondItem="0WZ-VX-yUq" secondAttribute="bottom" id="RkG-Bc-ipK"/>
-                            <constraint firstItem="Ysc-Cr-PfK" firstAttribute="centerX" secondItem="Hbd-ep-kgg" secondAttribute="centerX" id="V7b-s2-z26"/>
-                            <constraint firstItem="Ysc-Cr-PfK" firstAttribute="width" secondItem="Hbd-ep-kgg" secondAttribute="width" id="e4L-zI-mqO"/>
-                            <constraint firstItem="Ysc-Cr-PfK" firstAttribute="height" secondItem="Hbd-ep-kgg" secondAttribute="height" id="hOC-Pc-U4m"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="Cnk-m1-f6p"/>
-                    <connections>
-                        <outlet property="tableView" destination="Ysc-Cr-PfK" id="9RM-D0-2ys"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G5Z-Zw-CUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <connections>
+                            <outlet property="dataSource" destination="AyY-cD-Q5p" id="buG-Ae-3G4"/>
+                            <outlet property="delegate" destination="AyY-cD-Q5p" id="fp3-cv-Yzv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="6jo-5k-KUX"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wpK-dg-9GE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1408.8" y="-1307.4962518740631"/>
+            <point key="canvasLocation" x="1409" y="-1307"/>
         </scene>
         <!--Annict Me Works Tab View Controller-->
         <scene sceneID="qar-ly-DxP">
@@ -394,7 +379,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NYX-EF-bZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2121" y="-645"/>
+            <point key="canvasLocation" x="1966" y="-646"/>
         </scene>
     </scenes>
     <resources>
