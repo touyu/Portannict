@@ -701,8 +701,8 @@
 			children = (
 				D195D1151E4F8AF9004B6B15 /* Cells */,
 				D12F4EC91E547B6300EB0651 /* YearPickerView */,
-				D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */,
 				D16F6BA01E8ED02F00523839 /* UserProfileView */,
+				D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
