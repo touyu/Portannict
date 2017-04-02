@@ -47,7 +47,7 @@
                         </constraints>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="感想" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usA-lC-m5F">
-                        <rect key="frame" x="72" y="66" width="287" height="77.5"/>
+                        <rect key="frame" x="72" y="91" width="287" height="52.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -92,7 +92,7 @@
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="3E2-0w-LVR">
-                        <rect key="frame" x="72" y="42" width="86" height="16"/>
+                        <rect key="frame" x="72" y="67" width="86" height="16"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="inactive_star" translatesAutoresizingMaskIntoConstraints="NO" id="wyZ-5l-mYp">
                                 <rect key="frame" x="0.0" y="1" width="14" height="14"/>
@@ -140,22 +140,33 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="***** 第1話を見ました" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZH-Qz-mTx">
+                        <rect key="frame" x="72" y="42" width="145" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="KPv-xO-95H"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="aDM-VV-VRf" secondAttribute="trailing" constant="8" id="AhM-1Y-vW3"/>
+                    <constraint firstItem="HZH-Qz-mTx" firstAttribute="top" secondItem="2TV-cc-kpe" secondAttribute="bottom" constant="8" id="IJS-uT-CZR"/>
                     <constraint firstItem="usA-lC-m5F" firstAttribute="top" secondItem="3E2-0w-LVR" secondAttribute="bottom" constant="8" id="Lkf-zT-XPa"/>
                     <constraint firstAttribute="bottomMargin" secondItem="p0q-Uh-HOy" secondAttribute="bottom" constant="8" id="OTv-Eh-naU"/>
+                    <constraint firstItem="3E2-0w-LVR" firstAttribute="leading" secondItem="HZH-Qz-mTx" secondAttribute="leading" id="SBr-fW-7RY"/>
+                    <constraint firstItem="HZH-Qz-mTx" firstAttribute="leading" secondItem="2TV-cc-kpe" secondAttribute="leading" id="TWw-6r-e58"/>
                     <constraint firstItem="aDM-VV-VRf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0ba-fR-HwE" secondAttribute="trailing" constant="8" id="U5V-Dd-0pC"/>
                     <constraint firstAttribute="topMargin" secondItem="LHs-el-9Au" secondAttribute="top" constant="-8" id="Z3I-si-p1V"/>
                     <constraint firstItem="p0q-Uh-HOy" firstAttribute="top" secondItem="usA-lC-m5F" secondAttribute="bottom" constant="16" id="c8F-lv-fFh"/>
                     <constraint firstItem="2TV-cc-kpe" firstAttribute="top" secondItem="LHs-el-9Au" secondAttribute="top" id="fI4-pQ-Xtz"/>
                     <constraint firstAttribute="trailingMargin" secondItem="usA-lC-m5F" secondAttribute="trailing" constant="8" id="gl3-JR-sBr"/>
-                    <constraint firstItem="3E2-0w-LVR" firstAttribute="leading" secondItem="2TV-cc-kpe" secondAttribute="leading" id="h41-hV-7iF"/>
+                    <constraint firstItem="3E2-0w-LVR" firstAttribute="top" secondItem="HZH-Qz-mTx" secondAttribute="bottom" constant="8" id="hMC-53-ZvX"/>
                     <constraint firstItem="usA-lC-m5F" firstAttribute="leading" secondItem="2TV-cc-kpe" secondAttribute="leading" id="mAw-hY-t7Q"/>
                     <constraint firstItem="LHs-el-9Au" firstAttribute="leading" secondItem="KSB-bW-6Jd" secondAttribute="leadingMargin" constant="8" id="moj-P1-V3u"/>
                     <constraint firstItem="p0q-Uh-HOy" firstAttribute="trailing" secondItem="usA-lC-m5F" secondAttribute="trailing" id="nNW-K4-Idp"/>
                     <constraint firstItem="p0q-Uh-HOy" firstAttribute="leading" secondItem="usA-lC-m5F" secondAttribute="leading" id="q8p-ha-w0h"/>
-                    <constraint firstItem="3E2-0w-LVR" firstAttribute="top" secondItem="2TV-cc-kpe" secondAttribute="bottom" constant="8" id="qXL-tq-90B"/>
                     <constraint firstItem="2TV-cc-kpe" firstAttribute="leading" secondItem="LHs-el-9Au" secondAttribute="trailing" constant="8" id="rSk-ih-4ob"/>
                     <constraint firstItem="aDM-VV-VRf" firstAttribute="centerY" secondItem="2TV-cc-kpe" secondAttribute="centerY" id="zx2-U4-CUi"/>
                 </constraints>
@@ -167,6 +178,7 @@
                 <outlet property="annictWorkView" destination="p0q-Uh-HOy" id="yJa-Rc-hnw"/>
                 <outlet property="avatarImageView" destination="LHs-el-9Au" id="bVZ-1R-bE3"/>
                 <outlet property="episodeTitleLabel" destination="Smh-TM-h9M" id="aSq-od-dlc"/>
+                <outlet property="infoLabel" destination="HZH-Qz-mTx" id="XEj-c2-Hcu"/>
                 <outlet property="messageLabel" destination="usA-lC-m5F" id="TXJ-Sm-i0d"/>
                 <outlet property="nameLabel" destination="BoF-2k-zF6" id="w6D-lf-wFb"/>
                 <outlet property="star1" destination="wyZ-5l-mYp" id="ACC-et-HXE"/>

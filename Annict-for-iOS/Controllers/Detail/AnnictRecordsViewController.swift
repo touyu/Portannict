@@ -181,7 +181,7 @@ extension AnnictRecordsViewController {
         if let record = cell.record, record.user?.id == AnnictConsts.userID {
             self.showActionSheet(recordID: record.id, indexPath: indexPath)
         } else {
-            self.showReportActionSheet()
+            self.showReportActionSheet(indexPath: indexPath)
         }
     }
     
@@ -197,6 +197,11 @@ extension AnnictRecordsViewController {
         let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         actionSheet.addAction(delete)
         actionSheet.addAction(cancel)
+        
+        if let cell = tableView.cellForRow(at: indexPath) as? AnnictRecordCell {
+            actionSheet.popoverPresentationController?.sourceView = cell
+            actionSheet.popoverPresentationController?.sourceRect = cell.bounds
+        }
         present(actionSheet, animated: true, completion: nil)
     }
     
@@ -212,12 +217,16 @@ extension AnnictRecordsViewController {
         }
     }
     
-    fileprivate func showReportActionSheet() {
+    fileprivate func showReportActionSheet(indexPath: IndexPath) {
         let actionSheet = UIAlertController(title: "", message: "選択してください", preferredStyle: .actionSheet)
         let delete = UIAlertAction(title: "この記録を通報する", style: .destructive, handler: nil)
         let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         actionSheet.addAction(delete)
         actionSheet.addAction(cancel)
+        if let cell = tableView.cellForRow(at: indexPath) as? AnnictRecordCell {
+            actionSheet.popoverPresentationController?.sourceView = cell
+            actionSheet.popoverPresentationController?.sourceRect = cell.bounds
+        }
         present(actionSheet, animated: true, completion: nil)
     }
 }

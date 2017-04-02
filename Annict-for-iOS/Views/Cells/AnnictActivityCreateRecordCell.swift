@@ -19,6 +19,7 @@ class AnnictActivityCreateRecordCell: UITableViewCell {
             initMessageLabel(message: activity.record?.comment)
             initAnnictWorkView(work: activity.work, episode: activity.episode)
             initStars(rating: activity.record?.rating)
+            initInfoLabel(title: activity.work?.title, numberText: activity.episode?.numberText)
         }
     }
     
@@ -27,6 +28,7 @@ class AnnictActivityCreateRecordCell: UITableViewCell {
     @IBOutlet dynamic fileprivate weak var usernameLabel: UILabel!
     @IBOutlet dynamic fileprivate weak var timeLabel: UILabel!
     @IBOutlet dynamic fileprivate weak var messageLabel: UILabel!
+    @IBOutlet dynamic fileprivate weak var infoLabel: UILabel!
     
     @IBOutlet dynamic fileprivate weak var annictWorkView: UIView!
     @IBOutlet dynamic fileprivate weak var animeImageView: UIImageView!
@@ -135,5 +137,13 @@ class AnnictActivityCreateRecordCell: UITableViewCell {
         } else {
             _ = stars.map { $0?.alpha = 0 }
         }
+    }
+    
+    private func initInfoLabel(title: String?, numberText: String?) {
+        guard let title = title else { return }
+        guard let numberText = numberText else { return }
+        let text = NSMutableAttributedString(string: "\(title) \(numberText)を見ました")
+        text.addAttribute(NSForegroundColorAttributeName, value: UIColor.annictBlue, range: NSMakeRange(0, title.characters.count))
+        infoLabel.attributedText = text
     }
 }
