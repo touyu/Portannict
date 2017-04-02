@@ -21,7 +21,7 @@ struct DZNEmptyDataSetHelper {
     struct NetworkError {
         private struct Const {
             static var titleString = "ネットワークエラーです"
-            static var titleFont = UIFont.systemFont(ofSize: 32)
+            static var titleFont = UIFont.systemFont(ofSize: 28, weight: UIFontWeightThin)
             static var buttonTitleString = "リトライ"
             static var buttonTitleFont = UIFont.systemFont(ofSize: 16)
         }
@@ -63,6 +63,25 @@ struct DZNEmptyDataSetHelper {
             
             // 背景画像を引き伸ばしてからtitleLabelに合わせてwidthを調節してUIImageを返す
             return UIImage.makeBackgroundImage(state: state).shrinkImageAdjustingObject(before: defaultSize, objectSize: buttonTitleSize, padding: padding)
+        }
+    }
+    
+    struct Empty {
+        private struct Const {
+            static var titleString = "コンテンツがありません"
+            static var titleFont = UIFont.systemFont(ofSize: 28, weight: UIFontWeightThin)
+            static var buttonTitleString = "リトライ"
+            static var buttonTitleFont = UIFont.systemFont(ofSize: 16)
+        }
+        
+        static var title: NSAttributedString {
+            return NSAttributedString(
+                string: Const.titleString,
+                attributes: [
+                    NSFontAttributeName: Const.titleFont,
+                    NSForegroundColorAttributeName: UIColor.lightGray
+                ]
+            )
         }
     }
 }
