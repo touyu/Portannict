@@ -9,6 +9,7 @@
 import UIKit
 
 import DZNEmptyDataSet
+import Reachability
 
 
 class ActivitiesTableViewController: UITableViewController {
@@ -42,6 +43,7 @@ class ActivitiesTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        initReachability()
         navigationController?.navigationBar.shadowImage = nil
     }
     
@@ -74,11 +76,15 @@ class ActivitiesTableViewController: UITableViewController {
                     self?.activities += value.activities
                 }
                 self?.currentPage += 1
-                self?.state = .idol
+                if value.activities.isEmpty {
+                    self?.state = .complete
+                } else {
+                    self?.state = .idol
+                }
                 completionHandler?(nil)
             case .failure(let error):
                 print(error)
-                self?.state = .idol
+                self?.state = .error
                 completionHandler?(error)
             }
         }
@@ -107,6 +113,18 @@ class ActivitiesTableViewController: UITableViewController {
     private func startRefreshControlAnimation() {
         tableView.contentOffset.y = -self.refreshControl!.bounds.height
         self.refreshControl?.beginRefreshing()
+    }
+    
+    private func initReachability() {
+        ReachabilityHelper.observe(whenReachable: { [weak self] _ in
+            if self?.state == .error {
+                self?.getMeFollowingActivities() { [weak self] error in
+                    if error == nil {
+                        self?.refreshControl?.endRefreshing()
+                    }
+                }
+            }
+        }, whenUnreachable: nil)
     }
 }
 

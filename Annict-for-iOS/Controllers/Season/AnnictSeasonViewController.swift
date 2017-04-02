@@ -31,11 +31,19 @@ class AnnictSeasonViewController: UITableViewController {
         super.viewDidLoad()
         
         self.initTableView()
-        
-        let indicator = self.initIndicatorView()
-        self.getAnimes() { _ in
-            indicator.stopAnimating()
+        self.initRefreshControl()
+        self.startRefreshControlAnimation()
+        self.getAnimes() { [weak self] error in
+            if error == nil {
+                self?.refreshControl?.endRefreshing()
+            }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        initReachability()
     }
     
     fileprivate func initTableView() {
@@ -43,10 +51,9 @@ class AnnictSeasonViewController: UITableViewController {
         self.tableView.tableFooterView = UIView()
         self.tableView.contentInset.top = 8
         self.tableView.register(cellType: AnnictMeWorkCell.self)
-        self.initRefreshControl()
     }
     
-    fileprivate func getAnimes(completionHandler: (() -> Void)? = nil) {
+    fileprivate func getAnimes(completionHandler: ((_ error: Error?) -> Void)? = nil) {
         let nextPage = self.currentPage+1
         self.state = .loading
         let request = AnnictAPI.GetWorks(page: nextPage, filterSeason: (year: year, season: season))
@@ -60,12 +67,16 @@ class AnnictSeasonViewController: UITableViewController {
                     self.animes += value.works
                 }
                 self.currentPage += 1
-                self.state = .idol
-                completionHandler?()
+                if value.works.isEmpty {
+                    self.state = .complete
+                } else {
+                    self.state = .idol
+                }
+                completionHandler?(nil)
             case .failure(let error):
                 print(error)
-                self.state = .idol
-                completionHandler?()
+                self.state = .error
+                completionHandler?(error)
             }
         }
     }
@@ -77,20 +88,30 @@ class AnnictSeasonViewController: UITableViewController {
         self.refreshControl = refreshControl
     }
     
-    fileprivate func initIndicatorView() -> UIActivityIndicatorView {
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-        indicator.center = CGPoint(x: view.bounds.midX, y: 24)
-        indicator.color = .annictPink
-        view.addSubview(indicator)
-        indicator.startAnimating()
-        return indicator
+    private func startRefreshControlAnimation() {
+        tableView.contentOffset.y = -self.refreshControl!.bounds.height
+        self.refreshControl?.beginRefreshing()
     }
     
     func pulledTableView(_ refreshControl: UIRefreshControl) {
         self.currentPage = 0
-        self.getAnimes() { _ in
-            self.refreshControl?.endRefreshing()
+        self.getAnimes() { [weak self] error in
+            if error == nil {
+                self?.refreshControl?.endRefreshing()
+            }
         }
+    }
+    
+    private func initReachability() {
+        ReachabilityHelper.observe(whenReachable: { [weak self] _ in
+            if self?.state == .error {
+                self?.getAnimes() { [weak self] error in
+                    if error == nil {
+                        self?.refreshControl?.endRefreshing()
+                    }
+                }
+            }
+            }, whenUnreachable: nil)
     }
 }
 

@@ -80,6 +80,8 @@
 		D14FF4EC1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14FF4EB1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift */; };
 		D155B6911E90C3B400DB0A96 /* ActivitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155B6901E90C3B400DB0A96 /* ActivitiesTableViewController.swift */; };
 		D155B6931E90E6BD00DB0A96 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D155B6921E90E6BD00DB0A96 /* DZNEmptyDataSet.framework */; };
+		D155B6951E90EEA100DB0A96 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D155B6941E90EEA100DB0A96 /* Reachability.framework */; };
+		D155B6971E90F46B00DB0A96 /* ReachabilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155B6961E90F46B00DB0A96 /* ReachabilityHelper.swift */; };
 		D16F6B9D1E8ECFBD00523839 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16F6B9C1E8ECFBD00523839 /* UserProfileView.swift */; };
 		D16F6B9F1E8ECFCE00523839 /* UserProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D16F6B9E1E8ECFCE00523839 /* UserProfileView.xib */; };
 		D16F6BA21E8ED1B400523839 /* AnnictAPIGetMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16F6BA11E8ED1B400523839 /* AnnictAPIGetMe.swift */; };
@@ -223,6 +225,8 @@
 		D14FF4EB1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictMeWorksTabNavigationController.swift; sourceTree = "<group>"; };
 		D155B6901E90C3B400DB0A96 /* ActivitiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesTableViewController.swift; sourceTree = "<group>"; };
 		D155B6921E90E6BD00DB0A96 /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Carthage/Build/iOS/DZNEmptyDataSet.framework; sourceTree = "<group>"; };
+		D155B6941E90EEA100DB0A96 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
+		D155B6961E90F46B00DB0A96 /* ReachabilityHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityHelper.swift; sourceTree = "<group>"; };
 		D16F6B9C1E8ECFBD00523839 /* UserProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		D16F6B9E1E8ECFCE00523839 /* UserProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileView.xib; sourceTree = "<group>"; };
 		D16F6BA11E8ED1B400523839 /* AnnictAPIGetMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnnictAPIGetMe.swift; path = ../AnnictAPIGetMe.swift; sourceTree = "<group>"; };
@@ -256,6 +260,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D155B6951E90EEA100DB0A96 /* Reachability.framework in Frameworks */,
 				D155B6931E90E6BD00DB0A96 /* DZNEmptyDataSet.framework in Frameworks */,
 				D13101ED1E55E73800023D70 /* APIKit.framework in Frameworks */,
 				D13101EE1E55E73800023D70 /* Himotoki.framework in Frameworks */,
@@ -311,6 +316,7 @@
 		AD6DDBA827920CE6310BBE0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D155B6941E90EEA100DB0A96 /* Reachability.framework */,
 				D155B6921E90E6BD00DB0A96 /* DZNEmptyDataSet.framework */,
 				D13101E81E55E73800023D70 /* APIKit.framework */,
 				D13101E91E55E73800023D70 /* Himotoki.framework */,
@@ -355,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				D1AC3DA91E59C25200BF4AC2 /* AppConfig.swift */,
+				D155B6961E90F46B00DB0A96 /* ReachabilityHelper.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1076,6 +1083,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/XLPagerTabStrip.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/DZNEmptyDataSet.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Reachability.framework",
 			);
 			outputPaths = (
 			);
@@ -1172,6 +1180,7 @@
 				D14F6D361E8FA72300A079EB /* AnnictAPIGetMeFollowingActivities.swift in Sources */,
 				D113CF0C1E51F5CD0083ED7D /* AnnictTabBarController.swift in Sources */,
 				D14FF4EC1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift in Sources */,
+				D155B6971E90F46B00DB0A96 /* ReachabilityHelper.swift in Sources */,
 				D14F6D321E8FA16900A079EB /* ActivitiesNavigationController.swift in Sources */,
 				D13BD2EF1E515ABE006CDF2E /* AnnictAPIGetRecords.swift in Sources */,
 				D113CF0E1E52090A0083ED7D /* AnnictTabBarItem.swift in Sources */,

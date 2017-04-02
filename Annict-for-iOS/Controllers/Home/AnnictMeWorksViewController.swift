@@ -17,6 +17,7 @@ protocol AnnictMeWorksViewControllerDelegate {
 enum TableViewState {
     case loading
     case idol
+    case error
     case complete
 }
 
