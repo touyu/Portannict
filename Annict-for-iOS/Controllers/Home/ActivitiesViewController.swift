@@ -12,6 +12,9 @@ class ActivitiesViewController: UIViewController {
     
     @IBOutlet dynamic fileprivate weak var tableView: UITableView!
     
+    fileprivate var state = TableViewState.idol
+    fileprivate var currentPage = 0
+    
     fileprivate var activities: [AnnictActivityResponse] = [] {
         didSet {
             tableView.reloadData()
@@ -48,14 +51,26 @@ class ActivitiesViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
-    fileprivate func getMeFollowingActivities() {
-        let request = AnnictAPI.GetMeFollowingActivities()
+    fileprivate func getMeFollowingActivities(completionHandler: (() -> Void)? = nil) {
+        let nextPage = self.currentPage+1
+        self.state = .loading
+        let request = AnnictAPI.GetMeFollowingActivities(page: nextPage)
         AnnictAPIClient.send(request) { [weak self] response in
             switch response {
             case .success(let value):
-                self?.activities = value.activities
+                // 初回、pull更新時
+                if self?.currentPage == 0 {
+                    self?.activities = value.activities
+                } else {
+                    self?.activities += value.activities
+                }
+                self?.currentPage += 1
+                self?.state = .idol
+                completionHandler?()
             case .failure(let error):
                 print(error)
+                self?.state = .idol
+                completionHandler?()
             }
         }
     }
@@ -96,8 +111,6 @@ extension ActivitiesViewController: UITableViewDelegate {
         
         guard let action = activities[indexPath.row].action else { return }
         
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-        
         switch action {
         case .createRecord:
             guard let episodeID = activities[indexPath.row].episode?.id else { return }
@@ -109,6 +122,12 @@ extension ActivitiesViewController: UITableViewDelegate {
             let annictDetailAnimeInfoTabViewController = AnnictDetailAnimeInfoTabViewController.instantiate(withStoryboard: .annictWorks)
             annictDetailAnimeInfoTabViewController.work = work
             self.navigationController?.pushViewController(annictDetailAnimeInfoTabViewController, animated: true)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == activities.count - 20 && self.state == .idol {
+            self.getMeFollowingActivities()
         }
     }
 }
