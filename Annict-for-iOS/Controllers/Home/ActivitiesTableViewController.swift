@@ -8,6 +8,9 @@
 
 import UIKit
 
+import DZNEmptyDataSet
+
+
 class ActivitiesTableViewController: UITableViewController {
     
     fileprivate var state = TableViewState.idol
@@ -16,6 +19,7 @@ class ActivitiesTableViewController: UITableViewController {
     fileprivate var activities: [AnnictActivityResponse] = [] {
         didSet {
             tableView.reloadData()
+            tableView.reloadEmptyDataSet()
         }
     }
     
@@ -28,8 +32,10 @@ class ActivitiesTableViewController: UITableViewController {
         initTableView()
         initRefreshControl()
         startRefreshControlAnimation()
-        getMeFollowingActivities() { [weak self] _ in
-            self?.refreshControl?.endRefreshing()
+        getMeFollowingActivities() { [weak self] error in
+            if error == nil {
+                self?.refreshControl?.endRefreshing()
+            }
         }
     }
     
@@ -47,12 +53,14 @@ class ActivitiesTableViewController: UITableViewController {
     
     @objc private func pulledTableView(_ refreshControl: UIRefreshControl) {
         currentPage = 0
-        getMeFollowingActivities() { [weak self] _ in
-            self?.refreshControl?.endRefreshing()
+        getMeFollowingActivities() { [weak self] error in
+            if error == nil {
+                self?.refreshControl?.endRefreshing()
+            }
         }
     }
     
-    fileprivate func getMeFollowingActivities(completionHandler: (() -> Void)? = nil) {
+    fileprivate func getMeFollowingActivities(completionHandler: ((_ error: Error?) -> Void)? = nil) {
         let nextPage = self.currentPage+1
         state = .loading
         let request = AnnictAPI.GetMeFollowingActivities(page: nextPage)
@@ -67,11 +75,11 @@ class ActivitiesTableViewController: UITableViewController {
                 }
                 self?.currentPage += 1
                 self?.state = .idol
-                completionHandler?()
+                completionHandler?(nil)
             case .failure(let error):
                 print(error)
                 self?.state = .idol
-                completionHandler?()
+                completionHandler?(error)
             }
         }
     }
@@ -79,6 +87,8 @@ class ActivitiesTableViewController: UITableViewController {
     private func initTableView() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
         tableView.tableFooterView = UIView()
         tableView.estimatedRowHeight = 240
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -153,5 +163,24 @@ extension ActivitiesTableViewController {
         if indexPath.row == activities.count - 20 && self.state == .idol {
             getMeFollowingActivities()
         }
+    }
+}
+
+extension ActivitiesTableViewController: DZNEmptyDataSetSource {
+    
+    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+        return NSAttributedString(
+            string: "Create New Stream",
+            attributes: [
+                NSFontAttributeName: UIFont.systemFont(ofSize: 16),
+                NSForegroundColorAttributeName: UIColor(hex: 0x1E1E1E)
+            ]
+        )
+    }
+}
+
+extension ActivitiesTableViewController: DZNEmptyDataSetDelegate {
+    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+        return state != .loading ? true : false
     }
 }
