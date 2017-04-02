@@ -45,6 +45,13 @@ class AnnictActivityCreateRecordCell: UITableViewCell {
         self.initUI()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        animeTitleLabel.text = ""
+        episodeTitleLabel.text = ""
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
