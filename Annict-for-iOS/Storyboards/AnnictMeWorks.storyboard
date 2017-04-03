@@ -24,7 +24,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jip-nA-xmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1998" y="714"/>
+            <point key="canvasLocation" x="2089" y="714"/>
         </scene>
         <!--Annict Tab Bar Controller-->
         <scene sceneID="kUr-3l-Rn9">

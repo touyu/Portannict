@@ -50,6 +50,7 @@ class AnnictActivityCreateRecordCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        infoLabel.text = ""
         animeTitleLabel.text = ""
         episodeTitleLabel.text = ""
     }
@@ -71,6 +72,10 @@ class AnnictActivityCreateRecordCell: UITableViewCell {
     }
     
     private func initUI() {
+        infoLabel.text = ""
+        animeTitleLabel.text = ""
+        episodeTitleLabel.text = ""
+        
         avatarImageView.layer.masksToBounds = true
         avatarImageView.layer.cornerRadius = 4
         
@@ -141,7 +146,12 @@ class AnnictActivityCreateRecordCell: UITableViewCell {
     
     private func initInfoLabel(title: String?, numberText: String?) {
         guard let title = title else { return }
-        guard let numberText = numberText else { return }
+        guard let numberText = numberText else {
+            let text = NSMutableAttributedString(string: "\(title) を見ました")
+            text.addAttribute(NSForegroundColorAttributeName, value: UIColor.annictBlue, range: NSMakeRange(0, title.characters.count))
+            infoLabel.attributedText = text
+            return
+        }
         let text = NSMutableAttributedString(string: "\(title) \(numberText)を見ました")
         text.addAttribute(NSForegroundColorAttributeName, value: UIColor.annictBlue, range: NSMakeRange(0, title.characters.count))
         infoLabel.attributedText = text

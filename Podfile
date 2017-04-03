@@ -13,6 +13,7 @@ target 'Annict-for-iOS' do
   target 'Annict-for-iOSTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Firebase'
   end
 
   target 'Annict-for-iOSUITests' do

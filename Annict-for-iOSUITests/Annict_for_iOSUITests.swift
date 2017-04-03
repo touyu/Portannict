@@ -23,12 +23,25 @@ class Annict_for_iOSUITests: XCTestCase {
         setupSnapshot(application)
         application.launch()
         
+        sleep(1)
         snapshot("tab 0")
         let tabbar = application.tabBars.element(boundBy: 0)
         tabbar.buttons.element(boundBy: 1).tap()
+        sleep(1)
         snapshot("tab 1")
         tabbar.buttons.element(boundBy: 2).tap()
+        sleep(1)
         snapshot("tab 2")
+        tabbar.buttons.element(boundBy: 3).tap()
+        sleep(1)
+        snapshot("tab 3")
+        
+        let table = application.tables.element(boundBy: 0)
+        table.cells.element(boundBy: 0).tap()
+        table.swipeLeft()
+        
+        sleep(1)
+        snapshot("episode 1")
     }
     
     override func tearDown() {

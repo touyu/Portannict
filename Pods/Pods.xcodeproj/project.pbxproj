@@ -7,15 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0396ACE2F0A4662B52697D271735A217 /* Pods-Annict-for-iOSTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D34712841552EEB6BAB45FF71B124BB2 /* Pods-Annict-for-iOSTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		10A56CCE2DD2F9331917793523C494C5 /* Pods-Annict-for-iOSUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B904542E55F5FFB171584ADF5E800BC /* Pods-Annict-for-iOSUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		110DF4AE9F5B0A833E986D8040BB8AD8 /* Pods-Annict-for-iOSUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 925E849E85CB069A683F5C4F7C89EF70 /* Pods-Annict-for-iOSUITests-dummy.m */; };
+		11AB254B6C7A77625A17E06AA6479331 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		14E3A932C4D1680B5C85C68450F144D9 /* Keys-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 75D45FACF025307F0A7DF1621B2A658D /* Keys-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1AD62076FB05290CBBD256357E9C97D2 /* Pods-Annict-for-iOSTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BB5919EBE86C568591F9D1011919DD /* Pods-Annict-for-iOSTests-dummy.m */; };
 		2BC39A33E21B7A8820E4B2FE48723FB5 /* DateToolsSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F732F1EFAC6E516F0F4869B0CC7BF2D /* DateToolsSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E984D0116D6ECD2424E0B9CAD4251FD /* Pods-Annict-for-iOSTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BB5919EBE86C568591F9D1011919DD /* Pods-Annict-for-iOSTests-dummy.m */; };
 		3159D7CAFD56B809F40CA3330DA10889 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		39896AD7E2573C35F4A82C5EB8F04655 /* TimePeriodGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599643BD2A4BA0BF2BEF6ABBB69FC441 /* TimePeriodGroup.swift */; };
 		41F7ED0CC0D60F1D8E5C7FA268C70CC2 /* AnnictForIOSKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 142788B7848646EBE788A8EB5A98F51B /* AnnictForIOSKeys.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		46296D74CB6DF6A1BC45412979393344 /* Pods-Annict-for-iOSTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D34712841552EEB6BAB45FF71B124BB2 /* Pods-Annict-for-iOSTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47D8D9595CBC0E2686232CCF5BBE5913 /* AnnictForIOSKeys.h in Headers */ = {isa = PBXBuildFile; fileRef = C86930F498FA445E318E5159E631DAD6 /* AnnictForIOSKeys.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEA03365E6DFD3203288595698AB8CC /* Date+Inits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4147C447BDB19798B5C764FF636BC6EB /* Date+Inits.swift */; };
 		4E5E70335AC94377291526163247B72A /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E0105B9681224300C82753F01D1C1E /* Date+Format.swift */; };
@@ -29,7 +30,6 @@
 		6E7D1D65F26E071B668B6C38CE547C8E /* Date+TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70D55995500E487363FB68266B8E4E4 /* Date+TimeAgo.swift */; };
 		81E4B6988FF26F9249B79C6C8CC667B4 /* GoogleToolboxForMac-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6864F2BA40E18850D81D1522894BDBBD /* GoogleToolboxForMac-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		906842B23DCADCADCA888D8ABF133919 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		90D5EBC898104E3260052206BBF7D74E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		99E3BEA8FC5191DC18AF7BF32A6E9086 /* Date+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162AD7F23A9A320D0061428838CFF57E /* Date+Bundle.swift */; };
 		AAB052ACD1C2F5CD61EA09A67BE5938F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9DE1191657FBE7F261D7E1FEE2241 /* Enums.swift */; };
 		B0A382528DC015EFD81F39C35D669F8E /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8358CCBF53339FC9C38623B72425C /* TimePeriod.swift */; };
@@ -55,6 +55,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = E89CFD99B895BCC6E8EDC2F95A03500C;
 			remoteInfo = DateToolsSwift;
+		};
+		3892CD16B4A814A009C4393B042F2181 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00103D6C821BE85971C563025527BA5D;
+			remoteInfo = GoogleToolboxForMac;
 		};
 		ABE945160B8B49DF2F810C0F7D1D8E44 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -182,11 +189,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D1199C429576895EE389C958A254E6B8 /* Frameworks */ = {
+		83B87F32BBEFF7E6A3A52CB391B4C12A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90D5EBC898104E3260052206BBF7D74E /* Foundation.framework in Frameworks */,
+				11AB254B6C7A77625A17E06AA6479331 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,19 +561,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		19386A416EC2516D71EBE4961B0F804D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				46296D74CB6DF6A1BC45412979393344 /* Pods-Annict-for-iOSTests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A92D8715D293C85567A4ED86824880F5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				10A56CCE2DD2F9331917793523C494C5 /* Pods-Annict-for-iOSUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D058ECC90EA4134952D1812CA6DCEAAA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0396ACE2F0A4662B52697D271735A217 /* Pods-Annict-for-iOSTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +653,24 @@
 			productReference = 6FDB2E83F2A1C78C66AB7A989AC124B4 /* Pods_Annict_for_iOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		7FFF8FF548525BDD05E014B08FA28FC7 /* Pods-Annict-for-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 664A3903F4EBF5B82BDACA7120A46D19 /* Build configuration list for PBXNativeTarget "Pods-Annict-for-iOSTests" */;
+			buildPhases = (
+				EBB37ED58BEDAEB2B4CC3E58D9B669C4 /* Sources */,
+				83B87F32BBEFF7E6A3A52CB391B4C12A /* Frameworks */,
+				D058ECC90EA4134952D1812CA6DCEAAA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C4FADF73D0CCB2939786243030FBBCA8 /* PBXTargetDependency */,
+			);
+			name = "Pods-Annict-for-iOSTests";
+			productName = "Pods-Annict-for-iOSTests";
+			productReference = 3B491707803D523E743B56828235F6DB /* Pods_Annict_for_iOSTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		A53E967FC9ED288C3F28D9F66A6DF89C /* Pods-Annict-for-iOSUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5DD291DEA67E78705E0D1B77EB42E44 /* Build configuration list for PBXNativeTarget "Pods-Annict-for-iOSUITests" */;
@@ -661,23 +686,6 @@
 			name = "Pods-Annict-for-iOSUITests";
 			productName = "Pods-Annict-for-iOSUITests";
 			productReference = B25AC6CE6B81B45889FC9AE64AE941F8 /* Pods_Annict_for_iOSUITests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		D06B57C15D3D34FBA295F81145A7D0EA /* Pods-Annict-for-iOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E0382546810F65096B94E78D1B47BD7A /* Build configuration list for PBXNativeTarget "Pods-Annict-for-iOSTests" */;
-			buildPhases = (
-				F146F73B5D90719613E2CEE0DD030F9F /* Sources */,
-				D1199C429576895EE389C958A254E6B8 /* Frameworks */,
-				19386A416EC2516D71EBE4961B0F804D /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-Annict-for-iOSTests";
-			productName = "Pods-Annict-for-iOSTests";
-			productReference = 3B491707803D523E743B56828235F6DB /* Pods_Annict_for_iOSTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		E89CFD99B895BCC6E8EDC2F95A03500C /* DateToolsSwift */ = {
@@ -723,7 +731,7 @@
 				00103D6C821BE85971C563025527BA5D /* GoogleToolboxForMac */,
 				6A5CAFAE995083EED9EF3C572911E804 /* Keys */,
 				76ABF03141EAE64BEF9C2C9421FE0E09 /* Pods-Annict-for-iOS */,
-				D06B57C15D3D34FBA295F81145A7D0EA /* Pods-Annict-for-iOSTests */,
+				7FFF8FF548525BDD05E014B08FA28FC7 /* Pods-Annict-for-iOSTests */,
 				A53E967FC9ED288C3F28D9F66A6DF89C /* Pods-Annict-for-iOSUITests */,
 			);
 		};
@@ -798,11 +806,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F146F73B5D90719613E2CEE0DD030F9F /* Sources */ = {
+		EBB37ED58BEDAEB2B4CC3E58D9B669C4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AD62076FB05290CBBD256357E9C97D2 /* Pods-Annict-for-iOSTests-dummy.m in Sources */,
+				2E984D0116D6ECD2424E0B9CAD4251FD /* Pods-Annict-for-iOSTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -826,6 +834,12 @@
 			name = Keys;
 			target = 6A5CAFAE995083EED9EF3C572911E804 /* Keys */;
 			targetProxy = C3E973175E31BED7F64F541D0CE62B23 /* PBXContainerItemProxy */;
+		};
+		C4FADF73D0CCB2939786243030FBBCA8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleToolboxForMac;
+			target = 00103D6C821BE85971C563025527BA5D /* GoogleToolboxForMac */;
+			targetProxy = 3892CD16B4A814A009C4393B042F2181 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1079,7 +1093,7 @@
 			};
 			name = Release;
 		};
-		B1311BF995D2A8AF95DB18D33B17406F /* Debug */ = {
+		B03E340E3F8CC626CE72C60EE5577969 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F716062693C97E5656275F1E62971747 /* Pods-Annict-for-iOSTests.debug.xcconfig */;
 			buildSettings = {
@@ -1113,41 +1127,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		B47D7E2FF0D24C86541EB537B0CB85FB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 372DF0809B6F359DEE07FB05E69F954B /* Pods-Annict-for-iOSTests.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Annict-for-iOSTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Annict-for-iOSTests/Pods-Annict-for-iOSTests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Annict_for_iOSTests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		B7324857C38B065FEB1EEE3105C2367A /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1186,6 +1165,41 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D5B65DDF4BCC5A0F9245086E05A0FF87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 372DF0809B6F359DEE07FB05E69F954B /* Pods-Annict-for-iOSTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Annict-for-iOSTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Annict-for-iOSTests/Pods-Annict-for-iOSTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Annict_for_iOSTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -1339,6 +1353,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		664A3903F4EBF5B82BDACA7120A46D19 /* Build configuration list for PBXNativeTarget "Pods-Annict-for-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B03E340E3F8CC626CE72C60EE5577969 /* Debug */,
+				D5B65DDF4BCC5A0F9245086E05A0FF87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8BD494CF3C1B60668127A6371C4AB047 /* Build configuration list for PBXNativeTarget "Pods-Annict-for-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1362,15 +1385,6 @@
 			buildConfigurations = (
 				D60CD877A708870E2BE96B83BA32F883 /* Debug */,
 				F066921CBDBDB5F45795E50FBC5AC972 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E0382546810F65096B94E78D1B47BD7A /* Build configuration list for PBXNativeTarget "Pods-Annict-for-iOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B1311BF995D2A8AF95DB18D33B17406F /* Debug */,
-				B47D7E2FF0D24C86541EB537B0CB85FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
