@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dl8-x2-5cc" id="9UI-Pg-6dB">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="swa-NL-4oK">
@@ -43,7 +43,7 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="fXg-yN-vBC"/>
-                            <constraint firstItem="GMx-tZ-iZo" firstAttribute="centerY" secondItem="LDT-En-lnz" secondAttribute="centerY" id="xIT-Og-1cm"/>
+                            <constraint firstItem="GMx-tZ-iZo" firstAttribute="bottom" secondItem="LDT-En-lnz" secondAttribute="bottom" id="xIT-Og-1cm"/>
                         </constraints>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="***** 第1話から第26話を見ました" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSI-y3-95n">

@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tiR-wG-kc5" id="KSB-bW-6Jd">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="239"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LHs-el-9Au">
@@ -43,7 +43,7 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="FFZ-YJ-h5Q"/>
-                            <constraint firstItem="0ba-fR-HwE" firstAttribute="centerY" secondItem="BoF-2k-zF6" secondAttribute="centerY" id="HRV-DG-krK"/>
+                            <constraint firstItem="0ba-fR-HwE" firstAttribute="bottom" secondItem="BoF-2k-zF6" secondAttribute="bottom" id="HRV-DG-krK"/>
                         </constraints>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="感想" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usA-lC-m5F">
