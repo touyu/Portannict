@@ -37,6 +37,7 @@ struct AnnictWorkResponse {
     var wikipediaURL: String?
     var twitterUserName: String?
     var twitterHashTag: String?
+    var images: AnnictWorkImages?
     private var statusString: String?
     
     var status: AnimeStatus? {
@@ -54,12 +55,33 @@ struct AnnictWorkResponse {
         twitterUserName = try! e <|? "twitter_username"
         twitterHashTag = try! e <|? "twitter_hashtag"
         statusString = try! e <|? ["status", "kind"]
+        images = try! e <|? "images"
     }
 }
 
 extension AnnictWorkResponse: Decodable {
     static func decode(_ e: Extractor) throws -> AnnictWorkResponse {
         return try castOrFail(AnnictWorkResponse(e))
+    }
+}
+
+struct AnnictWorkImages {
+    private var recommendedURLString: String?
+    
+    var recommendedURL: URL? {
+        guard let recommendedURLString = self.recommendedURLString else { return nil }
+        return URL(string: recommendedURLString)
+    }
+    
+    init (_ e: Extractor) {
+        recommendedURLString = try! e <|? "recommended_url"
+        
+    }
+}
+
+extension AnnictWorkImages: Decodable {
+    static func decode(_ e: Extractor) throws -> AnnictWorkImages {
+        return try castOrFail(AnnictWorkImages(e))
     }
 }
 

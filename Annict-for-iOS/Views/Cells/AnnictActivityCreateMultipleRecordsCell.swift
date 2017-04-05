@@ -37,6 +37,12 @@ class AnnictActivityCreateMultipleRecordsCell: UITableViewCell {
         self.initUI()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        animeImageView.image = nil
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
@@ -113,16 +119,8 @@ class AnnictActivityCreateMultipleRecordsCell: UITableViewCell {
     private func initAnnictWorkView(work: AnnictWorkResponse?) {
         guard let work = work else { return }
         
-        setTwitterIcon(imageView: animeImageView, username: work.twitterUserName)
+        AnnictImageManager.setImage(imageView: animeImageView, imageURL: work.images?.recommendedURL)
         animeTitleLabel.text = work.title
-    }
-    
-    private func setTwitterIcon(imageView: UIImageView!, username: String?) {
-        if let username = username {
-            if let url = URL(string: "http://furyu.nazo.cc/twicon/\(username)/original") {
-                imageView.kf.setImage(with: url)
-            }
-        }
     }
     
     private func getMinMaxNumberEpisodes(multipleRecords: [AnnictMultipleRecord]?) -> (minNumberEpisode: AnnictEpisodeResponse?, maxNumberEpisode: AnnictEpisodeResponse?) {

@@ -53,6 +53,7 @@ class AnnictActivityCreateRecordCell: UITableViewCell {
         infoLabel.text = ""
         animeTitleLabel.text = ""
         episodeTitleLabel.text = ""
+        animeImageView.image = nil
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -112,7 +113,7 @@ class AnnictActivityCreateRecordCell: UITableViewCell {
     private func initAnnictWorkView(work: AnnictWorkResponse?, episode: AnnictEpisodeResponse?) {
         guard let work = work else { return }
         
-        setTwitterIcon(imageView: animeImageView, username: work.twitterUserName)
+        AnnictImageManager.setImage(imageView: animeImageView, imageURL: work.images?.recommendedURL)
         animeTitleLabel.text = work.title
         
         if let numberText = episode?.numberText {
@@ -121,14 +122,6 @@ class AnnictActivityCreateRecordCell: UITableViewCell {
         
         if let episodeTitle = episode?.title {
             episodeTitleLabel.text = (episodeTitleLabel.text ?? "") + episodeTitle
-        }
-    }
-    
-    private func setTwitterIcon(imageView: UIImageView!, username: String?) {
-        if let username = username {
-            if let url = URL(string: "http://furyu.nazo.cc/twicon/\(username)/original") {
-                imageView.kf.setImage(with: url)
-            }
         }
     }
     
