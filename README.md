@@ -1,5 +1,5 @@
 # Portannict
-Annict for iOS Beta
+Unofficial annict client app for iOS
 
 ## Icon
 <img src="http://i.imgur.com/F3xbXac.png"  width="160">
@@ -13,11 +13,3 @@ Annict for iOS Beta
 
 ## Setup
 
-### Environment Variable
-
-#### Run
-- [annict_client_id](https://annict.com/oauth/applications/75)
-- [annict_client_secret](https://annict.com/oauth/applications/75)
-
-#### Test
-- annict_access_token
