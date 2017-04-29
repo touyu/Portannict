@@ -94,9 +94,7 @@ class UserProfileView: UIView {
     }
     
     fileprivate func setData(userData: AnnictUserResponse) {
-        if let urlString = userData.avatarURL, let url = URL(string: urlString) {
-            self.avatarImageView.kf.setImage(with: url)
-        }
+        AnnictImageManager.setAvatarImage(imageView: avatarImageView, user: userData)
         
         if let backgroundImageURLString = userData.backgroundImageURL, let backgroundImageURL = URL(string: backgroundImageURLString) {
             self.backgroundImageView.kf.setImage(with: backgroundImageURL)

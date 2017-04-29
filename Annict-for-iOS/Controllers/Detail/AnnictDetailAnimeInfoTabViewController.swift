@@ -53,11 +53,11 @@ class AnnictDetailAnimeInfoTabViewController: ButtonBarPagerTabStripViewControll
     }
     
     override public func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        let a = AnnictDetailAnimeInfoViewController.instantiate(withStoryboard: "AnnictWorks")
-        a.work = work
-        a.status = self.status
-        let b = AnnictEpisodeViewController.instantiate(withStoryboard: "AnnictWorks")
-        b.workID = work.id
+        let a = AnnictEpisodeViewController.instantiate(withStoryboard: "AnnictWorks")
+        a.workID = work.id
+        let b = AnnictDetailAnimeInfoViewController.instantiate(withStoryboard: "AnnictWorks")
+        b.work = work
+        b.status = self.status
         return [a, b]
     }
 }

@@ -38,7 +38,7 @@ class AnnictRecordCell: UITableViewCell {
         initTimeLabel(createdAt: record.createdAt)
         initStars(rating: record.rating)
         
-//        AnnictImageManager.setAvatarImage(imageView: avatarImageView, user: record.user)
+        AnnictImageManager.setAvatarImage(imageView: avatarImageView, user: record.user)
     }
     
     private func initUI() {

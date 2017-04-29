@@ -13,6 +13,15 @@ import Kingfisher
 
 class AnnictImageManager {
     
+    class func setAvatarImage(imageView: UIImageView, user: AnnictUserResponse?) {
+        guard let avatarImageURL = user?.avatarURL else {
+            imageView.image = placeholderImage
+            return
+        }
+        
+        imageView.kf.setImage(with: avatarImageURL, placeholder: placeholderImage)
+    }
+    
     class func setWorkImage(imageView: UIImageView!, work: AnnictWorkResponse?) {
         guard let work = work else {
             imageView.image = defaultImage

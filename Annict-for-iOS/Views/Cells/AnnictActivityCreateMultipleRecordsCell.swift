@@ -72,9 +72,7 @@ class AnnictActivityCreateMultipleRecordsCell: UITableViewCell {
     private func initUserInfo(userData: AnnictUserResponse?) {
         guard let userData = userData else { return }
         
-        if let urlString = userData.avatarURL, let url = URL(string: urlString) {
-            self.avatarImageView.kf.setImage(with: url)
-        }
+        AnnictImageManager.setAvatarImage(imageView: avatarImageView, user: userData)
         
         self.nameLabel.text = userData.name
         

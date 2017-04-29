@@ -30,16 +30,22 @@ struct AnnictUserResponse {
     var username: String?
     var name: String?
     var description: String?
-    var avatarURL: String?
     var backgroundImageURL: String?
     var recordsCount: Int?
+    
+    var avatarURL: URL? {
+        guard let avatarURLString = self.avatarURLString else { return nil }
+        return URL(string: avatarURLString)
+    }
+    
+    private var avatarURLString: String?
     
     init (_ e: Extractor) {
         id = try! e <| "id"
         username = try! e <|? "username"
         name = try! e <|? "name"
         description = try! e <|? "description"
-        avatarURL = try! e <|? "avatar_url"
+        avatarURLString = try! e <|? "avatar_url"
         backgroundImageURL = try! e <|? "background_image_url"
         recordsCount = try! e <|? "records_count"
     }
@@ -49,7 +55,7 @@ struct AnnictUserResponse {
         username = dictionary["username"] as? String
         name = dictionary["name"] as? String
         description = dictionary["description"]  as? String
-        avatarURL = dictionary["avatarURL"] as? String
+        avatarURLString = dictionary["avatarURL"] as? String
         backgroundImageURL = dictionary["backgroundImageURL"] as? String
         recordsCount = dictionary["records_count"] as? Int
     }
@@ -60,7 +66,7 @@ struct AnnictUserResponse {
         dictionary["username"] = username
         dictionary["name"] = name
         dictionary["description"] = description
-        dictionary["avatarURL"] = avatarURL
+        dictionary["avatarURL"] = avatarURLString
         dictionary["backgroundImageURL"] = backgroundImageURL
         dictionary["records_count"] = recordsCount
         return dictionary
