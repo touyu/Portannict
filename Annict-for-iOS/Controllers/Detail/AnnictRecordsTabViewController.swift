@@ -51,10 +51,10 @@ class AnnictRecordsTabViewController: ButtonBarPagerTabStripViewController {
     override public func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         let a = AnnictRecordsViewController.instantiate(withStoryboard: "AnnictWorks")
         a.episodeID = episodeID
-        a.mode = .all
+        a.mode = .comment
         let b = AnnictRecordsViewController.instantiate(withStoryboard: "AnnictWorks")
         b.episodeID = episodeID
-        b.mode = .comment
+        b.mode = .all
         return [a, b]
     }
     

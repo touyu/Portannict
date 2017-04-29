@@ -92,7 +92,13 @@ class AnnictRecordsViewController: UITableViewController {
     fileprivate func getRecords(completionHandler: (() -> Void)? = nil) {
         let nextPage = self.currentPage+1
         self.state = .loading
-        let request = AnnictAPI.GetRecords(episodeID: episodeID, page: nextPage)
+        let request: AnnictAPI.GetRecords
+        switch mode {
+        case .all:
+            request = AnnictAPI.GetRecords(episodeID: episodeID, page: nextPage)
+        case .comment:
+            request = AnnictAPI.GetRecords(episodeID: episodeID, page: nextPage, hasRecordComment: true)
+        }
         AnnictAPIClient.send(request) {[weak self] response in
             switch response {
             case .success(let value):
@@ -113,31 +119,10 @@ class AnnictRecordsViewController: UITableViewController {
     }
     
     fileprivate func setRecords(records: [AnnictRecordResponse]) {
-        // 全感想モード
-        if self.mode == .all {
-            if self.currentPage == 0 {
-                self.records = records
-            } else {
-                self.records += records
-            }
-        } else { // コメント有りモード
-            if self.currentPage == 0 {
-                self.records = records.filter {
-                    if let comment = $0.comment, !(comment.isEmpty) {
-                        return true
-                    } else {
-                        return false
-                    }
-                }
-            } else {
-                self.records += records.filter {
-                    if let comment = $0.comment, !(comment.isEmpty) {
-                        return true
-                    } else {
-                        return false
-                    }
-                }
-            }
+        if self.currentPage == 0 {
+            self.records = records
+        } else {
+            self.records += records
         }
     }
     

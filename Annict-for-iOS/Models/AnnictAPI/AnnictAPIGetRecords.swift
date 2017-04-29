@@ -16,15 +16,18 @@ extension AnnictAPI {
         var page: Int
         var perPage: Int
         var sortID: Order
+        var hasRecordComment: Bool?
         
         init(episodeID: Int? = nil,
              page: Int = 1,
              perPage: Int = 30,
-             sortID: Order = .descending) {
+             sortID: Order = .descending,
+             hasRecordComment: Bool? = nil) {
             self.episodeID = episodeID
             self.page = page
             self.perPage = perPage
             self.sortID = sortID
+            self.hasRecordComment = hasRecordComment
         }
         
         typealias Response = AnnictRecordsResponse
@@ -44,6 +47,7 @@ extension AnnictAPI {
             params["page"] = page
             params["per_page"] = perPage
             params["sort_id"] = sortID.rawValue
+            params["filter_has_record_comment"] = hasRecordComment
             return params
         }
     }

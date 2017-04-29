@@ -16,26 +16,37 @@ class AnnictRecordCell: UITableViewCell {
         }
     }
     
-    @IBOutlet dynamic fileprivate weak var usernameLabel: UILabel!
-    @IBOutlet dynamic fileprivate weak var timeLabel: UILabel!
-    @IBOutlet dynamic fileprivate weak var commentLabel: UILabel!
-    @IBOutlet dynamic fileprivate weak var star1: UIImageView!
-    @IBOutlet dynamic fileprivate weak var star2: UIImageView!
-    @IBOutlet dynamic fileprivate weak var star3: UIImageView!
-    @IBOutlet dynamic fileprivate weak var star4: UIImageView!
-    @IBOutlet dynamic fileprivate weak var star5: UIImageView!
+    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet dynamic private weak var nameLabel: UILabel!
+    @IBOutlet dynamic private weak var usernameLabel: UILabel!
+    @IBOutlet dynamic private weak var timeLabel: UILabel!
+    @IBOutlet dynamic private weak var commentLabel: UILabel!
+    @IBOutlet dynamic private weak var star1: UIImageView!
+    @IBOutlet dynamic private weak var star2: UIImageView!
+    @IBOutlet dynamic private weak var star3: UIImageView!
+    @IBOutlet dynamic private weak var star4: UIImageView!
+    @IBOutlet dynamic private weak var star5: UIImageView!
     
     fileprivate var setedRecord: AnnictRecordResponse?
     
     func set(record: AnnictRecordResponse) {
-        self.setedRecord = record
-        self.usernameLabel.text = record.user?.name
-        self.commentLabel.text = record.comment
-        self.initTimeLabel(createdAt: record.createdAt)
-        self.initStars(rating: record.rating)
+        setedRecord = record
+        nameLabel.text = record.user?.name
+        usernameLabel.text = record.user?.username
+        commentLabel.text = record.comment
+        initUI()
+        initTimeLabel(createdAt: record.createdAt)
+        initStars(rating: record.rating)
+        
+//        AnnictImageManager.setAvatarImage(imageView: avatarImageView, user: record.user)
     }
     
-    fileprivate func initStars(rating: Int?) {
+    private func initUI() {
+        avatarImageView.layer.masksToBounds = true
+        avatarImageView.layer.cornerRadius = 4
+    }
+    
+    private func initStars(rating: Int?) {
         let stars = [star1, star2, star3, star4, star5]
         if let rating = rating {
             _ = stars.map { $0?.alpha = 1; $0?.image = #imageLiteral(resourceName: "inactive_star") }
