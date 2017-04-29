@@ -110,11 +110,9 @@ class AnnictActivityCreateRecordCell: UITableViewCell {
         messageLabel.text = message
     }
     
-    private func initAnnictWorkView(work: AnnictWorkResponse?, episode: AnnictEpisodeResponse?) {
-        guard let work = work else { return }
-        
-        AnnictImageManager.setImage(imageView: animeImageView, imageURL: work.images?.recommendedURL)
-        animeTitleLabel.text = work.title
+    private func initAnnictWorkView(work: AnnictWorkResponse?, episode: AnnictEpisodeResponse?) {        
+        AnnictImageManager.setWorkImage(imageView: animeImageView, work: work)
+        animeTitleLabel.text = work?.title
         
         if let numberText = episode?.numberText {
             episodeTitleLabel.text = "\(numberText) "

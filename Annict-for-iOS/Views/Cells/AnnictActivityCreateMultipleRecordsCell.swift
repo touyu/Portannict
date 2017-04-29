@@ -117,10 +117,8 @@ class AnnictActivityCreateMultipleRecordsCell: UITableViewCell {
     }
     
     private func initAnnictWorkView(work: AnnictWorkResponse?) {
-        guard let work = work else { return }
-        
-        AnnictImageManager.setImage(imageView: animeImageView, imageURL: work.images?.recommendedURL)
-        animeTitleLabel.text = work.title
+        AnnictImageManager.setWorkImage(imageView: animeImageView, work: work)
+        animeTitleLabel.text = work?.title
     }
     
     private func getMinMaxNumberEpisodes(multipleRecords: [AnnictMultipleRecord]?) -> (minNumberEpisode: AnnictEpisodeResponse?, maxNumberEpisode: AnnictEpisodeResponse?) {

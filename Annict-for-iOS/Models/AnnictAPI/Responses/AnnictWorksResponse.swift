@@ -68,6 +68,8 @@ extension AnnictWorkResponse: Decodable {
 struct AnnictWorkImages {
     private var recommendedURLString: String?
     
+    var twitter: AnnictWorkTwitterImage?
+    
     var recommendedURL: URL? {
         guard let recommendedURLString = self.recommendedURLString else { return nil }
         return URL(string: recommendedURLString)
@@ -75,13 +77,43 @@ struct AnnictWorkImages {
     
     init (_ e: Extractor) {
         recommendedURLString = try! e <|? "recommended_url"
-        
+        twitter = try! e <|? "twitter"
     }
 }
 
 extension AnnictWorkImages: Decodable {
     static func decode(_ e: Extractor) throws -> AnnictWorkImages {
         return try castOrFail(AnnictWorkImages(e))
+    }
+}
+
+struct AnnictWorkTwitterImage {
+//    var mini: String?
+//    var normal: String?
+    private var biggerAvatarURLString: String?
+    private var originalAvatarURLString: String?
+//    var original: String?
+    
+    var biggerAvatarURL: URL? {
+        guard let biggerAvatarURLString = self.biggerAvatarURLString else { return nil }
+        return URL(string: biggerAvatarURLString)
+    }
+    
+    var originalAvatarURL: URL? {
+        guard let originalAvatarURLString = self.originalAvatarURLString else { return nil }
+        return URL(string: originalAvatarURLString)
+    }
+    
+    init (_ e: Extractor) {
+        biggerAvatarURLString = try! e <|? "bigger_avatar_url"
+        originalAvatarURLString = try! e <|? "original_avatar_url"
+        
+    }
+}
+
+extension AnnictWorkTwitterImage: Decodable {
+    static func decode(_ e: Extractor) throws -> AnnictWorkTwitterImage {
+        return try castOrFail(AnnictWorkTwitterImage(e))
     }
 }
 
