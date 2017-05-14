@@ -16,7 +16,7 @@ class AnnictRecordCell: UITableViewCell {
         }
     }
     
-    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet dynamic private weak var avatarImageView: UIImageView!
     @IBOutlet dynamic private weak var nameLabel: UILabel!
     @IBOutlet dynamic private weak var usernameLabel: UILabel!
     @IBOutlet dynamic private weak var timeLabel: UILabel!
