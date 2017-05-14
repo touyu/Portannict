@@ -32,7 +32,11 @@ class AnnictRecordCell: UITableViewCell {
     func set(record: AnnictRecordResponse) {
         setedRecord = record
         nameLabel.text = record.user?.name
-        usernameLabel.text = record.user?.username
+        if let username = record.user?.username {
+            usernameLabel.text = "@\(username)"
+        } else {
+            usernameLabel.text = ""
+        }
         commentLabel.text = record.comment
         initUI()
         initTimeLabel(createdAt: record.createdAt)
