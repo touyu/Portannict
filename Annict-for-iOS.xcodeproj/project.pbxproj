@@ -77,6 +77,7 @@
 		D14F6D4D1E8FFE1400A079EB /* AnnictActivityCreateMultipleRecordsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F6D4C1E8FFE1400A079EB /* AnnictActivityCreateMultipleRecordsCell.swift */; };
 		D14FF4D71E5024A500AD9913 /* AnnictAPIGetWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14FF4D61E5024A500AD9913 /* AnnictAPIGetWorks.swift */; };
 		D14FF4EC1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14FF4EB1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift */; };
+		D15186F61EC9EE9D00928B7A /* SwiftyAttributedString.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D15186F51EC9EE9D00928B7A /* SwiftyAttributedString.framework */; };
 		D155B6911E90C3B400DB0A96 /* ActivitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155B6901E90C3B400DB0A96 /* ActivitiesTableViewController.swift */; };
 		D155B6931E90E6BD00DB0A96 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D155B6921E90E6BD00DB0A96 /* DZNEmptyDataSet.framework */; };
 		D155B6951E90EEA100DB0A96 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D155B6941E90EEA100DB0A96 /* Reachability.framework */; };
@@ -225,6 +226,7 @@
 		D14F6D4C1E8FFE1400A079EB /* AnnictActivityCreateMultipleRecordsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictActivityCreateMultipleRecordsCell.swift; sourceTree = "<group>"; };
 		D14FF4D61E5024A500AD9913 /* AnnictAPIGetWorks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnnictAPIGetWorks.swift; path = ../AnnictAPIGetWorks.swift; sourceTree = "<group>"; };
 		D14FF4EB1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictMeWorksTabNavigationController.swift; sourceTree = "<group>"; };
+		D15186F51EC9EE9D00928B7A /* SwiftyAttributedString.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyAttributedString.framework; path = Carthage/Build/iOS/SwiftyAttributedString.framework; sourceTree = "<group>"; };
 		D155B6901E90C3B400DB0A96 /* ActivitiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesTableViewController.swift; sourceTree = "<group>"; };
 		D155B6921E90E6BD00DB0A96 /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Carthage/Build/iOS/DZNEmptyDataSet.framework; sourceTree = "<group>"; };
 		D155B6941E90EEA100DB0A96 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D15186F61EC9EE9D00928B7A /* SwiftyAttributedString.framework in Frameworks */,
 				D155B6951E90EEA100DB0A96 /* Reachability.framework in Frameworks */,
 				D155B6931E90E6BD00DB0A96 /* DZNEmptyDataSet.framework in Frameworks */,
 				D13101ED1E55E73800023D70 /* APIKit.framework in Frameworks */,
@@ -322,6 +325,7 @@
 		AD6DDBA827920CE6310BBE0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D15186F51EC9EE9D00928B7A /* SwiftyAttributedString.framework */,
 				D155B6941E90EEA100DB0A96 /* Reachability.framework */,
 				D155B6921E90E6BD00DB0A96 /* DZNEmptyDataSet.framework */,
 				D13101E81E55E73800023D70 /* APIKit.framework */,
@@ -1102,6 +1106,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/XLPagerTabStrip.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/DZNEmptyDataSet.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Reachability.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyAttributedString.framework",
 			);
 			outputPaths = (
 			);

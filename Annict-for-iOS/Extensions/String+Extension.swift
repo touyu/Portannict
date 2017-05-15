@@ -9,6 +9,10 @@
 import UIKit
 
 extension String {
+    var ns: NSString {
+        return self as NSString
+    }
+    
     func localized(withTableName tableName: String, bundle: Bundle = Bundle.main, value: String = "") -> String {
         return NSLocalizedString(self, tableName: tableName, bundle: bundle, value: value, comment: self)
     }

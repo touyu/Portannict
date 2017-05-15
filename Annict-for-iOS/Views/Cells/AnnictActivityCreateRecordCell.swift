@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyAttributedString
 
 class AnnictActivityCreateRecordCell: UITableViewCell {
     
@@ -19,7 +20,7 @@ class AnnictActivityCreateRecordCell: UITableViewCell {
             initMessageLabel(message: activity.record?.comment)
             initAnnictWorkView(work: activity.work, episode: activity.episode)
             initStars(rating: activity.record?.rating)
-            initInfoLabel(title: activity.work?.title, numberText: activity.episode?.numberText)
+            initInfoTextView(title: activity.work?.title, numberText: activity.episode?.numberText)
         }
     }
     
@@ -28,7 +29,7 @@ class AnnictActivityCreateRecordCell: UITableViewCell {
     @IBOutlet dynamic fileprivate weak var usernameLabel: UILabel!
     @IBOutlet dynamic fileprivate weak var timeLabel: UILabel!
     @IBOutlet dynamic fileprivate weak var messageLabel: UILabel!
-    @IBOutlet dynamic fileprivate weak var infoLabel: UILabel!
+    @IBOutlet dynamic fileprivate weak var infoTextView: UITextView!
     
     @IBOutlet dynamic fileprivate weak var annictWorkView: UIView!
     @IBOutlet dynamic fileprivate weak var animeImageView: UIImageView!
@@ -50,7 +51,7 @@ class AnnictActivityCreateRecordCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        infoLabel.text = ""
+        infoTextView.text = ""
         animeTitleLabel.text = ""
         episodeTitleLabel.text = ""
         animeImageView.image = nil
@@ -73,7 +74,7 @@ class AnnictActivityCreateRecordCell: UITableViewCell {
     }
     
     private func initUI() {
-        infoLabel.text = ""
+        infoTextView.text = ""
         animeTitleLabel.text = ""
         episodeTitleLabel.text = ""
         
@@ -84,6 +85,9 @@ class AnnictActivityCreateRecordCell: UITableViewCell {
         annictWorkView.layer.cornerRadius = 4
         annictWorkView.layer.borderWidth = 0.6
         annictWorkView.layer.borderColor = UITableView().separatorColor?.cgColor
+        
+        infoTextView.textContainerInset = UIEdgeInsets.zero
+        infoTextView.textContainer.lineFragmentPadding = 0
     }
     
     private func initUserInfo(userData: AnnictUserResponse?) {
@@ -133,16 +137,35 @@ class AnnictActivityCreateRecordCell: UITableViewCell {
         }
     }
     
-    private func initInfoLabel(title: String?, numberText: String?) {
+    private func initInfoTextView(title: String?, numberText: String?) {
         guard let title = title else { return }
         guard let numberText = numberText else {
-            let text = NSMutableAttributedString(string: "\(title) を見ました")
-            text.addAttribute(NSForegroundColorAttributeName, value: UIColor.annictBlue, range: NSMakeRange(0, title.characters.count))
-            infoLabel.attributedText = text
+            let text = "\(title) を見ました"
+            let attributedString = text.add(attributes: [Attribute(value: .foregroundColor(.annictBlue), range: .portion(of: .string(title))),
+                                                         Attribute(value: .font(.systemFont(ofSize: 14)))])
+            infoTextView.attributedText = attributedString
             return
         }
-        let text = NSMutableAttributedString(string: "\(title) \(numberText)を見ました")
-        text.addAttribute(NSForegroundColorAttributeName, value: UIColor.annictBlue, range: NSMakeRange(0, title.characters.count))
-        infoLabel.attributedText = text
+        let text = "\(title) \(numberText) を見ました"
+        let attributedString = text.add(attributes: [Attribute(value: .foregroundColor(.annictBlue), range: .portion(of: .string(title))),
+                                                     Attribute(value: .foregroundColor(.annictBlue), range: .portion(of: .string(numberText))),
+                                                     Attribute(value: .font(.systemFont(ofSize: 14)))])
+        infoTextView.attributedText = attributedString
+        infoTextView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedinfoTextView)))
+    }
+    
+    @objc private func tappedinfoTextView(tap: UITapGestureRecognizer) {
+        let location = tap.location(in: infoTextView)
+        guard let textPosition = infoTextView.closestPosition(to: location) else { return }
+        
+        // テキストの先頭とタップした文字の距離をNSIntegerで取得
+        let selectedPosition = infoTextView.offset(from: infoTextView.beginningOfDocument, to: textPosition)
+        let range = infoTextView.text.findRange(activity?.work?.title)
+        
+        // タップした文字がリンク文字のrangeに含まれるか判定
+        if NSLocationInRange(selectedPosition, range) {
+            
+            print("taped")
+        }
     }
 }
