@@ -2,7 +2,7 @@
   "commitish" : "0.5.1",
   "iOS" : [
     {
-      "hash" : "ae37689a0c41da80c405833b856890048311f22b91bd4f0efa6c4746b6b65607",
+      "hash" : "328c383717c75779e038199e7192be233aea3f1f5a9033e9d13128ad8e8133cf",
       "name" : "SwiftyAttributedString"
     }
   ]
