@@ -1,0 +1,9 @@
+{
+  "commitish" : "7.0.0",
+  "iOS" : [
+    {
+      "hash" : "f69d1838f444ef6bfc611b598cd76b4c13d77081662fc42d8cd2795bed6ebf6c",
+      "name" : "XLPagerTabStrip"
+    }
+  ]
+}
