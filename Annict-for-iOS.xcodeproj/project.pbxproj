@@ -116,6 +116,8 @@
 		D1AC3DAA1E59C25200BF4AC2 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC3DA91E59C25200BF4AC2 /* AppConfig.swift */; };
 		D1AC3DAC1E59D16F00BF4AC2 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC3DAB1E59D16F00BF4AC2 /* SnapshotHelper.swift */; };
 		D1D1EFB81EB4921100CC1F5C /* AnnictRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1D1EFB71EB4921100CC1F5C /* AnnictRecordCell.xib */; };
+		D1DB61AC1EDDC982009B5137 /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB61AB1EDDC982009B5137 /* RecordCell.swift */; };
+		D1DB61AE1EDDC98A009B5137 /* RecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DB61AD1EDDC98A009B5137 /* RecordCell.xib */; };
 		D1FEDCFF1E4D7CD300EFA42F /* AnnictConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */; };
 		D1FEDD021E4D844000EFA42F /* AnnictOauthTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */; };
 		D1FEDD041E4D883600EFA42F /* AnnictAPOauthTokenI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD031E4D883600EFA42F /* AnnictAPOauthTokenI.swift */; };
@@ -259,6 +261,8 @@
 		D1AC3DA91E59C25200BF4AC2 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		D1AC3DAB1E59D16F00BF4AC2 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		D1D1EFB71EB4921100CC1F5C /* AnnictRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnictRecordCell.xib; sourceTree = "<group>"; };
+		D1DB61AB1EDDC982009B5137 /* RecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
+		D1DB61AD1EDDC98A009B5137 /* RecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordCell.xib; sourceTree = "<group>"; };
 		D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictConsts.swift; sourceTree = "<group>"; };
 		D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictOauthTokenResponse.swift; sourceTree = "<group>"; };
 		D1FEDD031E4D883600EFA42F /* AnnictAPOauthTokenI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPOauthTokenI.swift; sourceTree = "<group>"; };
@@ -544,6 +548,7 @@
 		D13BD2FA1E51ADA5006CDF2E /* Records */ = {
 			isa = PBXGroup;
 			children = (
+				D1DB61AA1EDDC95B009B5137 /* RecordCell */,
 				D13BD2E31E515605006CDF2E /* AnnictRecordCell */,
 				D13BD2FF1E51B633006CDF2E /* AnnictRatingCell */,
 				D13BD3041E51BA5B006CDF2E /* AnnictTextViewCell */,
@@ -778,6 +783,15 @@
 			name = ActivityCreateRecordRatingStateCell;
 			sourceTree = "<group>";
 		};
+		D1DB61AA1EDDC95B009B5137 /* RecordCell */ = {
+			isa = PBXGroup;
+			children = (
+				D1DB61AB1EDDC982009B5137 /* RecordCell.swift */,
+				D1DB61AD1EDDC98A009B5137 /* RecordCell.xib */,
+			);
+			name = RecordCell;
+			sourceTree = "<group>";
+		};
 		D1FEDD001E4D841A00EFA42F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -951,6 +965,7 @@
 				D1FEEFA31E72E0B9004D4D28 /* Login.storyboard in Resources */,
 				D13E338A1E504F9300A0CEF6 /* AnnictBaseLocalizable.strings in Resources */,
 				D12F7B141EDD3400009E60E4 /* RatingStateView.xib in Resources */,
+				D1DB61AE1EDDC98A009B5137 /* RecordCell.xib in Resources */,
 				D13BD2CE1E50707F006CDF2E /* AnnictEpisodeCell.xib in Resources */,
 				D13E33931E505B0C00A0CEF6 /* AnnictWorks.storyboard in Resources */,
 				D147C0921E8010FE00E612D6 /* Setting.storyboard in Resources */,
@@ -1194,6 +1209,7 @@
 				D195D11B1E4F928A004B6B15 /* UITableView+Extension.swift in Sources */,
 				D13E33901E50507600A0CEF6 /* String+Extension.swift in Sources */,
 				D1FEEFAA1E72E11D004D4D28 /* FIRDatabaseClient.swift in Sources */,
+				D1DB61AC1EDDC982009B5137 /* RecordCell.swift in Sources */,
 				D195D0F41E4DE677004B6B15 /* Notification+Extension.swift in Sources */,
 				D14F6D3E1E8FABC300A079EB /* AnnictActivityCreateStatusCell.swift in Sources */,
 				D13BD2E71E51563E006CDF2E /* AnnictRecordCell.swift in Sources */,

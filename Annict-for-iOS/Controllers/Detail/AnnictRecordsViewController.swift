@@ -64,7 +64,7 @@ class AnnictRecordsViewController: UITableViewController {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
-        tableView.register(cellType: AnnictRecordCell.self)
+        tableView.register(cellTypes: [RecordCell.self, AnnictRecordCell.self])
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
         self.initRefreshControl()
@@ -141,9 +141,16 @@ extension AnnictRecordsViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(with: AnnictRecordCell.self, for: indexPath)
-        cell.set(record: records[indexPath.row])
-        return cell
+        let record = records[indexPath.row]
+        if record.ratingState != nil {
+            let cell = tableView.dequeueReusableCell(with: RecordCell.self, for: indexPath)
+            cell.set(record: record)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(with: AnnictRecordCell.self, for: indexPath)
+            cell.set(record: record)
+            return cell
+        }
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
