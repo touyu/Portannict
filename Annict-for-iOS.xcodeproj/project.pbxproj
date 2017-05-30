@@ -23,6 +23,8 @@
 		D12F4EC21E5476A300EB0651 /* YearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F4EC11E5476A300EB0651 /* YearPickerView.swift */; };
 		D12F4EC41E5476AD00EB0651 /* YearPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D12F4EC31E5476AD00EB0651 /* YearPickerView.xib */; };
 		D12F4EC81E547ADC00EB0651 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F4EC71E547ADC00EB0651 /* UIView+Extension.swift */; };
+		D12F7B121EDD33E7009E60E4 /* RatingStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F7B111EDD33E7009E60E4 /* RatingStateView.swift */; };
+		D12F7B141EDD3400009E60E4 /* RatingStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D12F7B131EDD3400009E60E4 /* RatingStateView.xib */; };
 		D13101ED1E55E73800023D70 /* APIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13101E81E55E73800023D70 /* APIKit.framework */; };
 		D13101EE1E55E73800023D70 /* Himotoki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13101E91E55E73800023D70 /* Himotoki.framework */; };
 		D13101EF1E55E73800023D70 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13101EA1E55E73800023D70 /* Kingfisher.framework */; };
@@ -98,6 +100,8 @@
 		D195D1191E4F8C2D004B6B15 /* AnnictMeWorkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D195D1181E4F8C2D004B6B15 /* AnnictMeWorkCell.xib */; };
 		D195D11B1E4F928A004B6B15 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D11A1E4F928A004B6B15 /* UITableView+Extension.swift */; };
 		D19867331E9403FE00095611 /* AnnictImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19867321E9403FE00095611 /* AnnictImageManager.swift */; };
+		D1A296151EDC1B3F0026BB6F /* ActivityCreateRecordRatingStateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A296141EDC1B3F0026BB6F /* ActivityCreateRecordRatingStateCell.swift */; };
+		D1A296171EDC1B5E0026BB6F /* ActivityCreateRecordRatingStateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1A296161EDC1B5E0026BB6F /* ActivityCreateRecordRatingStateCell.xib */; };
 		D1A43E401E520E0000EE40CB /* AnnictSearchNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A43E3F1E520E0000EE40CB /* AnnictSearchNavigationController.swift */; };
 		D1AC3D9F1E59B3EC00BF4AC2 /* APIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13101E81E55E73800023D70 /* APIKit.framework */; };
 		D1AC3DA01E59B3EC00BF4AC2 /* Himotoki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13101E91E55E73800023D70 /* Himotoki.framework */; };
@@ -164,6 +168,8 @@
 		D12F4EC11E5476A300EB0651 /* YearPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearPickerView.swift; sourceTree = "<group>"; };
 		D12F4EC31E5476AD00EB0651 /* YearPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YearPickerView.xib; sourceTree = "<group>"; };
 		D12F4EC71E547ADC00EB0651 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		D12F7B111EDD33E7009E60E4 /* RatingStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingStateView.swift; sourceTree = "<group>"; };
+		D12F7B131EDD3400009E60E4 /* RatingStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingStateView.xib; sourceTree = "<group>"; };
 		D13101E81E55E73800023D70 /* APIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = APIKit.framework; path = Carthage/Build/iOS/APIKit.framework; sourceTree = "<group>"; };
 		D13101E91E55E73800023D70 /* Himotoki.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Himotoki.framework; path = Carthage/Build/iOS/Himotoki.framework; sourceTree = "<group>"; };
 		D13101EA1E55E73800023D70 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -247,6 +253,8 @@
 		D195D1181E4F8C2D004B6B15 /* AnnictMeWorkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnictMeWorkCell.xib; sourceTree = "<group>"; };
 		D195D11A1E4F928A004B6B15 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		D19867321E9403FE00095611 /* AnnictImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictImageManager.swift; sourceTree = "<group>"; };
+		D1A296141EDC1B3F0026BB6F /* ActivityCreateRecordRatingStateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCreateRecordRatingStateCell.swift; sourceTree = "<group>"; };
+		D1A296161EDC1B5E0026BB6F /* ActivityCreateRecordRatingStateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityCreateRecordRatingStateCell.xib; sourceTree = "<group>"; };
 		D1A43E3F1E520E0000EE40CB /* AnnictSearchNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictSearchNavigationController.swift; sourceTree = "<group>"; };
 		D1AC3DA91E59C25200BF4AC2 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		D1AC3DAB1E59D16F00BF4AC2 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
@@ -411,6 +419,15 @@
 				D12F4EC31E5476AD00EB0651 /* YearPickerView.xib */,
 			);
 			path = YearPickerView;
+			sourceTree = "<group>";
+		};
+		D12F7B101EDD33D5009E60E4 /* RatingStateView */ = {
+			isa = PBXGroup;
+			children = (
+				D12F7B111EDD33E7009E60E4 /* RatingStateView.swift */,
+				D12F7B131EDD3400009E60E4 /* RatingStateView.xib */,
+			);
+			name = RatingStateView;
 			sourceTree = "<group>";
 		};
 		D137D6731E4D735E00F0FCFB = {
@@ -632,6 +649,7 @@
 		D14F6D481E8FFC9B00A079EB /* AnnictActivityCells */ = {
 			isa = PBXGroup;
 			children = (
+				D1A296131EDC1AF40026BB6F /* ActivityCreateRecordRatingStateCell */,
 				D14F6D3C1E8FAB9E00A079EB /* AnnictActivityCreateStatusCell */,
 				D14F6D431E8FD21600A079EB /* AnnictActivityCreateRecordCell */,
 				D14F6D491E8FFDEC00A079EB /* AnnictActivityCreateMultipleRecordsCell */,
@@ -720,6 +738,7 @@
 		D195D1141E4F8AE3004B6B15 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D12F7B101EDD33D5009E60E4 /* RatingStateView */,
 				D195D1151E4F8AF9004B6B15 /* Cells */,
 				D12F4EC91E547B6300EB0651 /* YearPickerView */,
 				D16F6BA01E8ED02F00523839 /* UserProfileView */,
@@ -748,6 +767,15 @@
 			);
 			name = Manager;
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D1A296131EDC1AF40026BB6F /* ActivityCreateRecordRatingStateCell */ = {
+			isa = PBXGroup;
+			children = (
+				D1A296141EDC1B3F0026BB6F /* ActivityCreateRecordRatingStateCell.swift */,
+				D1A296161EDC1B5E0026BB6F /* ActivityCreateRecordRatingStateCell.xib */,
+			);
+			name = ActivityCreateRecordRatingStateCell;
 			sourceTree = "<group>";
 		};
 		D1FEDD001E4D841A00EFA42F /* Models */ = {
@@ -922,11 +950,13 @@
 				D1FEEFAC1E72E23C004D4D28 /* GoogleService-Info.plist in Resources */,
 				D1FEEFA31E72E0B9004D4D28 /* Login.storyboard in Resources */,
 				D13E338A1E504F9300A0CEF6 /* AnnictBaseLocalizable.strings in Resources */,
+				D12F7B141EDD3400009E60E4 /* RatingStateView.xib in Resources */,
 				D13BD2CE1E50707F006CDF2E /* AnnictEpisodeCell.xib in Resources */,
 				D13E33931E505B0C00A0CEF6 /* AnnictWorks.storyboard in Resources */,
 				D147C0921E8010FE00E612D6 /* Setting.storyboard in Resources */,
 				D14F6D471E8FD25F00A079EB /* AnnictActivityCreateRecordCell.xib in Resources */,
 				D14F6D2F1E8F9A1600A079EB /* AnnictActivities.storyboard in Resources */,
+				D1A296171EDC1B5E0026BB6F /* ActivityCreateRecordRatingStateCell.xib in Resources */,
 				D13BD2DF1E50A3A7006CDF2E /* AnnictSubtextCell.xib in Resources */,
 				D12F4EB61E54139B00EB0651 /* AnnictRecentlyAnimeSectionCell.xib in Resources */,
 				D13BD2FE1E51ADDC006CDF2E /* AnnictRatingCell.xib in Resources */,
@@ -1174,7 +1204,9 @@
 				D13BD2D41E507410006CDF2E /* AnnictEpisodesResponse.swift in Sources */,
 				D1FEEFA51E72E0E4004D4D28 /* ReviewLoginViewController.swift in Sources */,
 				D13BD2F11E516979006CDF2E /* AnnictRecordsTabViewController.swift in Sources */,
+				D12F7B121EDD33E7009E60E4 /* RatingStateView.swift in Sources */,
 				D16F6BA21E8ED1B400523839 /* AnnictAPIGetMe.swift in Sources */,
+				D1A296151EDC1B3F0026BB6F /* ActivityCreateRecordRatingStateCell.swift in Sources */,
 				D12F4EBC1E544F3D00EB0651 /* AnnictSeasonTabNavigationController.swift in Sources */,
 				D1FEDCFF1E4D7CD300EFA42F /* AnnictConsts.swift in Sources */,
 				D1FEDD041E4D883600EFA42F /* AnnictAPOauthTokenI.swift in Sources */,

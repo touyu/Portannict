@@ -100,7 +100,8 @@ class ActivitiesTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(cellTypes: [AnnictActivityCreateStatusCell.self,
                                        AnnictActivityCreateRecordCell.self,
-                                       AnnictActivityCreateMultipleRecordsCell.self])
+                                       AnnictActivityCreateMultipleRecordsCell.self,
+                                       ActivityCreateRecordRatingStateCell.self])
     }
     
     private func initRefreshControl() {
@@ -138,9 +139,15 @@ extension ActivitiesTableViewController {
         
         switch action {
         case .createRecord:
-            let cell = tableView.dequeueReusableCell(with: AnnictActivityCreateRecordCell.self, for: indexPath)
-            cell.set(activity: activity)
-            return cell
+            if activity.record?.ratingState != nil {
+                let cell = tableView.dequeueReusableCell(with: ActivityCreateRecordRatingStateCell.self, for: indexPath)
+                cell.set(activity: activity)
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(with: AnnictActivityCreateRecordCell.self, for: indexPath)
+                cell.set(activity: activity)
+                return cell
+            }
         case .createMultipleRecords:
             let cell = tableView.dequeueReusableCell(with: AnnictActivityCreateMultipleRecordsCell.self, for: indexPath)
             cell.set(activity: activity)
