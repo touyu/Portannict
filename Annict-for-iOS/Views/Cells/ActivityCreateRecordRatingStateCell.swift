@@ -35,7 +35,7 @@ class ActivityCreateRecordRatingStateCell: UITableViewCell {
     @IBOutlet weak var animeImageView: UIImageView!
     @IBOutlet weak var animeTitleLabel: UILabel!
     @IBOutlet weak var episodeTitleLabel: UILabel!
-    
+    @IBOutlet weak var messageBottomConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -113,6 +113,12 @@ class ActivityCreateRecordRatingStateCell: UITableViewCell {
     
     private func initMessageLabel(message: String?) {
         messageLabel.text = message
+        
+        if message?.isEmpty ?? true {
+            messageBottomConstraint.constant = 0
+        } else {
+            messageBottomConstraint.constant = 8
+        }
     }
     
     private func initAnnictWorkView(work: AnnictWorkResponse?, episode: AnnictEpisodeResponse?) {
