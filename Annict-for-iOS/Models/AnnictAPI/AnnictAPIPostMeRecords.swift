@@ -14,7 +14,7 @@ extension AnnictAPI {
     struct PostMeRecords: AnnictAPIRequest {
         var episodeID: Int!
         var comment: String?
-        var rating: Int?
+        var ratingState: RatingState?
         var shareTwitter = false
         var shareFacebook = false
         
@@ -33,7 +33,7 @@ extension AnnictAPI {
             params["access_token"] = AnnictConsts.accessToken
             params["episode_id"] = String(episodeID)
             params["comment"] = comment ?? nil
-            params["rating"] = rating ?? nil
+            params["rating_state"] = ratingState?.rawValue ?? nil
             params["share_twitter"] = shareTwitter.description
             params["share_facebook"] = shareFacebook.description
             return params

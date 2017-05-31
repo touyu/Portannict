@@ -169,11 +169,18 @@ extension AnnictRecordsViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        guard let cell = tableView.cellForRow(at: indexPath) as? AnnictRecordCell else { return }
-        if let record = cell.record, record.user?.id == AnnictConsts.userID {
-            self.showActionSheet(recordID: record.id, indexPath: indexPath)
-        } else {
-            self.showReportActionSheet(indexPath: indexPath)
+        if let cell = tableView.cellForRow(at: indexPath) as? AnnictRecordCell {
+            if let record = cell.record, record.user?.id == AnnictConsts.userID {
+                self.showActionSheet(recordID: record.id, indexPath: indexPath)
+            } else {
+                self.showReportActionSheet(indexPath: indexPath)
+            }
+        } else if let cell = tableView.cellForRow(at: indexPath) as? RecordCell {
+            if let record = cell.record, record.user?.id == AnnictConsts.userID {
+                self.showActionSheet(recordID: record.id, indexPath: indexPath)
+            } else {
+                self.showReportActionSheet(indexPath: indexPath)
+            }
         }
     }
     

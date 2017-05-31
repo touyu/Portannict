@@ -16,7 +16,7 @@ class AnnictPostRecordsViewController: UIViewController {
     
     @IBOutlet dynamic fileprivate weak var tableView: UITableView!
     
-    fileprivate var rating: Int?
+    fileprivate var ratingState: RatingState?
     fileprivate var comment: String?
     fileprivate var twitterSharing = false
     fileprivate var facebookSharing = false
@@ -52,15 +52,14 @@ class AnnictPostRecordsViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.tableFooterView = UIView()
         self.tableView.allowsMultipleSelection = true
-        self.tableView.register(cellType: AnnictRatingCell.self)
-        self.tableView.register(cellType: AnnictTextViewCell.self)
+        self.tableView.register(cellTypes: [RatingStateCell.self, AnnictTextViewCell.self])
     }
     
     fileprivate func postMeRecord(completionHandler:(() -> Void)? = nil) {
         self.posting = true
         let request = AnnictAPI.PostMeRecords(episodeID: episodeID,
                                               comment: comment,
-                                              rating: rating,
+                                              ratingState: ratingState,
                                               shareTwitter:twitterSharing,
                                               shareFacebook: facebookSharing)
         AnnictAPIClient.send(request) { response in
@@ -85,7 +84,7 @@ extension AnnictPostRecordsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            let cell = tableView.dequeueReusableCell(with: AnnictRatingCell.self, for: indexPath)
+            let cell = tableView.dequeueReusableCell(with: RatingStateCell.self, for: indexPath)
             cell.delegate = self
             return cell
         case 1:
@@ -152,9 +151,9 @@ extension AnnictPostRecordsViewController: UITableViewDelegate {
     }
 }
 
-extension AnnictPostRecordsViewController: AnnictRatingCellDelegate {
-    func changeRating(rating: Int) {
-        self.rating = rating
+extension AnnictPostRecordsViewController: RatingStateCellDelegate {
+    func changedSelectedRatingState(state: RatingState?) {
+        ratingState = state
     }
 }
 
