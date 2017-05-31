@@ -64,7 +64,7 @@ class AnnictRecordsViewController: UITableViewController {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
-        tableView.register(cellType: AnnictRecordCell.self)
+        tableView.register(cellTypes: [RecordCell.self, AnnictRecordCell.self])
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
         self.initRefreshControl()
@@ -141,9 +141,16 @@ extension AnnictRecordsViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(with: AnnictRecordCell.self, for: indexPath)
-        cell.set(record: records[indexPath.row])
-        return cell
+        let record = records[indexPath.row]
+        if record.ratingState != nil {
+            let cell = tableView.dequeueReusableCell(with: RecordCell.self, for: indexPath)
+            cell.set(record: record)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(with: AnnictRecordCell.self, for: indexPath)
+            cell.set(record: record)
+            return cell
+        }
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -162,11 +169,18 @@ extension AnnictRecordsViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        guard let cell = tableView.cellForRow(at: indexPath) as? AnnictRecordCell else { return }
-        if let record = cell.record, record.user?.id == AnnictConsts.userID {
-            self.showActionSheet(recordID: record.id, indexPath: indexPath)
-        } else {
-            self.showReportActionSheet(indexPath: indexPath)
+        if let cell = tableView.cellForRow(at: indexPath) as? AnnictRecordCell {
+            if let record = cell.record, record.user?.id == AnnictConsts.userID {
+                self.showActionSheet(recordID: record.id, indexPath: indexPath)
+            } else {
+                self.showReportActionSheet(indexPath: indexPath)
+            }
+        } else if let cell = tableView.cellForRow(at: indexPath) as? RecordCell {
+            if let record = cell.record, record.user?.id == AnnictConsts.userID {
+                self.showActionSheet(recordID: record.id, indexPath: indexPath)
+            } else {
+                self.showReportActionSheet(indexPath: indexPath)
+            }
         }
     }
     

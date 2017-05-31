@@ -26,3 +26,8 @@
 
 "follow" = "Follow";
 "follower" = "Follower";
+
+"bad" = "Bad";
+"average" = "Average";
+"good" = "Good";
+"great" = "Great";
