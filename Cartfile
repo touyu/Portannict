@@ -5,3 +5,4 @@ github "xmartlabs/XLPagerTabStrip" ~> 7.0
 github "dzenbot/DZNEmptyDataSet" ~> 1.8.1
 github "ashleymills/Reachability.swift" ~> 3.0
 github "touyu/SwiftyAttributedString" ~> 0.5.1
+github "apollographql/apollo-ios" "0.6.0-beta.1"

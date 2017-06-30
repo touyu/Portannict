@@ -22,6 +22,15 @@ class AnnictImageManager {
         imageView.kf.setImage(with: avatarImageURL, placeholder: placeholderImage)
     }
     
+    class func setImage(imageView: UIImageView, url: String?) {
+        guard let avatarImageURLString = url, let avatarImageURL = URL(string: avatarImageURLString) else {
+            imageView.image = placeholderImage
+            return
+        }
+        
+        imageView.kf.setImage(with: avatarImageURL, placeholder: placeholderImage)
+    }
+    
     class func setWorkImage(imageView: UIImageView!, work: AnnictWorkResponse?) {
         guard let work = work else {
             imageView.image = defaultImage

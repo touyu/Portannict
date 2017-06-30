@@ -86,9 +86,23 @@
 		D155B6971E90F46B00DB0A96 /* ReachabilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155B6961E90F46B00DB0A96 /* ReachabilityHelper.swift */; };
 		D155B6991E913F7C00DB0A96 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155B6981E913F7C00DB0A96 /* UIImage+Extension.swift */; };
 		D155B69B1E91429C00DB0A96 /* DZNEmptyDataSetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155B69A1E91429C00DB0A96 /* DZNEmptyDataSetHelper.swift */; };
+		D157DD941EFCD8FA00245141 /* IndicatorViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D157DD931EFCD8FA00245141 /* IndicatorViewCell.xib */; };
+		D157DD961EFCD90500245141 /* IndicatorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157DD951EFCD90500245141 /* IndicatorViewCell.swift */; };
+		D15C3EC71F04129000D0CC72 /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C3EC61F04129000D0CC72 /* CGRect+Extension.swift */; };
+		D162C8AA1EED8188002F0FBF /* GetViewer.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D162C8A91EED8188002F0FBF /* GetViewer.graphql */; };
+		D162C8AC1EED833A002F0FBF /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D162C8AB1EED833A002F0FBF /* API.swift */; };
+		D162C8AE1EED8AC8002F0FBF /* AnnictGraphQLClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D162C8AD1EED8AC8002F0FBF /* AnnictGraphQLClient.swift */; };
+		D162C8B21EEDA8FE002F0FBF /* GetViewerWorks.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D162C8B11EEDA8FE002F0FBF /* GetViewerWorks.graphql */; };
+		D162C8B41EEECC18002F0FBF /* GetViewerFollowers.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D162C8B31EEECC18002F0FBF /* GetViewerFollowers.graphql */; };
+		D162C8B61EEECE31002F0FBF /* GetViewerFollowing.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D162C8B51EEECE31002F0FBF /* GetViewerFollowing.graphql */; };
+		D162C8BA1EEECFD2002F0FBF /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D162C8B91EEECFD2002F0FBF /* Profile.storyboard */; };
+		D162C8BC1EEED021002F0FBF /* FollowingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D162C8BB1EEED021002F0FBF /* FollowingListViewController.swift */; };
+		D162C8BF1EEED488002F0FBF /* FollowingUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D162C8BE1EEED488002F0FBF /* FollowingUserCell.swift */; };
+		D162C8C11EEED4A0002F0FBF /* FollowingUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D162C8C01EEED4A0002F0FBF /* FollowingUserCell.xib */; };
 		D16F6B9D1E8ECFBD00523839 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16F6B9C1E8ECFBD00523839 /* UserProfileView.swift */; };
 		D16F6B9F1E8ECFCE00523839 /* UserProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D16F6B9E1E8ECFCE00523839 /* UserProfileView.xib */; };
 		D16F6BA21E8ED1B400523839 /* AnnictAPIGetMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16F6BA11E8ED1B400523839 /* AnnictAPIGetMe.swift */; };
+		D18AC2311F03FA3100312804 /* CircleLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18AC2301F03FA3100312804 /* CircleLoadingView.swift */; };
 		D195D0ED1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D195D0EC1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard */; };
 		D195D0EF1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0EE1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift */; };
 		D195D0F41E4DE677004B6B15 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D0F31E4DE677004B6B15 /* Notification+Extension.swift */; };
@@ -121,6 +135,10 @@
 		D1DB61AE1EDDC98A009B5137 /* RecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DB61AD1EDDC98A009B5137 /* RecordCell.xib */; };
 		D1DB61B11EDDCEB8009B5137 /* RatingStateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB61B01EDDCEB8009B5137 /* RatingStateCell.swift */; };
 		D1DB61B41EDDCF9B009B5137 /* RatingStateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DB61B61EDDCF9B009B5137 /* RatingStateCell.xib */; };
+		D1E5D3591EF26D95007F34EB /* FollowersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5D3581EF26D95007F34EB /* FollowersListViewController.swift */; };
+		D1E5D35D1EF26F74007F34EB /* FollowerUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5D35C1EF26F74007F34EB /* FollowerUserCell.swift */; };
+		D1E5D35F1EF26F9B007F34EB /* FollowerUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E5D35E1EF26F9B007F34EB /* FollowerUserCell.xib */; };
+		D1EB52E01EED6FDE00F76629 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EB52DF1EED6FDE00F76629 /* Apollo.framework */; };
 		D1FEDCFF1E4D7CD300EFA42F /* AnnictConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */; };
 		D1FEDD021E4D844000EFA42F /* AnnictOauthTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */; };
 		D1FEDD041E4D883600EFA42F /* AnnictAPOauthTokenI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD031E4D883600EFA42F /* AnnictAPOauthTokenI.swift */; };
@@ -244,9 +262,23 @@
 		D155B6961E90F46B00DB0A96 /* ReachabilityHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityHelper.swift; sourceTree = "<group>"; };
 		D155B6981E913F7C00DB0A96 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		D155B69A1E91429C00DB0A96 /* DZNEmptyDataSetHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZNEmptyDataSetHelper.swift; sourceTree = "<group>"; };
+		D157DD931EFCD8FA00245141 /* IndicatorViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndicatorViewCell.xib; sourceTree = "<group>"; };
+		D157DD951EFCD90500245141 /* IndicatorViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorViewCell.swift; sourceTree = "<group>"; };
+		D15C3EC61F04129000D0CC72 /* CGRect+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
+		D162C8A91EED8188002F0FBF /* GetViewer.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GetViewer.graphql; sourceTree = "<group>"; };
+		D162C8AB1EED833A002F0FBF /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = "Annict-for-iOS/API.swift"; sourceTree = SOURCE_ROOT; };
+		D162C8AD1EED8AC8002F0FBF /* AnnictGraphQLClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictGraphQLClient.swift; sourceTree = "<group>"; };
+		D162C8B11EEDA8FE002F0FBF /* GetViewerWorks.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GetViewerWorks.graphql; sourceTree = "<group>"; };
+		D162C8B31EEECC18002F0FBF /* GetViewerFollowers.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GetViewerFollowers.graphql; sourceTree = "<group>"; };
+		D162C8B51EEECE31002F0FBF /* GetViewerFollowing.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GetViewerFollowing.graphql; sourceTree = "<group>"; };
+		D162C8B91EEECFD2002F0FBF /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		D162C8BB1EEED021002F0FBF /* FollowingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingListViewController.swift; sourceTree = "<group>"; };
+		D162C8BE1EEED488002F0FBF /* FollowingUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingUserCell.swift; sourceTree = "<group>"; };
+		D162C8C01EEED4A0002F0FBF /* FollowingUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowingUserCell.xib; sourceTree = "<group>"; };
 		D16F6B9C1E8ECFBD00523839 /* UserProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		D16F6B9E1E8ECFCE00523839 /* UserProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileView.xib; sourceTree = "<group>"; };
 		D16F6BA11E8ED1B400523839 /* AnnictAPIGetMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnnictAPIGetMe.swift; path = ../AnnictAPIGetMe.swift; sourceTree = "<group>"; };
+		D18AC2301F03FA3100312804 /* CircleLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleLoadingView.swift; sourceTree = "<group>"; };
 		D195D0EC1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AnnictMeWorks.storyboard; sourceTree = "<group>"; };
 		D195D0EE1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictMeWorksViewController.swift; sourceTree = "<group>"; };
 		D195D0F31E4DE677004B6B15 /* Notification+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
@@ -270,6 +302,10 @@
 		D1DB61B01EDDCEB8009B5137 /* RatingStateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingStateCell.swift; sourceTree = "<group>"; };
 		D1DB61B51EDDCF9B009B5137 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RatingStateCell.xib; sourceTree = "<group>"; };
 		D1DB61B81EDDCF9E009B5137 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/RatingStateCell.strings; sourceTree = "<group>"; };
+		D1E5D3581EF26D95007F34EB /* FollowersListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersListViewController.swift; sourceTree = "<group>"; };
+		D1E5D35C1EF26F74007F34EB /* FollowerUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowerUserCell.swift; sourceTree = "<group>"; };
+		D1E5D35E1EF26F9B007F34EB /* FollowerUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowerUserCell.xib; sourceTree = "<group>"; };
+		D1EB52DF1EED6FDE00F76629 /* Apollo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apollo.framework; path = Carthage/Build/iOS/Apollo.framework; sourceTree = "<group>"; };
 		D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictConsts.swift; sourceTree = "<group>"; };
 		D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictOauthTokenResponse.swift; sourceTree = "<group>"; };
 		D1FEDD031E4D883600EFA42F /* AnnictAPOauthTokenI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPOauthTokenI.swift; sourceTree = "<group>"; };
@@ -287,6 +323,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1EB52E01EED6FDE00F76629 /* Apollo.framework in Frameworks */,
 				D15186F61EC9EE9D00928B7A /* SwiftyAttributedString.framework in Frameworks */,
 				D155B6951E90EEA100DB0A96 /* Reachability.framework in Frameworks */,
 				D155B6931E90E6BD00DB0A96 /* DZNEmptyDataSet.framework in Frameworks */,
@@ -344,6 +381,7 @@
 		AD6DDBA827920CE6310BBE0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1EB52DF1EED6FDE00F76629 /* Apollo.framework */,
 				D15186F51EC9EE9D00928B7A /* SwiftyAttributedString.framework */,
 				D155B6941E90EEA100DB0A96 /* Reachability.framework */,
 				D155B6921E90E6BD00DB0A96 /* DZNEmptyDataSet.framework */,
@@ -606,6 +644,8 @@
 				D13E33981E505E9600A0CEF6 /* AnnictMeWorksTabViewController.swift */,
 				D195D0EE1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift */,
 				D113CF0B1E51F5CD0083ED7D /* AnnictTabBarController.swift */,
+				D162C8BB1EEED021002F0FBF /* FollowingListViewController.swift */,
+				D1E5D3581EF26D95007F34EB /* FollowersListViewController.swift */,
 			);
 			name = Profile;
 			path = Home;
@@ -682,6 +722,24 @@
 		D14FF4D51E50245900AD9913 /* AnnictAPI */ = {
 			isa = PBXGroup;
 			children = (
+				D162C8B01EEDA736002F0FBF /* GraphQL */,
+				D162C8AF1EEDA72E002F0FBF /* REST */,
+			);
+			path = AnnictAPI;
+			sourceTree = "<group>";
+		};
+		D157DD921EFCD8B600245141 /* IndicatorViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D157DD931EFCD8FA00245141 /* IndicatorViewCell.xib */,
+				D157DD951EFCD90500245141 /* IndicatorViewCell.swift */,
+			);
+			name = IndicatorViewCell;
+			sourceTree = "<group>";
+		};
+		D162C8AF1EEDA72E002F0FBF /* REST */ = {
+			isa = PBXGroup;
+			children = (
 				D195D1061E4E096D004B6B15 /* Responses */,
 				D14F6D371E8FA73000A079EB /* GET */,
 				D14F6D381E8FA75900A079EB /* DELETE */,
@@ -690,7 +748,29 @@
 				D1FEDD031E4D883600EFA42F /* AnnictAPOauthTokenI.swift */,
 				D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */,
 			);
-			path = AnnictAPI;
+			name = REST;
+			sourceTree = "<group>";
+		};
+		D162C8B01EEDA736002F0FBF /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				D162C8AB1EED833A002F0FBF /* API.swift */,
+				D162C8AD1EED8AC8002F0FBF /* AnnictGraphQLClient.swift */,
+				D162C8A91EED8188002F0FBF /* GetViewer.graphql */,
+				D162C8B11EEDA8FE002F0FBF /* GetViewerWorks.graphql */,
+				D162C8B51EEECE31002F0FBF /* GetViewerFollowing.graphql */,
+				D162C8B31EEECC18002F0FBF /* GetViewerFollowers.graphql */,
+			);
+			name = GraphQL;
+			sourceTree = "<group>";
+		};
+		D162C8BD1EEED43C002F0FBF /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D1E5D35B1EF26F62007F34EB /* FollowerUserCell */,
+				D1E5D35A1EF26F57007F34EB /* FollowingUserCell */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 		D16F6BA01E8ED02F00523839 /* UserProfileView */ = {
@@ -700,6 +780,14 @@
 				D16F6B9E1E8ECFCE00523839 /* UserProfileView.xib */,
 			);
 			name = UserProfileView;
+			sourceTree = "<group>";
+		};
+		D18AC22F1F03FA1B00312804 /* CircleLoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				D18AC2301F03FA3100312804 /* CircleLoadingView.swift */,
+			);
+			name = CircleLoadingView;
 			sourceTree = "<group>";
 		};
 		D195D0F21E4DE62E004B6B15 /* Extensions */ = {
@@ -712,6 +800,7 @@
 				D12F4EC71E547ADC00EB0651 /* UIView+Extension.swift */,
 				D195D0F71E4DE919004B6B15 /* UIViewController+Extension.swift */,
 				D155B6981E913F7C00DB0A96 /* UIImage+Extension.swift */,
+				D15C3EC61F04129000D0CC72 /* CGRect+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -751,6 +840,7 @@
 		D195D1141E4F8AE3004B6B15 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D18AC22F1F03FA1B00312804 /* CircleLoadingView */,
 				D12F7B101EDD33D5009E60E4 /* RatingStateView */,
 				D195D1151E4F8AF9004B6B15 /* Cells */,
 				D12F4EC91E547B6300EB0651 /* YearPickerView */,
@@ -764,6 +854,8 @@
 		D195D1151E4F8AF9004B6B15 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				D157DD921EFCD8B600245141 /* IndicatorViewCell */,
+				D162C8BD1EEED43C002F0FBF /* Profile */,
 				D14F6D481E8FFC9B00A079EB /* AnnictActivityCells */,
 				D13BD2CC1E507069006CDF2E /* AnnictEpisodeCell */,
 				D13BD2C91E50703B006CDF2E /* AnnictMeWorkCell */,
@@ -818,6 +910,24 @@
 			name = RatingStateCell;
 			sourceTree = "<group>";
 		};
+		D1E5D35A1EF26F57007F34EB /* FollowingUserCell */ = {
+			isa = PBXGroup;
+			children = (
+				D162C8BE1EEED488002F0FBF /* FollowingUserCell.swift */,
+				D162C8C01EEED4A0002F0FBF /* FollowingUserCell.xib */,
+			);
+			name = FollowingUserCell;
+			sourceTree = "<group>";
+		};
+		D1E5D35B1EF26F62007F34EB /* FollowerUserCell */ = {
+			isa = PBXGroup;
+			children = (
+				D1E5D35C1EF26F74007F34EB /* FollowerUserCell.swift */,
+				D1E5D35E1EF26F9B007F34EB /* FollowerUserCell.xib */,
+			);
+			name = FollowerUserCell;
+			sourceTree = "<group>";
+		};
 		D1FEDD001E4D841A00EFA42F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -851,6 +961,7 @@
 				D1FEEFA21E72E0B9004D4D28 /* Login.storyboard */,
 				D147C0911E8010FE00E612D6 /* Setting.storyboard */,
 				D14F6D2E1E8F9A1600A079EB /* AnnictActivities.storyboard */,
+				D162C8B91EEECFD2002F0FBF /* Profile.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -871,6 +982,7 @@
 			buildConfigurationList = D137D6A41E4D735E00F0FCFB /* Build configuration list for PBXNativeTarget "Annict-for-iOS" */;
 			buildPhases = (
 				CE1446F7CE0C8A70B7C185DE /* [CP] Check Pods Manifest.lock */,
+				D1EB52E11EED701300F76629 /* Generate Apollo GraphQL API */,
 				D137D6781E4D735E00F0FCFB /* Sources */,
 				D137D6791E4D735E00F0FCFB /* Frameworks */,
 				D137D67A1E4D735E00F0FCFB /* Resources */,
@@ -989,21 +1101,29 @@
 				D195D1191E4F8C2D004B6B15 /* AnnictMeWorkCell.xib in Resources */,
 				D137D68A1E4D735E00F0FCFB /* LaunchScreen.storyboard in Resources */,
 				D1FEEFAC1E72E23C004D4D28 /* GoogleService-Info.plist in Resources */,
+				D162C8AA1EED8188002F0FBF /* GetViewer.graphql in Resources */,
 				D1FEEFA31E72E0B9004D4D28 /* Login.storyboard in Resources */,
+				D162C8B41EEECC18002F0FBF /* GetViewerFollowers.graphql in Resources */,
 				D13E338A1E504F9300A0CEF6 /* AnnictBaseLocalizable.strings in Resources */,
 				D12F7B141EDD3400009E60E4 /* RatingStateView.xib in Resources */,
 				D1DB61AE1EDDC98A009B5137 /* RecordCell.xib in Resources */,
 				D13BD2CE1E50707F006CDF2E /* AnnictEpisodeCell.xib in Resources */,
 				D13E33931E505B0C00A0CEF6 /* AnnictWorks.storyboard in Resources */,
+				D162C8B21EEDA8FE002F0FBF /* GetViewerWorks.graphql in Resources */,
+				D157DD941EFCD8FA00245141 /* IndicatorViewCell.xib in Resources */,
+				D162C8BA1EEECFD2002F0FBF /* Profile.storyboard in Resources */,
 				D147C0921E8010FE00E612D6 /* Setting.storyboard in Resources */,
+				D1E5D35F1EF26F9B007F34EB /* FollowerUserCell.xib in Resources */,
 				D1DB61B41EDDCF9B009B5137 /* RatingStateCell.xib in Resources */,
 				D14F6D471E8FD25F00A079EB /* AnnictActivityCreateRecordCell.xib in Resources */,
 				D14F6D2F1E8F9A1600A079EB /* AnnictActivities.storyboard in Resources */,
+				D162C8B61EEECE31002F0FBF /* GetViewerFollowing.graphql in Resources */,
 				D1A296171EDC1B5E0026BB6F /* ActivityCreateRecordRatingStateCell.xib in Resources */,
 				D13BD2DF1E50A3A7006CDF2E /* AnnictSubtextCell.xib in Resources */,
 				D12F4EB61E54139B00EB0651 /* AnnictRecentlyAnimeSectionCell.xib in Resources */,
 				D13BD2FE1E51ADDC006CDF2E /* AnnictRatingCell.xib in Resources */,
 				D13BD3011E51BA4E006CDF2E /* AnnictTextViewCell.xib in Resources */,
+				D162C8C11EEED4A0002F0FBF /* FollowingUserCell.xib in Resources */,
 				D14F6D401E8FABDA00A079EB /* AnnictActivityCreateStatusCell.xib in Resources */,
 				D137D6871E4D735E00F0FCFB /* Assets.xcassets in Resources */,
 				D195D0ED1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard in Resources */,
@@ -1180,6 +1300,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/DZNEmptyDataSet.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Reachability.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyAttributedString.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Apollo.framework",
 			);
 			outputPaths = (
 			);
@@ -1223,6 +1344,20 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
+		D1EB52E11EED701300F76629 /* Generate Apollo GraphQL API */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Apollo GraphQL API";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=$HOME/.nodebrew/current/bin:$PATH\nAPOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-codegen.sh generate $(find . -name '*.graphql') --schema schema.json --output API.swift";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1239,6 +1374,7 @@
 				D1DB61B11EDDCEB8009B5137 /* RatingStateCell.swift in Sources */,
 				D1FEEFAA1E72E11D004D4D28 /* FIRDatabaseClient.swift in Sources */,
 				D1DB61AC1EDDC982009B5137 /* RecordCell.swift in Sources */,
+				D15C3EC71F04129000D0CC72 /* CGRect+Extension.swift in Sources */,
 				D195D0F41E4DE677004B6B15 /* Notification+Extension.swift in Sources */,
 				D14F6D3E1E8FABC300A079EB /* AnnictActivityCreateStatusCell.swift in Sources */,
 				D13BD2E71E51563E006CDF2E /* AnnictRecordCell.swift in Sources */,
@@ -1254,6 +1390,8 @@
 				D16F6BA21E8ED1B400523839 /* AnnictAPIGetMe.swift in Sources */,
 				D1A296151EDC1B3F0026BB6F /* ActivityCreateRecordRatingStateCell.swift in Sources */,
 				D12F4EBC1E544F3D00EB0651 /* AnnictSeasonTabNavigationController.swift in Sources */,
+				D157DD961EFCD90500245141 /* IndicatorViewCell.swift in Sources */,
+				D1E5D35D1EF26F74007F34EB /* FollowerUserCell.swift in Sources */,
 				D1FEDCFF1E4D7CD300EFA42F /* AnnictConsts.swift in Sources */,
 				D1FEDD041E4D883600EFA42F /* AnnictAPOauthTokenI.swift in Sources */,
 				D13BD2F91E51AA95006CDF2E /* AnnictPostRecordsNavigationController.swift in Sources */,
@@ -1270,10 +1408,12 @@
 				D19867331E9403FE00095611 /* AnnictImageManager.swift in Sources */,
 				D1AC3DAA1E59C25200BF4AC2 /* AppConfig.swift in Sources */,
 				D195D1031E4DF000004B6B15 /* UIColor+Extension.swift in Sources */,
+				D18AC2311F03FA3100312804 /* CircleLoadingView.swift in Sources */,
 				D195D0F81E4DE919004B6B15 /* UIViewController+Extension.swift in Sources */,
 				D12F4EC21E5476A300EB0651 /* YearPickerView.swift in Sources */,
 				D13E339B1E506DF100A0CEF6 /* AnnictDetailAnimeInfoViewController.swift in Sources */,
 				D14F6D4D1E8FFE1400A079EB /* AnnictActivityCreateMultipleRecordsCell.swift in Sources */,
+				D1E5D3591EF26D95007F34EB /* FollowersListViewController.swift in Sources */,
 				D147C0971E80129500E612D6 /* SettingNavigationController.swift in Sources */,
 				D12F4EC81E547ADC00EB0651 /* UIView+Extension.swift in Sources */,
 				D13BD3081E51DCE5006CDF2E /* AnnictAPIDeleteMeRecord.swift in Sources */,
@@ -1283,16 +1423,20 @@
 				D113CF0C1E51F5CD0083ED7D /* AnnictTabBarController.swift in Sources */,
 				D14FF4EC1E50457300AD9913 /* AnnictMeWorksTabNavigationController.swift in Sources */,
 				D155B69B1E91429C00DB0A96 /* DZNEmptyDataSetHelper.swift in Sources */,
+				D162C8BF1EEED488002F0FBF /* FollowingUserCell.swift in Sources */,
 				D155B6971E90F46B00DB0A96 /* ReachabilityHelper.swift in Sources */,
 				D14F6D321E8FA16900A079EB /* ActivitiesNavigationController.swift in Sources */,
 				D13BD2EF1E515ABE006CDF2E /* AnnictAPIGetRecords.swift in Sources */,
 				D113CF0E1E52090A0083ED7D /* AnnictTabBarItem.swift in Sources */,
 				D13BD3031E51BA57006CDF2E /* AnnictTextViewCell.swift in Sources */,
+				D162C8BC1EEED021002F0FBF /* FollowingListViewController.swift in Sources */,
+				D162C8AC1EED833A002F0FBF /* API.swift in Sources */,
 				D14F6D451E8FD24500A079EB /* AnnictActivityCreateRecordCell.swift in Sources */,
 				D12F4EBE1E54526E00EB0651 /* AnnictSeasonViewController.swift in Sources */,
 				D195D1171E4F8BD7004B6B15 /* AnnictMeWorkCell.swift in Sources */,
 				D195D1081E4E098A004B6B15 /* AnnictWorksResponse.swift in Sources */,
 				D1A43E401E520E0000EE40CB /* AnnictSearchNavigationController.swift in Sources */,
+				D162C8AE1EED8AC8002F0FBF /* AnnictGraphQLClient.swift in Sources */,
 				D13BD2F71E51A9F7006CDF2E /* AnnictPostRecordsViewController.swift in Sources */,
 				D147C0951E80127600E612D6 /* SettingTableViewController.swift in Sources */,
 				D12F4EB41E54139200EB0651 /* AnnictRecentlyAnimeSectionCell.swift in Sources */,

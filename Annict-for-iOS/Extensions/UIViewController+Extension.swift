@@ -29,4 +29,5 @@ enum AnnictStoryboard: String {
     case login          = "Login"
     case setting        = "Setting"
     case annictActivities = "AnnictActivities"
+    case profile        = "Profile"
 }

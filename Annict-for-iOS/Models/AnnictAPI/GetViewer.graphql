@@ -1,0 +1,28 @@
+query GetViewer {
+    viewer {
+        ... UserDetails
+        backgroundImageUrl
+        recordsCount
+        description
+        followers {
+            edges {
+                node {
+                    ... UserDetails
+                }
+            }
+        }
+        following {
+            edges {
+                node {
+                    ... UserDetails
+                }
+            }
+        }
+    }
+}
+
+fragment UserDetails on User {
+    avatarUrl
+    name
+    username
+}

@@ -10,8 +10,15 @@ import UIKit
 
 import Kingfisher
 
+protocol UserProfileViewDelegate {
+    func didSelectFollowingButton()
+    func didSelectFollowerButton()
+}
+
 
 class UserProfileView: UIView {
+    
+    var delegate: UserProfileViewDelegate?
     
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -62,7 +69,7 @@ class UserProfileView: UIView {
     }
     
     fileprivate func initButtons() {
-        self.followButton.setTitle("follow".localized(withTableName: "AnnictBaseLocalizable"), for: .normal)
+        self.followButton.setTitle("following".localized(withTableName: "AnnictBaseLocalizable"), for: .normal)
         self.followerButton.setTitle("follower".localized(withTableName: "AnnictBaseLocalizable"), for: .normal)
         
         self.followButton.layer.masksToBounds = true
@@ -78,38 +85,36 @@ class UserProfileView: UIView {
     
     fileprivate func getMe() {
         if let userData = AnnictConsts.userData {
-            self.setData(userData: userData)
+            setData(userData: userData)
         }
         
-        let request = AnnictAPI.GetMe()
-        AnnictAPIClient.send(request) { [weak self] response in
-            switch response {
-            case .success(let value):
-                AnnictConsts.userData = value
-                self?.setData(userData: value)
-            case .failure(let error):
+        AnnictGraphQLClient.request(query: GetViewerQuery()) { [weak self] result, error in
+            if let error = error {
                 print(error)
+                return
             }
+            
+            guard let viewer = result?.data?.viewer else { return }
+            AnnictConsts.userData = viewer
+            self?.setData(userData: viewer)
         }
     }
     
-    fileprivate func setData(userData: AnnictUserResponse) {
-        AnnictImageManager.setAvatarImage(imageView: avatarImageView, user: userData)
+    fileprivate func setData(userData: GetViewerQuery.Data.Viewer) {
+        AnnictImageManager.setImage(imageView: avatarImageView, url: userData.avatarUrl)
+        AnnictImageManager.setImage(imageView: backgroundImageView, url: userData.backgroundImageUrl)
         
-        if let backgroundImageURLString = userData.backgroundImageURL, let backgroundImageURL = URL(string: backgroundImageURLString) {
-            self.backgroundImageView.kf.setImage(with: backgroundImageURL)
-        }
-        
-        self.nameLabel.text = userData.name
-        
-        if let username = userData.username {
-            self.username.text = "@" + username
-        }
-        
-        self.descriptionLabel.text = userData.description
-        
-        if let recordsCount = userData.recordsCount {
-            self.recordsLabel.text = "\(recordsCount) Records"
-        }
+        nameLabel.text = userData.name
+        username.text = "@ \(userData.username)"
+        descriptionLabel.text = userData.description
+        recordsLabel.text = "\(userData.recordsCount) Records"
+    }
+    
+    @IBAction func tappedFollowingButton(_ sender: UIButton) {
+        delegate?.didSelectFollowingButton()
+    }
+    
+    @IBAction func tappedFollowerButton(_ sender: UIButton) {
+        delegate?.didSelectFollowerButton()
     }
 }

@@ -17,6 +17,7 @@ class AnnictMeWorksTabViewController: ButtonBarPagerTabStripViewController {
     
     @IBOutlet weak var baseView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var userProfileView: UserProfileView!
     
     private var isScrolledTableView: Bool {
         return getCurrentTableView().contentOffset.y > -Const.tableViewContentInsetTop
@@ -66,6 +67,7 @@ class AnnictMeWorksTabViewController: ButtonBarPagerTabStripViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         initScrollView()
+        userProfileView.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -166,5 +168,17 @@ extension AnnictMeWorksTabViewController: AnnictMeWorksViewControllerDelegate {
                 parentScrollView.contentOffset.y = 0
             }
         }
+    }
+}
+
+extension AnnictMeWorksTabViewController: UserProfileViewDelegate {
+    func didSelectFollowingButton() {
+        let followingListViewController = FollowingListViewController.instantiate(withStoryboard: .profile)
+        navigationController?.pushViewController(followingListViewController, animated: true)
+    }
+    
+    func didSelectFollowerButton() {
+        let followersListViewController = FollowersListViewController.instantiate(withStoryboard: .profile)
+        navigationController?.pushViewController(followersListViewController, animated: true)
     }
 }

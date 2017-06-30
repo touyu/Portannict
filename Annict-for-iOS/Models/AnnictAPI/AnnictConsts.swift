@@ -60,14 +60,14 @@ class AnnictConsts {
         }
     }
     
-    static var userData: AnnictUserResponse? {
+    static var userData: GetViewerQuery.Data.Viewer? {
         get {
-            guard let dictionary = UserDefaults.standard.dictionary(forKey: "annict_user_data") else { return nil }
-            return AnnictUserResponse(dictionary: dictionary)
+            guard let dictionary = UserDefaults.standard.dictionary(forKey: GetViewerQuery.operationString) else { return nil }
+            return GetViewerQuery.Data.Viewer(snapshot: dictionary)
         }
         set(newValue) {
-            let dictionary = newValue?.toDictionary()
-            UserDefaults.standard.set(dictionary, forKey: "annict_user_data")
+            let dictionary = newValue?.snapshot
+            UserDefaults.standard.set(dictionary, forKey: GetViewerQuery.operationString)
             UserDefaults.standard.synchronize()
         }
     }

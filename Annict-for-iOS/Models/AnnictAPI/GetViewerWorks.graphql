@@ -1,0 +1,20 @@
+query GetViewerWorks($state: StatusState, $after: String) {
+    viewer {
+        works(state:state, first: 30, after: after) {
+            edges {
+                node {
+                    title
+                    image {
+                        twitterAvatarUrl
+                        recommendedImageUrl
+                    }
+                }
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+            }
+        }
+    }
+}
