@@ -4,20 +4,8 @@ query GetViewer {
         backgroundImageUrl
         recordsCount
         description
-        followers {
-            edges {
-                node {
-                    ... UserDetails
-                }
-            }
-        }
-        following {
-            edges {
-                node {
-                    ... UserDetails
-                }
-            }
-        }
+        followingsCount
+        followersCount
     }
 }
 

@@ -22,26 +22,8 @@ public final class GetViewerQuery: GraphQLQuery {
     "    backgroundImageUrl" +
     "    recordsCount" +
     "    description" +
-    "    followers {" +
-    "      __typename" +
-    "      edges {" +
-    "        __typename" +
-    "        node {" +
-    "          __typename" +
-    "          ...UserDetails" +
-    "        }" +
-    "      }" +
-    "    }" +
-    "    following {" +
-    "      __typename" +
-    "      edges {" +
-    "        __typename" +
-    "        node {" +
-    "          __typename" +
-    "          ...UserDetails" +
-    "        }" +
-    "      }" +
-    "    }" +
+    "    followingsCount" +
+    "    followersCount" +
     "  }" +
     "}"
   public static var requestString: String { return operationString.appending(UserDetails.fragmentString) }
@@ -86,8 +68,8 @@ public final class GetViewerQuery: GraphQLQuery {
         Field("description", type: .nonNull(.scalar(String.self))),
         Field("backgroundImageUrl", type: .scalar(String.self)),
         Field("recordsCount", type: .nonNull(.scalar(Int.self))),
-        Field("followers", type: .object(Viewer.Follower.self)),
-        Field("following", type: .object(Viewer.Following.self)),
+        Field("followingsCount", type: .nonNull(.scalar(Int.self))),
+        Field("followersCount", type: .nonNull(.scalar(Int.self))),
       ]
 
       public var snapshot: Snapshot
@@ -96,8 +78,8 @@ public final class GetViewerQuery: GraphQLQuery {
         self.snapshot = snapshot
       }
 
-      public init(avatarUrl: String? = nil, name: String, username: String, description: String, backgroundImageUrl: String? = nil, recordsCount: Int, followers: Follower? = nil, following: Following? = nil) {
-        self.init(snapshot: ["__typename": "User", "avatarUrl": avatarUrl, "name": name, "username": username, "description": description, "backgroundImageUrl": backgroundImageUrl, "recordsCount": recordsCount, "followers": followers, "following": following])
+      public init(avatarUrl: String? = nil, name: String, username: String, description: String, backgroundImageUrl: String? = nil, recordsCount: Int, followingsCount: Int, followersCount: Int) {
+        self.init(snapshot: ["__typename": "User", "avatarUrl": avatarUrl, "name": name, "username": username, "description": description, "backgroundImageUrl": backgroundImageUrl, "recordsCount": recordsCount, "followingsCount": followingsCount, "followersCount": followersCount])
       }
 
       public var __typename: String {
@@ -163,21 +145,21 @@ public final class GetViewerQuery: GraphQLQuery {
         }
       }
 
-      public var followers: Follower? {
+      public var followingsCount: Int {
         get {
-          return (snapshot["followers"]! as! Snapshot?).flatMap { Follower(snapshot: $0) }
+          return snapshot["followingsCount"]! as! Int
         }
         set {
-          snapshot.updateValue(newValue?.snapshot, forKey: "followers")
+          snapshot.updateValue(newValue, forKey: "followingsCount")
         }
       }
 
-      public var following: Following? {
+      public var followersCount: Int {
         get {
-          return (snapshot["following"]! as! Snapshot?).flatMap { Following(snapshot: $0) }
+          return snapshot["followersCount"]! as! Int
         }
         set {
-          snapshot.updateValue(newValue?.snapshot, forKey: "following")
+          snapshot.updateValue(newValue, forKey: "followersCount")
         }
       }
 
@@ -199,336 +181,6 @@ public final class GetViewerQuery: GraphQLQuery {
           }
           set {
             snapshot = newValue.snapshot
-          }
-        }
-      }
-
-      public struct Follower: GraphQLSelectionSet {
-        public static let possibleTypes = ["UserConnection"]
-
-        public static let selections: [Selection] = [
-          Field("__typename", type: .nonNull(.scalar(String.self))),
-          Field("edges", type: .list(.object(Follower.Edge.self))),
-        ]
-
-        public var snapshot: Snapshot
-
-        public init(snapshot: Snapshot) {
-          self.snapshot = snapshot
-        }
-
-        public init(edges: [Edge?]? = nil) {
-          self.init(snapshot: ["__typename": "UserConnection", "edges": edges])
-        }
-
-        public var __typename: String {
-          get {
-            return snapshot["__typename"]! as! String
-          }
-          set {
-            snapshot.updateValue(newValue, forKey: "__typename")
-          }
-        }
-
-        /// A list of edges.
-        public var edges: [Edge?]? {
-          get {
-            return (snapshot["edges"]! as! [Snapshot?]?).flatMap { $0.map { $0.flatMap { Edge(snapshot: $0) } } }
-          }
-          set {
-            snapshot.updateValue(newValue.flatMap { $0.map { $0.flatMap { $0.snapshot } } }, forKey: "edges")
-          }
-        }
-
-        public struct Edge: GraphQLSelectionSet {
-          public static let possibleTypes = ["UserEdge"]
-
-          public static let selections: [Selection] = [
-            Field("__typename", type: .nonNull(.scalar(String.self))),
-            Field("node", type: .object(Edge.Node.self)),
-          ]
-
-          public var snapshot: Snapshot
-
-          public init(snapshot: Snapshot) {
-            self.snapshot = snapshot
-          }
-
-          public init(node: Node? = nil) {
-            self.init(snapshot: ["__typename": "UserEdge", "node": node])
-          }
-
-          public var __typename: String {
-            get {
-              return snapshot["__typename"]! as! String
-            }
-            set {
-              snapshot.updateValue(newValue, forKey: "__typename")
-            }
-          }
-
-          /// The item at the end of the edge.
-          public var node: Node? {
-            get {
-              return (snapshot["node"]! as! Snapshot?).flatMap { Node(snapshot: $0) }
-            }
-            set {
-              snapshot.updateValue(newValue?.snapshot, forKey: "node")
-            }
-          }
-
-          public struct Node: GraphQLSelectionSet {
-            public static let possibleTypes = ["User"]
-
-            public static let selections: [Selection] = [
-              Field("__typename", type: .nonNull(.scalar(String.self))),
-              Field("avatarUrl", type: .scalar(String.self)),
-              Field("name", type: .nonNull(.scalar(String.self))),
-              Field("username", type: .nonNull(.scalar(String.self))),
-              Field("description", type: .nonNull(.scalar(String.self))),
-            ]
-
-            public var snapshot: Snapshot
-
-            public init(snapshot: Snapshot) {
-              self.snapshot = snapshot
-            }
-
-            public init(avatarUrl: String? = nil, name: String, username: String, description: String) {
-              self.init(snapshot: ["__typename": "User", "avatarUrl": avatarUrl, "name": name, "username": username, "description": description])
-            }
-
-            public var __typename: String {
-              get {
-                return snapshot["__typename"]! as! String
-              }
-              set {
-                snapshot.updateValue(newValue, forKey: "__typename")
-              }
-            }
-
-            public var avatarUrl: String? {
-              get {
-                return snapshot["avatarUrl"]! as! String?
-              }
-              set {
-                snapshot.updateValue(newValue, forKey: "avatarUrl")
-              }
-            }
-
-            public var name: String {
-              get {
-                return snapshot["name"]! as! String
-              }
-              set {
-                snapshot.updateValue(newValue, forKey: "name")
-              }
-            }
-
-            public var username: String {
-              get {
-                return snapshot["username"]! as! String
-              }
-              set {
-                snapshot.updateValue(newValue, forKey: "username")
-              }
-            }
-
-            public var description: String {
-              get {
-                return snapshot["description"]! as! String
-              }
-              set {
-                snapshot.updateValue(newValue, forKey: "description")
-              }
-            }
-
-            public var fragments: Fragments {
-              get {
-                return Fragments(snapshot: snapshot)
-              }
-              set {
-                snapshot = newValue.snapshot
-              }
-            }
-
-            public struct Fragments {
-              public var snapshot: Snapshot
-
-              public var userDetails: UserDetails {
-                get {
-                  return UserDetails(snapshot: snapshot)
-                }
-                set {
-                  snapshot = newValue.snapshot
-                }
-              }
-            }
-          }
-        }
-      }
-
-      public struct Following: GraphQLSelectionSet {
-        public static let possibleTypes = ["UserConnection"]
-
-        public static let selections: [Selection] = [
-          Field("__typename", type: .nonNull(.scalar(String.self))),
-          Field("edges", type: .list(.object(Following.Edge.self))),
-        ]
-
-        public var snapshot: Snapshot
-
-        public init(snapshot: Snapshot) {
-          self.snapshot = snapshot
-        }
-
-        public init(edges: [Edge?]? = nil) {
-          self.init(snapshot: ["__typename": "UserConnection", "edges": edges])
-        }
-
-        public var __typename: String {
-          get {
-            return snapshot["__typename"]! as! String
-          }
-          set {
-            snapshot.updateValue(newValue, forKey: "__typename")
-          }
-        }
-
-        /// A list of edges.
-        public var edges: [Edge?]? {
-          get {
-            return (snapshot["edges"]! as! [Snapshot?]?).flatMap { $0.map { $0.flatMap { Edge(snapshot: $0) } } }
-          }
-          set {
-            snapshot.updateValue(newValue.flatMap { $0.map { $0.flatMap { $0.snapshot } } }, forKey: "edges")
-          }
-        }
-
-        public struct Edge: GraphQLSelectionSet {
-          public static let possibleTypes = ["UserEdge"]
-
-          public static let selections: [Selection] = [
-            Field("__typename", type: .nonNull(.scalar(String.self))),
-            Field("node", type: .object(Edge.Node.self)),
-          ]
-
-          public var snapshot: Snapshot
-
-          public init(snapshot: Snapshot) {
-            self.snapshot = snapshot
-          }
-
-          public init(node: Node? = nil) {
-            self.init(snapshot: ["__typename": "UserEdge", "node": node])
-          }
-
-          public var __typename: String {
-            get {
-              return snapshot["__typename"]! as! String
-            }
-            set {
-              snapshot.updateValue(newValue, forKey: "__typename")
-            }
-          }
-
-          /// The item at the end of the edge.
-          public var node: Node? {
-            get {
-              return (snapshot["node"]! as! Snapshot?).flatMap { Node(snapshot: $0) }
-            }
-            set {
-              snapshot.updateValue(newValue?.snapshot, forKey: "node")
-            }
-          }
-
-          public struct Node: GraphQLSelectionSet {
-            public static let possibleTypes = ["User"]
-
-            public static let selections: [Selection] = [
-              Field("__typename", type: .nonNull(.scalar(String.self))),
-              Field("avatarUrl", type: .scalar(String.self)),
-              Field("name", type: .nonNull(.scalar(String.self))),
-              Field("username", type: .nonNull(.scalar(String.self))),
-              Field("description", type: .nonNull(.scalar(String.self))),
-            ]
-
-            public var snapshot: Snapshot
-
-            public init(snapshot: Snapshot) {
-              self.snapshot = snapshot
-            }
-
-            public init(avatarUrl: String? = nil, name: String, username: String, description: String) {
-              self.init(snapshot: ["__typename": "User", "avatarUrl": avatarUrl, "name": name, "username": username, "description": description])
-            }
-
-            public var __typename: String {
-              get {
-                return snapshot["__typename"]! as! String
-              }
-              set {
-                snapshot.updateValue(newValue, forKey: "__typename")
-              }
-            }
-
-            public var avatarUrl: String? {
-              get {
-                return snapshot["avatarUrl"]! as! String?
-              }
-              set {
-                snapshot.updateValue(newValue, forKey: "avatarUrl")
-              }
-            }
-
-            public var name: String {
-              get {
-                return snapshot["name"]! as! String
-              }
-              set {
-                snapshot.updateValue(newValue, forKey: "name")
-              }
-            }
-
-            public var username: String {
-              get {
-                return snapshot["username"]! as! String
-              }
-              set {
-                snapshot.updateValue(newValue, forKey: "username")
-              }
-            }
-
-            public var description: String {
-              get {
-                return snapshot["description"]! as! String
-              }
-              set {
-                snapshot.updateValue(newValue, forKey: "description")
-              }
-            }
-
-            public var fragments: Fragments {
-              get {
-                return Fragments(snapshot: snapshot)
-              }
-              set {
-                snapshot = newValue.snapshot
-              }
-            }
-
-            public struct Fragments {
-              public var snapshot: Snapshot
-
-              public var userDetails: UserDetails {
-                get {
-                  return UserDetails(snapshot: snapshot)
-                }
-                set {
-                  snapshot = newValue.snapshot
-                }
-              }
-            }
           }
         }
       }

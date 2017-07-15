@@ -15,7 +15,6 @@ protocol UserProfileViewDelegate {
     func didSelectFollowerButton()
 }
 
-
 class UserProfileView: UIView {
     
     var delegate: UserProfileViewDelegate?
@@ -31,15 +30,15 @@ class UserProfileView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.setup(frame)
+        setup(frame)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.setup(self.frame)
+        setup(self.frame)
     }
     
-    fileprivate func setup(_ frame: CGRect) {
+    private func setup(_ frame: CGRect) {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: String(describing: UserProfileView.self), bundle: bundle)
         if let view = nib.instantiate(withOwner: self, options: nil).first as? UIView {
@@ -58,32 +57,42 @@ class UserProfileView: UIView {
                                                           views: bindings))
         }
         
-        self.initAvatarImageView()
-        self.initButtons()
-        self.getMe()
+        initUI()
+        initAvatarImageView()
+        initButtons()
+        getMe()
     }
     
-    fileprivate func initAvatarImageView() {
+    private func initUI() {
+        nameLabel.text = ""
+        username.text = ""
+        descriptionLabel.text = ""
+        recordsLabel.text = ""
+    }
+    
+    private func initAvatarImageView() {
         avatarImageView.layer.masksToBounds = true
         avatarImageView.layer.cornerRadius = 8
     }
     
-    fileprivate func initButtons() {
-        self.followButton.setTitle("following".localized(withTableName: "AnnictBaseLocalizable"), for: .normal)
-        self.followerButton.setTitle("follower".localized(withTableName: "AnnictBaseLocalizable"), for: .normal)
+    private func initButtons() {
+        let followButtonTitle = "following".localized(withTableName: "AnnictBaseLocalizable")
+        followButton.setTitle(followButtonTitle, for: .normal)
+        let followerButtonTitle = "follower".localized(withTableName: "AnnictBaseLocalizable")
+        followerButton.setTitle(followerButtonTitle, for: .normal)
         
-        self.followButton.layer.masksToBounds = true
-        self.followButton.layer.cornerRadius = 4
-        self.followButton.layer.borderWidth = 1
-        self.followButton.layer.borderColor = UIColor.white.cgColor
+        followButton.layer.masksToBounds = true
+        followButton.layer.cornerRadius = 4
+        followButton.layer.borderWidth = 1
+        followButton.layer.borderColor = UIColor.white.cgColor
         
-        self.followerButton.layer.masksToBounds = true
-        self.followerButton.layer.cornerRadius = 4
-        self.followerButton.layer.borderWidth = 1
-        self.followerButton.layer.borderColor = UIColor.white.cgColor
+        followerButton.layer.masksToBounds = true
+        followerButton.layer.cornerRadius = 4
+        followerButton.layer.borderWidth = 1
+        followerButton.layer.borderColor = UIColor.white.cgColor
     }
     
-    fileprivate func getMe() {
+    private func getMe() {
         if let userData = AnnictConsts.userData {
             setData(userData: userData)
         }
@@ -100,7 +109,7 @@ class UserProfileView: UIView {
         }
     }
     
-    fileprivate func setData(userData: GetViewerQuery.Data.Viewer) {
+    private func setData(userData: GetViewerQuery.Data.Viewer) {
         AnnictImageManager.setImage(imageView: avatarImageView, url: userData.avatarUrl)
         AnnictImageManager.setImage(imageView: backgroundImageView, url: userData.backgroundImageUrl)
         
@@ -108,6 +117,11 @@ class UserProfileView: UIView {
         username.text = "@ \(userData.username)"
         descriptionLabel.text = userData.description
         recordsLabel.text = "\(userData.recordsCount) Records"
+        
+        let followButtonTitle = "\(AnnictConsts.userData?.followingsCount ?? 0) " + "following".localized(withTableName: "AnnictBaseLocalizable")
+        followButton.setTitle(followButtonTitle, for: .normal)
+        let followerButtonTitle = "\(AnnictConsts.userData?.followersCount ?? 0) " + "follower".localized(withTableName: "AnnictBaseLocalizable")
+        followerButton.setTitle(followerButtonTitle, for: .normal)
     }
     
     @IBAction func tappedFollowingButton(_ sender: UIButton) {
