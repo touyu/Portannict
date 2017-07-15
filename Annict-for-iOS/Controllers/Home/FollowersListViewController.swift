@@ -13,6 +13,7 @@ class FollowersListViewController: UIViewController {
     @IBOutlet dynamic private weak var tableView: UITableView!
     
     fileprivate var followers: [GetViewerFollowersQuery.Data.Viewer.Follower.Edge.Node] = []
+    
     fileprivate var endCursor = ""
     fileprivate var hasNextPage = true {
         didSet {
