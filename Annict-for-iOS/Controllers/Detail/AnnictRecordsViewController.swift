@@ -171,20 +171,20 @@ extension AnnictRecordsViewController {
         
         if let cell = tableView.cellForRow(at: indexPath) as? AnnictRecordCell {
             if let record = cell.record, record.user?.id == AnnictConsts.userID {
-                self.showActionSheet(recordID: record.id, indexPath: indexPath)
+                showActionSheet(recordID: record.id, indexPath: indexPath, cellType: AnnictRecordCell.self)
             } else {
-                self.showReportActionSheet(indexPath: indexPath)
+                showReportActionSheet(indexPath: indexPath, cellType: AnnictRecordCell.self)
             }
         } else if let cell = tableView.cellForRow(at: indexPath) as? RecordCell {
             if let record = cell.record, record.user?.id == AnnictConsts.userID {
-                self.showActionSheet(recordID: record.id, indexPath: indexPath)
+                showActionSheet(recordID: record.id, indexPath: indexPath, cellType: RecordCell.self)
             } else {
-                self.showReportActionSheet(indexPath: indexPath)
+                showReportActionSheet(indexPath: indexPath, cellType: RecordCell.self)
             }
         }
     }
     
-    fileprivate func showActionSheet(recordID: Int, indexPath: IndexPath) {
+    fileprivate func showActionSheet<CellType: UITableViewCell>(recordID: Int, indexPath: IndexPath, cellType: CellType.Type) {
         let actionSheet = UIAlertController(title: "", message: "選択してください", preferredStyle: .actionSheet)
         let delete = UIAlertAction(title: "記録を削除", style: .destructive, handler: { _ in
             self.records.remove(at: indexPath.row)
@@ -197,7 +197,7 @@ extension AnnictRecordsViewController {
         actionSheet.addAction(delete)
         actionSheet.addAction(cancel)
         
-        if let cell = tableView.cellForRow(at: indexPath) as? AnnictRecordCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? CellType {
             actionSheet.popoverPresentationController?.sourceView = cell
             actionSheet.popoverPresentationController?.sourceRect = cell.bounds
         }
@@ -216,13 +216,13 @@ extension AnnictRecordsViewController {
         }
     }
     
-    fileprivate func showReportActionSheet(indexPath: IndexPath) {
+    fileprivate func showReportActionSheet<CellType: UITableViewCell>(indexPath: IndexPath, cellType: CellType.Type) {
         let actionSheet = UIAlertController(title: "", message: "選択してください", preferredStyle: .actionSheet)
         let delete = UIAlertAction(title: "この記録を通報する", style: .destructive, handler: nil)
         let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         actionSheet.addAction(delete)
         actionSheet.addAction(cancel)
-        if let cell = tableView.cellForRow(at: indexPath) as? AnnictRecordCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? CellType {
             actionSheet.popoverPresentationController?.sourceView = cell
             actionSheet.popoverPresentationController?.sourceRect = cell.bounds
         }
