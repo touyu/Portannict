@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wak-gg-X3Z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wak-gg-X3Z">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -40,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIc-sz-NFx">
-                                <rect key="frame" x="62" y="517" width="250" height="50"/>
+                                <rect key="frame" x="62" y="497" width="250" height="50"/>
                                 <color key="backgroundColor" red="0.97254901960784312" green="0.35686274509803922" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Hkq-HF-06t"/>
@@ -49,9 +49,6 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="tapedLoginButton:" destination="DA9-lk-6dx" eventType="touchUpInside" id="fcQ-Q4-m8F"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Portannict" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8A-Ys-ent">
                                 <rect key="frame" x="0.0" y="162" width="375" height="76.5"/>
@@ -59,6 +56,21 @@
                                 <color key="textColor" red="0.97254901959999995" green="0.35686274509999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IY8-ox-7VY">
+                                <rect key="frame" x="64.5" y="563" width="246.5" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I agree with the terms of use. " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2f-zF-r4V">
+                                        <rect key="frame" x="0.0" y="7" width="189.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                        <color key="textColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yUp-Ui-1Nz">
+                                        <rect key="frame" x="197.5" y="0.0" width="51" height="31"/>
+                                        <color key="onTintColor" red="0.97254901960784312" green="0.35686274509803922" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                    </switch>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -66,12 +78,16 @@
                             <constraint firstItem="I8A-Ys-ent" firstAttribute="centerY" secondItem="eBT-4w-ctQ" secondAttribute="centerY" multiplier="3/5" id="INl-2C-Oni"/>
                             <constraint firstItem="I8A-Ys-ent" firstAttribute="width" secondItem="eBT-4w-ctQ" secondAttribute="width" id="Ks1-6X-2vh"/>
                             <constraint firstItem="dIc-sz-NFx" firstAttribute="width" secondItem="eBT-4w-ctQ" secondAttribute="width" multiplier="2/3" id="MxP-Nb-ueo"/>
-                            <constraint firstItem="iJ7-bM-LRn" firstAttribute="top" secondItem="dIc-sz-NFx" secondAttribute="bottom" constant="100" id="Wrb-Ie-n5f"/>
+                            <constraint firstItem="iJ7-bM-LRn" firstAttribute="top" secondItem="dIc-sz-NFx" secondAttribute="bottom" constant="120" id="Wrb-Ie-n5f"/>
                             <constraint firstItem="I8A-Ys-ent" firstAttribute="centerX" secondItem="eBT-4w-ctQ" secondAttribute="centerX" id="mTQ-11-Wml"/>
+                            <constraint firstItem="IY8-ox-7VY" firstAttribute="top" secondItem="dIc-sz-NFx" secondAttribute="bottom" constant="16" id="sQw-i3-O8w"/>
+                            <constraint firstItem="IY8-ox-7VY" firstAttribute="centerX" secondItem="eBT-4w-ctQ" secondAttribute="centerX" id="vHO-Qf-1A0"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="dIc-sz-NFx" id="xST-bd-UH7"/>
+                        <outlet property="loginSwitch" destination="yUp-Ui-1Nz" id="tDn-og-0r5"/>
+                        <outlet property="termsOfUseLabel" destination="C2f-zF-r4V" id="IaI-yP-eff"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F8x-ap-xD6" userLabel="First Responder" sceneMemberID="firstResponder"/>

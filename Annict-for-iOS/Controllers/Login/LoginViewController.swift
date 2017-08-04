@@ -10,48 +10,80 @@ import UIKit
 import SafariServices
 
 import APIKit
+import SwiftyAttributedString
+import RxSwift
+import RxCocoa
+import RxGesture
 
 
 // MARK: - LoginViewController
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet dynamic fileprivate weak var loginButton: UIButton!
+    @IBOutlet dynamic private weak var loginButton: UIButton!
+    @IBOutlet dynamic private weak var loginSwitch: UISwitch!
+    @IBOutlet weak var termsOfUseLabel: UILabel!
+
+    private let disposeBag = DisposeBag()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        loginButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                guard let url = AnnictConsts.oauthURL() else { return }
+                self?.openSafariViewController(url: url)
+            })
+            .disposed(by: disposeBag)
+        
+        loginSwitch.rx.isOn
+            .subscribe(onNext: { [weak self] isOn in
+                self?.loginButton.isEnabled = isOn
+                self?.loginButton.alpha = isOn ? 1 : 0.5
+            })
+            .disposed(by: disposeBag)
+        
+        termsOfUseLabel.rx
+            .tapGesture()
+            .subscribe(onNext: { [weak self] recognizer in
+                self?.openTermsOfService()
+            })
+            .disposed(by: disposeBag)
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.initUI()
+        initUI()
     }
     
-    @IBAction func tapedLoginButton(_ sender: UIButton) {
-        guard let url = AnnictConsts.oauthURL() else { return }
-        self.openSafariViewController(url: url)
+    private func initUI() {
+        loginButton.layer.masksToBounds = true
+        loginButton.layer.cornerRadius = 4
+        
+        termsOfUseLabel.attributedText = termsOfUseLabel.text?.add(attribute: Attribute(values: [.foregroundColor(.annictBlue),
+                                                                                                 .underlineStyle(1)],
+                                                                                        range: .portion(of: .string("terms_of_use".localized()))))
     }
     
-    fileprivate func initUI() {
-        self.loginButton.layer.masksToBounds = true
-        self.loginButton.layer.cornerRadius = 4
-    }
-    
-    fileprivate func openSafariViewController(url: URL) {
+    private func openSafariViewController(url: URL) {
         let safariViewController = SFSafariViewController(url: url)
         present(safariViewController, animated: true, completion: nil)
         
-        // Notification
-        var observer: NSObjectProtocol!
-        observer = NotificationCenter.default.addObserver(forName: .safariViewControllerCloseNotification, object: nil, queue: nil, using: { notification in
-            NotificationCenter.default.removeObserver(observer)
-            safariViewController.dismiss(animated: true, completion: nil)
-            
-            guard let code = notification.object as? String else { return }
-            self.sendOauthToken(code: code)
-        })
+        NotificationCenter.default.rx
+            .notification(.safariViewControllerCloseNotification)
+            .subscribe(onNext: { [weak self] notification in
+                safariViewController.dismiss(animated: true, completion: nil)
+                
+                guard let code = notification.object as? String else { return }
+                self?.sendOauthToken(code: code)
+            })
+            .disposed(by: disposeBag)
     }
     
-    fileprivate func sendOauthToken(code: String) {
+    private func sendOauthToken(code: String) {
         let request = AnnictAPI.OauthToken(code: code)
-        AnnictAPIClient.send(request) { response in
+        AnnictAPIClient.send(request) { [weak self] response in
             switch response {
             case .success(let result):
                 AnnictConsts.accessToken = result.accessToken
@@ -59,11 +91,17 @@ class LoginViewController: UIViewController {
                 // 画面遷移
                 if !AnnictConsts.accessToken.isEmpty {
                     let annictTabBarController = AnnictTabBarController.instantiate(withStoryboard: "AnnictMeWorks")
-                    self.present(annictTabBarController, animated: false, completion: nil)
+                    self?.present(annictTabBarController, animated: false, completion: nil)
                 }
             case .failure(let error):
                 print(error)
             }
         }
+    }
+    
+    private func openTermsOfService() {
+        guard let url = URL(string: "https://touyu.github.io/Annict-for-iOS-Website/rule/") else { return }
+        let safariViewController = SFSafariViewController(url: url)
+        present(safariViewController, animated: true, completion: nil)
     }
 }
