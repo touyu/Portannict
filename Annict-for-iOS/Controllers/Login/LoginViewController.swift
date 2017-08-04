@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet dynamic private weak var loginButton: UIButton!
     @IBOutlet dynamic private weak var loginSwitch: UISwitch!
-    @IBOutlet weak var termsOfUseLabel: UILabel!
+    @IBOutlet dynamic private weak var termsOfUseLabel: UILabel!
 
     private let disposeBag = DisposeBag()
     
