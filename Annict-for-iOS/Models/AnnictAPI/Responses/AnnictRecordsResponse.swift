@@ -20,7 +20,7 @@ struct AnnictRecordsResponse {
     }
 }
 
-extension AnnictRecordsResponse: Decodable {
+extension AnnictRecordsResponse: Himotoki.Decodable {
     static func decode(_ e: Extractor) throws -> AnnictRecordsResponse {
         return try castOrFail(AnnictRecordsResponse(e))
     }
@@ -75,7 +75,7 @@ struct AnnictRecordResponse {
     }
 }
 
-extension AnnictRecordResponse: Decodable {
+extension AnnictRecordResponse: Himotoki.Decodable {
     static func decode(_ e: Extractor) throws -> AnnictRecordResponse {
         return try castOrFail(AnnictRecordResponse(e))
     }

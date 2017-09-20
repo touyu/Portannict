@@ -19,7 +19,7 @@ struct AnnictWorksResponse {
     }
 }
 
-extension AnnictWorksResponse: Decodable {
+extension AnnictWorksResponse: Himotoki.Decodable {
     static func decode(_ e: Extractor) throws -> AnnictWorksResponse {
         return try castOrFail(AnnictWorksResponse(e))
     }
@@ -59,7 +59,7 @@ struct AnnictWorkResponse {
     }
 }
 
-extension AnnictWorkResponse: Decodable {
+extension AnnictWorkResponse: Himotoki.Decodable {
     static func decode(_ e: Extractor) throws -> AnnictWorkResponse {
         return try castOrFail(AnnictWorkResponse(e))
     }
@@ -81,7 +81,7 @@ struct AnnictWorkImages {
     }
 }
 
-extension AnnictWorkImages: Decodable {
+extension AnnictWorkImages: Himotoki.Decodable {
     static func decode(_ e: Extractor) throws -> AnnictWorkImages {
         return try castOrFail(AnnictWorkImages(e))
     }
@@ -111,7 +111,7 @@ struct AnnictWorkTwitterImage {
     }
 }
 
-extension AnnictWorkTwitterImage: Decodable {
+extension AnnictWorkTwitterImage: Himotoki.Decodable {
     static func decode(_ e: Extractor) throws -> AnnictWorkTwitterImage {
         return try castOrFail(AnnictWorkTwitterImage(e))
     }

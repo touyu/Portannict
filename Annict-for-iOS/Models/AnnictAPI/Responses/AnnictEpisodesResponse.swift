@@ -19,7 +19,7 @@ struct AnnictEpisodesResponse {
     }
 }
 
-extension AnnictEpisodesResponse: Decodable {
+extension AnnictEpisodesResponse: Himotoki.Decodable {
     static func decode(_ e: Extractor) throws -> AnnictEpisodesResponse {
         return try castOrFail(AnnictEpisodesResponse(e))
     }
@@ -39,7 +39,7 @@ struct AnnictEpisodeResponse {
     }
 }
 
-extension AnnictEpisodeResponse: Decodable {
+extension AnnictEpisodeResponse: Himotoki.Decodable {
     static func decode(_ e: Extractor) throws -> AnnictEpisodeResponse {
         return try castOrFail(AnnictEpisodeResponse(e))
     }

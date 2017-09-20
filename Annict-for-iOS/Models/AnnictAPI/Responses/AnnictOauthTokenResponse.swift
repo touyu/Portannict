@@ -25,7 +25,7 @@ struct AnnictOauthTokenResponse {
     }
 }
 
-extension AnnictOauthTokenResponse: Decodable {
+extension AnnictOauthTokenResponse: Himotoki.Decodable {
     static func decode(_ e: Extractor) throws -> AnnictOauthTokenResponse {
         return try castOrFail(AnnictOauthTokenResponse(e))
     }

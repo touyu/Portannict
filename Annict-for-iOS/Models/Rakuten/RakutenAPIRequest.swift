@@ -20,7 +20,7 @@ extension RakutenAPIRequest {
     }
 }
 
-extension RakutenAPIRequest where Response: Decodable {
+extension RakutenAPIRequest where Response: Himotoki.Decodable {
     func response(from object: Any, urlResponse: HTTPURLResponse) throws -> Response {
         return try decodeValue(object)
     }

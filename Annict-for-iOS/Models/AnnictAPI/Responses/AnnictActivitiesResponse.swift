@@ -19,7 +19,7 @@ struct AnnictActivitiesResponse {
     }
 }
 
-extension AnnictActivitiesResponse: Decodable {
+extension AnnictActivitiesResponse: Himotoki.Decodable {
     static func decode(_ e: Extractor) throws -> AnnictActivitiesResponse {
         return try castOrFail(AnnictActivitiesResponse(e))
     }
@@ -65,7 +65,7 @@ struct AnnictActivityResponse {
     }
 }
 
-extension AnnictActivityResponse: Decodable {
+extension AnnictActivityResponse: Himotoki.Decodable {
     static func decode(_ e: Extractor) throws -> AnnictActivityResponse {
         return try castOrFail(AnnictActivityResponse(e))
     }
@@ -81,7 +81,7 @@ struct AnnictMultipleRecord {
     }
 }
 
-extension AnnictMultipleRecord: Decodable {
+extension AnnictMultipleRecord: Himotoki.Decodable {
     static func decode(_ e: Extractor) throws -> AnnictMultipleRecord {
         return try castOrFail(AnnictMultipleRecord(e))
     }

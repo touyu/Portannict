@@ -19,7 +19,7 @@ extension AnnictAPIRequest {
     }
 }
 
-extension AnnictAPIRequest where Response: Decodable {
+extension AnnictAPIRequest where Response: Himotoki.Decodable {
     func response(from object: Any, urlResponse: HTTPURLResponse) throws -> Response {
         return try decodeValue(object)
     }

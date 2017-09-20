@@ -19,7 +19,7 @@ struct RakutenItemsResponse {
     }
 }
 
-extension RakutenItemsResponse: Decodable {
+extension RakutenItemsResponse: Himotoki.Decodable {
     static func decode(_ e: Extractor) throws -> RakutenItemsResponse {
         return try castOrFail(RakutenItemsResponse(e))
     }
@@ -36,7 +36,7 @@ struct RakutenItemResponse {
     }
 }
 
-extension RakutenItemResponse: Decodable {
+extension RakutenItemResponse: Himotoki.Decodable {
     static func decode(_ e: Extractor) throws -> RakutenItemResponse {
         return try castOrFail(RakutenItemResponse(e))
     }
