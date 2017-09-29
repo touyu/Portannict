@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -152,6 +153,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="wyZ-5l-mYp" firstAttribute="leading" secondItem="2TV-cc-kpe" secondAttribute="leading" id="8SV-ug-JyJ"/>
+                    <constraint firstItem="LHs-el-9Au" firstAttribute="leading" secondItem="KSB-bW-6Jd" secondAttribute="leading" constant="16" id="9as-Tt-usp"/>
                     <constraint firstAttribute="trailingMargin" secondItem="aDM-VV-VRf" secondAttribute="trailing" constant="8" id="AhM-1Y-vW3"/>
                     <constraint firstItem="3E2-0w-LVR" firstAttribute="top" secondItem="MHR-AC-C1p" secondAttribute="bottom" constant="8" id="Eia-7R-ZGz"/>
                     <constraint firstItem="MHR-AC-C1p" firstAttribute="trailing" secondItem="p0q-Uh-HOy" secondAttribute="trailing" id="LeG-gJ-gb7"/>
@@ -165,7 +167,6 @@
                     <constraint firstAttribute="trailingMargin" secondItem="usA-lC-m5F" secondAttribute="trailing" constant="8" id="gl3-JR-sBr"/>
                     <constraint firstItem="MHR-AC-C1p" firstAttribute="leading" secondItem="2TV-cc-kpe" secondAttribute="leading" id="hcc-5i-OUY"/>
                     <constraint firstItem="usA-lC-m5F" firstAttribute="leading" secondItem="2TV-cc-kpe" secondAttribute="leading" id="mAw-hY-t7Q"/>
-                    <constraint firstItem="LHs-el-9Au" firstAttribute="leading" secondItem="KSB-bW-6Jd" secondAttribute="leadingMargin" constant="8" id="moj-P1-V3u"/>
                     <constraint firstItem="p0q-Uh-HOy" firstAttribute="trailing" secondItem="usA-lC-m5F" secondAttribute="trailing" id="nNW-K4-Idp"/>
                     <constraint firstItem="p0q-Uh-HOy" firstAttribute="leading" secondItem="usA-lC-m5F" secondAttribute="leading" id="q8p-ha-w0h"/>
                     <constraint firstItem="2TV-cc-kpe" firstAttribute="leading" secondItem="LHs-el-9Au" secondAttribute="trailing" constant="8" id="rSk-ih-4ob"/>

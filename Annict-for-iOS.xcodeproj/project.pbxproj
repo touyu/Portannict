@@ -143,6 +143,11 @@
 		D1E5D35D1EF26F74007F34EB /* FollowerUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5D35C1EF26F74007F34EB /* FollowerUserCell.swift */; };
 		D1E5D35F1EF26F9B007F34EB /* FollowerUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E5D35E1EF26F9B007F34EB /* FollowerUserCell.xib */; };
 		D1EB52E01EED6FDE00F76629 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EB52DF1EED6FDE00F76629 /* Apollo.framework */; };
+		D1EE8F331F7574680047B78C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EE8F321F7574680047B78C /* NotificationCenter.framework */; };
+		D1EE8F361F7574680047B78C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EE8F351F7574680047B78C /* TodayViewController.swift */; };
+		D1EE8F391F7574680047B78C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EE8F371F7574680047B78C /* MainInterface.storyboard */; };
+		D1EE8F3D1F7574680047B78C /* Annict-Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D1EE8F311F7574680047B78C /* Annict-Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D1EE8F431F7579080047B78C /* AnimeInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EE8F421F7579080047B78C /* AnimeInfoTableViewCell.swift */; };
 		D1FEDCFF1E4D7CD300EFA42F /* AnnictConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */; };
 		D1FEDD021E4D844000EFA42F /* AnnictOauthTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */; };
 		D1FEDD041E4D883600EFA42F /* AnnictAPOauthTokenI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD031E4D883600EFA42F /* AnnictAPOauthTokenI.swift */; };
@@ -169,7 +174,28 @@
 			remoteGlobalIDString = D137D67B1E4D735E00F0FCFB;
 			remoteInfo = "Annict-for-iOS";
 		};
+		D1EE8F3B1F7574680047B78C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D137D6741E4D735E00F0FCFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1EE8F301F7574680047B78C;
+			remoteInfo = "Annict-Today";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D1EE8F411F7574680047B78C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D1EE8F3D1F7574680047B78C /* Annict-Today.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1F443094A85625B40265ED14 /* Pods-Annict-for-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOSUITests/Pods-Annict-for-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -314,6 +340,12 @@
 		D1E5D35C1EF26F74007F34EB /* FollowerUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowerUserCell.swift; sourceTree = "<group>"; };
 		D1E5D35E1EF26F9B007F34EB /* FollowerUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowerUserCell.xib; sourceTree = "<group>"; };
 		D1EB52DF1EED6FDE00F76629 /* Apollo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apollo.framework; path = Carthage/Build/iOS/Apollo.framework; sourceTree = "<group>"; };
+		D1EE8F311F7574680047B78C /* Annict-Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Annict-Today.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1EE8F321F7574680047B78C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		D1EE8F351F7574680047B78C /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		D1EE8F381F7574680047B78C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		D1EE8F3A1F7574680047B78C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1EE8F421F7579080047B78C /* AnimeInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeInfoTableViewCell.swift; sourceTree = "<group>"; };
 		D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictConsts.swift; sourceTree = "<group>"; };
 		D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictOauthTokenResponse.swift; sourceTree = "<group>"; };
 		D1FEDD031E4D883600EFA42F /* AnnictAPOauthTokenI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPOauthTokenI.swift; sourceTree = "<group>"; };
@@ -372,6 +404,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D1EE8F2E1F7574680047B78C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1EE8F331F7574680047B78C /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -406,6 +446,7 @@
 				47D8127FB87B435E6F54E888 /* Pods_Annict_for_iOS.framework */,
 				568B38E2C913181675189D9B /* Pods_Annict_for_iOSTests.framework */,
 				E8AF127708753608F186D305 /* Pods_Annict_for_iOSUITests.framework */,
+				D1EE8F321F7574680047B78C /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -498,6 +539,7 @@
 				D137D67E1E4D735E00F0FCFB /* Annict-for-iOS */,
 				D137D6931E4D735E00F0FCFB /* Annict-for-iOSTests */,
 				D137D69E1E4D735E00F0FCFB /* Annict-for-iOSUITests */,
+				D1EE8F341F7574680047B78C /* Annict-Today */,
 				AD6DDBA827920CE6310BBE0B /* Frameworks */,
 				D137D67D1E4D735E00F0FCFB /* Products */,
 				68058F70F12C916877F7EC99 /* Pods */,
@@ -510,6 +552,7 @@
 				D137D67C1E4D735E00F0FCFB /* Annict-for-iOS.app */,
 				D137D6901E4D735E00F0FCFB /* Annict-for-iOSTests.xctest */,
 				D137D69B1E4D735E00F0FCFB /* Annict-for-iOSUITests.xctest */,
+				D1EE8F311F7574680047B78C /* Annict-Today.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -941,6 +984,17 @@
 			name = FollowerUserCell;
 			sourceTree = "<group>";
 		};
+		D1EE8F341F7574680047B78C /* Annict-Today */ = {
+			isa = PBXGroup;
+			children = (
+				D1EE8F351F7574680047B78C /* TodayViewController.swift */,
+				D1EE8F371F7574680047B78C /* MainInterface.storyboard */,
+				D1EE8F421F7579080047B78C /* AnimeInfoTableViewCell.swift */,
+				D1EE8F3A1F7574680047B78C /* Info.plist */,
+			);
+			path = "Annict-Today";
+			sourceTree = "<group>";
+		};
 		D1FEDD001E4D841A00EFA42F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1002,10 +1056,12 @@
 				D13101F21E55E74C00023D70 /* ShellScript */,
 				280DFD4581229F710BC843AD /* [CP] Embed Pods Frameworks */,
 				13180C037BF822BB59411E80 /* [CP] Copy Pods Resources */,
+				D1EE8F411F7574680047B78C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D1EE8F3C1F7574680047B78C /* PBXTargetDependency */,
 			);
 			name = "Annict-for-iOS";
 			productName = "Annict-for-iOS";
@@ -1056,13 +1112,30 @@
 			productReference = D137D69B1E4D735E00F0FCFB /* Annict-for-iOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		D1EE8F301F7574680047B78C /* Annict-Today */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1EE8F401F7574680047B78C /* Build configuration list for PBXNativeTarget "Annict-Today" */;
+			buildPhases = (
+				D1EE8F2D1F7574680047B78C /* Sources */,
+				D1EE8F2E1F7574680047B78C /* Frameworks */,
+				D1EE8F2F1F7574680047B78C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Annict-Today";
+			productName = "Annict-Today";
+			productReference = D1EE8F311F7574680047B78C /* Annict-Today.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		D137D6741E4D735E00F0FCFB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0820;
+				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Yuto Akiba";
 				TargetAttributes = {
@@ -1083,6 +1156,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = D137D67B1E4D735E00F0FCFB;
 					};
+					D1EE8F301F7574680047B78C = {
+						CreatedOnToolsVersion = 9.0;
+						DevelopmentTeam = V8AZ23YEL4;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = D137D6771E4D735E00F0FCFB /* Build configuration list for PBXProject "Annict-for-iOS" */;
@@ -1102,6 +1180,7 @@
 				D137D67B1E4D735E00F0FCFB /* Annict-for-iOS */,
 				D137D68F1E4D735E00F0FCFB /* Annict-for-iOSTests */,
 				D137D69A1E4D735E00F0FCFB /* Annict-for-iOSUITests */,
+				D1EE8F301F7574680047B78C /* Annict-Today */,
 			);
 		};
 /* End PBXProject section */
@@ -1158,6 +1237,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1EE8F2F1F7574680047B78C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1EE8F391F7574680047B78C /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1485,6 +1572,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D1EE8F2D1F7574680047B78C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1EE8F431F7579080047B78C /* AnimeInfoTableViewCell.swift in Sources */,
+				D1EE8F361F7574680047B78C /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1497,6 +1593,11 @@
 			isa = PBXTargetDependency;
 			target = D137D67B1E4D735E00F0FCFB /* Annict-for-iOS */;
 			targetProxy = D137D69C1E4D735E00F0FCFB /* PBXContainerItemProxy */;
+		};
+		D1EE8F3C1F7574680047B78C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D1EE8F301F7574680047B78C /* Annict-Today */;
+			targetProxy = D1EE8F3B1F7574680047B78C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1537,6 +1638,14 @@
 				D1DB61B81EDDCF9E009B5137 /* ja */,
 			);
 			name = RatingStateCell.xib;
+			sourceTree = "<group>";
+		};
+		D1EE8F371F7574680047B78C /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1EE8F381F7574680047B78C /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1641,7 +1750,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5DBD9C55A9D833CFDED35B82 /* Pods-Annict-for-iOS.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = V8AZ23YEL4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1660,7 +1771,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6D28F9B5CC108F60AAD883F3 /* Pods-Annict-for-iOS.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = V8AZ23YEL4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1753,6 +1866,60 @@
 			};
 			name = Release;
 		};
+		D1EE8F3E1F7574680047B78C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V8AZ23YEL4;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Annict-Today/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.YutoAkiba.Annict-for-iOS.Annict-Today";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D1EE8F3F1F7574680047B78C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V8AZ23YEL4;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Annict-Today/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.YutoAkiba.Annict-for-iOS.Annict-Today";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1788,6 +1955,15 @@
 			buildConfigurations = (
 				D137D6AB1E4D735E00F0FCFB /* Debug */,
 				D137D6AC1E4D735E00F0FCFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1EE8F401F7574680047B78C /* Build configuration list for PBXNativeTarget "Annict-Today" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1EE8F3E1F7574680047B78C /* Debug */,
+				D1EE8F3F1F7574680047B78C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -118,6 +119,7 @@
                     <constraint firstItem="MZA-VJ-8KF" firstAttribute="leading" secondItem="U1Q-Nq-luS" secondAttribute="trailing" constant="8" id="0aX-8x-vxl"/>
                     <constraint firstItem="I2I-bp-eQm" firstAttribute="leading" secondItem="MZA-VJ-8KF" secondAttribute="leading" id="Gyh-M1-Awx"/>
                     <constraint firstItem="MZA-VJ-8KF" firstAttribute="top" secondItem="U1Q-Nq-luS" secondAttribute="top" id="Hoj-P5-kw7"/>
+                    <constraint firstItem="U1Q-Nq-luS" firstAttribute="leading" secondItem="p1I-zT-Q5T" secondAttribute="leading" constant="16" id="Kis-bw-6dr"/>
                     <constraint firstItem="U1Q-Nq-luS" firstAttribute="top" secondItem="p1I-zT-Q5T" secondAttribute="topMargin" constant="8" id="OSW-F3-4Md"/>
                     <constraint firstItem="QTW-Ld-NtJ" firstAttribute="trailing" secondItem="1ZF-n8-fYP" secondAttribute="trailing" id="T1W-bZ-aum"/>
                     <constraint firstItem="Xw5-Hw-Dkz" firstAttribute="centerY" secondItem="MZA-VJ-8KF" secondAttribute="centerY" id="TCO-ku-wgV"/>
@@ -129,12 +131,12 @@
                     <constraint firstAttribute="trailingMargin" secondItem="Xw5-Hw-Dkz" secondAttribute="trailing" constant="8" id="ftI-Mx-HXp"/>
                     <constraint firstAttribute="bottomMargin" secondItem="1ZF-n8-fYP" secondAttribute="bottom" constant="8" id="iLr-gN-zZr"/>
                     <constraint firstItem="1ZF-n8-fYP" firstAttribute="trailing" secondItem="Xw5-Hw-Dkz" secondAttribute="trailing" id="pfc-xU-Xh4"/>
-                    <constraint firstAttribute="leadingMargin" secondItem="U1Q-Nq-luS" secondAttribute="leading" constant="-8" id="uag-B0-Mo6"/>
                     <constraint firstItem="bpx-5g-RuU" firstAttribute="leading" secondItem="QTW-Ld-NtJ" secondAttribute="leading" id="xZd-5c-er8"/>
                     <constraint firstItem="bpx-5g-RuU" firstAttribute="top" secondItem="QTW-Ld-NtJ" secondAttribute="bottom" constant="8" id="zcK-Bm-pVk"/>
                     <constraint firstItem="QTW-Ld-NtJ" firstAttribute="leading" secondItem="MZA-VJ-8KF" secondAttribute="leading" id="ztv-2u-sNP"/>
                 </constraints>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="72" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="animeImageView" destination="vji-za-tov" id="7jW-V5-NJ3"/>
                 <outlet property="animeTitleLabel" destination="QF8-kV-eav" id="uyR-p0-sKI"/>

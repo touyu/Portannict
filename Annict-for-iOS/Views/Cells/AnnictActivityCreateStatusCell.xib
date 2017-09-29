@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="piI-CO-kL4" id="caY-Sl-dYm">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cm5-xL-aeP">
@@ -96,10 +97,10 @@
                     <constraint firstItem="GJG-we-cnN" firstAttribute="leading" secondItem="89p-yx-bm5" secondAttribute="leading" id="Kuc-tp-acE"/>
                     <constraint firstItem="89p-yx-bm5" firstAttribute="leading" secondItem="PYX-hC-5MD" secondAttribute="leading" id="bJa-GI-YpT"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="PYX-hC-5MD" secondAttribute="trailing" constant="8" id="dG5-9k-KL3"/>
-                    <constraint firstAttribute="leadingMargin" secondItem="cm5-xL-aeP" secondAttribute="leading" constant="-8" id="iEp-l0-afs"/>
                     <constraint firstAttribute="trailingMargin" secondItem="89p-yx-bm5" secondAttribute="trailing" constant="8" id="imB-pk-aq9"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Hwr-r9-Yfu" secondAttribute="trailing" constant="8" id="kFb-8Y-XlU"/>
                     <constraint firstItem="PYX-hC-5MD" firstAttribute="leading" secondItem="cm5-xL-aeP" secondAttribute="trailing" constant="8" id="nfb-6A-wx7"/>
+                    <constraint firstItem="cm5-xL-aeP" firstAttribute="leading" secondItem="caY-Sl-dYm" secondAttribute="leading" constant="16" id="o02-qk-R5c"/>
                     <constraint firstItem="GJG-we-cnN" firstAttribute="trailing" secondItem="89p-yx-bm5" secondAttribute="trailing" id="qJs-2o-8lH"/>
                     <constraint firstAttribute="bottomMargin" secondItem="GJG-we-cnN" secondAttribute="bottom" constant="8" id="xVU-9R-lC6"/>
                 </constraints>
