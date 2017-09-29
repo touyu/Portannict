@@ -37,7 +37,7 @@ class ActivitiesTableViewController: UITableViewController {
         initTableView()
         initRefreshControl()
         startRefreshControlAnimation()
-        getMeFollowingActivities() { [weak self] _ in
+        getMeFollowingActivities() { [weak self] in
             self?.refreshControl?.endRefreshing()
         }
     }
@@ -57,7 +57,7 @@ class ActivitiesTableViewController: UITableViewController {
     
     @objc private func pulledTableView(_ refreshControl: UIRefreshControl) {
         currentPage = 0
-        getMeFollowingActivities() { [weak self] _ in
+        getMeFollowingActivities() { [weak self] in
             self?.refreshControl?.endRefreshing()
         }
     }
@@ -205,7 +205,7 @@ extension ActivitiesTableViewController: DZNEmptyDataSetSource {
 extension ActivitiesTableViewController: DZNEmptyDataSetDelegate {
     func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
         startRefreshControlAnimation()
-        getMeFollowingActivities() { [weak self] _ in
+        getMeFollowingActivities() { [weak self] in
             self?.refreshControl?.endRefreshing()
         }
     }

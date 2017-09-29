@@ -33,7 +33,7 @@ class AnnictSeasonViewController: UITableViewController {
         self.initTableView()
         self.initRefreshControl()
         self.startRefreshControlAnimation()
-        self.getAnimes() { [weak self] _ in
+        self.getAnimes() { [weak self] in
             if self?.state != .error {
                 self?.refreshControl?.endRefreshing()
             }
@@ -93,9 +93,9 @@ class AnnictSeasonViewController: UITableViewController {
         self.refreshControl?.beginRefreshing()
     }
     
-    func pulledTableView(_ refreshControl: UIRefreshControl) {
+    @objc func pulledTableView(_ refreshControl: UIRefreshControl) {
         self.currentPage = 0
-        self.getAnimes() { [weak self] _ in
+        self.getAnimes() { [weak self] in
             if self?.state != .error {
                 self?.refreshControl?.endRefreshing()
             }
@@ -105,7 +105,7 @@ class AnnictSeasonViewController: UITableViewController {
     private func initReachability() {
         ReachabilityHelper.observe(whenReachable: { [weak self] _ in
             if self?.state == .error {
-                self?.getAnimes() { [weak self] _ in
+                self?.getAnimes() { [weak self] in
                     if self?.state != .error {
                         self?.refreshControl?.endRefreshing()
                     }

@@ -49,7 +49,7 @@ class AnnictMeWorksViewController: UITableViewController {
         self.initTableView()
         
         let indicator = self.initIndicatorView()
-        self.getMeWorks() { _ in
+        self.getMeWorks() {
             indicator.stopAnimating()
         }
     }
@@ -80,9 +80,9 @@ class AnnictMeWorksViewController: UITableViewController {
         return indicator
     }
     
-    func pulledTableView(_ refreshControl: UIRefreshControl) {
+    @objc func pulledTableView(_ refreshControl: UIRefreshControl) {
         self.currentPage = 0
-        self.getMeWorks() { _ in
+        self.getMeWorks() {
             self.refreshControl?.endRefreshing()
         }
     }

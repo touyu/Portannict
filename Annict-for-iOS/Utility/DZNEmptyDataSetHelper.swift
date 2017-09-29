@@ -21,7 +21,7 @@ struct DZNEmptyDataSetHelper {
     struct NetworkError {
         private struct Const {
             static var titleString = "ネットワークエラーです"
-            static var titleFont = UIFont.systemFont(ofSize: 28, weight: UIFontWeightThin)
+            static var titleFont = UIFont.systemFont(ofSize: 28, weight: UIFont.Weight.thin)
             static var buttonTitleString = "リトライ"
             static var buttonTitleFont = UIFont.systemFont(ofSize: 16)
         }
@@ -30,8 +30,8 @@ struct DZNEmptyDataSetHelper {
             return NSAttributedString(
                 string: Const.titleString,
                 attributes: [
-                    NSFontAttributeName: Const.titleFont,
-                    NSForegroundColorAttributeName: UIColor.lightGray
+                    NSAttributedStringKey.font: Const.titleFont,
+                    NSAttributedStringKey.foregroundColor: UIColor.lightGray
                 ]
             )
         }
@@ -40,8 +40,8 @@ struct DZNEmptyDataSetHelper {
             return NSAttributedString(
                 string: Const.buttonTitleString,
                 attributes: [
-                    NSFontAttributeName: Const.buttonTitleFont,
-                    NSForegroundColorAttributeName: UIColor.annictPink
+                    NSAttributedStringKey.font: Const.buttonTitleFont,
+                    NSAttributedStringKey.foregroundColor: UIColor.annictPink
                 ]
             )
         }
@@ -69,7 +69,7 @@ struct DZNEmptyDataSetHelper {
     struct Empty {
         private struct Const {
             static var titleString = "コンテンツがありません"
-            static var titleFont = UIFont.systemFont(ofSize: 28, weight: UIFontWeightThin)
+            static var titleFont = UIFont.systemFont(ofSize: 28, weight: UIFont.Weight.thin)
             static var buttonTitleString = "リトライ"
             static var buttonTitleFont = UIFont.systemFont(ofSize: 16)
         }
@@ -78,8 +78,8 @@ struct DZNEmptyDataSetHelper {
             return NSAttributedString(
                 string: Const.titleString,
                 attributes: [
-                    NSFontAttributeName: Const.titleFont,
-                    NSForegroundColorAttributeName: UIColor.lightGray
+                    NSAttributedStringKey.font: Const.titleFont,
+                    NSAttributedStringKey.foregroundColor: UIColor.lightGray
                 ]
             )
         }

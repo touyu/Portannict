@@ -51,10 +51,11 @@ class AnnictImageManager {
     
     class private func setImage(imageView: UIImageView!, imageURL: URL?) {
         guard let url = imageURL else { return }
-        imageView.kf.setImage(with: url, placeholder: placeholderImage, completionHandler: { image, error, _, _ in
+        
+        imageView.kf.setImage(with: url, placeholder: placeholderImage) { (image, error, _, _) in
             if let _ = error {
                 imageView.image = defaultImage
             }
-        })
+        }
     }
 }

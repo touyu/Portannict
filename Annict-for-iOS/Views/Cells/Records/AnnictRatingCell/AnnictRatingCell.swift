@@ -42,7 +42,7 @@ class AnnictRatingCell: UITableViewCell {
         }
     }
     
-    func tapedStar(_ sender: UITapGestureRecognizer) {
+    @objc func tapedStar(_ sender: UITapGestureRecognizer) {
         guard let tapedStar = sender.view as? UIImageView else { return }
         let stars = [star1, star2, star3, star4, star5]
         // 初期化
@@ -51,7 +51,7 @@ class AnnictRatingCell: UITableViewCell {
         self.delegate?.changeRating(rating: tapedStar.tag)
     }
     
-    func tapedContentView(_ sender: UITapGestureRecognizer) {
+    @objc func tapedContentView(_ sender: UITapGestureRecognizer) {
         let stars = [star1, star2, star3, star4, star5]
         // 初期化
         _ = stars.map { $0?.image = #imageLiteral(resourceName: "inactive_star") }

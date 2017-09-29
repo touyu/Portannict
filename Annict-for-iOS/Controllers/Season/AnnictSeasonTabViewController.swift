@@ -34,7 +34,7 @@ class AnnictSeasonTabViewController: ButtonBarPagerTabStripViewController {
         // set up style before super view did load is executed
         settings.style.buttonBarBackgroundColor = .white
         settings.style.buttonBarItemBackgroundColor = .white
-        settings.style.buttonBarItemFont = .systemFont(ofSize: 16, weight: UIFontWeightThin)
+        settings.style.buttonBarItemFont = .systemFont(ofSize: 16, weight: UIFont.Weight.thin)
         settings.style.buttonBarItemsShouldFillAvailableWidth = true
         settings.style.selectedBarBackgroundColor = UIColor.annictPink
         settings.style.selectedBarHeight = 2.0
@@ -91,17 +91,17 @@ class AnnictSeasonTabViewController: ButtonBarPagerTabStripViewController {
         return [a, b, c, d]
     }
     
-    func tapedNavigationTitle(_ tapGestureRecognizer: UITapGestureRecognizer) {
+    @objc func tapedNavigationTitle(_ tapGestureRecognizer: UITapGestureRecognizer) {
         if isOpendPickerView == false {
             self.yearPickerView.defaultYear = year
             self.view.addSubview(yearPickerView!)
             self.initNavigationTitle(title: String(year) + " ▲")
-            UIView.animate(withDuration: 0.2, animations: { [weak self] _ in
+            UIView.animate(withDuration: 0.2, animations: { [weak self] in
                 self?.yearPickerView?.frame.origin.y = 0
             })
         } else {
             self.initNavigationTitle(title: String(year) + " ▼")
-            UIView.animate(withDuration: 0.2, animations: { [weak self] _ in
+            UIView.animate(withDuration: 0.2, animations: { [weak self] in
                 guard let weakSelf = self else { return }
                 weakSelf.yearPickerView?.frame.origin.y = -weakSelf.yearPickerView.bounds.height
             }, completion: { [weak self] _ in
@@ -116,7 +116,7 @@ class AnnictSeasonTabViewController: ButtonBarPagerTabStripViewController {
         // タイトルを表示するラベルを作成
         let label = UILabel()
         label.textColor = .annictPink
-        label.font = UIFont.systemFont(ofSize: 17, weight: UIFontWeightThin)
+        label.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.thin)
         label.text = title
         label.sizeToFit()
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapedNavigationTitle(_:)))

@@ -19,7 +19,7 @@ class AnnictRecordsTabViewController: ButtonBarPagerTabStripViewController {
         // set up style before super view did load is executed
         settings.style.buttonBarBackgroundColor = .white
         settings.style.buttonBarItemBackgroundColor = .white
-        settings.style.buttonBarItemFont = .systemFont(ofSize: 16, weight: UIFontWeightThin)
+        settings.style.buttonBarItemFont = .systemFont(ofSize: 16, weight: UIFont.Weight.thin)
         settings.style.buttonBarItemsShouldFillAvailableWidth = true
         settings.style.selectedBarBackgroundColor = UIColor.annictPink
         settings.style.selectedBarHeight = 2.0
@@ -61,8 +61,9 @@ class AnnictRecordsTabViewController: ButtonBarPagerTabStripViewController {
     @IBAction func tapedPostButton(_ sender: Any) {
         let annictPostRecordsViewController = AnnictPostRecordsNavigationController.instantiate(withStoryboard: "AnnictWorks")
         annictPostRecordsViewController.episodeID = episodeID
-        annictPostRecordsViewController.dissmissAction = { _ in
-            for viewController in self.viewControllers {
+        annictPostRecordsViewController.dissmissAction = { [weak self] in
+            guard let viewControllers = self?.viewControllers else { return }
+            for viewController in viewControllers {
                 guard let viewController = viewController as? AnnictRecordsViewController else { continue }
                 viewController.refreshTableView()
             }

@@ -105,11 +105,11 @@ class AnnictActivityCreateMultipleRecordsCell: UITableViewCell {
         
         if minNumberText == maxNumberText {
             let text = NSMutableAttributedString(string: "\(title) \(minNumberText)を見ました")
-            text.addAttribute(NSForegroundColorAttributeName, value: UIColor.annictBlue, range: NSMakeRange(0, title.characters.count))
+            text.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.annictBlue, range: NSMakeRange(0, title.characters.count))
             messageLabel.attributedText = text
         } else {
             let text = NSMutableAttributedString(string: "\(title) \(minNumberText)から\(maxNumberText)を見ました")
-            text.addAttribute(NSForegroundColorAttributeName, value: UIColor.annictBlue, range: NSMakeRange(0, title.characters.count))
+            text.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.annictBlue, range: NSMakeRange(0, title.characters.count))
             messageLabel.attributedText = text
         }
     }

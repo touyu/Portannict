@@ -96,7 +96,7 @@ class AnnictActivityCreateStatusCell: UITableViewCell {
         }
         
         let text = NSMutableAttributedString(string: "\(title) のステータスを「\(status.localizedString)」に変更しました")
-        text.addAttribute(NSForegroundColorAttributeName, value: UIColor.annictBlue, range: NSMakeRange(0, title.characters.count))
+        text.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.annictBlue, range: NSMakeRange(0, title.characters.count))
         messageLabel.attributedText = text
     }
     

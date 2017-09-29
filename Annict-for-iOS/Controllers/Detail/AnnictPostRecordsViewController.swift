@@ -35,7 +35,7 @@ class AnnictPostRecordsViewController: UIViewController {
     @IBAction func tapedPostRecordButton(_ sender: UIBarButtonItem) {
         if posting == false {
             self.textView?.resignFirstResponder()
-            self.postMeRecord() { _ in
+            self.postMeRecord() {
                 self.dismissAction?()
                 self.dismiss(animated: true, completion: nil)
             }

@@ -40,7 +40,7 @@ class AnnictSearchViewController: UIViewController {
         self.initTableView()
         
         let indicator = self.initIndicatorView()
-        self.getPopularAnime() { _ in
+        self.getPopularAnime() {
             indicator.stopAnimating()
         }
     }
@@ -71,7 +71,7 @@ class AnnictSearchViewController: UIViewController {
             switch response {
             case .success(let value):
                 // 最近見られたアニメから重複を無くして返す
-                self.popularAnimes = value.records.map { $0.work! }.reduce([]) {$0.0.map{$0.id}.contains($0.1.id) ? $0.0 : $0.0 + [$0.1] }
+                self.popularAnimes = value.records.map { $0.work! }.reduce([]) {$0.map{$0.id}.contains($1.id) ? $0 : $0 + [$1] }
                 completionHandler?()
             case .failure(let error):
                 print(error)
@@ -147,7 +147,7 @@ extension AnnictSearchViewController: UISearchBarDelegate {
             self.sectionTitle = "最近見られたアニメ"
             self.popularAnimes = []
             let indicator = self.initIndicatorView()
-            self.getPopularAnime() { _ in
+            self.getPopularAnime() {
                 indicator.stopAnimating()
             }
         }
@@ -170,7 +170,7 @@ extension AnnictSearchViewController: UISearchBarDelegate {
         self.popularAnimes = []
         
         let indicator = self.initIndicatorView()
-        self.searchAnime(title: searchBar.text) { _ in
+        self.searchAnime(title: searchBar.text) {
             indicator.stopAnimating()
         }
     }

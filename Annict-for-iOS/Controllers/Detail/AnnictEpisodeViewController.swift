@@ -33,7 +33,7 @@ class AnnictEpisodeViewController: UITableViewController {
         self.initTableView()
         
         let indicotor = self.initIndicatorView()
-        self.getEpisodes() { _ in
+        self.getEpisodes() {
             indicotor.stopAnimating()
         }
     }
@@ -85,9 +85,9 @@ class AnnictEpisodeViewController: UITableViewController {
         }
     }
     
-    func pulledTableView(_ refreshControl: UIRefreshControl) {
+    @objc func pulledTableView(_ refreshControl: UIRefreshControl) {
         self.currentPage = 0
-        self.getEpisodes() { _ in
+        self.getEpisodes() {
             self.refreshControl?.endRefreshing()
         }
     }

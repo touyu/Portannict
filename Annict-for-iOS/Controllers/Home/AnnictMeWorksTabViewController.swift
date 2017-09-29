@@ -33,7 +33,7 @@ class AnnictMeWorksTabViewController: ButtonBarPagerTabStripViewController {
         // set up style before super view did load is executed
         settings.style.buttonBarBackgroundColor = .white
         settings.style.buttonBarItemBackgroundColor = .white
-        settings.style.buttonBarItemFont = .systemFont(ofSize: 16, weight: UIFontWeightThin)
+        settings.style.buttonBarItemFont = .systemFont(ofSize: 16, weight: UIFont.Weight.thin)
         settings.style.buttonBarItemsShouldFillAvailableWidth = true
         settings.style.selectedBarBackgroundColor = UIColor.annictPink
         settings.style.selectedBarHeight = 2.0

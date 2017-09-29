@@ -44,7 +44,7 @@ class AnnictRecordsViewController: UITableViewController {
         
         initTableView()
         startRefreshControlAnimation()
-        getRecords() { [weak self] _ in
+        getRecords() { [weak self] in
             self?.refreshControl?.endRefreshing()
         }
     }
@@ -82,9 +82,9 @@ class AnnictRecordsViewController: UITableViewController {
         self.refreshControl?.beginRefreshing()
     }
     
-    func pulledTableView(_ refreshControl: UIRefreshControl) {
+    @objc func pulledTableView(_ refreshControl: UIRefreshControl) {
         self.currentPage = 0
-        self.getRecords() { [weak self] _ in
+        self.getRecords() { [weak self] in
             self?.refreshControl?.endRefreshing()
         }
     }
@@ -189,7 +189,7 @@ extension AnnictRecordsViewController {
         let delete = UIAlertAction(title: "記録を削除", style: .destructive, handler: { _ in
             self.records.remove(at: indexPath.row)
             self.tableView.reloadData()
-            self.deleteMeRecord(recordID: recordID) { _ in
+            self.deleteMeRecord(recordID: recordID) {
                 self.refreshTableView()
             }
         })
@@ -268,7 +268,7 @@ extension AnnictRecordsViewController: DZNEmptyDataSetSource {
 extension AnnictRecordsViewController: DZNEmptyDataSetDelegate {
     func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
         startRefreshControlAnimation()
-        getRecords() { [weak self] _ in
+        getRecords() { [weak self] in
             self?.refreshControl?.endRefreshing()
         }
     }
