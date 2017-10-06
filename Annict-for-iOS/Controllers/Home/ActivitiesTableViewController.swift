@@ -71,9 +71,9 @@ class ActivitiesTableViewController: UITableViewController {
             case .success(let value):
                 // 初回、pull更新時
                 if self?.currentPage == 0 {
-                    self?.activities = value.activities
+                    self?.activities = value.activities.filter { $0.action != nil }
                 } else {
-                    self?.activities += value.activities
+                    self?.activities += value.activities.filter { $0.action != nil }
                 }
                 self?.currentPage += 1
                 if value.activities.isEmpty {

@@ -62,12 +62,18 @@ struct AnnictRecordResponse {
         return RatingState(rawValue: ratingState)
     }
     
+    private var ratingFloat: Float? {
+        didSet {
+            guard let ratingFloat = ratingFloat else { return }
+            rating = Int(ratingFloat)
+        }
+    }
     private var ratingStateString: String?
     
     init (_ e: Extractor) {
         id = try! e <| "id"
         comment = try! e <|? "comment"
-        rating = try! e <|? "rating"
+        ratingFloat = try! e <|? "rating"
         createdAt = try! e <|? "created_at"
         user = try! e <|? "user"
         work = try! e <|? "work"
