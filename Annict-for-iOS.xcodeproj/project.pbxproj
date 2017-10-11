@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		379E7DD72861BAC29EBAE0AB /* Pods_Annict_for_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47D8127FB87B435E6F54E888 /* Pods_Annict_for_iOS.framework */; };
 		62D4E3428E157A6DCCD1DEC3 /* Pods_Annict_for_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568B38E2C913181675189D9B /* Pods_Annict_for_iOSTests.framework */; };
+		D10E284D1F8DF19300B8DF94 /* GetViewerFollowingActivities.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D10E284C1F8DF19300B8DF94 /* GetViewerFollowingActivities.graphql */; };
 		D113CF0C1E51F5CD0083ED7D /* AnnictTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113CF0B1E51F5CD0083ED7D /* AnnictTabBarController.swift */; };
 		D113CF0E1E52090A0083ED7D /* AnnictTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */; };
 		D113CF101E520CB00083ED7D /* AnnictSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113CF0F1E520CB00083ED7D /* AnnictSearchViewController.swift */; };
@@ -193,6 +194,7 @@
 		5DBD9C55A9D833CFDED35B82 /* Pods-Annict-for-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		6D28F9B5CC108F60AAD883F3 /* Pods-Annict-for-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		99C9C1BD02AF7F9B989A6D54 /* Pods-Annict-for-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOSTests/Pods-Annict-for-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		D10E284C1F8DF19300B8DF94 /* GetViewerFollowingActivities.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetViewerFollowingActivities.graphql; sourceTree = "<group>"; };
 		D113CF0B1E51F5CD0083ED7D /* AnnictTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictTabBarController.swift; sourceTree = "<group>"; };
 		D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictTabBarItem.swift; sourceTree = "<group>"; };
 		D113CF0F1E520CB00083ED7D /* AnnictSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictSearchViewController.swift; sourceTree = "<group>"; };
@@ -788,6 +790,7 @@
 				D162C8B11EEDA8FE002F0FBF /* GetViewerWorks.graphql */,
 				D162C8B51EEECE31002F0FBF /* GetViewerFollowing.graphql */,
 				D162C8B31EEECC18002F0FBF /* GetViewerFollowers.graphql */,
+				D10E284C1F8DF19300B8DF94 /* GetViewerFollowingActivities.graphql */,
 			);
 			name = GraphQL;
 			sourceTree = "<group>";
@@ -1135,6 +1138,7 @@
 				D1FEEFAC1E72E23C004D4D28 /* GoogleService-Info.plist in Resources */,
 				D162C8AA1EED8188002F0FBF /* GetViewer.graphql in Resources */,
 				D11DCF201F3459DA008A4956 /* Login.storyboard in Resources */,
+				D10E284D1F8DF19300B8DF94 /* GetViewerFollowingActivities.graphql in Resources */,
 				D162C8B41EEECC18002F0FBF /* GetViewerFollowers.graphql in Resources */,
 				D13E338A1E504F9300A0CEF6 /* AnnictBaseLocalizable.strings in Resources */,
 				D12F7B141EDD3400009E60E4 /* RatingStateView.xib in Resources */,

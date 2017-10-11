@@ -1,0 +1,54 @@
+query GetViewerFollowingActivities()  {
+    viewer {
+        followingActivities(first: 30, orderBy: { field: CREATED_AT, direction: DESC }) {
+            edges {
+                node {
+                    ... on Status {
+                        createdAt
+                        state
+                        user {
+                            ... UserBasic
+                        }
+                        work {
+                            title
+                            
+                        }
+                    }
+                    ... on Record {
+                        ... RecordBasic
+                    }
+                    ... on MultipleRecord {
+                        createdAt
+                        records() {
+                            edges {
+                                node {
+                                    ... RecordBasic
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+fragment UserBasic on User {
+    avatarUrl
+    name
+    username
+}
+
+fragment RecordBasic on Record {
+    comment
+    createdAt
+    user {
+        ... UserBasic
+    }
+    work {
+        title
+    }
+    episode {
+        title
+    }
+}
