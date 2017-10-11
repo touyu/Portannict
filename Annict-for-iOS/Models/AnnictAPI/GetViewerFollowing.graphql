@@ -1,4 +1,3 @@
-
 query GetViewerFollowing($after: String) {
     viewer {
         following(first: 30 after: $after) {
