@@ -10,6 +10,8 @@
 		379E7DD72861BAC29EBAE0AB /* Pods_Annict_for_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47D8127FB87B435E6F54E888 /* Pods_Annict_for_iOS.framework */; };
 		62D4E3428E157A6DCCD1DEC3 /* Pods_Annict_for_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568B38E2C913181675189D9B /* Pods_Annict_for_iOSTests.framework */; };
 		D10E284D1F8DF19300B8DF94 /* GetViewerFollowingActivities.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D10E284C1F8DF19300B8DF94 /* GetViewerFollowingActivities.graphql */; };
+		D10E284F1F8DF60E00B8DF94 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E284E1F8DF60E00B8DF94 /* TimelineViewController.swift */; };
+		D10E28511F8DF61C00B8DF94 /* TimelineNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E28501F8DF61C00B8DF94 /* TimelineNavigationController.swift */; };
 		D113CF0C1E51F5CD0083ED7D /* AnnictTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113CF0B1E51F5CD0083ED7D /* AnnictTabBarController.swift */; };
 		D113CF0E1E52090A0083ED7D /* AnnictTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */; };
 		D113CF101E520CB00083ED7D /* AnnictSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113CF0F1E520CB00083ED7D /* AnnictSearchViewController.swift */; };
@@ -195,6 +197,8 @@
 		6D28F9B5CC108F60AAD883F3 /* Pods-Annict-for-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		99C9C1BD02AF7F9B989A6D54 /* Pods-Annict-for-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOSTests/Pods-Annict-for-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		D10E284C1F8DF19300B8DF94 /* GetViewerFollowingActivities.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetViewerFollowingActivities.graphql; sourceTree = "<group>"; };
+		D10E284E1F8DF60E00B8DF94 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		D10E28501F8DF61C00B8DF94 /* TimelineNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineNavigationController.swift; sourceTree = "<group>"; };
 		D113CF0B1E51F5CD0083ED7D /* AnnictTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictTabBarController.swift; sourceTree = "<group>"; };
 		D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictTabBarItem.swift; sourceTree = "<group>"; };
 		D113CF0F1E520CB00083ED7D /* AnnictSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictSearchViewController.swift; sourceTree = "<group>"; };
@@ -841,6 +845,8 @@
 			children = (
 				D14F6D311E8FA16900A079EB /* ActivitiesNavigationController.swift */,
 				D155B6901E90C3B400DB0A96 /* ActivitiesTableViewController.swift */,
+				D10E28501F8DF61C00B8DF94 /* TimelineNavigationController.swift */,
+				D10E284E1F8DF60E00B8DF94 /* TimelineViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1453,6 +1459,7 @@
 				D1FEDCFF1E4D7CD300EFA42F /* AnnictConsts.swift in Sources */,
 				D1FEDD041E4D883600EFA42F /* AnnictAPOauthTokenI.swift in Sources */,
 				D13BD2F91E51AA95006CDF2E /* AnnictPostRecordsNavigationController.swift in Sources */,
+				D10E28511F8DF61C00B8DF94 /* TimelineNavigationController.swift in Sources */,
 				D1FEDD021E4D844000EFA42F /* AnnictOauthTokenResponse.swift in Sources */,
 				D195D10A1E4E3189004B6B15 /* AnnictAPIRequest.swift in Sources */,
 				D1FEEFA71E72E0F8004D4D28 /* CheckingLoginStateViewController.swift in Sources */,
@@ -1502,6 +1509,7 @@
 				D11BF4F01E5344980042A40A /* RakutenItemsResponse.swift in Sources */,
 				D14F6D3B1E8FA7D700A079EB /* AnnictActivitiesResponse.swift in Sources */,
 				D195D0EF1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift in Sources */,
+				D10E284F1F8DF60E00B8DF94 /* TimelineViewController.swift in Sources */,
 				D155B6991E913F7C00DB0A96 /* UIImage+Extension.swift in Sources */,
 				D113CF101E520CB00083ED7D /* AnnictSearchViewController.swift in Sources */,
 				D13E33951E505B3E00A0CEF6 /* AnnictDetailAnimeInfoTabViewController.swift in Sources */,

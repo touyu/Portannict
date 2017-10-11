@@ -1,6 +1,6 @@
-query GetViewerFollowingActivities()  {
+query GetViewerFollowingActivities($after: String)  {
     viewer {
-        followingActivities(first: 30, orderBy: { field: CREATED_AT, direction: DESC }) {
+        followingActivities(first: 30, after: $after, orderBy: { field: CREATED_AT, direction: DESC }) {
             edges {
                 node {
                     ... on Status {
@@ -11,7 +11,6 @@ query GetViewerFollowingActivities()  {
                         }
                         work {
                             title
-                            
                         }
                     }
                     ... on Record {
@@ -19,7 +18,7 @@ query GetViewerFollowingActivities()  {
                     }
                     ... on MultipleRecord {
                         createdAt
-                        records() {
+                        records(first: 30) {
                             edges {
                                 node {
                                     ... RecordBasic
@@ -50,5 +49,6 @@ fragment RecordBasic on Record {
     }
     episode {
         title
+        number
     }
 }
