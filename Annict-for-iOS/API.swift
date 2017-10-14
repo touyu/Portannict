@@ -1551,6 +1551,7 @@ public final class GetViewerFollowingActivitiesQuery: GraphQLQuery {
                 public static let selections: [Selection] = [
                   Field("__typename", type: .nonNull(.scalar(String.self))),
                   Field("title", type: .scalar(String.self)),
+                  Field("number", type: .scalar(Int.self)),
                 ]
 
                 public var snapshot: Snapshot
@@ -1559,8 +1560,8 @@ public final class GetViewerFollowingActivitiesQuery: GraphQLQuery {
                   self.snapshot = snapshot
                 }
 
-                public init(title: String? = nil) {
-                  self.init(snapshot: ["__typename": "Episode", "title": title])
+                public init(title: String? = nil, number: Int? = nil) {
+                  self.init(snapshot: ["__typename": "Episode", "title": title, "number": number])
                 }
 
                 public var __typename: String {
@@ -1578,6 +1579,15 @@ public final class GetViewerFollowingActivitiesQuery: GraphQLQuery {
                   }
                   set {
                     snapshot.updateValue(newValue, forKey: "title")
+                  }
+                }
+
+                public var number: Int? {
+                  get {
+                    return snapshot["number"]! as! Int?
+                  }
+                  set {
+                    snapshot.updateValue(newValue, forKey: "number")
                   }
                 }
               }
@@ -1923,6 +1933,7 @@ public final class GetViewerFollowingActivitiesQuery: GraphQLQuery {
                       public static let selections: [Selection] = [
                         Field("__typename", type: .nonNull(.scalar(String.self))),
                         Field("title", type: .scalar(String.self)),
+                        Field("number", type: .scalar(Int.self)),
                       ]
 
                       public var snapshot: Snapshot
@@ -1931,8 +1942,8 @@ public final class GetViewerFollowingActivitiesQuery: GraphQLQuery {
                         self.snapshot = snapshot
                       }
 
-                      public init(title: String? = nil) {
-                        self.init(snapshot: ["__typename": "Episode", "title": title])
+                      public init(title: String? = nil, number: Int? = nil) {
+                        self.init(snapshot: ["__typename": "Episode", "title": title, "number": number])
                       }
 
                       public var __typename: String {
@@ -1950,6 +1961,15 @@ public final class GetViewerFollowingActivitiesQuery: GraphQLQuery {
                         }
                         set {
                           snapshot.updateValue(newValue, forKey: "title")
+                        }
+                      }
+
+                      public var number: Int? {
+                        get {
+                          return snapshot["number"]! as! Int?
+                        }
+                        set {
+                          snapshot.updateValue(newValue, forKey: "number")
                         }
                       }
                     }
@@ -2469,6 +2489,7 @@ public struct RecordBasic: GraphQLFragment {
     "  episode {" +
     "    __typename" +
     "    title" +
+    "    number" +
     "  }" +
     "}"
 
@@ -2669,6 +2690,7 @@ public struct RecordBasic: GraphQLFragment {
     public static let selections: [Selection] = [
       Field("__typename", type: .nonNull(.scalar(String.self))),
       Field("title", type: .scalar(String.self)),
+      Field("number", type: .scalar(Int.self)),
     ]
 
     public var snapshot: Snapshot
@@ -2677,8 +2699,8 @@ public struct RecordBasic: GraphQLFragment {
       self.snapshot = snapshot
     }
 
-    public init(title: String? = nil) {
-      self.init(snapshot: ["__typename": "Episode", "title": title])
+    public init(title: String? = nil, number: Int? = nil) {
+      self.init(snapshot: ["__typename": "Episode", "title": title, "number": number])
     }
 
     public var __typename: String {
@@ -2696,6 +2718,15 @@ public struct RecordBasic: GraphQLFragment {
       }
       set {
         snapshot.updateValue(newValue, forKey: "title")
+      }
+    }
+
+    public var number: Int? {
+      get {
+        return snapshot["number"]! as! Int?
+      }
+      set {
+        snapshot.updateValue(newValue, forKey: "number")
       }
     }
   }

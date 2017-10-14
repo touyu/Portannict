@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TimelineShimmeringCell" rowHeight="254" id="ou8-Cg-4y5" customClass="TimelineShimmeringCell" customModule="Annict_for_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="389" height="254"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ou8-Cg-4y5" id="IPS-oy-nyr">
+                <rect key="frame" x="0.0" y="0.0" width="389" height="253.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NSR-aA-U0C" customClass="ShimmerableView" customModule="Annict_for_iOS" customModuleProvider="target">
+                        <rect key="frame" x="16" y="16" width="48" height="48"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="48" id="FhR-Ev-uuB"/>
+                            <constraint firstAttribute="height" constant="48" id="QoW-uY-Ey9"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhM-VP-Bur" customClass="ShimmerableView" customModule="Annict_for_iOS" customModuleProvider="target">
+                        <rect key="frame" x="80" y="16" width="156.5" height="10"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="Yzo-XK-bSg"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qn2-EZ-Ma0" customClass="ShimmerableView" customModule="Annict_for_iOS" customModuleProvider="target">
+                        <rect key="frame" x="80" y="42" width="195.5" height="10"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="aYg-K2-D2B"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9FF-zD-P8T" customClass="ShimmerableView" customModule="Annict_for_iOS" customModuleProvider="target">
+                        <rect key="frame" x="80" y="84" width="293" height="10"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="lV9-kq-o5X"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMF-Ek-Mrf" customClass="ShimmerableView" customModule="Annict_for_iOS" customModuleProvider="target">
+                        <rect key="frame" x="80" y="110" width="293" height="10"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="cGE-V1-0VU"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Jo-vp-xV6" customClass="ShimmerableView" customModule="Annict_for_iOS" customModuleProvider="target">
+                        <rect key="frame" x="333" y="16" width="40" height="10"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="EwG-ex-WbM"/>
+                            <constraint firstAttribute="height" constant="10" id="L3I-XD-YqH"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EfR-SL-6hr" customClass="ShimmerableView" customModule="Annict_for_iOS" customModuleProvider="target">
+                        <rect key="frame" x="80" y="136" width="176" height="10"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="0Y0-7X-qyE"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="6Jo-vp-xV6" firstAttribute="centerY" secondItem="fhM-VP-Bur" secondAttribute="centerY" id="2ij-91-icX"/>
+                    <constraint firstItem="9FF-zD-P8T" firstAttribute="leading" secondItem="qn2-EZ-Ma0" secondAttribute="leading" id="4qk-Tx-789"/>
+                    <constraint firstItem="lMF-Ek-Mrf" firstAttribute="trailing" secondItem="9FF-zD-P8T" secondAttribute="trailing" id="5S7-IZ-nxw"/>
+                    <constraint firstItem="qn2-EZ-Ma0" firstAttribute="top" secondItem="fhM-VP-Bur" secondAttribute="bottom" constant="16" id="9hu-bs-PQG"/>
+                    <constraint firstItem="fhM-VP-Bur" firstAttribute="top" secondItem="NSR-aA-U0C" secondAttribute="top" id="AWX-v3-Rob"/>
+                    <constraint firstItem="EfR-SL-6hr" firstAttribute="width" secondItem="lMF-Ek-Mrf" secondAttribute="width" multiplier="3/5" id="P84-Us-CXc"/>
+                    <constraint firstItem="lMF-Ek-Mrf" firstAttribute="top" secondItem="9FF-zD-P8T" secondAttribute="bottom" constant="16" id="R3Q-4D-KPE"/>
+                    <constraint firstItem="9FF-zD-P8T" firstAttribute="trailing" secondItem="6Jo-vp-xV6" secondAttribute="trailing" id="ScY-d4-Yw8"/>
+                    <constraint firstItem="9FF-zD-P8T" firstAttribute="top" secondItem="qn2-EZ-Ma0" secondAttribute="bottom" constant="32" id="XgU-9Y-cwb"/>
+                    <constraint firstItem="6Jo-vp-xV6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fhM-VP-Bur" secondAttribute="trailing" constant="16" id="ZJu-wu-khI"/>
+                    <constraint firstItem="EfR-SL-6hr" firstAttribute="top" secondItem="lMF-Ek-Mrf" secondAttribute="bottom" constant="16" id="aXc-Li-9S4"/>
+                    <constraint firstItem="EfR-SL-6hr" firstAttribute="leading" secondItem="lMF-Ek-Mrf" secondAttribute="leading" id="bvy-JX-0qI"/>
+                    <constraint firstItem="lMF-Ek-Mrf" firstAttribute="leading" secondItem="9FF-zD-P8T" secondAttribute="leading" id="cWY-Uu-MId"/>
+                    <constraint firstItem="qn2-EZ-Ma0" firstAttribute="leading" secondItem="fhM-VP-Bur" secondAttribute="leading" id="hDR-rh-jeA"/>
+                    <constraint firstItem="NSR-aA-U0C" firstAttribute="leading" secondItem="IPS-oy-nyr" secondAttribute="leading" constant="16" id="mIF-Ei-eTa"/>
+                    <constraint firstAttribute="trailing" secondItem="6Jo-vp-xV6" secondAttribute="trailing" constant="16" id="p9G-ux-ebh"/>
+                    <constraint firstItem="NSR-aA-U0C" firstAttribute="top" secondItem="IPS-oy-nyr" secondAttribute="top" constant="16" id="qdr-hT-6tg"/>
+                    <constraint firstItem="qn2-EZ-Ma0" firstAttribute="width" secondItem="IPS-oy-nyr" secondAttribute="width" multiplier="1/2" constant="1" id="rsN-uc-BpS"/>
+                    <constraint firstItem="fhM-VP-Bur" firstAttribute="leading" secondItem="NSR-aA-U0C" secondAttribute="trailing" constant="16" id="vxn-qk-5Hp"/>
+                    <constraint firstItem="fhM-VP-Bur" firstAttribute="width" secondItem="IPS-oy-nyr" secondAttribute="width" multiplier="2/5" constant="1" id="zbB-PC-UcQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <inset key="separatorInset" minX="80" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <point key="canvasLocation" x="-3.5" y="97"/>
+        </tableViewCell>
+    </objects>
+</document>
