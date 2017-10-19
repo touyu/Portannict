@@ -26,7 +26,7 @@ extension AnnictRecordsResponse: Himotoki.Decodable {
     }
 }
 
-enum RatingState: String {
+enum PortannictRatingState: String {
     case bad = "bad"
     case average = "average"
     case good = "good"
@@ -57,9 +57,9 @@ struct AnnictRecordResponse {
     var createdAt: String?
     var user: AnnictUserResponse?
     var work: AnnictWorkResponse?
-    var ratingState: RatingState? {
+    var ratingState: PortannictRatingState? {
         guard let ratingState = self.ratingStateString else { return nil }
-        return RatingState(rawValue: ratingState)
+        return PortannictRatingState(rawValue: ratingState)
     }
     
     private var ratingFloat: Float? {

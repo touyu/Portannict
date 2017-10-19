@@ -13,6 +13,15 @@ public enum StatusState: String {
 
 extension StatusState: Apollo.JSONDecodable, Apollo.JSONEncodable {}
 
+public enum RatingState: String {
+  case great = "GREAT"
+  case good = "GOOD"
+  case average = "AVERAGE"
+  case bad = "BAD"
+}
+
+extension RatingState: Apollo.JSONDecodable, Apollo.JSONEncodable {}
+
 public final class GetViewerQuery: GraphQLQuery {
   public static let operationString =
     "query GetViewer {" +
@@ -1083,8 +1092,8 @@ public final class GetViewerFollowingActivitiesQuery: GraphQLQuery {
               return Node(snapshot: ["__typename": "Status", "createdAt": createdAt, "state": state, "user": user, "work": work])
             }
 
-            public static func makeRecord(createdAt: String, user: AsRecord.User, work: AsRecord.Work, comment: String? = nil, episode: AsRecord.Episode) -> Node {
-              return Node(snapshot: ["__typename": "Record", "createdAt": createdAt, "user": user, "work": work, "comment": comment, "episode": episode])
+            public static func makeRecord(createdAt: String, user: AsRecord.User, work: AsRecord.Work, comment: String? = nil, ratingState: RatingState? = nil, episode: AsRecord.Episode) -> Node {
+              return Node(snapshot: ["__typename": "Record", "createdAt": createdAt, "user": user, "work": work, "comment": comment, "ratingState": ratingState, "episode": episode])
             }
 
             public static func makeReview() -> Node {
@@ -1365,6 +1374,7 @@ public final class GetViewerFollowingActivitiesQuery: GraphQLQuery {
                 Field("user", type: .nonNull(.object(AsRecord.User.self))),
                 Field("work", type: .nonNull(.object(AsRecord.Work.self))),
                 Field("comment", type: .scalar(String.self)),
+                Field("ratingState", type: .scalar(RatingState.self)),
                 Field("episode", type: .nonNull(.object(AsRecord.Episode.self))),
               ]
 
@@ -1374,8 +1384,8 @@ public final class GetViewerFollowingActivitiesQuery: GraphQLQuery {
                 self.snapshot = snapshot
               }
 
-              public init(createdAt: String, user: User, work: Work, comment: String? = nil, episode: Episode) {
-                self.init(snapshot: ["__typename": "Record", "createdAt": createdAt, "user": user, "work": work, "comment": comment, "episode": episode])
+              public init(createdAt: String, user: User, work: Work, comment: String? = nil, ratingState: RatingState? = nil, episode: Episode) {
+                self.init(snapshot: ["__typename": "Record", "createdAt": createdAt, "user": user, "work": work, "comment": comment, "ratingState": ratingState, "episode": episode])
               }
 
               public var __typename: String {
@@ -1420,6 +1430,15 @@ public final class GetViewerFollowingActivitiesQuery: GraphQLQuery {
                 }
                 set {
                   snapshot.updateValue(newValue, forKey: "comment")
+                }
+              }
+
+              public var ratingState: RatingState? {
+                get {
+                  return snapshot["ratingState"]! as! RatingState?
+                }
+                set {
+                  snapshot.updateValue(newValue, forKey: "ratingState")
                 }
               }
 
@@ -2118,6 +2137,7 @@ public struct RecordBasic: GraphQLFragment {
     "  __typename" +
     "  comment" +
     "  createdAt" +
+    "  ratingState" +
     "  user {" +
     "    __typename" +
     "    ...UserBasic" +
@@ -2139,6 +2159,7 @@ public struct RecordBasic: GraphQLFragment {
     Field("__typename", type: .nonNull(.scalar(String.self))),
     Field("comment", type: .scalar(String.self)),
     Field("createdAt", type: .nonNull(.scalar(String.self))),
+    Field("ratingState", type: .scalar(RatingState.self)),
     Field("user", type: .nonNull(.object(RecordBasic.User.self))),
     Field("work", type: .nonNull(.object(RecordBasic.Work.self))),
     Field("episode", type: .nonNull(.object(RecordBasic.Episode.self))),
@@ -2150,8 +2171,8 @@ public struct RecordBasic: GraphQLFragment {
     self.snapshot = snapshot
   }
 
-  public init(comment: String? = nil, createdAt: String, user: User, work: Work, episode: Episode) {
-    self.init(snapshot: ["__typename": "Record", "comment": comment, "createdAt": createdAt, "user": user, "work": work, "episode": episode])
+  public init(comment: String? = nil, createdAt: String, ratingState: RatingState? = nil, user: User, work: Work, episode: Episode) {
+    self.init(snapshot: ["__typename": "Record", "comment": comment, "createdAt": createdAt, "ratingState": ratingState, "user": user, "work": work, "episode": episode])
   }
 
   public var __typename: String {
@@ -2178,6 +2199,15 @@ public struct RecordBasic: GraphQLFragment {
     }
     set {
       snapshot.updateValue(newValue, forKey: "createdAt")
+    }
+  }
+
+  public var ratingState: RatingState? {
+    get {
+      return snapshot["ratingState"]! as! RatingState?
+    }
+    set {
+      snapshot.updateValue(newValue, forKey: "ratingState")
     }
   }
 

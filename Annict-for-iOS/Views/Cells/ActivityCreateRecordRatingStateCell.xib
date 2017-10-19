@@ -107,7 +107,7 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpx-5g-RuU" customClass="RatingStateView" customModule="Annict_for_iOS" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpx-5g-RuU" customClass="OldRatingStateView" customModule="Annict_for_iOS" customModuleProvider="target">
                         <rect key="frame" x="72" y="67" width="80" height="18"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

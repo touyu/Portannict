@@ -15,6 +15,7 @@ class TimelineCellForRecord: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var ratingStateView: RatingStateView!
     
     private var _activity: FollowingActivity.AsRecord? {
         didSet {
@@ -25,6 +26,7 @@ class TimelineCellForRecord: UITableViewCell {
             usernameLabel.text = "@\(activity.user.username)"
             timeLabel.text = activity.createdAt.toDate().timeAgoSinceNow
             initMessageLabel()
+            ratingStateView.statusState = activity.ratingState
         }
     }
     
@@ -37,9 +39,9 @@ class TimelineCellForRecord: UITableViewCell {
         
         let title = activity.work.title
         if let episodeNumber = activity.episode.number {
-            messageLabel.text = "\(title) 第\(episodeNumber)話を見ました。"
+            messageLabel.text = "\(title) 第\(episodeNumber)話を見ました。\n\n\(activity.comment ?? "")"
         } else {
-            messageLabel.text = "\(title) を見ました。"
+            messageLabel.text = "\(title) を見ました。\n\n \(activity.comment ?? "")"
         }
     }
 }

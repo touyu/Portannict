@@ -34,9 +34,15 @@
 "following" = "フォロー";
 "follower" = "フォロワー";
 
+// 非推奨
 "bad" = "良くない";
 "average" = "普通";
 "good" = "良い";
 "great" = "とても良い";
+
+"BAD" = "良くない";
+"AVERAGE" = "普通";
+"GOOD" = "良い";
+"GREAT" = "とても良い";
 
 "terms_of_use" = "利用規約";

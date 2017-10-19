@@ -19,7 +19,7 @@ class RecordCell: UITableViewCell {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var ratingStateView: RatingStateView!
+    @IBOutlet weak var ratingStateView: OldRatingStateView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
     

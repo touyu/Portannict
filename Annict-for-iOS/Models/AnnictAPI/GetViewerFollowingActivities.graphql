@@ -34,6 +34,7 @@ fragment UserBasic on User {
 fragment RecordBasic on Record {
     comment
     createdAt
+    ratingState
     user {
         ... UserBasic
     }

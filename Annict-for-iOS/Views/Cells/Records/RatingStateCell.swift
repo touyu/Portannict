@@ -9,7 +9,7 @@
 import UIKit
 
 protocol RatingStateCellDelegate {
-    func changedSelectedRatingState(state: RatingState?)
+    func changedSelectedRatingState(state: PortannictRatingState?)
 }
 
 class RatingStateCell: UITableViewCell {
@@ -31,16 +31,16 @@ class RatingStateCell: UITableViewCell {
         
         switch sender.selectedSegmentIndex {
         case 0:
-            sender.tintColor = RatingState.bad.color
+            sender.tintColor = PortannictRatingState.bad.color
             delegate?.changedSelectedRatingState(state: .bad)
         case 1:
-            sender.tintColor = RatingState.average.color
+            sender.tintColor = PortannictRatingState.average.color
             delegate?.changedSelectedRatingState(state: .average)
         case 2:
-            sender.tintColor = RatingState.good.color
+            sender.tintColor = PortannictRatingState.good.color
             delegate?.changedSelectedRatingState(state: .good)
         case 3:
-            sender.tintColor = RatingState.great.color
+            sender.tintColor = PortannictRatingState.great.color
             delegate?.changedSelectedRatingState(state: .great)
         default:
             sender.tintColor = UIColor(hex: 0x4A4A4A)

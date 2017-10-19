@@ -16,7 +16,7 @@ class AnnictPostRecordsViewController: UIViewController {
     
     @IBOutlet dynamic fileprivate weak var tableView: UITableView!
     
-    fileprivate var ratingState: RatingState?
+    fileprivate var ratingState: PortannictRatingState?
     fileprivate var comment: String?
     fileprivate var twitterSharing = false
     fileprivate var facebookSharing = false
@@ -152,7 +152,7 @@ extension AnnictPostRecordsViewController: UITableViewDelegate {
 }
 
 extension AnnictPostRecordsViewController: RatingStateCellDelegate {
-    func changedSelectedRatingState(state: RatingState?) {
+    func changedSelectedRatingState(state: PortannictRatingState?) {
         ratingState = state
     }
 }

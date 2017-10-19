@@ -34,9 +34,15 @@
 "following" = "Following";
 "follower" = "Follower";
 
+// deprecated
 "bad" = "Bad";
 "average" = "Average";
 "good" = "Good";
 "great" = "Great";
+
+"BAD" = "Bad";
+"AVERAGE" = "Average";
+"GOOD" = "Good";
+"GREAT" = "Great";
 
 "terms_of_use" = "terms of use";

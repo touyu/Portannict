@@ -29,7 +29,7 @@ class ActivityCreateRecordRatingStateCell: UITableViewCell {
     @IBOutlet weak var infoTextView: UITextView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var ratingStateView: RatingStateView!
+    @IBOutlet weak var ratingStateView: OldRatingStateView!
     
     @IBOutlet weak var annictWorkView: UIView!
     @IBOutlet weak var animeImageView: UIImageView!
@@ -87,7 +87,7 @@ class ActivityCreateRecordRatingStateCell: UITableViewCell {
         infoTextView.textContainer.lineFragmentPadding = 0
     }
     
-    private func initRatingStateView(ratingState: RatingState?) {
+    private func initRatingStateView(ratingState: PortannictRatingState?) {
         guard let ratingState = ratingState else { return }
         
         ratingStateView.set(ratingState: ratingState)

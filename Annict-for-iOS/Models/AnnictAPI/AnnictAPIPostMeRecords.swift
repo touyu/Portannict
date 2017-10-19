@@ -14,7 +14,7 @@ extension AnnictAPI {
     struct PostMeRecords: AnnictAPIRequest {
         var episodeID: Int!
         var comment: String?
-        var ratingState: RatingState?
+        var ratingState: PortannictRatingState?
         var shareTwitter = false
         var shareFacebook = false
         
