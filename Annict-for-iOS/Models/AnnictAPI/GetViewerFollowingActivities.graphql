@@ -16,6 +16,9 @@ query GetViewerFollowingActivities($after: String)  {
                             }
                         }
                     }
+                    ... on Record {
+                        ... RecordBasic
+                    }
                 }
             }
         }

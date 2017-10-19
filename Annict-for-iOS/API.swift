@@ -908,12 +908,16 @@ public final class GetViewerFollowingActivitiesQuery: GraphQLQuery {
     "              }" +
     "            }" +
     "          }" +
+    "          ... on Record {" +
+    "            __typename" +
+    "            ...RecordBasic" +
+    "          }" +
     "        }" +
     "      }" +
     "    }" +
     "  }" +
     "}"
-  public static var requestString: String { return operationString.appending(UserBasic.fragmentString) }
+  public static var requestString: String { return operationString.appending(UserBasic.fragmentString).appending(RecordBasic.fragmentString) }
 
   public var after: String?
 
@@ -1066,6 +1070,7 @@ public final class GetViewerFollowingActivitiesQuery: GraphQLQuery {
             public static let selections: [Selection] = [
               Field("__typename", type: .nonNull(.scalar(String.self))),
               FragmentSpread(Node.AsStatus.self),
+              FragmentSpread(Node.AsRecord.self),
             ]
 
             public var snapshot: Snapshot
@@ -1078,8 +1083,8 @@ public final class GetViewerFollowingActivitiesQuery: GraphQLQuery {
               return Node(snapshot: ["__typename": "Status", "createdAt": createdAt, "state": state, "user": user, "work": work])
             }
 
-            public static func makeRecord() -> Node {
-              return Node(snapshot: ["__typename": "Record"])
+            public static func makeRecord(createdAt: String, user: AsRecord.User, work: AsRecord.Work, comment: String? = nil, episode: AsRecord.Episode) -> Node {
+              return Node(snapshot: ["__typename": "Record", "createdAt": createdAt, "user": user, "work": work, "comment": comment, "episode": episode])
             }
 
             public static func makeReview() -> Node {
@@ -1103,6 +1108,17 @@ public final class GetViewerFollowingActivitiesQuery: GraphQLQuery {
               get {
                 if !AsStatus.possibleTypes.contains(__typename) { return nil }
                 return AsStatus(snapshot: snapshot)
+              }
+              set {
+                guard let newValue = newValue else { return }
+                snapshot = newValue.snapshot
+              }
+            }
+
+            public var asRecord: AsRecord? {
+              get {
+                if !AsRecord.possibleTypes.contains(__typename) { return nil }
+                return AsRecord(snapshot: snapshot)
               }
               set {
                 guard let newValue = newValue else { return }
@@ -1335,6 +1351,268 @@ public final class GetViewerFollowingActivitiesQuery: GraphQLQuery {
                     set {
                       snapshot.updateValue(newValue, forKey: "recommendedImageUrl")
                     }
+                  }
+                }
+              }
+            }
+
+            public struct AsRecord: GraphQLFragment {
+              public static let possibleTypes = ["Record"]
+
+              public static let selections: [Selection] = [
+                Field("__typename", type: .nonNull(.scalar(String.self))),
+                Field("createdAt", type: .nonNull(.scalar(String.self))),
+                Field("user", type: .nonNull(.object(AsRecord.User.self))),
+                Field("work", type: .nonNull(.object(AsRecord.Work.self))),
+                Field("comment", type: .scalar(String.self)),
+                Field("episode", type: .nonNull(.object(AsRecord.Episode.self))),
+              ]
+
+              public var snapshot: Snapshot
+
+              public init(snapshot: Snapshot) {
+                self.snapshot = snapshot
+              }
+
+              public init(createdAt: String, user: User, work: Work, comment: String? = nil, episode: Episode) {
+                self.init(snapshot: ["__typename": "Record", "createdAt": createdAt, "user": user, "work": work, "comment": comment, "episode": episode])
+              }
+
+              public var __typename: String {
+                get {
+                  return snapshot["__typename"]! as! String
+                }
+                set {
+                  snapshot.updateValue(newValue, forKey: "__typename")
+                }
+              }
+
+              public var createdAt: String {
+                get {
+                  return snapshot["createdAt"]! as! String
+                }
+                set {
+                  snapshot.updateValue(newValue, forKey: "createdAt")
+                }
+              }
+
+              public var user: User {
+                get {
+                  return User(snapshot: snapshot["user"]! as! Snapshot)
+                }
+                set {
+                  snapshot.updateValue(newValue.snapshot, forKey: "user")
+                }
+              }
+
+              public var work: Work {
+                get {
+                  return Work(snapshot: snapshot["work"]! as! Snapshot)
+                }
+                set {
+                  snapshot.updateValue(newValue.snapshot, forKey: "work")
+                }
+              }
+
+              public var comment: String? {
+                get {
+                  return snapshot["comment"]! as! String?
+                }
+                set {
+                  snapshot.updateValue(newValue, forKey: "comment")
+                }
+              }
+
+              public var episode: Episode {
+                get {
+                  return Episode(snapshot: snapshot["episode"]! as! Snapshot)
+                }
+                set {
+                  snapshot.updateValue(newValue.snapshot, forKey: "episode")
+                }
+              }
+
+              public var fragments: Fragments {
+                get {
+                  return Fragments(snapshot: snapshot)
+                }
+                set {
+                  snapshot = newValue.snapshot
+                }
+              }
+
+              public struct Fragments {
+                public var snapshot: Snapshot
+
+                public var recordBasic: RecordBasic {
+                  get {
+                    return RecordBasic(snapshot: snapshot)
+                  }
+                  set {
+                    snapshot = newValue.snapshot
+                  }
+                }
+              }
+
+              public struct User: GraphQLSelectionSet {
+                public static let possibleTypes = ["User"]
+
+                public static let selections: [Selection] = [
+                  Field("__typename", type: .nonNull(.scalar(String.self))),
+                  Field("avatarUrl", type: .scalar(String.self)),
+                  Field("name", type: .nonNull(.scalar(String.self))),
+                  Field("username", type: .nonNull(.scalar(String.self))),
+                ]
+
+                public var snapshot: Snapshot
+
+                public init(snapshot: Snapshot) {
+                  self.snapshot = snapshot
+                }
+
+                public init(avatarUrl: String? = nil, name: String, username: String) {
+                  self.init(snapshot: ["__typename": "User", "avatarUrl": avatarUrl, "name": name, "username": username])
+                }
+
+                public var __typename: String {
+                  get {
+                    return snapshot["__typename"]! as! String
+                  }
+                  set {
+                    snapshot.updateValue(newValue, forKey: "__typename")
+                  }
+                }
+
+                public var avatarUrl: String? {
+                  get {
+                    return snapshot["avatarUrl"]! as! String?
+                  }
+                  set {
+                    snapshot.updateValue(newValue, forKey: "avatarUrl")
+                  }
+                }
+
+                public var name: String {
+                  get {
+                    return snapshot["name"]! as! String
+                  }
+                  set {
+                    snapshot.updateValue(newValue, forKey: "name")
+                  }
+                }
+
+                public var username: String {
+                  get {
+                    return snapshot["username"]! as! String
+                  }
+                  set {
+                    snapshot.updateValue(newValue, forKey: "username")
+                  }
+                }
+
+                public var fragments: Fragments {
+                  get {
+                    return Fragments(snapshot: snapshot)
+                  }
+                  set {
+                    snapshot = newValue.snapshot
+                  }
+                }
+
+                public struct Fragments {
+                  public var snapshot: Snapshot
+
+                  public var userBasic: UserBasic {
+                    get {
+                      return UserBasic(snapshot: snapshot)
+                    }
+                    set {
+                      snapshot = newValue.snapshot
+                    }
+                  }
+                }
+              }
+
+              public struct Work: GraphQLSelectionSet {
+                public static let possibleTypes = ["Work"]
+
+                public static let selections: [Selection] = [
+                  Field("__typename", type: .nonNull(.scalar(String.self))),
+                  Field("title", type: .nonNull(.scalar(String.self))),
+                ]
+
+                public var snapshot: Snapshot
+
+                public init(snapshot: Snapshot) {
+                  self.snapshot = snapshot
+                }
+
+                public init(title: String) {
+                  self.init(snapshot: ["__typename": "Work", "title": title])
+                }
+
+                public var __typename: String {
+                  get {
+                    return snapshot["__typename"]! as! String
+                  }
+                  set {
+                    snapshot.updateValue(newValue, forKey: "__typename")
+                  }
+                }
+
+                public var title: String {
+                  get {
+                    return snapshot["title"]! as! String
+                  }
+                  set {
+                    snapshot.updateValue(newValue, forKey: "title")
+                  }
+                }
+              }
+
+              public struct Episode: GraphQLSelectionSet {
+                public static let possibleTypes = ["Episode"]
+
+                public static let selections: [Selection] = [
+                  Field("__typename", type: .nonNull(.scalar(String.self))),
+                  Field("title", type: .scalar(String.self)),
+                  Field("number", type: .scalar(Int.self)),
+                ]
+
+                public var snapshot: Snapshot
+
+                public init(snapshot: Snapshot) {
+                  self.snapshot = snapshot
+                }
+
+                public init(title: String? = nil, number: Int? = nil) {
+                  self.init(snapshot: ["__typename": "Episode", "title": title, "number": number])
+                }
+
+                public var __typename: String {
+                  get {
+                    return snapshot["__typename"]! as! String
+                  }
+                  set {
+                    snapshot.updateValue(newValue, forKey: "__typename")
+                  }
+                }
+
+                public var title: String? {
+                  get {
+                    return snapshot["title"]! as! String?
+                  }
+                  set {
+                    snapshot.updateValue(newValue, forKey: "title")
+                  }
+                }
+
+                public var number: Int? {
+                  get {
+                    return snapshot["number"]! as! Int?
+                  }
+                  set {
+                    snapshot.updateValue(newValue, forKey: "number")
                   }
                 }
               }

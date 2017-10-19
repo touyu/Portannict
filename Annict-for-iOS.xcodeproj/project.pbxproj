@@ -154,6 +154,8 @@
 		D1E5D35D1EF26F74007F34EB /* FollowerUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5D35C1EF26F74007F34EB /* FollowerUserCell.swift */; };
 		D1E5D35F1EF26F9B007F34EB /* FollowerUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E5D35E1EF26F9B007F34EB /* FollowerUserCell.xib */; };
 		D1EACAAD1F983FE600422918 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EACAAC1F983FE600422918 /* Extension.swift */; };
+		D1EACAB21F9842AC00422918 /* TimelineCellForRecord.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1EACAB11F9842AC00422918 /* TimelineCellForRecord.xib */; };
+		D1EACAB41F9842B300422918 /* TimelineCellForRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EACAB31F9842B300422918 /* TimelineCellForRecord.swift */; };
 		D1EB52E01EED6FDE00F76629 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EB52DF1EED6FDE00F76629 /* Apollo.framework */; };
 		D1FEDCFF1E4D7CD300EFA42F /* AnnictConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */; };
 		D1FEDD021E4D844000EFA42F /* AnnictOauthTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */; };
@@ -350,6 +352,8 @@
 		D1E5D35C1EF26F74007F34EB /* FollowerUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowerUserCell.swift; sourceTree = "<group>"; };
 		D1E5D35E1EF26F9B007F34EB /* FollowerUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowerUserCell.xib; sourceTree = "<group>"; };
 		D1EACAAC1F983FE600422918 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		D1EACAB11F9842AC00422918 /* TimelineCellForRecord.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineCellForRecord.xib; sourceTree = "<group>"; };
+		D1EACAB31F9842B300422918 /* TimelineCellForRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCellForRecord.swift; sourceTree = "<group>"; };
 		D1EB52DF1EED6FDE00F76629 /* Apollo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apollo.framework; path = Carthage/Build/iOS/Apollo.framework; sourceTree = "<group>"; };
 		D1EE8F321F7574680047B78C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictConsts.swift; sourceTree = "<group>"; };
@@ -694,6 +698,7 @@
 			children = (
 				D1BE2F801F8F4AE100A56D4A /* TimelineShimmeringCell */,
 				D14C6B0B1F92573300EC94D8 /* TimelineCellForStatus */,
+				D1EACAB01F98422500422918 /* TimelineCellForRecord */,
 			);
 			name = TimilineCells;
 			sourceTree = "<group>";
@@ -1024,6 +1029,15 @@
 			name = FollowerUserCell;
 			sourceTree = "<group>";
 		};
+		D1EACAB01F98422500422918 /* TimelineCellForRecord */ = {
+			isa = PBXGroup;
+			children = (
+				D1EACAB31F9842B300422918 /* TimelineCellForRecord.swift */,
+				D1EACAB11F9842AC00422918 /* TimelineCellForRecord.xib */,
+			);
+			path = TimelineCellForRecord;
+			sourceTree = "<group>";
+		};
 		D1FEDD001E4D841A00EFA42F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1228,6 +1242,7 @@
 				D162C8C11EEED4A0002F0FBF /* FollowingUserCell.xib in Resources */,
 				D14F6D401E8FABDA00A079EB /* AnnictActivityCreateStatusCell.xib in Resources */,
 				D137D6871E4D735E00F0FCFB /* Assets.xcassets in Resources */,
+				D1EACAB21F9842AC00422918 /* TimelineCellForRecord.xib in Resources */,
 				D195D0ED1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard in Resources */,
 				D1D1EFB81EB4921100CC1F5C /* AnnictRecordCell.xib in Resources */,
 				D14C6B081F923ACD00EC94D8 /* TimelineCellForStatus.xib in Resources */,
@@ -1575,6 +1590,7 @@
 				D12F4EB41E54139200EB0651 /* AnnictRecentlyAnimeSectionCell.swift in Sources */,
 				D13BD2DD1E50A395006CDF2E /* AnnictSubtextCell.swift in Sources */,
 				D11BF4F01E5344980042A40A /* RakutenItemsResponse.swift in Sources */,
+				D1EACAB41F9842B300422918 /* TimelineCellForRecord.swift in Sources */,
 				D14F6D3B1E8FA7D700A079EB /* AnnictActivitiesResponse.swift in Sources */,
 				D195D0EF1E4DE3F0004B6B15 /* AnnictMeWorksViewController.swift in Sources */,
 				D10E284F1F8DF60E00B8DF94 /* TimelineViewController.swift in Sources */,
