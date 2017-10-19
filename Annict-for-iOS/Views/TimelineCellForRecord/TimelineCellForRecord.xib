@@ -17,7 +17,74 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0RQ-7b-WXp" id="akf-sL-mJk">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="239.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QOt-Bs-Dqs">
+                        <rect key="frame" x="16" y="16" width="48" height="48"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="48" id="XPn-aS-EHc"/>
+                            <constraint firstAttribute="width" constant="48" id="mdd-Gg-oPA"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ncv-wT-Cvq">
+                        <rect key="frame" x="80" y="16" width="121.5" height="16"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hP4-cn-A1Q">
+                                <rect key="frame" x="0.0" y="0.0" width="43" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBP-Kf-YyW">
+                                <rect key="frame" x="51" y="1.5" width="70.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="KBP-Kf-YyW" firstAttribute="bottom" secondItem="hP4-cn-A1Q" secondAttribute="bottom" id="CGQ-HN-o2z"/>
+                            <constraint firstAttribute="height" constant="16" id="yqk-FL-QSS"/>
+                        </constraints>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMA-ur-FaX">
+                        <rect key="frame" x="334" y="18" width="25" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="***** 第1話を見ました" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoG-WT-ga6">
+                        <rect key="frame" x="80" y="48" width="279" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="QOt-Bs-Dqs" secondAttribute="bottom" constant="175.5" id="30P-Lo-lJi"/>
+                    <constraint firstItem="JMA-ur-FaX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ncv-wT-Cvq" secondAttribute="trailing" constant="8" id="49S-vA-931"/>
+                    <constraint firstItem="QOt-Bs-Dqs" firstAttribute="leading" secondItem="akf-sL-mJk" secondAttribute="leading" constant="16" id="9Eg-gD-Sbx"/>
+                    <constraint firstItem="uoG-WT-ga6" firstAttribute="top" secondItem="ncv-wT-Cvq" secondAttribute="bottom" constant="16" id="IRp-8g-clj"/>
+                    <constraint firstItem="ncv-wT-Cvq" firstAttribute="leading" secondItem="QOt-Bs-Dqs" secondAttribute="trailing" constant="16" id="SUz-pp-btj"/>
+                    <constraint firstItem="QOt-Bs-Dqs" firstAttribute="top" secondItem="akf-sL-mJk" secondAttribute="top" constant="16" id="Wk1-70-M2i"/>
+                    <constraint firstAttribute="trailing" secondItem="JMA-ur-FaX" secondAttribute="trailing" constant="16" id="pSa-XR-e5S"/>
+                    <constraint firstItem="JMA-ur-FaX" firstAttribute="bottom" secondItem="ncv-wT-Cvq" secondAttribute="bottom" id="puA-tz-hNn"/>
+                    <constraint firstItem="uoG-WT-ga6" firstAttribute="trailing" secondItem="JMA-ur-FaX" secondAttribute="trailing" id="q7n-bV-jpN"/>
+                    <constraint firstItem="ncv-wT-Cvq" firstAttribute="top" secondItem="QOt-Bs-Dqs" secondAttribute="top" id="s0W-py-5nM"/>
+                    <constraint firstItem="uoG-WT-ga6" firstAttribute="leading" secondItem="ncv-wT-Cvq" secondAttribute="leading" id="yMg-Lc-FVO"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="avatarImageView" destination="QOt-Bs-Dqs" id="B3s-A8-zAy"/>
+                <outlet property="messageLabel" destination="uoG-WT-ga6" id="4HA-KV-Gfq"/>
+                <outlet property="nameLabel" destination="hP4-cn-A1Q" id="Dpz-VD-7tk"/>
+                <outlet property="timeLabel" destination="JMA-ur-FaX" id="b4p-Ud-deX"/>
+                <outlet property="usernameLabel" destination="KBP-Kf-YyW" id="7bH-r9-fbW"/>
+            </connections>
             <point key="canvasLocation" x="10" y="38"/>
         </tableViewCell>
     </objects>

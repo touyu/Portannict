@@ -29,7 +29,8 @@ class TimelineViewController: UITableViewController {
     private func initTableView() {
         tableView.isScrollEnabled = false
         tableView.register(cellTypes: [TimelineShimmeringCell.self,
-                                       TimelineCellForStatus.self])
+                                       TimelineCellForStatus.self,
+                                       TimelineCellForRecord.self])
     }
     
     private func getViewerFollowingActivities() {
@@ -67,19 +68,23 @@ extension TimelineViewController {
             let cell = tableView.dequeueReusableCell(with: TimelineCellForStatus.self, for: indexPath)
             cell.set(activity: activity.asStatus)
             return cell
+        case .record:
+            let cell = tableView.dequeueReusableCell(with: TimelineCellForRecord.self, for: indexPath)
+            cell.set(activity: activity.asRecord)
+            return cell
         default:
            return makeTimelineShimmeringCell(indexPath: indexPath)
         }
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.alpha = 0.2
-        UIView.animate(withDuration: 0.4,
-                       delay: 0,
-                       options: .allowUserInteraction,
-                       animations: {
-            cell.alpha = 1
+        if tableView.contentOffset.y == 0 {
+            cell.alpha = 0.2
+            UIView.animate(withDuration: 0.4, delay: 0, options: .allowUserInteraction, animations: {
+                cell.alpha = 1
             }, completion: nil)
+
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -19,10 +19,17 @@ extension FollowingActivity {
     }
     
     var cellType: CellType? {
-        if let _ = asStatus {
+        switch __typename {
+        case "Status":
             return .status
+        case "Record":
+            return .record
+        case "Review":
+            return .review
+        case "MultipleRecord":
+            return .multipleRecord
+        default:
+            return nil
         }
-        
-        return nil
     }
 }
