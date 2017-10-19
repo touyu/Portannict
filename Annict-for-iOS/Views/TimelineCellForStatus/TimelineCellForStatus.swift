@@ -26,7 +26,6 @@ class TimelineCellForStatus: UITableViewCell {
     @IBOutlet weak var workView: UIView! {
         didSet {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedWorkView(_:)))
-            tapGesture.cancelsTouchesInView = true
             workView.addGestureRecognizer(tapGesture)
 //            let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(tappedWorkView))
 //            longPressGesture.minimumPressDuration = 0.01
@@ -97,7 +96,7 @@ class TimelineCellForStatus: UITableViewCell {
     private func initMessageLabel() {
         guard let activity = _activity else { return }
         let workTitle = activity.work.title
-        let state = activity.state
+        let state = activity.state.localized()
         messageLabel.text = "\(workTitle)のステータスを「\(state)」に変更しました。"
     }
 }

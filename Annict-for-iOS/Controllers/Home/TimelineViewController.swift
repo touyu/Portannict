@@ -9,7 +9,13 @@
 import UIKit
 
 class TimelineViewController: UITableViewController {
-    fileprivate var activities: [FollowingActivity] = []
+    fileprivate var activities: [FollowingActivity] = [] {
+        didSet {
+            if activities.count > 0 {
+                tableView.isScrollEnabled = true
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +42,6 @@ class TimelineViewController: UITableViewController {
             if let followingActivities = result?.data?.viewer?.followingActivities?.edges?.flatMap({ $0?.node }) {
                 self?.activities += followingActivities
                 self?.tableView.reloadData()
-                self?.tableView.isScrollEnabled = true
             }
         }
     }

@@ -6,13 +6,20 @@
 //  Copyright © 2017年 Yuto Akiba. All rights reserved.
 //
 
-
+// deprecated
 "no_select" = "No Select";
 "wanna_watch" = "Plan to Watch";
 "watching" = "Watching";
 "watched" = "Completed";
 "on_hold" = "On Hold";
 "stop_watching" = "Dropped";
+
+"WANNA_WATCH" = "Plan to Watch";
+"WATCHING" = "Watching";
+"WATCHED" = "Completed";
+"ON_HOLD" = "On Hold";
+"STOP_WATCHING" = "Dropped";
+"NO_STATE" = "No Select";
 
 "profile" = "Profile";
 "search" = "Search";

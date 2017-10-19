@@ -153,6 +153,7 @@
 		D1E5D3591EF26D95007F34EB /* FollowersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5D3581EF26D95007F34EB /* FollowersListViewController.swift */; };
 		D1E5D35D1EF26F74007F34EB /* FollowerUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E5D35C1EF26F74007F34EB /* FollowerUserCell.swift */; };
 		D1E5D35F1EF26F9B007F34EB /* FollowerUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E5D35E1EF26F9B007F34EB /* FollowerUserCell.xib */; };
+		D1EACAAD1F983FE600422918 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EACAAC1F983FE600422918 /* Extension.swift */; };
 		D1EB52E01EED6FDE00F76629 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EB52DF1EED6FDE00F76629 /* Apollo.framework */; };
 		D1FEDCFF1E4D7CD300EFA42F /* AnnictConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */; };
 		D1FEDD021E4D844000EFA42F /* AnnictOauthTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD011E4D844000EFA42F /* AnnictOauthTokenResponse.swift */; };
@@ -348,6 +349,7 @@
 		D1E5D3581EF26D95007F34EB /* FollowersListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersListViewController.swift; sourceTree = "<group>"; };
 		D1E5D35C1EF26F74007F34EB /* FollowerUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowerUserCell.swift; sourceTree = "<group>"; };
 		D1E5D35E1EF26F9B007F34EB /* FollowerUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowerUserCell.xib; sourceTree = "<group>"; };
+		D1EACAAC1F983FE600422918 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		D1EB52DF1EED6FDE00F76629 /* Apollo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apollo.framework; path = Carthage/Build/iOS/Apollo.framework; sourceTree = "<group>"; };
 		D1EE8F321F7574680047B78C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		D1FEDCFE1E4D7CD300EFA42F /* AnnictConsts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictConsts.swift; sourceTree = "<group>"; };
@@ -863,6 +865,7 @@
 		D195D0F21E4DE62E004B6B15 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D1EACAAC1F983FE600422918 /* Extension.swift */,
 				D195D0F31E4DE677004B6B15 /* Notification+Extension.swift */,
 				D13E338F1E50507600A0CEF6 /* String+Extension.swift */,
 				D195D1021E4DF000004B6B15 /* UIColor+Extension.swift */,
@@ -1556,6 +1559,7 @@
 				D14F6D321E8FA16900A079EB /* ActivitiesNavigationController.swift in Sources */,
 				D13BD2EF1E515ABE006CDF2E /* AnnictAPIGetRecords.swift in Sources */,
 				D113CF0E1E52090A0083ED7D /* AnnictTabBarItem.swift in Sources */,
+				D1EACAAD1F983FE600422918 /* Extension.swift in Sources */,
 				D13BD3031E51BA57006CDF2E /* AnnictTextViewCell.swift in Sources */,
 				D14C6B061F923A8600EC94D8 /* TimelineCellForStatus.swift in Sources */,
 				D162C8BC1EEED021002F0FBF /* FollowingListViewController.swift in Sources */,
