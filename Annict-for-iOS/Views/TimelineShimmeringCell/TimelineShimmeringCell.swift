@@ -17,4 +17,14 @@ class TimelineShimmeringCell: UITableViewCell {
             $0.layer.cornerRadius = 2
         }
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        contentView.subviews.forEach {
+            if let shimmerableView = $0 as? ShimmerableView {
+                shimmerableView.isShimmering = true
+            }
+        }
+    }
 }

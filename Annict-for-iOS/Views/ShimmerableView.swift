@@ -12,6 +12,7 @@ class ShimmerableView: UIView {
     var isShimmering: Bool = true {
         didSet {
             if isShimmering {
+                initGradientlayer()
                 gradientLayer.startAnimation()
             } else {
                 gradientLayer.stopAnimation()
@@ -54,8 +55,6 @@ class ShimmerableView: UIView {
 private extension CAGradientLayer {
     func startAnimation() {
         let gradientAnimation = CABasicAnimation(keyPath: "locations")
-        //        gradientAnimation.fromValue = [-1.0, -0.5, 0]
-        //        gradientAnimation.toValue = [1, 1.5, 2.0]
         gradientAnimation.fromValue = [-2.0, -1.0, 0]
         gradientAnimation.toValue = [1, 2.0, 3.0]
         gradientAnimation.duration = 1.0
@@ -67,19 +66,5 @@ private extension CAGradientLayer {
     
     func stopAnimation() {
         removeAllAnimations()
-    }
-}
-
-private extension UIColor {
-    func brighten(by ratio: CGFloat) -> UIColor {
-        var hue: CGFloat = 0
-        var saturation: CGFloat = 0
-        var brightness: CGFloat = 0
-        var alpha: CGFloat = 0
-        
-        if getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) {
-            return UIColor(hue: hue, saturation: saturation, brightness: brightness * ratio, alpha: alpha)
-        }
-        return self
     }
 }

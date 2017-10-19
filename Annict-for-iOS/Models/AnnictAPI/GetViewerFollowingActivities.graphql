@@ -11,18 +11,8 @@ query GetViewerFollowingActivities($after: String)  {
                         }
                         work {
                             title
-                        }
-                    }
-                    ... on Record {
-                        ... RecordBasic
-                    }
-                    ... on MultipleRecord {
-                        createdAt
-                        records(first: 30) {
-                            edges {
-                                node {
-                                    ... RecordBasic
-                                }
+                            image {
+                                recommendedImageUrl
                             }
                         }
                     }

@@ -74,6 +74,9 @@
 		D147C0921E8010FE00E612D6 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D147C0911E8010FE00E612D6 /* Setting.storyboard */; };
 		D147C0951E80127600E612D6 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D147C0941E80127600E612D6 /* SettingTableViewController.swift */; };
 		D147C0971E80129500E612D6 /* SettingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D147C0961E80129500E612D6 /* SettingNavigationController.swift */; };
+		D14C6B061F923A8600EC94D8 /* TimelineCellForStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14C6B051F923A8600EC94D8 /* TimelineCellForStatus.swift */; };
+		D14C6B081F923ACD00EC94D8 /* TimelineCellForStatus.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14C6B071F923ACD00EC94D8 /* TimelineCellForStatus.xib */; };
+		D14C6B0A1F923C6A00EC94D8 /* GraphQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14C6B091F923C6A00EC94D8 /* GraphQL.swift */; };
 		D14F6D2F1E8F9A1600A079EB /* AnnictActivities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D14F6D2E1E8F9A1600A079EB /* AnnictActivities.storyboard */; };
 		D14F6D321E8FA16900A079EB /* ActivitiesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F6D311E8FA16900A079EB /* ActivitiesNavigationController.swift */; };
 		D14F6D361E8FA72300A079EB /* AnnictAPIGetMeFollowingActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F6D351E8FA72300A079EB /* AnnictAPIGetMeFollowingActivities.swift */; };
@@ -142,6 +145,7 @@
 		D1BE2F841F8F4B3300A56D4A /* TimelineShimmeringCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1BE2F831F8F4B3300A56D4A /* TimelineShimmeringCell.xib */; };
 		D1CA91431EDE7F520066C139 /* UnselectedSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA91421EDE7F520066C139 /* UnselectedSegmentedControl.swift */; };
 		D1D1EFB81EB4921100CC1F5C /* AnnictRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1D1EFB71EB4921100CC1F5C /* AnnictRecordCell.xib */; };
+		D1D3C37B1F925953002D061F /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D3C37A1F925953002D061F /* UIImageView+Extension.swift */; };
 		D1DB61AC1EDDC982009B5137 /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB61AB1EDDC982009B5137 /* RecordCell.swift */; };
 		D1DB61AE1EDDC98A009B5137 /* RecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DB61AD1EDDC98A009B5137 /* RecordCell.xib */; };
 		D1DB61B11EDDCEB8009B5137 /* RatingStateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB61B01EDDCEB8009B5137 /* RatingStateCell.swift */; };
@@ -274,6 +278,9 @@
 		D147C0911E8010FE00E612D6 /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		D147C0941E80127600E612D6 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		D147C0961E80129500E612D6 /* SettingNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingNavigationController.swift; sourceTree = "<group>"; };
+		D14C6B051F923A8600EC94D8 /* TimelineCellForStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCellForStatus.swift; sourceTree = "<group>"; };
+		D14C6B071F923ACD00EC94D8 /* TimelineCellForStatus.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineCellForStatus.xib; sourceTree = "<group>"; };
+		D14C6B091F923C6A00EC94D8 /* GraphQL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQL.swift; sourceTree = "<group>"; };
 		D14F6D2E1E8F9A1600A079EB /* AnnictActivities.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AnnictActivities.storyboard; sourceTree = "<group>"; };
 		D14F6D311E8FA16900A079EB /* ActivitiesNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesNavigationController.swift; sourceTree = "<group>"; };
 		D14F6D351E8FA72300A079EB /* AnnictAPIGetMeFollowingActivities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictAPIGetMeFollowingActivities.swift; sourceTree = "<group>"; };
@@ -332,6 +339,7 @@
 		D1BE2F831F8F4B3300A56D4A /* TimelineShimmeringCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineShimmeringCell.xib; sourceTree = "<group>"; };
 		D1CA91421EDE7F520066C139 /* UnselectedSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnselectedSegmentedControl.swift; sourceTree = "<group>"; };
 		D1D1EFB71EB4921100CC1F5C /* AnnictRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnictRecordCell.xib; sourceTree = "<group>"; };
+		D1D3C37A1F925953002D061F /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		D1DB61AB1EDDC982009B5137 /* RecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
 		D1DB61AD1EDDC98A009B5137 /* RecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordCell.xib; sourceTree = "<group>"; };
 		D1DB61B01EDDCEB8009B5137 /* RatingStateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingStateCell.swift; sourceTree = "<group>"; };
@@ -679,6 +687,24 @@
 			name = Setting;
 			sourceTree = "<group>";
 		};
+		D14C6B041F9235A400EC94D8 /* TimilineCells */ = {
+			isa = PBXGroup;
+			children = (
+				D1BE2F801F8F4AE100A56D4A /* TimelineShimmeringCell */,
+				D14C6B0B1F92573300EC94D8 /* TimelineCellForStatus */,
+			);
+			name = TimilineCells;
+			sourceTree = "<group>";
+		};
+		D14C6B0B1F92573300EC94D8 /* TimelineCellForStatus */ = {
+			isa = PBXGroup;
+			children = (
+				D14C6B051F923A8600EC94D8 /* TimelineCellForStatus.swift */,
+				D14C6B071F923ACD00EC94D8 /* TimelineCellForStatus.xib */,
+			);
+			path = TimelineCellForStatus;
+			sourceTree = "<group>";
+		};
 		D14F6D301E8FA0D200A079EB /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -798,6 +824,7 @@
 			children = (
 				D162C8AB1EED833A002F0FBF /* API.swift */,
 				D162C8AD1EED8AC8002F0FBF /* AnnictGraphQLClient.swift */,
+				D14C6B091F923C6A00EC94D8 /* GraphQL.swift */,
 				D162C8A91EED8188002F0FBF /* GetViewer.graphql */,
 				D162C8B11EEDA8FE002F0FBF /* GetViewerWorks.graphql */,
 				D162C8B51EEECE31002F0FBF /* GetViewerFollowing.graphql */,
@@ -844,6 +871,7 @@
 				D195D0F71E4DE919004B6B15 /* UIViewController+Extension.swift */,
 				D155B6981E913F7C00DB0A96 /* UIImage+Extension.swift */,
 				D15C3EC61F04129000D0CC72 /* CGRect+Extension.swift */,
+				D1D3C37A1F925953002D061F /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -886,9 +914,9 @@
 			isa = PBXGroup;
 			children = (
 				D1990A7F1F920F68002990D3 /* ShimmerableView */,
-				D1BE2F801F8F4AE100A56D4A /* TimelineShimmeringCell */,
 				D18AC22F1F03FA1B00312804 /* CircleLoadingView */,
 				D12F7B101EDD33D5009E60E4 /* RatingStateView */,
+				D14C6B041F9235A400EC94D8 /* TimilineCells */,
 				D195D1151E4F8AF9004B6B15 /* Cells */,
 				D12F4EC91E547B6300EB0651 /* YearPickerView */,
 				D16F6BA01E8ED02F00523839 /* UserProfileView */,
@@ -1199,6 +1227,7 @@
 				D137D6871E4D735E00F0FCFB /* Assets.xcassets in Resources */,
 				D195D0ED1E4DE3D6004B6B15 /* AnnictMeWorks.storyboard in Resources */,
 				D1D1EFB81EB4921100CC1F5C /* AnnictRecordCell.xib in Resources */,
+				D14C6B081F923ACD00EC94D8 /* TimelineCellForStatus.xib in Resources */,
 				D16F6B9F1E8ECFCE00523839 /* UserProfileView.xib in Resources */,
 				D12F4EC41E5476AD00EB0651 /* YearPickerView.xib in Resources */,
 				D14F6D4B1E8FFE0C00A079EB /* AnnictActivityCreateMultipleRecordsCell.xib in Resources */,
@@ -1507,6 +1536,8 @@
 				D195D1031E4DF000004B6B15 /* UIColor+Extension.swift in Sources */,
 				D18AC2311F03FA3100312804 /* CircleLoadingView.swift in Sources */,
 				D195D0F81E4DE919004B6B15 /* UIViewController+Extension.swift in Sources */,
+				D14C6B0A1F923C6A00EC94D8 /* GraphQL.swift in Sources */,
+				D1D3C37B1F925953002D061F /* UIImageView+Extension.swift in Sources */,
 				D12F4EC21E5476A300EB0651 /* YearPickerView.swift in Sources */,
 				D13E339B1E506DF100A0CEF6 /* AnnictDetailAnimeInfoViewController.swift in Sources */,
 				D14F6D4D1E8FFE1400A079EB /* AnnictActivityCreateMultipleRecordsCell.swift in Sources */,
@@ -1526,6 +1557,7 @@
 				D13BD2EF1E515ABE006CDF2E /* AnnictAPIGetRecords.swift in Sources */,
 				D113CF0E1E52090A0083ED7D /* AnnictTabBarItem.swift in Sources */,
 				D13BD3031E51BA57006CDF2E /* AnnictTextViewCell.swift in Sources */,
+				D14C6B061F923A8600EC94D8 /* TimelineCellForStatus.swift in Sources */,
 				D162C8BC1EEED021002F0FBF /* FollowingListViewController.swift in Sources */,
 				D162C8AC1EED833A002F0FBF /* API.swift in Sources */,
 				D14F6D451E8FD24500A079EB /* AnnictActivityCreateRecordCell.swift in Sources */,

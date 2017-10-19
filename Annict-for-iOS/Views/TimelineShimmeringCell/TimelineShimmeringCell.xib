@@ -80,6 +80,7 @@
                     <constraint firstItem="EfR-SL-6hr" firstAttribute="width" secondItem="lMF-Ek-Mrf" secondAttribute="width" multiplier="3/5" id="P84-Us-CXc"/>
                     <constraint firstItem="lMF-Ek-Mrf" firstAttribute="top" secondItem="9FF-zD-P8T" secondAttribute="bottom" constant="16" id="R3Q-4D-KPE"/>
                     <constraint firstItem="9FF-zD-P8T" firstAttribute="trailing" secondItem="6Jo-vp-xV6" secondAttribute="trailing" id="ScY-d4-Yw8"/>
+                    <constraint firstAttribute="bottom" secondItem="EfR-SL-6hr" secondAttribute="bottom" constant="107.5" id="Ss8-M4-CZG"/>
                     <constraint firstItem="9FF-zD-P8T" firstAttribute="top" secondItem="qn2-EZ-Ma0" secondAttribute="bottom" constant="32" id="XgU-9Y-cwb"/>
                     <constraint firstItem="6Jo-vp-xV6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fhM-VP-Bur" secondAttribute="trailing" constant="16" id="ZJu-wu-khI"/>
                     <constraint firstItem="EfR-SL-6hr" firstAttribute="top" secondItem="lMF-Ek-Mrf" secondAttribute="bottom" constant="16" id="aXc-Li-9S4"/>

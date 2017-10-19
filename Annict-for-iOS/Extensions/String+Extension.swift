@@ -26,4 +26,8 @@ extension String {
         let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
         return boundingBox.height
     }
+    
+    func toDate() -> Date {
+        return Date(dateString: self, format: "yyyy-MM-dd'T'HH:mm:ssZ")
+    }
 }

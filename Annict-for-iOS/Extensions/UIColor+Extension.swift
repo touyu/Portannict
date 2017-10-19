@@ -16,6 +16,18 @@ extension UIColor {
         self.init(red: r, green: g, blue: b, alpha: CGFloat(alpha))
     }
     
+    func brighten(by ratio: CGFloat) -> UIColor {
+        var hue: CGFloat = 0
+        var saturation: CGFloat = 0
+        var brightness: CGFloat = 0
+        var alpha: CGFloat = 0
+        
+        if getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) {
+            return UIColor(hue: hue, saturation: saturation, brightness: brightness * ratio, alpha: alpha)
+        }
+        return self
+    }
+    
     static var annictPink: UIColor {
         return UIColor(hex: 0xf85b73)
     }
