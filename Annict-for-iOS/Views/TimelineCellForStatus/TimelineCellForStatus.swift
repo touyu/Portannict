@@ -75,11 +75,6 @@ class TimelineCellForStatus: UITableViewCell {
         switch sender.state {
         case .began:
             workView.backgroundColor = UIColor.white.brighten(by: 0.9)
-        case .changed:
-//            UIView.animate(withDuration: 0.2, animations: { [weak self] in
-//                self?.workView.backgroundColor = UIColor.white
-//            })
-            break
         case .ended:
             UIView.animate(withDuration: 0.4, animations: { [weak self] in
                 self?.workView.backgroundColor = UIColor.white
