@@ -13,3 +13,7 @@ Unofficial annict client app for iOS
 
 ## Setup
 
+### Download schema.json
+```
+apollo-codegen download-schema https://api.annict.com/graphql --header "Authorization: Bearer $TOKEN" --output schema.json
+```
