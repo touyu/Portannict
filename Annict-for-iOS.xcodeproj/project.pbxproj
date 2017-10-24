@@ -923,7 +923,8 @@
 		D195D1141E4F8AE3004B6B15 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D1A67AFF1F987D8100935997 /* StatusStateView */,
+				D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */,
+				D1A67B001F987D9C00935997 /* RatingStateView.swift */,
 				D1990A7F1F920F68002990D3 /* ShimmerableView */,
 				D18AC22F1F03FA1B00312804 /* CircleLoadingView */,
 				D12F7B101EDD33D5009E60E4 /* OldRatingStateView */,
@@ -931,7 +932,6 @@
 				D195D1151E4F8AF9004B6B15 /* Cells */,
 				D12F4EC91E547B6300EB0651 /* YearPickerView */,
 				D16F6BA01E8ED02F00523839 /* UserProfileView */,
-				D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */,
 				D1CA91411EDE7E880066C139 /* UnselectedSegmentedControl */,
 			);
 			path = Views;
@@ -977,14 +977,6 @@
 				D1A296161EDC1B5E0026BB6F /* ActivityCreateRecordRatingStateCell.xib */,
 			);
 			name = ActivityCreateRecordRatingStateCell;
-			sourceTree = "<group>";
-		};
-		D1A67AFF1F987D8100935997 /* StatusStateView */ = {
-			isa = PBXGroup;
-			children = (
-				D1A67B001F987D9C00935997 /* RatingStateView.swift */,
-			);
-			name = StatusStateView;
 			sourceTree = "<group>";
 		};
 		D1BE2F801F8F4AE100A56D4A /* TimelineShimmeringCell */ = {

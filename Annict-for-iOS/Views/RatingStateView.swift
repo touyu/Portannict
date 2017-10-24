@@ -31,18 +31,18 @@ class RatingStateView: UILabel {
     override var intrinsicContentSize: CGSize {
         let size = super.intrinsicContentSize
         return CGSize(width: size.width + padding*2,
-                      height: size.height + padding*2)
+                      height: size.height + padding)
     }
     
     override func drawText(in rect: CGRect) {
-        let rect = rect.insetBy(dx: padding, dy: padding)
+        let rect = rect.insetBy(dx: padding, dy: padding/2)
         super.drawText(in: rect)
     }
     
     private func commonInit() {
         layer.masksToBounds = true
         layer.cornerRadius = 4
-        font = .systemFont(ofSize: 12)
+        font = .systemFont(ofSize: 10)
         textColor = .white
     }
 }
