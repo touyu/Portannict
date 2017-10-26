@@ -42,7 +42,7 @@ class RatingStateView: UILabel {
     private func commonInit() {
         layer.masksToBounds = true
         layer.cornerRadius = 4
-        font = .systemFont(ofSize: 10)
+        font = .systemFont(ofSize: 12)
         textColor = .white
     }
 }

@@ -40,6 +40,9 @@ fragment RecordBasic on Record {
     }
     work {
         title
+        image {
+            recommendedImageUrl
+        }
     }
     episode {
         title
