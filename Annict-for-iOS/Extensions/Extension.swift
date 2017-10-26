@@ -32,3 +32,22 @@ extension RatingState {
         return rawValue.localized(withTableName: "AnnictBaseLocalizable")
     }
 }
+
+// -------------------------------------------------------------------------------------
+
+protocol URLConvertible {
+    func asURL() throws -> URL
+}
+
+extension String: URLConvertible {
+    func asURL() throws -> URL {
+        guard let url = URL(string: self) else { throw PError.invalidURL(url: self) }
+        return url
+    }
+}
+
+extension URL: URLConvertible {
+    func asURL() throws -> URL { return self }
+}
+
+// -------------------------------------------------------------------------------------

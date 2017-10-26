@@ -16,6 +16,7 @@ class TimelineCellForRecord: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var ratingStateView: RatingStateView!
+    @IBOutlet weak var workView: UIView!
     @IBOutlet weak var workImageView: UIImageView! {
         didSet {
             workImageView.layer.masksToBounds = true
@@ -38,6 +39,20 @@ class TimelineCellForRecord: UITableViewCell {
         }
     }
     
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        workView.backgroundColor = .white
+        ratingStateView.backgroundColor = _activity?.ratingState?.color
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        
+        workView.backgroundColor = .white
+        ratingStateView.backgroundColor = _activity?.ratingState?.color
+    }
+    
     func set(activity: FollowingActivity.AsRecord?) {
         _activity = activity
     }
@@ -46,11 +61,20 @@ class TimelineCellForRecord: UITableViewCell {
         guard let activity = _activity else { return }
         
         let title = activity.work.title
-        if let episodeNumber = activity.episode.number {
-            messageLabel.text = "\(title) 第\(episodeNumber)話を見ました。\n\n\(activity.comment ?? "")"
-        } else {
-            messageLabel.text = "\(title) を見ました。\n\n \(activity.comment ?? "")"
+        guard let comment = activity.comment, !comment.isEmpty else {
+            guard let episodeNumber = activity.episode.number else {
+                messageLabel.text = "\(title) を見ました。"
+                return
+            }
+            messageLabel.text = "\(title) 第\(episodeNumber)話を見ました。"
+            return
         }
+        
+        guard let episodeNumber = activity.episode.number else {
+            messageLabel.text = "\(title) を見ました。\n\n\(comment)"
+            return
+        }
+        messageLabel.text = "\(title) 第\(episodeNumber)話を見ました。\n\n\(comment)"
     }
     
     private func initWorkLabel() {

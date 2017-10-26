@@ -37,6 +37,7 @@
 		D13101EF1E55E73800023D70 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13101EA1E55E73800023D70 /* Kingfisher.framework */; };
 		D13101F01E55E73800023D70 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13101EB1E55E73800023D70 /* Result.framework */; };
 		D13101F11E55E73800023D70 /* XLPagerTabStrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13101EC1E55E73800023D70 /* XLPagerTabStrip.framework */; };
+		D1340D6C1FA1B88E00E9C76E /* PError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1340D6B1FA1B88E00E9C76E /* PError.swift */; };
 		D137D6801E4D735E00F0FCFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D137D67F1E4D735E00F0FCFB /* AppDelegate.swift */; };
 		D137D6871E4D735E00F0FCFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D137D6861E4D735E00F0FCFB /* Assets.xcassets */; };
 		D137D68A1E4D735E00F0FCFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D137D6881E4D735E00F0FCFB /* LaunchScreen.storyboard */; };
@@ -237,6 +238,7 @@
 		D13101EA1E55E73800023D70 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		D13101EB1E55E73800023D70 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		D13101EC1E55E73800023D70 /* XLPagerTabStrip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLPagerTabStrip.framework; path = Carthage/Build/iOS/XLPagerTabStrip.framework; sourceTree = "<group>"; };
+		D1340D6B1FA1B88E00E9C76E /* PError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PError.swift; sourceTree = "<group>"; };
 		D137D67C1E4D735E00F0FCFB /* Annict-for-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Annict-for-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D137D67F1E4D735E00F0FCFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D137D6861E4D735E00F0FCFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1044,6 +1046,7 @@
 		D1FEDD001E4D841A00EFA42F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D1340D6B1FA1B88E00E9C76E /* PError.swift */,
 				D1FEEFA81E72E109004D4D28 /* Firebase */,
 				D14FF4D51E50245900AD9913 /* AnnictAPI */,
 				D11BF4E91E533D420042A40A /* Rakuten */,
@@ -1541,6 +1544,7 @@
 				D1FEDCFF1E4D7CD300EFA42F /* AnnictConsts.swift in Sources */,
 				D1FEDD041E4D883600EFA42F /* AnnictAPOauthTokenI.swift in Sources */,
 				D13BD2F91E51AA95006CDF2E /* AnnictPostRecordsNavigationController.swift in Sources */,
+				D1340D6C1FA1B88E00E9C76E /* PError.swift in Sources */,
 				D10E28511F8DF61C00B8DF94 /* TimelineNavigationController.swift in Sources */,
 				D1FEDD021E4D844000EFA42F /* AnnictOauthTokenResponse.swift in Sources */,
 				D195D10A1E4E3189004B6B15 /* AnnictAPIRequest.swift in Sources */,
