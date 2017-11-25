@@ -969,8 +969,8 @@
 		D1FEDD091E4DDE1700EFA42F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D13BD2C81E506FE0006CDF2E /* Detail */,
 				D195D0FA1E4DED42004B6B15 /* Home */,
+				D13BD2C81E506FE0006CDF2E /* Detail */,
 				D14F6D301E8FA0D200A079EB /* Profile */,
 				D147C0931E80125400E612D6 /* Setting */,
 				D195D0FB1E4DEE11004B6B15 /* Login */,
@@ -1700,7 +1700,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Annict-for-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.YutoAkiba.Annict-for-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1722,7 +1722,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Annict-for-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.YutoAkiba.Annict-for-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";

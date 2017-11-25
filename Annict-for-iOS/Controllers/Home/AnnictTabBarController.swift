@@ -9,5 +9,8 @@
 import UIKit
 
 class AnnictTabBarController: UITabBarController {
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        UITabBar.appearance().unselectedItemTintColor = .lightGray
+    }
 }
