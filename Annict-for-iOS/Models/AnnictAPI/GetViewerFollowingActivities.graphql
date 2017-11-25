@@ -19,6 +19,19 @@ query GetViewerFollowingActivities($after: String)  {
                     ... on Record {
                         ... RecordBasic
                     }
+                    ... on MultipleRecord {
+                        createdAt
+                        user {
+                            ... UserBasic
+                        }
+                        records(after: "") {
+                            edges {
+                                node {
+                                    ... RecordBasic
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

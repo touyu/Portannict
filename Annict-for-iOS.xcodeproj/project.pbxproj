@@ -15,6 +15,8 @@
 		D113CF0C1E51F5CD0083ED7D /* AnnictTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113CF0B1E51F5CD0083ED7D /* AnnictTabBarController.swift */; };
 		D113CF0E1E52090A0083ED7D /* AnnictTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */; };
 		D113CF101E520CB00083ED7D /* AnnictSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113CF0F1E520CB00083ED7D /* AnnictSearchViewController.swift */; };
+		D113E7AE1FC95C47005BF945 /* TimelineCellForMultipleRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113E7AD1FC95C47005BF945 /* TimelineCellForMultipleRecord.swift */; };
+		D113E7B01FC95C4E005BF945 /* TimelineCellForMultipleRecord.xib in Resources */ = {isa = PBXBuildFile; fileRef = D113E7AF1FC95C4E005BF945 /* TimelineCellForMultipleRecord.xib */; };
 		D11BF4EB1E533D680042A40A /* RakutenAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF4EA1E533D680042A40A /* RakutenAPIRequest.swift */; };
 		D11BF4ED1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF4EC1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift */; };
 		D11BF4F01E5344980042A40A /* RakutenItemsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF4EF1E5344980042A40A /* RakutenItemsResponse.swift */; };
@@ -215,6 +217,8 @@
 		D113CF0B1E51F5CD0083ED7D /* AnnictTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictTabBarController.swift; sourceTree = "<group>"; };
 		D113CF0D1E52090A0083ED7D /* AnnictTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictTabBarItem.swift; sourceTree = "<group>"; };
 		D113CF0F1E520CB00083ED7D /* AnnictSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictSearchViewController.swift; sourceTree = "<group>"; };
+		D113E7AD1FC95C47005BF945 /* TimelineCellForMultipleRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCellForMultipleRecord.swift; sourceTree = "<group>"; };
+		D113E7AF1FC95C4E005BF945 /* TimelineCellForMultipleRecord.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineCellForMultipleRecord.xib; sourceTree = "<group>"; };
 		D11BF4EA1E533D680042A40A /* RakutenAPIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RakutenAPIRequest.swift; sourceTree = "<group>"; };
 		D11BF4EC1E53436E0042A40A /* RakutenAPIGetRakutenItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RakutenAPIGetRakutenItems.swift; sourceTree = "<group>"; };
 		D11BF4EF1E5344980042A40A /* RakutenItemsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RakutenItemsResponse.swift; sourceTree = "<group>"; };
@@ -455,6 +459,15 @@
 				D1EE8F321F7574680047B78C /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D113E7AC1FC95C13005BF945 /* TImelineCellForMultipleRecord */ = {
+			isa = PBXGroup;
+			children = (
+				D113E7AD1FC95C47005BF945 /* TimelineCellForMultipleRecord.swift */,
+				D113E7AF1FC95C4E005BF945 /* TimelineCellForMultipleRecord.xib */,
+			);
+			path = TImelineCellForMultipleRecord;
 			sourceTree = "<group>";
 		};
 		D11BF4E81E5331340042A40A /* Search */ = {
@@ -703,6 +716,7 @@
 				D1BE2F801F8F4AE100A56D4A /* TimelineShimmeringCell */,
 				D14C6B0B1F92573300EC94D8 /* TimelineCellForStatus */,
 				D1EACAB01F98422500422918 /* TimelineCellForRecord */,
+				D113E7AC1FC95C13005BF945 /* TImelineCellForMultipleRecord */,
 			);
 			name = TimilineCells;
 			sourceTree = "<group>";
@@ -1231,6 +1245,7 @@
 				D1DB61AE1EDDC98A009B5137 /* RecordCell.xib in Resources */,
 				D13BD2CE1E50707F006CDF2E /* AnnictEpisodeCell.xib in Resources */,
 				D13E33931E505B0C00A0CEF6 /* AnnictWorks.storyboard in Resources */,
+				D113E7B01FC95C4E005BF945 /* TimelineCellForMultipleRecord.xib in Resources */,
 				D162C8B21EEDA8FE002F0FBF /* GetViewerWorks.graphql in Resources */,
 				D157DD941EFCD8FA00245141 /* IndicatorViewCell.xib in Resources */,
 				D162C8BA1EEECFD2002F0FBF /* Profile.storyboard in Resources */,
@@ -1585,6 +1600,7 @@
 				D1EACAAD1F983FE600422918 /* Extension.swift in Sources */,
 				D13BD3031E51BA57006CDF2E /* AnnictTextViewCell.swift in Sources */,
 				D14C6B061F923A8600EC94D8 /* TimelineCellForStatus.swift in Sources */,
+				D113E7AE1FC95C47005BF945 /* TimelineCellForMultipleRecord.swift in Sources */,
 				D162C8BC1EEED021002F0FBF /* FollowingListViewController.swift in Sources */,
 				D162C8AC1EED833A002F0FBF /* API.swift in Sources */,
 				D14F6D451E8FD24500A079EB /* AnnictActivityCreateRecordCell.swift in Sources */,

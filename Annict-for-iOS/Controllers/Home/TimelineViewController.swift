@@ -30,7 +30,8 @@ class TimelineViewController: UITableViewController {
         tableView.isScrollEnabled = false
         tableView.register(cellTypes: [TimelineShimmeringCell.self,
                                        TimelineCellForStatus.self,
-                                       TimelineCellForRecord.self])
+                                       TimelineCellForRecord.self,
+                                       TimelineCellForMultipleRecord.self])
     }
     
     private func getViewerFollowingActivities() {
@@ -71,6 +72,10 @@ extension TimelineViewController {
         case .record:
             let cell = tableView.dequeueReusableCell(with: TimelineCellForRecord.self, for: indexPath)
             cell.set(activity: activity.asRecord)
+            return cell
+        case .multipleRecord:
+            let cell = tableView.dequeueReusableCell(with: TimelineCellForMultipleRecord.self, for: indexPath)
+            cell.set(activity: activity.asMultipleRecord)
             return cell
         default:
            return makeTimelineShimmeringCell(indexPath: indexPath)
