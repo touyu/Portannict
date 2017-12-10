@@ -25,7 +25,11 @@ platform :ios do
 
   lane :increment_build do 
     increment_build_number
-    commit_version_bump
+    commit_version_bump(
+      xcodeproj: "Annict-for-iOS.xcodeproj",
+      message: "Bump bundle version to #{Actions.lane_context[Actions::SharedValues::BUILD_NUMBER]}",
+      force: true
+    )
   end
   
   lane :increment_version_patch do 

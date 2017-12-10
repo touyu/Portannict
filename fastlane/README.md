@@ -30,6 +30,26 @@ xcode-select --install
 
 # Available Actions
 ## iOS
+### ios increment_build
+```
+fastlane ios increment_build
+```
+
+### ios increment_version_patch
+```
+fastlane ios increment_version_patch
+```
+
+### ios increment_version_minor
+```
+fastlane ios increment_version_minor
+```
+
+### ios increment_version_major
+```
+fastlane ios increment_version_major
+```
+
 ### ios test
 ```
 fastlane ios test
