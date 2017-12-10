@@ -18,6 +18,16 @@ Unofficial annict client app for iOS
 $ bundle install --path vendor/bundle
 ```
 
+### Carthage
+```
+carthage update --platform iOS --no-use-binaries
+```
+
+### CocoaPods
+```
+bundle exec pod install
+```
+
 ### Download schema.json
 ```
 $ apollo-codegen download-schema https://api.annict.com/graphql --header "Authorization: Bearer $TOKEN" --output schema.json
