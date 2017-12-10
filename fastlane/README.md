@@ -30,6 +30,11 @@ xcode-select --install
 
 # Available Actions
 ## iOS
+### ios echo
+```
+fastlane ios echo
+```
+
 ### ios increment_build
 ```
 fastlane ios increment_build
