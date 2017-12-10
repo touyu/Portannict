@@ -20,12 +20,12 @@ $ bundle install --path vendor/bundle
 
 ### Carthage
 ```
-carthage update --platform iOS --no-use-binaries
+$ carthage update --platform iOS --no-use-binaries
 ```
 
 ### CocoaPods
 ```
-bundle exec pod install
+$ bundle exec pod install
 ```
 
 ### Download schema.json
