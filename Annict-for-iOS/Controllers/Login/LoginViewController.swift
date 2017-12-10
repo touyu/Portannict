@@ -90,6 +90,9 @@ class LoginViewController: UIViewController {
                 
                 // 画面遷移
                 if !AnnictConsts.accessToken.isEmpty {
+                    AppManager.fetchUserDataAndSave() {
+                        FirestoreClient.shared.register()
+                    }
                     let annictTabBarController = AnnictTabBarController.instantiate(withStoryboard: "AnnictMeWorks")
                     self?.present(annictTabBarController, animated: false, completion: nil)
                 }

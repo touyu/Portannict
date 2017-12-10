@@ -19,6 +19,7 @@ public final class GetViewerQuery: GraphQLQuery {
     "  viewer {" +
     "    __typename" +
     "    ...UserDetails" +
+    "    annictId" +
     "    backgroundImageUrl" +
     "    recordsCount" +
     "    description" +
@@ -66,6 +67,7 @@ public final class GetViewerQuery: GraphQLQuery {
         Field("name", type: .nonNull(.scalar(String.self))),
         Field("username", type: .nonNull(.scalar(String.self))),
         Field("description", type: .nonNull(.scalar(String.self))),
+        Field("annictId", type: .nonNull(.scalar(Int.self))),
         Field("backgroundImageUrl", type: .scalar(String.self)),
         Field("recordsCount", type: .nonNull(.scalar(Int.self))),
         Field("followingsCount", type: .nonNull(.scalar(Int.self))),
@@ -78,8 +80,8 @@ public final class GetViewerQuery: GraphQLQuery {
         self.snapshot = snapshot
       }
 
-      public init(avatarUrl: String? = nil, name: String, username: String, description: String, backgroundImageUrl: String? = nil, recordsCount: Int, followingsCount: Int, followersCount: Int) {
-        self.init(snapshot: ["__typename": "User", "avatarUrl": avatarUrl, "name": name, "username": username, "description": description, "backgroundImageUrl": backgroundImageUrl, "recordsCount": recordsCount, "followingsCount": followingsCount, "followersCount": followersCount])
+      public init(avatarUrl: String? = nil, name: String, username: String, description: String, annictId: Int, backgroundImageUrl: String? = nil, recordsCount: Int, followingsCount: Int, followersCount: Int) {
+        self.init(snapshot: ["__typename": "User", "avatarUrl": avatarUrl, "name": name, "username": username, "description": description, "annictId": annictId, "backgroundImageUrl": backgroundImageUrl, "recordsCount": recordsCount, "followingsCount": followingsCount, "followersCount": followersCount])
       }
 
       public var __typename: String {
@@ -124,6 +126,15 @@ public final class GetViewerQuery: GraphQLQuery {
         }
         set {
           snapshot.updateValue(newValue, forKey: "description")
+        }
+      }
+
+      public var annictId: Int {
+        get {
+          return snapshot["annictId"]! as! Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "annictId")
         }
       }
 

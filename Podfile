@@ -6,14 +6,15 @@ target 'Annict-for-iOS' do
   use_frameworks!
 
   # Pods for Annict-for-iOS
-  pod 'Firebase', '~> 3.16.0'
-  pod 'Firebase/Database'
+  # pod 'Firebase/Database'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
   pod 'DateToolsSwift'
 
   target 'Annict-for-iOSTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'Firebase', '~> 3.16.0'
+    # pod 'Firebase', '~> 3.16.0'
   end
 
   target 'Annict-for-iOSUITests' do
