@@ -118,6 +118,8 @@
 		D195D1191E4F8C2D004B6B15 /* AnnictMeWorkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D195D1181E4F8C2D004B6B15 /* AnnictMeWorkCell.xib */; };
 		D195D11B1E4F928A004B6B15 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195D11A1E4F928A004B6B15 /* UITableView+Extension.swift */; };
 		D19867331E9403FE00095611 /* AnnictImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19867321E9403FE00095611 /* AnnictImageManager.swift */; };
+		D19EB01E1FDD244A00FBA26D /* FirestoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19EB01D1FDD244A00FBA26D /* FirestoreClient.swift */; };
+		D19EB0201FDD2E0400FBA26D /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19EB01F1FDD2E0400FBA26D /* AppManager.swift */; };
 		D1A296151EDC1B3F0026BB6F /* ActivityCreateRecordRatingStateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A296141EDC1B3F0026BB6F /* ActivityCreateRecordRatingStateCell.swift */; };
 		D1A296171EDC1B5E0026BB6F /* ActivityCreateRecordRatingStateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1A296161EDC1B5E0026BB6F /* ActivityCreateRecordRatingStateCell.xib */; };
 		D1A43E401E520E0000EE40CB /* AnnictSearchNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A43E3F1E520E0000EE40CB /* AnnictSearchNavigationController.swift */; };
@@ -149,7 +151,6 @@
 		D1FEDD061E4D9A8400EFA42F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDD051E4D9A8400EFA42F /* LoginViewController.swift */; };
 		D1FEEFA51E72E0E4004D4D28 /* ReviewLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEEFA41E72E0E4004D4D28 /* ReviewLoginViewController.swift */; };
 		D1FEEFA71E72E0F8004D4D28 /* CheckingLoginStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEEFA61E72E0F8004D4D28 /* CheckingLoginStateViewController.swift */; };
-		D1FEEFAA1E72E11D004D4D28 /* FIRDatabaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEEFA91E72E11D004D4D28 /* FIRDatabaseClient.swift */; };
 		D1FEEFAC1E72E23C004D4D28 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1FEEFAB1E72E23C004D4D28 /* GoogleService-Info.plist */; };
 		D87B1BBFE1F496752EBC12BC /* Pods_Annict_for_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8AF127708753608F186D305 /* Pods_Annict_for_iOSUITests.framework */; };
 /* End PBXBuildFile section */
@@ -311,6 +312,8 @@
 		D195D1181E4F8C2D004B6B15 /* AnnictMeWorkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnictMeWorkCell.xib; sourceTree = "<group>"; };
 		D195D11A1E4F928A004B6B15 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		D19867321E9403FE00095611 /* AnnictImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictImageManager.swift; sourceTree = "<group>"; };
+		D19EB01D1FDD244A00FBA26D /* FirestoreClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreClient.swift; sourceTree = "<group>"; };
+		D19EB01F1FDD2E0400FBA26D /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		D1A296141EDC1B3F0026BB6F /* ActivityCreateRecordRatingStateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCreateRecordRatingStateCell.swift; sourceTree = "<group>"; };
 		D1A296161EDC1B5E0026BB6F /* ActivityCreateRecordRatingStateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityCreateRecordRatingStateCell.xib; sourceTree = "<group>"; };
 		D1A43E3F1E520E0000EE40CB /* AnnictSearchNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnictSearchNavigationController.swift; sourceTree = "<group>"; };
@@ -334,7 +337,6 @@
 		D1FEDD051E4D9A8400EFA42F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D1FEEFA41E72E0E4004D4D28 /* ReviewLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewLoginViewController.swift; sourceTree = "<group>"; };
 		D1FEEFA61E72E0F8004D4D28 /* CheckingLoginStateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckingLoginStateViewController.swift; sourceTree = "<group>"; };
-		D1FEEFA91E72E11D004D4D28 /* FIRDatabaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRDatabaseClient.swift; sourceTree = "<group>"; };
 		D1FEEFAB1E72E23C004D4D28 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E8AF127708753608F186D305 /* Pods_Annict_for_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Annict_for_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -898,9 +900,18 @@
 			isa = PBXGroup;
 			children = (
 				D19867321E9403FE00095611 /* AnnictImageManager.swift */,
+				D19EB01F1FDD2E0400FBA26D /* AppManager.swift */,
 			);
 			name = Manager;
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D19EB01C1FDD243700FBA26D /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				D19EB01D1FDD244A00FBA26D /* FirestoreClient.swift */,
+			);
+			path = Firestore;
 			sourceTree = "<group>";
 		};
 		D1A296131EDC1AF40026BB6F /* ActivityCreateRecordRatingStateCell */ = {
@@ -959,7 +970,7 @@
 		D1FEDD001E4D841A00EFA42F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D1FEEFA81E72E109004D4D28 /* Firebase */,
+				D19EB01C1FDD243700FBA26D /* Firestore */,
 				D14FF4D51E50245900AD9913 /* AnnictAPI */,
 				D11BF4E91E533D420042A40A /* Rakuten */,
 			);
@@ -992,14 +1003,6 @@
 				D162C8B91EEECFD2002F0FBF /* Profile.storyboard */,
 			);
 			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		D1FEEFA81E72E109004D4D28 /* Firebase */ = {
-			isa = PBXGroup;
-			children = (
-				D1FEEFA91E72E11D004D4D28 /* FIRDatabaseClient.swift */,
-			);
-			name = Firebase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1223,15 +1226,33 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/DateToolsSwift/DateToolsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Keys/Keys.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateToolsSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Keys.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1426,11 +1447,11 @@
 				D195D11B1E4F928A004B6B15 /* UITableView+Extension.swift in Sources */,
 				D13E33901E50507600A0CEF6 /* String+Extension.swift in Sources */,
 				D1DB61B11EDDCEB8009B5137 /* RatingStateCell.swift in Sources */,
-				D1FEEFAA1E72E11D004D4D28 /* FIRDatabaseClient.swift in Sources */,
 				D1DB61AC1EDDC982009B5137 /* RecordCell.swift in Sources */,
 				D15C3EC71F04129000D0CC72 /* CGRect+Extension.swift in Sources */,
 				D195D0F41E4DE677004B6B15 /* Notification+Extension.swift in Sources */,
 				D14F6D3E1E8FABC300A079EB /* AnnictActivityCreateStatusCell.swift in Sources */,
+				D19EB0201FDD2E0400FBA26D /* AppManager.swift in Sources */,
 				D13BD2E71E51563E006CDF2E /* AnnictRecordCell.swift in Sources */,
 				D1FEDD061E4D9A8400EFA42F /* LoginViewController.swift in Sources */,
 				D13BD2ED1E5159CC006CDF2E /* AnnictUsersResponse.swift in Sources */,
@@ -1454,6 +1475,7 @@
 				D1FEEFA71E72E0F8004D4D28 /* CheckingLoginStateViewController.swift in Sources */,
 				D13BD2CB1E507053006CDF2E /* AnnictEpisodeCell.swift in Sources */,
 				D137D6801E4D735E00F0FCFB /* AppDelegate.swift in Sources */,
+				D19EB01E1FDD244A00FBA26D /* FirestoreClient.swift in Sources */,
 				D13BD2FC1E51ADC3006CDF2E /* AnnictRatingCell.swift in Sources */,
 				D13E339D1E506E7900A0CEF6 /* AnnictEpisodeViewController.swift in Sources */,
 				D13BD2EB1E515913006CDF2E /* AnnictRecordsResponse.swift in Sources */,

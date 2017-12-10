@@ -1,6 +1,7 @@
 query GetViewer {
     viewer {
         ... UserDetails
+        annictId
         backgroundImageUrl
         recordsCount
         description

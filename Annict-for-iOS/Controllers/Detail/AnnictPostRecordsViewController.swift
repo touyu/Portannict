@@ -65,9 +65,7 @@ class AnnictPostRecordsViewController: UIViewController {
         AnnictAPIClient.send(request) { response in
             self.posting = false
             switch response {
-            case .success(let value):
-                // 自分のユーザーIDを保存
-                AnnictConsts.userID = value.user?.id
+            case .success:
                 completionHandler?()
             case .failure(let error):
                 print(error)
