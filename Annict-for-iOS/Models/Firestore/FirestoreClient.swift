@@ -23,9 +23,25 @@ struct FirestoreClient {
     
     func register() {
         checkRegsiter() { isRegistering in
+            // Firestoreへ新規登録
             if !isRegistering {
-                guard let userData = AnnictConsts.userData?.snapshot else { return }
-                self.db.collection("Users").addDocument(data: userData) { error in
+                guard var data = AnnictConsts.userData?.dictionary else { return }
+                data["updatedAtFirestore"] = Date()
+                data["createdAtFirestore"] = Date()
+                data["isPurchased"] = true
+                guard let userID = AnnictConsts.userID else { return }
+                self.db.collection("Users").document("user_\(userID)").setData(data, options: SetOptions.merge()) { error in
+                    if let error = error {
+                        print("Error writing document: \(error)")
+                    } else {
+                        print("Document successfully written!")
+                    }
+                }
+            } else {
+                guard var data = AnnictConsts.userData?.dictionary else { return }
+                data["updatedAtFirestore"] = Date()
+                guard let userID = AnnictConsts.userID else { return }
+                self.db.collection("Users").document("user_\(userID)").updateData(data) { error in
                     if let error = error {
                         print("Error writing document: \(error)")
                     } else {
@@ -36,41 +52,41 @@ struct FirestoreClient {
         }
     }
     
-    func checkRegsiter(completionHandler: @escaping ((Bool) -> Void)) {
-        fetchViewer() { result in
-            switch result {
-            case .success(let snapshot):
-                guard let snapshot = snapshot else { return }
-                if snapshot.documents.count == 0 {
-                    completionHandler(false)
-                } else {
-                    completionHandler(true)
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    private func fetchViewer(completionHandler: ((FirestoreClientResult) -> Void)?) {
+    private func checkRegsiter(completionHandler: @escaping ((_ isRegistering: Bool) -> Void)) {
         guard let userID = AnnictConsts.userID else { return }
-        fetchUser(id: userID) { result in
-            switch result {
-            case .success(let snapshot):
-                completionHandler?(.success(snapshot))
-            case .failure(let error):
-                completionHandler?(.failure(error))
+        db.collection("Users").whereField("annictId", isEqualTo: userID).exists() { isEmpty in
+            completionHandler(!isEmpty)
+        }
+    }
+}
+
+extension Query {
+    func exists(completionHandler: @escaping ((_ isEmpty: Bool) -> Void)) {
+        getDocuments() { (snapshot, error) in
+            if let error = error {
+                print(error)
+                completionHandler(true)
+            } else {
+                guard let snapshot = snapshot else {
+                    completionHandler(true)
+                    return
+                }
+                if snapshot.documents.count == 0 {
+                    completionHandler(true)
+                } else {
+                    completionHandler(false)
+                }
             }
         }
     }
-    
-    private func fetchUser(id: Int, completionHandler: ((FirestoreClientResult) -> Void)?) {
-        db.collection("Users").whereField("annictId", isEqualTo: id).getDocuments() { (snapshot, error) in
-            if let error = error {
-                completionHandler?(.failure(error))
-            } else {
-                completionHandler?(.success(snapshot))
-            }
+}
+
+extension GetViewerQuery.Data.Viewer {
+    var dictionary: [String: Any] {
+        var data = [String: Any]()
+        snapshot.forEach { key, value in
+            data[key] = value!
         }
+        return data
     }
 }
