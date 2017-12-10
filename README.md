@@ -22,3 +22,6 @@ $ bundle install --path vendor/bundle
 ```
 $ apollo-codegen download-schema https://api.annict.com/graphql --header "Authorization: Bearer $TOKEN" --output schema.json
 ```
+
+### Fastlane
+- [README](https://github.com/touyu/Portannict/blob/master/fastlane/README.md)
