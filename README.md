@@ -13,6 +13,13 @@ Unofficial annict client app for iOS
 
 ## Setup
 
+### Environment
+```
+$ git clone git@github.com:touyu/Portannict.git
+$ git clone git@github.com:touyu/portannict_env.git
+$ sh portannict_env/setup.sh
+```
+
 ### Gem
 ```
 $ bundle install --path vendor/bundle
