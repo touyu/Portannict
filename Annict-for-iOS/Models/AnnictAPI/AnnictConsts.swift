@@ -38,11 +38,12 @@ class AnnictConsts {
             if AppConfig.isTesting() {
                 return AnnictForIOSKeys().annictAccessToken
             }
-            if let accessToken = UserDefaults.standard.string(forKey: "annict_access_token") {
+            #if DEBUG
+                return AnnictForIOSKeys().annictAccessTokenForReview
+            #else
+                guard let accessToken = UserDefaults.standard.string(forKey: "annict_access_token") else { return "" }
                 return accessToken
-            } else {
-                return ""
-            }
+            #endif
         }
         set(newValue) {
             UserDefaults.standard.set(newValue, forKey: "annict_access_token")
