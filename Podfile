@@ -6,7 +6,6 @@ target 'Annict-for-iOS' do
   use_frameworks!
 
   # Pods for Annict-for-iOS
-  # pod 'Firebase/Database'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   pod 'DateToolsSwift'
