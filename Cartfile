@@ -1,0 +1,2 @@
+github "ReactorKit/ReactorKit"
+github "ReactiveX/RxSwift" ~> 4.0
