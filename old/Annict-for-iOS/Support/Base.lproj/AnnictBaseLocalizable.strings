@@ -1,0 +1,35 @@
+//
+//  AnnictBaseLocalizable.strings
+//  Annict-for-iOS
+//
+//  Created by Yuto Akiba on 2017/02/12.
+//  Copyright © 2017年 Yuto Akiba. All rights reserved.
+//
+
+
+"no_select" = "No Select";
+"wanna_watch" = "Plan to Watch";
+"watching" = "Watching";
+"watched" = "Completed";
+"on_hold" = "On Hold";
+"stop_watching" = "Dropped";
+
+"profile" = "Profile";
+"search" = "Search";
+"setting" = "Setting";
+"home" = "Home";
+
+"spring" = "Spring";
+"summer" = "Summer";
+"autumn" = "Autumn";
+"winter" = "Winter";
+
+"following" = "Following";
+"follower" = "Follower";
+
+"bad" = "Bad";
+"average" = "Average";
+"good" = "Good";
+"great" = "Great";
+
+"terms_of_use" = "terms of use";

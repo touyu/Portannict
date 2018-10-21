@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>98887434766-pkopst8mrfsu7h2rol4cv61hrpbhe0is.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.98887434766-pkopst8mrfsu7h2rol4cv61hrpbhe0is</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAMVoXoXB4XGFeQrJYGSexgo_v4nQeMg5k</string>
+	<key>GCM_SENDER_ID</key>
+	<string>98887434766</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.YutoAkiba.Annict-for-iOS</string>
+	<key>PROJECT_ID</key>
+	<string>portannict</string>
+	<key>STORAGE_BUCKET</key>
+	<string>portannict.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:98887434766:ios:f19e4686659058cf</string>
+	<key>DATABASE_URL</key>
+	<string>https://portannict.firebaseio.com</string>
+</dict>
+</plist>

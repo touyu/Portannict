@@ -1,0 +1,21 @@
+
+/* Class = "UITextField"; placeholder = "ID"; ObjectID = "2T6-mj-sRZ"; */
+"2T6-mj-sRZ.placeholder" = "ID";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "4tS-cr-YgX"; */
+"4tS-cr-YgX.placeholder" = "Password";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "96c-e4-ad8"; */
+"96c-e4-ad8.normalTitle" = "Login";
+
+/* Class = "UILabel"; text = "I agree with the terms of use. "; ObjectID = "C2f-zF-r4V"; */
+"C2f-zF-r4V.text" = "利用規約に同意する";
+
+/* Class = "UILabel"; text = "Portannict"; ObjectID = "I8A-Ys-ent"; */
+"I8A-Ys-ent.text" = "Portannict";
+
+/* Class = "UILabel"; text = "Portannict"; ObjectID = "WzZ-vb-Y3J"; */
+"WzZ-vb-Y3J.text" = "Portannict";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "dIc-sz-NFx"; */
+"dIc-sz-NFx.normalTitle" = "Login";

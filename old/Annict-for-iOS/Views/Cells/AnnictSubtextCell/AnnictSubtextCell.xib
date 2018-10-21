@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnnictSubtextCell" rowHeight="60" id="6eb-Mc-uBP" customClass="AnnictSubtextCell" customModule="Annict_for_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6eb-Mc-uBP" id="KPc-1R-tSj">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZNA-Oi-tYS">
+                        <rect key="frame" x="16" y="0.0" width="343" height="59.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obB-8a-h9Y">
+                                <rect key="frame" x="0.0" y="21.5" width="28.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtext" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7GO-wZ-LbI">
+                                <rect key="frame" x="293" y="21.5" width="50" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.97254901959999995" green="0.35686274509999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ZNA-Oi-tYS" firstAttribute="centerY" secondItem="KPc-1R-tSj" secondAttribute="centerY" id="Ocd-fw-WfP"/>
+                    <constraint firstItem="ZNA-Oi-tYS" firstAttribute="centerX" secondItem="KPc-1R-tSj" secondAttribute="centerX" id="V9A-9T-46k"/>
+                    <constraint firstItem="ZNA-Oi-tYS" firstAttribute="width" secondItem="KPc-1R-tSj" secondAttribute="width" constant="-32" id="VN1-mZ-ODN"/>
+                    <constraint firstItem="ZNA-Oi-tYS" firstAttribute="height" secondItem="KPc-1R-tSj" secondAttribute="height" id="jlN-aL-r5l"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="subtextLabel" destination="7GO-wZ-LbI" id="ipn-re-5m3"/>
+                <outlet property="titleLabel" destination="obB-8a-h9Y" id="dFx-AW-NoT"/>
+            </connections>
+            <point key="canvasLocation" x="101" y="117"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -1,0 +1,12 @@
+
+/* Class = "UISegmentedControl"; oiO-pd-OK8.segmentTitles[0] = "Bad"; ObjectID = "oiO-pd-OK8"; */
+"oiO-pd-OK8.segmentTitles[0]" = "良くない";
+
+/* Class = "UISegmentedControl"; oiO-pd-OK8.segmentTitles[1] = "Average"; ObjectID = "oiO-pd-OK8"; */
+"oiO-pd-OK8.segmentTitles[1]" = "普通";
+
+/* Class = "UISegmentedControl"; oiO-pd-OK8.segmentTitles[2] = "Good"; ObjectID = "oiO-pd-OK8"; */
+"oiO-pd-OK8.segmentTitles[2]" = "良い";
+
+/* Class = "UISegmentedControl"; oiO-pd-OK8.segmentTitles[3] = "Great"; ObjectID = "oiO-pd-OK8"; */
+"oiO-pd-OK8.segmentTitles[3]" = "とても良い";
