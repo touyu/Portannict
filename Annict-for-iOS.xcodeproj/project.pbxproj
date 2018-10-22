@@ -16,6 +16,12 @@
 		D127410F217CCB4000DD09C2 /* ReactorKitRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D127410D217CCB4000DD09C2 /* ReactorKitRuntime.framework */; };
 		D1274113217CCCF000DD09C2 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1274111217CCCF000DD09C2 /* RxCocoa.framework */; };
 		D1274114217CCCF000DD09C2 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1274112217CCCF000DD09C2 /* RxSwift.framework */; };
+		D1274116217CCDDA00DD09C2 /* ViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1274115217CCDDA00DD09C2 /* ViewReactor.swift */; };
+		D1274118217CD93400DD09C2 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1274117217CD93400DD09C2 /* ModalViewController.swift */; };
+		D127411A217CD95F00DD09C2 /* ModalViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1274119217CD95F00DD09C2 /* ModalViewReactor.swift */; };
+		D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127411C217CDEF300DD09C2 /* BaseService.swift */; };
+		D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127411E217CDF1000DD09C2 /* ServiceProvider.swift */; };
+		D1274121217CDF6100DD09C2 /* CounterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1274120217CDF6100DD09C2 /* CounterService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +36,12 @@
 		D127410D217CCB4000DD09C2 /* ReactorKitRuntime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactorKitRuntime.framework; path = Carthage/Build/iOS/ReactorKitRuntime.framework; sourceTree = "<group>"; };
 		D1274111217CCCF000DD09C2 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		D1274112217CCCF000DD09C2 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		D1274115217CCDDA00DD09C2 /* ViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReactor.swift; sourceTree = "<group>"; };
+		D1274117217CD93400DD09C2 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		D1274119217CD95F00DD09C2 /* ModalViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewReactor.swift; sourceTree = "<group>"; };
+		D127411C217CDEF300DD09C2 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		D127411E217CDF1000DD09C2 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		D1274120217CDF6100DD09C2 /* CounterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +81,11 @@
 			children = (
 				D123F253217CBD2500AE38FD /* AppDelegate.swift */,
 				D123F255217CBD2500AE38FD /* ViewController.swift */,
+				D1274115217CCDDA00DD09C2 /* ViewReactor.swift */,
+				D1274117217CD93400DD09C2 /* ModalViewController.swift */,
+				D1274119217CD95F00DD09C2 /* ModalViewReactor.swift */,
 				D123F257217CBD2500AE38FD /* Main.storyboard */,
+				D127411B217CDEDB00DD09C2 /* Services */,
 				D123F25A217CBD2600AE38FD /* Assets.xcassets */,
 				D123F25C217CBD2600AE38FD /* LaunchScreen.storyboard */,
 				D123F25F217CBD2600AE38FD /* Info.plist */,
@@ -86,6 +102,16 @@
 				D127410D217CCB4000DD09C2 /* ReactorKitRuntime.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D127411B217CDEDB00DD09C2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D127411C217CDEF300DD09C2 /* BaseService.swift */,
+				D127411E217CDF1000DD09C2 /* ServiceProvider.swift */,
+				D1274120217CDF6100DD09C2 /* CounterService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,7 +210,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1274121217CDF6100DD09C2 /* CounterService.swift in Sources */,
+				D1274118217CD93400DD09C2 /* ModalViewController.swift in Sources */,
 				D123F256217CBD2500AE38FD /* ViewController.swift in Sources */,
+				D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */,
+				D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */,
+				D1274116217CCDDA00DD09C2 /* ViewReactor.swift in Sources */,
+				D127411A217CD95F00DD09C2 /* ModalViewReactor.swift in Sources */,
 				D123F254217CBD2500AE38FD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
