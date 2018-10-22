@@ -2,4 +2,4 @@
 Build
 
 .DS_Store
-.xcuserstate
+**/*.xcuserstate
