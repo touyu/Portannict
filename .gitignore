@@ -4,3 +4,4 @@ Build
 .DS_Store
 **/*.xcuserstate
 node_modules
+vendor/bundle
