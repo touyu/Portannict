@@ -15,7 +15,6 @@
 		D123F25B217CBD2600AE38FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D123F25A217CBD2600AE38FD /* Assets.xcassets */; };
 		D123F25E217CBD2600AE38FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D123F25C217CBD2600AE38FD /* LaunchScreen.storyboard */; };
 		D127410E217CCB4000DD09C2 /* ReactorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D127410C217CCB4000DD09C2 /* ReactorKit.framework */; };
-		D127410F217CCB4000DD09C2 /* ReactorKitRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D127410D217CCB4000DD09C2 /* ReactorKitRuntime.framework */; };
 		D1274113217CCCF000DD09C2 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1274111217CCCF000DD09C2 /* RxCocoa.framework */; };
 		D1274114217CCCF000DD09C2 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1274112217CCCF000DD09C2 /* RxSwift.framework */; };
 		D1274116217CCDDA00DD09C2 /* ViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1274115217CCDDA00DD09C2 /* ViewReactor.swift */; };
@@ -26,6 +25,18 @@
 		D1274121217CDF6100DD09C2 /* CounterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1274120217CDF6100DD09C2 /* CounterService.swift */; };
 		D19718CD217E29D2009B5F0F /* RxApollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CC217E29D2009B5F0F /* RxApollo.swift */; };
 		D19718CF217E2ED3009B5F0F /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CE217E2ED3009B5F0F /* ObservableType.swift */; };
+		D1B4F161217EB3770011BAFF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F160217EB3770011BAFF /* RootViewController.swift */; };
+		D1B4F163217EB38D0011BAFF /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */; };
+		D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F164217EB4080011BAFF /* RootViewReactor.swift */; };
+		D1B4F167217EB5E60011BAFF /* RxUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F166217EB5E60011BAFF /* RxUIViewController.swift */; };
+		D1B4F16A217EB8380011BAFF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F169217EB8380011BAFF /* LoginViewController.swift */; };
+		D1B4F16C217EB8580011BAFF /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B4F16B217EB8580011BAFF /* LoginViewController.storyboard */; };
+		D1B4F16F217EB8A70011BAFF /* StoryboardLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F16E217EB8A70011BAFF /* StoryboardLoadable.swift */; };
+		D1B4F171217EB8D50011BAFF /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F170217EB8D50011BAFF /* NSObject.swift */; };
+		D1B4F172217EB9C00011BAFF /* ReactorKitRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D127410D217CCB4000DD09C2 /* ReactorKitRuntime.framework */; };
+		D1B4F174217EBB940011BAFF /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F173217EBB940011BAFF /* UIView.swift */; };
+		D1B4F176217EBF200011BAFF /* LoginViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F175217EBF200011BAFF /* LoginViewReactor.swift */; };
+		D1B4F178217EC0970011BAFF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F177217EC0970011BAFF /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +61,17 @@
 		D1274120217CDF6100DD09C2 /* CounterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterService.swift; sourceTree = "<group>"; };
 		D19718CC217E29D2009B5F0F /* RxApollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxApollo.swift; sourceTree = "<group>"; };
 		D19718CE217E2ED3009B5F0F /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
+		D1B4F160217EB3770011BAFF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RootViewController.storyboard; sourceTree = "<group>"; };
+		D1B4F164217EB4080011BAFF /* RootViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewReactor.swift; sourceTree = "<group>"; };
+		D1B4F166217EB5E60011BAFF /* RxUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxUIViewController.swift; sourceTree = "<group>"; };
+		D1B4F169217EB8380011BAFF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D1B4F16B217EB8580011BAFF /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
+		D1B4F16E217EB8A70011BAFF /* StoryboardLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardLoadable.swift; sourceTree = "<group>"; };
+		D1B4F170217EB8D50011BAFF /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
+		D1B4F173217EBB940011BAFF /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		D1B4F175217EBF200011BAFF /* LoginViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewReactor.swift; sourceTree = "<group>"; };
+		D1B4F177217EC0970011BAFF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,10 +79,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1B4F172217EB9C00011BAFF /* ReactorKitRuntime.framework in Frameworks */,
 				D1274113217CCCF000DD09C2 /* RxCocoa.framework in Frameworks */,
 				D1274114217CCCF000DD09C2 /* RxSwift.framework in Frameworks */,
 				D127410E217CCB4000DD09C2 /* ReactorKit.framework in Frameworks */,
-				D127410F217CCB4000DD09C2 /* ReactorKitRuntime.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,16 +109,9 @@
 		D123F252217CBD2500AE38FD /* Annict-for-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				D19718CB217E29BA009B5F0F /* Rx */,
-				D1013CCD217E244A001C269B /* API.swift */,
-				D123F253217CBD2500AE38FD /* AppDelegate.swift */,
-				D123F255217CBD2500AE38FD /* ViewController.swift */,
-				D1274115217CCDDA00DD09C2 /* ViewReactor.swift */,
-				D1274117217CD93400DD09C2 /* ModalViewController.swift */,
-				D1274119217CD95F00DD09C2 /* ModalViewReactor.swift */,
-				D123F257217CBD2500AE38FD /* Main.storyboard */,
-				D1013CCB217E23F7001C269B /* test.graphql */,
-				D127411B217CDEDB00DD09C2 /* Services */,
+				D1B4F15D217EB3080011BAFF /* Commons */,
+				D1B4F15E217EB33E0011BAFF /* Modules */,
+				D1B4F15C217EB2EC0011BAFF /* Samples */,
 				D123F25A217CBD2600AE38FD /* Assets.xcassets */,
 				D123F25C217CBD2600AE38FD /* LaunchScreen.storyboard */,
 				D123F25F217CBD2600AE38FD /* Info.plist */,
@@ -130,8 +145,74 @@
 			children = (
 				D19718CC217E29D2009B5F0F /* RxApollo.swift */,
 				D19718CE217E2ED3009B5F0F /* ObservableType.swift */,
+				D1B4F166217EB5E60011BAFF /* RxUIViewController.swift */,
 			);
 			path = Rx;
+			sourceTree = "<group>";
+		};
+		D1B4F15C217EB2EC0011BAFF /* Samples */ = {
+			isa = PBXGroup;
+			children = (
+				D127411B217CDEDB00DD09C2 /* Services */,
+				D123F253217CBD2500AE38FD /* AppDelegate.swift */,
+				D123F255217CBD2500AE38FD /* ViewController.swift */,
+				D1274115217CCDDA00DD09C2 /* ViewReactor.swift */,
+				D1274117217CD93400DD09C2 /* ModalViewController.swift */,
+				D1274119217CD95F00DD09C2 /* ModalViewReactor.swift */,
+				D123F257217CBD2500AE38FD /* Main.storyboard */,
+				D1013CCB217E23F7001C269B /* test.graphql */,
+			);
+			path = Samples;
+			sourceTree = "<group>";
+		};
+		D1B4F15D217EB3080011BAFF /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				D19718CB217E29BA009B5F0F /* Rx */,
+				D1B4F16D217EB8980011BAFF /* Extensions */,
+				D1013CCD217E244A001C269B /* API.swift */,
+				D1B4F177217EC0970011BAFF /* Constants.swift */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		D1B4F15E217EB33E0011BAFF /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				D1B4F15F217EB3510011BAFF /* Root */,
+				D1B4F168217EB81A0011BAFF /* Login */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		D1B4F15F217EB3510011BAFF /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				D1B4F160217EB3770011BAFF /* RootViewController.swift */,
+				D1B4F164217EB4080011BAFF /* RootViewReactor.swift */,
+				D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		D1B4F168217EB81A0011BAFF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D1B4F169217EB8380011BAFF /* LoginViewController.swift */,
+				D1B4F16B217EB8580011BAFF /* LoginViewController.storyboard */,
+				D1B4F175217EBF200011BAFF /* LoginViewReactor.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D1B4F16D217EB8980011BAFF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D1B4F16E217EB8A70011BAFF /* StoryboardLoadable.swift */,
+				D1B4F170217EB8D50011BAFF /* NSObject.swift */,
+				D1B4F173217EBB940011BAFF /* UIView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +278,8 @@
 				D123F25E217CBD2600AE38FD /* LaunchScreen.storyboard in Resources */,
 				D1013CCC217E23F7001C269B /* test.graphql in Resources */,
 				D123F25B217CBD2600AE38FD /* Assets.xcassets in Resources */,
+				D1B4F16C217EB8580011BAFF /* LoginViewController.storyboard in Resources */,
+				D1B4F163217EB38D0011BAFF /* RootViewController.storyboard in Resources */,
 				D123F259217CBD2500AE38FD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,10 +296,10 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/ReactorKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ReactorKitRuntime.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Apollo.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactorKitRuntime.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -252,14 +335,23 @@
 			files = (
 				D1274121217CDF6100DD09C2 /* CounterService.swift in Sources */,
 				D1274118217CD93400DD09C2 /* ModalViewController.swift in Sources */,
+				D1B4F161217EB3770011BAFF /* RootViewController.swift in Sources */,
+				D1B4F16A217EB8380011BAFF /* LoginViewController.swift in Sources */,
+				D1B4F16F217EB8A70011BAFF /* StoryboardLoadable.swift in Sources */,
 				D123F256217CBD2500AE38FD /* ViewController.swift in Sources */,
+				D1B4F171217EB8D50011BAFF /* NSObject.swift in Sources */,
 				D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */,
 				D19718CD217E29D2009B5F0F /* RxApollo.swift in Sources */,
 				D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */,
 				D1274116217CCDDA00DD09C2 /* ViewReactor.swift in Sources */,
 				D127411A217CD95F00DD09C2 /* ModalViewReactor.swift in Sources */,
+				D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */,
+				D1B4F176217EBF200011BAFF /* LoginViewReactor.swift in Sources */,
+				D1B4F167217EB5E60011BAFF /* RxUIViewController.swift in Sources */,
+				D1B4F178217EC0970011BAFF /* Constants.swift in Sources */,
 				D1013CCE217E244A001C269B /* API.swift in Sources */,
 				D123F254217CBD2500AE38FD /* AppDelegate.swift in Sources */,
+				D1B4F174217EBB940011BAFF /* UIView.swift in Sources */,
 				D19718CF217E2ED3009B5F0F /* ObservableType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
