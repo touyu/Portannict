@@ -1,9 +1,15 @@
-//___FILEHEADER___
+//
+//  DPDPViewReactor.swift
+//  Annict-for-iOS
+//
+//  Created by Yuto Akiba on 2018/10/24.
+//  Copyright © 2018 Yuto Akiba. All rights reserved.
+//
 
 import ReactorKit
 import RxSwift
 
-final class ___FILEBASENAMEASIDENTIFIER___: Reactor {
+final class DPDPViewReactor: Reactor {
     var initialState: State
 
     init() {

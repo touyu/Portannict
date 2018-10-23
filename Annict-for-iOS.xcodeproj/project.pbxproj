@@ -27,6 +27,9 @@
 		D1274121217CDF6100DD09C2 /* CounterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1274120217CDF6100DD09C2 /* CounterService.swift */; };
 		D19718CD217E29D2009B5F0F /* RxApollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CC217E29D2009B5F0F /* RxApollo.swift */; };
 		D19718CF217E2ED3009B5F0F /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CE217E2ED3009B5F0F /* ObservableType.swift */; };
+		D1AC7B02217F77CA002340E8 /* DPDPViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC7AFF217F77CA002340E8 /* DPDPViewReactor.swift */; };
+		D1AC7B03217F77CA002340E8 /* DPDPViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1AC7B00217F77CA002340E8 /* DPDPViewController.storyboard */; };
+		D1AC7B04217F77CA002340E8 /* DPDPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC7B01217F77CA002340E8 /* DPDPViewController.swift */; };
 		D1B4F161217EB3770011BAFF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F160217EB3770011BAFF /* RootViewController.swift */; };
 		D1B4F163217EB38D0011BAFF /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */; };
 		D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F164217EB4080011BAFF /* RootViewReactor.swift */; };
@@ -74,6 +77,9 @@
 		D1274120217CDF6100DD09C2 /* CounterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterService.swift; sourceTree = "<group>"; };
 		D19718CC217E29D2009B5F0F /* RxApollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxApollo.swift; sourceTree = "<group>"; };
 		D19718CE217E2ED3009B5F0F /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
+		D1AC7AFF217F77CA002340E8 /* DPDPViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPDPViewReactor.swift; sourceTree = "<group>"; };
+		D1AC7B00217F77CA002340E8 /* DPDPViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DPDPViewController.storyboard; sourceTree = "<group>"; };
+		D1AC7B01217F77CA002340E8 /* DPDPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPDPViewController.swift; sourceTree = "<group>"; };
 		D1B4F160217EB3770011BAFF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RootViewController.storyboard; sourceTree = "<group>"; };
 		D1B4F164217EB4080011BAFF /* RootViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewReactor.swift; sourceTree = "<group>"; };
@@ -229,6 +235,9 @@
 				D1B4F169217EB8380011BAFF /* LoginViewController.swift */,
 				D1B4F16B217EB8580011BAFF /* LoginViewController.storyboard */,
 				D1B4F175217EBF200011BAFF /* LoginViewReactor.swift */,
+				D1AC7AFF217F77CA002340E8 /* DPDPViewReactor.swift */,
+				D1AC7B00217F77CA002340E8 /* DPDPViewController.storyboard */,
+				D1AC7B01217F77CA002340E8 /* DPDPViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -352,6 +361,7 @@
 				D123F25E217CBD2600AE38FD /* LaunchScreen.storyboard in Resources */,
 				D1013CCC217E23F7001C269B /* test.graphql in Resources */,
 				D1BCB8D1217F46B600B84F82 /* HomeViewController.storyboard in Resources */,
+				D1AC7B03217F77CA002340E8 /* DPDPViewController.storyboard in Resources */,
 				D123F25B217CBD2600AE38FD /* Assets.xcassets in Resources */,
 				D1B4F16C217EB8580011BAFF /* LoginViewController.storyboard in Resources */,
 				D1B4F163217EB38D0011BAFF /* RootViewController.storyboard in Resources */,
@@ -476,9 +486,11 @@
 				D1B4F178217EC0970011BAFF /* Constants.swift in Sources */,
 				D1013CCE217E244A001C269B /* API.swift in Sources */,
 				D123F254217CBD2500AE38FD /* AppDelegate.swift in Sources */,
+				D1AC7B04217F77CA002340E8 /* DPDPViewController.swift in Sources */,
 				D1BCB8C4217F350A00B84F82 /* HTTPClient.swift in Sources */,
 				D1B4F174217EBB940011BAFF /* UIView.swift in Sources */,
 				D19718CF217E2ED3009B5F0F /* ObservableType.swift in Sources */,
+				D1AC7B02217F77CA002340E8 /* DPDPViewReactor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 import ReactorKit
+import RxSwift
 
 final class LoginViewReactor: Reactor {
     var initialState: LoginViewReactor.State
@@ -25,5 +26,13 @@ final class LoginViewReactor: Reactor {
 
     struct State {
 
+    }
+    
+    func mutate(action: Action) -> Observable<Mutation> {
+        return .empty()
+    }
+    
+    func reduce(state: State, mutation: Mutation) -> State {
+        return state
     }
 }
