@@ -5,3 +5,6 @@ Build
 **/*.xcuserstate
 node_modules
 vendor/bundle
+
+.env
+Pods

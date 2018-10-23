@@ -31,7 +31,8 @@ final class LoginViewController: UIViewController, StoryboardView {
     }
 
     private func tappedLoginButton() {
-
+        guard let url = Constants.oauthURL else { return }
+        showSafariViewController(url: url)
     }
 
     private func showSafariViewController(url: URL) {

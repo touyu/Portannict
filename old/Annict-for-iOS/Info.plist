@@ -27,7 +27,7 @@
 			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>annict</string>
+				<string>portannict</string>
 			</array>
 		</dict>
 	</array>
