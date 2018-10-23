@@ -12,7 +12,7 @@
         <!--___FILEBASENAME___-->
         <scene sceneID="UUc-NY-ffm">
             <objects>
-                <viewController storyboardIdentifier="___FILEBASENAME___" id="5jk-Hd-q3d" customClass="___FILEBASENAME___" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="___FILEBASENAME___" id="5jk-Hd-q3d" customClass="___FILEBASENAME___" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yq1-bX-Ama">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
