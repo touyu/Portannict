@@ -10,6 +10,7 @@ import UIKit
 import ReactorKit
 import RxSwift
 import RxCocoa
+import Apollo
 
 class ViewController: UIViewController, StoryboardView {
     typealias Reactor = ViewReactor
@@ -20,11 +21,32 @@ class ViewController: UIViewController, StoryboardView {
     
     var disposeBag = DisposeBag()
     
+    let apollo: ApolloClient = {
+        let configuration = URLSessionConfiguration.default
+        configuration.httpAdditionalHeaders = ["Authorization": "Bearer 38c83ad4efab2b33c53c10f405f389d8652562de1331aa2e15382f6c1831acc1"]
+        
+        let url = URL(string: "https://api.annict.com/graphql")!
+        
+        return ApolloClient(networkTransport: HTTPNetworkTransport(url: url, configuration: configuration))
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let provider = ServiceProvider()
         reactor = Reactor(provider: provider)
+        
+        let query = GetViewerQuery()
+        apollo.rx.fetch(query: query)
+            .asObservable()
+            .map { $0.viewer }
+            .filterNil()
+            .subscribe(onNext: { viewer in
+                print(viewer)
+            })
+            .disposed(by: disposeBag)
+        
+        
     }
 
     func bind(reactor: Reactor) {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1013CCC217E23F7001C269B /* test.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1013CCB217E23F7001C269B /* test.graphql */; };
+		D1013CCE217E244A001C269B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1013CCD217E244A001C269B /* API.swift */; };
 		D123F254217CBD2500AE38FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D123F253217CBD2500AE38FD /* AppDelegate.swift */; };
 		D123F256217CBD2500AE38FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D123F255217CBD2500AE38FD /* ViewController.swift */; };
 		D123F259217CBD2500AE38FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D123F257217CBD2500AE38FD /* Main.storyboard */; };
@@ -22,9 +24,13 @@
 		D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127411C217CDEF300DD09C2 /* BaseService.swift */; };
 		D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127411E217CDF1000DD09C2 /* ServiceProvider.swift */; };
 		D1274121217CDF6100DD09C2 /* CounterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1274120217CDF6100DD09C2 /* CounterService.swift */; };
+		D19718CD217E29D2009B5F0F /* RxApollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CC217E29D2009B5F0F /* RxApollo.swift */; };
+		D19718CF217E2ED3009B5F0F /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CE217E2ED3009B5F0F /* ObservableType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D1013CCB217E23F7001C269B /* test.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.graphql; sourceTree = "<group>"; };
+		D1013CCD217E244A001C269B /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		D123F250217CBD2500AE38FD /* Annict-for-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Annict-for-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D123F253217CBD2500AE38FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D123F255217CBD2500AE38FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +48,8 @@
 		D127411C217CDEF300DD09C2 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		D127411E217CDF1000DD09C2 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		D1274120217CDF6100DD09C2 /* CounterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterService.swift; sourceTree = "<group>"; };
+		D19718CC217E29D2009B5F0F /* RxApollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxApollo.swift; sourceTree = "<group>"; };
+		D19718CE217E2ED3009B5F0F /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,12 +87,15 @@
 		D123F252217CBD2500AE38FD /* Annict-for-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D19718CB217E29BA009B5F0F /* Rx */,
+				D1013CCD217E244A001C269B /* API.swift */,
 				D123F253217CBD2500AE38FD /* AppDelegate.swift */,
 				D123F255217CBD2500AE38FD /* ViewController.swift */,
 				D1274115217CCDDA00DD09C2 /* ViewReactor.swift */,
 				D1274117217CD93400DD09C2 /* ModalViewController.swift */,
 				D1274119217CD95F00DD09C2 /* ModalViewReactor.swift */,
 				D123F257217CBD2500AE38FD /* Main.storyboard */,
+				D1013CCB217E23F7001C269B /* test.graphql */,
 				D127411B217CDEDB00DD09C2 /* Services */,
 				D123F25A217CBD2600AE38FD /* Assets.xcassets */,
 				D123F25C217CBD2600AE38FD /* LaunchScreen.storyboard */,
@@ -114,6 +125,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		D19718CB217E29BA009B5F0F /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				D19718CC217E29D2009B5F0F /* RxApollo.swift */,
+				D19718CE217E2ED3009B5F0F /* ObservableType.swift */,
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,6 +145,7 @@
 				D123F24D217CBD2500AE38FD /* Frameworks */,
 				D123F24E217CBD2500AE38FD /* Resources */,
 				D1274110217CCB5700DD09C2 /* ShellScript */,
+				D1274122217E09D600DD09C2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -174,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D123F25E217CBD2600AE38FD /* LaunchScreen.storyboard in Resources */,
+				D1013CCC217E23F7001C269B /* test.graphql in Resources */,
 				D123F25B217CBD2600AE38FD /* Assets.xcassets in Resources */,
 				D123F259217CBD2500AE38FD /* Main.storyboard in Resources */,
 			);
@@ -194,6 +216,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/ReactorKitRuntime.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Apollo.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -202,6 +225,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		D1274122217E09D600DD09C2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=$PATH:$HOME/.nodebrew/current/bin\nAPOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-cli.sh codegen:generate --queries=\"$(find . -name '*.graphql')\" --schema=schema.json API.swift\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -214,10 +254,13 @@
 				D1274118217CD93400DD09C2 /* ModalViewController.swift in Sources */,
 				D123F256217CBD2500AE38FD /* ViewController.swift in Sources */,
 				D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */,
+				D19718CD217E29D2009B5F0F /* RxApollo.swift in Sources */,
 				D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */,
 				D1274116217CCDDA00DD09C2 /* ViewReactor.swift in Sources */,
 				D127411A217CD95F00DD09C2 /* ModalViewReactor.swift in Sources */,
+				D1013CCE217E244A001C269B /* API.swift in Sources */,
 				D123F254217CBD2500AE38FD /* AppDelegate.swift in Sources */,
+				D19718CF217E2ED3009B5F0F /* ObservableType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

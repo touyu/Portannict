@@ -1,0 +1,61 @@
+language: objective-c
+osx_image: xcode9.4
+xcode_workspace: Apollo.xcworkspace
+
+matrix:
+  include:
+  - xcode_scheme: Apollo
+    xcode_sdk: macosx10.13
+    env: DESTINATION="platform=macOS,arch=x86_64"
+  - xcode_scheme: Apollo
+    xcode_sdk: iphonesimulator11.4
+    env: DESTINATION="platform=iOS Simulator,OS=11.4,name=iPhone 8"
+  - xcode_scheme: Apollo
+    xcode_sdk: iphonesimulator11.4
+    env: DESTINATION="platform=iOS Simulator,OS=10.3.1,name=iPhone 7"
+  - xcode_scheme: Apollo
+    xcode_sdk: iphonesimulator11.4
+    env: DESTINATION="platform=iOS Simulator,OS=9.3,name=iPhone 6s"
+  - xcode_scheme: Apollo
+    xcode_sdk: appletvsimulator11.4
+    env: DESTINATION="platform=tvOS Simulator,OS=11.4,name=Apple TV"
+  - xcode_scheme: ApolloSQLite
+    xcode_sdk: macosx10.13
+    env: DESTINATION="platform=macOS,arch=x86_64"
+  - xcode_scheme: ApolloSQLite
+    xcode_sdk: iphonesimulator11.4
+    env: DESTINATION="platform=iOS Simulator,OS=11.4,name=iPhone 8"
+  - xcode_scheme: ApolloSQLite
+    xcode_sdk: iphonesimulator11.4
+    env: DESTINATION="platform=iOS Simulator,OS=10.3.1,name=iPhone 7"
+  - xcode_scheme: ApolloSQLite
+    xcode_sdk: iphonesimulator11.4
+    env: DESTINATION="platform=iOS Simulator,OS=9.3,name=iPhone 6s"
+  - xcode_scheme: ApolloWebSocket
+    xcode_sdk: macosx10.13
+    env: DESTINATION="platform=macOS,arch=x86_64"
+  - xcode_scheme: ApolloWebSocket
+    xcode_sdk: iphonesimulator11.4
+    env: DESTINATION="platform=iOS Simulator,OS=11.4,name=iPhone 8"
+  - xcode_scheme: ApolloWebSocket
+    xcode_sdk: iphonesimulator11.4
+    env: DESTINATION="platform=iOS Simulator,OS=10.3.1,name=iPhone 7"
+  - xcode_scheme: ApolloWebSocket
+    xcode_sdk: iphonesimulator11.4
+    env: DESTINATION="platform=iOS Simulator,OS=9.3,name=iPhone 6s"
+
+cache:
+  directories:
+    - ../starwars-server
+
+before_install:
+  - nvm install 8
+  - nvm alias default 8
+  - (./scripts/install-or-update-starwars-server.sh)
+  - (cd ../starwars-server && npm start) &
+  - npm install -g apollo
+
+script:
+  - set -o pipefail
+  - xcodebuild clean build build-for-testing -workspace "${TRAVIS_XCODE_WORKSPACE}" -scheme "${TRAVIS_XCODE_SCHEME}" -sdk "${TRAVIS_XCODE_SDK}" -destination "${DESTINATION}" | xcpretty
+  - xcodebuild test-without-building -workspace "${TRAVIS_XCODE_WORKSPACE}" -scheme "${TRAVIS_XCODE_SCHEME}" -sdk "${TRAVIS_XCODE_SDK}" -destination "${DESTINATION}" | xcpretty
