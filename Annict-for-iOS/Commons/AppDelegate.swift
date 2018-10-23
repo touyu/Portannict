@@ -22,8 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         let urlComponents = NSURLComponents(url: url, resolvingAgainstBaseURL: true)
         if let authCode = urlComponents?.queryItems?.first?.value {
-//            NotificationCenter.default.post(name: .safariViewControllerCloseNotification, object: authCode)
-            print(authCode)
+            NotificationCenter.default.post(name: .safariViewControllerCloseNotification, object: authCode)
         }
         return true
     }

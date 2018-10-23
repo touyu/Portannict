@@ -27,6 +27,10 @@ final class RootViewController: UIViewController, StoryboardView {
             .disposed(by: disposeBag)
     }
 
+    func setCurrentViewController(_ vc: UIViewController) {
+        currentViewController = vc
+    }
+
     private(set) var currentViewController: UIViewController? {
         didSet {
             guard let vc = currentViewController else { return }
@@ -53,9 +57,9 @@ final class RootViewController: UIViewController, StoryboardView {
     private func loginRouting(state: Reactor.LoginState) {
         switch state {
         case .logout:
-            currentViewController = LoginViewController.loadStoryboard()
+            currentViewController = LoginViewController.loadStoryboard(reactor: LoginViewReactor())
         case .login:
-            currentViewController = UIViewController()
+            currentViewController = HomeViewController.loadStoryboard()
         }
     }
 }

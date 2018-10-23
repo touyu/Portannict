@@ -12,5 +12,6 @@ end
 plugin 'cocoapods-keys', {
   :project => "Annict-for-iOS",
   :keys => [
-    "AnnictClientID"
+    "AnnictClientID",
+    "AnnictClientSecret"
 ]}

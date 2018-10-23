@@ -38,5 +38,23 @@ final class LoginViewController: UIViewController, StoryboardView {
     private func showSafariViewController(url: URL) {
         let safariViewController = SFSafariViewController(url: url)
         present(safariViewController, animated: true, completion: nil)
+
+        NotificationCenter.default.single(forName: .safariViewControllerCloseNotification, object: nil, queue: nil) { [weak self] notification in
+            safariViewController.dismiss(animated: true, completion: nil)
+            guard let code = notification.object as? String else { return }
+            self?.getOauthToken(code: code)
+        }
+    }
+
+    private func getOauthToken(code: String) {
+        let request = OauthTokenRequest(code: code)
+        HTTPClient.send(request: request) { result in
+            switch result {
+            case .success(let value):
+                UIApplication.rootViewController?.setCurrentViewController(HomeViewController.loadStoryboard())
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }

@@ -10,6 +10,7 @@
 		C917CDDC4A16A7899040361A /* Pods_Annict_for_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0567F169D06E4DEA7E47513F /* Pods_Annict_for_iOS.framework */; };
 		D1013CCC217E23F7001C269B /* test.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1013CCB217E23F7001C269B /* test.graphql */; };
 		D1013CCE217E244A001C269B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1013CCD217E244A001C269B /* API.swift */; };
+		D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */; };
 		D123F254217CBD2500AE38FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D123F253217CBD2500AE38FD /* AppDelegate.swift */; };
 		D123F256217CBD2500AE38FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D123F255217CBD2500AE38FD /* ViewController.swift */; };
 		D123F259217CBD2500AE38FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D123F257217CBD2500AE38FD /* Main.storyboard */; };
@@ -38,6 +39,13 @@
 		D1B4F174217EBB940011BAFF /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F173217EBB940011BAFF /* UIView.swift */; };
 		D1B4F176217EBF200011BAFF /* LoginViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F175217EBF200011BAFF /* LoginViewReactor.swift */; };
 		D1B4F178217EC0970011BAFF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F177217EC0970011BAFF /* Constants.swift */; };
+		D1BCB8C2217F327400B84F82 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BCB8C1217F327400B84F82 /* NotificationCenter.swift */; };
+		D1BCB8C4217F350A00B84F82 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BCB8C3217F350A00B84F82 /* HTTPClient.swift */; };
+		D1BCB8C9217F3E8300B84F82 /* OauthTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BCB8C8217F3E8300B84F82 /* OauthTokenRequest.swift */; };
+		D1BCB8CB217F451C00B84F82 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BCB8CA217F451C00B84F82 /* UIApplication.swift */; };
+		D1BCB8CE217F469800B84F82 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BCB8CD217F469800B84F82 /* HomeViewController.swift */; };
+		D1BCB8D1217F46B600B84F82 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BCB8D0217F46B600B84F82 /* HomeViewController.storyboard */; };
+		D1BCB8D3217F4A3D00B84F82 /* HomeViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BCB8D2217F4A3D00B84F82 /* HomeViewReactor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +54,7 @@
 		CC015B11081256C34FD80D74 /* Pods-Annict-for-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D1013CCB217E23F7001C269B /* test.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.graphql; sourceTree = "<group>"; };
 		D1013CCD217E244A001C269B /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		D123F250217CBD2500AE38FD /* Annict-for-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Annict-for-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D123F253217CBD2500AE38FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D123F255217CBD2500AE38FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +85,13 @@
 		D1B4F173217EBB940011BAFF /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		D1B4F175217EBF200011BAFF /* LoginViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewReactor.swift; sourceTree = "<group>"; };
 		D1B4F177217EC0970011BAFF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D1BCB8C1217F327400B84F82 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
+		D1BCB8C3217F350A00B84F82 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		D1BCB8C8217F3E8300B84F82 /* OauthTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthTokenRequest.swift; sourceTree = "<group>"; };
+		D1BCB8CA217F451C00B84F82 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		D1BCB8CD217F469800B84F82 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D1BCB8D0217F46B600B84F82 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
+		D1BCB8D2217F4A3D00B84F82 /* HomeViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewReactor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,10 +191,14 @@
 			isa = PBXGroup;
 			children = (
 				D123F253217CBD2500AE38FD /* AppDelegate.swift */,
+				D1BCB8C5217F3E0900B84F82 /* API */,
+				D1BCB8C1217F327400B84F82 /* NotificationCenter.swift */,
 				D19718CB217E29BA009B5F0F /* Rx */,
 				D1B4F16D217EB8980011BAFF /* Extensions */,
 				D1013CCD217E244A001C269B /* API.swift */,
 				D1B4F177217EC0970011BAFF /* Constants.swift */,
+				D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */,
+				D1BCB8CA217F451C00B84F82 /* UIApplication.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -186,6 +206,7 @@
 		D1B4F15E217EB33E0011BAFF /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				D1BCB8CC217F468800B84F82 /* Home */,
 				D1B4F15F217EB3510011BAFF /* Root */,
 				D1B4F168217EB81A0011BAFF /* Login */,
 			);
@@ -220,6 +241,41 @@
 				D1B4F173217EBB940011BAFF /* UIView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D1BCB8C5217F3E0900B84F82 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D1BCB8C3217F350A00B84F82 /* HTTPClient.swift */,
+				D1BCB8C7217F3E1C00B84F82 /* GraphQL */,
+				D1BCB8C6217F3E1100B84F82 /* REST */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		D1BCB8C6217F3E1100B84F82 /* REST */ = {
+			isa = PBXGroup;
+			children = (
+				D1BCB8C8217F3E8300B84F82 /* OauthTokenRequest.swift */,
+			);
+			path = REST;
+			sourceTree = "<group>";
+		};
+		D1BCB8C7217F3E1C00B84F82 /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GraphQL;
+			sourceTree = "<group>";
+		};
+		D1BCB8CC217F468800B84F82 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D1BCB8CD217F469800B84F82 /* HomeViewController.swift */,
+				D1BCB8D2217F4A3D00B84F82 /* HomeViewReactor.swift */,
+				D1BCB8D0217F46B600B84F82 /* HomeViewController.storyboard */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		F195834130FE771215D4C51F /* Pods */ = {
@@ -295,6 +351,7 @@
 			files = (
 				D123F25E217CBD2600AE38FD /* LaunchScreen.storyboard in Resources */,
 				D1013CCC217E23F7001C269B /* test.graphql in Resources */,
+				D1BCB8D1217F46B600B84F82 /* HomeViewController.storyboard in Resources */,
 				D123F25B217CBD2600AE38FD /* Assets.xcassets in Resources */,
 				D1B4F16C217EB8580011BAFF /* LoginViewController.storyboard in Resources */,
 				D1B4F163217EB38D0011BAFF /* RootViewController.storyboard in Resources */,
@@ -398,14 +455,20 @@
 				D1274121217CDF6100DD09C2 /* CounterService.swift in Sources */,
 				D1274118217CD93400DD09C2 /* ModalViewController.swift in Sources */,
 				D1B4F161217EB3770011BAFF /* RootViewController.swift in Sources */,
+				D1BCB8CB217F451C00B84F82 /* UIApplication.swift in Sources */,
 				D1B4F16A217EB8380011BAFF /* LoginViewController.swift in Sources */,
 				D1B4F16F217EB8A70011BAFF /* StoryboardLoadable.swift in Sources */,
 				D123F256217CBD2500AE38FD /* ViewController.swift in Sources */,
 				D1B4F171217EB8D50011BAFF /* NSObject.swift in Sources */,
 				D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */,
+				D1BCB8C2217F327400B84F82 /* NotificationCenter.swift in Sources */,
 				D19718CD217E29D2009B5F0F /* RxApollo.swift in Sources */,
+				D1BCB8D3217F4A3D00B84F82 /* HomeViewReactor.swift in Sources */,
+				D1BCB8CE217F469800B84F82 /* HomeViewController.swift in Sources */,
 				D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */,
+				D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */,
 				D1274116217CCDDA00DD09C2 /* ViewReactor.swift in Sources */,
+				D1BCB8C9217F3E8300B84F82 /* OauthTokenRequest.swift in Sources */,
 				D127411A217CD95F00DD09C2 /* ModalViewReactor.swift in Sources */,
 				D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */,
 				D1B4F176217EBF200011BAFF /* LoginViewReactor.swift in Sources */,
@@ -413,6 +476,7 @@
 				D1B4F178217EC0970011BAFF /* Constants.swift in Sources */,
 				D1013CCE217E244A001C269B /* API.swift in Sources */,
 				D123F254217CBD2500AE38FD /* AppDelegate.swift in Sources */,
+				D1BCB8C4217F350A00B84F82 /* HTTPClient.swift in Sources */,
 				D1B4F174217EBB940011BAFF /* UIView.swift in Sources */,
 				D19718CF217E2ED3009B5F0F /* ObservableType.swift in Sources */,
 			);
