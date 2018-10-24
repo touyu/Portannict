@@ -7,31 +7,54 @@
 //
 
 import ReactorKit
+import RxSwift
 
 final class RootViewReactor: Reactor {
+    enum Action {
+        
+    }
+    
+    enum Mutation {
+        case setLoginState(LoginState)
+    }
+    
+    struct State {
+        var loginState: LoginState
+    }
+    
+    enum LoginState {
+        case logout
+        case login
+    }
+    
     let initialState: State
     let provider: ServiceProviderType
 
     init(provider: ServiceProviderType) {
-        self.initialState = State(loginState: .logout)
+        let token = provider.userDefaultsService.fetch(forKey: .accessToken, type: String.self)
+        if token?.isEmpty ?? true {
+            self.initialState = State(loginState: .logout)
+        } else {
+            self.initialState = State(loginState: .login)
+        }
         self.provider = provider
     }
-
-    enum Action {
-
+    
+    func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
+        let loginEvent = provider.userDefaultsService.event.accessToken
+            .filterNil()
+            .map { _ in Mutation.setLoginState(.login) }
+        
+        return Observable.of(mutation, loginEvent).merge()
     }
-
-    enum Mutation {
-
-    }
-
-    struct State {
-        var loginState: LoginState
-    }
-
-    enum LoginState {
-        case logout
-        case login
+    
+    func reduce(state: State, mutation: Mutation) -> State {
+        var state = state
+        switch mutation {
+        case .setLoginState(let loginState):
+            state.loginState = loginState
+        }
+        return state
     }
     
     func reactorForLogin() -> LoginViewReactor {

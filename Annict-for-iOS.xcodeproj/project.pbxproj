@@ -21,6 +21,7 @@
 		D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127411E217CDF1000DD09C2 /* ServiceProvider.swift */; };
 		D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */; };
 		D136EA7121807E9500BA08EA /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA7021807E9500BA08EA /* APIService.swift */; };
+		D136EA742180885400BA08EA /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA732180885400BA08EA /* UserDefaultsService.swift */; };
 		D19718CD217E29D2009B5F0F /* RxApollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CC217E29D2009B5F0F /* RxApollo.swift */; };
 		D19718CF217E2ED3009B5F0F /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CE217E2ED3009B5F0F /* ObservableType.swift */; };
 		D1B4F161217EB3770011BAFF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F160217EB3770011BAFF /* RootViewController.swift */; };
@@ -64,6 +65,7 @@
 		D127411E217CDF1000DD09C2 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
 		D136EA7021807E9500BA08EA /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		D136EA732180885400BA08EA /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		D19718CC217E29D2009B5F0F /* RxApollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxApollo.swift; sourceTree = "<group>"; };
 		D19718CE217E2ED3009B5F0F /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
 		D1B4F160217EB3770011BAFF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				D127411C217CDEF300DD09C2 /* BaseService.swift */,
 				D127411E217CDF1000DD09C2 /* ServiceProvider.swift */,
 				D136EA7021807E9500BA08EA /* APIService.swift */,
+				D136EA732180885400BA08EA /* UserDefaultsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				D1B4F171217EB8D50011BAFF /* NSObject.swift in Sources */,
 				D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */,
 				D1BCB8C2217F327400B84F82 /* NotificationCenter.swift in Sources */,
+				D136EA742180885400BA08EA /* UserDefaultsService.swift in Sources */,
 				D19718CD217E29D2009B5F0F /* RxApollo.swift in Sources */,
 				D1BCB8D3217F4A3D00B84F82 /* HomeViewReactor.swift in Sources */,
 				D1BCB8CE217F469800B84F82 /* HomeViewController.swift in Sources */,

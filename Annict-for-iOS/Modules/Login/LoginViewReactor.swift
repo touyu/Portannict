@@ -38,8 +38,8 @@ final class LoginViewReactor: Reactor {
         case .login(let code):
             return provider.apiService.getOauthToken(code: code)
                 .asObservable()
-                .do(onNext: { res in
-                    UserDefaultsRepository.save(value: res.accessToken, forKey: .accessToken)
+                .do(onNext: { [weak self] res in
+                    self?.provider.userDefaultsService.save(value: res.accessToken, forKey: .accessToken)
                 })
                 .map { _ in .changeLoginSuccess(true) }
                 .catchError { .just(.setError($0)) }

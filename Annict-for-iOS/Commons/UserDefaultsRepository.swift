@@ -22,7 +22,7 @@ final class UserDefaultsRepository {
     }
     
     static func save<T: UserDefaultsStorable>(value: T?, forKey key: Key) {
-        return T.save(key: key.rawValue, value: value, userDefaults: userDefaults)
+        T.save(key: key.rawValue, value: value, userDefaults: userDefaults)
     }
 }
 
