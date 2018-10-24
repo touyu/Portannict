@@ -9,6 +9,7 @@
 import UIKit
 import ReactorKit
 import RxSwift
+import RxCocoa
 import SafariServices
 
 final class LoginViewController: UIViewController, StoryboardView {
@@ -17,6 +18,8 @@ final class LoginViewController: UIViewController, StoryboardView {
     var disposeBag = DisposeBag()
 
     @IBOutlet private weak var loginButton: UIButton!
+    
+    private let fetchedCode = PublishRelay<String>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +30,31 @@ final class LoginViewController: UIViewController, StoryboardView {
     }
 
     func bind(reactor: Reactor) {
-
+        fetchedCode
+            .map { Reactor.Action.fetchOauthToken($0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.oauthToken }
+            .distinctUntilChanged()
+            .filterNil()
+            .do(onNext: {
+                print($0)
+            })
+            .map { Reactor.Action.login($0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.loginSuccess }
+            .distinctUntilChanged()
+            .filter { $0 }
+            .subscribe(onNext: { _ in print("login success") })
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.error }
+            .filterNil()
+            .subscribe(onNext: { print("Error: ", $0) })
+            .disposed(by: disposeBag)
     }
 
     private func tappedLoginButton() {
@@ -38,23 +65,14 @@ final class LoginViewController: UIViewController, StoryboardView {
     private func showSafariViewController(url: URL) {
         let safariViewController = SFSafariViewController(url: url)
         present(safariViewController, animated: true, completion: nil)
-
-        NotificationCenter.default.single(forName: .safariViewControllerCloseNotification, object: nil, queue: nil) { [weak self] notification in
-            safariViewController.dismiss(animated: true, completion: nil)
-            guard let code = notification.object as? String else { return }
-            self?.getOauthToken(code: code)
-        }
-    }
-
-    private func getOauthToken(code: String) {
-        let request = OauthTokenRequest(code: code)
-        HTTPClient.send(request: request) { result in
-            switch result {
-            case .success(let value):
-                UIApplication.rootViewController?.setCurrentViewController(HomeViewController.loadStoryboard())
-            case .failure(let error):
-                print(error)
-            }
-        }
+        
+        NotificationCenter.default.rx.notification(.safariViewControllerCloseNotification)
+            .do(onNext: { _ in
+                safariViewController.dismiss(animated: true, completion: nil)
+            })
+            .map { $0.object as? String }
+            .filterNil()
+            .bind(to: fetchedCode)
+            .disposed(by: disposeBag)
     }
 }

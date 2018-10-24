@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 enum HTTPClientError: Error {
     case noData
@@ -71,5 +72,19 @@ final class HTTPClient {
             }
         }
         task.resume()
+    }
+    
+    static func send<T: HTTPRequest>(request: T) -> Single<T.Response> {
+        return Single<T.Response>.create { singleEvent in
+            send(request: request) { result in
+                switch result {
+                case .success(let value):
+                    singleEvent(.success(value))
+                case .failure(let error):
+                    singleEvent(.error(error))
+                }
+            }
+            return Disposables.create()
+        }
     }
 }

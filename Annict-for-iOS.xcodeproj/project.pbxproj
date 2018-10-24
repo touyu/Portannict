@@ -25,6 +25,7 @@
 		D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127411C217CDEF300DD09C2 /* BaseService.swift */; };
 		D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127411E217CDF1000DD09C2 /* ServiceProvider.swift */; };
 		D1274121217CDF6100DD09C2 /* CounterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1274120217CDF6100DD09C2 /* CounterService.swift */; };
+		D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */; };
 		D19718CD217E29D2009B5F0F /* RxApollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CC217E29D2009B5F0F /* RxApollo.swift */; };
 		D19718CF217E2ED3009B5F0F /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CE217E2ED3009B5F0F /* ObservableType.swift */; };
 		D1B4F161217EB3770011BAFF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F160217EB3770011BAFF /* RootViewController.swift */; };
@@ -72,6 +73,7 @@
 		D127411C217CDEF300DD09C2 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		D127411E217CDF1000DD09C2 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		D1274120217CDF6100DD09C2 /* CounterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterService.swift; sourceTree = "<group>"; };
+		D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
 		D19718CC217E29D2009B5F0F /* RxApollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxApollo.swift; sourceTree = "<group>"; };
 		D19718CE217E2ED3009B5F0F /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
 		D1B4F160217EB3770011BAFF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -192,13 +194,14 @@
 			children = (
 				D123F253217CBD2500AE38FD /* AppDelegate.swift */,
 				D1BCB8C5217F3E0900B84F82 /* API */,
-				D1BCB8C1217F327400B84F82 /* NotificationCenter.swift */,
 				D19718CB217E29BA009B5F0F /* Rx */,
 				D1B4F16D217EB8980011BAFF /* Extensions */,
 				D1013CCD217E244A001C269B /* API.swift */,
 				D1B4F177217EC0970011BAFF /* Constants.swift */,
 				D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */,
 				D1BCB8CA217F451C00B84F82 /* UIApplication.swift */,
+				D1BCB8C1217F327400B84F82 /* NotificationCenter.swift */,
+				D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				D1274110217CCB5700DD09C2 /* ShellScript */,
 				D1274122217E09D600DD09C2 /* ShellScript */,
 				5BB8CB85AAE678D01443BD23 /* [CP] Embed Pods Frameworks */,
+				D136EA662180424600BA08EA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -445,6 +449,23 @@
 			shellPath = /bin/sh;
 			shellScript = "export PATH=$PATH:$HOME/.nodebrew/current/bin\nAPOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-cli.sh codegen:generate --queries=\"$(find . -name '*.graphql')\" --schema=schema.json API.swift\n";
 		};
+		D136EA662180424600BA08EA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sh ${SRCROOT}/Share/Templates/copy_templates.sh\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -470,6 +491,7 @@
 				D1274116217CCDDA00DD09C2 /* ViewReactor.swift in Sources */,
 				D1BCB8C9217F3E8300B84F82 /* OauthTokenRequest.swift in Sources */,
 				D127411A217CD95F00DD09C2 /* ModalViewReactor.swift in Sources */,
+				D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */,
 				D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */,
 				D1B4F176217EBF200011BAFF /* LoginViewReactor.swift in Sources */,
 				D1B4F167217EB5E60011BAFF /* RxUIViewController.swift in Sources */,
