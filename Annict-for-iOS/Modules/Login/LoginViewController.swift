@@ -31,20 +31,10 @@ final class LoginViewController: UIViewController, StoryboardView {
 
     func bind(reactor: Reactor) {
         fetchedCode
-            .map { Reactor.Action.fetchOauthToken($0) }
-            .bind(to: reactor.action)
-            .disposed(by: disposeBag)
-        
-        reactor.state.map { $0.oauthToken }
-            .distinctUntilChanged()
-            .filterNil()
-            .do(onNext: {
-                print($0)
-            })
             .map { Reactor.Action.login($0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
-        
+
         reactor.state.map { $0.loginSuccess }
             .distinctUntilChanged()
             .filter { $0 }

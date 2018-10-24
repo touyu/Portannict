@@ -9,9 +9,9 @@
 import Foundation
 
 protocol ServiceProviderType: class {
-    var counterService: CounterService { get }
+    var apiService: APIServiceType { get }
 }
 
 final class ServiceProvider: ServiceProviderType {
-    lazy var counterService: CounterService = .init(provider: self)
+    lazy var apiService: APIServiceType = APIService(provider: self)
 }

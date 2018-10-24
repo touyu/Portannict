@@ -18,13 +18,22 @@ final class RootViewController: UIViewController, StoryboardView {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        reactor = Reactor()
+        reactor = Reactor(provider: ServiceProvider())
     }
 
     func bind(reactor: RootViewReactor) {
         reactor.state.map { $0.loginState }
-            .subscribe(onNext: loginRouting)
+            .filter { $0 == .logout }
+            .map { _ in reactor.reactorForLogin() }
+            .subscribe(onNext: showLoginVC)
             .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.loginState }
+            .filter { $0 == .login }
+            .map { _ in reactor.reactorForHome() }
+            .subscribe(onNext: showHomeVC)
+            .disposed(by: disposeBag)
+        
     }
 
     func setCurrentViewController(_ vc: UIViewController) {
@@ -53,13 +62,12 @@ final class RootViewController: UIViewController, StoryboardView {
             }
         }
     }
-
-    private func loginRouting(state: Reactor.LoginState) {
-        switch state {
-        case .logout:
-            currentViewController = LoginViewController.loadStoryboard(reactor: LoginViewReactor())
-        case .login:
-            currentViewController = HomeViewController.loadStoryboard()
-        }
+    
+    private func showLoginVC(reactor: LoginViewReactor) {
+        currentViewController = LoginViewController.loadStoryboard(reactor: reactor)
+    }
+    
+    private func showHomeVC() {
+        currentViewController = HomeViewController.loadStoryboard()
     }
 }

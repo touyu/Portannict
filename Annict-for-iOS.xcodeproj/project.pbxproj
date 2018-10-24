@@ -12,20 +12,15 @@
 		D1013CCE217E244A001C269B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1013CCD217E244A001C269B /* API.swift */; };
 		D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */; };
 		D123F254217CBD2500AE38FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D123F253217CBD2500AE38FD /* AppDelegate.swift */; };
-		D123F256217CBD2500AE38FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D123F255217CBD2500AE38FD /* ViewController.swift */; };
-		D123F259217CBD2500AE38FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D123F257217CBD2500AE38FD /* Main.storyboard */; };
 		D123F25B217CBD2600AE38FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D123F25A217CBD2600AE38FD /* Assets.xcassets */; };
 		D123F25E217CBD2600AE38FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D123F25C217CBD2600AE38FD /* LaunchScreen.storyboard */; };
 		D127410E217CCB4000DD09C2 /* ReactorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D127410C217CCB4000DD09C2 /* ReactorKit.framework */; };
 		D1274113217CCCF000DD09C2 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1274111217CCCF000DD09C2 /* RxCocoa.framework */; };
 		D1274114217CCCF000DD09C2 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1274112217CCCF000DD09C2 /* RxSwift.framework */; };
-		D1274116217CCDDA00DD09C2 /* ViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1274115217CCDDA00DD09C2 /* ViewReactor.swift */; };
-		D1274118217CD93400DD09C2 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1274117217CD93400DD09C2 /* ModalViewController.swift */; };
-		D127411A217CD95F00DD09C2 /* ModalViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1274119217CD95F00DD09C2 /* ModalViewReactor.swift */; };
 		D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127411C217CDEF300DD09C2 /* BaseService.swift */; };
 		D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127411E217CDF1000DD09C2 /* ServiceProvider.swift */; };
-		D1274121217CDF6100DD09C2 /* CounterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1274120217CDF6100DD09C2 /* CounterService.swift */; };
 		D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */; };
+		D136EA7121807E9500BA08EA /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA7021807E9500BA08EA /* APIService.swift */; };
 		D19718CD217E29D2009B5F0F /* RxApollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CC217E29D2009B5F0F /* RxApollo.swift */; };
 		D19718CF217E2ED3009B5F0F /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CE217E2ED3009B5F0F /* ObservableType.swift */; };
 		D1B4F161217EB3770011BAFF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F160217EB3770011BAFF /* RootViewController.swift */; };
@@ -58,8 +53,6 @@
 		D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		D123F250217CBD2500AE38FD /* Annict-for-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Annict-for-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D123F253217CBD2500AE38FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D123F255217CBD2500AE38FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D123F258217CBD2500AE38FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D123F25A217CBD2600AE38FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D123F25D217CBD2600AE38FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D123F25F217CBD2600AE38FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,13 +60,10 @@
 		D127410D217CCB4000DD09C2 /* ReactorKitRuntime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactorKitRuntime.framework; path = Carthage/Build/iOS/ReactorKitRuntime.framework; sourceTree = "<group>"; };
 		D1274111217CCCF000DD09C2 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		D1274112217CCCF000DD09C2 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		D1274115217CCDDA00DD09C2 /* ViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReactor.swift; sourceTree = "<group>"; };
-		D1274117217CD93400DD09C2 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
-		D1274119217CD95F00DD09C2 /* ModalViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewReactor.swift; sourceTree = "<group>"; };
 		D127411C217CDEF300DD09C2 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		D127411E217CDF1000DD09C2 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
-		D1274120217CDF6100DD09C2 /* CounterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterService.swift; sourceTree = "<group>"; };
 		D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
+		D136EA7021807E9500BA08EA /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		D19718CC217E29D2009B5F0F /* RxApollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxApollo.swift; sourceTree = "<group>"; };
 		D19718CE217E2ED3009B5F0F /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
 		D1B4F160217EB3770011BAFF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -155,12 +145,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D127411B217CDEDB00DD09C2 /* Services */ = {
+		D136EA6F21807DD600BA08EA /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				D127411C217CDEF300DD09C2 /* BaseService.swift */,
 				D127411E217CDF1000DD09C2 /* ServiceProvider.swift */,
-				D1274120217CDF6100DD09C2 /* CounterService.swift */,
+				D136EA7021807E9500BA08EA /* APIService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -178,12 +168,6 @@
 		D1B4F15C217EB2EC0011BAFF /* Samples */ = {
 			isa = PBXGroup;
 			children = (
-				D127411B217CDEDB00DD09C2 /* Services */,
-				D123F255217CBD2500AE38FD /* ViewController.swift */,
-				D1274115217CCDDA00DD09C2 /* ViewReactor.swift */,
-				D1274117217CD93400DD09C2 /* ModalViewController.swift */,
-				D1274119217CD95F00DD09C2 /* ModalViewReactor.swift */,
-				D123F257217CBD2500AE38FD /* Main.storyboard */,
 				D1013CCB217E23F7001C269B /* test.graphql */,
 			);
 			path = Samples;
@@ -192,6 +176,7 @@
 		D1B4F15D217EB3080011BAFF /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				D136EA6F21807DD600BA08EA /* Services */,
 				D123F253217CBD2500AE38FD /* AppDelegate.swift */,
 				D1BCB8C5217F3E0900B84F82 /* API */,
 				D19718CB217E29BA009B5F0F /* Rx */,
@@ -359,7 +344,6 @@
 				D123F25B217CBD2600AE38FD /* Assets.xcassets in Resources */,
 				D1B4F16C217EB8580011BAFF /* LoginViewController.storyboard in Resources */,
 				D1B4F163217EB38D0011BAFF /* RootViewController.storyboard in Resources */,
-				D123F259217CBD2500AE38FD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,13 +457,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1274121217CDF6100DD09C2 /* CounterService.swift in Sources */,
-				D1274118217CD93400DD09C2 /* ModalViewController.swift in Sources */,
 				D1B4F161217EB3770011BAFF /* RootViewController.swift in Sources */,
 				D1BCB8CB217F451C00B84F82 /* UIApplication.swift in Sources */,
 				D1B4F16A217EB8380011BAFF /* LoginViewController.swift in Sources */,
 				D1B4F16F217EB8A70011BAFF /* StoryboardLoadable.swift in Sources */,
-				D123F256217CBD2500AE38FD /* ViewController.swift in Sources */,
 				D1B4F171217EB8D50011BAFF /* NSObject.swift in Sources */,
 				D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */,
 				D1BCB8C2217F327400B84F82 /* NotificationCenter.swift in Sources */,
@@ -488,9 +469,7 @@
 				D1BCB8CE217F469800B84F82 /* HomeViewController.swift in Sources */,
 				D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */,
 				D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */,
-				D1274116217CCDDA00DD09C2 /* ViewReactor.swift in Sources */,
 				D1BCB8C9217F3E8300B84F82 /* OauthTokenRequest.swift in Sources */,
-				D127411A217CD95F00DD09C2 /* ModalViewReactor.swift in Sources */,
 				D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */,
 				D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */,
 				D1B4F176217EBF200011BAFF /* LoginViewReactor.swift in Sources */,
@@ -500,6 +479,7 @@
 				D123F254217CBD2500AE38FD /* AppDelegate.swift in Sources */,
 				D1BCB8C4217F350A00B84F82 /* HTTPClient.swift in Sources */,
 				D1B4F174217EBB940011BAFF /* UIView.swift in Sources */,
+				D136EA7121807E9500BA08EA /* APIService.swift in Sources */,
 				D19718CF217E2ED3009B5F0F /* ObservableType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,14 +487,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D123F257217CBD2500AE38FD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D123F258217CBD2500AE38FD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D123F25C217CBD2600AE38FD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

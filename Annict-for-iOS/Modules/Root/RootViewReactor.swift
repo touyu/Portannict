@@ -9,10 +9,12 @@
 import ReactorKit
 
 final class RootViewReactor: Reactor {
-    var initialState: RootViewReactor.State
+    let initialState: State
+    let provider: ServiceProviderType
 
-    init() {
-        initialState = State(loginState: .logout)
+    init(provider: ServiceProviderType) {
+        self.initialState = State(loginState: .logout)
+        self.provider = provider
     }
 
     enum Action {
@@ -30,5 +32,13 @@ final class RootViewReactor: Reactor {
     enum LoginState {
         case logout
         case login
+    }
+    
+    func reactorForLogin() -> LoginViewReactor {
+        return LoginViewReactor(provider: provider)
+    }
+    
+    func reactorForHome() -> HomeViewReactor {
+        return HomeViewReactor()
     }
 }

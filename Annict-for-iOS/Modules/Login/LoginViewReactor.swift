@@ -10,60 +10,50 @@ import ReactorKit
 import RxSwift
 
 final class LoginViewReactor: Reactor {
-    var initialState: LoginViewReactor.State
+    let initialState: State
+    let provider: ServiceProviderType
 
-    init() {
-        initialState = State(oauthToken: nil,
-                             loginSuccess: false,
+    init(provider: ServiceProviderType) {
+        self.initialState = State(loginSuccess: false,
                              error: nil)
+        self.provider = provider
     }
 
     enum Action {
-        case fetchOauthToken(String)
         case login(String)
     }
 
     enum Mutation {
-        case setOauthToken(String)
         case changeLoginSuccess(Bool)
         case setError(Error)
     }
 
     struct State {
-        var oauthToken: String?
         var loginSuccess: Bool
         var error: Error?
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .fetchOauthToken(let code):
-            return getOauthToken(code: code)
+        case .login(let code):
+            return provider.apiService.getOauthToken(code: code)
                 .asObservable()
-                .map { Mutation.setOauthToken($0.accessToken) }
+                .do(onNext: { res in
+                    UserDefaultsRepository.save(value: res.accessToken, forKey: .accessToken)
+                })
+                .map { _ in .changeLoginSuccess(true) }
                 .catchError { .just(.setError($0)) }
-            
-        case .login(let accessToken):
-            UserDefaultsRepository.save(value: accessToken, forKey: .accessToken)
-            return .just(.changeLoginSuccess(true))
         }
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
         var state = state
         switch mutation {
-        case .setOauthToken(let token):
-            state.oauthToken = token
         case .changeLoginSuccess(let value):
             state.loginSuccess = value
         case .setError(let error):
             state.error = error
         }
         return state
-    }
-    
-    private func getOauthToken(code: String) -> Single<OauthTokenRequest.Response> {
-        let request = OauthTokenRequest(code: code)
-        return HTTPClient.send(request: request)
     }
 }
