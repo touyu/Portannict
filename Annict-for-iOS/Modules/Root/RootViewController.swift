@@ -68,6 +68,6 @@ final class RootViewController: UIViewController, StoryboardView {
     }
     
     private func showHomeVC() {
-        currentViewController = HomeViewController.loadStoryboard()
+        currentViewController = RootTabBarController.loadStoryboard()
     }
 }

@@ -22,6 +22,14 @@
 		D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */; };
 		D136EA7121807E9500BA08EA /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA7021807E9500BA08EA /* APIService.swift */; };
 		D136EA742180885400BA08EA /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA732180885400BA08EA /* UserDefaultsService.swift */; };
+		D1621DE92186214900819D93 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621DE82186214900819D93 /* RootTabBarController.swift */; };
+		D1621DEB2186218200819D93 /* RootTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1621DEA2186218200819D93 /* RootTabBarController.storyboard */; };
+		D1621DF02186262300819D93 /* RecordViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621DED2186262300819D93 /* RecordViewReactor.swift */; };
+		D1621DF12186262300819D93 /* RecordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1621DEE2186262300819D93 /* RecordViewController.storyboard */; };
+		D1621DF22186262300819D93 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621DEF2186262300819D93 /* RecordViewController.swift */; };
+		D1621DF72186273200819D93 /* ProfileViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621DF42186273200819D93 /* ProfileViewReactor.swift */; };
+		D1621DF82186273200819D93 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1621DF52186273200819D93 /* ProfileViewController.storyboard */; };
+		D1621DF92186273200819D93 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621DF62186273200819D93 /* ProfileViewController.swift */; };
 		D19718CD217E29D2009B5F0F /* RxApollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CC217E29D2009B5F0F /* RxApollo.swift */; };
 		D19718CF217E2ED3009B5F0F /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CE217E2ED3009B5F0F /* ObservableType.swift */; };
 		D1B4F161217EB3770011BAFF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F160217EB3770011BAFF /* RootViewController.swift */; };
@@ -66,6 +74,14 @@
 		D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
 		D136EA7021807E9500BA08EA /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		D136EA732180885400BA08EA /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
+		D1621DE82186214900819D93 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
+		D1621DEA2186218200819D93 /* RootTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RootTabBarController.storyboard; sourceTree = "<group>"; };
+		D1621DED2186262300819D93 /* RecordViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewReactor.swift; sourceTree = "<group>"; };
+		D1621DEE2186262300819D93 /* RecordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecordViewController.storyboard; sourceTree = "<group>"; };
+		D1621DEF2186262300819D93 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		D1621DF42186273200819D93 /* ProfileViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewReactor.swift; sourceTree = "<group>"; };
+		D1621DF52186273200819D93 /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
+		D1621DF62186273200819D93 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D19718CC217E29D2009B5F0F /* RxApollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxApollo.swift; sourceTree = "<group>"; };
 		D19718CE217E2ED3009B5F0F /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
 		D1B4F160217EB3770011BAFF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +174,35 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		D1621DE72186211C00819D93 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				D1621DE82186214900819D93 /* RootTabBarController.swift */,
+				D1621DEA2186218200819D93 /* RootTabBarController.storyboard */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		D1621DEC218625DB00819D93 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				D1621DED2186262300819D93 /* RecordViewReactor.swift */,
+				D1621DEE2186262300819D93 /* RecordViewController.storyboard */,
+				D1621DEF2186262300819D93 /* RecordViewController.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		D1621DF32186272300819D93 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D1621DF42186273200819D93 /* ProfileViewReactor.swift */,
+				D1621DF52186273200819D93 /* ProfileViewController.storyboard */,
+				D1621DF62186273200819D93 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		D19718CB217E29BA009B5F0F /* Rx */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +242,9 @@
 		D1B4F15E217EB33E0011BAFF /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				D1621DF32186272300819D93 /* Profile */,
+				D1621DEC218625DB00819D93 /* Record */,
+				D1621DE72186211C00819D93 /* TabBar */,
 				D1BCB8CC217F468800B84F82 /* Home */,
 				D1B4F15F217EB3510011BAFF /* Root */,
 				D1B4F168217EB81A0011BAFF /* Login */,
@@ -342,8 +390,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D123F25E217CBD2600AE38FD /* LaunchScreen.storyboard in Resources */,
+				D1621DEB2186218200819D93 /* RootTabBarController.storyboard in Resources */,
 				D1013CCC217E23F7001C269B /* test.graphql in Resources */,
 				D1BCB8D1217F46B600B84F82 /* HomeViewController.storyboard in Resources */,
+				D1621DF12186262300819D93 /* RecordViewController.storyboard in Resources */,
+				D1621DF82186273200819D93 /* ProfileViewController.storyboard in Resources */,
 				D123F25B217CBD2600AE38FD /* Assets.xcassets in Resources */,
 				D1B4F16C217EB8580011BAFF /* LoginViewController.storyboard in Resources */,
 				D1B4F163217EB38D0011BAFF /* RootViewController.storyboard in Resources */,
@@ -463,6 +514,7 @@
 				D1B4F161217EB3770011BAFF /* RootViewController.swift in Sources */,
 				D1BCB8CB217F451C00B84F82 /* UIApplication.swift in Sources */,
 				D1B4F16A217EB8380011BAFF /* LoginViewController.swift in Sources */,
+				D1621DF22186262300819D93 /* RecordViewController.swift in Sources */,
 				D1B4F16F217EB8A70011BAFF /* StoryboardLoadable.swift in Sources */,
 				D1B4F171217EB8D50011BAFF /* NSObject.swift in Sources */,
 				D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */,
@@ -471,8 +523,12 @@
 				D19718CD217E29D2009B5F0F /* RxApollo.swift in Sources */,
 				D1BCB8D3217F4A3D00B84F82 /* HomeViewReactor.swift in Sources */,
 				D1BCB8CE217F469800B84F82 /* HomeViewController.swift in Sources */,
+				D1621DF92186273200819D93 /* ProfileViewController.swift in Sources */,
+				D1621DF02186262300819D93 /* RecordViewReactor.swift in Sources */,
+				D1621DF72186273200819D93 /* ProfileViewReactor.swift in Sources */,
 				D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */,
 				D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */,
+				D1621DE92186214900819D93 /* RootTabBarController.swift in Sources */,
 				D1BCB8C9217F3E8300B84F82 /* OauthTokenRequest.swift in Sources */,
 				D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */,
 				D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */,
