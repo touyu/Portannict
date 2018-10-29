@@ -30,6 +30,11 @@
 		D1621DF72186273200819D93 /* ProfileViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621DF42186273200819D93 /* ProfileViewReactor.swift */; };
 		D1621DF82186273200819D93 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1621DF52186273200819D93 /* ProfileViewController.storyboard */; };
 		D1621DF92186273200819D93 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621DF62186273200819D93 /* ProfileViewController.swift */; };
+		D1621DFF21862BA600819D93 /* PostRecordViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621DFC21862BA600819D93 /* PostRecordViewReactor.swift */; };
+		D1621E0021862BA600819D93 /* PostRecordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1621DFD21862BA600819D93 /* PostRecordViewController.storyboard */; };
+		D1621E0121862BA600819D93 /* PostRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621DFE21862BA600819D93 /* PostRecordViewController.swift */; };
+		D1621E0321862C3B00819D93 /* SemiModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621E0221862C3B00819D93 /* SemiModalPresentationController.swift */; };
+		D1621E0521862F4500819D93 /* PostRecordTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621E0421862F4500819D93 /* PostRecordTransitioningDelegate.swift */; };
 		D19718CD217E29D2009B5F0F /* RxApollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CC217E29D2009B5F0F /* RxApollo.swift */; };
 		D19718CF217E2ED3009B5F0F /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CE217E2ED3009B5F0F /* ObservableType.swift */; };
 		D1B4F161217EB3770011BAFF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F160217EB3770011BAFF /* RootViewController.swift */; };
@@ -82,6 +87,11 @@
 		D1621DF42186273200819D93 /* ProfileViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewReactor.swift; sourceTree = "<group>"; };
 		D1621DF52186273200819D93 /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
 		D1621DF62186273200819D93 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D1621DFC21862BA600819D93 /* PostRecordViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRecordViewReactor.swift; sourceTree = "<group>"; };
+		D1621DFD21862BA600819D93 /* PostRecordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostRecordViewController.storyboard; sourceTree = "<group>"; };
+		D1621DFE21862BA600819D93 /* PostRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRecordViewController.swift; sourceTree = "<group>"; };
+		D1621E0221862C3B00819D93 /* SemiModalPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiModalPresentationController.swift; sourceTree = "<group>"; };
+		D1621E0421862F4500819D93 /* PostRecordTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRecordTransitioningDelegate.swift; sourceTree = "<group>"; };
 		D19718CC217E29D2009B5F0F /* RxApollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxApollo.swift; sourceTree = "<group>"; };
 		D19718CE217E2ED3009B5F0F /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
 		D1B4F160217EB3770011BAFF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +196,8 @@
 		D1621DEC218625DB00819D93 /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				D1621DFB21862B8E00819D93 /* PostRecord */,
+				D1621DFA21862B5700819D93 /* Transition */,
 				D1621DED2186262300819D93 /* RecordViewReactor.swift */,
 				D1621DEE2186262300819D93 /* RecordViewController.storyboard */,
 				D1621DEF2186262300819D93 /* RecordViewController.swift */,
@@ -201,6 +213,25 @@
 				D1621DF62186273200819D93 /* ProfileViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		D1621DFA21862B5700819D93 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				D1621E0221862C3B00819D93 /* SemiModalPresentationController.swift */,
+				D1621E0421862F4500819D93 /* PostRecordTransitioningDelegate.swift */,
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
+		D1621DFB21862B8E00819D93 /* PostRecord */ = {
+			isa = PBXGroup;
+			children = (
+				D1621DFC21862BA600819D93 /* PostRecordViewReactor.swift */,
+				D1621DFD21862BA600819D93 /* PostRecordViewController.storyboard */,
+				D1621DFE21862BA600819D93 /* PostRecordViewController.swift */,
+			);
+			path = PostRecord;
 			sourceTree = "<group>";
 		};
 		D19718CB217E29BA009B5F0F /* Rx */ = {
@@ -393,6 +424,7 @@
 				D1621DEB2186218200819D93 /* RootTabBarController.storyboard in Resources */,
 				D1013CCC217E23F7001C269B /* test.graphql in Resources */,
 				D1BCB8D1217F46B600B84F82 /* HomeViewController.storyboard in Resources */,
+				D1621E0021862BA600819D93 /* PostRecordViewController.storyboard in Resources */,
 				D1621DF12186262300819D93 /* RecordViewController.storyboard in Resources */,
 				D1621DF82186273200819D93 /* ProfileViewController.storyboard in Resources */,
 				D123F25B217CBD2600AE38FD /* Assets.xcassets in Resources */,
@@ -522,14 +554,17 @@
 				D136EA742180885400BA08EA /* UserDefaultsService.swift in Sources */,
 				D19718CD217E29D2009B5F0F /* RxApollo.swift in Sources */,
 				D1BCB8D3217F4A3D00B84F82 /* HomeViewReactor.swift in Sources */,
+				D1621DFF21862BA600819D93 /* PostRecordViewReactor.swift in Sources */,
 				D1BCB8CE217F469800B84F82 /* HomeViewController.swift in Sources */,
 				D1621DF92186273200819D93 /* ProfileViewController.swift in Sources */,
 				D1621DF02186262300819D93 /* RecordViewReactor.swift in Sources */,
 				D1621DF72186273200819D93 /* ProfileViewReactor.swift in Sources */,
 				D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */,
+				D1621E0521862F4500819D93 /* PostRecordTransitioningDelegate.swift in Sources */,
 				D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */,
 				D1621DE92186214900819D93 /* RootTabBarController.swift in Sources */,
 				D1BCB8C9217F3E8300B84F82 /* OauthTokenRequest.swift in Sources */,
+				D1621E0321862C3B00819D93 /* SemiModalPresentationController.swift in Sources */,
 				D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */,
 				D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */,
 				D1B4F176217EBF200011BAFF /* LoginViewReactor.swift in Sources */,
@@ -539,6 +574,7 @@
 				D123F254217CBD2500AE38FD /* AppDelegate.swift in Sources */,
 				D1BCB8C4217F350A00B84F82 /* HTTPClient.swift in Sources */,
 				D1B4F174217EBB940011BAFF /* UIView.swift in Sources */,
+				D1621E0121862BA600819D93 /* PostRecordViewController.swift in Sources */,
 				D136EA7121807E9500BA08EA /* APIService.swift in Sources */,
 				D19718CF217E2ED3009B5F0F /* ObservableType.swift in Sources */,
 			);
