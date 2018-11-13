@@ -9,6 +9,7 @@
 import UIKit
 import ReactorKit
 import RxSwift
+import Apollo
 
 final class RecordViewController: UIViewController, StoryboardView {
     typealias Reactor = RecordViewReactor
@@ -25,10 +26,47 @@ final class RecordViewController: UIViewController, StoryboardView {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let configuration = URLSessionConfiguration.default
+        guard let token = UserDefaultsRepository.fetch(forKey: .accessToken, type: String.self) else { return }
+        configuration.httpAdditionalHeaders = ["Authorization": "Bearer \(token)"]
+        let url = URL(string: "https://api.annict.com/graphql")!
+        let transport = HTTPNetworkTransport(url: url, configuration: configuration)
+        let query = GetViewerWatchingEpisodesQuery()
+        ApolloClient(networkTransport: transport).rx
+            .fetch(query: query)
+            .subscribe(onSuccess: { data in
+                guard let edges = data.viewer?.works?.edges else { return }
+                let episodes = edges.compactMap { $0?.node?.episodes?.edges }
+                let test = episodes.map { eps in
+                    return eps
+                        .compactMap { $0?.node }
+                        .filter { $0.viewerRecordsCount == 0 }
+                        .min(by: { $0.annictId < $1.annictId })
+                }
+                print(test.map { $0?.title })
+            })
+            .disposed(by: disposeBag)
     }
 
     func bind(reactor: Reactor) {
 
+    }
+    
+    private func aaa(data: GetViewerWatchingEpisodesQuery.Data) {
+        guard let viewer = data.viewer else { return }
+        let ddd = viewer.works?.edges
+        ddd.superFlatMap { aaa in
+            
+        }
+        viewer.works?.edges.flatMap { aaa in
+            aaa
+        }
+    }
+}
+
+extension Optional where Wrapped: Optional<Array<Any>> {
+    func superFlatMap(transform: () -> Wrapped) {
+        sel
     }
 }
 

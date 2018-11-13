@@ -1,0 +1,20 @@
+query GetViewerWatchingEpisodes {
+    viewer {
+        works(state:WATCHING, first:10) {
+            edges {
+                node {
+                    title
+                    episodes(orderBy:{field: CREATED_AT, direction: DESC}) {
+                        edges {
+                            node {
+                                annictId
+                                title
+                                viewerRecordsCount
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
