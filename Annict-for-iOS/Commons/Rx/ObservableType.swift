@@ -29,3 +29,18 @@ extension ObservableType where E: OptionalType {
         }
     }
 }
+
+extension ObservableType where E: Sequence {
+    func mapMany<R>(_ transform: @escaping (E.Element) throws -> R) -> Observable<[R]> {
+        return map { collection -> [R] in
+            return try collection.map(transform)
+        }
+    }
+    
+    func flatMapMany<O>(_ selector: @escaping (E.Element) throws -> O) -> Observable<[O.E]> where O: ObservableType {
+        return flatMap { collection -> Observable<[O.E]> in
+            let new = try collection.map(selector)
+            return Observable.zip(new)
+        }
+    }
+}

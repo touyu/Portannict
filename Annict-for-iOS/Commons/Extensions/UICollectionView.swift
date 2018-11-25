@@ -9,7 +9,7 @@
 import UIKit
 
 extension UICollectionView {
-    func register<T: UITableViewCell>(cellTypes: T.Type...) {
+    func register(cellTypes: UICollectionViewCell.Type...) {
         cellTypes.forEach {
             let nib = UINib(nibName: $0.className, bundle: nil)
             register(nib, forCellWithReuseIdentifier: $0.className)

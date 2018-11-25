@@ -11,6 +11,7 @@ import RxSwift
 import Apollo
 
 final class ProfileViewReactor: Reactor {
+    typealias Work = GetViewerWorksQuery.Data.Viewer.Work.Edge.Node
     var initialState: State
     
     private var client: ApolloClient? = {
@@ -32,10 +33,16 @@ final class ProfileViewReactor: Reactor {
 
     enum Mutation {
         case setViewer(GetViewerInfoQuery.Data.Viewer)
+        case setWatchingWorks([Work])
+        case setWannaWatchWorks([Work])
+        case setWorks([[Work]])
     }
 
     struct State {
         var viewer: GetViewerInfoQuery.Data.Viewer?
+        var watchingWorks: [Work] = []
+        var wannaWatchWorks: [Work] = []
+        var allWorks: [[Work]] = []
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -43,13 +50,35 @@ final class ProfileViewReactor: Reactor {
         
         switch action {
         case .fetch:
-            return client.rx
+            let viewer = client.rx
                 .fetch(query: GetViewerInfoQuery())
                 .asObservable()
-                .debug()
                 .map { $0.viewer }
                 .filterNil()
                 .map { Mutation.setViewer($0) }
+            
+//            let works = client.rx
+//                .fetch(query: GetViewerWorksQuery(state: .watching))
+//                .asObservable()
+//                .map { $0.viewer?.works?.value }
+//                .filterNil()
+//                .map { Mutation.setWatchingWorks($0) }
+//
+//            let works2 = client.rx
+//                .fetch(query: GetViewerWorksQuery(state: .wannaWatch))
+//                .asObservable()
+//                .map { $0.viewer?.works?.value }
+//                .filterNil()
+//                .map { Mutation.setWannaWatchWorks($0) }
+            
+            let works = Observable<[StatusState]>
+                .just([.watching, .wannaWatch, .watched, .onHold, .stopWatching])
+                .mapMany { GetViewerWorksQuery(state: $0) }
+                .flatMapMany { client.rx.fetch(query: $0).asObservable() }
+                .mapMany { $0.viewer?.works?.value ?? [] }
+                .map { Mutation.setWorks($0) }
+            
+            return .merge(viewer, works)
         }
     }
     
@@ -58,6 +87,14 @@ final class ProfileViewReactor: Reactor {
         switch mutation {
         case .setViewer(let viewer):
             state.viewer = viewer
+        case .setWatchingWorks(let works):
+            state.watchingWorks = works
+        case .setWannaWatchWorks(let works):
+            state.wannaWatchWorks = works
+        case .setWorks(let allWorks):
+//            state.watchingWorks = allWorks[0]
+//            state.wannaWatchWorks = allWorks[1]
+            state.allWorks = allWorks
         }
         return state
     }

@@ -53,7 +53,7 @@ public enum StatusState: RawRepresentable, Equatable, Hashable, Apollo.JSONDecod
 
 public final class GetViewerWorksQuery: GraphQLQuery {
   public let operationDefinition =
-    "query GetViewerWorks($state: StatusState) {\n  viewer {\n    __typename\n    works(state: $state, first: 10) {\n      __typename\n      edges {\n        __typename\n        node {\n          __typename\n          title\n        }\n      }\n    }\n  }\n}"
+    "query GetViewerWorks($state: StatusState) {\n  viewer {\n    __typename\n    works(state: $state, first: 10) {\n      __typename\n      edges {\n        __typename\n        node {\n          __typename\n          title\n          image {\n            __typename\n            recommendedImageUrl\n            twitterAvatarUrl\n          }\n        }\n      }\n    }\n  }\n}"
 
   public var state: StatusState?
 
@@ -207,6 +207,7 @@ public final class GetViewerWorksQuery: GraphQLQuery {
             public static let selections: [GraphQLSelection] = [
               GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
               GraphQLField("title", type: .nonNull(.scalar(String.self))),
+              GraphQLField("image", type: .object(Image.selections)),
             ]
 
             public private(set) var resultMap: ResultMap
@@ -215,8 +216,8 @@ public final class GetViewerWorksQuery: GraphQLQuery {
               self.resultMap = unsafeResultMap
             }
 
-            public init(title: String) {
-              self.init(unsafeResultMap: ["__typename": "Work", "title": title])
+            public init(title: String, image: Image? = nil) {
+              self.init(unsafeResultMap: ["__typename": "Work", "title": title, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
             }
 
             public var __typename: String {
@@ -234,6 +235,62 @@ public final class GetViewerWorksQuery: GraphQLQuery {
               }
               set {
                 resultMap.updateValue(newValue, forKey: "title")
+              }
+            }
+
+            public var image: Image? {
+              get {
+                return (resultMap["image"] as? ResultMap).flatMap { Image(unsafeResultMap: $0) }
+              }
+              set {
+                resultMap.updateValue(newValue?.resultMap, forKey: "image")
+              }
+            }
+
+            public struct Image: GraphQLSelectionSet {
+              public static let possibleTypes = ["WorkImage"]
+
+              public static let selections: [GraphQLSelection] = [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("recommendedImageUrl", type: .scalar(String.self)),
+                GraphQLField("twitterAvatarUrl", type: .scalar(String.self)),
+              ]
+
+              public private(set) var resultMap: ResultMap
+
+              public init(unsafeResultMap: ResultMap) {
+                self.resultMap = unsafeResultMap
+              }
+
+              public init(recommendedImageUrl: String? = nil, twitterAvatarUrl: String? = nil) {
+                self.init(unsafeResultMap: ["__typename": "WorkImage", "recommendedImageUrl": recommendedImageUrl, "twitterAvatarUrl": twitterAvatarUrl])
+              }
+
+              public var __typename: String {
+                get {
+                  return resultMap["__typename"]! as! String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "__typename")
+                }
+              }
+
+              public var recommendedImageUrl: String? {
+                get {
+                  return resultMap["recommendedImageUrl"] as? String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "recommendedImageUrl")
+                }
+              }
+
+              public var twitterAvatarUrl: String? {
+                get {
+                  return resultMap["twitterAvatarUrl"] as? String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "twitterAvatarUrl")
+                }
               }
             }
           }

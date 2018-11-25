@@ -4,6 +4,10 @@ query GetViewerWorks($state: StatusState) {
             edges {
                 node {
                     title
+                    image {
+                        recommendedImageUrl
+                        twitterAvatarUrl
+                    }
                 }
             }
         }
