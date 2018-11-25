@@ -16,8 +16,7 @@ $ cd Carthage/Checkouts/ReactorKit
 $ swift package generate-xcodeproj
 $ carthage build
 ```
-However, this will make Deployment Target the latest iOS version.
-
+However, this will make Deployment Target the latest iOS version.
 So, you need to change the deployment target of Reactorkit.
 
 "Build Settings" -> "iOS Deployment Target" -> "iOS 11.0"
