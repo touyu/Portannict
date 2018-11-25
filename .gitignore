@@ -1,5 +1,6 @@
 # Carthage
-Carthage
+Carthage/
+Pods/
 
 .DS_Store
 **/*.xcuserstate
@@ -7,4 +8,3 @@ node_modules
 vendor/bundle
 
 .env
-Pods
