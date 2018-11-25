@@ -1,0 +1,11 @@
+query GetViewerWorks($state: StatusState) {
+    viewer {
+        works(state:$state, first:10) {
+            edges {
+                node {
+                    title
+                }
+            }
+        }
+    }
+}

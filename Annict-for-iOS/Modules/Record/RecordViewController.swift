@@ -55,18 +55,6 @@ final class RecordViewController: UIViewController, StoryboardView {
     private func aaa(data: GetViewerWatchingEpisodesQuery.Data) {
         guard let viewer = data.viewer else { return }
         let ddd = viewer.works?.edges
-        ddd.superFlatMap { aaa in
-            
-        }
-        viewer.works?.edges.flatMap { aaa in
-            aaa
-        }
-    }
-}
-
-extension Optional where Wrapped: Optional<Array<Any>> {
-    func superFlatMap(transform: () -> Wrapped) {
-        sel
     }
 }
 

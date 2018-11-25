@@ -32,7 +32,11 @@ final class RootViewReactor: Reactor {
 
     init(provider: ServiceProviderType) {
         let token = provider.userDefaultsService.fetch(forKey: .accessToken, type: String.self)
-        self.initialState = State(loginState: token?.isEmpty == true ? .logout : .login)
+        if let token = token, !token.isEmpty {
+            self.initialState = State(loginState: .login)
+        } else {
+            self.initialState = State(loginState: .logout)
+        }
         self.provider = provider
     }
     

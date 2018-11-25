@@ -1,3 +1,4 @@
 github "ReactorKit/ReactorKit"
 github "ReactiveX/RxSwift" ~> 4.0
 github "apollostack/apollo-ios"
+github "onevcat/Kingfisher" ~> 4.0

@@ -21,7 +21,7 @@
 
 ReactorKit is a framework for a reactive and unidirectional Swift application architecture. This repository introduces the basic concept of ReactorKit and describes how to build an application using ReactorKit.
 
-You may want to see the [Examples](#examples) section first if you'd like to see the actual code. Visit the [API Reference](http://reactorkit.io/docs/latest/) for code-level documentation.  
+You may want to see the [Examples](#examples) section first if you'd like to see the actual code. Visit the [API Reference](http://reactorkit.io/docs/latest/) for code-level documentation.
 
 For an overview of ReactorKit's features and the reasoning behind its creation, you may also check the slides from this introductory presentation over at [SlideShare](https://www.slideshare.net/devxoul/hello-reactorkit).
 
@@ -168,7 +168,7 @@ func mutate(action: Action) -> Observable<Mutation> {
 
 #### `reduce()`
 
-`reduce()` generates a new `State` from a previous `State` and a `Mutation`. 
+`reduce()` generates a new `State` from a previous `State` and a `Mutation`.
 
 ```swift
 func reduce(state: State, mutation: Mutation) -> State
@@ -211,13 +211,13 @@ func transform(action: Observable<Action>) -> Observable<Action> {
 
 ### Global States
 
-Unlike Redux, ReactorKit doesn't define a global app state. It means that you can use anything to manage a global state. You can use a `Variable`, a `PublishSubject` or even a reactor. ReactorKit doesn't force to have a global state so you can use ReactorKit in a specific feature in your application.
+Unlike Redux, ReactorKit doesn't define a global app state. It means that you can use anything to manage a global state. You can use a `BehaviorSubject`, a `PublishSubject` or even a reactor. ReactorKit doesn't force to have a global state so you can use ReactorKit in a specific feature in your application.
 
-There is no global state in the **Action → Mutation → State** flow. You should use `transform(mutation:)` to transform the global state to a mutation. Let's assume that we have a global `Variable` which stores the current authenticated user. If you'd like to emit a `Mutation.setUser(User?)` when the `currentUser` is changed, you can do as following:
+There is no global state in the **Action → Mutation → State** flow. You should use `transform(mutation:)` to transform the global state to a mutation. Let's assume that we have a global `BehaviorSubject` which stores the current authenticated user. If you'd like to emit a `Mutation.setUser(User?)` when the `currentUser` is changed, you can do as following:
 
 
 ```swift
-var currentUser: Variable<User> // global state
+var currentUser: BehaviorSubject<User> // global state
 
 func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
   return Observable.merge(mutation, currentUser.map(Mutation.setUser))
@@ -273,7 +273,7 @@ A view can be tested with a *stub* reactor. A reactor has a property `stub` whic
 
 ```swift
 var isEnabled: Bool { get set }
-var state: Variable<Reactor.State> { get }
+var state: StateRelay<Reactor.State> { get }
 var action: ActionSubject<Reactor.Action> { get }
 var actions: [Reactor.Action] { get } // recorded actions
 ```
@@ -355,6 +355,7 @@ func testIsLoading() {
 * [Cleverbot](https://github.com/devxoul/Cleverbot): iOS Messaging Application using Cleverbot and ReactorKit
 * [Drrrible](https://github.com/devxoul/Drrrible): Dribbble for iOS using ReactorKit ([App Store](https://itunes.apple.com/us/app/drrrible/id1229592223?mt=8))
 * [Passcode](https://github.com/cruisediary/Passcode): Passcode for iOS RxSwift, ReactorKit and IGListKit example
+* [Flickr Search](https://github.com/TaeJoongYoon/FlickrSearch): A simple application which provides a Flickr Photo search with RxSwift and ReactorKit
 
 ## Dependencies
 
@@ -378,9 +379,24 @@ ReactorKit officially supports CocoaPods only.
 pod 'ReactorKit'
 ```
 
+ReactorKit does not officially support Carthage.
+
+**Cartfile**
+
+```ruby
+github 'ReactorKit/ReactorKit'
+```
+
+Most Carthage installation issues can be resolved with the following:
+```sh
+carthage update 2>/dev/null
+(cd Carthage/Checkouts/ReactorKit && swift package generate-xcodeproj)
+carthage build
+```
+
 ## Contribution
 
-Any discussions and pull requests are welcomed 💖 
+Any discussions and pull requests are welcomed 💖
 
 * To development:
 
