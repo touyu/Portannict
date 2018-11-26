@@ -47,6 +47,7 @@ final class ProfileViewReactor: Reactor {
         var viewer: Viewer? = UserDefaultsRepository.fetch(forKey: .viewer, type: Viewer.self)
         var watchingWorks: [Work] = []
         var wannaWatchWorks: [Work] = []
+//        var allWorks: [[Work]] = UserDefaultsRepository.fetch(forKey: .viewerAllWorks, type: [[Work]].self) ?? []
         var allWorks: [[Work]] = []
     }
     
@@ -99,7 +100,7 @@ final class ProfileViewReactor: Reactor {
             state.wannaWatchWorks = works
         case .setWorks(let allWorks):
             state.allWorks = allWorks
-            UserDefaultsRepository.save(value: allWorks, forKey: .viewer)
+            UserDefaultsRepository.save(value: allWorks, forKey: .viewerAllWorks)
         }
         return state
     }

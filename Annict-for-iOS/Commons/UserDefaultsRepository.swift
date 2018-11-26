@@ -13,6 +13,7 @@ final class UserDefaultsRepository {
     enum Key: String {
         case accessToken = "access_token"
         case viewer = "viewer"
+        case viewerAllWorks = "viewer_all_works"
     }
     
     private static var userDefaults: UserDefaults {

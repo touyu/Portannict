@@ -20,7 +20,7 @@ final class UserWorkCollectionViewCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 4
         imageView.layer.masksToBounds = true
         imageView.layer.borderWidth = 0.4
-        imageView.layer.borderColor = UIColor.lightGray.cgColor
+        imageView.layer.borderColor = UIColor(white: 0.9, alpha: 1).cgColor
     }
 
     func prepare(work: Work) {
