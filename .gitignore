@@ -1,5 +1,9 @@
-# Carthage
-Carthage/
+# ReactorKitはCheckoutsでxcodeprojを生成するのでバージョン管理に含める
+Carthage/Checkouts/*
+Carthage/Build/*
+!Carthage/Checkouts/ReactorKit/
+
+# Pods
 Pods/
 
 .DS_Store
