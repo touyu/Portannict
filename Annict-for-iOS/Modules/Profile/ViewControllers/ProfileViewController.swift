@@ -131,7 +131,13 @@ extension GetViewerWorksQuery.Data.Viewer.Work {
 
 extension Array: GraphQLSelectionSet where Element: GraphQLSelectionSet {
     public init(unsafeResultMap: ResultMap) {
-        self.init()
+        let resultMaps = unsafeResultMap["resultMap"] as! [ResultMap]
+        let sets = resultMaps.map(Element.init)
+        do {
+            try self.init(sets)
+        } catch {
+            self.init([])
+        }
     }
     
     public static var selections: [GraphQLSelection] {
@@ -139,11 +145,7 @@ extension Array: GraphQLSelectionSet where Element: GraphQLSelectionSet {
     }
     
     public var resultMap: ResultMap {
-        var new: ResultMap = [:]
-        for v in self.flatMap({ $0.resultMap }) {
-            new[v.key] = v.value
-        }
-        return new
+        return ["resultMap": self.map { $0.resultMap }]
     }
 }
 

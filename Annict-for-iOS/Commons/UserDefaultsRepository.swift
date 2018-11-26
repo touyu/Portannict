@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import Apollo
 
 final class UserDefaultsRepository {
     enum Key: String {
         case accessToken = "access_token"
+        case viewer = "viewer"
     }
     
     private static var userDefaults: UserDefaults {
@@ -23,6 +25,15 @@ final class UserDefaultsRepository {
     
     static func save<T: UserDefaultsStorable>(value: T?, forKey key: Key) {
         T.save(key: key.rawValue, value: value, userDefaults: userDefaults)
+    }
+    
+    static func fetch<T: GraphQLSelectionSet>(forKey key: Key, type: T.Type) -> T? {
+        guard let resultMap = userDefaults.dictionary(forKey: key.rawValue) else { return nil }
+        return T(unsafeResultMap: resultMap)
+    }
+    
+    static func save<T: GraphQLSelectionSet>(value: T?, forKey key: Key) {
+        return userDefaults.set(value?.resultMap, forKey: key.rawValue)
     }
 }
 

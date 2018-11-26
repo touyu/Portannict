@@ -1,6 +1,6 @@
 query GetViewerWorks($state: StatusState) {
     viewer {
-        works(state:$state, first:10) {
+        works(state:$state, first:10, orderBy:{field:WATCHERS_COUNT, direction:DESC}) {
             edges {
                 node {
                     title

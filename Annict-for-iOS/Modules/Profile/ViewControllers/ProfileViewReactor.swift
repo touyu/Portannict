@@ -12,6 +12,8 @@ import Apollo
 
 final class ProfileViewReactor: Reactor {
     typealias Work = GetViewerWorksQuery.Data.Viewer.Work.Edge.Node
+    typealias Viewer = GetViewerInfoQuery.Data.Viewer
+    
     var initialState: State
     
     private var client: ApolloClient? = {
@@ -22,8 +24,11 @@ final class ProfileViewReactor: Reactor {
         let transport = HTTPNetworkTransport(url: url, configuration: configuration)
         return ApolloClient(networkTransport: transport)
     }()
+    
+    private let provider: ServiceProviderType
 
     init() {
+        provider = ServiceProvider()
         initialState = State()
     }
 
@@ -39,7 +44,7 @@ final class ProfileViewReactor: Reactor {
     }
 
     struct State {
-        var viewer: GetViewerInfoQuery.Data.Viewer?
+        var viewer: Viewer? = UserDefaultsRepository.fetch(forKey: .viewer, type: Viewer.self)
         var watchingWorks: [Work] = []
         var wannaWatchWorks: [Work] = []
         var allWorks: [[Work]] = []
@@ -87,14 +92,14 @@ final class ProfileViewReactor: Reactor {
         switch mutation {
         case .setViewer(let viewer):
             state.viewer = viewer
+            UserDefaultsRepository.save(value: viewer, forKey: .viewer)
         case .setWatchingWorks(let works):
             state.watchingWorks = works
         case .setWannaWatchWorks(let works):
             state.wannaWatchWorks = works
         case .setWorks(let allWorks):
-//            state.watchingWorks = allWorks[0]
-//            state.wannaWatchWorks = allWorks[1]
             state.allWorks = allWorks
+            UserDefaultsRepository.save(value: allWorks, forKey: .viewer)
         }
         return state
     }

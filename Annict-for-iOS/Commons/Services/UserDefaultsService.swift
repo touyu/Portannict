@@ -34,6 +34,8 @@ final class UserDefaultsService: BaseService, UserDefaultsServiceType {
         switch key {
         case .accessToken:
             event.accessToken.onNext(value as? String)
+        default:
+            break
         }
     }
 }
