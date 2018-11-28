@@ -74,6 +74,8 @@
 		D1F9144A21AA7FD2006986A1 /* UserWorkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9144821AA7FD2006986A1 /* UserWorkCollectionViewCell.swift */; };
 		D1F9144B21AA7FD2006986A1 /* UserWorkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F9144921AA7FD2006986A1 /* UserWorkCollectionViewCell.xib */; };
 		D1F9144D21AA85C1006986A1 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9144C21AA85C1006986A1 /* UIColor.swift */; };
+		D1FFB57921AE867B001099E6 /* StatusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFB57821AE867B001099E6 /* StatusState.swift */; };
+		D1FFB57B21AE8696001099E6 /* GraphQLSelectionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFB57A21AE8696001099E6 /* GraphQLSelectionSet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,6 +150,8 @@
 		D1F9144821AA7FD2006986A1 /* UserWorkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWorkCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1F9144921AA7FD2006986A1 /* UserWorkCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserWorkCollectionViewCell.xib; sourceTree = "<group>"; };
 		D1F9144C21AA85C1006986A1 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		D1FFB57821AE867B001099E6 /* StatusState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusState.swift; sourceTree = "<group>"; };
+		D1FFB57A21AE8696001099E6 /* GraphQLSelectionSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLSelectionSet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,6 +391,8 @@
 				D1F9143A21AA75C8006986A1 /* UIImage.swift */,
 				D1F9143C21AA7615006986A1 /* CGSize.swift */,
 				D1F9144C21AA85C1006986A1 /* UIColor.swift */,
+				D1FFB57821AE867B001099E6 /* StatusState.swift */,
+				D1FFB57A21AE8696001099E6 /* GraphQLSelectionSet.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -632,6 +638,7 @@
 				D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */,
 				D1BCB8C2217F327400B84F82 /* NotificationCenter.swift in Sources */,
 				D136EA742180885400BA08EA /* UserDefaultsService.swift in Sources */,
+				D1FFB57921AE867B001099E6 /* StatusState.swift in Sources */,
 				D1F9143D21AA7615006986A1 /* CGSize.swift in Sources */,
 				D19718CD217E29D2009B5F0F /* RxApollo.swift in Sources */,
 				D1BCB8D3217F4A3D00B84F82 /* HomeViewReactor.swift in Sources */,
@@ -644,6 +651,7 @@
 				D1621E0521862F4500819D93 /* PostRecordTransitioningDelegate.swift in Sources */,
 				D1F9144A21AA7FD2006986A1 /* UserWorkCollectionViewCell.swift in Sources */,
 				D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */,
+				D1FFB57B21AE8696001099E6 /* GraphQLSelectionSet.swift in Sources */,
 				D1621DE92186214900819D93 /* RootTabBarController.swift in Sources */,
 				D1BCB8C9217F3E8300B84F82 /* OauthTokenRequest.swift in Sources */,
 				D1621E0321862C3B00819D93 /* SemiModalPresentationController.swift in Sources */,

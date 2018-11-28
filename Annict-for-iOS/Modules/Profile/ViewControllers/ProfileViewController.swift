@@ -79,7 +79,9 @@ extension ProfileViewController: UITableViewDataSource {
         case .userInfo:
             return 1
         case .works:
-            return reactor.currentState.allWorks.count
+            return reactor.currentState.allWorks
+                .map { $0.isEmpty ? 0 : 1 }
+                .reduce(0) { $0 + $1 }
         }
     }
     
@@ -92,32 +94,9 @@ extension ProfileViewController: UITableViewDataSource {
             return cell
         case .works:
             let cell = tableView.dequeueReusableCell(classType: UserWorksWithSectionTitleCell.self, for: indexPath)
-            guard let allWorks = reactor?.currentState.allWorks else { return cell }
+            guard let allWorks = reactor?.currentState.allWorks.filter({ !$0.isEmpty }) else { return cell }
             cell.prepare(title: StatusState.values[indexPath.item].localizedText, works: allWorks[indexPath.item])
             return cell
-        }
-    }
-}
-
-extension StatusState {
-    static var values: [StatusState] {
-        return [.watching, .wannaWatch, .watched, .onHold, .stopWatching]
-    }
-    
-    var localizedText: String {
-        switch self {
-        case .watching:
-            return "見てる"
-        case .wannaWatch:
-            return "見たい"
-        case .watched:
-            return "見た"
-        case .onHold:
-            return "中断"
-        case .stopWatching:
-            return "中止"
-        case .noState, .__unknown:
-            return ""
         }
     }
 }
@@ -126,37 +105,5 @@ extension GetViewerWorksQuery.Data.Viewer.Work {
     var value: [Edge.Node] {
         guard let edges = edges else { return []}
         return edges.compactMap { $0?.node }
-    }
-}
-
-extension Array: GraphQLSelectionSet where Element: GraphQLSelectionSet {
-    public init(unsafeResultMap: ResultMap) {
-        let resultMaps = unsafeResultMap["resultMap"] as! [ResultMap]
-        let sets = resultMaps.map(Element.init)
-        do {
-            try self.init(sets)
-        } catch {
-            self.init([])
-        }
-    }
-    
-    public static var selections: [GraphQLSelection] {
-        return []
-    }
-    
-    public var resultMap: ResultMap {
-        return ["resultMap": self.map { $0.resultMap }]
-    }
-}
-
-extension GraphQLSelectionSet {
-    func iSEqual(_ value: GraphQLSelectionSet) -> Bool {
-        return (self.resultMap as NSDictionary).isEqual(to: value.resultMap as [AnyHashable : Any])
-    }
-}
-
-extension ObservableType where E: GraphQLSelectionSet {
-    func distinctUntilChanged() -> Observable<Self.E> {
-        return distinctUntilChanged { $0.iSEqual($1) }
     }
 }

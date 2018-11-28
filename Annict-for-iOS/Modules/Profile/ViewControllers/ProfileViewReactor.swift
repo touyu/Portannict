@@ -47,8 +47,8 @@ final class ProfileViewReactor: Reactor {
         var viewer: Viewer? = UserDefaultsRepository.fetch(forKey: .viewer, type: Viewer.self)
         var watchingWorks: [Work] = []
         var wannaWatchWorks: [Work] = []
-//        var allWorks: [[Work]] = UserDefaultsRepository.fetch(forKey: .viewerAllWorks, type: [[Work]].self) ?? []
-        var allWorks: [[Work]] = []
+        var allWorks: [[Work]] = UserDefaultsRepository.fetch(forKey: .viewerAllWorks, type: [[Work]].self) ?? []
+//        var allWorks: [[Work]] = []
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -62,20 +62,6 @@ final class ProfileViewReactor: Reactor {
                 .map { $0.viewer }
                 .filterNil()
                 .map { Mutation.setViewer($0) }
-            
-//            let works = client.rx
-//                .fetch(query: GetViewerWorksQuery(state: .watching))
-//                .asObservable()
-//                .map { $0.viewer?.works?.value }
-//                .filterNil()
-//                .map { Mutation.setWatchingWorks($0) }
-//
-//            let works2 = client.rx
-//                .fetch(query: GetViewerWorksQuery(state: .wannaWatch))
-//                .asObservable()
-//                .map { $0.viewer?.works?.value }
-//                .filterNil()
-//                .map { Mutation.setWannaWatchWorks($0) }
             
             let works = Observable<[StatusState]>
                 .just([.watching, .wannaWatch, .watched, .onHold, .stopWatching])
