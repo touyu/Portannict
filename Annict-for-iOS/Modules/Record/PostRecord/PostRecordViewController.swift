@@ -16,6 +16,9 @@ final class PostRecordViewController: UIViewController, StoryboardView {
     let transitioner = PostRecordTransitioningDelegate()
     var disposeBag = DisposeBag()
 
+    @IBOutlet private weak var episodeTitleLabel: UILabel!
+    @IBOutlet private weak var recordButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +26,23 @@ final class PostRecordViewController: UIViewController, StoryboardView {
     }
 
     func bind(reactor: Reactor) {
-
+        recordButton.rx.tap
+            .map { Reactor.Action.record(nil) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.episode.numberAndTitle }
+            .distinctUntilChanged()
+            .bind(to: episodeTitleLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isRecordingSuccess }
+            .filter { $0 }
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] _ in
+                self?.dismiss(animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
     }
     
     @objc private func handleGesture(_ sender: UIPanGestureRecognizer) {
@@ -59,6 +78,17 @@ final class PostRecordViewController: UIViewController, StoryboardView {
         default:
             break
         }
+    }
+}
+
+extension PostRecordViewController {
+    
+    static func present(fromVC: UIViewController, episode: EpisodeDetails) {
+        let vc = PostRecordViewController.loadStoryboard()
+        vc.reactor = PostRecordViewReactor(episode: episode)
+        vc.transitioningDelegate = vc.transitioner
+        vc.modalPresentationStyle = .custom
+        fromVC.present(vc, animated: true, completion: nil)
     }
 }
 

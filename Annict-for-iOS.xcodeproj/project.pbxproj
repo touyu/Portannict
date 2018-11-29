@@ -76,6 +76,17 @@
 		D1F9144D21AA85C1006986A1 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9144C21AA85C1006986A1 /* UIColor.swift */; };
 		D1FFB57921AE867B001099E6 /* StatusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFB57821AE867B001099E6 /* StatusState.swift */; };
 		D1FFB57B21AE8696001099E6 /* GraphQLSelectionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFB57A21AE8696001099E6 /* GraphQLSelectionSet.swift */; };
+		D1FFB57F21AE98DD001099E6 /* AnnictGraphQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFB57E21AE98DD001099E6 /* AnnictGraphQL.swift */; };
+		D1FFB58421AECF04001099E6 /* RecordEpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFB58221AECF04001099E6 /* RecordEpisodeTableViewCell.swift */; };
+		D1FFB58521AECF04001099E6 /* RecordEpisodeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1FFB58321AECF04001099E6 /* RecordEpisodeTableViewCell.xib */; };
+		D1FFB58721AED24F001099E6 /* Ornament.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFB58621AED24F001099E6 /* Ornament.swift */; };
+		D1FFB58A21AEE427001099E6 /* CreateRecord.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1FFB58921AEE427001099E6 /* CreateRecord.graphql */; };
+		D1FFB58C21AEE904001099E6 /* EpisodeDetails.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1FFB58B21AEE904001099E6 /* EpisodeDetails.graphql */; };
+		D1FFB58E21AEF3A3001099E6 /* RxUIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFB58D21AEF3A3001099E6 /* RxUIScrollView.swift */; };
+		D1FFB59021AEF644001099E6 /* ActionClosurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFB58F21AEF644001099E6 /* ActionClosurable.swift */; };
+		D1FFB59321B03A14001099E6 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FFB59121B03A13001099E6 /* Apollo.framework */; };
+		D1FFB59421B03A14001099E6 /* ApolloSQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FFB59221B03A13001099E6 /* ApolloSQLite.framework */; };
+		D1FFB59621B03A4D001099E6 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FFB59521B03A4D001099E6 /* SQLite.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +163,17 @@
 		D1F9144C21AA85C1006986A1 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		D1FFB57821AE867B001099E6 /* StatusState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusState.swift; sourceTree = "<group>"; };
 		D1FFB57A21AE8696001099E6 /* GraphQLSelectionSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLSelectionSet.swift; sourceTree = "<group>"; };
+		D1FFB57E21AE98DD001099E6 /* AnnictGraphQL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnictGraphQL.swift; sourceTree = "<group>"; };
+		D1FFB58221AECF04001099E6 /* RecordEpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordEpisodeTableViewCell.swift; sourceTree = "<group>"; };
+		D1FFB58321AECF04001099E6 /* RecordEpisodeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordEpisodeTableViewCell.xib; sourceTree = "<group>"; };
+		D1FFB58621AED24F001099E6 /* Ornament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ornament.swift; sourceTree = "<group>"; };
+		D1FFB58921AEE427001099E6 /* CreateRecord.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateRecord.graphql; sourceTree = "<group>"; };
+		D1FFB58B21AEE904001099E6 /* EpisodeDetails.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = EpisodeDetails.graphql; sourceTree = "<group>"; };
+		D1FFB58D21AEF3A3001099E6 /* RxUIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxUIScrollView.swift; sourceTree = "<group>"; };
+		D1FFB58F21AEF644001099E6 /* ActionClosurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionClosurable.swift; sourceTree = "<group>"; };
+		D1FFB59121B03A13001099E6 /* Apollo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apollo.framework; path = Carthage/Build/iOS/Apollo.framework; sourceTree = "<group>"; };
+		D1FFB59221B03A13001099E6 /* ApolloSQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApolloSQLite.framework; path = Carthage/Build/iOS/ApolloSQLite.framework; sourceTree = "<group>"; };
+		D1FFB59521B03A4D001099E6 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +181,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1FFB59621B03A4D001099E6 /* SQLite.framework in Frameworks */,
+				D1FFB59321B03A14001099E6 /* Apollo.framework in Frameworks */,
+				D1FFB59421B03A14001099E6 /* ApolloSQLite.framework in Frameworks */,
 				D1F9143321AA6A61006986A1 /* Kingfisher.framework in Frameworks */,
 				D1B4F172217EB9C00011BAFF /* ReactorKitRuntime.framework in Frameworks */,
 				D1274113217CCCF000DD09C2 /* RxCocoa.framework in Frameworks */,
@@ -205,6 +230,9 @@
 		D127410B217CCB3F00DD09C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1FFB59521B03A4D001099E6 /* SQLite.framework */,
+				D1FFB59121B03A13001099E6 /* Apollo.framework */,
+				D1FFB59221B03A13001099E6 /* ApolloSQLite.framework */,
 				D1F9143221AA6A61006986A1 /* Kingfisher.framework */,
 				D1274111217CCCF000DD09C2 /* RxCocoa.framework */,
 				D1274112217CCCF000DD09C2 /* RxSwift.framework */,
@@ -238,11 +266,10 @@
 		D1621DEC218625DB00819D93 /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				D1FFB58121AECECF001099E6 /* Views */,
+				D1FFB58021AECEC1001099E6 /* ViewControllers */,
 				D1621DFB21862B8E00819D93 /* PostRecord */,
 				D1621DFA21862B5700819D93 /* Transition */,
-				D1621DED2186262300819D93 /* RecordViewReactor.swift */,
-				D1621DEE2186262300819D93 /* RecordViewController.storyboard */,
-				D1621DEF2186262300819D93 /* RecordViewController.swift */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -279,6 +306,8 @@
 			isa = PBXGroup;
 			children = (
 				D1621E0B2186BF5700819D93 /* API.swift */,
+				D1FFB58B21AEE904001099E6 /* EpisodeDetails.graphql */,
+				D1FFB58921AEE427001099E6 /* CreateRecord.graphql */,
 				D1621E092186BB9300819D93 /* GetViewerWatchingEpisodes.graphql */,
 				D1AF34B9219B0921004DD229 /* GetViewerWorks.graphql */,
 				D1AF34BB219B3CBF004DD229 /* GetViewerInfo.graphql */,
@@ -292,6 +321,7 @@
 				D19718CC217E29D2009B5F0F /* RxApollo.swift */,
 				D19718CE217E2ED3009B5F0F /* ObservableType.swift */,
 				D1B4F166217EB5E60011BAFF /* RxUIViewController.swift */,
+				D1FFB58D21AEF3A3001099E6 /* RxUIScrollView.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -335,9 +365,9 @@
 				D1BCB8C5217F3E0900B84F82 /* API */,
 				D19718CB217E29BA009B5F0F /* Rx */,
 				D1B4F16D217EB8980011BAFF /* Extensions */,
+				D1FFB58821AED26B001099E6 /* UIKit */,
 				D1B4F177217EC0970011BAFF /* Constants.swift */,
 				D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */,
-				D1BCB8CA217F451C00B84F82 /* UIApplication.swift */,
 				D1BCB8C1217F327400B84F82 /* NotificationCenter.swift */,
 				D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */,
 			);
@@ -380,6 +410,7 @@
 		D1B4F16D217EB8980011BAFF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D1BCB8CA217F451C00B84F82 /* UIApplication.swift */,
 				D1B4F16E217EB8A70011BAFF /* StoryboardLoadable.swift */,
 				D1B4F170217EB8D50011BAFF /* NSObject.swift */,
 				D1B4F173217EBB940011BAFF /* UIView.swift */,
@@ -393,6 +424,7 @@
 				D1F9144C21AA85C1006986A1 /* UIColor.swift */,
 				D1FFB57821AE867B001099E6 /* StatusState.swift */,
 				D1FFB57A21AE8696001099E6 /* GraphQLSelectionSet.swift */,
+				D1FFB57E21AE98DD001099E6 /* AnnictGraphQL.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -423,6 +455,34 @@
 				D1BCB8D0217F46B600B84F82 /* HomeViewController.storyboard */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		D1FFB58021AECEC1001099E6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D1621DED2186262300819D93 /* RecordViewReactor.swift */,
+				D1621DEE2186262300819D93 /* RecordViewController.storyboard */,
+				D1621DEF2186262300819D93 /* RecordViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D1FFB58121AECECF001099E6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D1FFB58221AECF04001099E6 /* RecordEpisodeTableViewCell.swift */,
+				D1FFB58321AECF04001099E6 /* RecordEpisodeTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D1FFB58821AED26B001099E6 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				D1FFB58621AED24F001099E6 /* Ornament.swift */,
+				D1FFB58F21AEF644001099E6 /* ActionClosurable.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		F195834130FE771215D4C51F /* Pods */ = {
@@ -497,16 +557,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1FFB58A21AEE427001099E6 /* CreateRecord.graphql in Resources */,
 				D123F25E217CBD2600AE38FD /* LaunchScreen.storyboard in Resources */,
 				D1621DEB2186218200819D93 /* RootTabBarController.storyboard in Resources */,
 				D1AF34C2219B4042004DD229 /* UserInfoTableViewCell.xib in Resources */,
 				D1013CCC217E23F7001C269B /* test.graphql in Resources */,
 				D1BCB8D1217F46B600B84F82 /* HomeViewController.storyboard in Resources */,
 				D1621E0021862BA600819D93 /* PostRecordViewController.storyboard in Resources */,
+				D1FFB58521AECF04001099E6 /* RecordEpisodeTableViewCell.xib in Resources */,
 				D1621E0A2186BB9300819D93 /* GetViewerWatchingEpisodes.graphql in Resources */,
 				D1AF34BC219B3CBF004DD229 /* GetViewerInfo.graphql in Resources */,
 				D1F9144B21AA7FD2006986A1 /* UserWorkCollectionViewCell.xib in Resources */,
 				D1F9144121AA7B4F006986A1 /* UserWorksWithSectionTitleCell.xib in Resources */,
+				D1FFB58C21AEE904001099E6 /* EpisodeDetails.graphql in Resources */,
 				D1621DF12186262300819D93 /* RecordViewController.storyboard in Resources */,
 				D1AF34BA219B0921004DD229 /* GetViewerWorks.graphql in Resources */,
 				D1621DF82186273200819D93 /* ProfileViewController.storyboard in Resources */,
@@ -577,6 +640,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Apollo.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactorKitRuntime.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ApolloSQLite.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SQLite.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -652,13 +717,17 @@
 				D1F9144A21AA7FD2006986A1 /* UserWorkCollectionViewCell.swift in Sources */,
 				D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */,
 				D1FFB57B21AE8696001099E6 /* GraphQLSelectionSet.swift in Sources */,
+				D1FFB58721AED24F001099E6 /* Ornament.swift in Sources */,
 				D1621DE92186214900819D93 /* RootTabBarController.swift in Sources */,
+				D1FFB59021AEF644001099E6 /* ActionClosurable.swift in Sources */,
 				D1BCB8C9217F3E8300B84F82 /* OauthTokenRequest.swift in Sources */,
 				D1621E0321862C3B00819D93 /* SemiModalPresentationController.swift in Sources */,
 				D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */,
 				D1F9143721AA756F006986A1 /* UIImageView.swift in Sources */,
 				D1F9144021AA7B4F006986A1 /* UserWorksWithSectionTitleCell.swift in Sources */,
 				D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */,
+				D1FFB58421AECF04001099E6 /* RecordEpisodeTableViewCell.swift in Sources */,
+				D1FFB58E21AEF3A3001099E6 /* RxUIScrollView.swift in Sources */,
 				D1F9143B21AA75C8006986A1 /* UIImage.swift in Sources */,
 				D1B4F176217EBF200011BAFF /* LoginViewReactor.swift in Sources */,
 				D1B4F167217EB5E60011BAFF /* RxUIViewController.swift in Sources */,
@@ -667,6 +736,7 @@
 				D1BCB8C4217F350A00B84F82 /* HTTPClient.swift in Sources */,
 				D1F9143521AA74FA006986A1 /* NSMutableParagraphStyle.swift in Sources */,
 				D1B4F174217EBB940011BAFF /* UIView.swift in Sources */,
+				D1FFB57F21AE98DD001099E6 /* AnnictGraphQL.swift in Sources */,
 				D1AF34C6219B4238004DD229 /* UICollectionView.swift in Sources */,
 				D1AF34C1219B4042004DD229 /* UserInfoTableViewCell.swift in Sources */,
 				D1621E0121862BA600819D93 /* PostRecordViewController.swift in Sources */,

@@ -20,12 +20,12 @@ final class ApolloReactiveExtensions {
         self.client = client
     }
     
-    func fetch<Query: GraphQLQuery>(
+    func fetchMaybe<Query: GraphQLQuery>(
         query: Query,
         cachePolicy: CachePolicy = .returnCacheDataElseFetch,
         queue: DispatchQueue = DispatchQueue.main) -> Maybe<Query.Data> {
         return Maybe.create { maybe in
-            let cancellable = self.client.fetch(query: query, cachePolicy: cachePolicy, queue: queue) { result, error in
+            let _ = self.client.fetch(query: query, cachePolicy: cachePolicy, queue: queue) { result, error in
                 if let error = error {
                     maybe(.error(error))
                 } else if let errors = result?.errors {
@@ -38,7 +38,30 @@ final class ApolloReactiveExtensions {
             }
             
             return Disposables.create {
-                cancellable.cancel()
+//                cancellable.cancel()
+            }
+        }
+    }
+    
+    func fetch<Query: GraphQLQuery>(
+        query: Query,
+        cachePolicy: CachePolicy = .returnCacheDataElseFetch,
+        queue: DispatchQueue = DispatchQueue.main) -> Observable<Query.Data> {
+        return Observable.create { observer in
+            let _ = self.client.fetch(query: query, cachePolicy: cachePolicy, queue: queue) { result, error in
+                if let error = error {
+                    observer.on(.error(error))
+                } else if let errors = result?.errors {
+                    observer.on(.error(RxApolloError.graphQLErrors(errors)))
+                } else if let data = result?.data {
+                    observer.on(.next(data))
+                } else {
+                    observer.on(.completed)
+                }
+            }
+
+            return Disposables.create {
+                //                cancellable.cancel()
             }
         }
     }

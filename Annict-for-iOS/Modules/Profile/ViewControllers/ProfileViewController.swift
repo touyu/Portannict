@@ -100,10 +100,3 @@ extension ProfileViewController: UITableViewDataSource {
         }
     }
 }
-
-extension GetViewerWorksQuery.Data.Viewer.Work {
-    var value: [Edge.Node] {
-        guard let edges = edges else { return []}
-        return edges.compactMap { $0?.node }
-    }
-}

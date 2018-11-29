@@ -444,9 +444,18 @@ public final class GetViewerInfoQuery: GraphQLQuery {
 
 public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
   public let operationDefinition =
-    "query GetViewerWatchingEpisodes {\n  viewer {\n    __typename\n    works(state: WATCHING, first: 10) {\n      __typename\n      edges {\n        __typename\n        node {\n          __typename\n          title\n          episodes(orderBy: {field: CREATED_AT, direction: DESC}) {\n            __typename\n            edges {\n              __typename\n              node {\n                __typename\n                annictId\n                title\n                viewerRecordsCount\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+    "query GetViewerWatchingEpisodes($after: String) {\n  viewer {\n    __typename\n    works(state: WATCHING, first: 10, after: $after) {\n      __typename\n      pageInfo {\n        __typename\n        endCursor\n        hasNextPage\n      }\n      edges {\n        __typename\n        node {\n          __typename\n          title\n          image {\n            __typename\n            twitterAvatarUrl\n          }\n          episodes(orderBy: {field: CREATED_AT, direction: DESC}) {\n            __typename\n            edges {\n              __typename\n              node {\n                __typename\n                ...EpisodeDetails\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
 
-  public init() {
+  public var queryDocument: String { return operationDefinition.appending(EpisodeDetails.fragmentDefinition) }
+
+  public var after: String?
+
+  public init(after: String? = nil) {
+    self.after = after
+  }
+
+  public var variables: GraphQLMap? {
+    return ["after": after]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -480,7 +489,7 @@ public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("works", arguments: ["state": "WATCHING", "first": 10], type: .object(Work.selections)),
+        GraphQLField("works", arguments: ["state": "WATCHING", "first": 10, "after": GraphQLVariable("after")], type: .object(Work.selections)),
       ]
 
       public private(set) var resultMap: ResultMap
@@ -516,6 +525,7 @@ public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("pageInfo", type: .nonNull(.object(PageInfo.selections))),
           GraphQLField("edges", type: .list(.object(Edge.selections))),
         ]
 
@@ -525,8 +535,8 @@ public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(edges: [Edge?]? = nil) {
-          self.init(unsafeResultMap: ["__typename": "WorkConnection", "edges": edges.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }])
+        public init(pageInfo: PageInfo, edges: [Edge?]? = nil) {
+          self.init(unsafeResultMap: ["__typename": "WorkConnection", "pageInfo": pageInfo.resultMap, "edges": edges.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }])
         }
 
         public var __typename: String {
@@ -538,6 +548,16 @@ public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
           }
         }
 
+        /// Information to aid in pagination.
+        public var pageInfo: PageInfo {
+          get {
+            return PageInfo(unsafeResultMap: resultMap["pageInfo"]! as! ResultMap)
+          }
+          set {
+            resultMap.updateValue(newValue.resultMap, forKey: "pageInfo")
+          }
+        }
+
         /// A list of edges.
         public var edges: [Edge?]? {
           get {
@@ -545,6 +565,55 @@ public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }, forKey: "edges")
+          }
+        }
+
+        public struct PageInfo: GraphQLSelectionSet {
+          public static let possibleTypes = ["PageInfo"]
+
+          public static let selections: [GraphQLSelection] = [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("endCursor", type: .scalar(String.self)),
+            GraphQLField("hasNextPage", type: .nonNull(.scalar(Bool.self))),
+          ]
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(endCursor: String? = nil, hasNextPage: Bool) {
+            self.init(unsafeResultMap: ["__typename": "PageInfo", "endCursor": endCursor, "hasNextPage": hasNextPage])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// When paginating forwards, the cursor to continue.
+          public var endCursor: String? {
+            get {
+              return resultMap["endCursor"] as? String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "endCursor")
+            }
+          }
+
+          /// When paginating forwards, are there more items?
+          public var hasNextPage: Bool {
+            get {
+              return resultMap["hasNextPage"]! as! Bool
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "hasNextPage")
+            }
           }
         }
 
@@ -591,6 +660,7 @@ public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
             public static let selections: [GraphQLSelection] = [
               GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
               GraphQLField("title", type: .nonNull(.scalar(String.self))),
+              GraphQLField("image", type: .object(Image.selections)),
               GraphQLField("episodes", arguments: ["orderBy": ["field": "CREATED_AT", "direction": "DESC"]], type: .object(Episode.selections)),
             ]
 
@@ -600,8 +670,8 @@ public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
               self.resultMap = unsafeResultMap
             }
 
-            public init(title: String, episodes: Episode? = nil) {
-              self.init(unsafeResultMap: ["__typename": "Work", "title": title, "episodes": episodes.flatMap { (value: Episode) -> ResultMap in value.resultMap }])
+            public init(title: String, image: Image? = nil, episodes: Episode? = nil) {
+              self.init(unsafeResultMap: ["__typename": "Work", "title": title, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }, "episodes": episodes.flatMap { (value: Episode) -> ResultMap in value.resultMap }])
             }
 
             public var __typename: String {
@@ -622,12 +692,58 @@ public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
               }
             }
 
+            public var image: Image? {
+              get {
+                return (resultMap["image"] as? ResultMap).flatMap { Image(unsafeResultMap: $0) }
+              }
+              set {
+                resultMap.updateValue(newValue?.resultMap, forKey: "image")
+              }
+            }
+
             public var episodes: Episode? {
               get {
                 return (resultMap["episodes"] as? ResultMap).flatMap { Episode(unsafeResultMap: $0) }
               }
               set {
                 resultMap.updateValue(newValue?.resultMap, forKey: "episodes")
+              }
+            }
+
+            public struct Image: GraphQLSelectionSet {
+              public static let possibleTypes = ["WorkImage"]
+
+              public static let selections: [GraphQLSelection] = [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("twitterAvatarUrl", type: .scalar(String.self)),
+              ]
+
+              public private(set) var resultMap: ResultMap
+
+              public init(unsafeResultMap: ResultMap) {
+                self.resultMap = unsafeResultMap
+              }
+
+              public init(twitterAvatarUrl: String? = nil) {
+                self.init(unsafeResultMap: ["__typename": "WorkImage", "twitterAvatarUrl": twitterAvatarUrl])
+              }
+
+              public var __typename: String {
+                get {
+                  return resultMap["__typename"]! as! String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "__typename")
+                }
+              }
+
+              public var twitterAvatarUrl: String? {
+                get {
+                  return resultMap["twitterAvatarUrl"] as? String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "twitterAvatarUrl")
+                }
               }
             }
 
@@ -710,9 +826,7 @@ public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
 
                   public static let selections: [GraphQLSelection] = [
                     GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-                    GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
-                    GraphQLField("title", type: .scalar(String.self)),
-                    GraphQLField("viewerRecordsCount", type: .nonNull(.scalar(Int.self))),
+                    GraphQLFragmentSpread(EpisodeDetails.self),
                   ]
 
                   public private(set) var resultMap: ResultMap
@@ -721,8 +835,8 @@ public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
                     self.resultMap = unsafeResultMap
                   }
 
-                  public init(annictId: Int, title: String? = nil, viewerRecordsCount: Int) {
-                    self.init(unsafeResultMap: ["__typename": "Episode", "annictId": annictId, "title": title, "viewerRecordsCount": viewerRecordsCount])
+                  public init(id: GraphQLID, annictId: Int, title: String? = nil, viewerRecordsCount: Int, viewerDidTrack: Bool, numberText: String? = nil) {
+                    self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "title": title, "viewerRecordsCount": viewerRecordsCount, "viewerDidTrack": viewerDidTrack, "numberText": numberText])
                   }
 
                   public var __typename: String {
@@ -734,35 +848,182 @@ public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
                     }
                   }
 
-                  public var annictId: Int {
+                  public var fragments: Fragments {
                     get {
-                      return resultMap["annictId"]! as! Int
+                      return Fragments(unsafeResultMap: resultMap)
                     }
                     set {
-                      resultMap.updateValue(newValue, forKey: "annictId")
+                      resultMap += newValue.resultMap
                     }
                   }
 
-                  public var title: String? {
-                    get {
-                      return resultMap["title"] as? String
-                    }
-                    set {
-                      resultMap.updateValue(newValue, forKey: "title")
-                    }
-                  }
+                  public struct Fragments {
+                    public private(set) var resultMap: ResultMap
 
-                  public var viewerRecordsCount: Int {
-                    get {
-                      return resultMap["viewerRecordsCount"]! as! Int
+                    public init(unsafeResultMap: ResultMap) {
+                      self.resultMap = unsafeResultMap
                     }
-                    set {
-                      resultMap.updateValue(newValue, forKey: "viewerRecordsCount")
+
+                    public var episodeDetails: EpisodeDetails {
+                      get {
+                        return EpisodeDetails(unsafeResultMap: resultMap)
+                      }
+                      set {
+                        resultMap += newValue.resultMap
+                      }
                     }
                   }
                 }
               }
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class CreateRecordMutation: GraphQLMutation {
+  public let operationDefinition =
+    "mutation CreateRecord($episodeId: ID!, $comment: String) {\n  createRecord(input: {episodeId: $episodeId, comment: $comment}) {\n    __typename\n    record {\n      __typename\n      id\n      annictId\n      comment\n      createdAt\n    }\n  }\n}"
+
+  public var episodeId: GraphQLID
+  public var comment: String?
+
+  public init(episodeId: GraphQLID, comment: String? = nil) {
+    self.episodeId = episodeId
+    self.comment = comment
+  }
+
+  public var variables: GraphQLMap? {
+    return ["episodeId": episodeId, "comment": comment]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Mutation"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("createRecord", arguments: ["input": ["episodeId": GraphQLVariable("episodeId"), "comment": GraphQLVariable("comment")]], type: .object(CreateRecord.selections)),
+    ]
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(createRecord: CreateRecord? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "createRecord": createRecord.flatMap { (value: CreateRecord) -> ResultMap in value.resultMap }])
+    }
+
+    public var createRecord: CreateRecord? {
+      get {
+        return (resultMap["createRecord"] as? ResultMap).flatMap { CreateRecord(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "createRecord")
+      }
+    }
+
+    public struct CreateRecord: GraphQLSelectionSet {
+      public static let possibleTypes = ["CreateRecordPayload"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("record", type: .object(Record.selections)),
+      ]
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(record: Record? = nil) {
+        self.init(unsafeResultMap: ["__typename": "CreateRecordPayload", "record": record.flatMap { (value: Record) -> ResultMap in value.resultMap }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var record: Record? {
+        get {
+          return (resultMap["record"] as? ResultMap).flatMap { Record(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "record")
+        }
+      }
+
+      public struct Record: GraphQLSelectionSet {
+        public static let possibleTypes = ["Record"]
+
+        public static let selections: [GraphQLSelection] = [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+          GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("comment", type: .scalar(String.self)),
+          GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
+        ]
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: GraphQLID, annictId: Int, comment: String? = nil, createdAt: String) {
+          self.init(unsafeResultMap: ["__typename": "Record", "id": id, "annictId": annictId, "comment": comment, "createdAt": createdAt])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: GraphQLID {
+          get {
+            return resultMap["id"]! as! GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var annictId: Int {
+          get {
+            return resultMap["annictId"]! as! Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "annictId")
+          }
+        }
+
+        public var comment: String? {
+          get {
+            return resultMap["comment"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "comment")
+          }
+        }
+
+        public var createdAt: String {
+          get {
+            return resultMap["createdAt"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "createdAt")
           }
         }
       }
@@ -917,6 +1178,96 @@ public final class GetViewerQuery: GraphQLQuery {
           }
         }
       }
+    }
+  }
+}
+
+public struct EpisodeDetails: GraphQLFragment {
+  public static let fragmentDefinition =
+    "fragment EpisodeDetails on Episode {\n  __typename\n  id\n  annictId\n  title\n  viewerRecordsCount\n  viewerDidTrack\n  numberText\n}"
+
+  public static let possibleTypes = ["Episode"]
+
+  public static let selections: [GraphQLSelection] = [
+    GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+    GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+    GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
+    GraphQLField("title", type: .scalar(String.self)),
+    GraphQLField("viewerRecordsCount", type: .nonNull(.scalar(Int.self))),
+    GraphQLField("viewerDidTrack", type: .nonNull(.scalar(Bool.self))),
+    GraphQLField("numberText", type: .scalar(String.self)),
+  ]
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(id: GraphQLID, annictId: Int, title: String? = nil, viewerRecordsCount: Int, viewerDidTrack: Bool, numberText: String? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "title": title, "viewerRecordsCount": viewerRecordsCount, "viewerDidTrack": viewerDidTrack, "numberText": numberText])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var id: GraphQLID {
+    get {
+      return resultMap["id"]! as! GraphQLID
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  public var annictId: Int {
+    get {
+      return resultMap["annictId"]! as! Int
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "annictId")
+    }
+  }
+
+  public var title: String? {
+    get {
+      return resultMap["title"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "title")
+    }
+  }
+
+  public var viewerRecordsCount: Int {
+    get {
+      return resultMap["viewerRecordsCount"]! as! Int
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "viewerRecordsCount")
+    }
+  }
+
+  public var viewerDidTrack: Bool {
+    get {
+      return resultMap["viewerDidTrack"]! as! Bool
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "viewerDidTrack")
+    }
+  }
+
+  public var numberText: String? {
+    get {
+      return resultMap["numberText"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "numberText")
     }
   }
 }

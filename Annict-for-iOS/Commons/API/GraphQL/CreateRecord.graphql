@@ -1,0 +1,10 @@
+mutation CreateRecord($episodeId: ID!, $comment: String) {
+  createRecord(input: {episodeId: $episodeId, comment: $comment}) {
+    record {
+      id
+      annictId
+      comment
+      createdAt
+    }
+  }
+}

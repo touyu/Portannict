@@ -8,7 +8,6 @@
 
 import ReactorKit
 import RxSwift
-import Apollo
 
 final class ProfileViewReactor: Reactor {
     typealias Work = GetViewerWorksQuery.Data.Viewer.Work.Edge.Node
@@ -16,14 +15,7 @@ final class ProfileViewReactor: Reactor {
     
     var initialState: State
     
-    private var client: ApolloClient? = {
-        let configuration = URLSessionConfiguration.default
-        guard let token = UserDefaultsRepository.fetch(forKey: .accessToken, type: String.self) else { return nil }
-        configuration.httpAdditionalHeaders = ["Authorization": "Bearer \(token)"]
-        let url = URL(string: "https://api.annict.com/graphql")!
-        let transport = HTTPNetworkTransport(url: url, configuration: configuration)
-        return ApolloClient(networkTransport: transport)
-    }()
+    private var client = AnnictGraphQL.client
     
     private let provider: ServiceProviderType
 
@@ -38,27 +30,19 @@ final class ProfileViewReactor: Reactor {
 
     enum Mutation {
         case setViewer(GetViewerInfoQuery.Data.Viewer)
-        case setWatchingWorks([Work])
-        case setWannaWatchWorks([Work])
         case setWorks([[Work]])
     }
 
     struct State {
-        var viewer: Viewer? = UserDefaultsRepository.fetch(forKey: .viewer, type: Viewer.self)
-        var watchingWorks: [Work] = []
-        var wannaWatchWorks: [Work] = []
-        var allWorks: [[Work]] = UserDefaultsRepository.fetch(forKey: .viewerAllWorks, type: [[Work]].self) ?? []
-//        var allWorks: [[Work]] = []
+        var viewer: Viewer?
+        var allWorks: [[Work]] = []
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
-        guard let client = client else { return .empty() }
-        
         switch action {
         case .fetch:
             let viewer = client.rx
-                .fetch(query: GetViewerInfoQuery())
-                .asObservable()
+                .fetch(query: GetViewerInfoQuery(), cachePolicy: .returnCacheDataAndFetch)
                 .map { $0.viewer }
                 .filterNil()
                 .map { Mutation.setViewer($0) }
@@ -66,7 +50,10 @@ final class ProfileViewReactor: Reactor {
             let works = Observable<[StatusState]>
                 .just([.watching, .wannaWatch, .watched, .onHold, .stopWatching])
                 .mapMany { GetViewerWorksQuery(state: $0) }
-                .flatMapMany { client.rx.fetch(query: $0).asObservable() }
+                .flatMapMany { [weak self] query -> Observable<GetViewerWorksQuery.Data> in
+                    guard let self = self else { return .empty() }
+                    return self.client.rx.fetchMaybe(query: query, cachePolicy: .returnCacheDataAndFetch).asObservable()
+                }
                 .mapMany { $0.viewer?.works?.value ?? [] }
                 .map { Mutation.setWorks($0) }
             
@@ -80,14 +67,17 @@ final class ProfileViewReactor: Reactor {
         case .setViewer(let viewer):
             state.viewer = viewer
             UserDefaultsRepository.save(value: viewer, forKey: .viewer)
-        case .setWatchingWorks(let works):
-            state.watchingWorks = works
-        case .setWannaWatchWorks(let works):
-            state.wannaWatchWorks = works
         case .setWorks(let allWorks):
             state.allWorks = allWorks
             UserDefaultsRepository.save(value: allWorks, forKey: .viewerAllWorks)
         }
         return state
+    }
+}
+
+extension GetViewerWorksQuery.Data.Viewer.Work {
+    var value: [Edge.Node] {
+        guard let edges = edges else { return []}
+        return edges.compactMap { $0?.node }
     }
 }

@@ -1,15 +1,20 @@
-query GetViewerWatchingEpisodes {
+query GetViewerWatchingEpisodes($after: String) {
     viewer {
-        works(state:WATCHING, first:10) {
+        works(state:WATCHING, first:10, after: $after) {
+            pageInfo {
+                endCursor
+                hasNextPage
+            }
             edges {
                 node {
                     title
+                    image {
+                        twitterAvatarUrl
+                    }
                     episodes(orderBy:{field: CREATED_AT, direction: DESC}) {
                         edges {
                             node {
-                                annictId
-                                title
-                                viewerRecordsCount
+                                ... EpisodeDetails
                             }
                         }
                     }
@@ -18,3 +23,5 @@ query GetViewerWatchingEpisodes {
         }
     }
 }
+
+

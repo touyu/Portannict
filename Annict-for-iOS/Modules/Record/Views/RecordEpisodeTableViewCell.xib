@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="KGk-i7-Jjw" customClass="RecordEpisodeTableViewCell" customModule="Annict_for_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="423" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="423" height="89.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="USy-Au-mcd">
+                        <rect key="frame" x="16" y="12" width="64" height="64"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="USy-Au-mcd" secondAttribute="height" multiplier="1:1" id="PnD-U4-u2m"/>
+                            <constraint firstAttribute="height" constant="64" id="RWK-xm-moo"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="N7y-WL-gfI">
+                        <rect key="frame" x="92" y="23.5" width="315" height="41"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQO-uM-miQ">
+                                <rect key="frame" x="0.0" y="0.0" width="65.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Episode Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9v-gI-baI">
+                                <rect key="frame" x="0.0" y="25" width="78.5" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="USy-Au-mcd" secondAttribute="bottom" constant="12" id="9PX-ZU-i3o"/>
+                    <constraint firstAttribute="trailing" secondItem="N7y-WL-gfI" secondAttribute="trailing" constant="16" id="Aa3-Hh-bKH"/>
+                    <constraint firstItem="N7y-WL-gfI" firstAttribute="leading" secondItem="USy-Au-mcd" secondAttribute="trailing" constant="12" id="Upp-jC-8tf"/>
+                    <constraint firstItem="USy-Au-mcd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="iYl-E1-t98"/>
+                    <constraint firstItem="N7y-WL-gfI" firstAttribute="centerY" secondItem="USy-Au-mcd" secondAttribute="centerY" id="vob-9H-WQr"/>
+                    <constraint firstItem="USy-Au-mcd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="zQX-4I-JEk"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="episodeTitleLabel" destination="j9v-gI-baI" id="g7t-JY-jlV"/>
+                <outlet property="workImageView" destination="USy-Au-mcd" id="egA-bU-DPf"/>
+                <outlet property="workTitleLabel" destination="IQO-uM-miQ" id="KOD-i2-bdp"/>
+            </connections>
+            <point key="canvasLocation" x="220" y="174.51274362818592"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -21,6 +21,8 @@ final class UserWorkCollectionViewCell: UICollectionViewCell {
         imageView.layer.masksToBounds = true
         imageView.layer.borderWidth = 0.4
         imageView.layer.borderColor = UIColor(white: 0.9, alpha: 1).cgColor
+        
+        imageView.apply(.workImage)
     }
 
     func prepare(work: Work) {
