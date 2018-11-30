@@ -17,9 +17,24 @@
                     <view key="view" contentMode="scaleToFill" id="TS7-kj-e6P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Ze-HR-bej">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5Ze-HR-bej" firstAttribute="top" secondItem="ibk-bK-Ley" secondAttribute="top" id="341-Tr-vYC"/>
+                            <constraint firstItem="ibk-bK-Ley" firstAttribute="bottom" secondItem="5Ze-HR-bej" secondAttribute="bottom" id="CeI-lm-dcT"/>
+                            <constraint firstItem="5Ze-HR-bej" firstAttribute="leading" secondItem="ibk-bK-Ley" secondAttribute="leading" id="CpH-zt-mDS"/>
+                            <constraint firstItem="ibk-bK-Ley" firstAttribute="trailing" secondItem="5Ze-HR-bej" secondAttribute="trailing" id="xsb-mk-x6g"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ibk-bK-Ley"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="5Ze-HR-bej" id="C4M-yu-WWy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7rf-Ei-G2E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
