@@ -15,10 +15,16 @@ final class SearchViewController: UIViewController, StoryboardView {
 
     @IBOutlet private weak var collectionView: UICollectionView!
 
+    private var resultController: SearchResultViewController = {
+        let vc = SearchResultViewController.loadStoryboard()
+        vc.reactor = SearchResultViewReactor()
+        return vc
+    }()
+
     private lazy var searchController: UISearchController = {
-        let sc = UISearchController(searchResultsController: SearchResultViewController.loadStoryboard())
+        let sc = UISearchController(searchResultsController: resultController)
         sc.searchBar.searchBarStyle = .minimal
-        sc.searchResultsUpdater = self
+        sc.searchResultsUpdater = resultController
         sc.hidesNavigationBarDuringPresentation = false
         sc.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
@@ -60,6 +66,7 @@ final class SearchViewController: UIViewController, StoryboardView {
     private func prepareCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.keyboardDismissMode = .onDrag
         collectionView.register(cellTypes: UserWorkCollectionViewCell.self)
     }
 }
@@ -89,11 +96,5 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-    }
-}
-
-extension SearchViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-
     }
 }

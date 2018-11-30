@@ -39,6 +39,10 @@
 		D165C9B621B0E051002E8FFA /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D165C9B521B0E051002E8FFA /* UINavigationBar.swift */; };
 		D165C9B921B0E306002E8FFA /* SearchViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D165C9B821B0E306002E8FFA /* SearchViewReactor.swift */; };
 		D165C9BB21B0E596002E8FFA /* SearchWorks.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D165C9BA21B0E596002E8FFA /* SearchWorks.graphql */; };
+		D165C9BD21B158EA002E8FFA /* SearchResultViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D165C9BC21B158EA002E8FFA /* SearchResultViewReactor.swift */; };
+		D165C9BF21B15B36002E8FFA /* SearchWorksByTitle.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D165C9BE21B15B36002E8FFA /* SearchWorksByTitle.graphql */; };
+		D165C9C121B15EE9002E8FFA /* SearchResultWorkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D165C9C021B15EE9002E8FFA /* SearchResultWorkCell.xib */; };
+		D165C9C321B15EF1002E8FFA /* SearchResultWorkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D165C9C221B15EF1002E8FFA /* SearchResultWorkCell.swift */; };
 		D18389B321B05137004A072C /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18389B221B05137004A072C /* SearchResultViewController.swift */; };
 		D18389B521B05146004A072C /* SearchResultViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D18389B421B05146004A072C /* SearchResultViewController.storyboard */; };
 		D19718CD217E29D2009B5F0F /* RxApollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CC217E29D2009B5F0F /* RxApollo.swift */; };
@@ -134,6 +138,10 @@
 		D165C9B521B0E051002E8FFA /* UINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBar.swift; sourceTree = "<group>"; };
 		D165C9B821B0E306002E8FFA /* SearchViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewReactor.swift; sourceTree = "<group>"; };
 		D165C9BA21B0E596002E8FFA /* SearchWorks.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchWorks.graphql; sourceTree = "<group>"; };
+		D165C9BC21B158EA002E8FFA /* SearchResultViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewReactor.swift; sourceTree = "<group>"; };
+		D165C9BE21B15B36002E8FFA /* SearchWorksByTitle.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchWorksByTitle.graphql; sourceTree = "<group>"; };
+		D165C9C021B15EE9002E8FFA /* SearchResultWorkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultWorkCell.xib; sourceTree = "<group>"; };
+		D165C9C221B15EF1002E8FFA /* SearchResultWorkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultWorkCell.swift; sourceTree = "<group>"; };
 		D18389B221B05137004A072C /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		D18389B421B05146004A072C /* SearchResultViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResultViewController.storyboard; sourceTree = "<group>"; };
 		D19718CC217E29D2009B5F0F /* RxApollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxApollo.swift; sourceTree = "<group>"; };
@@ -326,6 +334,7 @@
 				D1AF34B9219B0921004DD229 /* GetViewerWorks.graphql */,
 				D1AF34BB219B3CBF004DD229 /* GetViewerInfo.graphql */,
 				D165C9BA21B0E596002E8FFA /* SearchWorks.graphql */,
+				D165C9BE21B15B36002E8FFA /* SearchWorksByTitle.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -333,6 +342,8 @@
 		D165C9B721B0E242002E8FFA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D165C9C021B15EE9002E8FFA /* SearchResultWorkCell.xib */,
+				D165C9C221B15EF1002E8FFA /* SearchResultWorkCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -526,6 +537,7 @@
 				D165C9B821B0E306002E8FFA /* SearchViewReactor.swift */,
 				D18389B221B05137004A072C /* SearchResultViewController.swift */,
 				D18389B421B05146004A072C /* SearchResultViewController.storyboard */,
+				D165C9BC21B158EA002E8FFA /* SearchResultViewReactor.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -611,6 +623,7 @@
 				D1013CCC217E23F7001C269B /* test.graphql in Resources */,
 				D1BCB8D1217F46B600B84F82 /* HomeViewController.storyboard in Resources */,
 				D1621E0021862BA600819D93 /* PostRecordViewController.storyboard in Resources */,
+				D165C9C121B15EE9002E8FFA /* SearchResultWorkCell.xib in Resources */,
 				D1FFB58521AECF04001099E6 /* RecordEpisodeTableViewCell.xib in Resources */,
 				D1621E0A2186BB9300819D93 /* GetViewerWatchingEpisodes.graphql in Resources */,
 				D1AF34BC219B3CBF004DD229 /* GetViewerInfo.graphql in Resources */,
@@ -618,6 +631,7 @@
 				D1F9144121AA7B4F006986A1 /* UserWorksWithSectionTitleCell.xib in Resources */,
 				D1FFB58C21AEE904001099E6 /* EpisodeDetails.graphql in Resources */,
 				D1621DF12186262300819D93 /* RecordViewController.storyboard in Resources */,
+				D165C9BF21B15B36002E8FFA /* SearchWorksByTitle.graphql in Resources */,
 				D165C9BB21B0E596002E8FFA /* SearchWorks.graphql in Resources */,
 				D1AF34BA219B0921004DD229 /* GetViewerWorks.graphql in Resources */,
 				D1621DF82186273200819D93 /* ProfileViewController.storyboard in Resources */,
@@ -746,6 +760,7 @@
 				D1621DF22186262300819D93 /* RecordViewController.swift in Sources */,
 				D1F9144D21AA85C1006986A1 /* UIColor.swift in Sources */,
 				D1B4F16F217EB8A70011BAFF /* StoryboardLoadable.swift in Sources */,
+				D165C9BD21B158EA002E8FFA /* SearchResultViewReactor.swift in Sources */,
 				D1AF34C4219B4202004DD229 /* UITableView.swift in Sources */,
 				D1B4F171217EB8D50011BAFF /* NSObject.swift in Sources */,
 				D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */,
@@ -772,6 +787,7 @@
 				D1FFB59021AEF644001099E6 /* ActionClosurable.swift in Sources */,
 				D1BCB8C9217F3E8300B84F82 /* OauthTokenRequest.swift in Sources */,
 				D1621E0321862C3B00819D93 /* SemiModalPresentationController.swift in Sources */,
+				D165C9C321B15EF1002E8FFA /* SearchResultWorkCell.swift in Sources */,
 				D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */,
 				D1F9143721AA756F006986A1 /* UIImageView.swift in Sources */,
 				D1F9144021AA7B4F006986A1 /* UserWorksWithSectionTitleCell.swift in Sources */,
