@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UnW-rr-vDT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item-->
+        <scene sceneID="CKp-CN-yyM">
+            <objects>
+                <viewController id="UnW-rr-vDT" customClass="SearchViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CAv-wW-M8x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NQE-ux-ln8">
+                                <rect key="frame" x="8" y="20" width="359" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="wQ6-SR-lnN"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今期のアニメ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJ9-Bt-G7J">
+                                <rect key="frame" x="24" y="88" width="86" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yJ9-Bt-G7J" firstAttribute="leading" secondItem="GQr-AP-Zpj" secondAttribute="leading" constant="24" id="Chu-t9-iiD"/>
+                            <constraint firstItem="yJ9-Bt-G7J" firstAttribute="top" secondItem="NQE-ux-ln8" secondAttribute="bottom" constant="24" id="Mtp-Ot-07F"/>
+                            <constraint firstItem="NQE-ux-ln8" firstAttribute="leading" secondItem="GQr-AP-Zpj" secondAttribute="leading" constant="8" id="PeS-5B-cya"/>
+                            <constraint firstItem="NQE-ux-ln8" firstAttribute="top" secondItem="GQr-AP-Zpj" secondAttribute="top" id="YY7-KI-7CQ"/>
+                            <constraint firstItem="NQE-ux-ln8" firstAttribute="trailing" secondItem="GQr-AP-Zpj" secondAttribute="trailing" constant="-8" id="kTk-l1-m50"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GQr-AP-Zpj"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="DZb-fH-P4l"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="topView" destination="NQE-ux-ln8" id="E7q-69-EG7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UYf-BK-9Xo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-439.19999999999999" y="106.59670164917542"/>
+        </scene>
+    </scenes>
+</document>

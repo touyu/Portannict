@@ -31,7 +31,8 @@
                     <connections>
                         <segue destination="3zZ-mU-XX0" kind="relationship" relationship="viewControllers" id="joe-B9-fzP"/>
                         <segue destination="v1e-3w-WOU" kind="relationship" relationship="viewControllers" id="zdx-mM-xLl"/>
-                        <segue destination="cvs-2o-Tph" kind="relationship" relationship="viewControllers" id="3Zr-DU-bwr"/>
+                        <segue destination="Fik-US-4sD" kind="relationship" relationship="viewControllers" id="EEC-Yb-hEf"/>
+                        <segue destination="cvs-2o-Tph" kind="relationship" relationship="viewControllers" id="Mp5-ps-mYG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="km0-Zq-z5N" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -48,6 +49,16 @@
             </objects>
             <point key="canvasLocation" x="103" y="-123"/>
         </scene>
+        <!--SearchViewController-->
+        <scene sceneID="PAv-o9-7Ye">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SearchViewController" id="Fik-US-4sD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="gFc-2B-WJP"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aHw-Pv-rYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="87" y="-14"/>
+        </scene>
         <!--ProfileViewController-->
         <scene sceneID="j4E-Ns-xLS">
             <objects>
@@ -56,7 +67,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GL4-hb-knq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="122" y="124"/>
+            <point key="canvasLocation" x="90" y="67"/>
         </scene>
     </scenes>
 </document>

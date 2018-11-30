@@ -36,6 +36,8 @@
 		D1621E0521862F4500819D93 /* PostRecordTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621E0421862F4500819D93 /* PostRecordTransitioningDelegate.swift */; };
 		D1621E0A2186BB9300819D93 /* GetViewerWatchingEpisodes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1621E092186BB9300819D93 /* GetViewerWatchingEpisodes.graphql */; };
 		D1621E0C2186BF5700819D93 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621E0B2186BF5700819D93 /* API.swift */; };
+		D18389B321B05137004A072C /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18389B221B05137004A072C /* SearchResultViewController.swift */; };
+		D18389B521B05146004A072C /* SearchResultViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D18389B421B05146004A072C /* SearchResultViewController.storyboard */; };
 		D19718CD217E29D2009B5F0F /* RxApollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CC217E29D2009B5F0F /* RxApollo.swift */; };
 		D19718CF217E2ED3009B5F0F /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CE217E2ED3009B5F0F /* ObservableType.swift */; };
 		D1AF34BA219B0921004DD229 /* GetViewerWorks.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1AF34B9219B0921004DD229 /* GetViewerWorks.graphql */; };
@@ -87,6 +89,8 @@
 		D1FFB59321B03A14001099E6 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FFB59121B03A13001099E6 /* Apollo.framework */; };
 		D1FFB59421B03A14001099E6 /* ApolloSQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FFB59221B03A13001099E6 /* ApolloSQLite.framework */; };
 		D1FFB59621B03A4D001099E6 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FFB59521B03A4D001099E6 /* SQLite.framework */; };
+		D1FFB59A21B04693001099E6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFB59921B04693001099E6 /* SearchViewController.swift */; };
+		D1FFB59C21B046BE001099E6 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FFB59B21B046BE001099E6 /* SearchViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +128,8 @@
 		D1621E0421862F4500819D93 /* PostRecordTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRecordTransitioningDelegate.swift; sourceTree = "<group>"; };
 		D1621E092186BB9300819D93 /* GetViewerWatchingEpisodes.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetViewerWatchingEpisodes.graphql; sourceTree = "<group>"; };
 		D1621E0B2186BF5700819D93 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = "Annict-for-iOS/API.swift"; sourceTree = SOURCE_ROOT; };
+		D18389B221B05137004A072C /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		D18389B421B05146004A072C /* SearchResultViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResultViewController.storyboard; sourceTree = "<group>"; };
 		D19718CC217E29D2009B5F0F /* RxApollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxApollo.swift; sourceTree = "<group>"; };
 		D19718CE217E2ED3009B5F0F /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
 		D1AF34B9219B0921004DD229 /* GetViewerWorks.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetViewerWorks.graphql; sourceTree = "<group>"; };
@@ -174,6 +180,8 @@
 		D1FFB59121B03A13001099E6 /* Apollo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apollo.framework; path = Carthage/Build/iOS/Apollo.framework; sourceTree = "<group>"; };
 		D1FFB59221B03A13001099E6 /* ApolloSQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApolloSQLite.framework; path = Carthage/Build/iOS/ApolloSQLite.framework; sourceTree = "<group>"; };
 		D1FFB59521B03A4D001099E6 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
+		D1FFB59921B04693001099E6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D1FFB59B21B046BE001099E6 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,6 +385,7 @@
 		D1B4F15E217EB33E0011BAFF /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				D1FFB59721B0464F001099E6 /* Search */,
 				D1621DF32186272300819D93 /* Profile */,
 				D1621DEC218625DB00819D93 /* Record */,
 				D1621DE72186211C00819D93 /* TabBar */,
@@ -485,6 +494,25 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		D1FFB59721B0464F001099E6 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				D1FFB59821B04680001099E6 /* ViewControllers */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		D1FFB59821B04680001099E6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D1FFB59921B04693001099E6 /* SearchViewController.swift */,
+				D1FFB59B21B046BE001099E6 /* SearchViewController.storyboard */,
+				D18389B221B05137004A072C /* SearchResultViewController.swift */,
+				D18389B421B05146004A072C /* SearchResultViewController.storyboard */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		F195834130FE771215D4C51F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,6 +588,8 @@
 				D1FFB58A21AEE427001099E6 /* CreateRecord.graphql in Resources */,
 				D123F25E217CBD2600AE38FD /* LaunchScreen.storyboard in Resources */,
 				D1621DEB2186218200819D93 /* RootTabBarController.storyboard in Resources */,
+				D18389B521B05146004A072C /* SearchResultViewController.storyboard in Resources */,
+				D1FFB59C21B046BE001099E6 /* SearchViewController.storyboard in Resources */,
 				D1AF34C2219B4042004DD229 /* UserInfoTableViewCell.xib in Resources */,
 				D1013CCC217E23F7001C269B /* test.graphql in Resources */,
 				D1BCB8D1217F46B600B84F82 /* HomeViewController.storyboard in Resources */,
@@ -702,6 +732,7 @@
 				D1B4F171217EB8D50011BAFF /* NSObject.swift in Sources */,
 				D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */,
 				D1BCB8C2217F327400B84F82 /* NotificationCenter.swift in Sources */,
+				D18389B321B05137004A072C /* SearchResultViewController.swift in Sources */,
 				D136EA742180885400BA08EA /* UserDefaultsService.swift in Sources */,
 				D1FFB57921AE867B001099E6 /* StatusState.swift in Sources */,
 				D1F9143D21AA7615006986A1 /* CGSize.swift in Sources */,
@@ -731,6 +762,7 @@
 				D1F9143B21AA75C8006986A1 /* UIImage.swift in Sources */,
 				D1B4F176217EBF200011BAFF /* LoginViewReactor.swift in Sources */,
 				D1B4F167217EB5E60011BAFF /* RxUIViewController.swift in Sources */,
+				D1FFB59A21B04693001099E6 /* SearchViewController.swift in Sources */,
 				D1B4F178217EC0970011BAFF /* Constants.swift in Sources */,
 				D123F254217CBD2500AE38FD /* AppDelegate.swift in Sources */,
 				D1BCB8C4217F350A00B84F82 /* HTTPClient.swift in Sources */,
