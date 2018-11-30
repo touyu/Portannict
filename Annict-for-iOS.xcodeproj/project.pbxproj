@@ -37,6 +37,8 @@
 		D1621E0A2186BB9300819D93 /* GetViewerWatchingEpisodes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1621E092186BB9300819D93 /* GetViewerWatchingEpisodes.graphql */; };
 		D1621E0C2186BF5700819D93 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621E0B2186BF5700819D93 /* API.swift */; };
 		D165C9B621B0E051002E8FFA /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D165C9B521B0E051002E8FFA /* UINavigationBar.swift */; };
+		D165C9B921B0E306002E8FFA /* SearchViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D165C9B821B0E306002E8FFA /* SearchViewReactor.swift */; };
+		D165C9BB21B0E596002E8FFA /* SearchWorks.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D165C9BA21B0E596002E8FFA /* SearchWorks.graphql */; };
 		D18389B321B05137004A072C /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18389B221B05137004A072C /* SearchResultViewController.swift */; };
 		D18389B521B05146004A072C /* SearchResultViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D18389B421B05146004A072C /* SearchResultViewController.storyboard */; };
 		D19718CD217E29D2009B5F0F /* RxApollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CC217E29D2009B5F0F /* RxApollo.swift */; };
@@ -130,6 +132,8 @@
 		D1621E092186BB9300819D93 /* GetViewerWatchingEpisodes.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetViewerWatchingEpisodes.graphql; sourceTree = "<group>"; };
 		D1621E0B2186BF5700819D93 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = "Annict-for-iOS/API.swift"; sourceTree = SOURCE_ROOT; };
 		D165C9B521B0E051002E8FFA /* UINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBar.swift; sourceTree = "<group>"; };
+		D165C9B821B0E306002E8FFA /* SearchViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewReactor.swift; sourceTree = "<group>"; };
+		D165C9BA21B0E596002E8FFA /* SearchWorks.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchWorks.graphql; sourceTree = "<group>"; };
 		D18389B221B05137004A072C /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		D18389B421B05146004A072C /* SearchResultViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResultViewController.storyboard; sourceTree = "<group>"; };
 		D19718CC217E29D2009B5F0F /* RxApollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxApollo.swift; sourceTree = "<group>"; };
@@ -321,8 +325,16 @@
 				D1621E092186BB9300819D93 /* GetViewerWatchingEpisodes.graphql */,
 				D1AF34B9219B0921004DD229 /* GetViewerWorks.graphql */,
 				D1AF34BB219B3CBF004DD229 /* GetViewerInfo.graphql */,
+				D165C9BA21B0E596002E8FFA /* SearchWorks.graphql */,
 			);
 			path = GraphQL;
+			sourceTree = "<group>";
+		};
+		D165C9B721B0E242002E8FFA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		D19718CB217E29BA009B5F0F /* Rx */ = {
@@ -500,6 +512,7 @@
 		D1FFB59721B0464F001099E6 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				D165C9B721B0E242002E8FFA /* Views */,
 				D1FFB59821B04680001099E6 /* ViewControllers */,
 			);
 			path = Search;
@@ -510,6 +523,7 @@
 			children = (
 				D1FFB59921B04693001099E6 /* SearchViewController.swift */,
 				D1FFB59B21B046BE001099E6 /* SearchViewController.storyboard */,
+				D165C9B821B0E306002E8FFA /* SearchViewReactor.swift */,
 				D18389B221B05137004A072C /* SearchResultViewController.swift */,
 				D18389B421B05146004A072C /* SearchResultViewController.storyboard */,
 			);
@@ -604,6 +618,7 @@
 				D1F9144121AA7B4F006986A1 /* UserWorksWithSectionTitleCell.xib in Resources */,
 				D1FFB58C21AEE904001099E6 /* EpisodeDetails.graphql in Resources */,
 				D1621DF12186262300819D93 /* RecordViewController.storyboard in Resources */,
+				D165C9BB21B0E596002E8FFA /* SearchWorks.graphql in Resources */,
 				D1AF34BA219B0921004DD229 /* GetViewerWorks.graphql in Resources */,
 				D1621DF82186273200819D93 /* ProfileViewController.storyboard in Resources */,
 				D123F25B217CBD2600AE38FD /* Assets.xcassets in Resources */,
@@ -776,6 +791,7 @@
 				D1AF34C6219B4238004DD229 /* UICollectionView.swift in Sources */,
 				D1AF34C1219B4042004DD229 /* UserInfoTableViewCell.swift in Sources */,
 				D1621E0121862BA600819D93 /* PostRecordViewController.swift in Sources */,
+				D165C9B921B0E306002E8FFA /* SearchViewReactor.swift in Sources */,
 				D136EA7121807E9500BA08EA /* APIService.swift in Sources */,
 				D1621E0C2186BF5700819D93 /* API.swift in Sources */,
 				D19718CF217E2ED3009B5F0F /* ObservableType.swift in Sources */,

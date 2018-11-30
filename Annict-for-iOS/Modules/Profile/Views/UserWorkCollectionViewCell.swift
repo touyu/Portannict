@@ -26,8 +26,12 @@ final class UserWorkCollectionViewCell: UICollectionViewCell {
     }
 
     func prepare(work: Work) {
-        imageView.setImage(url: work.image?.url)
-        titleLabel.text = work.title
+        prepare(url: work.image?.url, title: work.title)
+    }
+
+    func prepare(url: String?, title: String) {
+        imageView.setImage(url: url)
+        titleLabel.text = title
     }
 }
 
