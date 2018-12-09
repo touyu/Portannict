@@ -1,3 +1,4 @@
+github "HeroTransitions/Hero" "1.4.0"
 github "ReactiveX/RxSwift" "4.4.0"
 github "ReactorKit/ReactorKit" "1.2.1"
 github "apollostack/apollo-ios" "0.9.4"

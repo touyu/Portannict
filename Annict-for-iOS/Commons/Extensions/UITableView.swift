@@ -20,3 +20,9 @@ extension UITableView {
         return dequeueReusableCell(withIdentifier: type.className, for: indexPath) as! T
     }
 }
+
+extension UITableViewCell {
+    func clearSeparator() {
+        separatorInset = UIEdgeInsets(top: 0, left: bounds.width, bottom: 0, right: 0)
+    }
+}

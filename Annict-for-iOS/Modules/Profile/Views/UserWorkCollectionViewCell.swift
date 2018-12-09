@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Hero
 
 final class UserWorkCollectionViewCell: UICollectionViewCell {
     typealias Work = GetViewerWorksQuery.Data.Viewer.Work.Edge.Node
 
-    @IBOutlet private weak var imageView: UIImageView!
-    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private(set) weak var imageView: UIImageView!
+    @IBOutlet private(set) weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +24,7 @@ final class UserWorkCollectionViewCell: UICollectionViewCell {
         imageView.layer.borderColor = UIColor(white: 0.9, alpha: 1).cgColor
         
         imageView.apply(.workImage)
+        imageView.hero.isEnabled = true
     }
 
     func prepare(work: Work) {
@@ -32,6 +34,11 @@ final class UserWorkCollectionViewCell: UICollectionViewCell {
     func prepare(url: String?, title: String) {
         imageView.setImage(url: url)
         titleLabel.text = title
+    }
+    
+    func prepareHero(indexPath: IndexPath) {
+        imageView.hero.id = "WorkImageView \(indexPath.row)"
+        titleLabel.hero.id = "TitleLabel \(indexPath.row)"
     }
 }
 

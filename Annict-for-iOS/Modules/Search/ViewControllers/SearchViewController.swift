@@ -82,7 +82,24 @@ extension SearchViewController: UICollectionViewDataSource {
         let work = reactor.currentState.works[indexPath.item]
         let cell = collectionView.dequeueReusableCell(type: UserWorkCollectionViewCell.self, for: indexPath)
         cell.prepare(url: work.image?.twitterAvatarUrl, title: work.title)
+        cell.prepareHero(indexPath: indexPath)
         return cell
+    }
+}
+
+extension SearchViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! UserWorkCollectionViewCell
+        let vc = WorkViewController.loadStoryboard()
+        vc.prepareHero { vc in
+            vc.hero.isEnabled = true
+            vc.hero.modalAnimationType = .fade
+            vc.imageView.image = cell.imageView.image
+            vc.imageView.hero.id = cell.imageView.hero.id
+        }
+        vc.reactor = WorkViewReactor(title: reactor?.currentState.works[indexPath.item].title ?? "",
+                                     titleLabelHeroID: cell.titleLabel.hero.id ?? "")
+        present(vc, animated: true, completion: nil)
     }
 }
 

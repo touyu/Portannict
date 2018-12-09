@@ -18,6 +18,8 @@
 		D1274114217CCCF000DD09C2 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1274112217CCCF000DD09C2 /* RxSwift.framework */; };
 		D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127411C217CDEF300DD09C2 /* BaseService.swift */; };
 		D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127411E217CDF1000DD09C2 /* ServiceProvider.swift */; };
+		D130208221B8067A00CE2F3A /* WorkTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D130208021B8067A00CE2F3A /* WorkTitleTableViewCell.swift */; };
+		D130208321B8067A00CE2F3A /* WorkTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D130208121B8067A00CE2F3A /* WorkTitleTableViewCell.xib */; };
 		D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */; };
 		D136EA7121807E9500BA08EA /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA7021807E9500BA08EA /* APIService.swift */; };
 		D136EA742180885400BA08EA /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA732180885400BA08EA /* UserDefaultsService.swift */; };
@@ -83,6 +85,10 @@
 		D1F9144A21AA7FD2006986A1 /* UserWorkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9144821AA7FD2006986A1 /* UserWorkCollectionViewCell.swift */; };
 		D1F9144B21AA7FD2006986A1 /* UserWorkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F9144921AA7FD2006986A1 /* UserWorkCollectionViewCell.xib */; };
 		D1F9144D21AA85C1006986A1 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9144C21AA85C1006986A1 /* UIColor.swift */; };
+		D1F9ED0321B2748500AB3DAE /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F9ED0221B2748500AB3DAE /* Hero.framework */; };
+		D1F9ED0821B274CD00AB3DAE /* WorkViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9ED0521B274CD00AB3DAE /* WorkViewReactor.swift */; };
+		D1F9ED0921B274CD00AB3DAE /* WorkViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1F9ED0621B274CD00AB3DAE /* WorkViewController.storyboard */; };
+		D1F9ED0A21B274CD00AB3DAE /* WorkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9ED0721B274CD00AB3DAE /* WorkViewController.swift */; };
 		D1FFB57921AE867B001099E6 /* StatusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFB57821AE867B001099E6 /* StatusState.swift */; };
 		D1FFB57B21AE8696001099E6 /* GraphQLSelectionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFB57A21AE8696001099E6 /* GraphQLSelectionSet.swift */; };
 		D1FFB57F21AE98DD001099E6 /* AnnictGraphQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFB57E21AE98DD001099E6 /* AnnictGraphQL.swift */; };
@@ -117,6 +123,8 @@
 		D1274112217CCCF000DD09C2 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		D127411C217CDEF300DD09C2 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		D127411E217CDF1000DD09C2 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		D130208021B8067A00CE2F3A /* WorkTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkTitleTableViewCell.swift; sourceTree = "<group>"; };
+		D130208121B8067A00CE2F3A /* WorkTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkTitleTableViewCell.xib; sourceTree = "<group>"; };
 		D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
 		D136EA7021807E9500BA08EA /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		D136EA732180885400BA08EA /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
@@ -181,6 +189,10 @@
 		D1F9144821AA7FD2006986A1 /* UserWorkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWorkCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1F9144921AA7FD2006986A1 /* UserWorkCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserWorkCollectionViewCell.xib; sourceTree = "<group>"; };
 		D1F9144C21AA85C1006986A1 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		D1F9ED0221B2748500AB3DAE /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Carthage/Build/iOS/Hero.framework; sourceTree = "<group>"; };
+		D1F9ED0521B274CD00AB3DAE /* WorkViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkViewReactor.swift; sourceTree = "<group>"; };
+		D1F9ED0621B274CD00AB3DAE /* WorkViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WorkViewController.storyboard; sourceTree = "<group>"; };
+		D1F9ED0721B274CD00AB3DAE /* WorkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkViewController.swift; sourceTree = "<group>"; };
 		D1FFB57821AE867B001099E6 /* StatusState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusState.swift; sourceTree = "<group>"; };
 		D1FFB57A21AE8696001099E6 /* GraphQLSelectionSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLSelectionSet.swift; sourceTree = "<group>"; };
 		D1FFB57E21AE98DD001099E6 /* AnnictGraphQL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnictGraphQL.swift; sourceTree = "<group>"; };
@@ -203,6 +215,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1F9ED0321B2748500AB3DAE /* Hero.framework in Frameworks */,
 				D1FFB59621B03A4D001099E6 /* SQLite.framework in Frameworks */,
 				D1FFB59321B03A14001099E6 /* Apollo.framework in Frameworks */,
 				D1FFB59421B03A14001099E6 /* ApolloSQLite.framework in Frameworks */,
@@ -252,6 +265,7 @@
 		D127410B217CCB3F00DD09C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1F9ED0221B2748500AB3DAE /* Hero.framework */,
 				D1FFB59521B03A4D001099E6 /* SQLite.framework */,
 				D1FFB59121B03A13001099E6 /* Apollo.framework */,
 				D1FFB59221B03A13001099E6 /* ApolloSQLite.framework */,
@@ -263,6 +277,15 @@
 				0567F169D06E4DEA7E47513F /* Pods_Annict_for_iOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D130207F21B8065E00CE2F3A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D130208021B8067A00CE2F3A /* WorkTitleTableViewCell.swift */,
+				D130208121B8067A00CE2F3A /* WorkTitleTableViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		D136EA6F21807DD600BA08EA /* Services */ = {
@@ -410,6 +433,7 @@
 		D1B4F15E217EB33E0011BAFF /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				D1F9ED0421B274C000AB3DAE /* Work */,
 				D1FFB59721B0464F001099E6 /* Search */,
 				D1621DF32186272300819D93 /* Profile */,
 				D1621DEC218625DB00819D93 /* Record */,
@@ -490,6 +514,17 @@
 				D1BCB8D0217F46B600B84F82 /* HomeViewController.storyboard */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		D1F9ED0421B274C000AB3DAE /* Work */ = {
+			isa = PBXGroup;
+			children = (
+				D130207F21B8065E00CE2F3A /* Views */,
+				D1F9ED0521B274CD00AB3DAE /* WorkViewReactor.swift */,
+				D1F9ED0621B274CD00AB3DAE /* WorkViewController.storyboard */,
+				D1F9ED0721B274CD00AB3DAE /* WorkViewController.swift */,
+			);
+			path = Work;
 			sourceTree = "<group>";
 		};
 		D1FFB58021AECEC1001099E6 /* ViewControllers */ = {
@@ -617,6 +652,8 @@
 				D1FFB58A21AEE427001099E6 /* CreateRecord.graphql in Resources */,
 				D123F25E217CBD2600AE38FD /* LaunchScreen.storyboard in Resources */,
 				D1621DEB2186218200819D93 /* RootTabBarController.storyboard in Resources */,
+				D130208321B8067A00CE2F3A /* WorkTitleTableViewCell.xib in Resources */,
+				D1F9ED0921B274CD00AB3DAE /* WorkViewController.storyboard in Resources */,
 				D18389B521B05146004A072C /* SearchResultViewController.storyboard in Resources */,
 				D1FFB59C21B046BE001099E6 /* SearchViewController.storyboard in Resources */,
 				D1AF34C2219B4042004DD229 /* UserInfoTableViewCell.xib in Resources */,
@@ -704,6 +741,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ApolloSQLite.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SQLite.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Hero.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -780,6 +818,7 @@
 				D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */,
 				D1621E0521862F4500819D93 /* PostRecordTransitioningDelegate.swift in Sources */,
 				D1F9144A21AA7FD2006986A1 /* UserWorkCollectionViewCell.swift in Sources */,
+				D1F9ED0821B274CD00AB3DAE /* WorkViewReactor.swift in Sources */,
 				D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */,
 				D1FFB57B21AE8696001099E6 /* GraphQLSelectionSet.swift in Sources */,
 				D1FFB58721AED24F001099E6 /* Ornament.swift in Sources */,
@@ -789,6 +828,7 @@
 				D1621E0321862C3B00819D93 /* SemiModalPresentationController.swift in Sources */,
 				D165C9C321B15EF1002E8FFA /* SearchResultWorkCell.swift in Sources */,
 				D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */,
+				D130208221B8067A00CE2F3A /* WorkTitleTableViewCell.swift in Sources */,
 				D1F9143721AA756F006986A1 /* UIImageView.swift in Sources */,
 				D1F9144021AA7B4F006986A1 /* UserWorksWithSectionTitleCell.swift in Sources */,
 				D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */,
@@ -798,6 +838,7 @@
 				D1B4F176217EBF200011BAFF /* LoginViewReactor.swift in Sources */,
 				D1B4F167217EB5E60011BAFF /* RxUIViewController.swift in Sources */,
 				D1FFB59A21B04693001099E6 /* SearchViewController.swift in Sources */,
+				D1F9ED0A21B274CD00AB3DAE /* WorkViewController.swift in Sources */,
 				D1B4F178217EC0970011BAFF /* Constants.swift in Sources */,
 				D123F254217CBD2500AE38FD /* AppDelegate.swift in Sources */,
 				D1BCB8C4217F350A00B84F82 /* HTTPClient.swift in Sources */,
