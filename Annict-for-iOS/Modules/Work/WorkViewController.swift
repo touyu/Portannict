@@ -18,6 +18,7 @@ final class WorkViewController: UIViewController, StoryboardView {
 
     @IBOutlet private(set) weak var imageView: UIImageView!
     @IBOutlet private(set) weak var tableView: UITableView!
+    @IBOutlet private(set) weak var gradationView: GradationView!
     @IBOutlet private weak var topConstraint: NSLayoutConstraint!
     
     private var prepareImageView: ((UIImageView) -> Void)?
@@ -33,6 +34,10 @@ final class WorkViewController: UIViewController, StoryboardView {
         prepareHero?(self)
         
         imageView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(self.handlePanGesture(_:))))
+        
+        gradationView.prepare(type: .top, colors: [UIColor.white.withAlphaComponent(0),
+                                                   UIColor.white.withAlphaComponent(0.5),
+                                                   .white])
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -104,15 +109,16 @@ extension WorkViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0:
-            guard let currentState = reactor?.currentState else { return UITableViewCell() }
-            let cell = tableView.dequeueReusableCell(classType: WorkTitleTableViewCell.self, for: indexPath)
-            cell.configure(title: currentState.initialTitle, titleLabelHeroID: currentState.titleLabelHeroID)
-            return cell
-        default:
-            return UITableViewCell()
-        }
+        return UITableViewCell()
+//        switch indexPath.row {
+//        case 0:
+//            guard let currentState = reactor?.currentState else { return UITableViewCell() }
+//            let cell = tableView.dequeueReusableCell(classType: WorkTitleTableViewCell.self, for: indexPath)
+//            cell.configure(title: currentState.initialTitle, titleLabelHeroID: currentState.titleLabelHeroID)
+//            return cell
+//        default:
+//            return UITableViewCell()
+//        }
     }
 }
 

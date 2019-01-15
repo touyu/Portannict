@@ -31,8 +31,14 @@ extension GraphQLSelectionSet {
     }
 }
 
+extension Dictionary where Key == String, Value == Any? {
+    static func == (lhs: Dictionary, rhs: Dictionary) -> Bool {
+        return (lhs as NSDictionary).isEqual(to: rhs as [AnyHashable: Any])
+    }
+}
+
 extension ObservableType where E: GraphQLSelectionSet {
     func distinctUntilChanged() -> Observable<Self.E> {
-        return distinctUntilChanged { $0.iSEqual($1) }
+        return distinctUntilChanged { $0.resultMap == $1.resultMap }
     }
 }

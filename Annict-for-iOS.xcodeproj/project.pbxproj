@@ -47,6 +47,7 @@
 		D165C9C321B15EF1002E8FFA /* SearchResultWorkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D165C9C221B15EF1002E8FFA /* SearchResultWorkCell.swift */; };
 		D18389B321B05137004A072C /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18389B221B05137004A072C /* SearchResultViewController.swift */; };
 		D18389B521B05146004A072C /* SearchResultViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D18389B421B05146004A072C /* SearchResultViewController.storyboard */; };
+		D18447C621BD021D00CF44AB /* GradationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18447C521BD021D00CF44AB /* GradationView.swift */; };
 		D19718CD217E29D2009B5F0F /* RxApollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CC217E29D2009B5F0F /* RxApollo.swift */; };
 		D19718CF217E2ED3009B5F0F /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CE217E2ED3009B5F0F /* ObservableType.swift */; };
 		D1AF34BA219B0921004DD229 /* GetViewerWorks.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1AF34B9219B0921004DD229 /* GetViewerWorks.graphql */; };
@@ -152,6 +153,7 @@
 		D165C9C221B15EF1002E8FFA /* SearchResultWorkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultWorkCell.swift; sourceTree = "<group>"; };
 		D18389B221B05137004A072C /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		D18389B421B05146004A072C /* SearchResultViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResultViewController.storyboard; sourceTree = "<group>"; };
+		D18447C521BD021D00CF44AB /* GradationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradationView.swift; sourceTree = "<group>"; };
 		D19718CC217E29D2009B5F0F /* RxApollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxApollo.swift; sourceTree = "<group>"; };
 		D19718CE217E2ED3009B5F0F /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
 		D1AF34B9219B0921004DD229 /* GetViewerWorks.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetViewerWorks.graphql; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 				D19718CE217E2ED3009B5F0F /* ObservableType.swift */,
 				D1B4F166217EB5E60011BAFF /* RxUIViewController.swift */,
 				D1FFB58D21AEF3A3001099E6 /* RxUIScrollView.swift */,
+				D18447C521BD021D00CF44AB /* GradationView.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -826,6 +829,7 @@
 				D1FFB59021AEF644001099E6 /* ActionClosurable.swift in Sources */,
 				D1BCB8C9217F3E8300B84F82 /* OauthTokenRequest.swift in Sources */,
 				D1621E0321862C3B00819D93 /* SemiModalPresentationController.swift in Sources */,
+				D18447C621BD021D00CF44AB /* GradationView.swift in Sources */,
 				D165C9C321B15EF1002E8FFA /* SearchResultWorkCell.swift in Sources */,
 				D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */,
 				D130208221B8067A00CE2F3A /* WorkTitleTableViewCell.swift in Sources */,
