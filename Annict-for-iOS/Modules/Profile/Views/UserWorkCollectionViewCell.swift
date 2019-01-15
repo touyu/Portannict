@@ -10,7 +10,7 @@ import UIKit
 import Hero
 
 final class UserWorkCollectionViewCell: UICollectionViewCell {
-    typealias Work = GetViewerWorksQuery.Data.Viewer.Work.Edge.Node
+    typealias Work = GetViewerWorksQuery.Data.Viewer.Work.Node
 
     @IBOutlet private(set) weak var imageView: UIImageView!
     @IBOutlet private(set) weak var titleLabel: UILabel!
@@ -42,7 +42,7 @@ final class UserWorkCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension GetViewerWorksQuery.Data.Viewer.Work.Edge.Node.Image {
+extension GetViewerWorksQuery.Data.Viewer.Work.Node.Image {
     var url: String? {
         return twitterAvatarUrl
     }

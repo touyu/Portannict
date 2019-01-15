@@ -9,7 +9,7 @@
 import UIKit
 
 final class UserWorksWithSectionTitleCell: UITableViewCell {
-    typealias Work = GetViewerWorksQuery.Data.Viewer.Work.Edge.Node
+    typealias Work = GetViewerWorksQuery.Data.Viewer.Work.Node
 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!

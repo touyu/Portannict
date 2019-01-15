@@ -1,13 +1,11 @@
 query GetViewerWorks($state: StatusState) {
     viewer {
         works(state:$state, first:10, orderBy:{field:WATCHERS_COUNT, direction:DESC}) {
-            edges {
-                node {
-                    title
-                    image {
-                        recommendedImageUrl
-                        twitterAvatarUrl
-                    }
+            nodes {
+                title
+                image {
+                    recommendedImageUrl
+                    twitterAvatarUrl
                 }
             }
         }

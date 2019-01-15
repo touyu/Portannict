@@ -10,7 +10,7 @@ import ReactorKit
 import RxSwift
 
 final class ProfileViewReactor: Reactor {
-    typealias Work = GetViewerWorksQuery.Data.Viewer.Work.Edge.Node
+    typealias Work = GetViewerWorksQuery.Data.Viewer.Work.Node
     typealias Viewer = GetViewerInfoQuery.Data.Viewer
     
     var initialState: State
@@ -54,7 +54,7 @@ final class ProfileViewReactor: Reactor {
                     guard let self = self else { return .empty() }
                     return self.client.rx.fetchMaybe(query: query, cachePolicy: .returnCacheDataAndFetch).asObservable()
                 }
-                .mapMany { $0.viewer?.works?.value ?? [] }
+                .mapMany { $0.viewer?.works?.values ?? [] }
                 .map { Mutation.setWorks($0) }
             
             return .merge(viewer, works)
@@ -76,8 +76,7 @@ final class ProfileViewReactor: Reactor {
 }
 
 extension GetViewerWorksQuery.Data.Viewer.Work {
-    var value: [Edge.Node] {
-        guard let edges = edges else { return []}
-        return edges.compactMap { $0?.node }
+    var values: [Node] {
+        return nodes?.compactMap { $0 } ?? []
     }
 }
