@@ -39,7 +39,18 @@ final class ProfileWorksViewController: UIViewController, StoryboardView {
     }
 
     func bind(reactor: Reactor) {
-
+        rx.viewWillAppear
+            .take(1)
+            .map { Reactor.Action.fetch }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.works }
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] _ in
+                self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
     }
 }
 

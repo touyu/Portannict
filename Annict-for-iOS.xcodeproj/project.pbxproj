@@ -542,6 +542,7 @@
 		D1C53C0921EE4EE600DA9A1D /* ProfileWorks */ = {
 			isa = PBXGroup;
 			children = (
+				D1C53C1921EF40DE00DA9A1D /* Views */,
 				D1C53C0A21EE4F1200DA9A1D /* ProfileWorksViewReactor.swift */,
 				D1C53C0B21EE4F1200DA9A1D /* ProfileWorksViewController.storyboard */,
 				D1C53C1721EF38E700DA9A1D /* ProfileWorksViewController.swift */,
@@ -555,6 +556,13 @@
 				D1C53C1521EEFB9A00DA9A1D /* NibOwnerLoadable.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		D1C53C1921EF40DE00DA9A1D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		D1F9ED0421B274C000AB3DAE /* Work */ = {
