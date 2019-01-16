@@ -1,12 +1,16 @@
-query GetViewerWorks($state: StatusState) {
+query GetViewerWorks($state: StatusState, $after: String) {
     viewer {
-        works(state:$state, first:20, orderBy:{field:WATCHERS_COUNT, direction:DESC}) {
+        works(state:$state, first:30, after: $after, orderBy:{field:CREATED_AT, direction:DESC}) {
             nodes {
                 title
                 image {
                     recommendedImageUrl
                     twitterAvatarUrl
                 }
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
             }
         }
     }

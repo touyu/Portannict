@@ -99,16 +99,18 @@ public enum Media: RawRepresentable, Equatable, Hashable, Apollo.JSONDecodable, 
 
 public final class GetViewerWorksQuery: GraphQLQuery {
   public let operationDefinition =
-    "query GetViewerWorks($state: StatusState) {\n  viewer {\n    __typename\n    works(state: $state, first: 20, orderBy: {field: WATCHERS_COUNT, direction: DESC}) {\n      __typename\n      nodes {\n        __typename\n        title\n        image {\n          __typename\n          recommendedImageUrl\n          twitterAvatarUrl\n        }\n      }\n    }\n  }\n}"
+    "query GetViewerWorks($state: StatusState, $after: String) {\n  viewer {\n    __typename\n    works(state: $state, first: 30, after: $after, orderBy: {field: CREATED_AT, direction: DESC}) {\n      __typename\n      nodes {\n        __typename\n        title\n        image {\n          __typename\n          recommendedImageUrl\n          twitterAvatarUrl\n        }\n      }\n      pageInfo {\n        __typename\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}"
 
   public var state: StatusState?
+  public var after: String?
 
-  public init(state: StatusState? = nil) {
+  public init(state: StatusState? = nil, after: String? = nil) {
     self.state = state
+    self.after = after
   }
 
   public var variables: GraphQLMap? {
-    return ["state": state]
+    return ["state": state, "after": after]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -142,7 +144,7 @@ public final class GetViewerWorksQuery: GraphQLQuery {
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("works", arguments: ["state": GraphQLVariable("state"), "first": 20, "orderBy": ["field": "WATCHERS_COUNT", "direction": "DESC"]], type: .object(Work.selections)),
+        GraphQLField("works", arguments: ["state": GraphQLVariable("state"), "first": 30, "after": GraphQLVariable("after"), "orderBy": ["field": "CREATED_AT", "direction": "DESC"]], type: .object(Work.selections)),
       ]
 
       public private(set) var resultMap: ResultMap
@@ -179,6 +181,7 @@ public final class GetViewerWorksQuery: GraphQLQuery {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("nodes", type: .list(.object(Node.selections))),
+          GraphQLField("pageInfo", type: .nonNull(.object(PageInfo.selections))),
         ]
 
         public private(set) var resultMap: ResultMap
@@ -187,8 +190,8 @@ public final class GetViewerWorksQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(nodes: [Node?]? = nil) {
-          self.init(unsafeResultMap: ["__typename": "WorkConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+        public init(nodes: [Node?]? = nil, pageInfo: PageInfo) {
+          self.init(unsafeResultMap: ["__typename": "WorkConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, "pageInfo": pageInfo.resultMap])
         }
 
         public var __typename: String {
@@ -207,6 +210,16 @@ public final class GetViewerWorksQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+          }
+        }
+
+        /// Information to aid in pagination.
+        public var pageInfo: PageInfo {
+          get {
+            return PageInfo(unsafeResultMap: resultMap["pageInfo"]! as! ResultMap)
+          }
+          set {
+            resultMap.updateValue(newValue.resultMap, forKey: "pageInfo")
           }
         }
 
@@ -300,6 +313,55 @@ public final class GetViewerWorksQuery: GraphQLQuery {
               set {
                 resultMap.updateValue(newValue, forKey: "twitterAvatarUrl")
               }
+            }
+          }
+        }
+
+        public struct PageInfo: GraphQLSelectionSet {
+          public static let possibleTypes = ["PageInfo"]
+
+          public static let selections: [GraphQLSelection] = [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("endCursor", type: .scalar(String.self)),
+            GraphQLField("hasNextPage", type: .nonNull(.scalar(Bool.self))),
+          ]
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(endCursor: String? = nil, hasNextPage: Bool) {
+            self.init(unsafeResultMap: ["__typename": "PageInfo", "endCursor": endCursor, "hasNextPage": hasNextPage])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// When paginating forwards, the cursor to continue.
+          public var endCursor: String? {
+            get {
+              return resultMap["endCursor"] as? String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "endCursor")
+            }
+          }
+
+          /// When paginating forwards, are there more items?
+          public var hasNextPage: Bool {
+            get {
+              return resultMap["hasNextPage"]! as! Bool
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "hasNextPage")
             }
           }
         }

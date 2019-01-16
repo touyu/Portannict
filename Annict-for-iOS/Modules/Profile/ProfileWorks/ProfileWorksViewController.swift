@@ -45,6 +45,12 @@ final class ProfileWorksViewController: UIViewController, StoryboardView {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
+        collectionView.rx.reachedBottom
+            .throttle(1, latest: false, scheduler: MainScheduler.instance)
+            .map { Reactor.Action.loadMore }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
         reactor.state.map { $0.works }
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] _ in
