@@ -14,7 +14,7 @@ import XLPagerTabStrip
 
 final class ProfileViewController: ButtonBarPagerTabStripViewController, StoryboardView {
     enum Const {
-        static let normalColor = UIColor(hex: 0x595959)
+        static let normalTextColor = UIColor(hex: 0x595959)
         static let selectedBackgroundColor = UIColor(hex: 0xFF7187)
         static let selectedTextColor = UIColor.white
     }
@@ -43,13 +43,13 @@ final class ProfileViewController: ButtonBarPagerTabStripViewController, Storybo
         settings.style.buttonBarItemBackgroundColor = .clear
         settings.style.buttonBarMinimumLineSpacing = 0
         settings.style.buttonBarItemFont = .boldSystemFont(ofSize: 14)
-        settings.style.buttonBarItemTitleColor = Const.normalColor
+        settings.style.buttonBarItemTitleColor = Const.normalTextColor
         settings.style.buttonBarLeftContentInset = 24
         
         changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
             guard changeCurrentIndex == true else { return }
             newCell?.label.textColor = Const.selectedTextColor
-            oldCell?.label.textColor = Const.normalColor
+            oldCell?.label.textColor = Const.normalTextColor
         }
         
         reactor = Reactor()
