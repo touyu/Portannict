@@ -13,13 +13,17 @@ import Apollo
 import XLPagerTabStrip
 
 final class ProfileViewController: ButtonBarPagerTabStripViewController, StoryboardView {
+    enum Const {
+        static let normalColor = UIColor(hex: 0x595959)
+        static let selectedColor = UIColor(hex: 0xFF7187)
+    }
+    
     typealias Reactor = ProfileViewReactor
     
     var disposeBag = DisposeBag()
     
     @IBOutlet private weak var headerView: ProfileHeaderView!
     @IBOutlet private weak var headerViewTopConstraint: NSLayoutConstraint!
-    //    @IBOutlet private weak var buttonBarViewTopConstraint: NSLayoutConstraint!
     
     private var headerViewFittingCompressedHeight: CGFloat {
         return headerView.systemLayoutSizeFitting(UIView.layoutFittingExpandedSize).height
@@ -31,17 +35,17 @@ final class ProfileViewController: ButtonBarPagerTabStripViewController, Storybo
     
     override func viewDidLoad() {
         settings.style.selectedBarHeight = 2.0
-        settings.style.selectedBarBackgroundColor = UIColor(hex: 0xFF7187)
+        settings.style.selectedBarBackgroundColor = Const.selectedColor
         settings.style.buttonBarItemBackgroundColor = .white
         settings.style.buttonBarMinimumLineSpacing = 0
         settings.style.buttonBarItemFont = .boldSystemFont(ofSize: 14)
-        settings.style.buttonBarItemTitleColor = UIColor(hex: 0x595959)
+        settings.style.buttonBarItemTitleColor = Const.normalColor
         settings.style.buttonBarItemsShouldFillAvailiableWidth = true
         
         changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
             guard changeCurrentIndex == true else { return }
-            oldCell?.label.textColor = UIColor(hex: 0x595959)
-            newCell?.label.textColor = UIColor(hex: 0xFF7187)
+            oldCell?.label.textColor = Const.normalColor
+            newCell?.label.textColor = Const.selectedColor
         }
         
         reactor = Reactor()
@@ -78,7 +82,7 @@ final class ProfileViewController: ButtonBarPagerTabStripViewController, Storybo
     
     private func refreshTableViewContentInsetTop() {
         viewControllers
-            .compactMap { ($0 as? TableViewProvider)?.tableView }
+            .compactMap { ($0 as? CollectionViewProvider)?.collectionView }
             .forEach {
                 $0.contentInset.top = insetTop
                 $0.scrollIndicatorInsets.top = insetTop
@@ -88,35 +92,27 @@ final class ProfileViewController: ButtonBarPagerTabStripViewController, Storybo
 }
 
 extension ProfileViewController: ChildPagerTabStripDelegate {
-    func tableViewWillDisplay(_ tableView: UITableView) {
-        tableView.contentInset.top = insetTop
-        tableView.scrollIndicatorInsets.top = insetTop
-
-        var aaa = viewControllers
-            .compactMap { ($0 as? TableViewProvider)?.tableView }
-            .filter { $0 != tableView }
+    func collectionViewWillDisplay(_ collectionView: UICollectionView) {
+        collectionView.contentInset.top = insetTop
+        collectionView.scrollIndicatorInsets.top = insetTop
+        
+        var insetTops = viewControllers
+            .compactMap { ($0 as? CollectionViewProvider)?.collectionView }
+            .filter { $0 != collectionView }
             .map { min($0.contentOffset.y, -40) }
-        aaa.append(-insetTop)
-        tableView.contentOffset.y = aaa.max() ?? 0
+        insetTops.append(-insetTop)
+        collectionView.contentOffset.y = insetTops.max() ?? 0
     }
     
-    func tableViewDidScroll(_ tableView: UITableView) {
-        headerViewTopConstraint.constant = max(-tableView.contentOffset.y - insetTop, -headerViewFittingCompressedHeight)
+    func collectionViewDidScroll(_ collectionView: UICollectionView) {
+        headerViewTopConstraint.constant = max(-collectionView.contentOffset.y - insetTop, -headerViewFittingCompressedHeight)
         print(headerViewTopConstraint.constant)
         
         let tableViews = viewControllers
-            .compactMap { ($0 as? TableViewProvider)?.tableView }
-            .filter { $0 != tableView }
-            
+            .compactMap { ($0 as? CollectionViewProvider)?.collectionView }
+            .filter { $0 != collectionView }
+        
         tableViews
-            .forEach { $0.contentOffset.y = tableView.contentOffset.y }
-    }
-}
-
-extension UITableView {
-    func setContentInsetTop(_ insetTop: CGFloat) {
-        contentInset.top = insetTop
-        scrollIndicatorInsets.top = insetTop
-        contentOffset.y = -insetTop
+            .forEach { $0.contentOffset.y = collectionView.contentOffset.y }
     }
 }

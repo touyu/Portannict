@@ -82,6 +82,8 @@
 		D1C53C1321EEFA1900DA9A1D /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1C53C1221EEFA1900DA9A1D /* ProfileHeaderView.xib */; };
 		D1C53C1621EEFB9A00DA9A1D /* NibOwnerLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C53C1521EEFB9A00DA9A1D /* NibOwnerLoadable.swift */; };
 		D1C53C1821EF38E800DA9A1D /* ProfileWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C53C1721EF38E700DA9A1D /* ProfileWorksViewController.swift */; };
+		D1C53C2021EF733200DA9A1D /* ProfileWorkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C53C1E21EF733200DA9A1D /* ProfileWorkCollectionViewCell.swift */; };
+		D1C53C2121EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1C53C1F21EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib */; };
 		D1F9143321AA6A61006986A1 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F9143221AA6A61006986A1 /* Kingfisher.framework */; };
 		D1F9143521AA74FA006986A1 /* NSMutableParagraphStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9143421AA74FA006986A1 /* NSMutableParagraphStyle.swift */; };
 		D1F9143721AA756F006986A1 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9143621AA756F006986A1 /* UIImageView.swift */; };
@@ -194,6 +196,8 @@
 		D1C53C1221EEFA1900DA9A1D /* ProfileHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
 		D1C53C1521EEFB9A00DA9A1D /* NibOwnerLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibOwnerLoadable.swift; sourceTree = "<group>"; };
 		D1C53C1721EF38E700DA9A1D /* ProfileWorksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileWorksViewController.swift; sourceTree = "<group>"; };
+		D1C53C1E21EF733200DA9A1D /* ProfileWorkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWorkCollectionViewCell.swift; sourceTree = "<group>"; };
+		D1C53C1F21EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileWorkCollectionViewCell.xib; sourceTree = "<group>"; };
 		D1F9143221AA6A61006986A1 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		D1F9143421AA74FA006986A1 /* NSMutableParagraphStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableParagraphStyle.swift; sourceTree = "<group>"; };
 		D1F9143621AA756F006986A1 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
@@ -561,6 +565,8 @@
 		D1C53C1921EF40DE00DA9A1D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D1C53C1E21EF733200DA9A1D /* ProfileWorkCollectionViewCell.swift */,
+				D1C53C1F21EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -708,6 +714,7 @@
 				D1AF34C2219B4042004DD229 /* UserInfoTableViewCell.xib in Resources */,
 				D1013CCC217E23F7001C269B /* test.graphql in Resources */,
 				D1BCB8D1217F46B600B84F82 /* HomeViewController.storyboard in Resources */,
+				D1C53C2121EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib in Resources */,
 				D1621E0021862BA600819D93 /* PostRecordViewController.storyboard in Resources */,
 				D165C9C121B15EE9002E8FFA /* SearchResultWorkCell.xib in Resources */,
 				D1FFB58521AECF04001099E6 /* RecordEpisodeTableViewCell.xib in Resources */,
@@ -870,6 +877,7 @@
 				D1621DF02186262300819D93 /* RecordViewReactor.swift in Sources */,
 				D1621DF72186273200819D93 /* ProfileViewReactor.swift in Sources */,
 				D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */,
+				D1C53C2021EF733200DA9A1D /* ProfileWorkCollectionViewCell.swift in Sources */,
 				D1621E0521862F4500819D93 /* PostRecordTransitioningDelegate.swift in Sources */,
 				D1F9144A21AA7FD2006986A1 /* UserWorkCollectionViewCell.swift in Sources */,
 				D1F9ED0821B274CD00AB3DAE /* WorkViewReactor.swift in Sources */,

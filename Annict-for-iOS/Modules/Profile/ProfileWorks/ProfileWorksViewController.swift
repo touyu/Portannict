@@ -11,13 +11,13 @@ import ReactorKit
 import RxSwift
 import XLPagerTabStrip
 
-protocol TableViewProvider {
-    var tableView: UITableView! { get set }
+protocol CollectionViewProvider {
+    var collectionView: UICollectionView! { get set }
 }
 
 protocol ChildPagerTabStripDelegate: class {
-    func tableViewWillDisplay(_ tableView: UITableView)
-    func tableViewDidScroll(_ tableView: UITableView)
+    func collectionViewWillDisplay(_ collectionView: UICollectionView)
+    func collectionViewDidScroll(_ collectionView: UICollectionView)
 }
 
 final class ProfileWorksViewController: UIViewController, StoryboardView {
@@ -27,15 +27,15 @@ final class ProfileWorksViewController: UIViewController, StoryboardView {
     
     weak var delegate: ChildPagerTabStripDelegate?
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.tableFooterView = UIView()
-        delegate?.tableViewWillDisplay(tableView)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(cellTypes: ProfileWorkCollectionViewCell.self)
+        delegate?.collectionViewWillDisplay(collectionView)
     }
 
     func bind(reactor: Reactor) {
@@ -48,27 +48,43 @@ final class ProfileWorksViewController: UIViewController, StoryboardView {
         reactor.state.map { $0.works }
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] _ in
-                self?.tableView.reloadData()
+                self?.collectionView.reloadData()
             })
             .disposed(by: disposeBag)
     }
 }
 
-extension ProfileWorksViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+extension ProfileWorksViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let reactor = reactor else { return 0 }
+        return reactor.currentState.works.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(type: ProfileWorkCollectionViewCell.self, for: indexPath)
+        guard let reactor = reactor else { return cell }
+        let work = reactor.currentState.works[indexPath.item]
+        cell.configure(work: work)
+        return cell
     }
 }
 
-extension ProfileWorksViewController: UITableViewDelegate {
+extension ProfileWorksViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let tableView = scrollView as? UITableView {
-            delegate?.tableViewDidScroll(tableView)
+        if let collectionView = scrollView as? UICollectionView {
+            delegate?.collectionViewDidScroll(collectionView)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let mergin: CGFloat = 24
+        let column: CGFloat = 3
+        let width = (collectionView.bounds.width - mergin * (column + 1)) / column
+        return CGSize(width: width, height: width * 1.4)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 24, left: 24, bottom: 0, right: 24)
     }
 }
 
@@ -78,4 +94,4 @@ extension ProfileWorksViewController: IndicatorInfoProvider {
     }
 }
 
-extension ProfileWorksViewController: TableViewProvider { }
+extension ProfileWorksViewController: CollectionViewProvider { }

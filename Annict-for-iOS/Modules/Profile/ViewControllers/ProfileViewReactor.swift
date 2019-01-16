@@ -29,35 +29,21 @@ final class ProfileViewReactor: Reactor {
     }
 
     enum Mutation {
-        case setViewer(GetViewerInfoQuery.Data.Viewer)
-        case setWorks([[Work]])
+        case setViewer(Viewer)
     }
 
     struct State {
         var viewer: Viewer?
-        var allWorks: [[Work]] = []
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .fetch:
-            let viewer = client.rx
+            return client.rx
                 .fetch(query: GetViewerInfoQuery(), cachePolicy: .returnCacheDataAndFetch)
                 .map { $0.viewer }
                 .filterNil()
                 .map { Mutation.setViewer($0) }
-            
-            let works = Observable<[StatusState]>
-                .just([.watching, .wannaWatch, .watched, .onHold, .stopWatching])
-                .mapMany { GetViewerWorksQuery(state: $0) }
-                .flatMapMany { [weak self] query -> Observable<GetViewerWorksQuery.Data> in
-                    guard let self = self else { return .empty() }
-                    return self.client.rx.fetchMaybe(query: query, cachePolicy: .returnCacheDataAndFetch).asObservable()
-                }
-                .mapMany { $0.viewer?.works?.values ?? [] }
-                .map { Mutation.setWorks($0) }
-            
-            return .merge(viewer, works)
         }
     }
     
@@ -67,9 +53,6 @@ final class ProfileViewReactor: Reactor {
         case .setViewer(let viewer):
             state.viewer = viewer
             UserDefaultsRepository.save(value: viewer, forKey: .viewer)
-        case .setWorks(let allWorks):
-            state.allWorks = allWorks
-            UserDefaultsRepository.save(value: allWorks, forKey: .viewerAllWorks)
         }
         return state
     }

@@ -44,6 +44,14 @@ final class UserWorkCollectionViewCell: UICollectionViewCell {
 
 extension GetViewerWorksQuery.Data.Viewer.Work.Node.Image {
     var url: String? {
-        return twitterAvatarUrl
+        if let twitterAvatarUrl = twitterAvatarUrl, !twitterAvatarUrl.isEmpty {
+            return twitterAvatarUrl
+        }
+        
+        if let recommendedImageUrl = recommendedImageUrl {
+            return recommendedImageUrl.replacingOccurrences(of: "http://", with: "https://")
+        }
+        
+        return nil
     }
 }

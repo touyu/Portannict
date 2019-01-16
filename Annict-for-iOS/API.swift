@@ -99,7 +99,7 @@ public enum Media: RawRepresentable, Equatable, Hashable, Apollo.JSONDecodable, 
 
 public final class GetViewerWorksQuery: GraphQLQuery {
   public let operationDefinition =
-    "query GetViewerWorks($state: StatusState) {\n  viewer {\n    __typename\n    works(state: $state, first: 10, orderBy: {field: WATCHERS_COUNT, direction: DESC}) {\n      __typename\n      nodes {\n        __typename\n        title\n        image {\n          __typename\n          recommendedImageUrl\n          twitterAvatarUrl\n        }\n      }\n    }\n  }\n}"
+    "query GetViewerWorks($state: StatusState) {\n  viewer {\n    __typename\n    works(state: $state, first: 20, orderBy: {field: WATCHERS_COUNT, direction: DESC}) {\n      __typename\n      nodes {\n        __typename\n        title\n        image {\n          __typename\n          recommendedImageUrl\n          twitterAvatarUrl\n        }\n      }\n    }\n  }\n}"
 
   public var state: StatusState?
 
@@ -142,7 +142,7 @@ public final class GetViewerWorksQuery: GraphQLQuery {
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("works", arguments: ["state": GraphQLVariable("state"), "first": 10, "orderBy": ["field": "WATCHERS_COUNT", "direction": "DESC"]], type: .object(Work.selections)),
+        GraphQLField("works", arguments: ["state": GraphQLVariable("state"), "first": 20, "orderBy": ["field": "WATCHERS_COUNT", "direction": "DESC"]], type: .object(Work.selections)),
       ]
 
       public private(set) var resultMap: ResultMap
