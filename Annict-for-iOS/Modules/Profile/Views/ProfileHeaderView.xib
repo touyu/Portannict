@@ -14,7 +14,10 @@
             <connections>
                 <outlet property="avatarImageView" destination="Twf-0j-WWN" id="j8O-RU-J4S"/>
                 <outlet property="descriptionLabel" destination="oEn-bS-dBh" id="HQa-8P-enH"/>
+                <outlet property="followersCountLabel" destination="Y0q-0h-s05" id="Gdn-I5-iZg"/>
+                <outlet property="followingCountLabel" destination="Wjp-YX-SE1" id="5hL-HL-Wtc"/>
                 <outlet property="nameLabel" destination="Eui-Zm-USf" id="Iue-kd-jmF"/>
+                <outlet property="recordsCountLabel" destination="ydN-3Z-TKP" id="5LY-iT-xnd"/>
                 <outlet property="usernameLabel" destination="TGE-GT-Xtf" id="OcD-ug-CYC"/>
             </connections>
         </placeholder>

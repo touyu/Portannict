@@ -14,6 +14,9 @@ final class ProfileHeaderView: UIView, NibOwnerLoadable {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var recordsCountLabel: UILabel!
+    @IBOutlet weak var followingCountLabel: UILabel!
+    @IBOutlet weak var followersCountLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,5 +43,8 @@ final class ProfileHeaderView: UIView, NibOwnerLoadable {
         nameLabel.text = user.name
         usernameLabel.text = "@\(user.username)"
         descriptionLabel.text = user.description
+        recordsCountLabel.text = user.recordsCount.description
+        followingCountLabel.text = user.followingsCount.description
+        followersCountLabel.text = user.followersCount.description
     }
 }
