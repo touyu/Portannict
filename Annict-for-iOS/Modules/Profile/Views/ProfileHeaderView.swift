@@ -39,11 +39,6 @@ final class ProfileHeaderView: UIView, NibOwnerLoadable {
         avatarImageView.setImage(url: user.avatarUrl)
         nameLabel.text = user.name
         usernameLabel.text = "@\(user.username)"
-//        descriptionLabel.text = user.description
-        descriptionLabel.text = """
-        Rinacita, Inc. CTO | Swift | Golang | #CHIP というサービスを作っています。Ritsumeikan Univ.
-        Rinacita, Inc. CTO | Swift | Golang | #CHIP というサービスを作っています。Ritsumeikan Univ.
-        Rinacita, Inc. CTO | Swift | Golang | #CHIP というサービスを作っています。Ritsumeikan Univ.
-        """
+        descriptionLabel.text = user.description
     }
 }

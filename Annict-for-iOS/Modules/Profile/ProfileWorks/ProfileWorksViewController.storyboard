@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Watching Works View Controller-->
+        <!--Profile Works View Controller-->
         <scene sceneID="UUc-NY-ffm">
             <objects>
-                <viewController storyboardIdentifier="WatchingWorksViewController" id="5jk-Hd-q3d" customClass="WatchingWorksViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileWorksViewController" id="5jk-Hd-q3d" customClass="ProfileWorksViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yq1-bX-Ama">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -31,11 +31,18 @@ final class ProfileViewController: ButtonBarPagerTabStripViewController, Storybo
     
     override func viewDidLoad() {
         settings.style.selectedBarHeight = 2.0
+        settings.style.selectedBarBackgroundColor = UIColor(hex: 0xFF7187)
         settings.style.buttonBarItemBackgroundColor = .white
         settings.style.buttonBarMinimumLineSpacing = 0
         settings.style.buttonBarItemFont = .boldSystemFont(ofSize: 14)
-        settings.style.buttonBarItemTitleColor = .black
+        settings.style.buttonBarItemTitleColor = UIColor(hex: 0x595959)
         settings.style.buttonBarItemsShouldFillAvailiableWidth = true
+        
+        changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
+            guard changeCurrentIndex == true else { return }
+            oldCell?.label.textColor = UIColor(hex: 0x595959)
+            newCell?.label.textColor = UIColor(hex: 0xFF7187)
+        }
         
         reactor = Reactor()
         
@@ -59,11 +66,11 @@ final class ProfileViewController: ButtonBarPagerTabStripViewController, Storybo
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        let vc1 = WatchingWorksViewController.loadStoryboard(reactor: .init())
-        let vc2 = WatchingWorksViewController.loadStoryboard(reactor: .init())
-        let vc3 = WatchingWorksViewController.loadStoryboard(reactor: .init())
-        let vc4 = WatchingWorksViewController.loadStoryboard(reactor: .init())
-        let vc5 = WatchingWorksViewController.loadStoryboard(reactor: .init())
+        let vc1 = ProfileWorksViewController.loadStoryboard(reactor: .init(statusState: .watching))
+        let vc2 = ProfileWorksViewController.loadStoryboard(reactor: .init(statusState: .wannaWatch))
+        let vc3 = ProfileWorksViewController.loadStoryboard(reactor: .init(statusState: .watched))
+        let vc4 = ProfileWorksViewController.loadStoryboard(reactor: .init(statusState: .onHold))
+        let vc5 = ProfileWorksViewController.loadStoryboard(reactor: .init(statusState: .stopWatching))
         let vcs = [vc1, vc2, vc3, vc4, vc5]
         vcs.forEach { $0.delegate = self }
         return vcs
@@ -75,6 +82,7 @@ final class ProfileViewController: ButtonBarPagerTabStripViewController, Storybo
             .forEach {
                 $0.contentInset.top = insetTop
                 $0.scrollIndicatorInsets.top = insetTop
+                $0.contentOffset.y = -insetTop
             }
     }
 }
@@ -83,7 +91,6 @@ extension ProfileViewController: ChildPagerTabStripDelegate {
     func tableViewWillDisplay(_ tableView: UITableView) {
         tableView.contentInset.top = insetTop
         tableView.scrollIndicatorInsets.top = insetTop
-//        tableView.contentOffset.y = -Const.insetTop
 
         var aaa = viewControllers
             .compactMap { ($0 as? TableViewProvider)?.tableView }
@@ -94,9 +101,6 @@ extension ProfileViewController: ChildPagerTabStripDelegate {
     }
     
     func tableViewDidScroll(_ tableView: UITableView) {
-//        print(tableView.contentOffset.y)
-//        buttonBarViewTopConstraint.constant = max(-tableView.contentOffset.y - buttonBarView.bounds.height, 0)
-        // 0 -> -headerView.Bounds.height
         headerViewTopConstraint.constant = max(-tableView.contentOffset.y - insetTop, -headerViewFittingCompressedHeight)
         print(headerViewTopConstraint.constant)
         

@@ -1,5 +1,5 @@
 //
-//  WatchingWorksViewController.swift
+//  ProfileWorksViewController.swift
 //  Annict-for-iOS
 //
 //  Created by Yuto Akiba on 2019/01/16.
@@ -20,8 +20,8 @@ protocol ChildPagerTabStripDelegate: class {
     func tableViewDidScroll(_ tableView: UITableView)
 }
 
-final class WatchingWorksViewController: UIViewController, StoryboardView {
-    typealias Reactor = WatchingWorksViewReactor
+final class ProfileWorksViewController: UIViewController, StoryboardView {
+    typealias Reactor = ProfileWorksViewReactor
 
     var disposeBag = DisposeBag()
     
@@ -43,7 +43,7 @@ final class WatchingWorksViewController: UIViewController, StoryboardView {
     }
 }
 
-extension WatchingWorksViewController: UITableViewDataSource {
+extension ProfileWorksViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 100
     }
@@ -53,7 +53,7 @@ extension WatchingWorksViewController: UITableViewDataSource {
     }
 }
 
-extension WatchingWorksViewController: UITableViewDelegate {
+extension ProfileWorksViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if let tableView = scrollView as? UITableView {
             delegate?.tableViewDidScroll(tableView)
@@ -61,10 +61,10 @@ extension WatchingWorksViewController: UITableViewDelegate {
     }
 }
 
-extension WatchingWorksViewController: IndicatorInfoProvider {
+extension ProfileWorksViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return "見てる"
+        return IndicatorInfo(title: reactor?.statusState.localizedText)
     }
 }
 
-extension WatchingWorksViewController: TableViewProvider { }
+extension ProfileWorksViewController: TableViewProvider { }

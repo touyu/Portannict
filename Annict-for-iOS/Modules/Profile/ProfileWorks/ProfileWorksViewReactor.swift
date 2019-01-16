@@ -9,13 +9,7 @@
 import ReactorKit
 import RxSwift
 
-final class WatchingWorksViewReactor: Reactor {
-    var initialState: State
-
-    init() {
-        initialState = State()
-    }
-
+final class ProfileWorksViewReactor: Reactor {
     enum Action {
 
     }
@@ -26,6 +20,14 @@ final class WatchingWorksViewReactor: Reactor {
 
     struct State {
 
+    }
+    
+    var initialState: State
+    var statusState: StatusState
+    
+    init(statusState: StatusState) {
+        initialState = State()
+        self.statusState = statusState
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
