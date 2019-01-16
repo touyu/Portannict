@@ -26,10 +26,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5Ht-d8-H75" customClass="ButtonMarkView" customModule="Annict_for_iOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="320" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="320" width="375" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="7M6-z3-D1m"/>
+                                    <constraint firstAttribute="height" constant="36" id="7M6-z3-D1m"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1XW-VY-fUC">
                                     <size key="itemSize" width="50" height="50"/>

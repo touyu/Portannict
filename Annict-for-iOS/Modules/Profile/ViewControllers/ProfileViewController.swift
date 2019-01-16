@@ -14,9 +14,9 @@ import XLPagerTabStrip
 
 final class ProfileViewController: ButtonBarPagerTabStripViewController, StoryboardView {
     enum Const {
-        static let normalTextColor = UIColor(hex: 0x595959)
-        static let selectedBackgroundColor = UIColor(hex: 0xFF7187)
-        static let selectedTextColor = UIColor.white
+        static let normalTextColor = UIColor(hex: 0x8E8E8E)
+        static let selectedBackgroundColor = UIColor(hex: 0xEFEFEF)
+        static let selectedTextColor = UIColor(hex: 0x333333)
     }
     
     typealias Reactor = ProfileViewReactor
@@ -45,7 +45,9 @@ final class ProfileViewController: ButtonBarPagerTabStripViewController, Storybo
         settings.style.buttonBarItemFont = .boldSystemFont(ofSize: 14)
         settings.style.buttonBarItemTitleColor = Const.normalTextColor
         settings.style.buttonBarLeftContentInset = 24
-        
+        settings.style.buttonBarRightContentInset = 24
+        settings.style.buttonBarItemsShouldFillAvailableWidth = true
+
         changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
             guard changeCurrentIndex == true else { return }
             newCell?.label.textColor = Const.selectedTextColor
@@ -105,7 +107,7 @@ extension ProfileViewController: ChildPagerTabStripDelegate {
         var insetTops = viewControllers
             .compactMap { ($0 as? CollectionViewProvider)?.collectionView }
             .filter { $0 != collectionView }
-            .map { min($0.contentOffset.y, -40) }
+            .map { min($0.contentOffset.y, -buttonBarView.bounds.height) }
         insetTops.append(-insetTop)
         collectionView.contentOffset.y = insetTops.max() ?? 0
     }
