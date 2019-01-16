@@ -10,93 +10,109 @@ import UIKit
 import ReactorKit
 import RxSwift
 import Apollo
+import XLPagerTabStrip
 
-final class ProfileViewController: UIViewController, StoryboardView {
+final class ProfileViewController: ButtonBarPagerTabStripViewController, StoryboardView {
     typealias Reactor = ProfileViewReactor
     
-    enum Section: Int, CaseIterable {
-        case userInfo
-        case works
-    }
-
-    @IBOutlet private weak var tableView: UITableView!
-    
     var disposeBag = DisposeBag()
-
+    
+    @IBOutlet private weak var headerView: ProfileHeaderView!
+    @IBOutlet private weak var headerViewTopConstraint: NSLayoutConstraint!
+    //    @IBOutlet private weak var buttonBarViewTopConstraint: NSLayoutConstraint!
+    
+    private var headerViewFittingCompressedHeight: CGFloat {
+        return headerView.systemLayoutSizeFitting(UIView.layoutFittingExpandedSize).height
+    }
+    
+    private var insetTop: CGFloat {
+        return headerViewFittingCompressedHeight + buttonBarView.bounds.height
+    }
+    
     override func viewDidLoad() {
+        settings.style.selectedBarHeight = 2.0
+        settings.style.buttonBarItemBackgroundColor = .white
+        settings.style.buttonBarMinimumLineSpacing = 0
+        settings.style.buttonBarItemFont = .boldSystemFont(ofSize: 14)
+        settings.style.buttonBarItemTitleColor = .black
+        settings.style.buttonBarItemsShouldFillAvailiableWidth = true
+        
         reactor = Reactor()
         
         super.viewDidLoad()
-        
-        prepareTableView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
     func bind(reactor: Reactor) {
         rx.viewWillAppear
-            .take(1)
             .map { Reactor.Action.fetch }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        reactor.state
-            .map { $0.viewer }
+        reactor.state.map { $0.viewer }
             .filterNil()
             .distinctUntilChanged()
-            .subscribe(onNext: { [weak self] _ in
-                self?.tableView.reloadData()
-            })
-            .disposed(by: disposeBag)
-        
-        reactor.state
-            .map { $0.allWorks }
-            .distinctUntilChanged()
-            .subscribe(onNext: { [weak self] _ in
-                self?.tableView.reloadData()
+            .subscribe(onNext: { [weak self] viewer in
+                self?.headerView.prepare(user: viewer)
+                self?.refreshTableViewContentInsetTop()
             })
             .disposed(by: disposeBag)
     }
     
-    private func prepareTableView() {
-        tableView.dataSource = self
-        tableView.tableFooterView = UIView()
-        tableView.register(UserInfoTableViewCell.self,
-                           UserWorksWithSectionTitleCell.self)
+    override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+        let vc1 = WatchingWorksViewController.loadStoryboard(reactor: .init())
+        let vc2 = WatchingWorksViewController.loadStoryboard(reactor: .init())
+        let vc3 = WatchingWorksViewController.loadStoryboard(reactor: .init())
+        let vc4 = WatchingWorksViewController.loadStoryboard(reactor: .init())
+        let vc5 = WatchingWorksViewController.loadStoryboard(reactor: .init())
+        let vcs = [vc1, vc2, vc3, vc4, vc5]
+        vcs.forEach { $0.delegate = self }
+        return vcs
+    }
+    
+    private func refreshTableViewContentInsetTop() {
+        viewControllers
+            .compactMap { ($0 as? TableViewProvider)?.tableView }
+            .forEach {
+                $0.contentInset.top = insetTop
+                $0.scrollIndicatorInsets.top = insetTop
+            }
     }
 }
 
-extension ProfileViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return Section.allCases.count
+extension ProfileViewController: ChildPagerTabStripDelegate {
+    func tableViewWillDisplay(_ tableView: UITableView) {
+        tableView.contentInset.top = insetTop
+        tableView.scrollIndicatorInsets.top = insetTop
+//        tableView.contentOffset.y = -Const.insetTop
+
+        var aaa = viewControllers
+            .compactMap { ($0 as? TableViewProvider)?.tableView }
+            .filter { $0 != tableView }
+            .map { min($0.contentOffset.y, -40) }
+        aaa.append(-insetTop)
+        tableView.contentOffset.y = aaa.max() ?? 0
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let reactor = reactor else { return 0 }
-        switch Section(rawValue: section)! {
-        case .userInfo:
-            return 1
-        case .works:
-            return reactor.currentState.allWorks
-                .map { $0.isEmpty ? 0 : 1 }
-                .reduce(0) { $0 + $1 }
-        }
+    func tableViewDidScroll(_ tableView: UITableView) {
+//        print(tableView.contentOffset.y)
+//        buttonBarViewTopConstraint.constant = max(-tableView.contentOffset.y - buttonBarView.bounds.height, 0)
+        // 0 -> -headerView.Bounds.height
+        headerViewTopConstraint.constant = max(-tableView.contentOffset.y - insetTop, -headerViewFittingCompressedHeight)
+        print(headerViewTopConstraint.constant)
+        
+        let tableViews = viewControllers
+            .compactMap { ($0 as? TableViewProvider)?.tableView }
+            .filter { $0 != tableView }
+            
+        tableViews
+            .forEach { $0.contentOffset.y = tableView.contentOffset.y }
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch Section(rawValue: indexPath.section)! {
-        case .userInfo:
-            let cell = tableView.dequeueReusableCell(classType: UserInfoTableViewCell.self, for: indexPath)
-            guard let viewer = reactor?.currentState.viewer else { return cell }
-            cell.prepare(user: viewer)
-            return cell
-        case .works:
-            let cell = tableView.dequeueReusableCell(classType: UserWorksWithSectionTitleCell.self, for: indexPath)
-            guard let allWorks = reactor?.currentState.allWorks.filter({ !$0.isEmpty }) else { return cell }
-            cell.prepare(title: StatusState.values[indexPath.item].localizedText, works: allWorks[indexPath.item])
-            return cell
-        }
+}
+
+extension UITableView {
+    func setContentInsetTop(_ insetTop: CGFloat) {
+        contentInset.top = insetTop
+        scrollIndicatorInsets.top = insetTop
+        contentOffset.y = -insetTop
     }
 }

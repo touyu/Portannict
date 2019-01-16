@@ -75,6 +75,13 @@
 		D1BCB8CE217F469800B84F82 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BCB8CD217F469800B84F82 /* HomeViewController.swift */; };
 		D1BCB8D1217F46B600B84F82 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BCB8D0217F46B600B84F82 /* HomeViewController.storyboard */; };
 		D1BCB8D3217F4A3D00B84F82 /* HomeViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BCB8D2217F4A3D00B84F82 /* HomeViewReactor.swift */; };
+		D1C53C0821EE4C7700DA9A1D /* XLPagerTabStrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C53C0721EE4C7700DA9A1D /* XLPagerTabStrip.framework */; };
+		D1C53C0D21EE4F1200DA9A1D /* WatchingWorksViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C53C0A21EE4F1200DA9A1D /* WatchingWorksViewReactor.swift */; };
+		D1C53C0E21EE4F1200DA9A1D /* WatchingWorksViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C53C0B21EE4F1200DA9A1D /* WatchingWorksViewController.storyboard */; };
+		D1C53C0F21EE4F1200DA9A1D /* WatchingWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C53C0C21EE4F1200DA9A1D /* WatchingWorksViewController.swift */; };
+		D1C53C1121EEFA0300DA9A1D /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C53C1021EEFA0300DA9A1D /* ProfileHeaderView.swift */; };
+		D1C53C1321EEFA1900DA9A1D /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1C53C1221EEFA1900DA9A1D /* ProfileHeaderView.xib */; };
+		D1C53C1621EEFB9A00DA9A1D /* NibOwnerLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C53C1521EEFB9A00DA9A1D /* NibOwnerLoadable.swift */; };
 		D1F9143321AA6A61006986A1 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F9143221AA6A61006986A1 /* Kingfisher.framework */; };
 		D1F9143521AA74FA006986A1 /* NSMutableParagraphStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9143421AA74FA006986A1 /* NSMutableParagraphStyle.swift */; };
 		D1F9143721AA756F006986A1 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9143621AA756F006986A1 /* UIImageView.swift */; };
@@ -180,6 +187,13 @@
 		D1BCB8CD217F469800B84F82 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D1BCB8D0217F46B600B84F82 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		D1BCB8D2217F4A3D00B84F82 /* HomeViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewReactor.swift; sourceTree = "<group>"; };
+		D1C53C0721EE4C7700DA9A1D /* XLPagerTabStrip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLPagerTabStrip.framework; path = Carthage/Build/iOS/XLPagerTabStrip.framework; sourceTree = "<group>"; };
+		D1C53C0A21EE4F1200DA9A1D /* WatchingWorksViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingWorksViewReactor.swift; sourceTree = "<group>"; };
+		D1C53C0B21EE4F1200DA9A1D /* WatchingWorksViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WatchingWorksViewController.storyboard; sourceTree = "<group>"; };
+		D1C53C0C21EE4F1200DA9A1D /* WatchingWorksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingWorksViewController.swift; sourceTree = "<group>"; };
+		D1C53C1021EEFA0300DA9A1D /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		D1C53C1221EEFA1900DA9A1D /* ProfileHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
+		D1C53C1521EEFB9A00DA9A1D /* NibOwnerLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibOwnerLoadable.swift; sourceTree = "<group>"; };
 		D1F9143221AA6A61006986A1 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		D1F9143421AA74FA006986A1 /* NSMutableParagraphStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableParagraphStyle.swift; sourceTree = "<group>"; };
 		D1F9143621AA756F006986A1 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
@@ -217,6 +231,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1C53C0821EE4C7700DA9A1D /* XLPagerTabStrip.framework in Frameworks */,
 				D1F9ED0321B2748500AB3DAE /* Hero.framework in Frameworks */,
 				D1FFB59621B03A4D001099E6 /* SQLite.framework in Frameworks */,
 				D1FFB59321B03A14001099E6 /* Apollo.framework in Frameworks */,
@@ -267,6 +282,7 @@
 		D127410B217CCB3F00DD09C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1C53C0721EE4C7700DA9A1D /* XLPagerTabStrip.framework */,
 				D1F9ED0221B2748500AB3DAE /* Hero.framework */,
 				D1FFB59521B03A4D001099E6 /* SQLite.framework */,
 				D1FFB59121B03A13001099E6 /* Apollo.framework */,
@@ -324,6 +340,7 @@
 		D1621DF32186272300819D93 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				D1C53C0921EE4EE600DA9A1D /* WatchingWorks */,
 				D1AF34BE219B400C004DD229 /* Views */,
 				D1AF34BD219B3FE5004DD229 /* ViewControllers */,
 			);
@@ -404,6 +421,8 @@
 				D1F9143F21AA7B4F006986A1 /* UserWorksWithSectionTitleCell.xib */,
 				D1F9144821AA7FD2006986A1 /* UserWorkCollectionViewCell.swift */,
 				D1F9144921AA7FD2006986A1 /* UserWorkCollectionViewCell.xib */,
+				D1C53C1021EEFA0300DA9A1D /* ProfileHeaderView.swift */,
+				D1C53C1221EEFA1900DA9A1D /* ProfileHeaderView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -425,6 +444,7 @@
 				D19718CB217E29BA009B5F0F /* Rx */,
 				D1B4F16D217EB8980011BAFF /* Extensions */,
 				D1FFB58821AED26B001099E6 /* UIKit */,
+				D1C53C1421EEFB7B00DA9A1D /* Protocol */,
 				D1B4F177217EC0970011BAFF /* Constants.swift */,
 				D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */,
 				D1BCB8C1217F327400B84F82 /* NotificationCenter.swift */,
@@ -517,6 +537,24 @@
 				D1BCB8D0217F46B600B84F82 /* HomeViewController.storyboard */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		D1C53C0921EE4EE600DA9A1D /* WatchingWorks */ = {
+			isa = PBXGroup;
+			children = (
+				D1C53C0A21EE4F1200DA9A1D /* WatchingWorksViewReactor.swift */,
+				D1C53C0B21EE4F1200DA9A1D /* WatchingWorksViewController.storyboard */,
+				D1C53C0C21EE4F1200DA9A1D /* WatchingWorksViewController.swift */,
+			);
+			path = WatchingWorks;
+			sourceTree = "<group>";
+		};
+		D1C53C1421EEFB7B00DA9A1D /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				D1C53C1521EEFB9A00DA9A1D /* NibOwnerLoadable.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		D1F9ED0421B274C000AB3DAE /* Work */ = {
@@ -671,6 +709,8 @@
 				D1F9144121AA7B4F006986A1 /* UserWorksWithSectionTitleCell.xib in Resources */,
 				D1FFB58C21AEE904001099E6 /* EpisodeDetails.graphql in Resources */,
 				D1621DF12186262300819D93 /* RecordViewController.storyboard in Resources */,
+				D1C53C1321EEFA1900DA9A1D /* ProfileHeaderView.xib in Resources */,
+				D1C53C0E21EE4F1200DA9A1D /* WatchingWorksViewController.storyboard in Resources */,
 				D165C9BF21B15B36002E8FFA /* SearchWorksByTitle.graphql in Resources */,
 				D165C9BB21B0E596002E8FFA /* SearchWorks.graphql in Resources */,
 				D1AF34BA219B0921004DD229 /* GetViewerWorks.graphql in Resources */,
@@ -745,6 +785,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/ApolloSQLite.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SQLite.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Hero.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/XLPagerTabStrip.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -808,11 +849,13 @@
 				D165C9B621B0E051002E8FFA /* UINavigationBar.swift in Sources */,
 				D1BCB8C2217F327400B84F82 /* NotificationCenter.swift in Sources */,
 				D18389B321B05137004A072C /* SearchResultViewController.swift in Sources */,
+				D1C53C1621EEFB9A00DA9A1D /* NibOwnerLoadable.swift in Sources */,
 				D136EA742180885400BA08EA /* UserDefaultsService.swift in Sources */,
 				D1FFB57921AE867B001099E6 /* StatusState.swift in Sources */,
 				D1F9143D21AA7615006986A1 /* CGSize.swift in Sources */,
 				D19718CD217E29D2009B5F0F /* RxApollo.swift in Sources */,
 				D1BCB8D3217F4A3D00B84F82 /* HomeViewReactor.swift in Sources */,
+				D1C53C0F21EE4F1200DA9A1D /* WatchingWorksViewController.swift in Sources */,
 				D1621DFF21862BA600819D93 /* PostRecordViewReactor.swift in Sources */,
 				D1BCB8CE217F469800B84F82 /* HomeViewController.swift in Sources */,
 				D1621DF92186273200819D93 /* ProfileViewController.swift in Sources */,
@@ -826,6 +869,7 @@
 				D1FFB57B21AE8696001099E6 /* GraphQLSelectionSet.swift in Sources */,
 				D1FFB58721AED24F001099E6 /* Ornament.swift in Sources */,
 				D1621DE92186214900819D93 /* RootTabBarController.swift in Sources */,
+				D1C53C1121EEFA0300DA9A1D /* ProfileHeaderView.swift in Sources */,
 				D1FFB59021AEF644001099E6 /* ActionClosurable.swift in Sources */,
 				D1BCB8C9217F3E8300B84F82 /* OauthTokenRequest.swift in Sources */,
 				D1621E0321862C3B00819D93 /* SemiModalPresentationController.swift in Sources */,
@@ -846,6 +890,7 @@
 				D1B4F178217EC0970011BAFF /* Constants.swift in Sources */,
 				D123F254217CBD2500AE38FD /* AppDelegate.swift in Sources */,
 				D1BCB8C4217F350A00B84F82 /* HTTPClient.swift in Sources */,
+				D1C53C0D21EE4F1200DA9A1D /* WatchingWorksViewReactor.swift in Sources */,
 				D1F9143521AA74FA006986A1 /* NSMutableParagraphStyle.swift in Sources */,
 				D1B4F174217EBB940011BAFF /* UIView.swift in Sources */,
 				D1FFB57F21AE98DD001099E6 /* AnnictGraphQL.swift in Sources */,
