@@ -1,6 +1,6 @@
 query GetViewerWorks($state: StatusState, $after: String) {
     viewer {
-        works(state:$state, first:30, after: $after, orderBy:{field:CREATED_AT, direction:DESC}) {
+        works(state:$state, first:30, after: $after, orderBy:{field:SEASON, direction:DESC}) {
             nodes {
                 title
                 image {

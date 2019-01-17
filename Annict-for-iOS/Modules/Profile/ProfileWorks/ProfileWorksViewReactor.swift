@@ -68,7 +68,8 @@ final class ProfileWorksViewReactor: Reactor {
     
     private func fetchWorks(after: String? = nil) -> Observable<GetViewerWorksQuery.Data.Viewer.Work> {
         let query = GetViewerWorksQuery(state: statusState, after: after)
-        return AnnictGraphQL.client.rx.fetch(query: query, cachePolicy: .returnCacheDataAndFetch)
+        return AnnictGraphQL.client.rx.fetchMaybe(query: query, cachePolicy: .returnCacheDataAndFetch)
+            .asObservable()
             .map { $0.viewer?.works }
             .filterNil()
     }

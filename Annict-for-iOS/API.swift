@@ -99,7 +99,7 @@ public enum Media: RawRepresentable, Equatable, Hashable, Apollo.JSONDecodable, 
 
 public final class GetViewerWorksQuery: GraphQLQuery {
   public let operationDefinition =
-    "query GetViewerWorks($state: StatusState, $after: String) {\n  viewer {\n    __typename\n    works(state: $state, first: 30, after: $after, orderBy: {field: CREATED_AT, direction: DESC}) {\n      __typename\n      nodes {\n        __typename\n        title\n        image {\n          __typename\n          recommendedImageUrl\n          twitterAvatarUrl\n        }\n      }\n      pageInfo {\n        __typename\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}"
+    "query GetViewerWorks($state: StatusState, $after: String) {\n  viewer {\n    __typename\n    works(state: $state, first: 30, after: $after, orderBy: {field: SEASON, direction: DESC}) {\n      __typename\n      nodes {\n        __typename\n        title\n        image {\n          __typename\n          recommendedImageUrl\n          twitterAvatarUrl\n        }\n      }\n      pageInfo {\n        __typename\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}"
 
   public var state: StatusState?
   public var after: String?
@@ -144,7 +144,7 @@ public final class GetViewerWorksQuery: GraphQLQuery {
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("works", arguments: ["state": GraphQLVariable("state"), "first": 30, "after": GraphQLVariable("after"), "orderBy": ["field": "CREATED_AT", "direction": "DESC"]], type: .object(Work.selections)),
+        GraphQLField("works", arguments: ["state": GraphQLVariable("state"), "first": 30, "after": GraphQLVariable("after"), "orderBy": ["field": "SEASON", "direction": "DESC"]], type: .object(Work.selections)),
       ]
 
       public private(set) var resultMap: ResultMap
