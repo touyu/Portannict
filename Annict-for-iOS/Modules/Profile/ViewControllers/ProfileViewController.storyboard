@@ -55,7 +55,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PJX-Es-pSC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="piD-M4-ylG"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="account" id="piD-M4-ylG"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="buttonBarView" destination="5Ht-d8-H75" id="FmK-KO-9EA"/>
@@ -69,4 +69,7 @@
             <point key="canvasLocation" x="112.8" y="26.53673163418291"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="account" width="23" height="23"/>
+    </resources>
 </document>

@@ -32,7 +32,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PJX-Es-pSC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="recents" id="iHR-sJ-oac"/>
+                    <tabBarItem key="tabBarItem" title="Record" image="pencil" id="iHR-sJ-oac"/>
                     <navigationItem key="navigationItem" title="Record" id="94O-5K-H7N"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -60,4 +60,7 @@
             <point key="canvasLocation" x="-303" y="14"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pencil" width="51.75" height="51.75"/>
+    </resources>
 </document>
