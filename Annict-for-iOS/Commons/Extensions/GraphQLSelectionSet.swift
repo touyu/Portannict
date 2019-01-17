@@ -42,3 +42,14 @@ extension ObservableType where E: GraphQLSelectionSet {
         return distinctUntilChanged { $0.resultMap == $1.resultMap }
     }
 }
+
+protocol Connection {
+    associatedtype Node
+    var nodes: [Node?]? { get set }
+}
+
+extension Connection {
+    var values: [Node] {
+        return nodes?.compactMap { $0 } ?? []
+    }
+}

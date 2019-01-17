@@ -1,15 +1,13 @@
 query SearchWorks($season: String!) {
   searchWorks(seasons: [$season], orderBy: { field: WATCHERS_COUNT, direction: DESC }, first: 30) {
-    edges {
-      node {
-        id
-        annictId
-        title
-        media
-        watchersCount
-        image {
-          twitterAvatarUrl
-        }
+    nodes {
+      id
+      annictId
+      title
+      media
+      watchersCount
+      image {
+        twitterAvatarUrl
       }
     }
   }

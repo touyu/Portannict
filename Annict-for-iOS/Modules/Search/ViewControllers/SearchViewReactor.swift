@@ -10,41 +10,36 @@ import ReactorKit
 import RxSwift
 
 final class SearchViewReactor: Reactor {
-    typealias Work = SearchWorksQuery.Data.SearchWork.Edge.Node
-
-    var initialState: State
-
-    private let client = AnnictGraphQL.client
-
-    init() {
-        initialState = State()
-    }
-
     enum Action {
-        case fetchWorksOfThisTerm
+        
     }
 
     enum Mutation {
-        case setWorks([Work])
+        
     }
 
     struct State {
-        var works: [Work] = []
+        
     }
+    
+    var initialState: State
+    
+    private let client = AnnictGraphQL.client
+    
+    init() {
+        initialState = State()
+    }
+    
+    var cellReactors: [SeasonWorksCollectionViewCellReactor] = {
+        return RecommendSeasonSection.allCases.map { .init(section: $0) }
+    }()
 
     func mutate(action: Action) -> Observable<Mutation> {
-        switch action {
-        case .fetchWorksOfThisTerm:
-            return fetch().map { .setWorks($0.elements) }
-        }
+        return .empty()
     }
 
     func reduce(state: State, mutation: Mutation) -> State {
         var state = state
-        switch mutation {
-        case .setWorks(let works):
-            state.works = works
-        }
         return state
     }
 
@@ -53,12 +48,5 @@ final class SearchViewReactor: Reactor {
         return client.rx.fetch(query: request, cachePolicy: .returnCacheDataAndFetch).asObservable()
             .map { $0.searchWorks }
             .filterNil()
-    }
-}
-
-extension SearchWorksQuery.Data.SearchWork {
-    var elements: [Edge.Node] {
-        guard let edges = edges else { return []}
-        return edges.compactMap { $0?.node }
     }
 }

@@ -58,8 +58,4 @@ final class ProfileViewReactor: Reactor {
     }
 }
 
-extension GetViewerWorksQuery.Data.Viewer.Work {
-    var values: [Node] {
-        return nodes?.compactMap { $0 } ?? []
-    }
-}
+extension GetViewerWorksQuery.Data.Viewer.Work: Connection { }

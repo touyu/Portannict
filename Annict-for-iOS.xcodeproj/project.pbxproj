@@ -38,6 +38,11 @@
 		D1621E0521862F4500819D93 /* PostRecordTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621E0421862F4500819D93 /* PostRecordTransitioningDelegate.swift */; };
 		D1621E0A2186BB9300819D93 /* GetViewerWatchingEpisodes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1621E092186BB9300819D93 /* GetViewerWatchingEpisodes.graphql */; };
 		D1621E0C2186BF5700819D93 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621E0B2186BF5700819D93 /* API.swift */; };
+		D16308FA21F0DA6F00EE3009 /* SeasonWorksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16308F821F0DA6F00EE3009 /* SeasonWorksCollectionViewCell.swift */; };
+		D16308FB21F0DA6F00EE3009 /* SeasonWorksCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D16308F921F0DA6F00EE3009 /* SeasonWorksCollectionViewCell.xib */; };
+		D16308FD21F0E45200EE3009 /* SeasonWorksCollectionViewCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16308FC21F0E45200EE3009 /* SeasonWorksCollectionViewCellReactor.swift */; };
+		D163090121F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16308FF21F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.swift */; };
+		D163090221F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D163090021F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.xib */; };
 		D165C9B621B0E051002E8FFA /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D165C9B521B0E051002E8FFA /* UINavigationBar.swift */; };
 		D165C9B921B0E306002E8FFA /* SearchViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D165C9B821B0E306002E8FFA /* SearchViewReactor.swift */; };
 		D165C9BB21B0E596002E8FFA /* SearchWorks.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D165C9BA21B0E596002E8FFA /* SearchWorks.graphql */; };
@@ -153,6 +158,11 @@
 		D1621E0421862F4500819D93 /* PostRecordTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRecordTransitioningDelegate.swift; sourceTree = "<group>"; };
 		D1621E092186BB9300819D93 /* GetViewerWatchingEpisodes.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetViewerWatchingEpisodes.graphql; sourceTree = "<group>"; };
 		D1621E0B2186BF5700819D93 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = "Annict-for-iOS/API.swift"; sourceTree = SOURCE_ROOT; };
+		D16308F821F0DA6F00EE3009 /* SeasonWorksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonWorksCollectionViewCell.swift; sourceTree = "<group>"; };
+		D16308F921F0DA6F00EE3009 /* SeasonWorksCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonWorksCollectionViewCell.xib; sourceTree = "<group>"; };
+		D16308FC21F0E45200EE3009 /* SeasonWorksCollectionViewCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonWorksCollectionViewCellReactor.swift; sourceTree = "<group>"; };
+		D16308FF21F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonWorkCollectionViewCell.swift; sourceTree = "<group>"; };
+		D163090021F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonWorkCollectionViewCell.xib; sourceTree = "<group>"; };
 		D165C9B521B0E051002E8FFA /* UINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBar.swift; sourceTree = "<group>"; };
 		D165C9B821B0E306002E8FFA /* SearchViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewReactor.swift; sourceTree = "<group>"; };
 		D165C9BA21B0E596002E8FFA /* SearchWorks.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchWorks.graphql; sourceTree = "<group>"; };
@@ -385,11 +395,24 @@
 			path = GraphQL;
 			sourceTree = "<group>";
 		};
+		D16308FE21F0ED7500EE3009 /* SeasonWorksCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D16308FC21F0E45200EE3009 /* SeasonWorksCollectionViewCellReactor.swift */,
+				D16308F821F0DA6F00EE3009 /* SeasonWorksCollectionViewCell.swift */,
+				D16308F921F0DA6F00EE3009 /* SeasonWorksCollectionViewCell.xib */,
+				D16308FF21F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.swift */,
+				D163090021F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.xib */,
+			);
+			path = SeasonWorksCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		D165C9B721B0E242002E8FFA /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				D165C9C021B15EE9002E8FFA /* SearchResultWorkCell.xib */,
 				D165C9C221B15EF1002E8FFA /* SearchResultWorkCell.swift */,
+				D16308FE21F0ED7500EE3009 /* SeasonWorksCollectionViewCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -717,7 +740,9 @@
 				D1C53C2121EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib in Resources */,
 				D1621E0021862BA600819D93 /* PostRecordViewController.storyboard in Resources */,
 				D165C9C121B15EE9002E8FFA /* SearchResultWorkCell.xib in Resources */,
+				D163090221F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.xib in Resources */,
 				D1FFB58521AECF04001099E6 /* RecordEpisodeTableViewCell.xib in Resources */,
+				D16308FB21F0DA6F00EE3009 /* SeasonWorksCollectionViewCell.xib in Resources */,
 				D1621E0A2186BB9300819D93 /* GetViewerWatchingEpisodes.graphql in Resources */,
 				D1AF34BC219B3CBF004DD229 /* GetViewerInfo.graphql in Resources */,
 				D1F9144B21AA7FD2006986A1 /* UserWorkCollectionViewCell.xib in Resources */,
@@ -883,6 +908,7 @@
 				D1F9ED0821B274CD00AB3DAE /* WorkViewReactor.swift in Sources */,
 				D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */,
 				D1FFB57B21AE8696001099E6 /* GraphQLSelectionSet.swift in Sources */,
+				D163090121F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.swift in Sources */,
 				D1FFB58721AED24F001099E6 /* Ornament.swift in Sources */,
 				D1621DE92186214900819D93 /* RootTabBarController.swift in Sources */,
 				D1C53C1121EEFA0300DA9A1D /* ProfileHeaderView.swift in Sources */,
@@ -899,6 +925,7 @@
 				D1FFB58421AECF04001099E6 /* RecordEpisodeTableViewCell.swift in Sources */,
 				D1FFB58E21AEF3A3001099E6 /* RxUIScrollView.swift in Sources */,
 				D1F9143B21AA75C8006986A1 /* UIImage.swift in Sources */,
+				D16308FA21F0DA6F00EE3009 /* SeasonWorksCollectionViewCell.swift in Sources */,
 				D1B4F176217EBF200011BAFF /* LoginViewReactor.swift in Sources */,
 				D1B4F167217EB5E60011BAFF /* RxUIViewController.swift in Sources */,
 				D1FFB59A21B04693001099E6 /* SearchViewController.swift in Sources */,
@@ -917,6 +944,7 @@
 				D136EA7121807E9500BA08EA /* APIService.swift in Sources */,
 				D1621E0C2186BF5700819D93 /* API.swift in Sources */,
 				D19718CF217E2ED3009B5F0F /* ObservableType.swift in Sources */,
+				D16308FD21F0E45200EE3009 /* SeasonWorksCollectionViewCellReactor.swift in Sources */,
 				D1F9143921AA75A0006986A1 /* URLConvertible.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

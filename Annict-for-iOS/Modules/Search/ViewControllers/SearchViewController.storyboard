@@ -34,14 +34,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今期のアニメ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJ9-Bt-G7J">
-                                <rect key="frame" x="16" y="76" width="86" height="17"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <color key="textColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pou-uv-odj">
-                                <rect key="frame" x="0.0" y="105" width="375" height="513"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OSA-PW-yli">
                                     <size key="itemSize" width="50" height="50"/>
@@ -56,10 +50,8 @@
                         <constraints>
                             <constraint firstItem="GQr-AP-Zpj" firstAttribute="bottom" secondItem="Pou-uv-odj" secondAttribute="bottom" id="3Za-nd-1Fr"/>
                             <constraint firstItem="Pou-uv-odj" firstAttribute="leading" secondItem="GQr-AP-Zpj" secondAttribute="leading" id="B0y-Ju-WQJ"/>
-                            <constraint firstItem="yJ9-Bt-G7J" firstAttribute="leading" secondItem="GQr-AP-Zpj" secondAttribute="leading" constant="16" id="Chu-t9-iiD"/>
+                            <constraint firstItem="Pou-uv-odj" firstAttribute="top" secondItem="GQr-AP-Zpj" secondAttribute="top" id="Hay-7u-eUG"/>
                             <constraint firstItem="GQr-AP-Zpj" firstAttribute="trailing" secondItem="Pou-uv-odj" secondAttribute="trailing" id="aKe-Y7-M4l"/>
-                            <constraint firstItem="Pou-uv-odj" firstAttribute="top" secondItem="yJ9-Bt-G7J" secondAttribute="bottom" constant="12" id="hng-rs-yUO"/>
-                            <constraint firstItem="yJ9-Bt-G7J" firstAttribute="top" secondItem="GQr-AP-Zpj" secondAttribute="top" constant="12" id="xhM-f5-yK1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GQr-AP-Zpj"/>
                     </view>
