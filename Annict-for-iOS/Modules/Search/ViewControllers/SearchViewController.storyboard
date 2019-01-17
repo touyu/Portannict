@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-1122" y="107"/>
         </scene>
-        <!--Search-->
+        <!--Search View Controller-->
         <scene sceneID="CKp-CN-yyM">
             <objects>
                 <viewController id="UnW-rr-vDT" customClass="SearchViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -63,7 +63,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GQr-AP-Zpj"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" image="search" id="DZb-fH-P4l"/>
+                    <tabBarItem key="tabBarItem" title="" image="search" id="DZb-fH-P4l">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="I4U-9A-JXP">
                         <nil key="title"/>
                     </navigationItem>

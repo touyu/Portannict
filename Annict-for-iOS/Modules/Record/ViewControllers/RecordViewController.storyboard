@@ -32,7 +32,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PJX-Es-pSC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Record" image="pencil" id="iHR-sJ-oac"/>
+                    <tabBarItem key="tabBarItem" title="" image="pencil" id="iHR-sJ-oac">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Record" id="94O-5K-H7N"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

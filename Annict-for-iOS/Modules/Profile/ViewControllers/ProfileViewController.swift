@@ -59,6 +59,10 @@ final class ProfileViewController: ButtonBarPagerTabStripViewController, Storybo
         buttonMarkView?.selectedMarkView.backgroundColor = Const.selectedBackgroundColor
         
         super.viewDidLoad()
+
+        let statusBarBackgroundView = UIView(frame: UIApplication.shared.statusBarFrame)
+        statusBarBackgroundView.backgroundColor = .white
+        view.addSubview(statusBarBackgroundView)
     }
     
     func bind(reactor: Reactor) {

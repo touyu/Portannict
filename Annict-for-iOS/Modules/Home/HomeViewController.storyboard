@@ -20,7 +20,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="0eg-bL-ZUs"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="home" id="drn-Jc-vXo"/>
+                    <tabBarItem key="tabBarItem" title="" image="home" id="drn-Jc-vXo">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Activity" id="sdo-zi-9L4"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
@@ -46,6 +48,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home" width="51.75" height="51.75"/>
+        <image name="home" width="177.42857360839844" height="177.42857360839844"/>
     </resources>
 </document>
