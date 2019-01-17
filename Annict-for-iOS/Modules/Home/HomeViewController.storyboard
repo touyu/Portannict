@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Activity-->
+        <!--Home-->
         <scene sceneID="kPL-IA-0LF">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6e4-yi-sxP" customClass="HomeViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,7 +23,7 @@
                     <tabBarItem key="tabBarItem" title="" image="home" id="drn-Jc-vXo">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" title="Activity" id="sdo-zi-9L4"/>
+                    <navigationItem key="navigationItem" title="Home" id="sdo-zi-9L4"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cri-GI-i1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
