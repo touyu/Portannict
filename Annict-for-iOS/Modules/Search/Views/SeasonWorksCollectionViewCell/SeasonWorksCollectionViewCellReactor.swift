@@ -38,6 +38,7 @@ final class SeasonWorksCollectionViewCellReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .fetch:
+            guard currentState.works.count == 0 else { return .empty() }
             return fetch().map { .setWorks($0.values) }
         }
     }
@@ -53,7 +54,7 @@ final class SeasonWorksCollectionViewCellReactor: Reactor {
 
     private func fetch() -> Observable<SearchWorksQuery.Data.SearchWork> {
         let request = SearchWorksQuery(season: currentState.section.season.value)
-        return AnnictGraphQL.client.rx.fetch(query: request, cachePolicy: .returnCacheDataAndFetch).asObservable()
+        return AnnictGraphQL.client.rx.fetchMaybe(query: request, cachePolicy: .returnCacheDataAndFetch).asObservable()
             .map { $0.searchWorks }
             .filterNil()
     }

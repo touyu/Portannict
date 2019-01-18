@@ -130,7 +130,7 @@ extension SearchViewController: UICollectionViewDataSource {
             if abs(scrollView.contentOffset.y - (-y)) < 10 {
                 cell.setContentOffsetY(max(-y, 0) * 0.1)
             } else {
-                cell.setContentOffsetY(max(-y + scrollView.bounds.height / 2, 0) * 0.1)
+                cell.setContentOffsetY(max(-y + 200, 0) * 0.1)
             }
         }
     }
