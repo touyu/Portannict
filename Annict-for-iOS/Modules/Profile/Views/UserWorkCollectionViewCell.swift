@@ -10,8 +10,6 @@ import UIKit
 import Hero
 
 final class UserWorkCollectionViewCell: UICollectionViewCell {
-    typealias Work = GetViewerWorksQuery.Data.Viewer.Work.Node
-
     @IBOutlet private(set) weak var imageView: UIImageView!
     @IBOutlet private(set) weak var titleLabel: UILabel!
     
@@ -27,7 +25,7 @@ final class UserWorkCollectionViewCell: UICollectionViewCell {
         imageView.hero.isEnabled = true
     }
 
-    func prepare(work: Work) {
+    func prepare(work: MinimumWork) {
         prepare(url: work.image?.url, title: work.title)
     }
 
@@ -39,19 +37,5 @@ final class UserWorkCollectionViewCell: UICollectionViewCell {
     func prepareHero(indexPath: IndexPath) {
         imageView.hero.id = "WorkImageView \(indexPath.row)"
         titleLabel.hero.id = "TitleLabel \(indexPath.row)"
-    }
-}
-
-extension GetViewerWorksQuery.Data.Viewer.Work.Node.Image {
-    var url: String? {
-        if let twitterAvatarUrl = twitterAvatarUrl, !twitterAvatarUrl.isEmpty {
-            return twitterAvatarUrl
-        }
-        
-        if let recommendedImageUrl = recommendedImageUrl {
-            return recommendedImageUrl.replacingOccurrences(of: "http://", with: "https://")
-        }
-        
-        return nil
     }
 }

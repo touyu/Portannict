@@ -19,14 +19,14 @@ final class WorkViewReactor: Reactor {
     }
 
     struct State {
-        var initialTitle: String
-        var titleLabelHeroID: String
+        var work: MinimumWork
+        var heroID: String
     }
     
     var initialState: State
     
-    init(title: String, titleLabelHeroID: String) {
-        initialState = State(initialTitle: title, titleLabelHeroID: titleLabelHeroID)
+    init(work: MinimumWork, heroID: String) {
+        initialState = State(work: work, heroID: heroID)
     }
     
     func mutate(action: Action) -> Observable<Mutation> {

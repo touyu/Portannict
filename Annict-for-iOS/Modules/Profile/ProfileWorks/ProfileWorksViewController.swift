@@ -71,6 +71,7 @@ extension ProfileWorksViewController: UICollectionViewDataSource {
         guard let reactor = reactor else { return cell }
         let work = reactor.currentState.works[indexPath.item]
         cell.configure(work: work)
+        cell.setHeroID("work_image_\(indexPath.item)")
         return cell
     }
 }
@@ -91,6 +92,15 @@ extension ProfileWorksViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 24, left: 24, bottom: 0, right: 24)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let reactor = reactor else { return }
+        let work = reactor.currentState.works[indexPath.item]
+        let vc = WorkViewController.loadStoryboard()
+        vc.reactor = .init(work: work, heroID: "work_image_\(indexPath.item)")
+        vc.hero.isEnabled = true
+        present(vc, animated: true, completion: nil)
     }
 }
 

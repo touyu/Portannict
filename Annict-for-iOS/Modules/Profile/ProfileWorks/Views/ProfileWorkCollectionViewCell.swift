@@ -9,8 +9,6 @@
 import UIKit
 
 class ProfileWorkCollectionViewCell: UICollectionViewCell {
-    typealias Work = GetViewerWorksQuery.Data.Viewer.Work.Node
-
     @IBOutlet private weak var workImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     
@@ -20,8 +18,14 @@ class ProfileWorkCollectionViewCell: UICollectionViewCell {
         workImageView.apply(.workImage)
     }
 
-    func configure(work: Work) {
+    func configure(work: MinimumWork) {
         workImageView.setImage(url: work.image?.url)
         titleLabel.text = work.title
+    }
+    
+    func setHeroID(_ heroID: String) {
+        workImageView.hero.id = heroID
+        workImageView.hero.modifiers = [.spring(stiffness: 250, damping: 25),
+                                        .duration(0.3)]
     }
 }

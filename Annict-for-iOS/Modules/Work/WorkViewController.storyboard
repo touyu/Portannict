@@ -11,78 +11,36 @@
     </dependencies>
     <scenes>
         <!--Work View Controller-->
-        <scene sceneID="UUc-NY-ffm">
+        <scene sceneID="jpj-oQ-vbS">
             <objects>
-                <viewController storyboardIdentifier="WorkViewController" id="5jk-Hd-q3d" customClass="WorkViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yq1-bX-Ama">
+                <viewController storyboardIdentifier="WorkViewController" id="9js-cz-cun" customClass="WorkViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6cf-7e-StR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lgo-b5-9vb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Lgo-b5-9vb" secondAttribute="height" multiplier="1:1" constant="1" id="NXS-pl-5Pc"/>
-                                </constraints>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KdY-An-a9g">
-                                <rect key="frame" x="0.0" y="375" width="375" height="40"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHs-Pd-weW" customClass="NacigatarBar" customModule="Annict_for_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="167.5" y="12" width="40" height="5"/>
-                                        <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="GdH-DK-I18"/>
-                                            <constraint firstAttribute="height" constant="5" id="uB7-EO-ZYP"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ep-vg-jNG" customClass="WorkHeaderView" customModule="Annict_for_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="452"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="UHs-Pd-weW" firstAttribute="top" secondItem="KdY-An-a9g" secondAttribute="top" constant="12" id="1yZ-L8-gKA"/>
-                                    <constraint firstItem="UHs-Pd-weW" firstAttribute="centerX" secondItem="KdY-An-a9g" secondAttribute="centerX" id="98z-Fy-k2c"/>
-                                    <constraint firstAttribute="height" constant="40" id="KNO-aU-vjM"/>
+                                    <constraint firstAttribute="height" constant="452" id="ATx-xM-Tla"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJ9-li-JdF" customClass="GradationView" customModule="Annict_for_iOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="274" width="375" height="100"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="IDf-16-7KD"/>
-                                </constraints>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AaF-cd-4Yz">
-                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="AaF-cd-4Yz" firstAttribute="top" secondItem="yq1-bX-Ama" secondAttribute="top" constant="120" id="03i-jB-aS2"/>
-                            <constraint firstItem="rJ9-li-JdF" firstAttribute="bottom" secondItem="Lgo-b5-9vb" secondAttribute="bottom" id="I8F-cI-WhC"/>
-                            <constraint firstItem="Lgo-b5-9vb" firstAttribute="centerX" secondItem="PJX-Es-pSC" secondAttribute="centerX" id="IER-Mg-b7E"/>
-                            <constraint firstItem="AaF-cd-4Yz" firstAttribute="leading" secondItem="PJX-Es-pSC" secondAttribute="leading" id="VP7-lQ-ceP"/>
-                            <constraint firstItem="rJ9-li-JdF" firstAttribute="width" secondItem="yq1-bX-Ama" secondAttribute="width" id="Xin-tr-P7y"/>
-                            <constraint firstItem="Lgo-b5-9vb" firstAttribute="width" secondItem="yq1-bX-Ama" secondAttribute="width" id="b0G-6I-s0k"/>
-                            <constraint firstItem="PJX-Es-pSC" firstAttribute="trailing" secondItem="AaF-cd-4Yz" secondAttribute="trailing" id="bEY-iX-EdB"/>
-                            <constraint firstItem="rJ9-li-JdF" firstAttribute="centerX" secondItem="PJX-Es-pSC" secondAttribute="centerX" id="iR1-3j-Pbw"/>
-                            <constraint firstItem="KdY-An-a9g" firstAttribute="top" secondItem="yq1-bX-Ama" secondAttribute="top" constant="375" id="iR8-G8-tpH"/>
-                            <constraint firstItem="KdY-An-a9g" firstAttribute="centerX" secondItem="PJX-Es-pSC" secondAttribute="centerX" id="lhS-R9-cGK"/>
-                            <constraint firstItem="KdY-An-a9g" firstAttribute="width" secondItem="yq1-bX-Ama" secondAttribute="width" id="mJC-5s-4Zl"/>
-                            <constraint firstItem="Lgo-b5-9vb" firstAttribute="top" secondItem="yq1-bX-Ama" secondAttribute="top" id="p8O-70-7VP"/>
-                            <constraint firstItem="PJX-Es-pSC" firstAttribute="bottom" secondItem="AaF-cd-4Yz" secondAttribute="bottom" id="w7p-Ip-iGF"/>
+                            <constraint firstItem="2Ep-vg-jNG" firstAttribute="top" secondItem="6cf-7e-StR" secondAttribute="top" id="Lbg-WC-icG"/>
+                            <constraint firstItem="2Ep-vg-jNG" firstAttribute="leading" secondItem="w4k-QX-Sah" secondAttribute="leading" id="em9-3n-zvG"/>
+                            <constraint firstItem="w4k-QX-Sah" firstAttribute="trailing" secondItem="2Ep-vg-jNG" secondAttribute="trailing" id="ioM-m2-4yB"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="PJX-Es-pSC"/>
+                        <viewLayoutGuide key="safeArea" id="w4k-QX-Sah"/>
                     </view>
                     <connections>
-                        <outlet property="gradationView" destination="rJ9-li-JdF" id="Mmp-9i-hB6"/>
-                        <outlet property="imageView" destination="Lgo-b5-9vb" id="ppG-6d-MDj"/>
-                        <outlet property="tableView" destination="AaF-cd-4Yz" id="vJl-1K-sVf"/>
-                        <outlet property="topConstraint" destination="iR8-G8-tpH" id="wwh-3F-auk"/>
+                        <outlet property="headerView" destination="2Ep-vg-jNG" id="ieN-XO-4bK"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dpj-WT-0yB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rlf-38-XnK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53.600000000000001" y="26.53673163418291"/>
+            <point key="canvasLocation" x="100" y="-15"/>
         </scene>
     </scenes>
 </document>
