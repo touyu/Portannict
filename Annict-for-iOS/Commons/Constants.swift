@@ -10,7 +10,7 @@ import Keys
 
 struct Constants {
     static let rootURI = "https://api.annict.com"
-    static let redirectURI = "portannict://oauth"
+    static let redirectURI = "annict://oauth"
 
     static var clientID: String {
         return AnnictForIOSKeys().annictClientID
