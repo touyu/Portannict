@@ -18,8 +18,6 @@
 		D1274114217CCCF000DD09C2 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1274112217CCCF000DD09C2 /* RxSwift.framework */; };
 		D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127411C217CDEF300DD09C2 /* BaseService.swift */; };
 		D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127411E217CDF1000DD09C2 /* ServiceProvider.swift */; };
-		D130208221B8067A00CE2F3A /* WorkTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D130208021B8067A00CE2F3A /* WorkTitleTableViewCell.swift */; };
-		D130208321B8067A00CE2F3A /* WorkTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D130208121B8067A00CE2F3A /* WorkTitleTableViewCell.xib */; };
 		D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */; };
 		D136EA7121807E9500BA08EA /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA7021807E9500BA08EA /* APIService.swift */; };
 		D136EA742180885400BA08EA /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA732180885400BA08EA /* UserDefaultsService.swift */; };
@@ -89,6 +87,9 @@
 		D1C53C1821EF38E800DA9A1D /* ProfileWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C53C1721EF38E700DA9A1D /* ProfileWorksViewController.swift */; };
 		D1C53C2021EF733200DA9A1D /* ProfileWorkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C53C1E21EF733200DA9A1D /* ProfileWorkCollectionViewCell.swift */; };
 		D1C53C2121EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1C53C1F21EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib */; };
+		D1E66AB12204AC0E0058BFEF /* WorkHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E66AB02204AC0E0058BFEF /* WorkHeaderView.swift */; };
+		D1E66AB32204AC220058BFEF /* WorkHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E66AB22204AC220058BFEF /* WorkHeaderView.xib */; };
+		D1E66AB72204B9000058BFEF /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E66AB62204B9000058BFEF /* SnapKit.framework */; };
 		D1F9143321AA6A61006986A1 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F9143221AA6A61006986A1 /* Kingfisher.framework */; };
 		D1F9143521AA74FA006986A1 /* NSMutableParagraphStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9143421AA74FA006986A1 /* NSMutableParagraphStyle.swift */; };
 		D1F9143721AA756F006986A1 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9143621AA756F006986A1 /* UIImageView.swift */; };
@@ -138,8 +139,6 @@
 		D1274112217CCCF000DD09C2 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		D127411C217CDEF300DD09C2 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		D127411E217CDF1000DD09C2 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
-		D130208021B8067A00CE2F3A /* WorkTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkTitleTableViewCell.swift; sourceTree = "<group>"; };
-		D130208121B8067A00CE2F3A /* WorkTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkTitleTableViewCell.xib; sourceTree = "<group>"; };
 		D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
 		D136EA7021807E9500BA08EA /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		D136EA732180885400BA08EA /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
@@ -208,6 +207,10 @@
 		D1C53C1721EF38E700DA9A1D /* ProfileWorksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileWorksViewController.swift; sourceTree = "<group>"; };
 		D1C53C1E21EF733200DA9A1D /* ProfileWorkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWorkCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1C53C1F21EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileWorkCollectionViewCell.xib; sourceTree = "<group>"; };
+		D1E66AB02204AC0E0058BFEF /* WorkHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkHeaderView.swift; sourceTree = "<group>"; };
+		D1E66AB22204AC220058BFEF /* WorkHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkHeaderView.xib; sourceTree = "<group>"; };
+		D1E66AB42204B8ED0058BFEF /* Carthage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Carthage; sourceTree = "<group>"; };
+		D1E66AB62204B9000058BFEF /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		D1F9143221AA6A61006986A1 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		D1F9143421AA74FA006986A1 /* NSMutableParagraphStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableParagraphStyle.swift; sourceTree = "<group>"; };
 		D1F9143621AA756F006986A1 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
@@ -245,6 +248,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E66AB72204B9000058BFEF /* SnapKit.framework in Frameworks */,
 				D1C53C0821EE4C7700DA9A1D /* XLPagerTabStrip.framework in Frameworks */,
 				D1F9ED0321B2748500AB3DAE /* Hero.framework in Frameworks */,
 				D1FFB59621B03A4D001099E6 /* SQLite.framework in Frameworks */,
@@ -296,6 +300,8 @@
 		D127410B217CCB3F00DD09C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1E66AB62204B9000058BFEF /* SnapKit.framework */,
+				D1E66AB42204B8ED0058BFEF /* Carthage */,
 				D1C53C0721EE4C7700DA9A1D /* XLPagerTabStrip.framework */,
 				D1F9ED0221B2748500AB3DAE /* Hero.framework */,
 				D1FFB59521B03A4D001099E6 /* SQLite.framework */,
@@ -314,8 +320,8 @@
 		D130207F21B8065E00CE2F3A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D130208021B8067A00CE2F3A /* WorkTitleTableViewCell.swift */,
-				D130208121B8067A00CE2F3A /* WorkTitleTableViewCell.xib */,
+				D1E66AB02204AC0E0058BFEF /* WorkHeaderView.swift */,
+				D1E66AB22204AC220058BFEF /* WorkHeaderView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -730,7 +736,6 @@
 				D1FFB58A21AEE427001099E6 /* CreateRecord.graphql in Resources */,
 				D123F25E217CBD2600AE38FD /* LaunchScreen.storyboard in Resources */,
 				D1621DEB2186218200819D93 /* RootTabBarController.storyboard in Resources */,
-				D130208321B8067A00CE2F3A /* WorkTitleTableViewCell.xib in Resources */,
 				D1F9ED0921B274CD00AB3DAE /* WorkViewController.storyboard in Resources */,
 				D18389B521B05146004A072C /* SearchResultViewController.storyboard in Resources */,
 				D1FFB59C21B046BE001099E6 /* SearchViewController.storyboard in Resources */,
@@ -748,6 +753,7 @@
 				D1F9144B21AA7FD2006986A1 /* UserWorkCollectionViewCell.xib in Resources */,
 				D1F9144121AA7B4F006986A1 /* UserWorksWithSectionTitleCell.xib in Resources */,
 				D1FFB58C21AEE904001099E6 /* EpisodeDetails.graphql in Resources */,
+				D1E66AB32204AC220058BFEF /* WorkHeaderView.xib in Resources */,
 				D1621DF12186262300819D93 /* RecordViewController.storyboard in Resources */,
 				D1C53C1321EEFA1900DA9A1D /* ProfileHeaderView.xib in Resources */,
 				D1C53C0E21EE4F1200DA9A1D /* ProfileWorksViewController.storyboard in Resources */,
@@ -826,6 +832,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SQLite.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Hero.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/XLPagerTabStrip.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -886,6 +893,7 @@
 				D165C9BD21B158EA002E8FFA /* SearchResultViewReactor.swift in Sources */,
 				D1AF34C4219B4202004DD229 /* UITableView.swift in Sources */,
 				D1B4F171217EB8D50011BAFF /* NSObject.swift in Sources */,
+				D1E66AB12204AC0E0058BFEF /* WorkHeaderView.swift in Sources */,
 				D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */,
 				D165C9B621B0E051002E8FFA /* UINavigationBar.swift in Sources */,
 				D1BCB8C2217F327400B84F82 /* NotificationCenter.swift in Sources */,
@@ -918,7 +926,6 @@
 				D18447C621BD021D00CF44AB /* GradationView.swift in Sources */,
 				D165C9C321B15EF1002E8FFA /* SearchResultWorkCell.swift in Sources */,
 				D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */,
-				D130208221B8067A00CE2F3A /* WorkTitleTableViewCell.swift in Sources */,
 				D1F9143721AA756F006986A1 /* UIImageView.swift in Sources */,
 				D1F9144021AA7B4F006986A1 /* UserWorksWithSectionTitleCell.swift in Sources */,
 				D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */,

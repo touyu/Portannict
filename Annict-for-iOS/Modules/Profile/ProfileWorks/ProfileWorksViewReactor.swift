@@ -10,7 +10,6 @@ import ReactorKit
 import RxSwift
 
 final class ProfileWorksViewReactor: Reactor {
-    typealias Work = GetViewerWorksQuery.Data.Viewer.Work.Node
     typealias PageInfo = GetViewerWorksQuery.Data.Viewer.Work.PageInfo
     
     enum Action {
@@ -19,13 +18,13 @@ final class ProfileWorksViewReactor: Reactor {
     }
 
     enum Mutation {
-        case setWorks([Work])
-        case addWorks([Work])
+        case setWorks([MinimumWork])
+        case addWorks([MinimumWork])
         case setPageInfo(PageInfo)
     }
 
     struct State {
-        var works: [Work] = []
+        var works: [MinimumWork] = []
         var pageInfo: PageInfo?
     }
     
@@ -41,13 +40,13 @@ final class ProfileWorksViewReactor: Reactor {
         switch action {
         case .fetch:
             let fetchWorksEvent = fetchWorks().share()
-            let works = fetchWorksEvent.map { Mutation.setWorks($0.values) }
+            let works = fetchWorksEvent.map { Mutation.setWorks($0.minimumWorks) }
             let pageInfo = fetchWorksEvent.map { Mutation.setPageInfo($0.pageInfo) }
             return .merge(works, pageInfo)
         case .loadMore:
             guard currentState.pageInfo?.hasNextPage ?? false else { return .empty() }
             let fetchWorksEvent = fetchWorks(after: currentState.pageInfo?.endCursor).share()
-            let works = fetchWorksEvent.map { Mutation.addWorks($0.values) }
+            let works = fetchWorksEvent.map { Mutation.addWorks($0.minimumWorks) }
             let pageInfo = fetchWorksEvent.map { Mutation.setPageInfo($0.pageInfo) }
             return .merge(works, pageInfo)
         }
@@ -72,5 +71,11 @@ final class ProfileWorksViewReactor: Reactor {
             .asObservable()
             .map { $0.viewer?.works }
             .filterNil()
+    }
+}
+
+extension GetViewerWorksQuery.Data.Viewer.Work {
+    var minimumWorks: [MinimumWork] {
+        return values.map { $0.fragments.minimumWork }
     }
 }

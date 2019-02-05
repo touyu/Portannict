@@ -51,6 +51,48 @@ public enum StatusState: RawRepresentable, Equatable, Hashable, Apollo.JSONDecod
   }
 }
 
+/// Season name
+public enum SeasonName: RawRepresentable, Equatable, Hashable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case winter
+  case spring
+  case summer
+  case autumn
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "WINTER": self = .winter
+      case "SPRING": self = .spring
+      case "SUMMER": self = .summer
+      case "AUTUMN": self = .autumn
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .winter: return "WINTER"
+      case .spring: return "SPRING"
+      case .summer: return "SUMMER"
+      case .autumn: return "AUTUMN"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: SeasonName, rhs: SeasonName) -> Bool {
+    switch (lhs, rhs) {
+      case (.winter, .winter): return true
+      case (.spring, .spring): return true
+      case (.summer, .summer): return true
+      case (.autumn, .autumn): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+}
+
 /// Media of anime
 public enum Media: RawRepresentable, Equatable, Hashable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
@@ -99,7 +141,9 @@ public enum Media: RawRepresentable, Equatable, Hashable, Apollo.JSONDecodable, 
 
 public final class GetViewerWorksQuery: GraphQLQuery {
   public let operationDefinition =
-    "query GetViewerWorks($state: StatusState, $after: String) {\n  viewer {\n    __typename\n    works(state: $state, first: 30, after: $after, orderBy: {field: SEASON, direction: DESC}) {\n      __typename\n      nodes {\n        __typename\n        title\n        image {\n          __typename\n          recommendedImageUrl\n          twitterAvatarUrl\n        }\n      }\n      pageInfo {\n        __typename\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}"
+    "query GetViewerWorks($state: StatusState, $after: String) {\n  viewer {\n    __typename\n    works(state: $state, first: 30, after: $after, orderBy: {field: SEASON, direction: DESC}) {\n      __typename\n      nodes {\n        __typename\n        ...MinimumWork\n      }\n      pageInfo {\n        __typename\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}"
+
+  public var queryDocument: String { return operationDefinition.appending(MinimumWork.fragmentDefinition) }
 
   public var state: StatusState?
   public var after: String?
@@ -228,18 +272,13 @@ public final class GetViewerWorksQuery: GraphQLQuery {
 
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("title", type: .nonNull(.scalar(String.self))),
-            GraphQLField("image", type: .object(Image.selections)),
+            GraphQLFragmentSpread(MinimumWork.self),
           ]
 
           public private(set) var resultMap: ResultMap
 
           public init(unsafeResultMap: ResultMap) {
             self.resultMap = unsafeResultMap
-          }
-
-          public init(title: String, image: Image? = nil) {
-            self.init(unsafeResultMap: ["__typename": "Work", "title": title, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
           }
 
           public var __typename: String {
@@ -251,67 +290,28 @@ public final class GetViewerWorksQuery: GraphQLQuery {
             }
           }
 
-          public var title: String {
+          public var fragments: Fragments {
             get {
-              return resultMap["title"]! as! String
+              return Fragments(unsafeResultMap: resultMap)
             }
             set {
-              resultMap.updateValue(newValue, forKey: "title")
+              resultMap += newValue.resultMap
             }
           }
 
-          public var image: Image? {
-            get {
-              return (resultMap["image"] as? ResultMap).flatMap { Image(unsafeResultMap: $0) }
-            }
-            set {
-              resultMap.updateValue(newValue?.resultMap, forKey: "image")
-            }
-          }
-
-          public struct Image: GraphQLSelectionSet {
-            public static let possibleTypes = ["WorkImage"]
-
-            public static let selections: [GraphQLSelection] = [
-              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-              GraphQLField("recommendedImageUrl", type: .scalar(String.self)),
-              GraphQLField("twitterAvatarUrl", type: .scalar(String.self)),
-            ]
-
+          public struct Fragments {
             public private(set) var resultMap: ResultMap
 
             public init(unsafeResultMap: ResultMap) {
               self.resultMap = unsafeResultMap
             }
 
-            public init(recommendedImageUrl: String? = nil, twitterAvatarUrl: String? = nil) {
-              self.init(unsafeResultMap: ["__typename": "WorkImage", "recommendedImageUrl": recommendedImageUrl, "twitterAvatarUrl": twitterAvatarUrl])
-            }
-
-            public var __typename: String {
+            public var minimumWork: MinimumWork {
               get {
-                return resultMap["__typename"]! as! String
+                return MinimumWork(unsafeResultMap: resultMap)
               }
               set {
-                resultMap.updateValue(newValue, forKey: "__typename")
-              }
-            }
-
-            public var recommendedImageUrl: String? {
-              get {
-                return resultMap["recommendedImageUrl"] as? String
-              }
-              set {
-                resultMap.updateValue(newValue, forKey: "recommendedImageUrl")
-              }
-            }
-
-            public var twitterAvatarUrl: String? {
-              get {
-                return resultMap["twitterAvatarUrl"] as? String
-              }
-              set {
-                resultMap.updateValue(newValue, forKey: "twitterAvatarUrl")
+                resultMap += newValue.resultMap
               }
             }
           }
@@ -1693,6 +1693,163 @@ public final class GetViewerQuery: GraphQLQuery {
             resultMap += newValue.resultMap
           }
         }
+      }
+    }
+  }
+}
+
+public struct MinimumWork: GraphQLFragment {
+  public static let fragmentDefinition =
+    "fragment MinimumWork on Work {\n  __typename\n  annictId\n  title\n  episodesCount\n  watchersCount\n  reviewsCount\n  seasonName\n  seasonYear\n  image {\n    __typename\n    recommendedImageUrl\n    twitterAvatarUrl\n  }\n}"
+
+  public static let possibleTypes = ["Work"]
+
+  public static let selections: [GraphQLSelection] = [
+    GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+    GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
+    GraphQLField("title", type: .nonNull(.scalar(String.self))),
+    GraphQLField("episodesCount", type: .nonNull(.scalar(Int.self))),
+    GraphQLField("watchersCount", type: .nonNull(.scalar(Int.self))),
+    GraphQLField("reviewsCount", type: .nonNull(.scalar(Int.self))),
+    GraphQLField("seasonName", type: .scalar(SeasonName.self)),
+    GraphQLField("seasonYear", type: .scalar(Int.self)),
+    GraphQLField("image", type: .object(Image.selections)),
+  ]
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, image: Image? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Work", "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var annictId: Int {
+    get {
+      return resultMap["annictId"]! as! Int
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "annictId")
+    }
+  }
+
+  public var title: String {
+    get {
+      return resultMap["title"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "title")
+    }
+  }
+
+  public var episodesCount: Int {
+    get {
+      return resultMap["episodesCount"]! as! Int
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "episodesCount")
+    }
+  }
+
+  public var watchersCount: Int {
+    get {
+      return resultMap["watchersCount"]! as! Int
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "watchersCount")
+    }
+  }
+
+  public var reviewsCount: Int {
+    get {
+      return resultMap["reviewsCount"]! as! Int
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "reviewsCount")
+    }
+  }
+
+  public var seasonName: SeasonName? {
+    get {
+      return resultMap["seasonName"] as? SeasonName
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "seasonName")
+    }
+  }
+
+  public var seasonYear: Int? {
+    get {
+      return resultMap["seasonYear"] as? Int
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "seasonYear")
+    }
+  }
+
+  public var image: Image? {
+    get {
+      return (resultMap["image"] as? ResultMap).flatMap { Image(unsafeResultMap: $0) }
+    }
+    set {
+      resultMap.updateValue(newValue?.resultMap, forKey: "image")
+    }
+  }
+
+  public struct Image: GraphQLSelectionSet {
+    public static let possibleTypes = ["WorkImage"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+      GraphQLField("recommendedImageUrl", type: .scalar(String.self)),
+      GraphQLField("twitterAvatarUrl", type: .scalar(String.self)),
+    ]
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(recommendedImageUrl: String? = nil, twitterAvatarUrl: String? = nil) {
+      self.init(unsafeResultMap: ["__typename": "WorkImage", "recommendedImageUrl": recommendedImageUrl, "twitterAvatarUrl": twitterAvatarUrl])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    public var recommendedImageUrl: String? {
+      get {
+        return resultMap["recommendedImageUrl"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "recommendedImageUrl")
+      }
+    }
+
+    public var twitterAvatarUrl: String? {
+      get {
+        return resultMap["twitterAvatarUrl"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "twitterAvatarUrl")
       }
     }
   }

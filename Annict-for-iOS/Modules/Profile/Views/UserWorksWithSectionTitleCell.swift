@@ -9,12 +9,10 @@
 import UIKit
 
 final class UserWorksWithSectionTitleCell: UITableViewCell {
-    typealias Work = GetViewerWorksQuery.Data.Viewer.Work.Node
-
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
     
-    private var works: [Work] = []
+    private var works: [MinimumWork] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +20,7 @@ final class UserWorksWithSectionTitleCell: UITableViewCell {
         prepareCollectionView()
     }
     
-    func prepare(title: String, works: [Work]) {
+    func prepare(title: String, works: [MinimumWork]) {
         self.titleLabel.text = title
         self.works = works
         self.collectionView.reloadData()

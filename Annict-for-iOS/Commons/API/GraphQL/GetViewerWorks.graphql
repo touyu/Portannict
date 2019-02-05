@@ -2,11 +2,7 @@ query GetViewerWorks($state: StatusState, $after: String) {
     viewer {
         works(state:$state, first:30, after: $after, orderBy:{field:SEASON, direction:DESC}) {
             nodes {
-                title
-                image {
-                    recommendedImageUrl
-                    twitterAvatarUrl
-                }
+                ...MinimumWork
             }
             pageInfo {
                 endCursor
@@ -14,4 +10,18 @@ query GetViewerWorks($state: StatusState, $after: String) {
             }
         }
     }
+}
+
+fragment MinimumWork on Work {
+  annictId
+  title
+  episodesCount
+  watchersCount
+  reviewsCount
+  seasonName
+  seasonYear
+  image {
+    recommendedImageUrl
+    twitterAvatarUrl
+  }
 }
