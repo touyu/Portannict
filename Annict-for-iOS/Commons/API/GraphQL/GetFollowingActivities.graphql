@@ -1,6 +1,9 @@
-query GetFollowingActivities {
+query GetFollowingActivities($after: String) {
   viewer {
-    followingActivities(first: 30, orderBy:{field:CREATED_AT, direction:DESC}) {
+    followingActivities(after: $after, first: 30, orderBy:{field:CREATED_AT, direction:DESC}) {
+      pageInfo {
+          ...PageInfoFrag
+      }
       edges {
         annictId
         node {

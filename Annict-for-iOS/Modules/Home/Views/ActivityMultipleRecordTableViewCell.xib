@@ -36,21 +36,21 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gA-Uj-Ene">
-                        <rect key="frame" x="68" y="41" width="540" height="165.5"/>
+                        <rect key="frame" x="68" y="41" width="540" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygg-bv-vte" customClass="WorkQuoteView" customModule="Annict_for_iOS" customModuleProvider="target">
-                        <rect key="frame" x="68" y="218.5" width="540" height="60"/>
+                        <rect key="frame" x="68" y="70" width="540" height="60"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="60" id="d02-fk-z0u"/>
+                            <constraint firstAttribute="height" constant="60" id="cg5-al-CKe"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="ygg-bv-vte" secondAttribute="bottom" constant="16" id="4yH-f2-IUa"/>
+                    <constraint firstAttribute="bottom" secondItem="ygg-bv-vte" secondAttribute="bottom" priority="250" constant="16" id="4yH-f2-IUa"/>
                     <constraint firstItem="d8l-qO-3ee" firstAttribute="top" secondItem="Pce-EN-Zz9" secondAttribute="top" constant="16" id="9ns-C3-a1I"/>
                     <constraint firstItem="6gA-Uj-Ene" firstAttribute="leading" secondItem="Rw7-bK-Bxr" secondAttribute="leading" id="AYU-c2-M6Q"/>
                     <constraint firstItem="Rw7-bK-Bxr" firstAttribute="top" secondItem="d8l-qO-3ee" secondAttribute="top" id="C8L-Tp-jNR"/>

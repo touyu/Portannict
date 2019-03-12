@@ -12,7 +12,7 @@ import Apollo
 protocol APIServiceType {
     var client: ApolloClient { get }
     func getOauthToken(code: String) -> Single<OauthTokenRequest.Response>
-    func fetchFollowingActivities() -> Observable<GetFollowingActivitiesQuery.Data>
+    func fetchFollowingActivities(after: String?) -> Observable<GetFollowingActivitiesQuery.Data>
 }
 
 final class APIService: BaseService, APIServiceType {
@@ -23,8 +23,8 @@ final class APIService: BaseService, APIServiceType {
         return HTTPClient.send(request: request)
     }
 
-    func fetchFollowingActivities() -> Observable<GetFollowingActivitiesQuery.Data> {
-        let query = GetFollowingActivitiesQuery()
-        return client.rx.fetch(query: query)
+    func fetchFollowingActivities(after: String?) -> Observable<GetFollowingActivitiesQuery.Data> {
+        let query = GetFollowingActivitiesQuery(after: after)
+        return client.rx.fetchMaybe(query: query).asObservable()
     }
 }

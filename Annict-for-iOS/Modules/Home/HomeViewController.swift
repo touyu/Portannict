@@ -16,6 +16,8 @@ final class HomeViewController: UIViewController, StoryboardView {
     @IBOutlet weak var tableView: UITableView!
 
     var disposeBag = DisposeBag()
+
+    private var cellHeightList: [IndexPath: CGFloat] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,11 @@ final class HomeViewController: UIViewController, StoryboardView {
             .disposed(by: disposeBag)
 
         tableView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
+
+        tableView.rx.triggeredPagination
+            .map { Reactor.Action.loadMore }
+            .bind(to: reactor.action)
             .disposed(by: disposeBag)
 
         reactor.state.map { $0.activities }
@@ -80,5 +87,18 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if !cellHeightList.keys.contains(indexPath) {
+            cellHeightList[indexPath] = cell.frame.height
+        }
+    }
+
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let height = self.cellHeightList[indexPath] else {
+            return UITableView.automaticDimension
+        }
+        return height
     }
 }

@@ -1401,11 +1401,18 @@ public final class SearchWorksByTitleQuery: GraphQLQuery {
 
 public final class GetFollowingActivitiesQuery: GraphQLQuery {
   public let operationDefinition =
-    "query GetFollowingActivities {\n  viewer {\n    __typename\n    followingActivities(first: 30, orderBy: {field: CREATED_AT, direction: DESC}) {\n      __typename\n      edges {\n        __typename\n        annictId\n        node {\n          __typename\n          ... on Status {\n            createdAt\n            annictId\n            id\n            state\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on Record {\n            createdAt\n            annictId\n            id\n            comment\n            episode {\n              __typename\n              ...MinimumEpisode\n            }\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on Review {\n            createdAt\n            annictId\n            id\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on MultipleRecord {\n            createdAt\n            annictId\n            id\n            records(first: 30) {\n              __typename\n              nodes {\n                __typename\n                episode {\n                  __typename\n                  ...MinimumEpisode\n                }\n              }\n            }\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+    "query GetFollowingActivities($after: String) {\n  viewer {\n    __typename\n    followingActivities(after: $after, first: 30, orderBy: {field: CREATED_AT, direction: DESC}) {\n      __typename\n      pageInfo {\n        __typename\n        ...PageInfoFrag\n      }\n      edges {\n        __typename\n        annictId\n        node {\n          __typename\n          ... on Status {\n            createdAt\n            annictId\n            id\n            state\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on Record {\n            createdAt\n            annictId\n            id\n            comment\n            episode {\n              __typename\n              ...MinimumEpisode\n            }\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on Review {\n            createdAt\n            annictId\n            id\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on MultipleRecord {\n            createdAt\n            annictId\n            id\n            records(first: 30) {\n              __typename\n              nodes {\n                __typename\n                episode {\n                  __typename\n                  ...MinimumEpisode\n                }\n              }\n            }\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n        }\n      }\n    }\n  }\n}"
 
-  public var queryDocument: String { return operationDefinition.appending(MinimumWork.fragmentDefinition).appending(MinimumUser.fragmentDefinition).appending(MinimumEpisode.fragmentDefinition) }
+  public var queryDocument: String { return operationDefinition.appending(PageInfoFrag.fragmentDefinition).appending(MinimumWork.fragmentDefinition).appending(MinimumUser.fragmentDefinition).appending(MinimumEpisode.fragmentDefinition) }
 
-  public init() {
+  public var after: String?
+
+  public init(after: String? = nil) {
+    self.after = after
+  }
+
+  public var variables: GraphQLMap? {
+    return ["after": after]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -1439,7 +1446,7 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("followingActivities", arguments: ["first": 30, "orderBy": ["field": "CREATED_AT", "direction": "DESC"]], type: .object(FollowingActivity.selections)),
+        GraphQLField("followingActivities", arguments: ["after": GraphQLVariable("after"), "first": 30, "orderBy": ["field": "CREATED_AT", "direction": "DESC"]], type: .object(FollowingActivity.selections)),
       ]
 
       public private(set) var resultMap: ResultMap
@@ -1475,6 +1482,7 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("pageInfo", type: .nonNull(.object(PageInfo.selections))),
           GraphQLField("edges", type: .list(.object(Edge.selections))),
         ]
 
@@ -1484,8 +1492,8 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(edges: [Edge?]? = nil) {
-          self.init(unsafeResultMap: ["__typename": "ActivityConnection", "edges": edges.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }])
+        public init(pageInfo: PageInfo, edges: [Edge?]? = nil) {
+          self.init(unsafeResultMap: ["__typename": "ActivityConnection", "pageInfo": pageInfo.resultMap, "edges": edges.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }])
         }
 
         public var __typename: String {
@@ -1497,6 +1505,16 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
           }
         }
 
+        /// Information to aid in pagination.
+        public var pageInfo: PageInfo {
+          get {
+            return PageInfo(unsafeResultMap: resultMap["pageInfo"]! as! ResultMap)
+          }
+          set {
+            resultMap.updateValue(newValue.resultMap, forKey: "pageInfo")
+          }
+        }
+
         /// A list of edges.
         public var edges: [Edge?]? {
           get {
@@ -1504,6 +1522,60 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }, forKey: "edges")
+          }
+        }
+
+        public struct PageInfo: GraphQLSelectionSet {
+          public static let possibleTypes = ["PageInfo"]
+
+          public static let selections: [GraphQLSelection] = [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLFragmentSpread(PageInfoFrag.self),
+          ]
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(endCursor: String? = nil, hasNextPage: Bool, hasPreviousPage: Bool, startCursor: String? = nil) {
+            self.init(unsafeResultMap: ["__typename": "PageInfo", "endCursor": endCursor, "hasNextPage": hasNextPage, "hasPreviousPage": hasPreviousPage, "startCursor": startCursor])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var fragments: Fragments {
+            get {
+              return Fragments(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+
+          public struct Fragments {
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public var pageInfoFrag: PageInfoFrag {
+              get {
+                return PageInfoFrag(unsafeResultMap: resultMap)
+              }
+              set {
+                resultMap += newValue.resultMap
+              }
+            }
           }
         }
 
@@ -3275,6 +3347,80 @@ public struct MinimumEpisode: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "sortNumber")
+    }
+  }
+}
+
+public struct PageInfoFrag: GraphQLFragment {
+  public static let fragmentDefinition =
+    "fragment PageInfoFrag on PageInfo {\n  __typename\n  endCursor\n  hasNextPage\n  hasPreviousPage\n  startCursor\n}"
+
+  public static let possibleTypes = ["PageInfo"]
+
+  public static let selections: [GraphQLSelection] = [
+    GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+    GraphQLField("endCursor", type: .scalar(String.self)),
+    GraphQLField("hasNextPage", type: .nonNull(.scalar(Bool.self))),
+    GraphQLField("hasPreviousPage", type: .nonNull(.scalar(Bool.self))),
+    GraphQLField("startCursor", type: .scalar(String.self)),
+  ]
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(endCursor: String? = nil, hasNextPage: Bool, hasPreviousPage: Bool, startCursor: String? = nil) {
+    self.init(unsafeResultMap: ["__typename": "PageInfo", "endCursor": endCursor, "hasNextPage": hasNextPage, "hasPreviousPage": hasPreviousPage, "startCursor": startCursor])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  /// When paginating forwards, the cursor to continue.
+  public var endCursor: String? {
+    get {
+      return resultMap["endCursor"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "endCursor")
+    }
+  }
+
+  /// When paginating forwards, are there more items?
+  public var hasNextPage: Bool {
+    get {
+      return resultMap["hasNextPage"]! as! Bool
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "hasNextPage")
+    }
+  }
+
+  /// When paginating backwards, are there more items?
+  public var hasPreviousPage: Bool {
+    get {
+      return resultMap["hasPreviousPage"]! as! Bool
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "hasPreviousPage")
+    }
+  }
+
+  /// When paginating backwards, the cursor to continue.
+  public var startCursor: String? {
+    get {
+      return resultMap["startCursor"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "startCursor")
     }
   }
 }

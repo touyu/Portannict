@@ -27,3 +27,10 @@ fragment MinimumEpisode on Episode {
     numberText
     sortNumber
 }
+
+fragment PageInfoFrag on PageInfo {
+    endCursor
+    hasNextPage
+    hasPreviousPage
+    startCursor
+}

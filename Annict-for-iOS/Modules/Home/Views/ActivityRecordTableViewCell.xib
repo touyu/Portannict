@@ -36,16 +36,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVP-YS-euD">
-                        <rect key="frame" x="68" y="41" width="468" height="165.5"/>
+                        <rect key="frame" x="68" y="41" width="468" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ki-Kv-KUi" customClass="WorkAndEpisodeQuoteView" customModule="Annict_for_iOS" customModuleProvider="target">
-                        <rect key="frame" x="68" y="218.5" width="468" height="60"/>
+                        <rect key="frame" x="68" y="70" width="468" height="60"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="60" id="ccY-CI-O3Z"/>
+                            <constraint firstAttribute="height" constant="60" id="272-iO-aK8"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -59,7 +59,7 @@
                     <constraint firstItem="8ki-Kv-KUi" firstAttribute="leading" secondItem="PVP-YS-euD" secondAttribute="leading" id="eR5-9v-d6q"/>
                     <constraint firstAttribute="trailing" secondItem="8ki-Kv-KUi" secondAttribute="trailing" constant="16" id="h9k-Hn-D2e"/>
                     <constraint firstItem="d4a-bY-eGU" firstAttribute="top" secondItem="BOk-VY-4Fe" secondAttribute="top" id="r7v-te-eHS"/>
-                    <constraint firstAttribute="bottom" secondItem="8ki-Kv-KUi" secondAttribute="bottom" constant="16" id="wY3-L9-r2F"/>
+                    <constraint firstAttribute="bottom" secondItem="8ki-Kv-KUi" secondAttribute="bottom" priority="250" constant="16" id="wY3-L9-r2F"/>
                     <constraint firstItem="PVP-YS-euD" firstAttribute="leading" secondItem="d4a-bY-eGU" secondAttribute="leading" id="xax-PL-wMV"/>
                 </constraints>
             </tableViewCellContentView>
@@ -70,7 +70,7 @@
                 <outlet property="nameLabel" destination="d4a-bY-eGU" id="6VL-n2-udN"/>
                 <outlet property="workAndEpisodeQuoteView" destination="8ki-Kv-KUi" id="Dgc-us-Qys"/>
             </connections>
-            <point key="canvasLocation" x="323.19999999999999" y="266.71664167916043"/>
+            <point key="canvasLocation" x="322" y="268"/>
         </tableViewCell>
     </objects>
 </document>

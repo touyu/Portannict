@@ -14,14 +14,20 @@ final class HomeViewReactor: Reactor {
 
     enum Action {
         case fetchActivities
+        case loadMore
     }
 
     enum Mutation {
         case setActivities([Activity])
+        case appendActivities([Activity])
+        case setPageInfo(PageInfoFrag)
+        case setLoading(Bool)
     }
 
     struct State {
         var activities: [Activity] = []
+        var pageInfo: PageInfoFrag?
+        var isLoading: Bool = false
     }
     
     let initialState: HomeViewReactor.State
@@ -35,7 +41,21 @@ final class HomeViewReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .fetchActivities:
-            return fetchActivities().map { Mutation.setActivities($0) }
+            let startLoading = Observable<Mutation>.just(.setLoading(true))
+            let fetchActivitiesEvent = fetchActivities().share()
+            let setActivitiesEvent = fetchActivitiesEvent.map { Mutation.setActivities($0.values) }
+            let setPageInfoEvent = fetchActivitiesEvent.map { Mutation.setPageInfo($0.pageInfo.fragments.pageInfoFrag) }
+            let endLoading = Observable<Mutation>.just(.setLoading(false))
+            return .concat(startLoading, setActivitiesEvent, setPageInfoEvent, endLoading)
+        case .loadMore:
+            guard !currentState.isLoading else { return .empty() }
+            guard let pageInfo = currentState.pageInfo, pageInfo.hasNextPage else { return .empty() }
+            let startLoading = Observable<Mutation>.just(.setLoading(true))
+            let fetchActivitiesEvent = fetchActivities(after: currentState.pageInfo?.endCursor).share()
+            let appendActivitiesEvent = fetchActivitiesEvent.map { Mutation.appendActivities($0.values) }
+            let setPageInfoEvent = fetchActivitiesEvent.map { Mutation.setPageInfo($0.pageInfo.fragments.pageInfoFrag) }
+            let endLoading = Observable<Mutation>.just(.setLoading(false))
+            return .concat(startLoading, appendActivitiesEvent, setPageInfoEvent, endLoading)
         }
     }
 
@@ -44,16 +64,20 @@ final class HomeViewReactor: Reactor {
         switch mutation {
         case .setActivities(let activities):
             state.activities = activities
+        case .appendActivities(let activities):
+            state.activities += activities
+        case .setPageInfo(let pageInfo):
+            state.pageInfo = pageInfo
+        case .setLoading(let isLoading):
+            state.isLoading = isLoading
         }
         return state
     }
 
-    private func fetchActivities() -> Observable<[Activity]> {
-        return provider.apiService.fetchFollowingActivities()
-            .asObservable()
-            .map { $0.viewer?.followingActivities?.values }
+    private func fetchActivities(after: String? = nil) -> Observable<GetFollowingActivitiesQuery.Data.Viewer.FollowingActivity> {
+        return provider.apiService.fetchFollowingActivities(after: after)
+            .map { $0.viewer?.followingActivities }
             .filterNil()
-            .flatMapMany { Observable.just($0) }
     }
 }
 
