@@ -1401,7 +1401,7 @@ public final class SearchWorksByTitleQuery: GraphQLQuery {
 
 public final class GetFollowingActivitiesQuery: GraphQLQuery {
   public let operationDefinition =
-    "query GetFollowingActivities {\n  viewer {\n    __typename\n    followingActivities(first: 30, orderBy: {field: CREATED_AT, direction: DESC}) {\n      __typename\n      edges {\n        __typename\n        annictId\n        node {\n          __typename\n          ... on Status {\n            createdAt\n            annictId\n            id\n            state\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on Record {\n            createdAt\n            annictId\n            id\n            comment\n            episode {\n              __typename\n              ...MinimumEpisode\n            }\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on Review {\n            createdAt\n            annictId\n            id\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on MultipleRecord {\n            createdAt\n            annictId\n            id\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+    "query GetFollowingActivities {\n  viewer {\n    __typename\n    followingActivities(first: 30, orderBy: {field: CREATED_AT, direction: DESC}) {\n      __typename\n      edges {\n        __typename\n        annictId\n        node {\n          __typename\n          ... on Status {\n            createdAt\n            annictId\n            id\n            state\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on Record {\n            createdAt\n            annictId\n            id\n            comment\n            episode {\n              __typename\n              ...MinimumEpisode\n            }\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on Review {\n            createdAt\n            annictId\n            id\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on MultipleRecord {\n            createdAt\n            annictId\n            id\n            records(first: 30) {\n              __typename\n              nodes {\n                __typename\n                episode {\n                  __typename\n                  ...MinimumEpisode\n                }\n              }\n            }\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n        }\n      }\n    }\n  }\n}"
 
   public var queryDocument: String { return operationDefinition.appending(MinimumWork.fragmentDefinition).appending(MinimumUser.fragmentDefinition).appending(MinimumEpisode.fragmentDefinition) }
 
@@ -1583,8 +1583,8 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
               return Node(unsafeResultMap: ["__typename": "Review", "createdAt": createdAt, "annictId": annictId, "id": id, "work": work.resultMap, "user": user.resultMap])
             }
 
-            public static func makeMultipleRecord(createdAt: String, annictId: Int, id: GraphQLID, work: AsMultipleRecord.Work, user: AsMultipleRecord.User) -> Node {
-              return Node(unsafeResultMap: ["__typename": "MultipleRecord", "createdAt": createdAt, "annictId": annictId, "id": id, "work": work.resultMap, "user": user.resultMap])
+            public static func makeMultipleRecord(createdAt: String, annictId: Int, id: GraphQLID, records: AsMultipleRecord.Record? = nil, work: AsMultipleRecord.Work, user: AsMultipleRecord.User) -> Node {
+              return Node(unsafeResultMap: ["__typename": "MultipleRecord", "createdAt": createdAt, "annictId": annictId, "id": id, "records": records.flatMap { (value: AsMultipleRecord.Record) -> ResultMap in value.resultMap }, "work": work.resultMap, "user": user.resultMap])
             }
 
             public var __typename: String {
@@ -1919,8 +1919,8 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                   self.resultMap = unsafeResultMap
                 }
 
-                public init(annictId: Int, title: String? = nil, numberText: String? = nil) {
-                  self.init(unsafeResultMap: ["__typename": "Episode", "annictId": annictId, "title": title, "numberText": numberText])
+                public init(annictId: Int, title: String? = nil, numberText: String? = nil, sortNumber: Int) {
+                  self.init(unsafeResultMap: ["__typename": "Episode", "annictId": annictId, "title": title, "numberText": numberText, "sortNumber": sortNumber])
                 }
 
                 public var __typename: String {
@@ -2275,6 +2275,7 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                 GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
                 GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
                 GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+                GraphQLField("records", arguments: ["first": 30], type: .object(Record.selections)),
                 GraphQLField("work", type: .nonNull(.object(Work.selections))),
                 GraphQLField("user", type: .nonNull(.object(User.selections))),
               ]
@@ -2285,8 +2286,8 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                 self.resultMap = unsafeResultMap
               }
 
-              public init(createdAt: String, annictId: Int, id: GraphQLID, work: Work, user: User) {
-                self.init(unsafeResultMap: ["__typename": "MultipleRecord", "createdAt": createdAt, "annictId": annictId, "id": id, "work": work.resultMap, "user": user.resultMap])
+              public init(createdAt: String, annictId: Int, id: GraphQLID, records: Record? = nil, work: Work, user: User) {
+                self.init(unsafeResultMap: ["__typename": "MultipleRecord", "createdAt": createdAt, "annictId": annictId, "id": id, "records": records.flatMap { (value: Record) -> ResultMap in value.resultMap }, "work": work.resultMap, "user": user.resultMap])
               }
 
               public var __typename: String {
@@ -2325,6 +2326,15 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                 }
               }
 
+              public var records: Record? {
+                get {
+                  return (resultMap["records"] as? ResultMap).flatMap { Record(unsafeResultMap: $0) }
+                }
+                set {
+                  resultMap.updateValue(newValue?.resultMap, forKey: "records")
+                }
+              }
+
               public var work: Work {
                 get {
                   return Work(unsafeResultMap: resultMap["work"]! as! ResultMap)
@@ -2340,6 +2350,135 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                 }
                 set {
                   resultMap.updateValue(newValue.resultMap, forKey: "user")
+                }
+              }
+
+              public struct Record: GraphQLSelectionSet {
+                public static let possibleTypes = ["RecordConnection"]
+
+                public static let selections: [GraphQLSelection] = [
+                  GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                  GraphQLField("nodes", type: .list(.object(Node.selections))),
+                ]
+
+                public private(set) var resultMap: ResultMap
+
+                public init(unsafeResultMap: ResultMap) {
+                  self.resultMap = unsafeResultMap
+                }
+
+                public init(nodes: [Node?]? = nil) {
+                  self.init(unsafeResultMap: ["__typename": "RecordConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+                }
+
+                public var __typename: String {
+                  get {
+                    return resultMap["__typename"]! as! String
+                  }
+                  set {
+                    resultMap.updateValue(newValue, forKey: "__typename")
+                  }
+                }
+
+                /// A list of nodes.
+                public var nodes: [Node?]? {
+                  get {
+                    return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
+                  }
+                  set {
+                    resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+                  }
+                }
+
+                public struct Node: GraphQLSelectionSet {
+                  public static let possibleTypes = ["Record"]
+
+                  public static let selections: [GraphQLSelection] = [
+                    GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                    GraphQLField("episode", type: .nonNull(.object(Episode.selections))),
+                  ]
+
+                  public private(set) var resultMap: ResultMap
+
+                  public init(unsafeResultMap: ResultMap) {
+                    self.resultMap = unsafeResultMap
+                  }
+
+                  public init(episode: Episode) {
+                    self.init(unsafeResultMap: ["__typename": "Record", "episode": episode.resultMap])
+                  }
+
+                  public var __typename: String {
+                    get {
+                      return resultMap["__typename"]! as! String
+                    }
+                    set {
+                      resultMap.updateValue(newValue, forKey: "__typename")
+                    }
+                  }
+
+                  public var episode: Episode {
+                    get {
+                      return Episode(unsafeResultMap: resultMap["episode"]! as! ResultMap)
+                    }
+                    set {
+                      resultMap.updateValue(newValue.resultMap, forKey: "episode")
+                    }
+                  }
+
+                  public struct Episode: GraphQLSelectionSet {
+                    public static let possibleTypes = ["Episode"]
+
+                    public static let selections: [GraphQLSelection] = [
+                      GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                      GraphQLFragmentSpread(MinimumEpisode.self),
+                    ]
+
+                    public private(set) var resultMap: ResultMap
+
+                    public init(unsafeResultMap: ResultMap) {
+                      self.resultMap = unsafeResultMap
+                    }
+
+                    public init(annictId: Int, title: String? = nil, numberText: String? = nil, sortNumber: Int) {
+                      self.init(unsafeResultMap: ["__typename": "Episode", "annictId": annictId, "title": title, "numberText": numberText, "sortNumber": sortNumber])
+                    }
+
+                    public var __typename: String {
+                      get {
+                        return resultMap["__typename"]! as! String
+                      }
+                      set {
+                        resultMap.updateValue(newValue, forKey: "__typename")
+                      }
+                    }
+
+                    public var fragments: Fragments {
+                      get {
+                        return Fragments(unsafeResultMap: resultMap)
+                      }
+                      set {
+                        resultMap += newValue.resultMap
+                      }
+                    }
+
+                    public struct Fragments {
+                      public private(set) var resultMap: ResultMap
+
+                      public init(unsafeResultMap: ResultMap) {
+                        self.resultMap = unsafeResultMap
+                      }
+
+                      public var minimumEpisode: MinimumEpisode {
+                        get {
+                          return MinimumEpisode(unsafeResultMap: resultMap)
+                        }
+                        set {
+                          resultMap += newValue.resultMap
+                        }
+                      }
+                    }
+                  }
                 }
               }
 
@@ -3072,7 +3211,7 @@ public struct MinimumUser: GraphQLFragment {
 
 public struct MinimumEpisode: GraphQLFragment {
   public static let fragmentDefinition =
-    "fragment MinimumEpisode on Episode {\n  __typename\n  annictId\n  title\n  numberText\n}"
+    "fragment MinimumEpisode on Episode {\n  __typename\n  annictId\n  title\n  numberText\n  sortNumber\n}"
 
   public static let possibleTypes = ["Episode"]
 
@@ -3081,6 +3220,7 @@ public struct MinimumEpisode: GraphQLFragment {
     GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
     GraphQLField("title", type: .scalar(String.self)),
     GraphQLField("numberText", type: .scalar(String.self)),
+    GraphQLField("sortNumber", type: .nonNull(.scalar(Int.self))),
   ]
 
   public private(set) var resultMap: ResultMap
@@ -3089,8 +3229,8 @@ public struct MinimumEpisode: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(annictId: Int, title: String? = nil, numberText: String? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Episode", "annictId": annictId, "title": title, "numberText": numberText])
+  public init(annictId: Int, title: String? = nil, numberText: String? = nil, sortNumber: Int) {
+    self.init(unsafeResultMap: ["__typename": "Episode", "annictId": annictId, "title": title, "numberText": numberText, "sortNumber": sortNumber])
   }
 
   public var __typename: String {
@@ -3126,6 +3266,15 @@ public struct MinimumEpisode: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "numberText")
+    }
+  }
+
+  public var sortNumber: Int {
+    get {
+      return resultMap["sortNumber"]! as! Int
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "sortNumber")
     }
   }
 }

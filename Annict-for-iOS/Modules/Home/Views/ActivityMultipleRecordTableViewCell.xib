@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="295" id="xFv-Vh-x9B" customClass="ActivityMultipleRecordTableViewCell" customModule="Annict_for_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="624" height="295"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xFv-Vh-x9B" id="Pce-EN-Zz9">
+                <rect key="frame" x="0.0" y="0.0" width="624" height="294.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d8l-qO-3ee">
+                        <rect key="frame" x="16" y="16" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="SlV-ZV-zkp"/>
+                            <constraint firstAttribute="height" constant="40" id="qxr-Ys-zf0"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rw7-bK-Bxr">
+                        <rect key="frame" x="68" y="16" width="40" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="b8g-Ql-Bcn"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                        <color key="textColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gA-Uj-Ene">
+                        <rect key="frame" x="68" y="41" width="540" height="165.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygg-bv-vte" customClass="WorkQuoteView" customModule="Annict_for_iOS" customModuleProvider="target">
+                        <rect key="frame" x="68" y="218.5" width="540" height="60"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="d02-fk-z0u"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="ygg-bv-vte" secondAttribute="bottom" constant="16" id="4yH-f2-IUa"/>
+                    <constraint firstItem="d8l-qO-3ee" firstAttribute="top" secondItem="Pce-EN-Zz9" secondAttribute="top" constant="16" id="9ns-C3-a1I"/>
+                    <constraint firstItem="6gA-Uj-Ene" firstAttribute="leading" secondItem="Rw7-bK-Bxr" secondAttribute="leading" id="AYU-c2-M6Q"/>
+                    <constraint firstItem="Rw7-bK-Bxr" firstAttribute="top" secondItem="d8l-qO-3ee" secondAttribute="top" id="C8L-Tp-jNR"/>
+                    <constraint firstItem="Rw7-bK-Bxr" firstAttribute="leading" secondItem="d8l-qO-3ee" secondAttribute="trailing" constant="12" id="Lo9-X4-cxJ"/>
+                    <constraint firstAttribute="trailing" secondItem="6gA-Uj-Ene" secondAttribute="trailing" constant="16" id="Ova-pO-3WJ"/>
+                    <constraint firstItem="d8l-qO-3ee" firstAttribute="leading" secondItem="Pce-EN-Zz9" secondAttribute="leading" constant="16" id="Vuc-BK-gjf"/>
+                    <constraint firstItem="6gA-Uj-Ene" firstAttribute="top" secondItem="Rw7-bK-Bxr" secondAttribute="bottom" constant="8" id="hDs-hq-H3k"/>
+                    <constraint firstAttribute="trailing" secondItem="ygg-bv-vte" secondAttribute="trailing" constant="16" id="pTE-Ei-0GA"/>
+                    <constraint firstItem="ygg-bv-vte" firstAttribute="leading" secondItem="6gA-Uj-Ene" secondAttribute="leading" id="qyV-OP-ea3"/>
+                    <constraint firstItem="ygg-bv-vte" firstAttribute="top" secondItem="6gA-Uj-Ene" secondAttribute="bottom" constant="12" id="vmB-yr-GyY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="7uE-XE-n7a"/>
+            <connections>
+                <outlet property="avatarImageView" destination="d8l-qO-3ee" id="alg-go-Edf"/>
+                <outlet property="messageLabel" destination="6gA-Uj-Ene" id="PWI-9F-WaY"/>
+                <outlet property="nameLabel" destination="Rw7-bK-Bxr" id="1Zc-qP-vaa"/>
+                <outlet property="workQuoteView" destination="ygg-bv-vte" id="cfO-sX-fE9"/>
+            </connections>
+            <point key="canvasLocation" x="380.80000000000001" y="266.71664167916043"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -46,6 +46,13 @@ query GetFollowingActivities {
             createdAt
             annictId
             id
+            records(first: 30) {
+              nodes {
+                episode {
+                  ...MinimumEpisode
+                }
+              }
+            }
             work {
               ...MinimumWork
             }

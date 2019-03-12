@@ -25,4 +25,5 @@ fragment MinimumEpisode on Episode {
     annictId
     title
     numberText
+    sortNumber
 }

@@ -21,7 +21,8 @@ final class HomeViewController: UIViewController, StoryboardView {
         super.viewDidLoad()
 
         tableView.register(ActivityRecordTableViewCell.self,
-                           ActivityStatusTableViewCell.self)
+                           ActivityStatusTableViewCell.self,
+                           ActivityMultipleRecordTableViewCell.self)
         tableView.tableFooterView = UIView()
     }
 
@@ -33,6 +34,9 @@ final class HomeViewController: UIViewController, StoryboardView {
             .disposed(by: disposeBag)
 
         tableView.rx.setDataSource(self)
+            .disposed(by: disposeBag)
+
+        tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
 
         reactor.state.map { $0.activities }
@@ -64,9 +68,17 @@ extension HomeViewController: UITableViewDataSource {
         case .review(let item):
             return .init()
         case .multipleRecord(let item):
-            return .init()
+            let cell = tableView.dequeueReusableCell(classType: ActivityMultipleRecordTableViewCell.self, for: indexPath)
+            cell.configure(activityItem: item)
+            return cell
         case .unknown:
             return .init()
         }
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

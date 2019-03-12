@@ -22,6 +22,8 @@
 		D11D57F72237D9B9000D3CC0 /* RootTabBarReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D57F62237D9B9000D3CC0 /* RootTabBarReactor.swift */; };
 		D11D57F92237DE1A000D3CC0 /* WorkQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D57F82237DE1A000D3CC0 /* WorkQuoteView.swift */; };
 		D11D57FB2237DE2D000D3CC0 /* WorkQuoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D11D57FA2237DE2D000D3CC0 /* WorkQuoteView.xib */; };
+		D11D57FE2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D57FC2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.swift */; };
+		D11D57FF2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D11D57FD2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.xib */; };
 		D123F254217CBD2500AE38FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D123F253217CBD2500AE38FD /* AppDelegate.swift */; };
 		D123F25B217CBD2600AE38FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D123F25A217CBD2600AE38FD /* Assets.xcassets */; };
 		D123F25E217CBD2600AE38FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D123F25C217CBD2600AE38FD /* LaunchScreen.storyboard */; };
@@ -152,6 +154,8 @@
 		D11D57F62237D9B9000D3CC0 /* RootTabBarReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarReactor.swift; sourceTree = "<group>"; };
 		D11D57F82237DE1A000D3CC0 /* WorkQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkQuoteView.swift; sourceTree = "<group>"; };
 		D11D57FA2237DE2D000D3CC0 /* WorkQuoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkQuoteView.xib; sourceTree = "<group>"; };
+		D11D57FC2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMultipleRecordTableViewCell.swift; sourceTree = "<group>"; };
+		D11D57FD2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityMultipleRecordTableViewCell.xib; sourceTree = "<group>"; };
 		D123F250217CBD2500AE38FD /* Annict-for-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Annict-for-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D123F253217CBD2500AE38FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D123F25A217CBD2600AE38FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -297,6 +301,8 @@
 				D11D57E82237BC3B000D3CC0 /* ActivityRecordTableViewCell.xib */,
 				D11D57EB2237C1DA000D3CC0 /* ActivityStatusTableViewCell.swift */,
 				D11D57EC2237C1DA000D3CC0 /* ActivityStatusTableViewCell.xib */,
+				D11D57FC2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.swift */,
+				D11D57FD2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.xib */,
 				D11D57EF2237C5F3000D3CC0 /* WorkAndEpisodeQuoteView.swift */,
 				D11D57F12237C663000D3CC0 /* WorkAndEpisodeQuoteView.xib */,
 				D11D57F82237DE1A000D3CC0 /* WorkQuoteView.swift */,
@@ -796,6 +802,7 @@
 				D1FFB58521AECF04001099E6 /* RecordEpisodeTableViewCell.xib in Resources */,
 				D16308FB21F0DA6F00EE3009 /* SeasonWorksCollectionViewCell.xib in Resources */,
 				D1621E0A2186BB9300819D93 /* GetViewerWatchingEpisodes.graphql in Resources */,
+				D11D57FF2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.xib in Resources */,
 				D1AF34BC219B3CBF004DD229 /* GetViewerInfo.graphql in Resources */,
 				D1F9144B21AA7FD2006986A1 /* UserWorkCollectionViewCell.xib in Resources */,
 				D1F9144121AA7B4F006986A1 /* UserWorksWithSectionTitleCell.xib in Resources */,
@@ -1004,6 +1011,7 @@
 				D1AF34C1219B4042004DD229 /* UserInfoTableViewCell.swift in Sources */,
 				D1621E0121862BA600819D93 /* PostRecordViewController.swift in Sources */,
 				D11D57F02237C5F3000D3CC0 /* WorkAndEpisodeQuoteView.swift in Sources */,
+				D11D57FE2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.swift in Sources */,
 				D165C9B921B0E306002E8FFA /* SearchViewReactor.swift in Sources */,
 				D136EA7121807E9500BA08EA /* APIService.swift in Sources */,
 				D19718CF217E2ED3009B5F0F /* ObservableType.swift in Sources */,
