@@ -21,6 +21,7 @@
 		D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */; };
 		D136EA7121807E9500BA08EA /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA7021807E9500BA08EA /* APIService.swift */; };
 		D136EA742180885400BA08EA /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA732180885400BA08EA /* UserDefaultsService.swift */; };
+		D13F2EBA222E2B0700509FB2 /* GetFollowingActivities.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D13F2EB9222E2B0700509FB2 /* GetFollowingActivities.graphql */; };
 		D1621DE92186214900819D93 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621DE82186214900819D93 /* RootTabBarController.swift */; };
 		D1621DEB2186218200819D93 /* RootTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1621DEA2186218200819D93 /* RootTabBarController.storyboard */; };
 		D1621DF02186262300819D93 /* RecordViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621DED2186262300819D93 /* RecordViewReactor.swift */; };
@@ -142,6 +143,7 @@
 		D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
 		D136EA7021807E9500BA08EA /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		D136EA732180885400BA08EA /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
+		D13F2EB9222E2B0700509FB2 /* GetFollowingActivities.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetFollowingActivities.graphql; sourceTree = "<group>"; };
 		D1621DE82186214900819D93 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		D1621DEA2186218200819D93 /* RootTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RootTabBarController.storyboard; sourceTree = "<group>"; };
 		D1621DED2186262300819D93 /* RecordViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewReactor.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				D1AF34BB219B3CBF004DD229 /* GetViewerInfo.graphql */,
 				D165C9BA21B0E596002E8FFA /* SearchWorks.graphql */,
 				D165C9BE21B15B36002E8FFA /* SearchWorksByTitle.graphql */,
+				D13F2EB9222E2B0700509FB2 /* GetFollowingActivities.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -761,6 +764,7 @@
 				D165C9BB21B0E596002E8FFA /* SearchWorks.graphql in Resources */,
 				D1AF34BA219B0921004DD229 /* GetViewerWorks.graphql in Resources */,
 				D1621DF82186273200819D93 /* ProfileViewController.storyboard in Resources */,
+				D13F2EBA222E2B0700509FB2 /* GetFollowingActivities.graphql in Resources */,
 				D123F25B217CBD2600AE38FD /* Assets.xcassets in Resources */,
 				D1B4F16C217EB8580011BAFF /* LoginViewController.storyboard in Resources */,
 				D1B4F163217EB38D0011BAFF /* RootViewController.storyboard in Resources */,

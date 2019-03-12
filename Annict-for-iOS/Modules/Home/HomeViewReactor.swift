@@ -9,12 +9,6 @@
 import ReactorKit
 
 final class HomeViewReactor: Reactor {
-    var initialState: HomeViewReactor.State
-
-    init() {
-        initialState = State()
-    }
-
     enum Action {
 
     }
@@ -25,5 +19,11 @@ final class HomeViewReactor: Reactor {
 
     struct State {
 
+    }
+    
+    var initialState: HomeViewReactor.State
+    
+    init() {
+        initialState = State()
     }
 }

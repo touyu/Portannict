@@ -1,0 +1,59 @@
+query GetFollowingActivities() {
+  viewer {
+    followingActivities(first: 30, orderBy:{field:CREATED_AT, direction:DESC}) {
+      edges {
+        annictId
+        node {
+          ... on Status {
+            createdAt
+            annictId
+            id
+            work {
+              ...MinimumWork
+            }
+            user {
+              name
+              username
+            }
+          }
+          ... on Record {
+            createdAt
+            annictId
+            id
+            work {
+              ...MinimumWork
+            }
+            user {
+              name
+              username
+            }
+          }
+          ... on Review {
+            createdAt
+            annictId
+            id
+            work {
+              ...MinimumWork
+            }
+            user {
+              name
+              username
+            }
+          }
+          ... on MultipleRecord {
+            createdAt
+            annictId
+            id
+            work {
+              ...MinimumWork
+            }
+            user {
+              name
+              username
+            }
+          }
+        }
+      }
+    }
+  }
+}
