@@ -30,7 +30,7 @@ final class RootViewController: UIViewController, StoryboardView {
         
         reactor.state.map { $0.loginState }
             .filter { $0 == .login }
-            .map { _ in reactor.reactorForHome() }
+            .map { _ in reactor.reactorForRoot() }
             .subscribe(onNext: showHomeVC)
             .disposed(by: disposeBag)
         
@@ -67,7 +67,7 @@ final class RootViewController: UIViewController, StoryboardView {
         currentViewController = LoginViewController.loadStoryboard(reactor: reactor)
     }
     
-    private func showHomeVC() {
-        currentViewController = RootTabBarController.loadStoryboard()
+    private func showHomeVC(reactor: RootTabBarReactor) {
+        currentViewController = RootTabBarController.loadStoryboard(reactor: reactor)
     }
 }

@@ -1,0 +1,28 @@
+
+fragment MinimumWork on Work {
+    annictId
+    title
+    episodesCount
+    watchersCount
+    reviewsCount
+    seasonName
+    seasonYear
+    image {
+        recommendedImageUrl
+        twitterAvatarUrl
+    }
+}
+
+fragment MinimumUser on User {
+    annictId
+    name
+    username
+    avatarUrl
+}
+
+
+fragment MinimumEpisode on Episode {
+    annictId
+    title
+    numberText
+}

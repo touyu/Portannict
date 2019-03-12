@@ -61,7 +61,7 @@ final class RootViewReactor: Reactor {
         return LoginViewReactor(provider: provider)
     }
     
-    func reactorForHome() -> HomeViewReactor {
-        return HomeViewReactor()
+    func reactorForRoot() -> RootTabBarReactor {
+        return RootTabBarReactor(provider: provider)
     }
 }

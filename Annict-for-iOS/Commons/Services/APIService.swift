@@ -7,14 +7,24 @@
 //
 
 import RxSwift
+import Apollo
 
 protocol APIServiceType {
+    var client: ApolloClient { get }
     func getOauthToken(code: String) -> Single<OauthTokenRequest.Response>
+    func fetchFollowingActivities() -> Observable<GetFollowingActivitiesQuery.Data>
 }
 
 final class APIService: BaseService, APIServiceType {
+    let client = AnnictGraphQL.client
+
     func getOauthToken(code: String) -> Single<OauthTokenRequest.Response> {
         let request = OauthTokenRequest(code: code)
         return HTTPClient.send(request: request)
+    }
+
+    func fetchFollowingActivities() -> Observable<GetFollowingActivitiesQuery.Data> {
+        let query = GetFollowingActivitiesQuery()
+        return client.rx.fetch(query: query)
     }
 }

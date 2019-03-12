@@ -1,4 +1,4 @@
-query GetFollowingActivities() {
+query GetFollowingActivities {
   viewer {
     followingActivities(first: 30, orderBy:{field:CREATED_AT, direction:DESC}) {
       edges {
@@ -8,24 +8,27 @@ query GetFollowingActivities() {
             createdAt
             annictId
             id
+            state
             work {
               ...MinimumWork
             }
             user {
-              name
-              username
+              ...MinimumUser
             }
           }
           ... on Record {
             createdAt
             annictId
             id
+            comment
+            episode {
+              ...MinimumEpisode
+            }
             work {
               ...MinimumWork
             }
             user {
-              name
-              username
+              ...MinimumUser
             }
           }
           ... on Review {
@@ -36,8 +39,7 @@ query GetFollowingActivities() {
               ...MinimumWork
             }
             user {
-              name
-              username
+              ...MinimumUser
             }
           }
           ... on MultipleRecord {
@@ -48,8 +50,7 @@ query GetFollowingActivities() {
               ...MinimumWork
             }
             user {
-              name
-              username
+              ...MinimumUser
             }
           }
         }
