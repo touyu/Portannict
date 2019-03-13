@@ -9,6 +9,7 @@
 import UIKit
 
 final class WorkHeaderView: UIView, NibOwnerLoadable {
+    @IBOutlet weak var blurWorkImageView: UIImageView!
     @IBOutlet weak var workImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var watchersCountLabel: UILabel!
@@ -29,12 +30,15 @@ final class WorkHeaderView: UIView, NibOwnerLoadable {
         loadNib()
         statusButton.roundedRectangleFilter()
         statusButton.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .bold)
-        workImageView.apply(.workImage)
+        workImageView.layer.cornerRadius = 8
+        workImageView.layer.masksToBounds = true
         workImageView.hero.modifiers = [.spring(stiffness: 250, damping: 25),
                                         .duration(0.3)]
     }
     
     func configure(work: MinimumWork) {
+        blurWorkImageView.setImage(url: work.image?.url)
+        blurWorkImageView.bk.addBlur(blurRadius: 24, colorTint: .white, colorTintAlpha: 0.2)
         workImageView.setImage(url: work.image?.url)
         titleLabel.text = work.title
         watchersCountLabel.text = work.watchersCount.description

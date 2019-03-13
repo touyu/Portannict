@@ -58,6 +58,7 @@ final class WorkViewController: StatusBarAnimatableViewController, StoryboardVie
             .filterNil()
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] heroID in
+                self?.hero.isEnabled = true
                 self?.headerView.workImageView.hero.id = heroID
             })
             .disposed(by: disposeBag)

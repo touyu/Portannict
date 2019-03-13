@@ -26,11 +26,11 @@ final class HomeViewController: UIViewController, StoryboardView {
                            ActivityStatusTableViewCell.self,
                            ActivityMultipleRecordTableViewCell.self)
         tableView.tableFooterView = UIView()
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.mono.black]
-        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.mono.black]
-        navigationController?.navigationBar.transparent()
-        navigationController?.navigationBar.isTranslucent = false
-        extendedLayoutIncludesOpaqueBars = true
+//        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.mono.black]
+//        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.mono.black]
+//        navigationController?.navigationBar.transparent()
+//        navigationController?.navigationBar.isTranslucent = false
+//        extendedLayoutIncludesOpaqueBars = true
     }
 
     func bind(reactor: Reactor) {

@@ -19,13 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0MH-BQ-t7B">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0MH-BQ-t7B" firstAttribute="top" secondItem="l4S-xU-zJc" secondAttribute="top" id="EBY-Tn-IJh"/>
+                            <constraint firstItem="0MH-BQ-t7B" firstAttribute="top" secondItem="0eg-bL-ZUs" secondAttribute="top" id="EBY-Tn-IJh"/>
                             <constraint firstItem="0eg-bL-ZUs" firstAttribute="bottom" secondItem="0MH-BQ-t7B" secondAttribute="bottom" id="PSs-pg-mD9"/>
                             <constraint firstItem="0MH-BQ-t7B" firstAttribute="leading" secondItem="0eg-bL-ZUs" secondAttribute="leading" id="Vkd-6b-hbc"/>
                             <constraint firstItem="0eg-bL-ZUs" firstAttribute="trailing" secondItem="0MH-BQ-t7B" secondAttribute="trailing" id="exP-JU-Wy0"/>

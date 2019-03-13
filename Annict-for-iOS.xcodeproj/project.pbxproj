@@ -10,6 +10,8 @@
 		C917CDDC4A16A7899040361A /* Pods_Annict_for_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0567F169D06E4DEA7E47513F /* Pods_Annict_for_iOS.framework */; };
 		D1013CCC217E23F7001C269B /* test.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1013CCB217E23F7001C269B /* test.graphql */; };
 		D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */; };
+		D1199E492238FF3F00531BF3 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1199E472238FF3E00531BF3 /* BlurView.swift */; };
+		D1199E4A2238FF3F00531BF3 /* BlurKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1199E482238FF3E00531BF3 /* BlurKit.swift */; };
 		D11D57E12237B1B0000D3CC0 /* Fragment.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D11D57E02237B1B0000D3CC0 /* Fragment.graphql */; };
 		D11D57E52237B4E9000D3CC0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D57E42237B4E9000D3CC0 /* API.swift */; };
 		D11D57E92237BC3B000D3CC0 /* ActivityRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D57E72237BC3B000D3CC0 /* ActivityRecordTableViewCell.swift */; };
@@ -142,6 +144,8 @@
 		CC015B11081256C34FD80D74 /* Pods-Annict-for-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D1013CCB217E23F7001C269B /* test.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.graphql; sourceTree = "<group>"; };
 		D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
+		D1199E472238FF3E00531BF3 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		D1199E482238FF3E00531BF3 /* BlurKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurKit.swift; sourceTree = "<group>"; };
 		D11D57E02237B1B0000D3CC0 /* Fragment.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fragment.graphql; sourceTree = "<group>"; };
 		D11D57E42237B4E9000D3CC0 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = "Annict-for-iOS/API.swift"; sourceTree = SOURCE_ROOT; };
 		D11D57E72237BC3B000D3CC0 /* ActivityRecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRecordTableViewCell.swift; sourceTree = "<group>"; };
@@ -294,6 +298,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D1199E462238FF2E00531BF3 /* BlurKit */ = {
+			isa = PBXGroup;
+			children = (
+				D1199E482238FF3E00531BF3 /* BlurKit.swift */,
+				D1199E472238FF3E00531BF3 /* BlurView.swift */,
+			);
+			path = BlurKit;
+			sourceTree = "<group>";
+		};
 		D11D57E62237BBF8000D3CC0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,6 +532,7 @@
 		D1B4F15D217EB3080011BAFF /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				D1199E462238FF2E00531BF3 /* BlurKit */,
 				D136EA6F21807DD600BA08EA /* Services */,
 				D123F253217CBD2500AE38FD /* AppDelegate.swift */,
 				D1BCB8C5217F3E0900B84F82 /* API */,
@@ -975,6 +989,7 @@
 				D11D57E92237BC3B000D3CC0 /* ActivityRecordTableViewCell.swift in Sources */,
 				D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */,
 				D11D57F92237DE1A000D3CC0 /* WorkQuoteView.swift in Sources */,
+				D1199E492238FF3F00531BF3 /* BlurView.swift in Sources */,
 				D1FFB57B21AE8696001099E6 /* GraphQLSelectionSet.swift in Sources */,
 				D163090121F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.swift in Sources */,
 				D11D57E52237B4E9000D3CC0 /* API.swift in Sources */,
@@ -983,6 +998,7 @@
 				D1C53C1121EEFA0300DA9A1D /* ProfileHeaderView.swift in Sources */,
 				D1FFB59021AEF644001099E6 /* ActionClosurable.swift in Sources */,
 				D11D57ED2237C1DA000D3CC0 /* ActivityStatusTableViewCell.swift in Sources */,
+				D1199E4A2238FF3F00531BF3 /* BlurKit.swift in Sources */,
 				D1BCB8C9217F3E8300B84F82 /* OauthTokenRequest.swift in Sources */,
 				D1621E0321862C3B00819D93 /* SemiModalPresentationController.swift in Sources */,
 				D18447C621BD021D00CF44AB /* GradationView.swift in Sources */,
