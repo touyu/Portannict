@@ -13,7 +13,7 @@ final class ActivityMultipleRecordTableViewCell: UITableViewCell {
     @IBOutlet private weak var avatarImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var messageLabel: UILabel!
-    @IBOutlet private weak var workQuoteView: WorkQuoteView!
+    @IBOutlet private(set) weak var workQuoteView: WorkQuoteView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,13 +34,17 @@ final class ActivityMultipleRecordTableViewCell: UITableViewCell {
         workQuoteView.backgroundColor = .white
     }
 
-    func configure(activityItem: HomeViewReactor.Activity.AsMultipleRecord) {
+    func configure(activityItem: HomeViewReactor.Activity.AsMultipleRecord, heroID: String? = nil) {
         let user = activityItem.user.fragments.minimumUser
         avatarImageView.setImage(url: user.avatarUrl)
         nameLabel.text = user.name
         let work = activityItem.work.fragments.minimumWork
         workQuoteView.configure(work: work)
         prepareMessageLabel(activityItem: activityItem)
+        
+        if let heroID = heroID {
+            workQuoteView.hero.id = heroID
+        }
     }
 
     private func prepareMessageLabel(activityItem: HomeViewReactor.Activity.AsMultipleRecord) {

@@ -68,20 +68,21 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let reactor = reactor else { return .init() }
         let acitivity = reactor.currentState.activities[indexPath.row]
+        let heroID = "work_image_view\(indexPath.row)"
         switch acitivity.itemType {
         case .status(let item):
             let cell = tableView.dequeueReusableCell(classType: ActivityStatusTableViewCell.self, for: indexPath)
-            cell.configure(activityItem: item)
+            cell.configure(activityItem: item, heroID: heroID)
             return cell
         case .record(let item):
             let cell = tableView.dequeueReusableCell(classType: ActivityRecordTableViewCell.self, for: indexPath)
-            cell.configure(activityItem: item)
+            cell.configure(activityItem: item, heroID: heroID)
             return cell
         case .review(let item):
             return .init()
         case .multipleRecord(let item):
             let cell = tableView.dequeueReusableCell(classType: ActivityMultipleRecordTableViewCell.self, for: indexPath)
-            cell.configure(activityItem: item)
+            cell.configure(activityItem: item, heroID: heroID)
             return cell
         case .unknown:
             return .init()
@@ -92,9 +93,9 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+    
         guard let work = reactor!.currentState.activities[indexPath.item].work else { return }
-        WorkViewController.present(fromVC: self, reactor: .init(work: work, heroID: nil))
+        WorkViewController.present(fromVC: self, reactor: .init(work: work, heroID: "work_image_view\(indexPath.row)"))
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

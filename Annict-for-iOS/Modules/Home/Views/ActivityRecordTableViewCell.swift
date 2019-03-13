@@ -34,12 +34,16 @@ final class ActivityRecordTableViewCell: UITableViewCell {
         workAndEpisodeQuoteView.backgroundColor = .white
     }
 
-    func configure(activityItem: HomeViewReactor.Activity.AsRecord) {
+    func configure(activityItem: HomeViewReactor.Activity.AsRecord, heroID: String? = nil) {
         let user = activityItem.user.fragments.minimumUser
         avatarImageView.setImage(url: user.avatarUrl)
         nameLabel.text = user.name
         messageLabel.text = activityItem.comment
         workAndEpisodeQuoteView.configure(work: activityItem.work.fragments.minimumWork,
                                           episode: activityItem.episode.fragments.minimumEpisode)
+        
+        if let heroID = heroID {
+            workAndEpisodeQuoteView.hero.id = heroID
+        }
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 final class WorkQuoteView: UIView, NibOwnerLoadable {
-    @IBOutlet private weak var workImageView: UIImageView!
+    @IBOutlet private(set) weak var workImageView: UIImageView!
     @IBOutlet private weak var workTitleLabel: UILabel!
 
     override var intrinsicContentSize: CGSize {
@@ -33,6 +33,9 @@ final class WorkQuoteView: UIView, NibOwnerLoadable {
         layer.cornerRadius = 8
         layer.borderColor = UIColor(hex: 0xE2E2E2).cgColor
         layer.borderWidth = 0.5
+        
+        workImageView.layer.cornerRadius = 8
+        workImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
     }
 
     func configure(work: MinimumWork) {

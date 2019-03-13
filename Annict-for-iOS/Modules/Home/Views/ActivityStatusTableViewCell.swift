@@ -34,12 +34,16 @@ final class ActivityStatusTableViewCell: UITableViewCell {
         workQuoteView.backgroundColor = .white
     }
 
-    func configure(activityItem: HomeViewReactor.Activity.AsStatus) {
+    func configure(activityItem: HomeViewReactor.Activity.AsStatus, heroID: String?) {
         let user = activityItem.user.fragments.minimumUser
         avatarImageView.setImage(url: user.avatarUrl)
         nameLabel.text = user.name
         let work = activityItem.work.fragments.minimumWork
         workQuoteView.configure(work: work)
         messageLabel.text = "ステータスを「\(activityItem.state.localizedText)」に変更しました。"
+        
+        if let heroID = heroID {
+            workQuoteView.hero.id = heroID
+        }
     }
 }
