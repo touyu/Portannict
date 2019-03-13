@@ -20,12 +20,12 @@ final class WorkViewReactor: Reactor {
 
     struct State {
         var work: MinimumWork
-        var heroID: String
+        var heroID: String?
     }
     
     var initialState: State
     
-    init(work: MinimumWork, heroID: String) {
+    init(work: MinimumWork, heroID: String?) {
         initialState = State(work: work, heroID: heroID)
     }
     

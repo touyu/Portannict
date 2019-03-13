@@ -26,6 +26,11 @@ final class HomeViewController: UIViewController, StoryboardView {
                            ActivityStatusTableViewCell.self,
                            ActivityMultipleRecordTableViewCell.self)
         tableView.tableFooterView = UIView()
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.mono.black]
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.mono.black]
+        navigationController?.navigationBar.transparent()
+        navigationController?.navigationBar.isTranslucent = false
+        extendedLayoutIncludesOpaqueBars = true
     }
 
     func bind(reactor: Reactor) {
@@ -87,6 +92,9 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard let work = reactor!.currentState.activities[indexPath.item].work else { return }
+        WorkViewController.present(fromVC: self, reactor: .init(work: work, heroID: nil))
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

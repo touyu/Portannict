@@ -21,6 +21,18 @@ final class ActivityStatusTableViewCell: UITableViewCell {
         avatarImageView.layer.masksToBounds = true
         avatarImageView.layer.cornerRadius = 40 / 2
     }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        workQuoteView.backgroundColor = .white
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        
+        workQuoteView.backgroundColor = .white
+    }
 
     func configure(activityItem: HomeViewReactor.Activity.AsStatus) {
         let user = activityItem.user.fragments.minimumUser

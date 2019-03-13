@@ -52,4 +52,19 @@ extension HomeViewReactor.Activity {
 
         return .unknown
     }
+    
+    var work: MinimumWork? {
+        switch itemType {
+        case .status(let item):
+            return item.work.fragments.minimumWork
+        case .record(let item):
+            return item.work.fragments.minimumWork
+        case .review(let item):
+            return item.work.fragments.minimumWork
+        case .multipleRecord(let item):
+            return item.work.fragments.minimumWork
+        case .unknown:
+            return nil
+        }
+    }
 }

@@ -55,6 +55,7 @@ final class WorkViewController: StatusBarAnimatableViewController, StoryboardVie
             .disposed(by: disposeBag)
         
         reactor.state.map { $0.heroID }
+            .filterNil()
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] heroID in
                 self?.headerView.workImageView.hero.id = heroID
@@ -89,6 +90,13 @@ final class WorkViewController: StatusBarAnimatableViewController, StoryboardVie
                 Hero.shared.cancel()
             }
         }
+    }
+}
+
+extension WorkViewController {
+    static func present(fromVC: UIViewController, reactor: Reactor) {
+        let vc = WorkViewController.loadStoryboard(reactor: reactor)
+        fromVC.present(vc, animated: true, completion: nil)
     }
 }
 
