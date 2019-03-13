@@ -43,7 +43,7 @@ final class ActivityStatusTableViewCell: UITableViewCell {
         messageLabel.text = "ステータスを「\(activityItem.state.localizedText)」に変更しました。"
         
         if let heroID = heroID {
-            workQuoteView.hero.id = heroID
+            workQuoteView.workImageView.hero.id = heroID
         }
     }
 }

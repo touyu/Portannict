@@ -29,7 +29,13 @@ final class WorkViewController: StatusBarAnimatableViewController, StoryboardVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        animateStatusBar()
+        StatusBarManager.shared.hideStatusBar()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        StatusBarManager.shared.showStatusBar()
     }
 
     override func viewDidLoad() {
@@ -40,7 +46,7 @@ final class WorkViewController: StatusBarAnimatableViewController, StoryboardVie
         view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:))))
     }
     
-    func bind(reactor: Reactor) {
+    func bind(reactor: Reactor) {        
         closeButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 self?.dismiss(animated: true, completion: nil)
@@ -129,20 +135,51 @@ final class NacigatarBar: UIView {
 }
 
 class StatusBarAnimatableViewController: UIViewController {
-    var isStatusBarHidden: Bool = false
+    let statusBarManager = StatusBarManager.shared
     
     override var prefersStatusBarHidden: Bool {
-        return isStatusBarHidden
+        return statusBarManager.isStatusBarHidden
     }
     
     override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
         return .slide
     }
     
-    func animateStatusBar() {
-        isStatusBarHidden = true
+    func hideStatusBar() {
+        statusBarManager.isStatusBarHidden = true
         UIView.animate(withDuration: 0.35) { [weak self] in
             self?.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    
+    func showStatusBar() {
+        statusBarManager.isStatusBarHidden = false
+        UIView.animate(withDuration: 0.35) { [weak self] in
+            self?.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+}
+
+final class StatusBarManager {
+    static let shared = StatusBarManager()
+    private init() { }
+    
+    var isStatusBarHidden: Bool = false
+    
+    func hideStatusBar() {
+        isStatusBarHidden = true
+        updateStatusBar()
+    }
+    
+    func showStatusBar() {
+        isStatusBarHidden = false
+        updateStatusBar()
+    }
+    
+    private func updateStatusBar() {
+        UIView.animate(withDuration: 0.35) {
+            let topVC = UIApplication.topViewController()
+            topVC?.setNeedsStatusBarAppearanceUpdate()
         }
     }
 }

@@ -12,6 +12,8 @@
 		D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */; };
 		D1199E492238FF3F00531BF3 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1199E472238FF3E00531BF3 /* BlurView.swift */; };
 		D1199E4A2238FF3F00531BF3 /* BlurKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1199E482238FF3E00531BF3 /* BlurKit.swift */; };
+		D1199E4D22390FA200531BF3 /* HomeTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1199E4B22390FA200531BF3 /* HomeTitleTableViewCell.swift */; };
+		D1199E4E22390FA200531BF3 /* HomeTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1199E4C22390FA200531BF3 /* HomeTitleTableViewCell.xib */; };
 		D11D57E12237B1B0000D3CC0 /* Fragment.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D11D57E02237B1B0000D3CC0 /* Fragment.graphql */; };
 		D11D57E52237B4E9000D3CC0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D57E42237B4E9000D3CC0 /* API.swift */; };
 		D11D57E92237BC3B000D3CC0 /* ActivityRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D57E72237BC3B000D3CC0 /* ActivityRecordTableViewCell.swift */; };
@@ -146,6 +148,8 @@
 		D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		D1199E472238FF3E00531BF3 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		D1199E482238FF3E00531BF3 /* BlurKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurKit.swift; sourceTree = "<group>"; };
+		D1199E4B22390FA200531BF3 /* HomeTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTitleTableViewCell.swift; sourceTree = "<group>"; };
+		D1199E4C22390FA200531BF3 /* HomeTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTitleTableViewCell.xib; sourceTree = "<group>"; };
 		D11D57E02237B1B0000D3CC0 /* Fragment.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fragment.graphql; sourceTree = "<group>"; };
 		D11D57E42237B4E9000D3CC0 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = "Annict-for-iOS/API.swift"; sourceTree = SOURCE_ROOT; };
 		D11D57E72237BC3B000D3CC0 /* ActivityRecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRecordTableViewCell.swift; sourceTree = "<group>"; };
@@ -320,6 +324,8 @@
 				D11D57F12237C663000D3CC0 /* WorkAndEpisodeQuoteView.xib */,
 				D11D57F82237DE1A000D3CC0 /* WorkQuoteView.swift */,
 				D11D57FA2237DE2D000D3CC0 /* WorkQuoteView.xib */,
+				D1199E4B22390FA200531BF3 /* HomeTitleTableViewCell.swift */,
+				D1199E4C22390FA200531BF3 /* HomeTitleTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -808,6 +814,7 @@
 				D1013CCC217E23F7001C269B /* test.graphql in Resources */,
 				D1BCB8D1217F46B600B84F82 /* HomeViewController.storyboard in Resources */,
 				D1C53C2121EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib in Resources */,
+				D1199E4E22390FA200531BF3 /* HomeTitleTableViewCell.xib in Resources */,
 				D1621E0021862BA600819D93 /* PostRecordViewController.storyboard in Resources */,
 				D11D57EA2237BC3B000D3CC0 /* ActivityRecordTableViewCell.xib in Resources */,
 				D11D57F22237C663000D3CC0 /* WorkAndEpisodeQuoteView.xib in Resources */,
@@ -1023,6 +1030,7 @@
 				D1F9143521AA74FA006986A1 /* NSMutableParagraphStyle.swift in Sources */,
 				D1B4F174217EBB940011BAFF /* UIView.swift in Sources */,
 				D1FFB57F21AE98DD001099E6 /* AnnictGraphQL.swift in Sources */,
+				D1199E4D22390FA200531BF3 /* HomeTitleTableViewCell.swift in Sources */,
 				D1AF34C6219B4238004DD229 /* UICollectionView.swift in Sources */,
 				D1AF34C1219B4042004DD229 /* UserInfoTableViewCell.swift in Sources */,
 				D1621E0121862BA600819D93 /* PostRecordViewController.swift in Sources */,

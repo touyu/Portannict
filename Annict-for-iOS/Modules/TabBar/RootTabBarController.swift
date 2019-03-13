@@ -22,16 +22,12 @@ final class RootTabBarController: UITabBarController, StoryboardView {
         tabBar.unselectedItemTintColor = UIColor.lightGray
 
         for vc in viewControllers ?? [] {
-            guard let nc = vc as? UINavigationController else {
-                continue
-            }
-
-            if let homeVC = nc.viewControllers.first as? HomeViewController {
+            if let homeVC = vc as? HomeViewController {
                 homeVC.reactor = reactor?.homeForReactor
             }
         }
     }
-
+    
     func bind(reactor: Reactor) {
         
     }

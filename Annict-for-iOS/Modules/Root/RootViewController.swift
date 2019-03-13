@@ -10,7 +10,7 @@ import UIKit
 import ReactorKit
 import RxSwift
 
-final class RootViewController: UIViewController, StoryboardView {
+final class RootViewController: StatusBarAnimatableViewController, StoryboardView {
     typealias Reactor = RootViewReactor
 
     var disposeBag = DisposeBag()

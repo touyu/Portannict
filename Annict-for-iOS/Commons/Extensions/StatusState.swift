@@ -26,7 +26,7 @@ extension StatusState {
         case .stopWatching:
             return "中止"
         case .noState, .__unknown:
-            return ""
+            return "ステータスを選択"
         }
     }
 }

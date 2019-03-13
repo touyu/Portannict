@@ -13,7 +13,7 @@ final class ActivityMultipleRecordTableViewCell: UITableViewCell {
     @IBOutlet private weak var avatarImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var messageLabel: UILabel!
-    @IBOutlet private(set) weak var workQuoteView: WorkQuoteView!
+    @IBOutlet private weak var workQuoteView: WorkQuoteView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,7 +43,7 @@ final class ActivityMultipleRecordTableViewCell: UITableViewCell {
         prepareMessageLabel(activityItem: activityItem)
         
         if let heroID = heroID {
-            workQuoteView.hero.id = heroID
+            workQuoteView.workImageView.hero.id = heroID
         }
     }
 

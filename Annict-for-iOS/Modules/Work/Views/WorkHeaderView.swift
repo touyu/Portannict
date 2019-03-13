@@ -43,7 +43,10 @@ final class WorkHeaderView: UIView, NibOwnerLoadable {
         titleLabel.text = work.title
         watchersCountLabel.text = work.watchersCount.description
         reviewsCount.text = work.reviewsCount.description
-        statusButton.setTitle("見てる", for: .normal)
+        let statusText = work.viewerStatusState?.localizedText
+//        statusButton.titleLabel?.text = statusText
+        statusButton.setTitle(statusText, for: .normal)
+        statusButton.layoutIfNeeded()
     }
 }
 

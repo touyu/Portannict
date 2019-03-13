@@ -43,7 +43,7 @@ final class ActivityRecordTableViewCell: UITableViewCell {
                                           episode: activityItem.episode.fragments.minimumEpisode)
         
         if let heroID = heroID {
-            workAndEpisodeQuoteView.hero.id = heroID
+            workAndEpisodeQuoteView.workImageView.hero.id = heroID
         }
     }
 }

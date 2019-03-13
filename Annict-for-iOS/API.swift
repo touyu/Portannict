@@ -3056,7 +3056,7 @@ public struct EpisodeDetails: GraphQLFragment {
 
 public struct MinimumWork: GraphQLFragment {
   public static let fragmentDefinition =
-    "fragment MinimumWork on Work {\n  __typename\n  annictId\n  title\n  episodesCount\n  watchersCount\n  reviewsCount\n  seasonName\n  seasonYear\n  image {\n    __typename\n    recommendedImageUrl\n    twitterAvatarUrl\n  }\n}"
+    "fragment MinimumWork on Work {\n  __typename\n  annictId\n  title\n  episodesCount\n  watchersCount\n  reviewsCount\n  seasonName\n  seasonYear\n  viewerStatusState\n  image {\n    __typename\n    recommendedImageUrl\n    twitterAvatarUrl\n  }\n}"
 
   public static let possibleTypes = ["Work"]
 
@@ -3069,6 +3069,7 @@ public struct MinimumWork: GraphQLFragment {
     GraphQLField("reviewsCount", type: .nonNull(.scalar(Int.self))),
     GraphQLField("seasonName", type: .scalar(SeasonName.self)),
     GraphQLField("seasonYear", type: .scalar(Int.self)),
+    GraphQLField("viewerStatusState", type: .scalar(StatusState.self)),
     GraphQLField("image", type: .object(Image.selections)),
   ]
 
@@ -3078,8 +3079,8 @@ public struct MinimumWork: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, image: Image? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Work", "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
+  public init(annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil, image: Image? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Work", "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
   }
 
   public var __typename: String {
@@ -3151,6 +3152,15 @@ public struct MinimumWork: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "seasonYear")
+    }
+  }
+
+  public var viewerStatusState: StatusState? {
+    get {
+      return resultMap["viewerStatusState"] as? StatusState
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "viewerStatusState")
     }
   }
 

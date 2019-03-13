@@ -24,15 +24,11 @@ final class HomeViewController: UIViewController, StoryboardView {
 
         tableView.register(ActivityRecordTableViewCell.self,
                            ActivityStatusTableViewCell.self,
-                           ActivityMultipleRecordTableViewCell.self)
+                           ActivityMultipleRecordTableViewCell.self,
+                           HomeTitleTableViewCell.self)
         tableView.tableFooterView = UIView()
-//        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.mono.black]
-//        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.mono.black]
-//        navigationController?.navigationBar.transparent()
-//        navigationController?.navigationBar.isTranslucent = false
-//        extendedLayoutIncludesOpaqueBars = true
     }
-
+    
     func bind(reactor: Reactor) {
         rx.viewWillAppear
             .take(1)
@@ -60,12 +56,24 @@ final class HomeViewController: UIViewController, StoryboardView {
 }
 
 extension HomeViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        }
         guard let reactor = reactor else { return 0 }
         return reactor.currentState.activities.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(classType: HomeTitleTableViewCell.self, for: indexPath)
+            return cell
+        }
+        
         guard let reactor = reactor else { return .init() }
         let acitivity = reactor.currentState.activities[indexPath.row]
         let heroID = "work_image_view\(indexPath.row)"
@@ -92,6 +100,8 @@ extension HomeViewController: UITableViewDataSource {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 { return }
+        
         tableView.deselectRow(at: indexPath, animated: true)
     
         guard let work = reactor!.currentState.activities[indexPath.item].work else { return }
