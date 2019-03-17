@@ -8,6 +8,7 @@
 
 import ReactorKit
 import RxSwift
+import Apollo
 
 final class HomeViewReactor: Reactor {
     typealias Activity = GetFollowingActivitiesQuery.Data.Viewer.FollowingActivity.Edge.Node
@@ -15,6 +16,7 @@ final class HomeViewReactor: Reactor {
     enum Action {
         case fetchActivities
         case loadMore
+        case forceFetch
     }
 
     enum Mutation {
@@ -42,7 +44,7 @@ final class HomeViewReactor: Reactor {
         switch action {
         case .fetchActivities:
             let startLoading = Observable<Mutation>.just(.setLoading(true))
-            let fetchActivitiesEvent = fetchActivities().share()
+            let fetchActivitiesEvent = fetchActivities(cachePolicy: .returnCacheDataAndFetch).share()
             let setActivitiesEvent = fetchActivitiesEvent.map { Mutation.setActivities($0.values) }
             let setPageInfoEvent = fetchActivitiesEvent.map { Mutation.setPageInfo($0.pageInfo.fragments.pageInfoFrag) }
             let endLoading = Observable<Mutation>.just(.setLoading(false))
@@ -51,11 +53,18 @@ final class HomeViewReactor: Reactor {
             guard !currentState.isLoading else { return .empty() }
             guard let pageInfo = currentState.pageInfo, pageInfo.hasNextPage else { return .empty() }
             let startLoading = Observable<Mutation>.just(.setLoading(true))
-            let fetchActivitiesEvent = fetchActivities(after: currentState.pageInfo?.endCursor).share()
+            let fetchActivitiesEvent = fetchActivities(after: currentState.pageInfo?.endCursor, cachePolicy: .returnCacheDataElseFetch).share()
             let appendActivitiesEvent = fetchActivitiesEvent.map { Mutation.appendActivities($0.values) }
             let setPageInfoEvent = fetchActivitiesEvent.map { Mutation.setPageInfo($0.pageInfo.fragments.pageInfoFrag) }
             let endLoading = Observable<Mutation>.just(.setLoading(false))
             return .concat(startLoading, appendActivitiesEvent, setPageInfoEvent, endLoading)
+        case .forceFetch:
+            let startLoading = Observable<Mutation>.just(.setLoading(true))
+            let fetchActivitiesEvent = fetchActivities(cachePolicy: .fetchIgnoringCacheData).share()
+            let setActivitiesEvent = fetchActivitiesEvent.map { Mutation.setActivities($0.values) }
+            let setPageInfoEvent = fetchActivitiesEvent.map { Mutation.setPageInfo($0.pageInfo.fragments.pageInfoFrag) }
+            let endLoading = Observable<Mutation>.just(.setLoading(false))
+            return .concat(startLoading, setActivitiesEvent, setPageInfoEvent, endLoading)
         }
     }
 
@@ -74,8 +83,8 @@ final class HomeViewReactor: Reactor {
         return state
     }
 
-    private func fetchActivities(after: String? = nil) -> Observable<GetFollowingActivitiesQuery.Data.Viewer.FollowingActivity> {
-        return provider.apiService.fetchFollowingActivities(after: after)
+    private func fetchActivities(after: String? = nil, cachePolicy: CachePolicy) -> Observable<GetFollowingActivitiesQuery.Data.Viewer.FollowingActivity> {
+        return provider.apiService.fetchFollowingActivities(after: after, cachePolicy: cachePolicy)
             .map { $0.viewer?.followingActivities }
             .filterNil()
     }

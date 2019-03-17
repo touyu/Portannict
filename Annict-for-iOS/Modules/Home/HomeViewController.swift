@@ -17,6 +17,8 @@ final class HomeViewController: UIViewController, StoryboardView {
 
     var disposeBag = DisposeBag()
 
+    private let refreshControl = UIRefreshControl()
+    
     private var cellHeightList: [IndexPath: CGFloat] = [:]
     
     override func viewDidLoad() {
@@ -27,6 +29,7 @@ final class HomeViewController: UIViewController, StoryboardView {
                            ActivityMultipleRecordTableViewCell.self,
                            HomeTitleTableViewCell.self)
         tableView.tableFooterView = UIView()
+        tableView.refreshControl = refreshControl
     }
     
     func bind(reactor: Reactor) {
@@ -46,10 +49,16 @@ final class HomeViewController: UIViewController, StoryboardView {
             .map { Reactor.Action.loadMore }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+        
+        refreshControl.rx.controlEvent(.valueChanged)
+            .map { Reactor.Action.forceFetch }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
 
         reactor.state.map { $0.activities }
             .subscribe(onNext: { [weak self] _ in
                 self?.tableView.reloadData()
+                self?.refreshControl.endRefreshing()
             })
             .disposed(by: disposeBag)
     }

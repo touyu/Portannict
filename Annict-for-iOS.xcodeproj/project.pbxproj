@@ -14,6 +14,7 @@
 		D1199E4A2238FF3F00531BF3 /* BlurKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1199E482238FF3E00531BF3 /* BlurKit.swift */; };
 		D1199E4D22390FA200531BF3 /* HomeTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1199E4B22390FA200531BF3 /* HomeTitleTableViewCell.swift */; };
 		D1199E4E22390FA200531BF3 /* HomeTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1199E4C22390FA200531BF3 /* HomeTitleTableViewCell.xib */; };
+		D1199E50223E994700531BF3 /* CachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1199E4F223E994700531BF3 /* CachePolicy.swift */; };
 		D11D57E12237B1B0000D3CC0 /* Fragment.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D11D57E02237B1B0000D3CC0 /* Fragment.graphql */; };
 		D11D57E52237B4E9000D3CC0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D57E42237B4E9000D3CC0 /* API.swift */; };
 		D11D57E92237BC3B000D3CC0 /* ActivityRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D57E72237BC3B000D3CC0 /* ActivityRecordTableViewCell.swift */; };
@@ -150,6 +151,7 @@
 		D1199E482238FF3E00531BF3 /* BlurKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurKit.swift; sourceTree = "<group>"; };
 		D1199E4B22390FA200531BF3 /* HomeTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTitleTableViewCell.swift; sourceTree = "<group>"; };
 		D1199E4C22390FA200531BF3 /* HomeTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTitleTableViewCell.xib; sourceTree = "<group>"; };
+		D1199E4F223E994700531BF3 /* CachePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachePolicy.swift; sourceTree = "<group>"; };
 		D11D57E02237B1B0000D3CC0 /* Fragment.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fragment.graphql; sourceTree = "<group>"; };
 		D11D57E42237B4E9000D3CC0 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = "Annict-for-iOS/API.swift"; sourceTree = SOURCE_ROOT; };
 		D11D57E72237BC3B000D3CC0 /* ActivityRecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRecordTableViewCell.swift; sourceTree = "<group>"; };
@@ -609,6 +611,7 @@
 				D1FFB57E21AE98DD001099E6 /* AnnictGraphQL.swift */,
 				D165C9B521B0E051002E8FFA /* UINavigationBar.swift */,
 				D11D57F32237D3DD000D3CC0 /* Entity+Extension.swift */,
+				D1199E4F223E994700531BF3 /* CachePolicy.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -972,6 +975,7 @@
 				D1AF34C4219B4202004DD229 /* UITableView.swift in Sources */,
 				D1B4F171217EB8D50011BAFF /* NSObject.swift in Sources */,
 				D1E66AB12204AC0E0058BFEF /* WorkHeaderView.swift in Sources */,
+				D1199E50223E994700531BF3 /* CachePolicy.swift in Sources */,
 				D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */,
 				D165C9B621B0E051002E8FFA /* UINavigationBar.swift in Sources */,
 				D1BCB8C2217F327400B84F82 /* NotificationCenter.swift in Sources */,
