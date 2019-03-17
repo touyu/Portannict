@@ -12,8 +12,10 @@ final class ActivityMultipleRecordTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var avatarImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var usernameLabel: UILabel!
     @IBOutlet private weak var messageLabel: UILabel!
     @IBOutlet private weak var workQuoteView: WorkQuoteView!
+    @IBOutlet private weak var timeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,8 +40,10 @@ final class ActivityMultipleRecordTableViewCell: UITableViewCell {
         let user = activityItem.user.fragments.minimumUser
         avatarImageView.setImage(url: user.avatarUrl)
         nameLabel.text = user.name
+        usernameLabel.text = "@" + user.username
         let work = activityItem.work.fragments.minimumWork
         workQuoteView.configure(work: work)
+        timeLabel.text = activityItem.createdAt.toDate()?.toRelative()
         prepareMessageLabel(activityItem: activityItem)
         
         if let heroID = heroID {
