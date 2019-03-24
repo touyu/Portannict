@@ -105,26 +105,31 @@ final class ProfileViewController: ButtonBarPagerTabStripViewController, Storybo
 
 extension ProfileViewController: ChildPagerTabStripDelegate {
     func collectionViewWillDisplay(_ collectionView: UICollectionView) {
+        print(insetTop)
         collectionView.contentInset.top = insetTop
         collectionView.scrollIndicatorInsets.top = insetTop
         
-        var insetTops = viewControllers
-            .compactMap { ($0 as? CollectionViewProvider)?.collectionView }
-            .filter { $0 != collectionView }
-            .map { min($0.contentOffset.y, -buttonBarView.bounds.height) }
-        insetTops.append(-insetTop)
-        collectionView.contentOffset.y = insetTops.max() ?? 0
+//        collectionView.contentInset.top = insetTop
+//        collectionView.scrollIndicatorInsets.top = insetTop
+//
+//        var insetTops = viewControllers
+//            .compactMap { ($0 as? CollectionViewProvider)?.collectionView }
+//            .filter { $0 != collectionView }
+//            .map { min($0.contentOffset.y, -buttonBarView.bounds.height) }
+//        insetTops.append(-insetTop)
+//        collectionView.contentOffset.y = insetTops.max() ?? 0
     }
     
     func collectionViewDidScroll(_ collectionView: UICollectionView) {
-        headerViewTopConstraint.constant = max(-collectionView.contentOffset.y - insetTop, -headerViewFittingCompressedHeight)
-        
-        let tableViews = viewControllers
-            .compactMap { ($0 as? CollectionViewProvider)?.collectionView }
-            .filter { $0 != collectionView }
-        
-        tableViews
-            .forEach { $0.contentOffset.y = collectionView.contentOffset.y }
+        headerViewTopConstraint.constant = max(-collectionView.contentOffset.y - insetTop,
+                                               -headerViewFittingCompressedHeight)
+//
+//        let tableViews = viewControllers
+//            .compactMap { ($0 as? CollectionViewProvider)?.collectionView }
+//            .filter { $0 != collectionView }
+//
+//        tableViews
+//            .forEach { $0.contentOffset.y = collectionView.contentOffset.y }
     }
 }
 

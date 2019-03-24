@@ -32,8 +32,6 @@ final class ProfileWorksViewController: UIViewController, StoryboardView {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView.dataSource = self
-        collectionView.delegate = self
         collectionView.register(cellTypes: ProfileWorkCollectionViewCell.self)
         delegate?.collectionViewWillDisplay(collectionView)
     }
@@ -43,6 +41,12 @@ final class ProfileWorksViewController: UIViewController, StoryboardView {
             .take(1)
             .map { Reactor.Action.fetch }
             .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.setDataSource(self)
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
         collectionView.rx.reachedBottom
