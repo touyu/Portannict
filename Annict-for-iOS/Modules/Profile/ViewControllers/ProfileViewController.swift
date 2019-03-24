@@ -108,28 +108,41 @@ extension ProfileViewController: ChildPagerTabStripDelegate {
         print(insetTop)
         collectionView.contentInset.top = insetTop
         collectionView.scrollIndicatorInsets.top = insetTop
-        
+        collectionView.contentInset.bottom = 1000
+//        collectionView.contentOffset.y = 0
+
 //        collectionView.contentInset.top = insetTop
 //        collectionView.scrollIndicatorInsets.top = insetTop
 //
-//        var insetTops = viewControllers
-//            .compactMap { ($0 as? CollectionViewProvider)?.collectionView }
-//            .filter { $0 != collectionView }
-//            .map { min($0.contentOffset.y, -buttonBarView.bounds.height) }
-//        insetTops.append(-insetTop)
-//        collectionView.contentOffset.y = insetTops.max() ?? 0
+        var insetTops = viewControllers
+            .compactMap { ($0 as? CollectionViewProvider)?.collectionView }
+            .filter { $0 != collectionView }
+            .map { min($0.contentOffset.y, -buttonBarView.bounds.height) }
+        insetTops.append(-insetTop)
+        collectionView.contentOffset.y = insetTops.max() ?? 0
     }
     
     func collectionViewDidScroll(_ collectionView: UICollectionView) {
+        print(collectionView.contentOffset.y)
+
         headerViewTopConstraint.constant = max(-collectionView.contentOffset.y - insetTop,
                                                -headerViewFittingCompressedHeight)
-//
-//        let tableViews = viewControllers
-//            .compactMap { ($0 as? CollectionViewProvider)?.collectionView }
-//            .filter { $0 != collectionView }
-//
-//        tableViews
-//            .forEach { $0.contentOffset.y = collectionView.contentOffset.y }
+
+        if collectionView.contentOffset.y <= -collectionView.contentInset.top {
+            return
+        }
+
+        let tableViews = viewControllers
+            .compactMap { ($0 as? CollectionViewProvider)?.collectionView }
+            .filter { $0 != collectionView }
+
+        tableViews
+            .forEach {
+                if collectionView.contentOffset.y >= 0 {
+                    return
+                }
+                $0.contentOffset.y = collectionView.contentOffset.y
+            }
     }
 }
 
