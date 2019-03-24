@@ -28,12 +28,26 @@ final class ProfileWorksViewController: UIViewController, StoryboardView {
     weak var delegate: ChildPagerTabStripDelegate?
 
     @IBOutlet weak var collectionView: UICollectionView!
+
+    private var observation: NSKeyValueObservation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         collectionView.register(cellTypes: ProfileWorkCollectionViewCell.self)
         delegate?.collectionViewWillDisplay(collectionView)
+
+        observation = collectionView.observe(\.contentSize, options: [.new]) { collectionView, value in
+            print(value.newValue)
+            print(collectionView.frame.size)
+            guard let newValue = value.newValue else { return }
+            let newBottomInset = collectionView.frame.size.height - newValue.height
+            if newBottomInset > 0 {
+                collectionView.contentInset.bottom = collectionView.frame.size.height - newValue.height
+            } else {
+                collectionView.contentInset.bottom = 0
+            }
+        }
     }
 
     func bind(reactor: Reactor) {

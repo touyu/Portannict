@@ -109,10 +109,6 @@ extension ProfileViewController: ChildPagerTabStripDelegate {
         collectionView.contentInset.top = insetTop
         collectionView.scrollIndicatorInsets.top = insetTop
         collectionView.contentInset.bottom = 1000
-//        collectionView.contentOffset.y = 0
-
-//        collectionView.contentInset.top = insetTop
-//        collectionView.scrollIndicatorInsets.top = insetTop
 //
         var insetTops = viewControllers
             .compactMap { ($0 as? CollectionViewProvider)?.collectionView }
@@ -138,7 +134,7 @@ extension ProfileViewController: ChildPagerTabStripDelegate {
 
         tableViews
             .forEach {
-                if collectionView.contentOffset.y >= 0 {
+                if collectionView.contentOffset.y >= buttonBarView.bounds.height {
                     return
                 }
                 $0.contentOffset.y = collectionView.contentOffset.y
