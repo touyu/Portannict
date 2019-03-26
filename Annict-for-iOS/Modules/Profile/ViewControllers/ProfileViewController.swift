@@ -94,7 +94,7 @@ final class ProfileViewController: ButtonBarPagerTabStripViewController, Storybo
     
     private func refreshTableViewContentInsetTop() {
         viewControllers
-            .compactMap { ($0 as? CollectionViewProvider)?.collectionView }
+            .compactMap { ($0 as? ScrollViewProvider)?.provideScrollView() }
             .forEach {
                 $0.contentInset.top = insetTop
                 $0.scrollIndicatorInsets.top = insetTop
@@ -104,41 +104,42 @@ final class ProfileViewController: ButtonBarPagerTabStripViewController, Storybo
 }
 
 extension ProfileViewController: ChildPagerTabStripDelegate {
-    func collectionViewWillDisplay(_ collectionView: UICollectionView) {
+    func scrollViewWillDisplay(_ scrollView: UIScrollView) {
         print(insetTop)
-        collectionView.contentInset.top = insetTop
-        collectionView.scrollIndicatorInsets.top = insetTop
-        collectionView.contentInset.bottom = 1000
-//
+        scrollView.contentInset.top = insetTop
+        scrollView.scrollIndicatorInsets.top = insetTop
+        scrollView.contentInset.bottom = 1000
+        //
         var insetTops = viewControllers
-            .compactMap { ($0 as? CollectionViewProvider)?.collectionView }
-            .filter { $0 != collectionView }
+            .compactMap {  ($0 as? ScrollViewProvider)?.provideScrollView() }
+            .filter { $0 != scrollView }
             .map { min($0.contentOffset.y, -buttonBarView.bounds.height) }
         insetTops.append(-insetTop)
-        collectionView.contentOffset.y = insetTops.max() ?? 0
+        scrollView.contentOffset.y = insetTops.max() ?? 0
     }
-    
-    func collectionViewDidScroll(_ collectionView: UICollectionView) {
-        print(collectionView.contentOffset.y)
 
-        headerViewTopConstraint.constant = max(-collectionView.contentOffset.y - insetTop,
+
+    
+    func scrollViewDidScrolled(_ scrollView: UIScrollView) {
+        print(scrollView.contentOffset.y)
+
+        headerViewTopConstraint.constant = max(-scrollView.contentOffset.y - insetTop,
                                                -headerViewFittingCompressedHeight)
 
-        if collectionView.contentOffset.y <= -collectionView.contentInset.top {
+        if scrollView.contentOffset.y <= -scrollView.contentInset.top {
             return
         }
 
-        let tableViews = viewControllers
-            .compactMap { ($0 as? CollectionViewProvider)?.collectionView }
-            .filter { $0 != collectionView }
+        let scrollViews = viewControllers
+            .compactMap {  ($0 as? ScrollViewProvider)?.provideScrollView() }
+            .filter { $0 != scrollView }
 
-        tableViews
-            .forEach {
-                if collectionView.contentOffset.y >= buttonBarView.bounds.height {
-                    return
-                }
-                $0.contentOffset.y = collectionView.contentOffset.y
+        for sv in scrollViews {
+            if scrollView.contentOffset.y >= buttonBarView.bounds.height {
+                return
             }
+            sv.contentOffset.y = scrollView.contentOffset.y
+        }
     }
 }
 

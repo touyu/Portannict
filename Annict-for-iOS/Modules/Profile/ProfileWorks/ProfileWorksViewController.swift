@@ -11,33 +11,42 @@ import ReactorKit
 import RxSwift
 import XLPagerTabStrip
 
-protocol CollectionViewProvider {
-    var collectionView: UICollectionView! { get set }
+protocol ScrollViewProvider {
+    func provideScrollView() -> UIScrollView?
 }
 
 protocol ChildPagerTabStripDelegate: class {
-    func collectionViewWillDisplay(_ collectionView: UICollectionView)
-    func collectionViewDidScroll(_ collectionView: UICollectionView)
+    func scrollViewWillDisplay(_ scrollView: UIScrollView)
+    func scrollViewDidScrolled(_ scrollView: UIScrollView)
 }
 
-final class ProfileWorksViewController: UIViewController, StoryboardView {
-    typealias Reactor = ProfileWorksViewReactor
-
-    var disposeBag = DisposeBag()
-    
+class ChildPagerViewController: UIViewController, ScrollViewProvider, UIScrollViewDelegate {
     weak var delegate: ChildPagerTabStripDelegate?
 
-    @IBOutlet weak var collectionView: UICollectionView!
-
     private var observation: NSKeyValueObservation?
-    
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        observation?.invalidate()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView.register(cellTypes: ProfileWorkCollectionViewCell.self)
-        delegate?.collectionViewWillDisplay(collectionView)
+        observeContentSize()
+        if let scrollView = provideScrollView() {
+            scrollView.delegate = self
+            delegate?.scrollViewWillDisplay(scrollView)
+        }
+    }
 
-        observation = collectionView.observe(\.contentSize, options: [.new]) { collectionView, value in
+    func provideScrollView() -> UIScrollView? {
+        fatalError("Unimplemented provideScrollView()")
+    }
+
+    private func observeContentSize() {
+        observation = provideScrollView()?.observe(\.contentSize, options: [.new]) { collectionView, value in
             print(value.newValue)
             print(collectionView.frame.size)
             guard let newValue = value.newValue else { return }
@@ -48,6 +57,24 @@ final class ProfileWorksViewController: UIViewController, StoryboardView {
                 collectionView.contentInset.bottom = 0
             }
         }
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        delegate?.scrollViewDidScrolled(scrollView)
+    }
+}
+
+final class ProfileWorksViewController: ChildPagerViewController, StoryboardView {
+    typealias Reactor = ProfileWorksViewReactor
+
+    var disposeBag = DisposeBag()
+
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        collectionView.register(cellTypes: ProfileWorkCollectionViewCell.self)
     }
 
     func bind(reactor: Reactor) {
@@ -76,6 +103,10 @@ final class ProfileWorksViewController: UIViewController, StoryboardView {
             })
             .disposed(by: disposeBag)
     }
+
+    override func provideScrollView() -> UIScrollView? {
+        return collectionView
+    }
 }
 
 extension ProfileWorksViewController: UICollectionViewDataSource {
@@ -95,12 +126,6 @@ extension ProfileWorksViewController: UICollectionViewDataSource {
 }
 
 extension ProfileWorksViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let collectionView = scrollView as? UICollectionView {
-            delegate?.collectionViewDidScroll(collectionView)
-        }
-    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let mergin: CGFloat = 24
         let column: CGFloat = 3
@@ -127,5 +152,3 @@ extension ProfileWorksViewController: IndicatorInfoProvider {
         return IndicatorInfo(title: reactor?.statusState.localizedText)
     }
 }
-
-extension ProfileWorksViewController: CollectionViewProvider { }

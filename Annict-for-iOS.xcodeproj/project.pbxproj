@@ -67,6 +67,7 @@
 		D165C9BF21B15B36002E8FFA /* SearchWorksByTitle.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D165C9BE21B15B36002E8FFA /* SearchWorksByTitle.graphql */; };
 		D165C9C121B15EE9002E8FFA /* SearchResultWorkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D165C9C021B15EE9002E8FFA /* SearchResultWorkCell.xib */; };
 		D165C9C321B15EF1002E8FFA /* SearchResultWorkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D165C9C221B15EF1002E8FFA /* SearchResultWorkCell.swift */; };
+		D16C5985224A6824004F0983 /* AssociatedObjectStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C5984224A6824004F0983 /* AssociatedObjectStore.swift */; };
 		D18389B321B05137004A072C /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18389B221B05137004A072C /* SearchResultViewController.swift */; };
 		D18389B521B05146004A072C /* SearchResultViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D18389B421B05146004A072C /* SearchResultViewController.storyboard */; };
 		D18447C621BD021D00CF44AB /* GradationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18447C521BD021D00CF44AB /* GradationView.swift */; };
@@ -207,6 +208,7 @@
 		D165C9BE21B15B36002E8FFA /* SearchWorksByTitle.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchWorksByTitle.graphql; sourceTree = "<group>"; };
 		D165C9C021B15EE9002E8FFA /* SearchResultWorkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultWorkCell.xib; sourceTree = "<group>"; };
 		D165C9C221B15EF1002E8FFA /* SearchResultWorkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultWorkCell.swift; sourceTree = "<group>"; };
+		D16C5984224A6824004F0983 /* AssociatedObjectStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedObjectStore.swift; sourceTree = "<group>"; };
 		D18389B221B05137004A072C /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		D18389B421B05146004A072C /* SearchResultViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResultViewController.storyboard; sourceTree = "<group>"; };
 		D18447C521BD021D00CF44AB /* GradationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradationView.swift; sourceTree = "<group>"; };
@@ -660,6 +662,7 @@
 			isa = PBXGroup;
 			children = (
 				D1C53C1521EEFB9A00DA9A1D /* NibOwnerLoadable.swift */,
+				D16C5984224A6824004F0983 /* AssociatedObjectStore.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1027,6 +1030,7 @@
 				D1B4F167217EB5E60011BAFF /* RxUIViewController.swift in Sources */,
 				D1FFB59A21B04693001099E6 /* SearchViewController.swift in Sources */,
 				D1F9ED0A21B274CD00AB3DAE /* WorkViewController.swift in Sources */,
+				D16C5985224A6824004F0983 /* AssociatedObjectStore.swift in Sources */,
 				D1B4F178217EC0970011BAFF /* Constants.swift in Sources */,
 				D123F254217CBD2500AE38FD /* AppDelegate.swift in Sources */,
 				D11D57F72237D9B9000D3CC0 /* RootTabBarReactor.swift in Sources */,
