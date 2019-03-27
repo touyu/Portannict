@@ -130,15 +130,15 @@ extension ProfileViewController: ChildPagerTabStripDelegate {
             return
         }
 
-        let scrollViews = viewControllers
+        let otherScrollViews = viewControllers
             .compactMap {  ($0 as? ScrollViewProvider)?.provideScrollView() }
             .filter { $0 != scrollView }
 
-        for sv in scrollViews {
-            if scrollView.contentOffset.y >= buttonBarView.bounds.height {
+        for otherScrollView in otherScrollViews {
+            if scrollView.contentOffset.y >= -buttonBarView.bounds.height {
                 return
             }
-            sv.contentOffset.y = scrollView.contentOffset.y
+            otherScrollView.contentOffset.y = scrollView.contentOffset.y
         }
     }
 }
