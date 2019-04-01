@@ -12,7 +12,85 @@ import RxSwift
 import Apollo
 import XLPagerTabStrip
 
-final class ProfileViewController: ButtonBarPagerTabStripViewController, StoryboardView {
+protocol ParentPager {
+    var headerViewTopConstraint: NSLayoutConstraint! { get }
+    func viewControllers(_ parentPager: ParentPager) -> [ChildPagerViewController]
+    func headerView(_ parentPager: ParentPager) -> UIView
+    func heigthForHeaderView(_ parentPager: ParentPager) -> CGFloat
+}
+
+extension ParentPager where Self: PagerTabStripViewController {
+    var childScrollViews: [UIScrollView] {
+        return viewControllers.compactMap {  ($0 as? ScrollViewProvider)?.provideScrollView() }
+    }
+}
+
+class ParentPagerViewController: ButtonBarPagerTabStripViewController, ParentPager, ChildPagerTabStripDelegate {
+    
+    @IBOutlet weak var headerViewTopConstraint: NSLayoutConstraint!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        headerView(self).frame.size.height = heigthForHeaderView(self)
+    }
+    
+    var insetTop: CGFloat {
+        return heigthForHeaderView(self) + buttonBarView.bounds.height
+    }
+    
+    func headerView(_ parentPager: ParentPager) -> UIView {
+        return UIView()
+    }
+    
+    func heigthForHeaderView(_ parentPager: ParentPager) -> CGFloat {
+        return headerView(self).systemLayoutSizeFitting(UIView.layoutFittingExpandedSize).height
+    }
+    
+    func viewControllers(_ parentPager: ParentPager) -> [ChildPagerViewController] {
+        return []
+    }
+    
+    override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+        let vcs = viewControllers(self)
+        vcs.forEach { $0.delegate = self }
+        return vcs
+    }
+    
+    func scrollViewWillDisplay(_ scrollView: UIScrollView) {
+        scrollView.contentInset.top = insetTop
+        scrollView.scrollIndicatorInsets.top = insetTop
+        scrollView.contentInset.bottom = 1000
+        //
+        var insetTops = childScrollViews
+            .filter { $0 != scrollView }
+            .map { min($0.contentOffset.y, -buttonBarView.bounds.height) }
+        insetTops.append(-insetTop)
+        scrollView.contentOffset.y = insetTops.max() ?? 0
+    }
+    
+    func scrollViewDidScrolled(_ scrollView: UIScrollView) {
+        headerViewTopConstraint.constant = max(-scrollView.contentOffset.y - insetTop,
+                                               -heigthForHeaderView(self))
+        
+        if scrollView.contentOffset.y <= -scrollView.contentInset.top {
+            return
+        }
+        
+        let otherScrollViews = childScrollViews
+            .filter { $0 != scrollView }
+        
+        for otherScrollView in otherScrollViews {
+            if scrollView.contentOffset.y >= -buttonBarView.bounds.height {
+                return
+            }
+            otherScrollView.contentOffset.y = scrollView.contentOffset.y
+        }
+
+    }
+}
+
+final class ProfileViewController: ParentPagerViewController, StoryboardView {
     enum Const {
         static let normalTextColor = UIColor(hex: 0x8E8E8E)
         static let selectedBackgroundColor = UIColor(hex: 0xEFEFEF)
@@ -24,19 +102,18 @@ final class ProfileViewController: ButtonBarPagerTabStripViewController, Storybo
     var disposeBag = DisposeBag()
     
     @IBOutlet private weak var headerView: ProfileHeaderView!
-    @IBOutlet private weak var headerViewTopConstraint: NSLayoutConstraint!
     
     private var buttonMarkView: ButtonMarkView? {
         return buttonBarView as? ButtonMarkView
     }
     
-    private var headerViewFittingCompressedHeight: CGFloat {
-        return headerView.systemLayoutSizeFitting(UIView.layoutFittingExpandedSize).height
-    }
-    
-    private var insetTop: CGFloat {
-        return headerViewFittingCompressedHeight + buttonBarView.bounds.height
-    }
+//    private var headerViewFittingCompressedHeight: CGFloat {
+//        return headerView.systemLayoutSizeFitting(UIView.layoutFittingExpandedSize).height
+//    }
+//
+//    private var insetTop: CGFloat {
+//        return headerViewFittingCompressedHeight + buttonBarView.bounds.height
+//    }
     
     override func viewDidLoad() {
         settings.style.selectedBarHeight = 2.0
@@ -81,15 +158,18 @@ final class ProfileViewController: ButtonBarPagerTabStripViewController, Storybo
             .disposed(by: disposeBag)
     }
     
-    override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+    override func viewControllers(_ parentPager: ParentPager) -> [ChildPagerViewController] {
         let vc1 = ProfileWorksViewController.loadStoryboard(reactor: .init(statusState: .watching))
         let vc2 = ProfileWorksViewController.loadStoryboard(reactor: .init(statusState: .wannaWatch))
         let vc3 = ProfileWorksViewController.loadStoryboard(reactor: .init(statusState: .watched))
         let vc4 = ProfileWorksViewController.loadStoryboard(reactor: .init(statusState: .onHold))
         let vc5 = ProfileWorksViewController.loadStoryboard(reactor: .init(statusState: .stopWatching))
         let vcs = [vc1, vc2, vc3, vc4, vc5]
-        vcs.forEach { $0.delegate = self }
         return vcs
+    }
+    
+    override func headerView(_ parentPager: ParentPager) -> UIView {
+        return headerView
     }
     
     private func refreshTableViewContentInsetTop() {
@@ -103,136 +183,41 @@ final class ProfileViewController: ButtonBarPagerTabStripViewController, Storybo
     }
 }
 
-extension ProfileViewController: ChildPagerTabStripDelegate {
-    func scrollViewWillDisplay(_ scrollView: UIScrollView) {
-        print(insetTop)
-        scrollView.contentInset.top = insetTop
-        scrollView.scrollIndicatorInsets.top = insetTop
-        scrollView.contentInset.bottom = 1000
-        //
-        var insetTops = viewControllers
-            .compactMap {  ($0 as? ScrollViewProvider)?.provideScrollView() }
-            .filter { $0 != scrollView }
-            .map { min($0.contentOffset.y, -buttonBarView.bounds.height) }
-        insetTops.append(-insetTop)
-        scrollView.contentOffset.y = insetTops.max() ?? 0
-    }
-
-
-    
-    func scrollViewDidScrolled(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset.y)
-
-        headerViewTopConstraint.constant = max(-scrollView.contentOffset.y - insetTop,
-                                               -headerViewFittingCompressedHeight)
-
-        if scrollView.contentOffset.y <= -scrollView.contentInset.top {
-            return
-        }
-
-        let otherScrollViews = viewControllers
-            .compactMap {  ($0 as? ScrollViewProvider)?.provideScrollView() }
-            .filter { $0 != scrollView }
-
-        for otherScrollView in otherScrollViews {
-            if scrollView.contentOffset.y >= -buttonBarView.bounds.height {
-                return
-            }
-            otherScrollView.contentOffset.y = scrollView.contentOffset.y
-        }
-    }
-}
-
-final class ButtonMarkView: ButtonBarView {
-    lazy var selectedMarkView: UIView = {
-        let mark = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: selectedMarkViewHeight))
-        mark.layer.zPosition = -1
-        return mark
-    }()
-    
-    var selectedMarkViewHeight: CGFloat = 30 {
-        didSet {
-            updateSelectedMarkViewYPosition()
-        }
-    }
-    
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
-        super.init(frame: frame, collectionViewLayout: layout)
-        selectedBar.alpha = 0
-        addSubview(selectedMarkView)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        selectedBar.alpha = 0
-        addSubview(selectedMarkView)
-    }
-    
-    override func moveTo(index: Int, animated: Bool, swipeDirection: SwipeDirection, pagerScroll: PagerScroll) {
-        super.moveTo(index: index, animated: animated, swipeDirection: swipeDirection, pagerScroll: pagerScroll)
-        updateSelectedMarkViewPosition(index, animated: animated, swipeDirection: swipeDirection, pagerScroll: pagerScroll)
-    }
-    
-    override func move(fromIndex: Int, toIndex: Int, progressPercentage: CGFloat, pagerScroll: PagerScroll) {
-        super.move(fromIndex: fromIndex, toIndex: toIndex, progressPercentage: progressPercentage, pagerScroll: pagerScroll)
-        
-        let fromFrame = layoutAttributesForItem(at: IndexPath(item: fromIndex, section: 0))!.frame
-        let numberOfItems = dataSource!.collectionView(self, numberOfItemsInSection: 0)
-        
-        var toFrame: CGRect
-        
-        if toIndex < 0 || toIndex > numberOfItems - 1 {
-            if toIndex < 0 {
-                let cellAtts = layoutAttributesForItem(at: IndexPath(item: 0, section: 0))
-                toFrame = cellAtts!.frame.offsetBy(dx: -cellAtts!.frame.size.width, dy: 0)
-            } else {
-                let cellAtts = layoutAttributesForItem(at: IndexPath(item: (numberOfItems - 1), section: 0))
-                toFrame = cellAtts!.frame.offsetBy(dx: cellAtts!.frame.size.width, dy: 0)
-            }
-        } else {
-            toFrame = layoutAttributesForItem(at: IndexPath(item: toIndex, section: 0))!.frame
-        }
-        
-        var targetFrame = fromFrame
-        targetFrame.size.height = selectedMarkView.frame.size.height
-        targetFrame.size.width += (toFrame.size.width - fromFrame.size.width) * progressPercentage
-        targetFrame.origin.x += (toFrame.origin.x - fromFrame.origin.x) * progressPercentage
-        
-        selectedMarkView.frame = CGRect(x: targetFrame.origin.x, y: selectedMarkView.frame.origin.y, width: targetFrame.size.width, height: selectedMarkView.frame.size.height)
-        selectedMarkView.roundedRectangleFilter()
-    }
-    
-    func updateSelectedMarkViewPosition(_ index: Int, animated: Bool, swipeDirection: SwipeDirection, pagerScroll: PagerScroll) {
-        var selectedMarkViewFrame = selectedMarkView.frame
-        
-        let selectedCellIndexPath = IndexPath(item: index, section: 0)
-        let attributes = layoutAttributesForItem(at: selectedCellIndexPath)
-        let selectedCellFrame = attributes!.frame
-        
-        selectedMarkViewFrame.size.width = selectedCellFrame.size.width
-        selectedMarkViewFrame.origin.x = selectedCellFrame.origin.x
-        
-        if animated {
-            UIView.animate(withDuration: 0.3, animations: { [weak self] in
-                self?.selectedMarkView.frame = selectedMarkViewFrame
-            })
-        } else {
-            selectedMarkView.frame = selectedMarkViewFrame
-        }
-    }
-    
-    private func updateSelectedMarkViewYPosition() {
-        var selectedBarFrame = selectedMarkView.frame
-        selectedBarFrame.origin.y = (frame.size.height - selectedMarkViewHeight) / 2
-        selectedBarFrame.size.height = selectedMarkViewHeight
-        selectedMarkView.frame = selectedBarFrame
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        updateSelectedMarkViewYPosition()
-    }
-}
+//extension ProfileViewController: ChildPagerTabStripDelegate {
+//    func scrollViewWillDisplay(_ scrollView: UIScrollView) {
+//        print(insetTop)
+//        scrollView.contentInset.top = insetTop
+//        scrollView.scrollIndicatorInsets.top = insetTop
+//        scrollView.contentInset.bottom = 1000
+//        //
+//        var insetTops = childScrollViews
+//            .filter { $0 != scrollView }
+//            .map { min($0.contentOffset.y, -buttonBarView.bounds.height) }
+//        insetTops.append(-insetTop)
+//        scrollView.contentOffset.y = insetTops.max() ?? 0
+//    }
+//
+//    func scrollViewDidScrolled(_ scrollView: UIScrollView) {
+//        print(scrollView.contentOffset.y)
+//
+//        headerViewTopConstraint.constant = max(-scrollView.contentOffset.y - insetTop,
+//                                               -headerViewFittingCompressedHeight)
+//
+//        if scrollView.contentOffset.y <= -scrollView.contentInset.top {
+//            return
+//        }
+//
+//        let otherScrollViews = childScrollViews
+//            .filter { $0 != scrollView }
+//
+//        for otherScrollView in otherScrollViews {
+//            if scrollView.contentOffset.y >= -buttonBarView.bounds.height {
+//                return
+//            }
+//            otherScrollView.contentOffset.y = scrollView.contentOffset.y
+//        }
+//    }
+//}
 
 extension UIColor {
     public convenience init(from fColor: UIColor, to tColor: UIColor, with per: CGFloat) {
