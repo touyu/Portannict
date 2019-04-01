@@ -23,17 +23,26 @@ extension ParentPager where Self: PagerTabStripViewController {
 }
 
 class ParentPagerViewController: ButtonBarPagerTabStripViewController, ParentPager, ChildPagerTabStripDelegate {
+    private enum _Const {
+        static let normalTextColor = UIColor(hex: 0x8E8E8E)
+        static let selectedBackgroundColor = UIColor(hex: 0xEFEFEF)
+        static let selectedTextColor = UIColor(hex: 0x333333)
+    }
     
     @IBOutlet weak var headerViewTopConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headerView(self).frame.size.height = heigthForHeaderView(self)
+//        headerView(self).frame.size.height = heigthForHeaderView(self)
     }
     
     var insetTop: CGFloat {
         return heigthForHeaderView(self) + buttonBarView.bounds.height
+    }
+    
+    private var buttonMarkView: ButtonMarkView? {
+        return buttonBarView as? ButtonMarkView
     }
     
     func headerView(_ parentPager: ParentPager) -> UIView {
@@ -41,7 +50,7 @@ class ParentPagerViewController: ButtonBarPagerTabStripViewController, ParentPag
     }
     
     func heigthForHeaderView(_ parentPager: ParentPager) -> CGFloat {
-        return headerView(self).systemLayoutSizeFitting(UIView.layoutFittingExpandedSize).height
+        return headerView(self).systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
     }
     
     func viewControllers(_ parentPager: ParentPager) -> [ChildPagerViewController] {
@@ -84,5 +93,24 @@ class ParentPagerViewController: ButtonBarPagerTabStripViewController, ParentPag
             otherScrollView.contentOffset.y = scrollView.contentOffset.y
         }
         
+    }
+    
+    func prepareButtonBar() {
+        settings.style.selectedBarHeight = 2.0
+        settings.style.buttonBarItemBackgroundColor = .clear
+        settings.style.buttonBarMinimumLineSpacing = 0
+        settings.style.buttonBarItemFont = .boldSystemFont(ofSize: 14)
+        settings.style.buttonBarItemTitleColor = _Const.normalTextColor
+        settings.style.buttonBarLeftContentInset = 24
+        settings.style.buttonBarRightContentInset = 24
+        settings.style.buttonBarItemsShouldFillAvailableWidth = true
+        
+        changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
+            guard changeCurrentIndex == true else { return }
+            newCell?.label.textColor = _Const.selectedTextColor
+            oldCell?.label.textColor = _Const.normalTextColor
+        }
+        
+        buttonMarkView?.selectedMarkView.backgroundColor = _Const.selectedBackgroundColor
     }
 }

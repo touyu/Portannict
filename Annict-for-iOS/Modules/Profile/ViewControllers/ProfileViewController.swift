@@ -13,41 +13,15 @@ import Apollo
 import XLPagerTabStrip
 
 final class ProfileViewController: ParentPagerViewController, StoryboardView {
-    enum Const {
-        static let normalTextColor = UIColor(hex: 0x8E8E8E)
-        static let selectedBackgroundColor = UIColor(hex: 0xEFEFEF)
-        static let selectedTextColor = UIColor(hex: 0x333333)
-    }
-    
     typealias Reactor = ProfileViewReactor
     
     var disposeBag = DisposeBag()
     
     @IBOutlet private weak var headerView: ProfileHeaderView!
     
-    private var buttonMarkView: ButtonMarkView? {
-        return buttonBarView as? ButtonMarkView
-    }
-    
     override func viewDidLoad() {
-        settings.style.selectedBarHeight = 2.0
-        settings.style.buttonBarItemBackgroundColor = .clear
-        settings.style.buttonBarMinimumLineSpacing = 0
-        settings.style.buttonBarItemFont = .boldSystemFont(ofSize: 14)
-        settings.style.buttonBarItemTitleColor = Const.normalTextColor
-        settings.style.buttonBarLeftContentInset = 24
-        settings.style.buttonBarRightContentInset = 24
-        settings.style.buttonBarItemsShouldFillAvailableWidth = true
-
-        changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
-            guard changeCurrentIndex == true else { return }
-            newCell?.label.textColor = Const.selectedTextColor
-            oldCell?.label.textColor = Const.normalTextColor
-        }
-        
+        prepareButtonBar()
         reactor = Reactor()
-        
-        buttonMarkView?.selectedMarkView.backgroundColor = Const.selectedBackgroundColor
         
         super.viewDidLoad()
 

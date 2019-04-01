@@ -45,8 +45,8 @@ class ChildPagerViewController: UIViewController, ScrollViewProvider, UIScrollVi
     
     private func observeContentSize() {
         observation = provideScrollView()?.observe(\.contentSize, options: [.new]) { collectionView, value in
-            print(value.newValue)
-            print(collectionView.frame.size)
+//            print(value.newValue)
+//            print(collectionView.frame.size)
             guard let newValue = value.newValue else { return }
             let newBottomInset = collectionView.frame.size.height - newValue.height
             if newBottomInset > 0 {

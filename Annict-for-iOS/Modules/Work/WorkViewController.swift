@@ -12,7 +12,7 @@ import RxSwift
 import Hero
 import SnapKit
 
-final class WorkViewController: UIViewController, StatusBarAnimatable, StoryboardView {
+final class WorkViewController: ParentPagerViewController, StatusBarAnimatable, StoryboardView {
     typealias Reactor = WorkViewReactor
 
     @IBOutlet weak var headerView: WorkHeaderView!
@@ -27,6 +27,7 @@ final class WorkViewController: UIViewController, StatusBarAnimatable, Storyboar
     var disposeBag = DisposeBag()
 
     override func viewDidLoad() {
+        prepareButtonBar()
         super.viewDidLoad()
         
         prepareConstraints()
@@ -52,6 +53,16 @@ final class WorkViewController: UIViewController, StatusBarAnimatable, Storyboar
         super.viewDidDisappear(animated)
         
         showStatusBar()
+    }
+    
+    override func headerView(_ parentPager: ParentPager) -> UIView {
+        return headerView
+    }
+    
+    override func viewControllers(_ parentPager: ParentPager) -> [ChildPagerViewController] {
+        return [WorkEpisodeViewViewController.loadStoryboard(),
+                WorkEpisodeViewViewController.loadStoryboard(),
+                WorkEpisodeViewViewController.loadStoryboard()]
     }
     
     func bind(reactor: Reactor) {        
