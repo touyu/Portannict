@@ -19,8 +19,10 @@ final class WorkEpisodeViewViewController: ChildPagerViewController, StoryboardV
     @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
+        reactor = Reactor(annictId: 6084)
         super.viewDidLoad()
-
+        
+        tableView.tableFooterView = UIView()
     }
 
     override func provideScrollView() -> UIScrollView? {
@@ -28,9 +30,33 @@ final class WorkEpisodeViewViewController: ChildPagerViewController, StoryboardV
     }
     
     func bind(reactor: Reactor) {
-
+        rx.viewWillAppear
+            .map { Reactor.Action.fetchEpisodes }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        tableView.rx.setDataSource(self)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.episodes }
+            .subscribe(onNext: { [weak self] _ in
+                self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
     }
 
+}
+
+extension WorkEpisodeViewViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return reactor!.currentState.episodes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = reactor!.currentState.episodes[indexPath.row].title
+        return cell
+    }
 }
 
 extension WorkEpisodeViewViewController: IndicatorInfoProvider {

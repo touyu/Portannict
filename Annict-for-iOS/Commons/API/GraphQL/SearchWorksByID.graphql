@@ -1,0 +1,11 @@
+query SearchWorksByID($annictId: Int!) {
+    searchWorks(annictIds: [$annictId]) {
+        nodes {
+            episodes(first:30, orderBy:{field:SORT_NUMBER, direction:ASC}) {
+                nodes {
+                    ... MinimumEpisode
+                }
+            }
+        }
+    }
+}

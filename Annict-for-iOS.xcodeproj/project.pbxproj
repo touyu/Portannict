@@ -84,6 +84,7 @@
 		D1B27B2F22525FD3007F8B95 /* WorkEpisodeViewViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B27B2C22525FD3007F8B95 /* WorkEpisodeViewViewReactor.swift */; };
 		D1B27B3022525FD3007F8B95 /* WorkEpisodeViewViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B27B2D22525FD3007F8B95 /* WorkEpisodeViewViewController.storyboard */; };
 		D1B27B3122525FD3007F8B95 /* WorkEpisodeViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B27B2E22525FD3007F8B95 /* WorkEpisodeViewViewController.swift */; };
+		D1B27B3322526ECF007F8B95 /* SearchWorksByID.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1B27B3222526ECF007F8B95 /* SearchWorksByID.graphql */; };
 		D1B4F161217EB3770011BAFF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F160217EB3770011BAFF /* RootViewController.swift */; };
 		D1B4F163217EB38D0011BAFF /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */; };
 		D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F164217EB4080011BAFF /* RootViewReactor.swift */; };
@@ -232,6 +233,7 @@
 		D1B27B2C22525FD3007F8B95 /* WorkEpisodeViewViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkEpisodeViewViewReactor.swift; sourceTree = "<group>"; };
 		D1B27B2D22525FD3007F8B95 /* WorkEpisodeViewViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WorkEpisodeViewViewController.storyboard; sourceTree = "<group>"; };
 		D1B27B2E22525FD3007F8B95 /* WorkEpisodeViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkEpisodeViewViewController.swift; sourceTree = "<group>"; };
+		D1B27B3222526ECF007F8B95 /* SearchWorksByID.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchWorksByID.graphql; sourceTree = "<group>"; };
 		D1B4F160217EB3770011BAFF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RootViewController.storyboard; sourceTree = "<group>"; };
 		D1B4F164217EB4080011BAFF /* RootViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewReactor.swift; sourceTree = "<group>"; };
@@ -482,6 +484,7 @@
 				D165C9BA21B0E596002E8FFA /* SearchWorks.graphql */,
 				D165C9BE21B15B36002E8FFA /* SearchWorksByTitle.graphql */,
 				D13F2EB9222E2B0700509FB2 /* GetFollowingActivities.graphql */,
+				D1B27B3222526ECF007F8B95 /* SearchWorksByID.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -876,6 +879,7 @@
 				D1621DF82186273200819D93 /* ProfileViewController.storyboard in Resources */,
 				D13F2EBA222E2B0700509FB2 /* GetFollowingActivities.graphql in Resources */,
 				D123F25B217CBD2600AE38FD /* Assets.xcassets in Resources */,
+				D1B27B3322526ECF007F8B95 /* SearchWorksByID.graphql in Resources */,
 				D1B4F16C217EB8580011BAFF /* LoginViewController.storyboard in Resources */,
 				D1B4F163217EB38D0011BAFF /* RootViewController.storyboard in Resources */,
 			);
