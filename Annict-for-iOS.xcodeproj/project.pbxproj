@@ -67,6 +67,7 @@
 		D165C9BF21B15B36002E8FFA /* SearchWorksByTitle.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D165C9BE21B15B36002E8FFA /* SearchWorksByTitle.graphql */; };
 		D165C9C121B15EE9002E8FFA /* SearchResultWorkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D165C9C021B15EE9002E8FFA /* SearchResultWorkCell.xib */; };
 		D165C9C321B15EF1002E8FFA /* SearchResultWorkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D165C9C221B15EF1002E8FFA /* SearchResultWorkCell.swift */; };
+		D16C5985224A6824004F0983 /* AssociatedObjectStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C5984224A6824004F0983 /* AssociatedObjectStore.swift */; };
 		D18389B321B05137004A072C /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18389B221B05137004A072C /* SearchResultViewController.swift */; };
 		D18389B521B05146004A072C /* SearchResultViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D18389B421B05146004A072C /* SearchResultViewController.storyboard */; };
 		D18447C621BD021D00CF44AB /* GradationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18447C521BD021D00CF44AB /* GradationView.swift */; };
@@ -109,6 +110,8 @@
 		D1E66AB12204AC0E0058BFEF /* WorkHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E66AB02204AC0E0058BFEF /* WorkHeaderView.swift */; };
 		D1E66AB32204AC220058BFEF /* WorkHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E66AB22204AC220058BFEF /* WorkHeaderView.xib */; };
 		D1E66AB72204B9000058BFEF /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E66AB62204B9000058BFEF /* SnapKit.framework */; };
+		D1F553A6224B8132001D971C /* ButtonMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F553A5224B8132001D971C /* ButtonMarkView.swift */; };
+		D1F553A8224B8944001D971C /* ChildPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F553A7224B8944001D971C /* ChildPagerViewController.swift */; };
 		D1F9143321AA6A61006986A1 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F9143221AA6A61006986A1 /* Kingfisher.framework */; };
 		D1F9143521AA74FA006986A1 /* NSMutableParagraphStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9143421AA74FA006986A1 /* NSMutableParagraphStyle.swift */; };
 		D1F9143721AA756F006986A1 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9143621AA756F006986A1 /* UIImageView.swift */; };
@@ -207,6 +210,7 @@
 		D165C9BE21B15B36002E8FFA /* SearchWorksByTitle.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchWorksByTitle.graphql; sourceTree = "<group>"; };
 		D165C9C021B15EE9002E8FFA /* SearchResultWorkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultWorkCell.xib; sourceTree = "<group>"; };
 		D165C9C221B15EF1002E8FFA /* SearchResultWorkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultWorkCell.swift; sourceTree = "<group>"; };
+		D16C5984224A6824004F0983 /* AssociatedObjectStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedObjectStore.swift; sourceTree = "<group>"; };
 		D18389B221B05137004A072C /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		D18389B421B05146004A072C /* SearchResultViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResultViewController.storyboard; sourceTree = "<group>"; };
 		D18447C521BD021D00CF44AB /* GradationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradationView.swift; sourceTree = "<group>"; };
@@ -249,6 +253,8 @@
 		D1E66AB22204AC220058BFEF /* WorkHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkHeaderView.xib; sourceTree = "<group>"; };
 		D1E66AB42204B8ED0058BFEF /* Carthage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Carthage; sourceTree = "<group>"; };
 		D1E66AB62204B9000058BFEF /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		D1F553A5224B8132001D971C /* ButtonMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonMarkView.swift; sourceTree = "<group>"; };
+		D1F553A7224B8944001D971C /* ChildPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildPagerViewController.swift; sourceTree = "<group>"; };
 		D1F9143221AA6A61006986A1 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		D1F9143421AA74FA006986A1 /* NSMutableParagraphStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableParagraphStyle.swift; sourceTree = "<group>"; };
 		D1F9143621AA756F006986A1 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
@@ -525,6 +531,7 @@
 				D1F9144921AA7FD2006986A1 /* UserWorkCollectionViewCell.xib */,
 				D1C53C1021EEFA0300DA9A1D /* ProfileHeaderView.swift */,
 				D1C53C1221EEFA1900DA9A1D /* ProfileHeaderView.xib */,
+				D1F553A5224B8132001D971C /* ButtonMarkView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -652,6 +659,7 @@
 				D1C53C0A21EE4F1200DA9A1D /* ProfileWorksViewReactor.swift */,
 				D1C53C0B21EE4F1200DA9A1D /* ProfileWorksViewController.storyboard */,
 				D1C53C1721EF38E700DA9A1D /* ProfileWorksViewController.swift */,
+				D1F553A7224B8944001D971C /* ChildPagerViewController.swift */,
 			);
 			path = ProfileWorks;
 			sourceTree = "<group>";
@@ -660,6 +668,7 @@
 			isa = PBXGroup;
 			children = (
 				D1C53C1521EEFB9A00DA9A1D /* NibOwnerLoadable.swift */,
+				D16C5984224A6824004F0983 /* AssociatedObjectStore.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -975,6 +984,7 @@
 				D165C9BD21B158EA002E8FFA /* SearchResultViewReactor.swift in Sources */,
 				D1AF34C4219B4202004DD229 /* UITableView.swift in Sources */,
 				D1B4F171217EB8D50011BAFF /* NSObject.swift in Sources */,
+				D1F553A6224B8132001D971C /* ButtonMarkView.swift in Sources */,
 				D1E66AB12204AC0E0058BFEF /* WorkHeaderView.swift in Sources */,
 				D1199E50223E994700531BF3 /* CachePolicy.swift in Sources */,
 				D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */,
@@ -1007,6 +1017,7 @@
 				D11D57E52237B4E9000D3CC0 /* API.swift in Sources */,
 				D1FFB58721AED24F001099E6 /* Ornament.swift in Sources */,
 				D1621DE92186214900819D93 /* RootTabBarController.swift in Sources */,
+				D1F553A8224B8944001D971C /* ChildPagerViewController.swift in Sources */,
 				D1C53C1121EEFA0300DA9A1D /* ProfileHeaderView.swift in Sources */,
 				D1FFB59021AEF644001099E6 /* ActionClosurable.swift in Sources */,
 				D11D57ED2237C1DA000D3CC0 /* ActivityStatusTableViewCell.swift in Sources */,
@@ -1027,6 +1038,7 @@
 				D1B4F167217EB5E60011BAFF /* RxUIViewController.swift in Sources */,
 				D1FFB59A21B04693001099E6 /* SearchViewController.swift in Sources */,
 				D1F9ED0A21B274CD00AB3DAE /* WorkViewController.swift in Sources */,
+				D16C5985224A6824004F0983 /* AssociatedObjectStore.swift in Sources */,
 				D1B4F178217EC0970011BAFF /* Constants.swift in Sources */,
 				D123F254217CBD2500AE38FD /* AppDelegate.swift in Sources */,
 				D11D57F72237D9B9000D3CC0 /* RootTabBarReactor.swift in Sources */,

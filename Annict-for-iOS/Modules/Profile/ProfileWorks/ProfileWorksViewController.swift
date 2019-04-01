@@ -11,31 +11,17 @@ import ReactorKit
 import RxSwift
 import XLPagerTabStrip
 
-protocol CollectionViewProvider {
-    var collectionView: UICollectionView! { get set }
-}
-
-protocol ChildPagerTabStripDelegate: class {
-    func collectionViewWillDisplay(_ collectionView: UICollectionView)
-    func collectionViewDidScroll(_ collectionView: UICollectionView)
-}
-
-final class ProfileWorksViewController: UIViewController, StoryboardView {
+final class ProfileWorksViewController: ChildPagerViewController, StoryboardView {
     typealias Reactor = ProfileWorksViewReactor
 
     var disposeBag = DisposeBag()
-    
-    weak var delegate: ChildPagerTabStripDelegate?
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView.dataSource = self
-        collectionView.delegate = self
         collectionView.register(cellTypes: ProfileWorkCollectionViewCell.self)
-        delegate?.collectionViewWillDisplay(collectionView)
     }
 
     func bind(reactor: Reactor) {
@@ -43,6 +29,12 @@ final class ProfileWorksViewController: UIViewController, StoryboardView {
             .take(1)
             .map { Reactor.Action.fetch }
             .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.setDataSource(self)
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
         collectionView.rx.reachedBottom
@@ -57,6 +49,10 @@ final class ProfileWorksViewController: UIViewController, StoryboardView {
                 self?.collectionView.reloadData()
             })
             .disposed(by: disposeBag)
+    }
+
+    override func provideScrollView() -> UIScrollView? {
+        return collectionView
     }
 }
 
@@ -77,12 +73,6 @@ extension ProfileWorksViewController: UICollectionViewDataSource {
 }
 
 extension ProfileWorksViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let collectionView = scrollView as? UICollectionView {
-            delegate?.collectionViewDidScroll(collectionView)
-        }
-    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let mergin: CGFloat = 24
         let column: CGFloat = 3
@@ -109,5 +99,3 @@ extension ProfileWorksViewController: IndicatorInfoProvider {
         return IndicatorInfo(title: reactor?.statusState.localizedText)
     }
 }
-
-extension ProfileWorksViewController: CollectionViewProvider { }
