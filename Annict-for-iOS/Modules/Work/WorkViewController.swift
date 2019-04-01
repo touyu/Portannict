@@ -12,7 +12,7 @@ import RxSwift
 import Hero
 import SnapKit
 
-final class WorkViewController: StatusBarAnimatableViewController, StoryboardView {
+final class WorkViewController: UIViewController, StatusBarAnimatable, StoryboardView {
     typealias Reactor = WorkViewReactor
 
     @IBOutlet weak var headerView: WorkHeaderView!
@@ -25,18 +25,6 @@ final class WorkViewController: StatusBarAnimatableViewController, StoryboardVie
     }()
     
     var disposeBag = DisposeBag()
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        StatusBarManager.shared.hideStatusBar()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        StatusBarManager.shared.showStatusBar()
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +32,26 @@ final class WorkViewController: StatusBarAnimatableViewController, StoryboardVie
         prepareConstraints()
         
         view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:))))
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return statusBarManager.isStatusBarHidden
+    }
+    
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return .slide
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        hideStatusBar()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        showStatusBar()
     }
     
     func bind(reactor: Reactor) {        
@@ -131,55 +139,5 @@ final class NacigatarBar: UIView {
     private func commonInit() {
         backgroundColor = UIColor(hex: 0xD8D8D8)
         roundedRectangleFilter()
-    }
-}
-
-class StatusBarAnimatableViewController: UIViewController {
-    let statusBarManager = StatusBarManager.shared
-    
-    override var prefersStatusBarHidden: Bool {
-        return statusBarManager.isStatusBarHidden
-    }
-    
-    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
-        return .slide
-    }
-    
-    func hideStatusBar() {
-        statusBarManager.isStatusBarHidden = true
-        UIView.animate(withDuration: 0.35) { [weak self] in
-            self?.setNeedsStatusBarAppearanceUpdate()
-        }
-    }
-    
-    func showStatusBar() {
-        statusBarManager.isStatusBarHidden = false
-        UIView.animate(withDuration: 0.35) { [weak self] in
-            self?.setNeedsStatusBarAppearanceUpdate()
-        }
-    }
-}
-
-final class StatusBarManager {
-    static let shared = StatusBarManager()
-    private init() { }
-    
-    var isStatusBarHidden: Bool = false
-    
-    func hideStatusBar() {
-        isStatusBarHidden = true
-        updateStatusBar()
-    }
-    
-    func showStatusBar() {
-        isStatusBarHidden = false
-        updateStatusBar()
-    }
-    
-    private func updateStatusBar() {
-        UIView.animate(withDuration: 0.35) {
-            let topVC = UIApplication.topViewController()
-            topVC?.setNeedsStatusBarAppearanceUpdate()
-        }
     }
 }

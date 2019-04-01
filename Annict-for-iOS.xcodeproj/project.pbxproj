@@ -79,6 +79,8 @@
 		D1AF34C2219B4042004DD229 /* UserInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1AF34C0219B4042004DD229 /* UserInfoTableViewCell.xib */; };
 		D1AF34C4219B4202004DD229 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AF34C3219B4202004DD229 /* UITableView.swift */; };
 		D1AF34C6219B4238004DD229 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AF34C5219B4238004DD229 /* UICollectionView.swift */; };
+		D1B27B2822525B01007F8B95 /* ParentPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B27B2722525B01007F8B95 /* ParentPagerViewController.swift */; };
+		D1B27B2A22525B57007F8B95 /* StatusBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B27B2922525B57007F8B95 /* StatusBarManager.swift */; };
 		D1B4F161217EB3770011BAFF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F160217EB3770011BAFF /* RootViewController.swift */; };
 		D1B4F163217EB38D0011BAFF /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */; };
 		D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F164217EB4080011BAFF /* RootViewReactor.swift */; };
@@ -222,6 +224,8 @@
 		D1AF34C0219B4042004DD229 /* UserInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoTableViewCell.xib; sourceTree = "<group>"; };
 		D1AF34C3219B4202004DD229 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		D1AF34C5219B4238004DD229 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		D1B27B2722525B01007F8B95 /* ParentPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentPagerViewController.swift; sourceTree = "<group>"; };
+		D1B27B2922525B57007F8B95 /* StatusBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarManager.swift; sourceTree = "<group>"; };
 		D1B4F160217EB3770011BAFF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RootViewController.storyboard; sourceTree = "<group>"; };
 		D1B4F164217EB4080011BAFF /* RootViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewReactor.swift; sourceTree = "<group>"; };
@@ -559,6 +563,8 @@
 				D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */,
 				D1BCB8C1217F327400B84F82 /* NotificationCenter.swift */,
 				D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */,
+				D1B27B2722525B01007F8B95 /* ParentPagerViewController.swift */,
+				D1B27B2922525B57007F8B95 /* StatusBarManager.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -982,6 +988,7 @@
 				D1F9144D21AA85C1006986A1 /* UIColor.swift in Sources */,
 				D1B4F16F217EB8A70011BAFF /* StoryboardLoadable.swift in Sources */,
 				D165C9BD21B158EA002E8FFA /* SearchResultViewReactor.swift in Sources */,
+				D1B27B2822525B01007F8B95 /* ParentPagerViewController.swift in Sources */,
 				D1AF34C4219B4202004DD229 /* UITableView.swift in Sources */,
 				D1B4F171217EB8D50011BAFF /* NSObject.swift in Sources */,
 				D1F553A6224B8132001D971C /* ButtonMarkView.swift in Sources */,
@@ -1042,6 +1049,7 @@
 				D1B4F178217EC0970011BAFF /* Constants.swift in Sources */,
 				D123F254217CBD2500AE38FD /* AppDelegate.swift in Sources */,
 				D11D57F72237D9B9000D3CC0 /* RootTabBarReactor.swift in Sources */,
+				D1B27B2A22525B57007F8B95 /* StatusBarManager.swift in Sources */,
 				D1BCB8C4217F350A00B84F82 /* HTTPClient.swift in Sources */,
 				D1C53C0D21EE4F1200DA9A1D /* ProfileWorksViewReactor.swift in Sources */,
 				D1F9143521AA74FA006986A1 /* NSMutableParagraphStyle.swift in Sources */,
