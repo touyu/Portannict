@@ -111,7 +111,7 @@ final class WorkViewController: ParentPagerViewController, StatusBarAnimatable, 
 //        let progress = translation.y / view.bounds.height\\
 
 
-        let safeAreaInsetTop: CGFloat = 44
+        let safeAreaInsetTop: CGFloat = view.safeAreaInsets.top
         let insetTop = self.insetTop - safeAreaInsetTop
         
         if scrollView.contentOffset.y > -insetTop {
