@@ -31,7 +31,8 @@ final class WorkViewController: ParentPagerViewController, StatusBarAnimatable, 
         super.viewDidLoad()
         
         prepareConstraints()
-        
+
+        isEnableTopSafeAreaInset = true
         view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:))))
     }
     

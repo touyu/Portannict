@@ -35,7 +35,11 @@ class ParentPagerViewController: ButtonBarPagerTabStripViewController, ParentPag
         super.viewDidLoad()
         
 //        headerView(self).frame.size.height = heigthForHeaderView(self)
+
     }
+
+    // safeAreaのtopInsetを考慮するかどうか
+    var isEnableTopSafeAreaInset: Bool = false
     
     var insetTop: CGFloat {
         return heigthForHeaderView(self) + buttonBarView.bounds.height
@@ -71,14 +75,26 @@ class ParentPagerViewController: ButtonBarPagerTabStripViewController, ParentPag
         var insetTops = childScrollViews
             .filter { $0 != scrollView }
             .map { min($0.contentOffset.y, -buttonBarView.bounds.height) }
-        insetTops.append(-insetTop)
+//        if isEnableTopSafeAreaInset {
+//            insetTops.append(-insetTop - view.safeAreaInsets.top)
+//        } else {
+            insetTops.append(-insetTop)
+//        }
         scrollView.contentOffset.y = insetTops.max() ?? 0
     }
     
     func scrollViewDidScrolled(_ scrollView: UIScrollView) {
-        headerViewTopConstraint.constant = max(-scrollView.contentOffset.y - insetTop,
-                                               -heigthForHeaderView(self))
-        
+        let constant = -scrollView.contentOffset.y - insetTop
+        var minTopConstant = -heigthForHeaderView(self)
+        if isEnableTopSafeAreaInset {
+            minTopConstant += view.safeAreaInsets.top
+        }
+        headerViewTopConstraint.constant = max(constant, minTopConstant)
+
+//        if isEnableTopSafeAreaInset {
+//            headerViewTopConstraint.constant += view.safeAreaInsets.top
+//        }
+
         if scrollView.contentOffset.y <= -scrollView.contentInset.top {
             return
         }
