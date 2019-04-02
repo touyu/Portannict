@@ -28,11 +28,10 @@ final class WorkViewController: ParentPagerViewController, StatusBarAnimatable, 
 
     override func viewDidLoad() {
         prepareButtonBar()
+        isEnableTopSafeAreaInset = true
         super.viewDidLoad()
         
         prepareConstraints()
-
-        isEnableTopSafeAreaInset = true
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -106,10 +105,14 @@ final class WorkViewController: ParentPagerViewController, StatusBarAnimatable, 
     
     @objc func handlePanGesture(_ panGesture: UIPanGestureRecognizer) {
         guard let scrollView = panGesture.view as? UIScrollView else { return }
-        print(scrollView.contentOffset.y, insetTop)
-        
+//        print(scrollView.contentOffset.y, insetTop)
+
 //        let translation = panGesture.translation(in: nil)
 //        let progress = translation.y / view.bounds.height\\
+
+
+        let safeAreaInsetTop: CGFloat = 44
+        let insetTop = self.insetTop - safeAreaInsetTop
         
         if scrollView.contentOffset.y > -insetTop {
             Hero.shared.cancel()
@@ -117,8 +120,8 @@ final class WorkViewController: ParentPagerViewController, StatusBarAnimatable, 
         }
 //
         let progress = -(scrollView.contentOffset.y + insetTop) / view.bounds.height * 2
-        print(progress)
-        
+//        print(progress)
+
         switch panGesture.state {
         case .began:
             hero.dismissViewController()
