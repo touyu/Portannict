@@ -33,7 +33,6 @@ final class WorkViewController: ParentPagerViewController, StatusBarAnimatable, 
         prepareConstraints()
 
         isEnableTopSafeAreaInset = true
-        view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:))))
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -64,6 +63,12 @@ final class WorkViewController: ParentPagerViewController, StatusBarAnimatable, 
         return [WorkEpisodeViewViewController.loadStoryboard(),
                 WorkEpisodeViewViewController.loadStoryboard(),
                 WorkEpisodeViewViewController.loadStoryboard()]
+    }
+    
+    override func scrollViewWillDisplay(_ scrollView: UIScrollView) {
+        super.scrollViewWillDisplay(scrollView)
+        
+        scrollView.panGestureRecognizer.addTarget(self, action: #selector(handlePanGesture(_:)))
     }
     
     func bind(reactor: Reactor) {        
@@ -98,9 +103,21 @@ final class WorkViewController: ParentPagerViewController, StatusBarAnimatable, 
             $0.right.equalTo(view).inset(20)
         }
     }
+    
     @objc func handlePanGesture(_ panGesture: UIPanGestureRecognizer) {
-        let translation = panGesture.translation(in: nil)
-        let progress = translation.y / view.bounds.height
+        guard let scrollView = panGesture.view as? UIScrollView else { return }
+        print(scrollView.contentOffset.y, insetTop)
+        
+//        let translation = panGesture.translation(in: nil)
+//        let progress = translation.y / view.bounds.height\\
+        
+        if scrollView.contentOffset.y > -insetTop {
+            Hero.shared.cancel()
+            return
+        }
+//
+        let progress = -(scrollView.contentOffset.y + insetTop) / view.bounds.height * 2
+        print(progress)
         
         switch panGesture.state {
         case .began:
@@ -109,7 +126,7 @@ final class WorkViewController: ParentPagerViewController, StatusBarAnimatable, 
             Hero.shared.update(progress)
         default:
             let velocity = panGesture.velocity(in: nil).y
-            
+
             // dismiss完成の条件のチェック
             if progress + abs(velocity) / view.bounds.height > 0.5 {
                 Hero.shared.finish(animate: true)

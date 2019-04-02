@@ -26,6 +26,14 @@ final class WorkHeaderView: UIView, NibOwnerLoadable {
         commonInit()
     }
     
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let view = super.hitTest(point, with: event)
+        if view == statusButton {
+            return view
+        }
+        return nil
+    }
+    
     private func commonInit() {
         loadNib()
         statusButton.roundedRectangleFilter()
