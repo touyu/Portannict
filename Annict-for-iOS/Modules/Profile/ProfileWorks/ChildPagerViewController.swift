@@ -10,6 +10,7 @@ import UIKit
 import XLPagerTabStrip
 
 protocol ScrollViewProvider {
+    var delegate: ChildPagerTabStripDelegate? { get set }
     func provideScrollView() -> UIScrollView?
 }
 
