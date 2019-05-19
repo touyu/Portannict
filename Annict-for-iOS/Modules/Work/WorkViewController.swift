@@ -68,6 +68,16 @@ final class WorkViewController: ParentPagerViewController, StatusBarAnimatable, 
         super.scrollViewWillDisplay(scrollView)
         
         scrollView.panGestureRecognizer.addTarget(self, action: #selector(handlePanGesture(_:)))
+//        scrollView.panGestureRecognizer.cancelsTouchesInView = true
+    }
+
+    override func scrollViewDidScrolled(_ scrollView: UIScrollView) {
+        super.scrollViewDidScrolled(scrollView)
+
+//        if insetTop > scrollView.contentOffset.y && Hero.shared.is {
+//            Hero.shared.cancel()
+//        }
+//        print(scrollView.contentOffset.y)
     }
     
     func bind(reactor: Reactor) {        
@@ -115,12 +125,14 @@ final class WorkViewController: ParentPagerViewController, StatusBarAnimatable, 
         let insetTop = self.insetTop - safeAreaInsetTop
         
         if scrollView.contentOffset.y > -insetTop {
+            print("FINISH")
             Hero.shared.cancel()
             return
         }
 //
         let progress = -(scrollView.contentOffset.y + insetTop) / view.bounds.height * 2
 //        print(progress)
+        print(progress)
 
         switch panGesture.state {
         case .began:
@@ -134,6 +146,7 @@ final class WorkViewController: ParentPagerViewController, StatusBarAnimatable, 
             if progress + abs(velocity) / view.bounds.height > 0.5 {
                 Hero.shared.finish(animate: true)
             } else {
+                print("FINISH222222222222222")
                 Hero.shared.cancel()
             }
         }
@@ -154,6 +167,15 @@ extension WorkViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
+    }
+}
+
+extension WorkViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if gestureRecognizer.view is UIScrollView {
+            return true
+        }
+        return false
     }
 }
 
