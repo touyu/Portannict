@@ -32,9 +32,6 @@
 		D123F254217CBD2500AE38FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D123F253217CBD2500AE38FD /* AppDelegate.swift */; };
 		D123F25B217CBD2600AE38FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D123F25A217CBD2600AE38FD /* Assets.xcassets */; };
 		D123F25E217CBD2600AE38FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D123F25C217CBD2600AE38FD /* LaunchScreen.storyboard */; };
-		D127410E217CCB4000DD09C2 /* ReactorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D127410C217CCB4000DD09C2 /* ReactorKit.framework */; };
-		D1274113217CCCF000DD09C2 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1274111217CCCF000DD09C2 /* RxCocoa.framework */; };
-		D1274114217CCCF000DD09C2 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1274112217CCCF000DD09C2 /* RxSwift.framework */; };
 		D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127411C217CDEF300DD09C2 /* BaseService.swift */; };
 		D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127411E217CDF1000DD09C2 /* ServiceProvider.swift */; };
 		D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */; };
@@ -93,7 +90,6 @@
 		D1B4F16C217EB8580011BAFF /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B4F16B217EB8580011BAFF /* LoginViewController.storyboard */; };
 		D1B4F16F217EB8A70011BAFF /* StoryboardLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F16E217EB8A70011BAFF /* StoryboardLoadable.swift */; };
 		D1B4F171217EB8D50011BAFF /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F170217EB8D50011BAFF /* NSObject.swift */; };
-		D1B4F172217EB9C00011BAFF /* ReactorKitRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D127410D217CCB4000DD09C2 /* ReactorKitRuntime.framework */; };
 		D1B4F174217EBB940011BAFF /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F173217EBB940011BAFF /* UIView.swift */; };
 		D1B4F176217EBF200011BAFF /* LoginViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F175217EBF200011BAFF /* LoginViewReactor.swift */; };
 		D1B4F178217EC0970011BAFF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F177217EC0970011BAFF /* Constants.swift */; };
@@ -311,10 +307,6 @@
 				D1FFB59321B03A14001099E6 /* Apollo.framework in Frameworks */,
 				D1FFB59421B03A14001099E6 /* ApolloSQLite.framework in Frameworks */,
 				D1F9143321AA6A61006986A1 /* Kingfisher.framework in Frameworks */,
-				D1B4F172217EB9C00011BAFF /* ReactorKitRuntime.framework in Frameworks */,
-				D1274113217CCCF000DD09C2 /* RxCocoa.framework in Frameworks */,
-				D1274114217CCCF000DD09C2 /* RxSwift.framework in Frameworks */,
-				D127410E217CCB4000DD09C2 /* ReactorKit.framework in Frameworks */,
 				C917CDDC4A16A7899040361A /* Pods_Annict_for_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -898,12 +890,20 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Keys/Keys.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Keys.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

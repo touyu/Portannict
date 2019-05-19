@@ -6,6 +6,9 @@ target 'Annict-for-iOS' do
   use_frameworks!
 
   # Pods for Annict-for-iOS
+  pod 'RxSwift', '~> 5'
+  pod 'RxCocoa', '~> 5'
+  pod 'ReactorKit'
 
 end
 

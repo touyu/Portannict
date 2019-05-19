@@ -1,8 +1,26 @@
 PODS:
   - Keys (1.0.1)
+  - ReactorKit (1.2.1):
+    - RxSwift (>= 4.0.0)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
 
 DEPENDENCIES:
   - Keys (from `Pods/CocoaPodsKeys`)
+  - ReactorKit
+  - RxCocoa (~> 5)
+  - RxSwift (~> 5)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ReactorKit
+    - RxCocoa
+    - RxRelay
+    - RxSwift
 
 EXTERNAL SOURCES:
   Keys:
@@ -10,7 +28,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
+  ReactorKit: 8be57f0527ad1ac2963cd5c338274a46a01e57a3
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
 
-PODFILE CHECKSUM: c25ab7839ae42c7640462f074e92e7f0f5a4003f
+PODFILE CHECKSUM: 5304d0b147ef6495e0cc6a3ba486e7beb3ebee8b
 
 COCOAPODS: 1.5.3
