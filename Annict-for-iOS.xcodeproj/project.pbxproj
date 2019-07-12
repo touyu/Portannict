@@ -29,6 +29,7 @@
 		D11D57FB2237DE2D000D3CC0 /* WorkQuoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D11D57FA2237DE2D000D3CC0 /* WorkQuoteView.xib */; };
 		D11D57FE2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D57FC2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.swift */; };
 		D11D57FF2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D11D57FD2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.xib */; };
+		D123D0D122D8F2D500C023F1 /* PanModal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D123D0D022D8F2D500C023F1 /* PanModal.framework */; };
 		D123F254217CBD2500AE38FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D123F253217CBD2500AE38FD /* AppDelegate.swift */; };
 		D123F25B217CBD2600AE38FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D123F25A217CBD2600AE38FD /* Assets.xcassets */; };
 		D123F25E217CBD2600AE38FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D123F25C217CBD2600AE38FD /* LaunchScreen.storyboard */; };
@@ -171,6 +172,7 @@
 		D11D57FA2237DE2D000D3CC0 /* WorkQuoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkQuoteView.xib; sourceTree = "<group>"; };
 		D11D57FC2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMultipleRecordTableViewCell.swift; sourceTree = "<group>"; };
 		D11D57FD2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityMultipleRecordTableViewCell.xib; sourceTree = "<group>"; };
+		D123D0D022D8F2D500C023F1 /* PanModal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PanModal.framework; path = Carthage/Build/iOS/PanModal.framework; sourceTree = "<group>"; };
 		D123F250217CBD2500AE38FD /* Annict-for-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Annict-for-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D123F253217CBD2500AE38FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D123F25A217CBD2600AE38FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D123D0D122D8F2D500C023F1 /* PanModal.framework in Frameworks */,
 				D1E66AB72204B9000058BFEF /* SnapKit.framework in Frameworks */,
 				D1C53C0821EE4C7700DA9A1D /* XLPagerTabStrip.framework in Frameworks */,
 				D1F9ED0321B2748500AB3DAE /* Hero.framework in Frameworks */,
@@ -376,6 +379,7 @@
 		D127410B217CCB3F00DD09C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D123D0D022D8F2D500C023F1 /* PanModal.framework */,
 				D1E66AB62204B9000058BFEF /* SnapKit.framework */,
 				D1E66AB42204B8ED0058BFEF /* Carthage */,
 				D1C53C0721EE4C7700DA9A1D /* XLPagerTabStrip.framework */,
@@ -953,6 +957,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/XLPagerTabStrip.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftDate.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PanModal.framework",
 			);
 			outputFileListPaths = (
 			);

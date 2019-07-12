@@ -1,6 +1,7 @@
 github "apollostack/apollo-ios"
-github "onevcat/Kingfisher"
+github "onevcat/Kingfisher" "5.5.0"
 github "HeroTransitions/Hero"
 github "xmartlabs/XLPagerTabStrip"
 github "SnapKit/SnapKit"
 github "malcommac/SwiftDate"
+github "slackhq/PanModal"
