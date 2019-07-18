@@ -67,7 +67,7 @@ extension BlurKit where Base: UIView {
         blurView?.removeFromSuperview()
     }
 
-    private var blurView: BlurView? {
+    var blurView: BlurView? {
         return base.subviews.first(where: { $0.restorationIdentifier == blurViewID }) as? BlurView
     }
 

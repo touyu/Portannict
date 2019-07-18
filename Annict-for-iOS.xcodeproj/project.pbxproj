@@ -79,9 +79,6 @@
 		D1AF34C6219B4238004DD229 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AF34C5219B4238004DD229 /* UICollectionView.swift */; };
 		D1B27B2822525B01007F8B95 /* ParentPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B27B2722525B01007F8B95 /* ParentPagerViewController.swift */; };
 		D1B27B2A22525B57007F8B95 /* StatusBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B27B2922525B57007F8B95 /* StatusBarManager.swift */; };
-		D1B27B2F22525FD3007F8B95 /* WorkEpisodeViewViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B27B2C22525FD3007F8B95 /* WorkEpisodeViewViewReactor.swift */; };
-		D1B27B3022525FD3007F8B95 /* WorkEpisodeViewViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B27B2D22525FD3007F8B95 /* WorkEpisodeViewViewController.storyboard */; };
-		D1B27B3122525FD3007F8B95 /* WorkEpisodeViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B27B2E22525FD3007F8B95 /* WorkEpisodeViewViewController.swift */; };
 		D1B27B3322526ECF007F8B95 /* SearchWorksByID.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1B27B3222526ECF007F8B95 /* SearchWorksByID.graphql */; };
 		D1B4F161217EB3770011BAFF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F160217EB3770011BAFF /* RootViewController.swift */; };
 		D1B4F163217EB38D0011BAFF /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */; };
@@ -110,9 +107,11 @@
 		D1C53C1821EF38E800DA9A1D /* ProfileWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C53C1721EF38E700DA9A1D /* ProfileWorksViewController.swift */; };
 		D1C53C2021EF733200DA9A1D /* ProfileWorkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C53C1E21EF733200DA9A1D /* ProfileWorkCollectionViewCell.swift */; };
 		D1C53C2121EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1C53C1F21EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib */; };
-		D1E66AB12204AC0E0058BFEF /* WorkHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E66AB02204AC0E0058BFEF /* WorkHeaderView.swift */; };
-		D1E66AB32204AC220058BFEF /* WorkHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E66AB22204AC220058BFEF /* WorkHeaderView.xib */; };
 		D1E66AB72204B9000058BFEF /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E66AB62204B9000058BFEF /* SnapKit.framework */; };
+		D1E6DEEC22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E6DEEA22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.swift */; };
+		D1E6DEED22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E6DEEB22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.xib */; };
+		D1E6DEF022E0EC2B003D03F0 /* WorkHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E6DEEE22E0EC2B003D03F0 /* WorkHeaderTableViewCell.swift */; };
+		D1E6DEF122E0EC2B003D03F0 /* WorkHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E6DEEF22E0EC2B003D03F0 /* WorkHeaderTableViewCell.xib */; };
 		D1F553A6224B8132001D971C /* ButtonMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F553A5224B8132001D971C /* ButtonMarkView.swift */; };
 		D1F553A8224B8944001D971C /* ChildPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F553A7224B8944001D971C /* ChildPagerViewController.swift */; };
 		D1F9143321AA6A61006986A1 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F9143221AA6A61006986A1 /* Kingfisher.framework */; };
@@ -228,9 +227,6 @@
 		D1AF34C5219B4238004DD229 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		D1B27B2722525B01007F8B95 /* ParentPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentPagerViewController.swift; sourceTree = "<group>"; };
 		D1B27B2922525B57007F8B95 /* StatusBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarManager.swift; sourceTree = "<group>"; };
-		D1B27B2C22525FD3007F8B95 /* WorkEpisodeViewViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkEpisodeViewViewReactor.swift; sourceTree = "<group>"; };
-		D1B27B2D22525FD3007F8B95 /* WorkEpisodeViewViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WorkEpisodeViewViewController.storyboard; sourceTree = "<group>"; };
-		D1B27B2E22525FD3007F8B95 /* WorkEpisodeViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkEpisodeViewViewController.swift; sourceTree = "<group>"; };
 		D1B27B3222526ECF007F8B95 /* SearchWorksByID.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchWorksByID.graphql; sourceTree = "<group>"; };
 		D1B4F160217EB3770011BAFF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RootViewController.storyboard; sourceTree = "<group>"; };
@@ -259,10 +255,12 @@
 		D1C53C1721EF38E700DA9A1D /* ProfileWorksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileWorksViewController.swift; sourceTree = "<group>"; };
 		D1C53C1E21EF733200DA9A1D /* ProfileWorkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWorkCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1C53C1F21EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileWorkCollectionViewCell.xib; sourceTree = "<group>"; };
-		D1E66AB02204AC0E0058BFEF /* WorkHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkHeaderView.swift; sourceTree = "<group>"; };
-		D1E66AB22204AC220058BFEF /* WorkHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkHeaderView.xib; sourceTree = "<group>"; };
 		D1E66AB42204B8ED0058BFEF /* Carthage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Carthage; sourceTree = "<group>"; };
 		D1E66AB62204B9000058BFEF /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		D1E6DEEA22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTitleTableViewCell.swift; sourceTree = "<group>"; };
+		D1E6DEEB22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeTitleTableViewCell.xib; sourceTree = "<group>"; };
+		D1E6DEEE22E0EC2B003D03F0 /* WorkHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		D1E6DEEF22E0EC2B003D03F0 /* WorkHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		D1F553A5224B8132001D971C /* ButtonMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonMarkView.swift; sourceTree = "<group>"; };
 		D1F553A7224B8944001D971C /* ChildPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildPagerViewController.swift; sourceTree = "<group>"; };
 		D1F9143221AA6A61006986A1 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -400,8 +398,10 @@
 		D130207F21B8065E00CE2F3A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D1E66AB02204AC0E0058BFEF /* WorkHeaderView.swift */,
-				D1E66AB22204AC220058BFEF /* WorkHeaderView.xib */,
+				D1E6DEEA22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.swift */,
+				D1E6DEEB22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.xib */,
+				D1E6DEEE22E0EC2B003D03F0 /* WorkHeaderTableViewCell.swift */,
+				D1E6DEEF22E0EC2B003D03F0 /* WorkHeaderTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -543,16 +543,6 @@
 				D1F553A5224B8132001D971C /* ButtonMarkView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		D1B27B2B22525FA2007F8B95 /* Episode */ = {
-			isa = PBXGroup;
-			children = (
-				D1B27B2C22525FD3007F8B95 /* WorkEpisodeViewViewReactor.swift */,
-				D1B27B2D22525FD3007F8B95 /* WorkEpisodeViewViewController.storyboard */,
-				D1B27B2E22525FD3007F8B95 /* WorkEpisodeViewViewController.swift */,
-			);
-			path = Episode;
 			sourceTree = "<group>";
 		};
 		D1B4F15C217EB2EC0011BAFF /* Samples */ = {
@@ -706,7 +696,6 @@
 		D1F9ED0421B274C000AB3DAE /* Work */ = {
 			isa = PBXGroup;
 			children = (
-				D1B27B2B22525FA2007F8B95 /* Episode */,
 				D130207F21B8065E00CE2F3A /* Views */,
 				D1F9ED0521B274CD00AB3DAE /* WorkViewReactor.swift */,
 				D1F9ED0621B274CD00AB3DAE /* WorkViewController.storyboard */,
@@ -851,8 +840,8 @@
 				D1C53C2121EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib in Resources */,
 				D1199E4E22390FA200531BF3 /* HomeTitleTableViewCell.xib in Resources */,
 				D1621E0021862BA600819D93 /* PostRecordViewController.storyboard in Resources */,
-				D1B27B3022525FD3007F8B95 /* WorkEpisodeViewViewController.storyboard in Resources */,
 				D11D57EA2237BC3B000D3CC0 /* ActivityRecordTableViewCell.xib in Resources */,
+				D1E6DEF122E0EC2B003D03F0 /* WorkHeaderTableViewCell.xib in Resources */,
 				D11D57F22237C663000D3CC0 /* WorkAndEpisodeQuoteView.xib in Resources */,
 				D165C9C121B15EE9002E8FFA /* SearchResultWorkCell.xib in Resources */,
 				D163090221F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.xib in Resources */,
@@ -864,9 +853,9 @@
 				D1F9144B21AA7FD2006986A1 /* UserWorkCollectionViewCell.xib in Resources */,
 				D1F9144121AA7B4F006986A1 /* UserWorksWithSectionTitleCell.xib in Resources */,
 				D11D57EE2237C1DA000D3CC0 /* ActivityStatusTableViewCell.xib in Resources */,
+				D1E6DEED22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.xib in Resources */,
 				D11D57E12237B1B0000D3CC0 /* Fragment.graphql in Resources */,
 				D1FFB58C21AEE904001099E6 /* EpisodeDetails.graphql in Resources */,
-				D1E66AB32204AC220058BFEF /* WorkHeaderView.xib in Resources */,
 				D1621DF12186262300819D93 /* RecordViewController.storyboard in Resources */,
 				D1C53C1321EEFA1900DA9A1D /* ProfileHeaderView.xib in Resources */,
 				D1C53C0E21EE4F1200DA9A1D /* ProfileWorksViewController.storyboard in Resources */,
@@ -1007,6 +996,7 @@
 				D1B4F161217EB3770011BAFF /* RootViewController.swift in Sources */,
 				D1C53C1821EF38E800DA9A1D /* ProfileWorksViewController.swift in Sources */,
 				D1BCB8CB217F451C00B84F82 /* UIApplication.swift in Sources */,
+				D1E6DEF022E0EC2B003D03F0 /* WorkHeaderTableViewCell.swift in Sources */,
 				D1B4F16A217EB8380011BAFF /* LoginViewController.swift in Sources */,
 				D1621DF22186262300819D93 /* RecordViewController.swift in Sources */,
 				D1F9144D21AA85C1006986A1 /* UIColor.swift in Sources */,
@@ -1016,7 +1006,6 @@
 				D1AF34C4219B4202004DD229 /* UITableView.swift in Sources */,
 				D1B4F171217EB8D50011BAFF /* NSObject.swift in Sources */,
 				D1F553A6224B8132001D971C /* ButtonMarkView.swift in Sources */,
-				D1E66AB12204AC0E0058BFEF /* WorkHeaderView.swift in Sources */,
 				D1199E50223E994700531BF3 /* CachePolicy.swift in Sources */,
 				D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */,
 				D165C9B621B0E051002E8FFA /* UINavigationBar.swift in Sources */,
@@ -1031,8 +1020,8 @@
 				D1621DFF21862BA600819D93 /* PostRecordViewReactor.swift in Sources */,
 				D1BCB8CE217F469800B84F82 /* HomeViewController.swift in Sources */,
 				D1621DF92186273200819D93 /* ProfileViewController.swift in Sources */,
+				D1E6DEEC22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.swift in Sources */,
 				D1621DF02186262300819D93 /* RecordViewReactor.swift in Sources */,
-				D1B27B3122525FD3007F8B95 /* WorkEpisodeViewViewController.swift in Sources */,
 				D1621DF72186273200819D93 /* ProfileViewReactor.swift in Sources */,
 				D11D57F42237D3DD000D3CC0 /* Entity+Extension.swift in Sources */,
 				D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */,
@@ -1066,7 +1055,6 @@
 				D1FFB58E21AEF3A3001099E6 /* RxUIScrollView.swift in Sources */,
 				D1F9143B21AA75C8006986A1 /* UIImage.swift in Sources */,
 				D16308FA21F0DA6F00EE3009 /* SeasonWorksCollectionViewCell.swift in Sources */,
-				D1B27B2F22525FD3007F8B95 /* WorkEpisodeViewViewReactor.swift in Sources */,
 				D1B4F176217EBF200011BAFF /* LoginViewReactor.swift in Sources */,
 				D1B4F167217EB5E60011BAFF /* RxUIViewController.swift in Sources */,
 				D1FFB59A21B04693001099E6 /* SearchViewController.swift in Sources */,

@@ -114,7 +114,7 @@ extension HomeViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     
         guard let work = reactor!.currentState.activities[indexPath.item].work else { return }
-        WorkViewController.present(fromVC: self, reactor: .init(work: work, heroID: "work_image_view\(indexPath.row)"))
+        WorkViewController.presentPanModal(fromVC: self, reactor: .init(work: work))
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

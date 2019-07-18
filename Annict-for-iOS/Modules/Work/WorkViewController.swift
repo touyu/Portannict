@@ -9,189 +9,95 @@
 import UIKit
 import ReactorKit
 import RxSwift
-import Hero
+import PanModal
 import SnapKit
 
-final class WorkViewController: ParentPagerViewController, StatusBarAnimatable, StoryboardView {
-    typealias Reactor = WorkViewReactor
 
-    @IBOutlet weak var headerView: WorkHeaderView!
-    
-    private var closeButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = UIColor.black.withAlphaComponent(0.7)
-        button.layer.cornerRadius = 28 / 2
-        return button
-    }()
+final class WorkViewController: UIViewController, StoryboardView {
+    typealias Reactor = WorkViewReactor
     
     var disposeBag = DisposeBag()
 
+    @IBOutlet private weak var tableView: UITableView!
+    
     override func viewDidLoad() {
-        prepareButtonBar()
-        isEnableTopSafeAreaInset = true
         super.viewDidLoad()
         
-        prepareConstraints()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.tableFooterView = UIView()
+        tableView.register(WorkHeaderTableViewCell.self,
+                           EpisodeTitleTableViewCell.self)
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return statusBarManager.isStatusBarHidden
-    }
-    
-    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
-        return .slide
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        hideStatusBar()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        showStatusBar()
-    }
-    
-    override func headerView(_ parentPager: ParentPager) -> UIView {
-        return headerView
-    }
-    
-    override func viewControllers(_ parentPager: ParentPager) -> [ChildPagerViewController] {
-        return [WorkEpisodeViewViewController.loadStoryboard(),
-                WorkEpisodeViewViewController.loadStoryboard(),
-                WorkEpisodeViewViewController.loadStoryboard()]
-    }
-    
-    override func scrollViewWillDisplay(_ scrollView: UIScrollView) {
-        super.scrollViewWillDisplay(scrollView)
-        
-        scrollView.panGestureRecognizer.addTarget(self, action: #selector(handlePanGesture(_:)))
-//        scrollView.panGestureRecognizer.cancelsTouchesInView = true
-    }
-
-    override func scrollViewDidScrolled(_ scrollView: UIScrollView) {
-        super.scrollViewDidScrolled(scrollView)
-
-//        if insetTop > scrollView.contentOffset.y && Hero.shared.is {
-//            Hero.shared.cancel()
-//        }
-//        print(scrollView.contentOffset.y)
-    }
-    
-    func bind(reactor: Reactor) {        
-        closeButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                self?.dismiss(animated: true, completion: nil)
-            })
+    func bind(reactor: Reactor) {
+        rx.viewWillAppear
+            .take(1)
+            .map { Reactor.Action.fetchEpisodes }
+            .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        reactor.state.map { $0.work }
+        reactor.state.map { $0.episodes }
             .distinctUntilChanged()
-            .subscribe(onNext: { [weak self] work in
-                self?.headerView.configure(work: work)
+            .subscribe(onNext: { [weak self] episodes in
+                self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)
-        
-        reactor.state.map { $0.heroID }
-            .filterNil()
-            .distinctUntilChanged()
-            .subscribe(onNext: { [weak self] heroID in
-                self?.hero.isEnabled = true
-                self?.headerView.workImageView.hero.id = heroID
-            })
-            .disposed(by: disposeBag)
-    }
-    
-    private func prepareConstraints() {
-        view.addSubview(closeButton)
-        closeButton.snp.makeConstraints {
-            $0.size.equalTo(CGSize(width: 28, height: 28))
-            $0.top.equalTo(view).inset(20)
-            $0.right.equalTo(view).inset(20)
-        }
-    }
-    
-    @objc func handlePanGesture(_ panGesture: UIPanGestureRecognizer) {
-        guard let scrollView = panGesture.view as? UIScrollView else { return }
-//        print(scrollView.contentOffset.y, insetTop)
-
-//        let translation = panGesture.translation(in: nil)
-//        let progress = translation.y / view.bounds.height\\
-
-
-        let safeAreaInsetTop: CGFloat = view.safeAreaInsets.top
-        let insetTop = self.insetTop - safeAreaInsetTop
-        
-        if scrollView.contentOffset.y > -insetTop {
-            print("FINISH")
-            Hero.shared.cancel()
-            return
-        }
-//
-        let progress = -(scrollView.contentOffset.y + insetTop) / view.bounds.height * 2
-//        print(progress)
-        print(progress)
-
-        switch panGesture.state {
-        case .began:
-            hero.dismissViewController()
-        case .changed:
-            Hero.shared.update(progress)
-        default:
-            let velocity = panGesture.velocity(in: nil).y
-
-            // dismiss完成の条件のチェック
-            if progress + abs(velocity) / view.bounds.height > 0.5 {
-                Hero.shared.finish(animate: true)
-            } else {
-                print("FINISH222222222222222")
-                Hero.shared.cancel()
-            }
-        }
     }
 }
 
 extension WorkViewController {
-    static func present(fromVC: UIViewController, reactor: Reactor) {
+    static func presentPanModal(fromVC: UIViewController, reactor: Reactor) {
         let vc = WorkViewController.loadStoryboard(reactor: reactor)
-        fromVC.present(vc, animated: true, completion: nil)
+        fromVC.presentPanModal(vc)
     }
 }
 
 extension WorkViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        if section == 0 {
+           return 1
+        }
+        return reactor!.currentState.episodes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
-}
-
-extension WorkViewController: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if gestureRecognizer.view is UIScrollView {
-            return true
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(classType: WorkHeaderTableViewCell.self, for: indexPath)
+            cell.configure(work: reactor!.currentState.work)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(classType: EpisodeTitleTableViewCell.self, for: indexPath)
+            cell.configure(episode: reactor!.currentState.episodes[indexPath.row])
+            return cell
         }
-        return false
     }
 }
 
-final class NacigatarBar: UIView {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
+extension WorkViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 460
+        } else {
+            return 50
+        }
+    }
+}
+
+extension WorkViewController: PanModalPresentable {
+    var panScrollable: UIScrollView? {
+        return tableView
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
+    var longFormHeight: PanModalHeight {
+        return .maxHeightWithTopInset(0)
     }
     
-    private func commonInit() {
-        backgroundColor = UIColor(hex: 0xD8D8D8)
-        roundedRectangleFilter()
+    var showDragIndicator: Bool {
+        return false
     }
 }

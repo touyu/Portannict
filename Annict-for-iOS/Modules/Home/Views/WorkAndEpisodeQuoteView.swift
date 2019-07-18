@@ -45,3 +45,17 @@ final class WorkAndEpisodeQuoteView: UIView, NibOwnerLoadable {
         episodeLabel.text = "\(episode.numberAndTitle)"
     }
 }
+
+extension MinimumWork.Image {
+    var url: String? {
+        if let twitterAvatarUrl = twitterAvatarUrl, !twitterAvatarUrl.isEmpty {
+            return twitterAvatarUrl
+        }
+        
+        if let recommendedImageUrl = recommendedImageUrl {
+            return recommendedImageUrl.replacingOccurrences(of: "http://", with: "https://")
+        }
+        
+        return nil
+    }
+}

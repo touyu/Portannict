@@ -87,10 +87,7 @@ extension ProfileWorksViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let reactor = reactor else { return }
         let work = reactor.currentState.works[indexPath.item]
-        let vc = WorkViewController.loadStoryboard()
-        vc.reactor = .init(work: work, heroID: "work_image_\(indexPath.item)")
-        vc.hero.isEnabled = true
-        present(vc, animated: true, completion: nil)
+        WorkViewController.presentPanModal(fromVC: self, reactor: .init(work: work))
     }
 }
 
