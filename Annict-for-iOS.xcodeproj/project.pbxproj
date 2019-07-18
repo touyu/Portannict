@@ -945,11 +945,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/ReactorKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Apollo.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ReactorKitRuntime.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ApolloSQLite.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SQLite.framework",
