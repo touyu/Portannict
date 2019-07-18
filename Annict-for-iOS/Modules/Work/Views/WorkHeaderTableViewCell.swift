@@ -30,5 +30,6 @@ final class WorkHeaderTableViewCell: UITableViewCell {
         workImageView.setImage(url: work.image?.url)
         blurWorkImageView.setImage(url: work.image?.url)
         titleLabel.text = work.title
+        statusButton.setTitle(work.viewerStatusState?.localizedText, for: .normal)
     }
 }
