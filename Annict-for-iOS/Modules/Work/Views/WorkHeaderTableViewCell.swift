@@ -15,6 +15,7 @@ final class WorkHeaderTableViewCell: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var statusButton: WorkStatusButton!
 
+    var didTapButton: (() -> Void)?
     var didTapDetail: (() -> Void)?
     
     override func awakeFromNib() {
@@ -33,6 +34,7 @@ final class WorkHeaderTableViewCell: UITableViewCell {
         blurWorkImageView.setImage(url: work.image?.url)
         titleLabel.text = work.title
         statusButton.configure(status: work.viewerStatusState ?? .noState)
+        statusButton.didTap = didTapButton
         statusButton.didTapDetail = didTapDetail
     }
 }

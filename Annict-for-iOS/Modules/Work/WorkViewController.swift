@@ -80,6 +80,9 @@ extension WorkViewController: UITableViewDataSource {
             cell.didTapDetail = { [weak self] in
                 self?.showAlert(currentState: work.viewerStatusState ?? .noState)
             }
+            cell.didTapButton = { [weak self] in
+                self?.didTapStatusButton(currentState: work.viewerStatusState ?? .noState)
+            }
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(classType: EpisodeTitleTableViewCell.self, for: indexPath)
@@ -108,6 +111,17 @@ extension WorkViewController: UITableViewDataSource {
 
     private func selectedWorkStatusState(_ statusState: StatusState) {
         reactor?.action.onNext(.updateStatusState(statusState))
+    }
+    
+    private func didTapStatusButton(currentState: StatusState) {
+        switch currentState {
+        case .noState:
+            reactor?.action.onNext(.updateStatusState(.wannaWatch))
+        case .wannaWatch, .watched, .watching, .onHold, .stopWatching:
+            showAlert(currentState: currentState)
+        default:
+            break
+        }
     }
 }
 

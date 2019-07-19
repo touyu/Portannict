@@ -46,15 +46,8 @@ final class WorkStatusButton: UIView, NibOwnerLoadable {
 
     @objc private func taped() {
         Taptic.run(.impact(.medium))
-
-        switch status {
-        case .noState:
-            configure(status: .wannaWatch)
-        case .wannaWatch, .watched, .watching, .stopWatching, .onHold:
-            configure(status: .noState)
-        default:
-            break
-        }
+        
+        didTap?()
     }
 
     @objc private func tapedThreeDots() {
