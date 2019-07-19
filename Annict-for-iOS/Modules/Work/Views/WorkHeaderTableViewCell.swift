@@ -17,6 +17,11 @@ final class WorkHeaderTableViewCell: UITableViewCell {
 
     var didTapButton: (() -> Void)?
     var didTapDetail: (() -> Void)?
+    weak var delegate: WorkStatusButtonDelegate? {
+        didSet {
+            statusButton.delegate = delegate
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

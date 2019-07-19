@@ -8,9 +8,16 @@
 
 import UIKit
 
+protocol WorkStatusButtonDelegate: class {
+    func didTap(_ workStatusButton: WorkStatusButton)
+    func didTapDetail(_ workStatusButton: WorkStatusButton)
+}
+
 final class WorkStatusButton: UIView, NibOwnerLoadable {
     var didTap: (() -> Void)?
     var didTapDetail: (() -> Void)?
+    
+    weak var delegate: WorkStatusButtonDelegate?
 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var threeDots: UIImageView!
@@ -48,12 +55,14 @@ final class WorkStatusButton: UIView, NibOwnerLoadable {
         Taptic.run(.impact(.medium))
         
         didTap?()
+        delegate?.didTap(self)
     }
 
     @objc private func tapedThreeDots() {
         Taptic.run(.impact(.medium))
 
         didTapDetail?()
+        delegate?.didTapDetail(self)
     }
 
     func configure(status: StatusState) {

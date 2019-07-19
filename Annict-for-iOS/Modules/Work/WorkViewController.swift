@@ -77,50 +77,12 @@ extension WorkViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(classType: WorkHeaderTableViewCell.self, for: indexPath)
             let work = reactor!.currentState.work
             cell.configure(work: work)
-            cell.didTapDetail = { [weak self] in
-                self?.showAlert(currentState: work.viewerStatusState ?? .noState)
-            }
-            cell.didTapButton = { [weak self] in
-                self?.didTapStatusButton(currentState: work.viewerStatusState ?? .noState)
-            }
+            cell.delegate = self
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(classType: EpisodeTitleTableViewCell.self, for: indexPath)
             cell.configure(episode: reactor!.currentState.episodes[indexPath.row])
             return cell
-        }
-    }
-
-    private func showAlert(currentState: StatusState) {
-        let ac = UIAlertController(title: "ステータスを変更", message: nil, preferredStyle: .actionSheet)
-
-        let stateList: [StatusState] = [.noState, .wannaWatch, .watching, .watched, .onHold, .stopWatching].filter { $0 != currentState }
-        let actions = stateList.map { [weak self] statusState in
-            UIAlertAction(title: statusState.localizedText, style: .default, handler: { [weak self] _ in
-                self?.selectedWorkStatusState(statusState)
-            })
-        }
-
-        let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
-        actions.forEach {
-            ac.addAction($0)
-        }
-        ac.addAction(cancel)
-        present(ac, animated: true, completion: nil)
-    }
-
-    private func selectedWorkStatusState(_ statusState: StatusState) {
-        reactor?.action.onNext(.updateStatusState(statusState))
-    }
-    
-    private func didTapStatusButton(currentState: StatusState) {
-        switch currentState {
-        case .noState:
-            reactor?.action.onNext(.updateStatusState(.wannaWatch))
-        case .wannaWatch, .watched, .watching, .onHold, .stopWatching:
-            showAlert(currentState: currentState)
-        default:
-            break
         }
     }
 }
@@ -150,5 +112,48 @@ extension WorkViewController: PanModalPresentable {
     
     var showDragIndicator: Bool {
         return false
+    }
+}
+
+extension WorkViewController: WorkStatusButtonDelegate {
+    func didTap(_ workStatusButton: WorkStatusButton) {
+        let work = reactor!.currentState.work
+        let currentState = work.viewerStatusState ?? .noState
+        
+        switch currentState {
+        case .noState:
+            updateStatusState(.wannaWatch)
+        case .wannaWatch, .watched, .watching, .onHold, .stopWatching:
+            showAlert(currentState: currentState)
+        default:
+            break
+        }
+    }
+    
+    func didTapDetail(_ workStatusButton: WorkStatusButton) {
+        let work = reactor!.currentState.work
+        showAlert(currentState: work.viewerStatusState ?? .noState)
+    }
+    
+    private func showAlert(currentState: StatusState) {
+        let ac = UIAlertController(title: "ステータスを変更", message: nil, preferredStyle: .actionSheet)
+        
+        let stateList: [StatusState] = [.noState, .wannaWatch, .watching, .watched, .onHold, .stopWatching].filter { $0 != currentState }
+        let actions = stateList.map { [weak self] statusState in
+            UIAlertAction(title: statusState.localizedText, style: .default, handler: { [weak self] _ in
+                self?.updateStatusState(statusState)
+            })
+        }
+        
+        let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        actions.forEach {
+            ac.addAction($0)
+        }
+        ac.addAction(cancel)
+        present(ac, animated: true, completion: nil)
+    }
+    
+    private func updateStatusState(_ statusState: StatusState) {
+        reactor?.action.onNext(.updateStatusState(statusState))
     }
 }
