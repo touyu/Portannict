@@ -25,7 +25,7 @@ final class AnnictGraphQL {
         return config
     }
     
-    static var client: ApolloClient {
+    static var client: ApolloClient = {
         let transport = HTTPNetworkTransport(url: baseURL, configuration: configuration)
         do {
             let fileURL = try temporarySQLiteFileURL()
@@ -34,7 +34,7 @@ final class AnnictGraphQL {
         } catch {
             return ApolloClient(networkTransport: transport)
         }
-    }
+    }()
     
     private static func temporarySQLiteFileURL() throws -> URL {
         let applicationSupportPath = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true).first!

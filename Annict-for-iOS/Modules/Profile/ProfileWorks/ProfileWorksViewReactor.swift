@@ -49,7 +49,7 @@ final class ProfileWorksViewReactor: Reactor {
             return .merge(works, pageInfo)
         case .loadMore:
             guard currentState.pageInfo?.hasNextPage ?? false else { return .empty() }
-            let fetchWorksEvent = fetchWorks(after: currentState.pageInfo?.endCursor).share()
+            let fetchWorksEvent = fetchMoreWorks(after: currentState.pageInfo?.endCursor).share()
             let works = fetchWorksEvent.map { Mutation.addWorks($0.minimumWorks) }
             let pageInfo = fetchWorksEvent.map { Mutation.setPageInfo($0.pageInfo) }
             return .merge(works, pageInfo)
@@ -62,16 +62,10 @@ final class ProfileWorksViewReactor: Reactor {
         let filterWorks = provider.workAPIService.event.updateWorkState
             .filter { $0.viewerStatusState != currentStatusState }
             .map { Mutation.removeWork($0.id) }
-            .do(onNext: { _ in
-                print("OOOOOOOOOOOOO!!!!!!!!!!")
-            })
         
         let appendWork = provider.workAPIService.event.updateWorkState
             .filter { $0.viewerStatusState == currentStatusState }
             .map { Mutation.insertWork($0) }
-            .do(onNext: { _ in
-                print("HHHHHHHHHHHHHH!!!!!!!!!!")
-            })
         
         return .merge(mutation, filterWorks, appendWork)
     }
@@ -99,7 +93,15 @@ final class ProfileWorksViewReactor: Reactor {
 
     private func fetchWorks(after: String? = nil) -> Observable<GetViewerWorksQuery.Data.Viewer.Work> {
         let query = GetViewerWorksQuery(state: statusState, after: after)
-        return AnnictGraphQL.client.rx.fetchMaybe(query: query, cachePolicy: .returnCacheDataAndFetch)
+        return AnnictGraphQL.client.rx.fetch(query: query, cachePolicy: .returnCacheDataAndFetch)
+            .asObservable()
+            .map { $0.viewer?.works }
+            .filterNil()
+    }
+    
+    private func fetchMoreWorks(after: String? = nil) -> Observable<GetViewerWorksQuery.Data.Viewer.Work> {
+        let query = GetViewerWorksQuery(state: statusState, after: after)
+        return AnnictGraphQL.client.rx.fetch(query: query, cachePolicy: .fetchIgnoringCacheData)
             .asObservable()
             .map { $0.viewer?.works }
             .filterNil()
