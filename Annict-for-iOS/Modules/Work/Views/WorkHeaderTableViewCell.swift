@@ -13,7 +13,9 @@ final class WorkHeaderTableViewCell: UITableViewCell {
     @IBOutlet private weak var blurWorkImageView: UIImageView!
     @IBOutlet private weak var workImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var statusButton: UIButton!
+    @IBOutlet private weak var statusButton: WorkStatusButton!
+
+    var didTapDetail: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,6 +32,7 @@ final class WorkHeaderTableViewCell: UITableViewCell {
         workImageView.setImage(url: work.image?.url)
         blurWorkImageView.setImage(url: work.image?.url)
         titleLabel.text = work.title
-        statusButton.setTitle(work.viewerStatusState?.localizedText, for: .normal)
+        statusButton.configure(status: work.viewerStatusState ?? .noState)
+        statusButton.didTapDetail = didTapDetail
     }
 }

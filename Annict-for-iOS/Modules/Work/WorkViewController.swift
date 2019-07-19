@@ -36,6 +36,13 @@ final class WorkViewController: UIViewController, StoryboardView {
             .map { Reactor.Action.fetchEpisodes }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+
+        reactor.state.map { $0.work }
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] episodes in
+                self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
         
         reactor.state.map { $0.episodes }
             .distinctUntilChanged()
@@ -68,13 +75,39 @@ extension WorkViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(classType: WorkHeaderTableViewCell.self, for: indexPath)
-            cell.configure(work: reactor!.currentState.work)
+            let work = reactor!.currentState.work
+            cell.configure(work: work)
+            cell.didTapDetail = { [weak self] in
+                self?.showAlert(currentState: work.viewerStatusState ?? .noState)
+            }
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(classType: EpisodeTitleTableViewCell.self, for: indexPath)
             cell.configure(episode: reactor!.currentState.episodes[indexPath.row])
             return cell
         }
+    }
+
+    private func showAlert(currentState: StatusState) {
+        let ac = UIAlertController(title: "ステータスを変更", message: nil, preferredStyle: .actionSheet)
+
+        let stateList: [StatusState] = [.noState, .wannaWatch, .watching, .watched, .onHold, .stopWatching].filter { $0 != currentState }
+        let actions = stateList.map { [weak self] statusState in
+            UIAlertAction(title: statusState.localizedText, style: .default, handler: { [weak self] _ in
+                self?.selectedWorkStatusState(statusState)
+            })
+        }
+
+        let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        actions.forEach {
+            ac.addAction($0)
+        }
+        ac.addAction(cancel)
+        present(ac, animated: true, completion: nil)
+    }
+
+    private func selectedWorkStatusState(_ statusState: StatusState) {
+        reactor?.action.onNext(.updateStatusState(statusState))
     }
 }
 

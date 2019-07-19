@@ -28,12 +28,14 @@ final class ProfileWorksViewReactor: Reactor {
         var pageInfo: PageInfo?
     }
     
-    var initialState: State
-    var statusState: StatusState
+    let initialState: State
+    let statusState: StatusState
+    let provider: ServiceProviderType
     
     init(statusState: StatusState) {
         initialState = State()
         self.statusState = statusState
+        self.provider = ServiceProvider()
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -51,6 +53,15 @@ final class ProfileWorksViewReactor: Reactor {
             return .merge(works, pageInfo)
         }
     }
+
+    func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
+//        let updateState = provider.workAPIService.event.updateWorkState
+//            .filter { $0.viewerStatusState !=  }
+//            .map { [weak self] work in
+//                let works = self?.currentState.works.filter { $0.id != work.id }
+//            }
+        return .merge(mutation)
+    }
     
     func reduce(state: State, mutation: Mutation) -> State {
         var state = state
@@ -64,7 +75,11 @@ final class ProfileWorksViewReactor: Reactor {
         }
         return state
     }
-    
+
+    func reactorForWork(index: Int) -> WorkViewReactor {
+        return .init(provider: provider, work: currentState.works[index])
+    }
+
     private func fetchWorks(after: String? = nil) -> Observable<GetViewerWorksQuery.Data.Viewer.Work> {
         let query = GetViewerWorksQuery(state: statusState, after: after)
         return AnnictGraphQL.client.rx.fetchMaybe(query: query, cachePolicy: .returnCacheDataAndFetch)

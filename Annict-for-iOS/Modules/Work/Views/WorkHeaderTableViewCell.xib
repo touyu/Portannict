@@ -38,36 +38,32 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gS4-fP-DCO">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lgD-nw-rZP" customClass="WorkStatusButton" customModule="Annict_for_iOS" customModuleProvider="target">
                         <rect key="frame" x="20" y="369" width="335" height="48"/>
-                        <color key="backgroundColor" red="0.20392156862745098" green="0.59607843137254901" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="48" id="7Rg-V7-Ji1"/>
+                            <constraint firstAttribute="height" constant="48" id="ZuS-Ns-MjI"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                        <state key="normal" title="見た">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </state>
-                    </button>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="uV1-zT-qOR" firstAttribute="top" secondItem="OPV-mm-aUE" secondAttribute="bottom" constant="20" id="0dU-ri-Nyi"/>
+                    <constraint firstAttribute="trailing" secondItem="lgD-nw-rZP" secondAttribute="trailing" constant="20" id="4f4-MB-dg2"/>
                     <constraint firstItem="OPV-mm-aUE" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Cfh-ch-08G"/>
                     <constraint firstAttribute="trailing" secondItem="uV1-zT-qOR" secondAttribute="trailing" constant="20" id="EnS-RF-OQU"/>
                     <constraint firstItem="OPV-mm-aUE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="F9H-0M-mWw"/>
                     <constraint firstItem="LWe-85-QEl" firstAttribute="centerY" secondItem="OPV-mm-aUE" secondAttribute="centerY" id="Mmd-Hz-ajq"/>
                     <constraint firstItem="uV1-zT-qOR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="V9d-T2-TO9"/>
-                    <constraint firstItem="gS4-fP-DCO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Vfi-ma-TZd"/>
-                    <constraint firstAttribute="trailing" secondItem="gS4-fP-DCO" secondAttribute="trailing" constant="20" id="eJl-9W-pWn"/>
-                    <constraint firstItem="gS4-fP-DCO" firstAttribute="top" secondItem="uV1-zT-qOR" secondAttribute="bottom" constant="20" id="hel-Md-K3x"/>
                     <constraint firstItem="OPV-mm-aUE" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="jYL-5i-gbs"/>
                     <constraint firstItem="LWe-85-QEl" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="kPb-JY-0Fd"/>
+                    <constraint firstItem="lgD-nw-rZP" firstAttribute="top" secondItem="uV1-zT-qOR" secondAttribute="bottom" constant="20" id="y0R-EA-Udo"/>
+                    <constraint firstItem="lgD-nw-rZP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="zNC-Nr-vx6"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="blurWorkImageView" destination="OPV-mm-aUE" id="2Sg-dZ-PfZ"/>
-                <outlet property="statusButton" destination="gS4-fP-DCO" id="92G-Rh-mNB"/>
+                <outlet property="statusButton" destination="lgD-nw-rZP" id="cYz-sk-AAF"/>
                 <outlet property="titleLabel" destination="uV1-zT-qOR" id="qwj-ge-86x"/>
                 <outlet property="workImageView" destination="LWe-85-QEl" id="qhx-2S-Zqk"/>
             </connections>

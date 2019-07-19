@@ -12,14 +12,17 @@ import RxSwift
 final class WorkViewReactor: Reactor {
     enum Action {
         case fetchEpisodes
+        case updateStatusState(StatusState)
     }
     
     enum Mutation {
         case setEpisodes([MinimumEpisode])
+        case updateStatus(StatusState)
+        case setWork(MinimumWork)
     }
     
     struct State {
-        let work: MinimumWork
+        var work: MinimumWork
         var episodes: [MinimumEpisode] = []
         
         init(work: MinimumWork) {
@@ -27,16 +30,22 @@ final class WorkViewReactor: Reactor {
         }
     }
     
-    var initialState: State
+    let initialState: State
+    let provider: ServiceProviderType
     
-    init(work: MinimumWork) {
+    init(provider: ServiceProviderType, work: MinimumWork) {
         initialState = State(work: work)
+        self.provider = provider
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .fetchEpisodes:
             return fetchEpisodes().map { .setEpisodes($0) }
+        case .updateStatusState(let state):
+            let localUpdateStatus = Observable.just(Mutation.updateStatus(state))
+            let updateStatusStream = updateStatus(state: state).map { Mutation.setWork($0) }
+            return .merge(localUpdateStatus, updateStatusStream)
         }
     }
     
@@ -45,6 +54,10 @@ final class WorkViewReactor: Reactor {
         switch mutation {
         case .setEpisodes(let episodes):
             state.episodes = episodes
+        case .updateStatus(let statusState):
+            state.work.viewerStatusState = statusState
+        case .setWork(let work):
+            state.work = work
         }
         return state
     }
@@ -55,6 +68,10 @@ final class WorkViewReactor: Reactor {
             .asObservable()
             .map { $0.searchWorks?.values.first?.episodes?.values.map { $0.fragments.minimumEpisode } }
             .filterNil()
+    }
+
+    private func updateStatus(state: StatusState) -> Observable<MinimumWork> {
+        return provider.workAPIService.updateStatus(state: state, workId: currentState.work.id)
     }
 }
 

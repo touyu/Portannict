@@ -23,12 +23,14 @@ final class SearchResultViewReactor: Reactor {
         var works: [MinimumWork] = []
     }
 
-    var initialState: State
+    let initialState: State
+    let provider: ServiceProviderType
 
     private let client = AnnictGraphQL.client
 
     init() {
         initialState = State()
+        self.provider = ServiceProvider()
     }
 
     func mutate(action: Action) -> Observable<Mutation> {
@@ -51,6 +53,10 @@ final class SearchResultViewReactor: Reactor {
             state.works = works
         }
         return state
+    }
+
+    func reactorForWork(index: Int) -> WorkViewReactor {
+        return .init(provider: provider, work: currentState.works[index])
     }
 
     private func search(keyword: String) -> Observable<SearchWorksByTitleQuery.Data> {

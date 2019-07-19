@@ -113,8 +113,8 @@ extension HomeViewController: UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
     
-        guard let work = reactor!.currentState.activities[indexPath.item].work else { return }
-        WorkViewController.presentPanModal(fromVC: self, reactor: .init(work: work))
+        guard let r = reactor?.reactorForWork(index: indexPath.row) else { return }
+        WorkViewController.presentPanModal(fromVC: self, reactor: r)
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

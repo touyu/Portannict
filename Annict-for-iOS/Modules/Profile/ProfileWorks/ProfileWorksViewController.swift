@@ -85,9 +85,8 @@ extension ProfileWorksViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let reactor = reactor else { return }
-        let work = reactor.currentState.works[indexPath.item]
-        WorkViewController.presentPanModal(fromVC: self, reactor: .init(work: work))
+        guard let reactor = reactor?.reactorForWork(index: indexPath.item) else { return }
+        WorkViewController.presentPanModal(fromVC: self, reactor: reactor)
     }
 }
 

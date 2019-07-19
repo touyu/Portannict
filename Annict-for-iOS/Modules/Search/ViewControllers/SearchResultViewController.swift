@@ -58,8 +58,8 @@ extension SearchResultViewController: UITableViewDataSource {
 extension SearchResultViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let work = reactor!.currentState.works[indexPath.row]
-        WorkViewController.presentPanModal(fromVC: self, reactor: .init(work: work))
+        guard let reactor = reactor?.reactorForWork(index: indexPath.item) else { return }
+        WorkViewController.presentPanModal(fromVC: self, reactor: reactor)
     }
 }
 

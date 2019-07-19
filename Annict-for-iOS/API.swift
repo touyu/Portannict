@@ -512,6 +512,139 @@ public final class GetViewerInfoQuery: GraphQLQuery {
   }
 }
 
+public final class UpdateStatusMutation: GraphQLMutation {
+  public let operationDefinition =
+    "mutation UpdateStatus($state: StatusState!, $workId: ID!) {\n  updateStatus(input: {state: $state, workId: $workId}) {\n    __typename\n    work {\n      __typename\n      ...MinimumWork\n    }\n  }\n}"
+
+  public var queryDocument: String { return operationDefinition.appending(MinimumWork.fragmentDefinition) }
+
+  public var state: StatusState
+  public var workId: GraphQLID
+
+  public init(state: StatusState, workId: GraphQLID) {
+    self.state = state
+    self.workId = workId
+  }
+
+  public var variables: GraphQLMap? {
+    return ["state": state, "workId": workId]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Mutation"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("updateStatus", arguments: ["input": ["state": GraphQLVariable("state"), "workId": GraphQLVariable("workId")]], type: .object(UpdateStatus.selections)),
+    ]
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(updateStatus: UpdateStatus? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "updateStatus": updateStatus.flatMap { (value: UpdateStatus) -> ResultMap in value.resultMap }])
+    }
+
+    public var updateStatus: UpdateStatus? {
+      get {
+        return (resultMap["updateStatus"] as? ResultMap).flatMap { UpdateStatus(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "updateStatus")
+      }
+    }
+
+    public struct UpdateStatus: GraphQLSelectionSet {
+      public static let possibleTypes = ["UpdateStatusPayload"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("work", type: .object(Work.selections)),
+      ]
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(work: Work? = nil) {
+        self.init(unsafeResultMap: ["__typename": "UpdateStatusPayload", "work": work.flatMap { (value: Work) -> ResultMap in value.resultMap }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var work: Work? {
+        get {
+          return (resultMap["work"] as? ResultMap).flatMap { Work(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "work")
+        }
+      }
+
+      public struct Work: GraphQLSelectionSet {
+        public static let possibleTypes = ["Work"]
+
+        public static let selections: [GraphQLSelection] = [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(MinimumWork.self),
+        ]
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var minimumWork: MinimumWork {
+            get {
+              return MinimumWork(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 public final class SearchWorksByIdQuery: GraphQLQuery {
   public let operationDefinition =
     "query SearchWorksByID($annictId: Int!) {\n  searchWorks(annictIds: [$annictId]) {\n    __typename\n    nodes {\n      __typename\n      episodes(first: 30, orderBy: {field: SORT_NUMBER, direction: ASC}) {\n        __typename\n        nodes {\n          __typename\n          ...MinimumEpisode\n        }\n      }\n    }\n  }\n}"
@@ -3157,12 +3290,13 @@ public struct EpisodeDetails: GraphQLFragment {
 
 public struct MinimumWork: GraphQLFragment {
   public static let fragmentDefinition =
-    "fragment MinimumWork on Work {\n  __typename\n  annictId\n  title\n  episodesCount\n  watchersCount\n  reviewsCount\n  seasonName\n  seasonYear\n  viewerStatusState\n  image {\n    __typename\n    recommendedImageUrl\n    twitterAvatarUrl\n  }\n}"
+    "fragment MinimumWork on Work {\n  __typename\n  id\n  annictId\n  title\n  episodesCount\n  watchersCount\n  reviewsCount\n  seasonName\n  seasonYear\n  viewerStatusState\n  image {\n    __typename\n    recommendedImageUrl\n    twitterAvatarUrl\n  }\n}"
 
   public static let possibleTypes = ["Work"]
 
   public static let selections: [GraphQLSelection] = [
     GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+    GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
     GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
     GraphQLField("title", type: .nonNull(.scalar(String.self))),
     GraphQLField("episodesCount", type: .nonNull(.scalar(Int.self))),
@@ -3180,8 +3314,8 @@ public struct MinimumWork: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil, image: Image? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Work", "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
+  public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil, image: Image? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
   }
 
   public var __typename: String {
@@ -3190,6 +3324,15 @@ public struct MinimumWork: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var id: GraphQLID {
+    get {
+      return resultMap["id"]! as! GraphQLID
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "id")
     }
   }
 
