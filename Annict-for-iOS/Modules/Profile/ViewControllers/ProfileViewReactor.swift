@@ -19,8 +19,8 @@ final class ProfileViewReactor: Reactor {
     
     private let provider: ServiceProviderType
 
-    init() {
-        provider = ServiceProvider()
+    init(provider: ServiceProviderType) {
+        self.provider = provider
         initialState = State()
     }
 
@@ -55,6 +55,10 @@ final class ProfileViewReactor: Reactor {
             UserDefaultsRepository.save(value: viewer, forKey: .viewer)
         }
         return state
+    }
+    
+    func reactorForChild(statusState: StatusState) -> ProfileWorksViewReactor {
+        return .init(provider: provider, statusState: statusState)
     }
 }
 

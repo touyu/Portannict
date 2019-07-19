@@ -24,14 +24,21 @@ final class WorkAPIService: BaseService, WorkAPIServiceType {
     let event = WorkAPIServiceEvent()
 
     let client = AnnictGraphQL.client
+    let disposeBag = DisposeBag()
 
     func updateStatus(state: StatusState, workId: GraphQLID) -> Observable<MinimumWork> {
         let mutation = UpdateStatusMutation(state: state, workId: workId)
-        return AnnictGraphQL.client.rx.perform(mutation: mutation)
+        let stream = AnnictGraphQL.client.rx.perform(mutation: mutation)
             .asObservable()
             .map { $0.updateStatus!.work!.fragments.minimumWork }
-            .do(onNext: { [weak self] in
-                self?.event.updateWorkState.onNext($0)
+            .share(replay: 1)
+        
+        stream
+            .subscribe(onNext: { [weak self] work in
+                self?.event.updateWorkState.onNext(work)
             })
+            .disposed(by: disposeBag)
+            
+        return stream
     }
 }

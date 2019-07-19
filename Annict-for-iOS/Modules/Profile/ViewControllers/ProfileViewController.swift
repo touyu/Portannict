@@ -21,8 +21,6 @@ final class ProfileViewController: ParentPagerViewController, StoryboardView {
     
     override func viewDidLoad() {
         prepareButtonBar()
-        reactor = Reactor()
-        
         super.viewDidLoad()
 
         let statusBarBackgroundView = UIView(frame: UIApplication.shared.statusBarFrame)
@@ -47,11 +45,11 @@ final class ProfileViewController: ParentPagerViewController, StoryboardView {
     }
     
     override func viewControllers(_ parentPager: ParentPager) -> [ChildPagerViewController] {
-        let vc1 = ProfileWorksViewController.loadStoryboard(reactor: .init(statusState: .watching))
-        let vc2 = ProfileWorksViewController.loadStoryboard(reactor: .init(statusState: .wannaWatch))
-        let vc3 = ProfileWorksViewController.loadStoryboard(reactor: .init(statusState: .watched))
-        let vc4 = ProfileWorksViewController.loadStoryboard(reactor: .init(statusState: .onHold))
-        let vc5 = ProfileWorksViewController.loadStoryboard(reactor: .init(statusState: .stopWatching))
+        let vc1 = ProfileWorksViewController.loadStoryboard(reactor: reactor!.reactorForChild(statusState: .watching))
+        let vc2 = ProfileWorksViewController.loadStoryboard(reactor: reactor!.reactorForChild(statusState: .wannaWatch))
+        let vc3 = ProfileWorksViewController.loadStoryboard(reactor: reactor!.reactorForChild(statusState: .watched))
+        let vc4 = ProfileWorksViewController.loadStoryboard(reactor: reactor!.reactorForChild(statusState: .onHold))
+        let vc5 = ProfileWorksViewController.loadStoryboard(reactor: reactor!.reactorForChild(statusState: .stopWatching))
         let vcs = [vc1, vc2, vc3, vc4, vc5]
         return vcs
     }

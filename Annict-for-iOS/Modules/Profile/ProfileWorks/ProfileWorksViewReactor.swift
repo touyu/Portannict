@@ -21,6 +21,8 @@ final class ProfileWorksViewReactor: Reactor {
         case setWorks([MinimumWork])
         case addWorks([MinimumWork])
         case setPageInfo(PageInfo)
+        case insertWork(MinimumWork)
+        case removeWork(String)
     }
 
     struct State {
@@ -32,10 +34,10 @@ final class ProfileWorksViewReactor: Reactor {
     let statusState: StatusState
     let provider: ServiceProviderType
     
-    init(statusState: StatusState) {
+    init(provider: ServiceProviderType, statusState: StatusState) {
         initialState = State()
         self.statusState = statusState
-        self.provider = ServiceProvider()
+        self.provider = provider
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -55,12 +57,23 @@ final class ProfileWorksViewReactor: Reactor {
     }
 
     func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
-//        let updateState = provider.workAPIService.event.updateWorkState
-//            .filter { $0.viewerStatusState !=  }
-//            .map { [weak self] work in
-//                let works = self?.currentState.works.filter { $0.id != work.id }
-//            }
-        return .merge(mutation)
+        let currentStatusState = statusState
+        
+        let filterWorks = provider.workAPIService.event.updateWorkState
+            .filter { $0.viewerStatusState != currentStatusState }
+            .map { Mutation.removeWork($0.id) }
+            .do(onNext: { _ in
+                print("OOOOOOOOOOOOO!!!!!!!!!!")
+            })
+        
+        let appendWork = provider.workAPIService.event.updateWorkState
+            .filter { $0.viewerStatusState == currentStatusState }
+            .map { Mutation.insertWork($0) }
+            .do(onNext: { _ in
+                print("HHHHHHHHHHHHHH!!!!!!!!!!")
+            })
+        
+        return .merge(mutation, filterWorks, appendWork)
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
@@ -72,6 +85,10 @@ final class ProfileWorksViewReactor: Reactor {
             state.works += works
         case .setPageInfo(let pageInfo):
             state.pageInfo = pageInfo
+        case .insertWork(let work):
+            state.works.insert(work, at: 0)
+        case .removeWork(let id):
+            state.works.removeAll(where: { $0.id == id })
         }
         return state
     }

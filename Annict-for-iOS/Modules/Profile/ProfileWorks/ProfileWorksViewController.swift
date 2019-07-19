@@ -67,7 +67,6 @@ extension ProfileWorksViewController: UICollectionViewDataSource {
         guard let reactor = reactor else { return cell }
         let work = reactor.currentState.works[indexPath.item]
         cell.configure(work: work)
-        cell.setHeroID("work_image_\(indexPath.item)")
         return cell
     }
 }

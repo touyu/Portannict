@@ -25,8 +25,12 @@ final class RootTabBarReactor: Reactor {
     let initialState: State
     let provider: ServiceProviderType
 
-    var homeForReactor: HomeViewReactor {
-        return HomeViewReactor(provider: provider)
+    var reactorForHome: HomeViewReactor {
+        return .init(provider: provider)
+    }
+    
+    var reactorForProfile: ProfileViewReactor {
+        return .init(provider: provider)
     }
 
     init(provider: ServiceProviderType) {
