@@ -15,9 +15,9 @@ final class SearchViewController: UIViewController, StoryboardView {
 
     @IBOutlet private weak var collectionView: UICollectionView!
 
-    private var resultController: SearchResultViewController = {
+    private lazy var resultController: SearchResultViewController = {
         let vc = SearchResultViewController.loadStoryboard()
-        vc.reactor = SearchResultViewReactor()
+        vc.reactor = reactor?.reactorForResult()
         return vc
     }()
 
@@ -35,8 +35,6 @@ final class SearchViewController: UIViewController, StoryboardView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        reactor = Reactor()
 
         prepareNavigationBar()
     }

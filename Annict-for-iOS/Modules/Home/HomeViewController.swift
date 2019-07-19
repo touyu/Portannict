@@ -80,6 +80,7 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(classType: HomeTitleTableViewCell.self, for: indexPath)
+            cell.configure(title: "Home")
             return cell
         }
         
@@ -118,12 +119,20 @@ extension HomeViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            return
+        }
+        
         if !cellHeightList.keys.contains(indexPath) {
             cellHeightList[indexPath] = cell.frame.height
         }
     }
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 100
+        }
+        
         guard let height = self.cellHeightList[indexPath] else {
             return UITableView.automaticDimension
         }

@@ -32,6 +32,10 @@ final class RootTabBarReactor: Reactor {
     var reactorForProfile: ProfileViewReactor {
         return .init(provider: provider)
     }
+    
+    var reactorForSearch: SearchViewReactor {
+        return .init(provider: provider)
+    }
 
     init(provider: ServiceProviderType) {
         initialState = State()

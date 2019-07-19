@@ -10,8 +10,14 @@ import UIKit
 
 final class HomeTitleTableViewCell: UITableViewCell {
 
+    @IBOutlet private weak var titleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
+    }
+    
+    func configure(title: String) {
+        titleLabel.text = title
     }
 }

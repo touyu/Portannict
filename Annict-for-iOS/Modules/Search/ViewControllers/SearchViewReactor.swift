@@ -22,17 +22,14 @@ final class SearchViewReactor: Reactor {
         
     }
     
-    var initialState: State
-    
+    let initialState: State
+    private let provider: ServiceProviderType
     private let client = AnnictGraphQL.client
     
-    init() {
+    init(provider: ServiceProviderType) {
+        self.provider = provider
         initialState = State()
     }
-    
-    var cellReactors: [SeasonWorksCollectionViewCellReactor] = {
-        return RecommendSeasonSection.allCases.map { .init(section: $0) }
-    }()
 
     func mutate(action: Action) -> Observable<Mutation> {
         return .empty()
@@ -41,6 +38,10 @@ final class SearchViewReactor: Reactor {
     func reduce(state: State, mutation: Mutation) -> State {
         var state = state
         return state
+    }
+    
+    func reactorForResult() -> SearchResultViewReactor {
+        return .init(provider: provider)
     }
 
     private func fetch() -> Observable<SearchWorksQuery.Data.SearchWork> {

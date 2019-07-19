@@ -24,13 +24,12 @@ final class SearchResultViewReactor: Reactor {
     }
 
     let initialState: State
-    let provider: ServiceProviderType
-
+    private let provider: ServiceProviderType
     private let client = AnnictGraphQL.client
 
-    init() {
+    init(provider: ServiceProviderType) {
         initialState = State()
-        self.provider = ServiceProvider()
+        self.provider = provider
     }
 
     func mutate(action: Action) -> Observable<Mutation> {

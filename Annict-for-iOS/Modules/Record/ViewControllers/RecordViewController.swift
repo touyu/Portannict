@@ -20,7 +20,8 @@ final class RecordViewController: UIViewController, StoryboardView {
             tableView.delegate = self
             tableView.tableFooterView = UIView()
             tableView.contentInset = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
-            tableView.register(RecordEpisodeTableViewCell.self)
+            tableView.register(RecordEpisodeTableViewCell.self,
+                               HomeTitleTableViewCell.self)
             tableView.refreshControl = refreshControl
         }
     }
@@ -61,8 +62,7 @@ final class RecordViewController: UIViewController, StoryboardView {
             .disposed(by: disposeBag)
         
         reactor.state.map { $0.works }
-            .delay(0.4, scheduler: MainScheduler.instance)
-//            .subscribeOn(MainScheduler.instance)
+            .delay(.milliseconds(400), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] works in
                 guard self?.refreshControl.isRefreshing == true else { return }
                 self?.refreshControl.endRefreshing()
@@ -73,12 +73,25 @@ final class RecordViewController: UIViewController, StoryboardView {
 }
 
 extension RecordViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        }
         guard let reactor = reactor else { return 0 }
         return reactor.currentState.works.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(classType: HomeTitleTableViewCell.self, for: indexPath)
+            cell.configure(title: "Record")
+            return cell
+        }
+        
         guard let reactor = reactor else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(classType: RecordEpisodeTableViewCell.self, for: indexPath)
         cell.prepare(work: reactor.currentState.works[indexPath.row])
@@ -91,5 +104,13 @@ extension RecordViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let episode = reactor?.currentState.works[indexPath.item].didNotTrackEpisode else { return }
         PostRecordViewController.present(fromVC: self, episode: episode)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 100
+        }
+        
+        return 88
     }
 }

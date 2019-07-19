@@ -22,12 +22,19 @@ final class RootTabBarController: UITabBarController, StoryboardView {
         tabBar.unselectedItemTintColor = UIColor.lightGray
 
         for vc in viewControllers ?? [] {
+            print(vc)
             if let homeVC = vc as? HomeViewController {
                 homeVC.reactor = reactor?.reactorForHome
             }
             
             if let profileVC = vc as? ProfileViewController {
                 profileVC.reactor = reactor?.reactorForProfile
+            }
+            
+            if let nc = vc as? UINavigationController {
+                if let searchVC = nc.viewControllers.first as? SearchViewController {
+                    searchVC.reactor = reactor?.reactorForSearch
+                }
             }
         }
     }
