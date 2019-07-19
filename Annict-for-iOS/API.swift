@@ -1370,7 +1370,9 @@ public final class SearchWorksQuery: GraphQLQuery {
 
 public final class SearchWorksByTitleQuery: GraphQLQuery {
   public let operationDefinition =
-    "query SearchWorksByTitle($title: String!) {\n  searchWorks(titles: [$title], orderBy: {field: WATCHERS_COUNT, direction: DESC}, first: 30) {\n    __typename\n    edges {\n      __typename\n      node {\n        __typename\n        id\n        annictId\n        title\n        media\n        watchersCount\n        image {\n          __typename\n          twitterAvatarUrl\n        }\n      }\n    }\n  }\n}"
+    "query SearchWorksByTitle($title: String!) {\n  searchWorks(titles: [$title], orderBy: {field: WATCHERS_COUNT, direction: DESC}, first: 30) {\n    __typename\n    nodes {\n      __typename\n      ...MinimumWork\n    }\n  }\n}"
+
+  public var queryDocument: String { return operationDefinition.appending(MinimumWork.fragmentDefinition) }
 
   public var title: String
 
@@ -1413,7 +1415,7 @@ public final class SearchWorksByTitleQuery: GraphQLQuery {
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("edges", type: .list(.object(Edge.selections))),
+        GraphQLField("nodes", type: .list(.object(Node.selections))),
       ]
 
       public private(set) var resultMap: ResultMap
@@ -1422,8 +1424,8 @@ public final class SearchWorksByTitleQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(edges: [Edge?]? = nil) {
-        self.init(unsafeResultMap: ["__typename": "WorkConnection", "edges": edges.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }])
+      public init(nodes: [Node?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "WorkConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
       }
 
       public var __typename: String {
@@ -1435,32 +1437,28 @@ public final class SearchWorksByTitleQuery: GraphQLQuery {
         }
       }
 
-      /// A list of edges.
-      public var edges: [Edge?]? {
+      /// A list of nodes.
+      public var nodes: [Node?]? {
         get {
-          return (resultMap["edges"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Edge?] in value.map { (value: ResultMap?) -> Edge? in value.flatMap { (value: ResultMap) -> Edge in Edge(unsafeResultMap: value) } } }
+          return (resultMap["nodes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Node?] in value.map { (value: ResultMap?) -> Node? in value.flatMap { (value: ResultMap) -> Node in Node(unsafeResultMap: value) } } }
         }
         set {
-          resultMap.updateValue(newValue.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }, forKey: "edges")
+          resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
         }
       }
 
-      public struct Edge: GraphQLSelectionSet {
-        public static let possibleTypes = ["WorkEdge"]
+      public struct Node: GraphQLSelectionSet {
+        public static let possibleTypes = ["Work"]
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("node", type: .object(Node.selections)),
+          GraphQLFragmentSpread(MinimumWork.self),
         ]
 
         public private(set) var resultMap: ResultMap
 
         public init(unsafeResultMap: ResultMap) {
           self.resultMap = unsafeResultMap
-        }
-
-        public init(node: Node? = nil) {
-          self.init(unsafeResultMap: ["__typename": "WorkEdge", "node": node.flatMap { (value: Node) -> ResultMap in value.resultMap }])
         }
 
         public var __typename: String {
@@ -1472,136 +1470,28 @@ public final class SearchWorksByTitleQuery: GraphQLQuery {
           }
         }
 
-        /// The item at the end of the edge.
-        public var node: Node? {
+        public var fragments: Fragments {
           get {
-            return (resultMap["node"] as? ResultMap).flatMap { Node(unsafeResultMap: $0) }
+            return Fragments(unsafeResultMap: resultMap)
           }
           set {
-            resultMap.updateValue(newValue?.resultMap, forKey: "node")
+            resultMap += newValue.resultMap
           }
         }
 
-        public struct Node: GraphQLSelectionSet {
-          public static let possibleTypes = ["Work"]
-
-          public static let selections: [GraphQLSelection] = [
-            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
-            GraphQLField("title", type: .nonNull(.scalar(String.self))),
-            GraphQLField("media", type: .nonNull(.scalar(Media.self))),
-            GraphQLField("watchersCount", type: .nonNull(.scalar(Int.self))),
-            GraphQLField("image", type: .object(Image.selections)),
-          ]
-
+        public struct Fragments {
           public private(set) var resultMap: ResultMap
 
           public init(unsafeResultMap: ResultMap) {
             self.resultMap = unsafeResultMap
           }
 
-          public init(id: GraphQLID, annictId: Int, title: String, media: Media, watchersCount: Int, image: Image? = nil) {
-            self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "media": media, "watchersCount": watchersCount, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
-          }
-
-          public var __typename: String {
+          public var minimumWork: MinimumWork {
             get {
-              return resultMap["__typename"]! as! String
+              return MinimumWork(unsafeResultMap: resultMap)
             }
             set {
-              resultMap.updateValue(newValue, forKey: "__typename")
-            }
-          }
-
-          public var id: GraphQLID {
-            get {
-              return resultMap["id"]! as! GraphQLID
-            }
-            set {
-              resultMap.updateValue(newValue, forKey: "id")
-            }
-          }
-
-          public var annictId: Int {
-            get {
-              return resultMap["annictId"]! as! Int
-            }
-            set {
-              resultMap.updateValue(newValue, forKey: "annictId")
-            }
-          }
-
-          public var title: String {
-            get {
-              return resultMap["title"]! as! String
-            }
-            set {
-              resultMap.updateValue(newValue, forKey: "title")
-            }
-          }
-
-          public var media: Media {
-            get {
-              return resultMap["media"]! as! Media
-            }
-            set {
-              resultMap.updateValue(newValue, forKey: "media")
-            }
-          }
-
-          public var watchersCount: Int {
-            get {
-              return resultMap["watchersCount"]! as! Int
-            }
-            set {
-              resultMap.updateValue(newValue, forKey: "watchersCount")
-            }
-          }
-
-          public var image: Image? {
-            get {
-              return (resultMap["image"] as? ResultMap).flatMap { Image(unsafeResultMap: $0) }
-            }
-            set {
-              resultMap.updateValue(newValue?.resultMap, forKey: "image")
-            }
-          }
-
-          public struct Image: GraphQLSelectionSet {
-            public static let possibleTypes = ["WorkImage"]
-
-            public static let selections: [GraphQLSelection] = [
-              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-              GraphQLField("twitterAvatarUrl", type: .scalar(String.self)),
-            ]
-
-            public private(set) var resultMap: ResultMap
-
-            public init(unsafeResultMap: ResultMap) {
-              self.resultMap = unsafeResultMap
-            }
-
-            public init(twitterAvatarUrl: String? = nil) {
-              self.init(unsafeResultMap: ["__typename": "WorkImage", "twitterAvatarUrl": twitterAvatarUrl])
-            }
-
-            public var __typename: String {
-              get {
-                return resultMap["__typename"]! as! String
-              }
-              set {
-                resultMap.updateValue(newValue, forKey: "__typename")
-              }
-            }
-
-            public var twitterAvatarUrl: String? {
-              get {
-                return resultMap["twitterAvatarUrl"] as? String
-              }
-              set {
-                resultMap.updateValue(newValue, forKey: "twitterAvatarUrl")
-              }
+              resultMap += newValue.resultMap
             }
           }
         }

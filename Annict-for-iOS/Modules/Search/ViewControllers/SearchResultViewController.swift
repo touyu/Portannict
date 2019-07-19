@@ -35,6 +35,7 @@ final class SearchResultViewController: UIViewController, StoryboardView {
 
     private func prepareTableView() {
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.tableFooterView = UIView()
         tableView.keyboardDismissMode = .onDrag
         tableView.register(SearchResultWorkCell.self)
@@ -51,6 +52,14 @@ extension SearchResultViewController: UITableViewDataSource {
         guard let work = reactor?.currentState.works[indexPath.row] else { return .init() }
         cell.configure(imageURL: work.image?.twitterAvatarUrl, title: work.title)
         return cell
+    }
+}
+
+extension SearchResultViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let work = reactor!.currentState.works[indexPath.row]
+        WorkViewController.presentPanModal(fromVC: self, reactor: .init(work: work))
     }
 }
 

@@ -10,19 +10,17 @@ import ReactorKit
 import RxSwift
 
 final class SearchResultViewReactor: Reactor {
-    typealias Work = SearchWorksByTitleQuery.Data.SearchWork.Edge.Node
-
     enum Action {
         case search(String)
         case clear
     }
 
     enum Mutation {
-        case setWorks([Work])
+        case setWorks([MinimumWork])
     }
 
     struct State {
-        var works: [Work] = []
+        var works: [MinimumWork] = []
     }
 
     var initialState: State
@@ -37,8 +35,9 @@ final class SearchResultViewReactor: Reactor {
         switch action {
         case .search(let keyword):
             return search(keyword: keyword)
-                .map { $0.searchWorks?.elements }
+                .map { $0.searchWorks?.values }
                 .filterNil()
+                .map { $0.map { $0.fragments.minimumWork } }
                 .map { .setWorks($0) }
         case .clear:
             return .just(.setWorks([]))
@@ -60,9 +59,5 @@ final class SearchResultViewReactor: Reactor {
     }
 }
 
-extension SearchWorksByTitleQuery.Data.SearchWork {
-    var elements: [Edge.Node] {
-        guard let edges = edges else { return []}
-        return edges.compactMap { $0?.node }
-    }
-}
+extension SearchWorksByTitleQuery.Data.SearchWork: Connection {}
+

@@ -21,7 +21,7 @@ extension UIView {
     }
     
     private func applyWorkOrnament() {
-        applyCornerRadius(4)
+        applyCornerRadius(12)
         applyBorder(color: UIColor(white: 0.9, alpha: 1), width: 0.4)
     }
     
