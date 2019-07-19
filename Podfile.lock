@@ -8,12 +8,14 @@ PODS:
   - RxRelay (5.0.0):
     - RxSwift (~> 5)
   - RxSwift (5.0.0)
+  - SPStorkController (1.7.5)
 
 DEPENDENCIES:
   - Keys (from `Pods/CocoaPodsKeys`)
   - ReactorKit
   - RxCocoa (~> 5)
   - RxSwift (~> 5)
+  - SPStorkController
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -21,6 +23,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SPStorkController
 
 EXTERNAL SOURCES:
   Keys:
@@ -32,7 +35,8 @@ SPEC CHECKSUMS:
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  SPStorkController: be4ae2a5ee052ad78782f6144ffe7e951300ea67
 
-PODFILE CHECKSUM: 5304d0b147ef6495e0cc6a3ba486e7beb3ebee8b
+PODFILE CHECKSUM: cd22e953c59485ed10c6401c316ab09a4ef7609f
 
 COCOAPODS: 1.5.3

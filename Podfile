@@ -9,6 +9,7 @@ target 'Annict-for-iOS' do
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
   pod 'ReactorKit'
+  pod 'SPStorkController'
 
 end
 

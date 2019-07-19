@@ -11,7 +11,7 @@ import ReactorKit
 import RxSwift
 import PanModal
 import SnapKit
-
+import SPStorkController
 
 final class WorkViewController: UIViewController, StoryboardView {
     typealias Reactor = WorkViewReactor
@@ -49,7 +49,7 @@ final class WorkViewController: UIViewController, StoryboardView {
 extension WorkViewController {
     static func presentPanModal(fromVC: UIViewController, reactor: Reactor) {
         let vc = WorkViewController.loadStoryboard(reactor: reactor)
-        fromVC.presentPanModal(vc)
+        fromVC.presentAsStork(vc, height: nil, showIndicator: false, showCloseButton: false)
     }
 }
 
@@ -85,6 +85,10 @@ extension WorkViewController: UITableViewDelegate {
         } else {
             return 50
         }
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        SPStorkController.scrollViewDidScroll(scrollView)
     }
 }
 
