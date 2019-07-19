@@ -17,6 +17,7 @@ final class SearchResultViewReactor: Reactor {
 
     enum Mutation {
         case setWorks([MinimumWork])
+        case updateWork(MinimumWork)
     }
 
     struct State {
@@ -44,12 +45,22 @@ final class SearchResultViewReactor: Reactor {
             return .just(.setWorks([]))
         }
     }
+    
+    func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
+        let updateStatus = provider.workAPIService.event.updateWorkState
+            .map { Mutation.updateWork($0) }
+        
+        return .merge(mutation, updateStatus)
+    }
 
     func reduce(state: State, mutation: Mutation) -> State {
         var state = state
         switch mutation {
         case .setWorks(let works):
             state.works = works
+        case .updateWork(let work):
+            guard let index = state.works.firstIndex(where: { $0.id == work.id }) else { return state }
+            state.works[index].viewerStatusState = work.viewerStatusState
         }
         return state
     }
