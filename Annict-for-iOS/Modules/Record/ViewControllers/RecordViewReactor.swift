@@ -10,7 +10,7 @@ import ReactorKit
 import RxSwift
 
 final class RecordViewReactor: Reactor {
-    typealias Work = GetViewerWatchingEpisodesQuery.Data.Viewer.Work.Edge.Node
+    typealias Work = GetViewerWatchingEpisodesQuery.Data.Viewer.Work.Node
     typealias PageInfo = GetViewerWatchingEpisodesQuery.Data.Viewer.Work.PageInfo
     
     enum Action {
@@ -20,13 +20,13 @@ final class RecordViewReactor: Reactor {
 
     enum Mutation {
         case setWorks([Work])
-        case addWorks([Work])
+        case appendWorks([Work])
         case setPageInfo(PageInfo)
         case setLoading(Bool)
     }
 
     struct State {
-        var works: [Work] = []
+        var cellReactors: [RecordEpisodeTableViewCellReactor] = []
         var pageInfo: PageInfo?
         var isLoading: Bool = false
     }
@@ -42,11 +42,27 @@ final class RecordViewReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .fetch:
-            return fetch()
+            let stream = fetch().share(replay: 1)
+            let setWorks = stream.map { Mutation.setWorks($0.values) }
+            let setPageInfo = stream.map { Mutation.setPageInfo($0.pageInfo) }
+            
+            return .concat(.just(.setLoading(true)),
+                           setWorks,
+                           setPageInfo,
+                           .just(.setLoading(false)))
         case .loadMore:
-            guard currentState.pageInfo?.hasNextPage == true else { return .empty() }
+            guard let pageInfo = currentState.pageInfo else { return .empty() }
+            guard pageInfo.hasNextPage else { return .empty() }
             guard !currentState.isLoading else { return .empty() }
-            return loadMore()
+            
+            let stream = fetch(after: pageInfo.endCursor).share(replay: 1)
+            let setWorks = stream.map { Mutation.appendWorks($0.values) }
+            let setPageInfo = stream.map { Mutation.setPageInfo($0.pageInfo) }
+            
+            return .concat(.just(.setLoading(true)),
+                           setWorks,
+                           setPageInfo,
+                           .just(.setLoading(false)))
         }
     }
     
@@ -54,9 +70,9 @@ final class RecordViewReactor: Reactor {
         var state = state
         switch mutation {
         case .setWorks(let works):
-            state.works = works
-        case .addWorks(let works):
-            state.works += works
+            state.cellReactors = works.map(RecordEpisodeTableViewCellReactor.init)
+        case .appendWorks(let works):
+            state.cellReactors += works.map(RecordEpisodeTableViewCellReactor.init)
         case .setPageInfo(let pageInfo):
             state.pageInfo = pageInfo
         case .setLoading(let isLoading):
@@ -65,56 +81,15 @@ final class RecordViewReactor: Reactor {
         return state
     }
     
-    private func fetch() -> Observable<Mutation> {
-        let query = GetViewerWatchingEpisodesQuery()
-        let fetchEvent = client.rx.fetchMaybe(query: query, cachePolicy: .returnCacheDataAndFetch)
+    private func fetch(after: String? = nil) -> Observable<GetViewerWatchingEpisodesQuery.Data.Viewer.Work> {
+        let query = GetViewerWatchingEpisodesQuery(first: 6, after: after)
+        return client.rx.fetchMaybe(query: query, cachePolicy: .fetchIgnoringCacheData)
+            .map { $0.viewer?.works }
             .asObservable()
-            .share(replay: 1)
-        
-        let works = fetchEvent.map { $0.viewer?.works?.elements }
             .filterNil()
-            .map { Mutation.setWorks($0) }
-        
-        let pageInfo = fetchEvent.map { $0.viewer?.works?.pageInfo }
-            .filterNil()
-            .map { Mutation.setPageInfo($0) }
-        
-        return .merge(works, pageInfo)
-    }
-    
-    private func loadMore() -> Observable<Mutation> {
-        let endCursor = currentState.pageInfo?.endCursor
-        let query = GetViewerWatchingEpisodesQuery(after: endCursor)
-        let fetchEvent = client.rx.fetchMaybe(query: query)
-            .asObservable()
-            .share(replay: 1)
-        
-        let works = fetchEvent.map { $0.viewer?.works?.elements }
-            .filterNil()
-            .map { Mutation.addWorks($0) }
-        
-        let pageInfo = fetchEvent.map { $0.viewer?.works?.pageInfo }
-            .filterNil()
-            .map { Mutation.setPageInfo($0) }
-        
-        return .concat(.just(.setLoading(true)),
-                       works,
-                       pageInfo,
-                       .just(.setLoading(false)))
     }
 }
 
-extension GetViewerWatchingEpisodesQuery.Data.Viewer.Work {
-    var elements: [Edge.Node] {
-        guard let edges = edges else { return []}
-        return edges.compactMap { $0?.node }
-    }
-}
-
-extension GetViewerWatchingEpisodesQuery.Data.Viewer.Work.Edge.Node.Episode {
-    var elements: [Edge.Node] {
-        guard let edges = edges else { return []}
-        return edges.compactMap { $0?.node }
-    }
-}
+extension GetViewerWatchingEpisodesQuery.Data.Viewer.Work: Connection {}
+extension GetViewerWatchingEpisodesQuery.Data.Viewer.Work.Node.Episode: Connection {}
 

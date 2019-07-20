@@ -1,23 +1,15 @@
-query GetViewerWatchingEpisodes($after: String) {
+query GetViewerWatchingEpisodes($first: Int, $after: String) {
     viewer {
-        works(state:WATCHING, first:10, after: $after) {
+        works(state: WATCHING, first: $first, after: $after) {
             pageInfo {
                 endCursor
                 hasNextPage
-            }
-            edges {
-                node {
-                    annictId
-                    title
-                    image {
-                        twitterAvatarUrl
-                    }
-                    episodes(orderBy:{field: CREATED_AT, direction: DESC}) {
-                        edges {
-                            node {
-                                ... EpisodeDetails
-                            }
-                        }
+            } 
+            nodes {
+                ...MinimumWork
+                episodes(orderBy: {field: CREATED_AT, direction: DESC}) {
+                    nodes {
+                        ...MinimumEpisode
                     }
                 }
             }

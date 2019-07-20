@@ -35,6 +35,7 @@
 		D123F25E217CBD2600AE38FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D123F25C217CBD2600AE38FD /* LaunchScreen.storyboard */; };
 		D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127411C217CDEF300DD09C2 /* BaseService.swift */; };
 		D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127411E217CDF1000DD09C2 /* ServiceProvider.swift */; };
+		D12E01E922E38FFA000D3C10 /* RecordEpisodeTableViewCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12E01E822E38FFA000D3C10 /* RecordEpisodeTableViewCellReactor.swift */; };
 		D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */; };
 		D136EA7121807E9500BA08EA /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA7021807E9500BA08EA /* APIService.swift */; };
 		D136EA742180885400BA08EA /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA732180885400BA08EA /* UserDefaultsService.swift */; };
@@ -187,6 +188,7 @@
 		D1274112217CCCF000DD09C2 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		D127411C217CDEF300DD09C2 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		D127411E217CDF1000DD09C2 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		D12E01E822E38FFA000D3C10 /* RecordEpisodeTableViewCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordEpisodeTableViewCellReactor.swift; sourceTree = "<group>"; };
 		D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
 		D136EA7021807E9500BA08EA /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		D136EA732180885400BA08EA /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
@@ -730,6 +732,7 @@
 			children = (
 				D1FFB58221AECF04001099E6 /* RecordEpisodeTableViewCell.swift */,
 				D1FFB58321AECF04001099E6 /* RecordEpisodeTableViewCell.xib */,
+				D12E01E822E38FFA000D3C10 /* RecordEpisodeTableViewCellReactor.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1042,6 +1045,7 @@
 				D1621DF72186273200819D93 /* ProfileViewReactor.swift in Sources */,
 				D11D57F42237D3DD000D3CC0 /* Entity+Extension.swift in Sources */,
 				D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */,
+				D12E01E922E38FFA000D3C10 /* RecordEpisodeTableViewCellReactor.swift in Sources */,
 				D1C53C2021EF733200DA9A1D /* ProfileWorkCollectionViewCell.swift in Sources */,
 				D1621E0521862F4500819D93 /* PostRecordTransitioningDelegate.swift in Sources */,
 				D1F9144A21AA7FD2006986A1 /* UserWorkCollectionViewCell.swift in Sources */,

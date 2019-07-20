@@ -9,11 +9,11 @@
 import UIKit
 import ReactorKit
 import RxSwift
+import PanModal
 
 final class PostRecordViewController: UIViewController, StoryboardView {
     typealias Reactor = PostRecordViewReactor
     
-    let transitioner = PostRecordTransitioningDelegate()
     var disposeBag = DisposeBag()
 
     @IBOutlet private weak var episodeTitleLabel: UILabel!
@@ -21,8 +21,8 @@ final class PostRecordViewController: UIViewController, StoryboardView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleGesture(_:))))
+        
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleGesture(_:))))
     }
 
     func bind(reactor: Reactor) {
@@ -30,7 +30,7 @@ final class PostRecordViewController: UIViewController, StoryboardView {
             .map { Reactor.Action.record(nil) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
-        
+
         reactor.state.map { $0.episode.numberAndTitle }
             .distinctUntilChanged()
             .bind(to: episodeTitleLabel.rx.text)
@@ -46,49 +46,28 @@ final class PostRecordViewController: UIViewController, StoryboardView {
     }
     
     @objc private func handleGesture(_ sender: UIPanGestureRecognizer) {
-        let translation = sender.translation(in: sender.view)
-        
-        switch sender.state {
-        case .began:
-            break
-        case .changed:
-            view.frame.origin.y += translation.y
-            view.frame.size.height = UIScreen.main.bounds.height - view.frame.origin.y
-            sender.setTranslation(.zero, in: view)
-        case .cancelled:
-            break
-        case .ended:
-            if view.frame.origin.y > 500 {
-                dismiss(animated: true, completion: nil)
-                return
-            }
-            
-            UIView.animate(withDuration: 0.4,
-                           delay: 0,
-                           usingSpringWithDamping: 0.7,
-                           initialSpringVelocity: 0,
-                           options: [.curveEaseOut, .allowUserInteraction],
-                           animations: { [weak self] in
-                            guard let self = self else { return }
-                            let v = sender.velocity(in: self.view).y
-                            let y = self.view.frame.origin.y + [-100, 0, 100].near(by: v)
-                            self.view.frame.origin.y = [80, 400].near(by: y)
-                            self.view.frame.size.height = UIScreen.main.bounds.height - self.view.frame.origin.y
-                }, completion: nil)
-        default:
-            break
-        }
+        panModalTransition(to: .longForm)
     }
 }
 
 extension PostRecordViewController {
+    static func presentPanModal(fromVC: UIViewController, reactor: Reactor) {
+        let vc = PostRecordViewController.loadStoryboard(reactor: reactor)
+        fromVC.presentPanModal(vc)
+    }
+}
+
+extension PostRecordViewController: PanModalPresentable {
+    var panScrollable: UIScrollView? {
+        return nil
+    }
     
-    static func present(fromVC: UIViewController, episode: EpisodeDetails) {
-        let vc = PostRecordViewController.loadStoryboard()
-        vc.reactor = PostRecordViewReactor(episode: episode)
-        vc.transitioningDelegate = vc.transitioner
-        vc.modalPresentationStyle = .custom
-        fromVC.present(vc, animated: true, completion: nil)
+    var longFormHeight: PanModalHeight {
+        return .maxHeightWithTopInset(0)
+    }
+    
+    var shortFormHeight: PanModalHeight {
+        return .contentHeight(350)
     }
 }
 

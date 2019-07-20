@@ -24,10 +24,13 @@ fragment MinimumUser on User {
 
 
 fragment MinimumEpisode on Episode {
+    id
     annictId
     title
     numberText
     sortNumber
+    viewerRecordsCount
+    viewerDidTrack
 }
 
 fragment PageInfoFrag on PageInfo {

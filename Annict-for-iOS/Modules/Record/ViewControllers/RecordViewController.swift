@@ -43,7 +43,10 @@ final class RecordViewController: UIViewController, StoryboardView {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        tableView.rx.reachedBottom
+        tableView.rx.reachedBottom()
+            .do(onNext: {
+                print("DDDDDDDDDDDDDDDDDDDDDD")
+            })
             .map { Reactor.Action.loadMore }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
@@ -54,19 +57,18 @@ final class RecordViewController: UIViewController, StoryboardView {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        reactor.state.map { $0.works }
+        reactor.state.map { $0.cellReactors }
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] works in
                 self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)
         
-        reactor.state.map { $0.works }
-            .delay(.milliseconds(400), scheduler: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] works in
-                guard self?.refreshControl.isRefreshing == true else { return }
+        reactor.state.map { $0.isLoading }
+            .distinctUntilChanged()
+            .filter { !$0 }
+            .subscribe(onNext: { [weak self] _ in
                 self?.refreshControl.endRefreshing()
-                self?.navigationController?.navigationBar.layoutIfNeeded()
             })
             .disposed(by: disposeBag)
     }
@@ -81,8 +83,7 @@ extension RecordViewController: UITableViewDataSource {
         if section == 0 {
             return 1
         }
-        guard let reactor = reactor else { return 0 }
-        return reactor.currentState.works.count
+        return reactor?.currentState.cellReactors.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -92,9 +93,8 @@ extension RecordViewController: UITableViewDataSource {
             return cell
         }
         
-        guard let reactor = reactor else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(classType: RecordEpisodeTableViewCell.self, for: indexPath)
-        cell.prepare(work: reactor.currentState.works[indexPath.row])
+        cell.reactor = reactor!.currentState.cellReactors[indexPath.row]
         return cell
     }
 }
@@ -102,8 +102,8 @@ extension RecordViewController: UITableViewDataSource {
 extension RecordViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        guard let episode = reactor?.currentState.works[indexPath.item].didNotTrackEpisode else { return }
-        PostRecordViewController.present(fromVC: self, episode: episode)
+        guard let episode = reactor?.currentState.cellReactors[indexPath.row].currentState.work.didNotTrackEpisode else { return }
+        PostRecordViewController.presentPanModal(fromVC: self, reactor: .init(episode: episode))
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

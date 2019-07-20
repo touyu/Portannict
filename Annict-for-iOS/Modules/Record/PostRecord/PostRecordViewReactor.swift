@@ -15,7 +15,7 @@ final class PostRecordViewReactor: Reactor {
     
     private let client = AnnictGraphQL.client
 
-    init(episode: EpisodeDetails) {
+    init(episode: MinimumEpisode) {
         initialState = State(episode: episode)
     }
 
@@ -28,10 +28,10 @@ final class PostRecordViewReactor: Reactor {
     }
 
     struct State {
-        var episode: EpisodeDetails
+        var episode: MinimumEpisode
         var isRecordingSuccess = false
         
-        init(episode: EpisodeDetails) {
+        init(episode: MinimumEpisode) {
             self.episode = episode
         }
     }
