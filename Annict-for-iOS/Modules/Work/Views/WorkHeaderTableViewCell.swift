@@ -27,7 +27,7 @@ final class WorkHeaderTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        workImageView.layer.cornerRadius = 16
+        workImageView.layer.cornerRadius = 6
         workImageView.layer.masksToBounds = true
         
         blurWorkImageView.layer.masksToBounds = true

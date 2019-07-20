@@ -73,14 +73,14 @@ extension ProfileWorksViewController: UICollectionViewDataSource {
 
 extension ProfileWorksViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let mergin: CGFloat = 24
+        let mergin: CGFloat = 18
         let column: CGFloat = 3
         let width = (collectionView.bounds.width - mergin * (column + 1)) / column
-        return CGSize(width: width, height: width * 1.4)
+        return CGSize(width: width, height: width * 1.4 + 40)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 24, left: 24, bottom: 0, right: 24)
+        return UIEdgeInsets(top: 24, left: 18, bottom: 0, right: 18)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -25,13 +25,6 @@
                             <constraint firstAttribute="height" constant="300" id="Ge2-qF-TZk"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LWe-85-QEl">
-                        <rect key="frame" x="87.5" y="50" width="200" height="200"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="200" id="LbN-go-zfF"/>
-                            <constraint firstAttribute="width" constant="200" id="Nwn-vH-5p7"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="uV1-zT-qOR">
                         <rect key="frame" x="20" y="320" width="335" height="29"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
@@ -45,6 +38,13 @@
                             <constraint firstAttribute="height" constant="48" id="ZuS-Ns-MjI"/>
                         </constraints>
                     </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LWe-85-QEl">
+                        <rect key="frame" x="97.5" y="24" width="180" height="252"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="180" id="Nwn-vH-5p7"/>
+                            <constraint firstAttribute="width" secondItem="LWe-85-QEl" secondAttribute="height" multiplier="1:1.4" id="XWs-Dw-2sC"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="uV1-zT-qOR" firstAttribute="top" secondItem="OPV-mm-aUE" secondAttribute="bottom" constant="20" id="0dU-ri-Nyi"/>
