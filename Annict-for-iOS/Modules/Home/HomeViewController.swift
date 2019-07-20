@@ -45,7 +45,7 @@ final class HomeViewController: UIViewController, StoryboardView {
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
 
-        tableView.rx.triggeredPagination
+        tableView.rx.triggeredPagination()
             .map { Reactor.Action.loadMore }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)

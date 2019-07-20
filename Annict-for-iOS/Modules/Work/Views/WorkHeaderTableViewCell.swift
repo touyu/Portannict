@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SQLite
 
 final class WorkHeaderTableViewCell: UITableViewCell {
 
@@ -26,7 +27,7 @@ final class WorkHeaderTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        workImageView.layer.cornerRadius = 16
+        workImageView.layer.cornerRadius = 6
         workImageView.layer.masksToBounds = true
         
         blurWorkImageView.layer.masksToBounds = true
@@ -35,11 +36,38 @@ final class WorkHeaderTableViewCell: UITableViewCell {
     }
     
     func configure(work: MinimumWork) {
-        workImageView.setImage(url: work.image?.url)
-        blurWorkImageView.setImage(url: work.image?.url)
+        workImageView.setImage(workID: work.annictId)
+        blurWorkImageView.setImage(workID: work.annictId)
+//        workImageView.setImage(url: work.image?.url)
+//        blurWorkImageView.setImage(url: work.image?.url)
         titleLabel.text = work.title
         statusButton.configure(status: work.viewerStatusState ?? .noState)
         statusButton.didTap = didTapButton
         statusButton.didTapDetail = didTapDetail
     }
+}
+
+extension UIImageView {
+    func setImage(workID: Int) {
+        let statement = try! SQLiteManager.shared.db.prepare("select * from relations where annict_id = \(workID)")
+        let kitsuID = statement.map { $0[3] as! String }.first ?? ""
+        setImage(url: URL(string: "https://media.kitsu.io/anime/poster_images/\(kitsuID)/large.jpg")!)
+    }
+}
+
+final class SQLiteManager {
+    static let shared = SQLiteManager()
+
+    let db: SQLite.Connection
+
+    private init() {
+        do {
+            let path = Bundle.main.path( forResource: "annict-image", ofType: "sqlite" )!
+            db = try SQLite.Connection(path)
+        } catch {
+            fatalError()
+        }
+    }
+
+
 }

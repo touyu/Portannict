@@ -93,52 +93,6 @@ public enum SeasonName: RawRepresentable, Equatable, Hashable, Apollo.JSONDecoda
   }
 }
 
-/// Media of anime
-public enum Media: RawRepresentable, Equatable, Hashable, Apollo.JSONDecodable, Apollo.JSONEncodable {
-  public typealias RawValue = String
-  case tv
-  case ova
-  case movie
-  case web
-  case other
-  /// Auto generated constant for unknown enum values
-  case __unknown(RawValue)
-
-  public init?(rawValue: RawValue) {
-    switch rawValue {
-      case "TV": self = .tv
-      case "OVA": self = .ova
-      case "MOVIE": self = .movie
-      case "WEB": self = .web
-      case "OTHER": self = .other
-      default: self = .__unknown(rawValue)
-    }
-  }
-
-  public var rawValue: RawValue {
-    switch self {
-      case .tv: return "TV"
-      case .ova: return "OVA"
-      case .movie: return "MOVIE"
-      case .web: return "WEB"
-      case .other: return "OTHER"
-      case .__unknown(let value): return value
-    }
-  }
-
-  public static func == (lhs: Media, rhs: Media) -> Bool {
-    switch (lhs, rhs) {
-      case (.tv, .tv): return true
-      case (.ova, .ova): return true
-      case (.movie, .movie): return true
-      case (.web, .web): return true
-      case (.other, .other): return true
-      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
-      default: return false
-    }
-  }
-}
-
 public final class GetViewerWorksQuery: GraphQLQuery {
   public let operationDefinition =
     "query GetViewerWorks($state: StatusState, $after: String) {\n  viewer {\n    __typename\n    works(state: $state, first: 30, after: $after, orderBy: {field: SEASON, direction: DESC}) {\n      __typename\n      nodes {\n        __typename\n        ...MinimumWork\n      }\n      pageInfo {\n        __typename\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}"
@@ -858,7 +812,7 @@ public final class SearchWorksByIdQuery: GraphQLQuery {
 
 public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
   public let operationDefinition =
-    "query GetViewerWatchingEpisodes($after: String) {\n  viewer {\n    __typename\n    works(state: WATCHING, first: 10, after: $after) {\n      __typename\n      pageInfo {\n        __typename\n        endCursor\n        hasNextPage\n      }\n      edges {\n        __typename\n        node {\n          __typename\n          title\n          image {\n            __typename\n            twitterAvatarUrl\n          }\n          episodes(orderBy: {field: CREATED_AT, direction: DESC}) {\n            __typename\n            edges {\n              __typename\n              node {\n                __typename\n                ...EpisodeDetails\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+    "query GetViewerWatchingEpisodes($after: String) {\n  viewer {\n    __typename\n    works(state: WATCHING, first: 10, after: $after) {\n      __typename\n      pageInfo {\n        __typename\n        endCursor\n        hasNextPage\n      }\n      edges {\n        __typename\n        node {\n          __typename\n          annictId\n          title\n          image {\n            __typename\n            twitterAvatarUrl\n          }\n          episodes(orderBy: {field: CREATED_AT, direction: DESC}) {\n            __typename\n            edges {\n              __typename\n              node {\n                __typename\n                ...EpisodeDetails\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
 
   public var queryDocument: String { return operationDefinition.appending(EpisodeDetails.fragmentDefinition) }
 
@@ -1073,6 +1027,7 @@ public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
 
             public static let selections: [GraphQLSelection] = [
               GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
               GraphQLField("title", type: .nonNull(.scalar(String.self))),
               GraphQLField("image", type: .object(Image.selections)),
               GraphQLField("episodes", arguments: ["orderBy": ["field": "CREATED_AT", "direction": "DESC"]], type: .object(Episode.selections)),
@@ -1084,8 +1039,8 @@ public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
               self.resultMap = unsafeResultMap
             }
 
-            public init(title: String, image: Image? = nil, episodes: Episode? = nil) {
-              self.init(unsafeResultMap: ["__typename": "Work", "title": title, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }, "episodes": episodes.flatMap { (value: Episode) -> ResultMap in value.resultMap }])
+            public init(annictId: Int, title: String, image: Image? = nil, episodes: Episode? = nil) {
+              self.init(unsafeResultMap: ["__typename": "Work", "annictId": annictId, "title": title, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }, "episodes": episodes.flatMap { (value: Episode) -> ResultMap in value.resultMap }])
             }
 
             public var __typename: String {
@@ -1094,6 +1049,15 @@ public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
               }
               set {
                 resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            public var annictId: Int {
+              get {
+                return resultMap["annictId"]! as! Int
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "annictId")
               }
             }
 
@@ -1299,23 +1263,27 @@ public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
 
 public final class SearchWorksQuery: GraphQLQuery {
   public let operationDefinition =
-    "query SearchWorks($season: String!) {\n  searchWorks(seasons: [$season], orderBy: {field: WATCHERS_COUNT, direction: DESC}, first: 30) {\n    __typename\n    nodes {\n      __typename\n      id\n      annictId\n      title\n      media\n      watchersCount\n      image {\n        __typename\n        twitterAvatarUrl\n      }\n    }\n  }\n}"
+    "query SearchWorks($season: String!, $after: String) {\n  searchWorks(seasons: [$season], orderBy: {field: WATCHERS_COUNT, direction: DESC}, first: 30, after: $after) {\n    __typename\n    nodes {\n      __typename\n      ...MinimumWork\n    }\n    pageInfo {\n      __typename\n      endCursor\n      hasNextPage\n    }\n  }\n}"
+
+  public var queryDocument: String { return operationDefinition.appending(MinimumWork.fragmentDefinition) }
 
   public var season: String
+  public var after: String?
 
-  public init(season: String) {
+  public init(season: String, after: String? = nil) {
     self.season = season
+    self.after = after
   }
 
   public var variables: GraphQLMap? {
-    return ["season": season]
+    return ["season": season, "after": after]
   }
 
   public struct Data: GraphQLSelectionSet {
     public static let possibleTypes = ["Query"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("searchWorks", arguments: ["seasons": [GraphQLVariable("season")], "orderBy": ["field": "WATCHERS_COUNT", "direction": "DESC"], "first": 30], type: .object(SearchWork.selections)),
+      GraphQLField("searchWorks", arguments: ["seasons": [GraphQLVariable("season")], "orderBy": ["field": "WATCHERS_COUNT", "direction": "DESC"], "first": 30, "after": GraphQLVariable("after")], type: .object(SearchWork.selections)),
     ]
 
     public private(set) var resultMap: ResultMap
@@ -1343,6 +1311,7 @@ public final class SearchWorksQuery: GraphQLQuery {
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("nodes", type: .list(.object(Node.selections))),
+        GraphQLField("pageInfo", type: .nonNull(.object(PageInfo.selections))),
       ]
 
       public private(set) var resultMap: ResultMap
@@ -1351,8 +1320,8 @@ public final class SearchWorksQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(nodes: [Node?]? = nil) {
-        self.init(unsafeResultMap: ["__typename": "WorkConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+      public init(nodes: [Node?]? = nil, pageInfo: PageInfo) {
+        self.init(unsafeResultMap: ["__typename": "WorkConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, "pageInfo": pageInfo.resultMap])
       }
 
       public var __typename: String {
@@ -1374,27 +1343,28 @@ public final class SearchWorksQuery: GraphQLQuery {
         }
       }
 
+      /// Information to aid in pagination.
+      public var pageInfo: PageInfo {
+        get {
+          return PageInfo(unsafeResultMap: resultMap["pageInfo"]! as! ResultMap)
+        }
+        set {
+          resultMap.updateValue(newValue.resultMap, forKey: "pageInfo")
+        }
+      }
+
       public struct Node: GraphQLSelectionSet {
         public static let possibleTypes = ["Work"]
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
-          GraphQLField("title", type: .nonNull(.scalar(String.self))),
-          GraphQLField("media", type: .nonNull(.scalar(Media.self))),
-          GraphQLField("watchersCount", type: .nonNull(.scalar(Int.self))),
-          GraphQLField("image", type: .object(Image.selections)),
+          GraphQLFragmentSpread(MinimumWork.self),
         ]
 
         public private(set) var resultMap: ResultMap
 
         public init(unsafeResultMap: ResultMap) {
           self.resultMap = unsafeResultMap
-        }
-
-        public init(id: GraphQLID, annictId: Int, title: String, media: Media, watchersCount: Int, image: Image? = nil) {
-          self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "media": media, "watchersCount": watchersCount, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }])
         }
 
         public var __typename: String {
@@ -1406,94 +1376,78 @@ public final class SearchWorksQuery: GraphQLQuery {
           }
         }
 
-        public var id: GraphQLID {
+        public var fragments: Fragments {
           get {
-            return resultMap["id"]! as! GraphQLID
+            return Fragments(unsafeResultMap: resultMap)
           }
           set {
-            resultMap.updateValue(newValue, forKey: "id")
+            resultMap += newValue.resultMap
           }
         }
 
-        public var annictId: Int {
-          get {
-            return resultMap["annictId"]! as! Int
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "annictId")
-          }
-        }
-
-        public var title: String {
-          get {
-            return resultMap["title"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "title")
-          }
-        }
-
-        public var media: Media {
-          get {
-            return resultMap["media"]! as! Media
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "media")
-          }
-        }
-
-        public var watchersCount: Int {
-          get {
-            return resultMap["watchersCount"]! as! Int
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "watchersCount")
-          }
-        }
-
-        public var image: Image? {
-          get {
-            return (resultMap["image"] as? ResultMap).flatMap { Image(unsafeResultMap: $0) }
-          }
-          set {
-            resultMap.updateValue(newValue?.resultMap, forKey: "image")
-          }
-        }
-
-        public struct Image: GraphQLSelectionSet {
-          public static let possibleTypes = ["WorkImage"]
-
-          public static let selections: [GraphQLSelection] = [
-            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("twitterAvatarUrl", type: .scalar(String.self)),
-          ]
-
+        public struct Fragments {
           public private(set) var resultMap: ResultMap
 
           public init(unsafeResultMap: ResultMap) {
             self.resultMap = unsafeResultMap
           }
 
-          public init(twitterAvatarUrl: String? = nil) {
-            self.init(unsafeResultMap: ["__typename": "WorkImage", "twitterAvatarUrl": twitterAvatarUrl])
-          }
-
-          public var __typename: String {
+          public var minimumWork: MinimumWork {
             get {
-              return resultMap["__typename"]! as! String
+              return MinimumWork(unsafeResultMap: resultMap)
             }
             set {
-              resultMap.updateValue(newValue, forKey: "__typename")
+              resultMap += newValue.resultMap
             }
           }
+        }
+      }
 
-          public var twitterAvatarUrl: String? {
-            get {
-              return resultMap["twitterAvatarUrl"] as? String
-            }
-            set {
-              resultMap.updateValue(newValue, forKey: "twitterAvatarUrl")
-            }
+      public struct PageInfo: GraphQLSelectionSet {
+        public static let possibleTypes = ["PageInfo"]
+
+        public static let selections: [GraphQLSelection] = [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("endCursor", type: .scalar(String.self)),
+          GraphQLField("hasNextPage", type: .nonNull(.scalar(Bool.self))),
+        ]
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(endCursor: String? = nil, hasNextPage: Bool) {
+          self.init(unsafeResultMap: ["__typename": "PageInfo", "endCursor": endCursor, "hasNextPage": hasNextPage])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// When paginating forwards, the cursor to continue.
+        public var endCursor: String? {
+          get {
+            return resultMap["endCursor"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "endCursor")
+          }
+        }
+
+        /// When paginating forwards, are there more items?
+        public var hasNextPage: Bool {
+          get {
+            return resultMap["hasNextPage"]! as! Bool
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "hasNextPage")
           }
         }
       }

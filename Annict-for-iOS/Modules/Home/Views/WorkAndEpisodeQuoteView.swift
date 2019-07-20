@@ -40,7 +40,7 @@ final class WorkAndEpisodeQuoteView: UIView, NibOwnerLoadable {
     }
 
     func configure(work: MinimumWork, episode: MinimumEpisode) {
-        workImageView.setImage(url: work.image?.url)
+        workImageView.setImage(workID: work.annictId)
         workTitleLabel.text = work.title
         episodeLabel.text = "\(episode.numberAndTitle)"
     }

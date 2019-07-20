@@ -39,7 +39,7 @@ final class WorkQuoteView: UIView, NibOwnerLoadable {
     }
 
     func configure(work: MinimumWork) {
-        workImageView.setImage(url: work.image?.url)
+        workImageView.setImage(workID: work.annictId)
         workTitleLabel.text = work.title
     }
 }

@@ -1,14 +1,11 @@
-query SearchWorks($season: String!) {
-  searchWorks(seasons: [$season], orderBy: { field: WATCHERS_COUNT, direction: DESC }, first: 30) {
+query SearchWorks($season: String!, $after: String) {
+searchWorks(seasons: [$season], orderBy: { field: WATCHERS_COUNT, direction: DESC }, first: 30, after: $after) {
     nodes {
-      id
-      annictId
-      title
-      media
-      watchersCount
-      image {
-        twitterAvatarUrl
-      }
+      ...MinimumWork
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
     }
   }
 }

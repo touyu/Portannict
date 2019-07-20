@@ -111,6 +111,6 @@ extension RecordViewController: UITableViewDelegate {
             return 100
         }
         
-        return 88
+        return 100
     }
 }
