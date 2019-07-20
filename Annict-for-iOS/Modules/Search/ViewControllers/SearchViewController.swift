@@ -14,6 +14,9 @@ final class SearchViewController: UIViewController, StoryboardView {
     typealias Reactor = SearchViewReactor
 
     @IBOutlet private weak var collectionView: UICollectionView!
+    
+    private let column: CGFloat = 3
+    private let itemSpacing: CGFloat = 18
 
     private lazy var resultController: SearchResultViewController = {
         let vc = SearchResultViewController.loadStoryboard()
@@ -37,27 +40,71 @@ final class SearchViewController: UIViewController, StoryboardView {
         super.viewDidLoad()
 
         prepareNavigationBar()
+        
+        collectionView.register(cellTypes: ProfileWorkCollectionViewCell.self)
     }
 
     func bind(reactor: Reactor) {
-//        rx.viewWillAppear
-//            .take(1)
-//            .map { Reactor.Action.fetchWorksOfThisTerm }
-//            .bind(to: reactor.action)
-//            .disposed(by: disposeBag)
-//
-//        reactor.state.map { $0.works }
-//            .distinctUntilChanged()
-//            .subscribe(onNext: { [weak self] _ in
-//                self?.collectionView.reloadData()
-//            })
-//            .disposed(by: disposeBag)
+        rx.viewWillAppear
+            .take(1)
+            .map { Reactor.Action.fetchWorksForThisTerm }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.setDataSource(self)
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.triggeredPagination()
+            .map { Reactor.Action.fetchMore }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+
+        reactor.state.map { $0.works }
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] _ in
+                self?.collectionView.reloadData()
+            })
+            .disposed(by: disposeBag)
     }
 
     private func prepareNavigationBar() {
         navigationItem.titleView = searchController.searchBar
         navigationItem.titleView?.frame = searchController.searchBar.frame
         navigationController?.navigationBar.transparent()
+    }
+}
+
+extension SearchViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let reactor = reactor else { return 0 }
+        return reactor.currentState.works.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(type: ProfileWorkCollectionViewCell.self, for: indexPath)
+        guard let reactor = reactor else { return cell }
+        let work = reactor.currentState.works[indexPath.item]
+        cell.configure(work: work)
+        return cell
+    }
+}
+
+extension SearchViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (collectionView.bounds.width - itemSpacing * (column + 1)) / column
+        return CGSize(width: width, height: width * 1.4 + 40)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: itemSpacing, bottom: 0, right: itemSpacing)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let reactor = reactor?.reactorForWork(index: indexPath.item) else { return }
+        WorkViewController.presentPanModal(fromVC: self, reactor: reactor)
     }
 }
 
