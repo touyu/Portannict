@@ -25,8 +25,8 @@ final class SearchResultWorkCell: UITableViewCell {
         workImageView.apply(.workImage)
     }
 
-    func configure(imageURL: String?, title: String) {
-        workImageView.setImage(url: imageURL)
-        titleLabel.text = title
+    func configure(work: MinimumWork) {
+        workImageView.setImage(workID: work.annictId)
+        titleLabel.text = work.title
     }
 }

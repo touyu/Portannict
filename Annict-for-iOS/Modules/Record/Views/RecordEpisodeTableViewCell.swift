@@ -28,7 +28,7 @@ final class RecordEpisodeTableViewCell: UITableViewCell {
     }
 
     func prepare(work: Work) {
-        workImageView.setImage(url: work.image?.twitterAvatarUrl)
+        workImageView.setImage(workID: work.annictId)
         workTitleLabel.text = work.title
         if let episode = work.didNotTrackEpisode {
             episodeTitleLabel.text = episode.numberAndTitle

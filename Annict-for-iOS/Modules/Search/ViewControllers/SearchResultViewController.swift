@@ -50,7 +50,7 @@ extension SearchResultViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(classType: SearchResultWorkCell.self, for: indexPath)
         guard let work = reactor?.currentState.works[indexPath.row] else { return .init() }
-        cell.configure(imageURL: work.image?.twitterAvatarUrl, title: work.title)
+        cell.configure(work: work)
         return cell
     }
 }

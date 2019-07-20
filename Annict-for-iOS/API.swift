@@ -858,7 +858,7 @@ public final class SearchWorksByIdQuery: GraphQLQuery {
 
 public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
   public let operationDefinition =
-    "query GetViewerWatchingEpisodes($after: String) {\n  viewer {\n    __typename\n    works(state: WATCHING, first: 10, after: $after) {\n      __typename\n      pageInfo {\n        __typename\n        endCursor\n        hasNextPage\n      }\n      edges {\n        __typename\n        node {\n          __typename\n          title\n          image {\n            __typename\n            twitterAvatarUrl\n          }\n          episodes(orderBy: {field: CREATED_AT, direction: DESC}) {\n            __typename\n            edges {\n              __typename\n              node {\n                __typename\n                ...EpisodeDetails\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+    "query GetViewerWatchingEpisodes($after: String) {\n  viewer {\n    __typename\n    works(state: WATCHING, first: 10, after: $after) {\n      __typename\n      pageInfo {\n        __typename\n        endCursor\n        hasNextPage\n      }\n      edges {\n        __typename\n        node {\n          __typename\n          annictId\n          title\n          image {\n            __typename\n            twitterAvatarUrl\n          }\n          episodes(orderBy: {field: CREATED_AT, direction: DESC}) {\n            __typename\n            edges {\n              __typename\n              node {\n                __typename\n                ...EpisodeDetails\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
 
   public var queryDocument: String { return operationDefinition.appending(EpisodeDetails.fragmentDefinition) }
 
@@ -1073,6 +1073,7 @@ public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
 
             public static let selections: [GraphQLSelection] = [
               GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
               GraphQLField("title", type: .nonNull(.scalar(String.self))),
               GraphQLField("image", type: .object(Image.selections)),
               GraphQLField("episodes", arguments: ["orderBy": ["field": "CREATED_AT", "direction": "DESC"]], type: .object(Episode.selections)),
@@ -1084,8 +1085,8 @@ public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
               self.resultMap = unsafeResultMap
             }
 
-            public init(title: String, image: Image? = nil, episodes: Episode? = nil) {
-              self.init(unsafeResultMap: ["__typename": "Work", "title": title, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }, "episodes": episodes.flatMap { (value: Episode) -> ResultMap in value.resultMap }])
+            public init(annictId: Int, title: String, image: Image? = nil, episodes: Episode? = nil) {
+              self.init(unsafeResultMap: ["__typename": "Work", "annictId": annictId, "title": title, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }, "episodes": episodes.flatMap { (value: Episode) -> ResultMap in value.resultMap }])
             }
 
             public var __typename: String {
@@ -1094,6 +1095,15 @@ public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
               }
               set {
                 resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            public var annictId: Int {
+              get {
+                return resultMap["annictId"]! as! Int
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "annictId")
               }
             }
 
