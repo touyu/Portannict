@@ -36,6 +36,7 @@
 		D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127411C217CDEF300DD09C2 /* BaseService.swift */; };
 		D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127411E217CDF1000DD09C2 /* ServiceProvider.swift */; };
 		D12E01E922E38FFA000D3C10 /* RecordEpisodeTableViewCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12E01E822E38FFA000D3C10 /* RecordEpisodeTableViewCellReactor.swift */; };
+		D12E01EB22E39EA5000D3C10 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12E01EA22E39EA5000D3C10 /* PlaceholderTextView.swift */; };
 		D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */; };
 		D136EA7121807E9500BA08EA /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA7021807E9500BA08EA /* APIService.swift */; };
 		D136EA742180885400BA08EA /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA732180885400BA08EA /* UserDefaultsService.swift */; };
@@ -189,6 +190,7 @@
 		D127411C217CDEF300DD09C2 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		D127411E217CDF1000DD09C2 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		D12E01E822E38FFA000D3C10 /* RecordEpisodeTableViewCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordEpisodeTableViewCellReactor.swift; sourceTree = "<group>"; };
+		D12E01EA22E39EA5000D3C10 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
 		D136EA7021807E9500BA08EA /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		D136EA732180885400BA08EA /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 				D1621DFC21862BA600819D93 /* PostRecordViewReactor.swift */,
 				D1621DFD21862BA600819D93 /* PostRecordViewController.storyboard */,
 				D1621DFE21862BA600819D93 /* PostRecordViewController.swift */,
+				D12E01EA22E39EA5000D3C10 /* PlaceholderTextView.swift */,
 			);
 			path = PostRecord;
 			sourceTree = "<group>";
@@ -1088,6 +1091,7 @@
 				D11D57F72237D9B9000D3CC0 /* RootTabBarReactor.swift in Sources */,
 				D1B27B2A22525B57007F8B95 /* StatusBarManager.swift in Sources */,
 				D1BCB8C4217F350A00B84F82 /* HTTPClient.swift in Sources */,
+				D12E01EB22E39EA5000D3C10 /* PlaceholderTextView.swift in Sources */,
 				D1C53C0D21EE4F1200DA9A1D /* ProfileWorksViewReactor.swift in Sources */,
 				D1F9143521AA74FA006986A1 /* NSMutableParagraphStyle.swift in Sources */,
 				D1B4F174217EBB940011BAFF /* UIView.swift in Sources */,

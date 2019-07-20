@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5jk-Hd-q3d">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5jk-Hd-q3d">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,20 +31,34 @@
                                     <color key="titleColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VCE-oI-Imo" customClass="PlaceholderTextView" customModule="Annict_for_iOS" customModuleProvider="target">
+                                <rect key="frame" x="20" y="84" width="335" height="563"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="見た感想を残しませんか？（自由入力)"/>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Mww-sB-wbb" firstAttribute="centerY" secondItem="C62-4O-g5u" secondAttribute="centerY" id="7iC-HJ-epO"/>
+                            <constraint firstItem="PJX-Es-pSC" firstAttribute="bottom" secondItem="VCE-oI-Imo" secondAttribute="bottom" constant="20" id="MQl-TQ-Ugo"/>
                             <constraint firstItem="C62-4O-g5u" firstAttribute="top" secondItem="PJX-Es-pSC" secondAttribute="top" constant="24" id="Z45-w7-rmz"/>
                             <constraint firstItem="Mww-sB-wbb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="C62-4O-g5u" secondAttribute="trailing" constant="8" id="bGa-Pl-cC9"/>
+                            <constraint firstItem="VCE-oI-Imo" firstAttribute="leading" secondItem="PJX-Es-pSC" secondAttribute="leading" constant="20" id="gIf-Zj-eDX"/>
                             <constraint firstItem="C62-4O-g5u" firstAttribute="leading" secondItem="PJX-Es-pSC" secondAttribute="leading" constant="16" id="gf7-wP-uiR"/>
+                            <constraint firstItem="VCE-oI-Imo" firstAttribute="top" secondItem="C62-4O-g5u" secondAttribute="bottom" constant="20" id="lLa-g1-fxU"/>
                             <constraint firstItem="PJX-Es-pSC" firstAttribute="trailing" secondItem="Mww-sB-wbb" secondAttribute="trailing" constant="16" id="vYr-eY-E9f"/>
+                            <constraint firstItem="PJX-Es-pSC" firstAttribute="trailing" secondItem="VCE-oI-Imo" secondAttribute="trailing" constant="20" id="wOY-dn-loq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PJX-Es-pSC"/>
                     </view>
                     <connections>
                         <outlet property="episodeTitleLabel" destination="C62-4O-g5u" id="gAc-6R-iPJ"/>
                         <outlet property="recordButton" destination="Mww-sB-wbb" id="BFJ-Ep-iv2"/>
+                        <outlet property="textView" destination="VCE-oI-Imo" id="bwq-Ld-tAz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpj-WT-0yB" userLabel="First Responder" sceneMemberID="firstResponder"/>

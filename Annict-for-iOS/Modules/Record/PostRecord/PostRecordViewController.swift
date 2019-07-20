@@ -18,16 +18,19 @@ final class PostRecordViewController: UIViewController, StoryboardView {
 
     @IBOutlet private weak var episodeTitleLabel: UILabel!
     @IBOutlet private weak var recordButton: UIButton!
+    @IBOutlet private weak var textView: PlaceholderTextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleGesture(_:))))
+        textView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
     }
 
     func bind(reactor: Reactor) {
         recordButton.rx.tap
-            .map { Reactor.Action.record(nil) }
+            .withLatestFrom(textView.rx.text)
+            .map { Reactor.Action.record($0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
 
@@ -40,6 +43,7 @@ final class PostRecordViewController: UIViewController, StoryboardView {
             .filter { $0 }
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] _ in
+                self?.textView.resignFirstResponder()
                 self?.dismiss(animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
@@ -59,7 +63,7 @@ extension PostRecordViewController {
 
 extension PostRecordViewController: PanModalPresentable {
     var panScrollable: UIScrollView? {
-        return nil
+        return textView
     }
     
     var longFormHeight: PanModalHeight {
@@ -68,6 +72,17 @@ extension PostRecordViewController: PanModalPresentable {
     
     var shortFormHeight: PanModalHeight {
         return .contentHeight(350)
+    }
+    
+    func willRespond(to panModalGestureRecognizer: UIPanGestureRecognizer) {
+        textView.resignFirstResponder()
+    }
+}
+
+extension PostRecordViewController: UITextViewDelegate {
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        panModalTransition(to: .longForm)
+        return true
     }
 }
 
