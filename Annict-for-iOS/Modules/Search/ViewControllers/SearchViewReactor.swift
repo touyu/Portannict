@@ -21,6 +21,7 @@ final class SearchViewReactor: Reactor {
         case setWorks([MinimumWork])
         case appendWorks([MinimumWork])
         case setPageInfo(PageInfo)
+        case updateWork(MinimumWork)
     }
 
     struct State {
@@ -55,6 +56,13 @@ final class SearchViewReactor: Reactor {
             return .merge(setWorks, setPageInfo)
         }
     }
+    
+    func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
+        let updateStatus = provider.workAPIService.event.updateWorkState
+            .map { Mutation.updateWork($0) }
+        
+        return .merge(mutation, updateStatus)
+    }
 
     func reduce(state: State, mutation: Mutation) -> State {
         var state = state
@@ -65,6 +73,9 @@ final class SearchViewReactor: Reactor {
             state.pageInfo = pageInfo
         case .appendWorks(let works):
             state.works += works
+        case .updateWork(let work):
+            guard let index = state.works.firstIndex(where: { $0.id == work.id }) else { return state }
+            state.works[index].viewerStatusState = work.viewerStatusState
         }
         return state
     }
