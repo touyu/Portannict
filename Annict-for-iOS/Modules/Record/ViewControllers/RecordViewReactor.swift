@@ -31,11 +31,13 @@ final class RecordViewReactor: Reactor {
         var isLoading: Bool = false
     }
     
-    var initialState: State
+    let initialState: State
+    let provider: ServiceProviderType
     
     private var client = AnnictGraphQL.client
     
-    init() {
+    init(provider: ServiceProviderType) {
+        self.provider = provider
         initialState = State()
     }
     
@@ -70,15 +72,20 @@ final class RecordViewReactor: Reactor {
         var state = state
         switch mutation {
         case .setWorks(let works):
-            state.cellReactors = works.map(RecordEpisodeTableViewCellReactor.init)
+            state.cellReactors = works.map { RecordEpisodeTableViewCellReactor(provider: provider, work: $0)  }
         case .appendWorks(let works):
-            state.cellReactors += works.map(RecordEpisodeTableViewCellReactor.init)
+            state.cellReactors += works.map { RecordEpisodeTableViewCellReactor(provider: provider, work: $0)  }
         case .setPageInfo(let pageInfo):
             state.pageInfo = pageInfo
         case .setLoading(let isLoading):
             state.isLoading = isLoading
         }
         return state
+    }
+    
+    func reactorForPostRecord(index: Int) -> PostRecordViewReactor? {
+        guard let episode = currentState.cellReactors[index].currentState.work.didNotTrackEpisode else { return nil }
+        return .init(provider: provider, episode: episode)
     }
     
     private func fetch(after: String? = nil) -> Observable<GetViewerWatchingEpisodesQuery.Data.Viewer.Work> {

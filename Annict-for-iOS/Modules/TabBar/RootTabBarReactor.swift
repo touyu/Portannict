@@ -29,6 +29,10 @@ final class RootTabBarReactor: Reactor {
         return .init(provider: provider)
     }
     
+    var reactorForRecord: RecordViewReactor {
+        return .init(provider: provider)
+    }
+    
     var reactorForProfile: ProfileViewReactor {
         return .init(provider: provider)
     }

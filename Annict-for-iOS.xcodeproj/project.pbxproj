@@ -37,6 +37,7 @@
 		D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127411E217CDF1000DD09C2 /* ServiceProvider.swift */; };
 		D12E01E922E38FFA000D3C10 /* RecordEpisodeTableViewCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12E01E822E38FFA000D3C10 /* RecordEpisodeTableViewCellReactor.swift */; };
 		D12E01EB22E39EA5000D3C10 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12E01EA22E39EA5000D3C10 /* PlaceholderTextView.swift */; };
+		D12E01ED22E41B52000D3C10 /* EpisodeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12E01EC22E41B52000D3C10 /* EpisodeAPIService.swift */; };
 		D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */; };
 		D136EA7121807E9500BA08EA /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA7021807E9500BA08EA /* APIService.swift */; };
 		D136EA742180885400BA08EA /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA732180885400BA08EA /* UserDefaultsService.swift */; };
@@ -191,6 +192,7 @@
 		D127411E217CDF1000DD09C2 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		D12E01E822E38FFA000D3C10 /* RecordEpisodeTableViewCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordEpisodeTableViewCellReactor.swift; sourceTree = "<group>"; };
 		D12E01EA22E39EA5000D3C10 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
+		D12E01EC22E41B52000D3C10 /* EpisodeAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeAPIService.swift; sourceTree = "<group>"; };
 		D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
 		D136EA7021807E9500BA08EA /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		D136EA732180885400BA08EA /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 				D127411E217CDF1000DD09C2 /* ServiceProvider.swift */,
 				D136EA7021807E9500BA08EA /* APIService.swift */,
 				D1891A6122E1FDD900D26512 /* WorkAPIService.swift */,
+				D12E01EC22E41B52000D3C10 /* EpisodeAPIService.swift */,
 				D136EA732180885400BA08EA /* UserDefaultsService.swift */,
 			);
 			path = Services;
@@ -1057,6 +1060,7 @@
 				D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */,
 				D11D57F92237DE1A000D3CC0 /* WorkQuoteView.swift in Sources */,
 				D1199E492238FF3F00531BF3 /* BlurView.swift in Sources */,
+				D12E01ED22E41B52000D3C10 /* EpisodeAPIService.swift in Sources */,
 				D1FFB57B21AE8696001099E6 /* GraphQLSelectionSet.swift in Sources */,
 				D163090121F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.swift in Sources */,
 				D11D57E52237B4E9000D3CC0 /* API.swift in Sources */,

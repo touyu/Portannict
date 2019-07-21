@@ -59,27 +59,3 @@ extension GetViewerWatchingEpisodesQuery.Data.Viewer.Work.Node {
             .min(by: { $0.annictId < $1.annictId })
     }
 }
-
-//extension GetViewerWatchingEpisodesQuery.Data.Viewer.Work.Edge.Node {
-//    var didNotTrackEpisode: EpisodeDetails? {
-//        return episodes?.elements
-//            .map { $0.fragments.episodeDetails }
-//            .filter { !$0.viewerDidTrack }
-//            .min(by: { $0.annictId < $1.annictId })
-//    }
-//}
-//
-//extension EpisodeDetails {
-//    var numberAndTitle: String {
-//        var result = ""
-//        if let numberText = numberText {
-//            result = "\(numberText) "
-//        }
-//
-//        if let title = title {
-//            result += title
-//        }
-//
-//        return result
-//    }
-//}

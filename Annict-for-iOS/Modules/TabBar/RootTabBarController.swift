@@ -27,6 +27,10 @@ final class RootTabBarController: UITabBarController, StoryboardView {
                 homeVC.reactor = reactor?.reactorForHome
             }
             
+            if let recordVC = vc as? RecordViewController {
+                recordVC.reactor = reactor?.reactorForRecord
+            }
+            
             if let profileVC = vc as? ProfileViewController {
                 profileVC.reactor = reactor?.reactorForProfile
             }

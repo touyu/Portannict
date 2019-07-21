@@ -33,7 +33,6 @@ final class RecordViewController: UIViewController, StoryboardView {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        reactor = RecordViewReactor()
     }
 
     func bind(reactor: Reactor) {
@@ -44,9 +43,6 @@ final class RecordViewController: UIViewController, StoryboardView {
             .disposed(by: disposeBag)
         
         tableView.rx.reachedBottom()
-            .do(onNext: {
-                print("DDDDDDDDDDDDDDDDDDDDDD")
-            })
             .map { Reactor.Action.loadMore }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
@@ -102,8 +98,8 @@ extension RecordViewController: UITableViewDataSource {
 extension RecordViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        guard let episode = reactor?.currentState.cellReactors[indexPath.row].currentState.work.didNotTrackEpisode else { return }
-        PostRecordViewController.presentPanModal(fromVC: self, reactor: .init(episode: episode))
+        guard let r = reactor!.reactorForPostRecord(index: indexPath.row) else { return }
+        PostRecordViewController.presentPanModal(fromVC: self, reactor: r)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

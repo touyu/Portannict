@@ -10,15 +10,6 @@ import ReactorKit
 import RxSwift
 
 final class PostRecordViewReactor: Reactor {
-
-    var initialState: State
-    
-    private let client = AnnictGraphQL.client
-
-    init(episode: MinimumEpisode) {
-        initialState = State(episode: episode)
-    }
-
     enum Action {
         case record(String?)
     }
@@ -36,12 +27,19 @@ final class PostRecordViewReactor: Reactor {
         }
     }
     
+    let initialState: State
+    let provider: ServiceProviderType
+    private let client = AnnictGraphQL.client
+    
+    init(provider: ServiceProviderType, episode: MinimumEpisode) {
+        self.provider = provider
+        initialState = State(episode: episode)
+    }
+    
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .record(let comment):
-            let query = CreateRecordMutation(episodeId: currentState.episode.id, comment: comment)
-            return client.rx.perform(mutation: query)
-                .asObservable()
+            return provider.episodeAPIService.createRecord(episodeID: currentState.episode.id, comment: comment)
                 .map { _ in .recordSuccess }
         }
     }
