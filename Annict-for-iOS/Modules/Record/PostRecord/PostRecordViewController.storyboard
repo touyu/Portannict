@@ -24,13 +24,6 @@
                                 <color key="textColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mww-sB-wbb">
-                                <rect key="frame" x="297" y="39" width="62" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="記録する">
-                                    <color key="titleColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VCE-oI-Imo" customClass="PlaceholderTextView" customModule="Annict_for_iOS" customModuleProvider="target">
                                 <rect key="frame" x="20" y="84" width="335" height="563"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -40,24 +33,34 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="見た感想を残しませんか？（自由入力)"/>
                                 </userDefinedRuntimeAttributes>
                             </textView>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5p-Qn-OIo">
+                                <rect key="frame" x="329" y="39" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.20392156859999999" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="9tl-ZG-3pP"/>
+                                    <constraint firstAttribute="width" constant="30" id="xOw-Wp-3Wu"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="paperplane_fill"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Mww-sB-wbb" firstAttribute="centerY" secondItem="C62-4O-g5u" secondAttribute="centerY" id="7iC-HJ-epO"/>
+                            <constraint firstItem="PJX-Es-pSC" firstAttribute="trailing" secondItem="u5p-Qn-OIo" secondAttribute="trailing" constant="16" id="KLu-57-rRY"/>
                             <constraint firstItem="PJX-Es-pSC" firstAttribute="bottom" secondItem="VCE-oI-Imo" secondAttribute="bottom" constant="20" id="MQl-TQ-Ugo"/>
+                            <constraint firstItem="u5p-Qn-OIo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="C62-4O-g5u" secondAttribute="trailing" constant="4" id="Mro-fF-UqJ"/>
+                            <constraint firstItem="u5p-Qn-OIo" firstAttribute="centerY" secondItem="C62-4O-g5u" secondAttribute="centerY" id="PrT-ML-dwO"/>
                             <constraint firstItem="C62-4O-g5u" firstAttribute="top" secondItem="PJX-Es-pSC" secondAttribute="top" constant="24" id="Z45-w7-rmz"/>
-                            <constraint firstItem="Mww-sB-wbb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="C62-4O-g5u" secondAttribute="trailing" constant="8" id="bGa-Pl-cC9"/>
                             <constraint firstItem="VCE-oI-Imo" firstAttribute="leading" secondItem="PJX-Es-pSC" secondAttribute="leading" constant="20" id="gIf-Zj-eDX"/>
                             <constraint firstItem="C62-4O-g5u" firstAttribute="leading" secondItem="PJX-Es-pSC" secondAttribute="leading" constant="16" id="gf7-wP-uiR"/>
                             <constraint firstItem="VCE-oI-Imo" firstAttribute="top" secondItem="C62-4O-g5u" secondAttribute="bottom" constant="20" id="lLa-g1-fxU"/>
-                            <constraint firstItem="PJX-Es-pSC" firstAttribute="trailing" secondItem="Mww-sB-wbb" secondAttribute="trailing" constant="16" id="vYr-eY-E9f"/>
                             <constraint firstItem="PJX-Es-pSC" firstAttribute="trailing" secondItem="VCE-oI-Imo" secondAttribute="trailing" constant="20" id="wOY-dn-loq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PJX-Es-pSC"/>
                     </view>
                     <connections>
                         <outlet property="episodeTitleLabel" destination="C62-4O-g5u" id="gAc-6R-iPJ"/>
-                        <outlet property="recordButton" destination="Mww-sB-wbb" id="BFJ-Ep-iv2"/>
+                        <outlet property="recordButton" destination="u5p-Qn-OIo" id="NDU-gE-Fiz"/>
                         <outlet property="textView" destination="VCE-oI-Imo" id="bwq-Ld-tAz"/>
                     </connections>
                 </viewController>
@@ -65,4 +68,7 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="paperplane_fill" width="30" height="30"/>
+    </resources>
 </document>

@@ -23,6 +23,10 @@ final class PostRecordViewController: UIViewController, StoryboardView {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        recordButton.circleFilter()
+        recordButton.imageEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+        recordButton.imageView?.image = recordButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
+        
         textView.rx.setDelegate(self)
             .disposed(by: disposeBag)
     }
