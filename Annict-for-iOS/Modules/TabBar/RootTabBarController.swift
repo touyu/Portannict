@@ -18,8 +18,8 @@ final class RootTabBarController: UITabBarController, StoryboardView {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tabBar.tintColor = UIColor(hex: 0x2f2f2f)
-        tabBar.unselectedItemTintColor = UIColor.lightGray
+        tabBar.tintColor = UIColor(hex: 0xFA5871)
+        tabBar.unselectedItemTintColor = UIColor(white: 0.8, alpha: 1)
 
         for vc in viewControllers ?? [] {
             print(vc)
