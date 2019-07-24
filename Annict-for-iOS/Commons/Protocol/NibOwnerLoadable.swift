@@ -17,11 +17,11 @@ public extension NibOwnerLoadable where Self: UIView {
         return "loadedNibView"
     }
     
-    public var nibView: UIView? {
+    var nibView: UIView? {
         return subviews.filter { $0.restorationIdentifier == _viewID }.first
     }
     
-    public func loadNib() {
+    func loadNib() {
         guard let view = UINib(nibName: self.className, bundle: nil).instantiate(withOwner: self, options: nil).first as? UIView else {
             fatalError("not load nib")
         }

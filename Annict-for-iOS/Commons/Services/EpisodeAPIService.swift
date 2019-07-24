@@ -17,16 +17,16 @@ protocol EpisodeAPIServiceType {
     var event: EpisodeAPIServiceEvent { get }
     var client: ApolloClient { get }
     
-    func createRecord(episodeID: GraphQLID, comment: String?) -> Observable<CreateRecordMutation.Data> 
+    func createRecord(episodeID: GraphQLID, comment: String?, ratingState: RatingState?) -> Observable<CreateRecordMutation.Data> 
 }
 
 final class EpisodeAPIService: BaseService, EpisodeAPIServiceType {
     let event = EpisodeAPIServiceEvent()
     let client = AnnictGraphQL.client
     
-    func createRecord(episodeID: GraphQLID, comment: String?) -> Observable<CreateRecordMutation.Data> {
+    func createRecord(episodeID: GraphQLID, comment: String?, ratingState: RatingState?) -> Observable<CreateRecordMutation.Data> {
         event.willCreateRecordEpisodeID.onNext(episodeID)
-        let query = CreateRecordMutation(episodeId: episodeID, comment: comment)
+        let query = CreateRecordMutation(episodeId: episodeID, comment: comment, ratingState: ratingState)
         return client.rx.perform(mutation: query)
             .asObservable()
     }

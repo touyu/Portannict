@@ -11,7 +11,7 @@ import RxSwift
 
 final class PostRecordViewReactor: Reactor {
     enum Action {
-        case record(String?)
+        case record(String?, RatingState?)
     }
 
     enum Mutation {
@@ -38,8 +38,8 @@ final class PostRecordViewReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .record(let comment):
-            return provider.episodeAPIService.createRecord(episodeID: currentState.episode.id, comment: comment)
+        case .record(let comment, let ratingState):
+            return provider.episodeAPIService.createRecord(episodeID: currentState.episode.id, comment: comment, ratingState: ratingState)
                 .map { _ in .recordSuccess }
         }
     }

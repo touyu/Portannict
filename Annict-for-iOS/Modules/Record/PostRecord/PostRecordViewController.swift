@@ -19,11 +19,13 @@ final class PostRecordViewController: UIViewController, StoryboardView {
     @IBOutlet private weak var episodeTitleLabel: UILabel!
     @IBOutlet private weak var recordButton: UIButton!
     @IBOutlet private weak var textView: PlaceholderTextView!
+    @IBOutlet private weak var ratingStateView: RatingStatusTagsView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         recordButton.circleFilter()
+        recordButton.tintColor = .white
         recordButton.imageEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         recordButton.imageView?.image = recordButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
         
@@ -33,8 +35,10 @@ final class PostRecordViewController: UIViewController, StoryboardView {
 
     func bind(reactor: Reactor) {
         recordButton.rx.tap
-            .withLatestFrom(textView.rx.text)
-            .map { Reactor.Action.record($0) }
+            .map { [unowned self] in
+                Reactor.Action.record(self.textView.text,
+                                      self.ratingStateView.selectedRatingState)
+            }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
 

@@ -1,5 +1,5 @@
-mutation CreateRecord($episodeId: ID!, $comment: String) {
-  createRecord(input: {episodeId: $episodeId, comment: $comment}) {
+mutation CreateRecord($episodeId: ID!, $comment: String, $ratingState: RatingState) {
+  createRecord(input: {episodeId: $episodeId, comment: $comment, ratingState: $ratingState}) {
     record {
       id
       annictId

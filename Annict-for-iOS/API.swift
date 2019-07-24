@@ -93,6 +93,47 @@ public enum SeasonName: RawRepresentable, Equatable, Hashable, Apollo.JSONDecoda
   }
 }
 
+public enum RatingState: RawRepresentable, Equatable, Hashable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case great
+  case good
+  case average
+  case bad
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "GREAT": self = .great
+      case "GOOD": self = .good
+      case "AVERAGE": self = .average
+      case "BAD": self = .bad
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .great: return "GREAT"
+      case .good: return "GOOD"
+      case .average: return "AVERAGE"
+      case .bad: return "BAD"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: RatingState, rhs: RatingState) -> Bool {
+    switch (lhs, rhs) {
+      case (.great, .great): return true
+      case (.good, .good): return true
+      case (.average, .average): return true
+      case (.bad, .bad): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+}
+
 public final class GetViewerWorksQuery: GraphQLQuery {
   public let operationDefinition =
     "query GetViewerWorks($state: StatusState, $after: String) {\n  viewer {\n    __typename\n    works(state: $state, first: 30, after: $after, orderBy: {field: SEASON, direction: DESC}) {\n      __typename\n      nodes {\n        __typename\n        ...MinimumWork\n      }\n      pageInfo {\n        __typename\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}"
@@ -2737,25 +2778,27 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
 
 public final class CreateRecordMutation: GraphQLMutation {
   public let operationDefinition =
-    "mutation CreateRecord($episodeId: ID!, $comment: String) {\n  createRecord(input: {episodeId: $episodeId, comment: $comment}) {\n    __typename\n    record {\n      __typename\n      id\n      annictId\n      comment\n      createdAt\n    }\n  }\n}"
+    "mutation CreateRecord($episodeId: ID!, $comment: String, $ratingState: RatingState) {\n  createRecord(input: {episodeId: $episodeId, comment: $comment, ratingState: $ratingState}) {\n    __typename\n    record {\n      __typename\n      id\n      annictId\n      comment\n      createdAt\n    }\n  }\n}"
 
   public var episodeId: GraphQLID
   public var comment: String?
+  public var ratingState: RatingState?
 
-  public init(episodeId: GraphQLID, comment: String? = nil) {
+  public init(episodeId: GraphQLID, comment: String? = nil, ratingState: RatingState? = nil) {
     self.episodeId = episodeId
     self.comment = comment
+    self.ratingState = ratingState
   }
 
   public var variables: GraphQLMap? {
-    return ["episodeId": episodeId, "comment": comment]
+    return ["episodeId": episodeId, "comment": comment, "ratingState": ratingState]
   }
 
   public struct Data: GraphQLSelectionSet {
     public static let possibleTypes = ["Mutation"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("createRecord", arguments: ["input": ["episodeId": GraphQLVariable("episodeId"), "comment": GraphQLVariable("comment")]], type: .object(CreateRecord.selections)),
+      GraphQLField("createRecord", arguments: ["input": ["episodeId": GraphQLVariable("episodeId"), "comment": GraphQLVariable("comment"), "ratingState": GraphQLVariable("ratingState")]], type: .object(CreateRecord.selections)),
     ]
 
     public private(set) var resultMap: ResultMap
