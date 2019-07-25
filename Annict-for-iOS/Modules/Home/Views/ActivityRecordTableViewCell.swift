@@ -59,7 +59,7 @@ final class ActivityRecordTableViewCell: UITableViewCell, StoryboardView {
         avatarImageView.setImage(url: user.avatarUrl)
         nameLabel.text = user.name
         usernameLabel.text = "@" + user.username
-        timeLabel.text = record.createdAt.toDate()?.toRelative()
+        timeLabel.text = record.createdAt.toDate()?.toRelativeCurrentLocal()
         messageLabel.text = record.comment
         workAndEpisodeQuoteView.configure(work: activityItem.work.fragments.minimumWork,
                                           episode: activityItem.episode.fragments.minimumEpisode)

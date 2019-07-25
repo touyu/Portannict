@@ -28,7 +28,7 @@ final class EpisodeRecordTableViewCell: UITableViewCell {
         avatarImageView.setImage(url: user.avatarUrl)
         nameLabel.text = user.name
         usernameLabel.text = user.username
-        timeLabel.text = record.createdAt.toDate()?.toRelative()
+        timeLabel.text = record.createdAt.toDate()?.toRelativeCurrentLocal()
         commentLabel.text = record.comment
         if let ratingState = record.ratingState {
             statusTagView.isHidden = false

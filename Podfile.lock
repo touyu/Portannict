@@ -12,6 +12,7 @@ PODS:
     - RxSwift (~> 5)
   - RxSwift (5.0.0)
   - SPStorkController (1.7.5)
+  - SwiftDate (6.0.3)
 
 DEPENDENCIES:
   - Keys (from `Pods/CocoaPodsKeys`)
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - RxGesture
   - RxSwift (~> 5)
   - SPStorkController
+  - "SwiftDate (from `git@github.com:touyu/SwiftDate.git`)"
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -33,6 +35,13 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   Keys:
     :path: Pods/CocoaPodsKeys
+  SwiftDate:
+    :git: "git@github.com:touyu/SwiftDate.git"
+
+CHECKOUT OPTIONS:
+  SwiftDate:
+    :commit: 7d5f5da5727d0adc81e5d2b7d30cd55bec253a7d
+    :git: "git@github.com:touyu/SwiftDate.git"
 
 SPEC CHECKSUMS:
   Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
@@ -42,7 +51,8 @@ SPEC CHECKSUMS:
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   SPStorkController: be4ae2a5ee052ad78782f6144ffe7e951300ea67
+  SwiftDate: f86a9de882243beb90f8ada88a9108fbe8479c59
 
-PODFILE CHECKSUM: 8689223b193a97c6a0de884156928737a762bb75
+PODFILE CHECKSUM: cdabdbbfae99301a5f3eda71329444617c299da2
 
 COCOAPODS: 1.5.3

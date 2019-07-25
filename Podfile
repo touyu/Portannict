@@ -11,6 +11,7 @@ target 'Annict-for-iOS' do
   pod 'RxGesture'
   pod 'ReactorKit'
   pod 'SPStorkController'
+  pod 'SwiftDate', :git => 'git@github.com:touyu/SwiftDate.git'
 
 end
 

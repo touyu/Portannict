@@ -97,6 +97,7 @@
 		D1B4C84622E9BDD5000C2741 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4C84522E9BDD5000C2741 /* CALayer.swift */; };
 		D1B4C84822E9C55B000C2741 /* SwiftyAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4C84722E9C55B000C2741 /* SwiftyAttributedString.swift */; };
 		D1B4C84C22E9C83B000C2741 /* PortannictExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4C84B22E9C83B000C2741 /* PortannictExtension.swift */; };
+		D1B4C84E22E9CBA3000C2741 /* SwiftyDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4C84D22E9CBA3000C2741 /* SwiftyDate.swift */; };
 		D1B4F161217EB3770011BAFF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F160217EB3770011BAFF /* RootViewController.swift */; };
 		D1B4F163217EB38D0011BAFF /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */; };
 		D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F164217EB4080011BAFF /* RootViewReactor.swift */; };
@@ -272,6 +273,7 @@
 		D1B4C84522E9BDD5000C2741 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		D1B4C84722E9C55B000C2741 /* SwiftyAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyAttributedString.swift; sourceTree = "<group>"; };
 		D1B4C84B22E9C83B000C2741 /* PortannictExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortannictExtension.swift; sourceTree = "<group>"; };
+		D1B4C84D22E9CBA3000C2741 /* SwiftyDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyDate.swift; sourceTree = "<group>"; };
 		D1B4F160217EB3770011BAFF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RootViewController.storyboard; sourceTree = "<group>"; };
 		D1B4F164217EB4080011BAFF /* RootViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewReactor.swift; sourceTree = "<group>"; };
@@ -730,6 +732,7 @@
 				D11D57F32237D3DD000D3CC0 /* Entity+Extension.swift */,
 				D1199E4F223E994700531BF3 /* CachePolicy.swift */,
 				D1B4C84522E9BDD5000C2741 /* CALayer.swift */,
+				D1B4C84D22E9CBA3000C2741 /* SwiftyDate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1012,6 +1015,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SPStorkController/SPStorkController.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -1024,6 +1028,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPStorkController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1067,7 +1072,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Hero.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/XLPagerTabStrip.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftDate.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PanModal.framework",
 			);
 			outputFileListPaths = (
@@ -1192,6 +1196,7 @@
 				D1B4C83E22E98AD8000C2741 /* ActivityRecordTableViewCellReactor.swift in Sources */,
 				D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */,
 				D1F9143721AA756F006986A1 /* UIImageView.swift in Sources */,
+				D1B4C84E22E9CBA3000C2741 /* SwiftyDate.swift in Sources */,
 				D1F9144021AA7B4F006986A1 /* UserWorksWithSectionTitleCell.swift in Sources */,
 				D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */,
 				D1FFB58421AECF04001099E6 /* RecordEpisodeTableViewCell.swift in Sources */,
