@@ -26,4 +26,28 @@ extension UIView {
         }
         removeFromSuperview()
     }
+
+    func applyShadow(color: UIColor = .black,
+                     opacity: Float = 0.16,
+                     radius: CGFloat = 16,
+                     offset: CGSize = .init(width: 0, height: 3),
+                     path: UIBezierPath? = nil,
+                     shouldRasterize: Bool = true) {
+        layer.shadowColor = color.cgColor
+        layer.shadowOpacity = opacity
+        layer.shadowRadius = radius
+        layer.shadowOffset = offset
+        layer.shouldRasterize = shouldRasterize
+        layer.rasterizationScale = UIScreen.main.scale
+
+        if let path = path {
+            layer.shadowPath = path.cgPath
+        } else {
+            layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: layer.cornerRadius).cgPath
+        }
+    }
+
+    func updateShodowPath() {
+        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: layer.cornerRadius).cgPath
+    }
 }

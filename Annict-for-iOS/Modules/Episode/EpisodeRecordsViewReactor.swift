@@ -16,6 +16,7 @@ final class EpisodeRecordsViewReactor: Reactor {
 
     enum Mutation {
         case setRecords([MinimumRecord])
+        case appendRecord(MinimumRecord)
     }
 
     struct State {
@@ -28,8 +29,10 @@ final class EpisodeRecordsViewReactor: Reactor {
     }
 
     let initialState: State
+    private let provider: ServiceProviderType
 
-    init(episode: MinimumEpisode) {
+    init(provider: ServiceProviderType, episode: MinimumEpisode) {
+        self.provider = provider
         initialState = State(episode: episode)
     }
     
@@ -39,14 +42,26 @@ final class EpisodeRecordsViewReactor: Reactor {
             return fetchRecords().map { Mutation.setRecords($0) }
         }
     }
+
+    func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
+        let createdRecord = provider.episodeAPIService.event.didCreatedRecord
+            .map { Mutation.appendRecord($0) }
+        return .merge(mutation, createdRecord)
+    }
     
     func reduce(state: State, mutation: Mutation) -> State {
         var state = state
         switch mutation {
         case .setRecords(let records):
             state.records = records
+        case .appendRecord(let record):
+            state.records.insert(record, at: 0)
         }
         return state
+    }
+
+    func reactorForPostRecord() -> PostRecordViewReactor {
+        return .init(provider: provider, episode: currentState.episode)
     }
     
     private func fetchRecords() -> Observable<[MinimumRecord]> {

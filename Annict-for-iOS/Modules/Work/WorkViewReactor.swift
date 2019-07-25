@@ -39,7 +39,7 @@ final class WorkViewReactor: Reactor {
     }
     
     func reactorForEpisode(index: Int) -> EpisodeRecordsViewReactor {
-        return .init(episode: currentState.episodes[index])
+        return .init(provider: provider, episode: currentState.episodes[index])
     }
     
     func mutate(action: Action) -> Observable<Mutation> {

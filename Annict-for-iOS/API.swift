@@ -2923,7 +2923,9 @@ public final class GetEpisodeRecordsQuery: GraphQLQuery {
 
 public final class CreateRecordMutation: GraphQLMutation {
   public let operationDefinition =
-    "mutation CreateRecord($episodeId: ID!, $comment: String, $ratingState: RatingState) {\n  createRecord(input: {episodeId: $episodeId, comment: $comment, ratingState: $ratingState}) {\n    __typename\n    record {\n      __typename\n      id\n      annictId\n      comment\n      createdAt\n    }\n  }\n}"
+    "mutation CreateRecord($episodeId: ID!, $comment: String, $ratingState: RatingState) {\n  createRecord(input: {episodeId: $episodeId, comment: $comment, ratingState: $ratingState}) {\n    __typename\n    record {\n      __typename\n      ...MinimumRecord\n    }\n  }\n}"
+
+  public var queryDocument: String { return operationDefinition.appending(MinimumRecord.fragmentDefinition).appending(MinimumUser.fragmentDefinition) }
 
   public var episodeId: GraphQLID
   public var comment: String?
@@ -3006,20 +3008,13 @@ public final class CreateRecordMutation: GraphQLMutation {
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
-          GraphQLField("comment", type: .scalar(String.self)),
-          GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(MinimumRecord.self),
         ]
 
         public private(set) var resultMap: ResultMap
 
         public init(unsafeResultMap: ResultMap) {
           self.resultMap = unsafeResultMap
-        }
-
-        public init(id: GraphQLID, annictId: Int, comment: String? = nil, createdAt: String) {
-          self.init(unsafeResultMap: ["__typename": "Record", "id": id, "annictId": annictId, "comment": comment, "createdAt": createdAt])
         }
 
         public var __typename: String {
@@ -3031,39 +3026,29 @@ public final class CreateRecordMutation: GraphQLMutation {
           }
         }
 
-        public var id: GraphQLID {
+        public var fragments: Fragments {
           get {
-            return resultMap["id"]! as! GraphQLID
+            return Fragments(unsafeResultMap: resultMap)
           }
           set {
-            resultMap.updateValue(newValue, forKey: "id")
+            resultMap += newValue.resultMap
           }
         }
 
-        public var annictId: Int {
-          get {
-            return resultMap["annictId"]! as! Int
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "annictId")
-          }
-        }
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
 
-        public var comment: String? {
-          get {
-            return resultMap["comment"] as? String
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
           }
-          set {
-            resultMap.updateValue(newValue, forKey: "comment")
-          }
-        }
 
-        public var createdAt: String {
-          get {
-            return resultMap["createdAt"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "createdAt")
+          public var minimumRecord: MinimumRecord {
+            get {
+              return MinimumRecord(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
           }
         }
       }

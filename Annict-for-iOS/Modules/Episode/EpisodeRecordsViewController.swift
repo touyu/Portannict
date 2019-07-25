@@ -15,6 +15,13 @@ final class EpisodeRecordsViewController: UIViewController, StoryboardView {
     typealias Reactor = EpisodeRecordsViewReactor
 
     @IBOutlet private weak var tableView: UITableView!
+    private var postButton: UIButton = {
+        let button = UIButton(imageType: .pencil)
+        button.layer.cornerRadius = 25
+        button.tintColor = UIColor(hex: 0xFA5871)
+        button.applyFABShadow()
+        return button
+    }()
     
     var disposeBag = DisposeBag()
 
@@ -24,6 +31,13 @@ final class EpisodeRecordsViewController: UIViewController, StoryboardView {
         tableView.register(EpisodeRecordTableViewCell.self,
                            EpisodeRecordTitleTableViewCell.self)
         tableView.tableFooterView = UIView()
+        preparePostButton()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        postButton.updateShodowPath()
     }
 
     func bind(reactor: Reactor) {
@@ -45,6 +59,21 @@ final class EpisodeRecordsViewController: UIViewController, StoryboardView {
                 self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)
+
+        postButton.rx.tap
+            .subscribe(onNext: { [unowned self] _ in
+                PostRecordViewController.presentPanModal(fromVC: self, reactor: reactor.reactorForPostRecord())
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func preparePostButton() {
+        view.addSubview(postButton)
+        postButton.snp.makeConstraints {
+            $0.width.height.equalTo(50)
+            $0.trailing.equalTo(view.snp.trailing).offset(-20)
+            $0.bottom.equalTo(view.snp.bottom).offset(-40)
+        }
     }
 }
 
@@ -82,5 +111,32 @@ extension EpisodeRecordsViewController: UITableViewDataSource {
 extension EpisodeRecordsViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         SPStorkController.scrollViewDidScroll(scrollView)
+    }
+}
+
+extension UIImage {
+    enum ImageType: String {
+        case pencil = "pencil"
+
+        var image: UIImage? {
+            return UIImage(named: self.rawValue)
+        }
+    }
+}
+
+extension UIButton {
+
+    convenience init(imageType: UIImage.ImageType) {
+        self.init(frame: .zero)
+        setImage(imageType.image?.withRenderingMode(.alwaysTemplate), for: .normal)
+        imageView?.contentMode = .scaleAspectFit
+        contentHorizontalAlignment = .fill
+        contentVerticalAlignment = .fill
+        backgroundColor = .white
+        imageEdgeInsets = UIEdgeInsets(top: -8, left: -8, bottom: -8, right: -8)
+    }
+
+    func applyFABShadow() {
+        applyShadow(opacity: 0.4, radius: 4, offset: CGSize(width: 0, height: 3))
     }
 }
