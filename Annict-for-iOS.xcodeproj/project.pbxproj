@@ -105,6 +105,12 @@
 		D1BCB8CE217F469800B84F82 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BCB8CD217F469800B84F82 /* HomeViewController.swift */; };
 		D1BCB8D1217F46B600B84F82 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BCB8D0217F46B600B84F82 /* HomeViewController.storyboard */; };
 		D1BCB8D3217F4A3D00B84F82 /* HomeViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BCB8D2217F4A3D00B84F82 /* HomeViewReactor.swift */; };
+		D1BD1F7522E8C11700A260F5 /* EpisodeRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BD1F7322E8C11700A260F5 /* EpisodeRecordTableViewCell.swift */; };
+		D1BD1F7622E8C11700A260F5 /* EpisodeRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1BD1F7422E8C11700A260F5 /* EpisodeRecordTableViewCell.xib */; };
+		D1BD1F7A22E8C13800A260F5 /* EpisodeRecordsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BD1F7722E8C13800A260F5 /* EpisodeRecordsViewController.storyboard */; };
+		D1BD1F7B22E8C13800A260F5 /* EpisodeRecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BD1F7822E8C13800A260F5 /* EpisodeRecordsViewController.swift */; };
+		D1BD1F7C22E8C13800A260F5 /* EpisodeRecordsViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BD1F7922E8C13800A260F5 /* EpisodeRecordsViewReactor.swift */; };
+		D1BD1F8F22E8C8B600A260F5 /* GetRecords.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1BD1F8D22E8C85600A260F5 /* GetRecords.graphql */; };
 		D1C53C0821EE4C7700DA9A1D /* XLPagerTabStrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C53C0721EE4C7700DA9A1D /* XLPagerTabStrip.framework */; };
 		D1C53C0D21EE4F1200DA9A1D /* ProfileWorksViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C53C0A21EE4F1200DA9A1D /* ProfileWorksViewReactor.swift */; };
 		D1C53C0E21EE4F1200DA9A1D /* ProfileWorksViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C53C0B21EE4F1200DA9A1D /* ProfileWorksViewController.storyboard */; };
@@ -264,6 +270,12 @@
 		D1BCB8CD217F469800B84F82 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D1BCB8D0217F46B600B84F82 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		D1BCB8D2217F4A3D00B84F82 /* HomeViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewReactor.swift; sourceTree = "<group>"; };
+		D1BD1F7322E8C11700A260F5 /* EpisodeRecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeRecordTableViewCell.swift; sourceTree = "<group>"; };
+		D1BD1F7422E8C11700A260F5 /* EpisodeRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpisodeRecordTableViewCell.xib; sourceTree = "<group>"; };
+		D1BD1F7722E8C13800A260F5 /* EpisodeRecordsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EpisodeRecordsViewController.storyboard; sourceTree = "<group>"; };
+		D1BD1F7822E8C13800A260F5 /* EpisodeRecordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeRecordsViewController.swift; sourceTree = "<group>"; };
+		D1BD1F7922E8C13800A260F5 /* EpisodeRecordsViewReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeRecordsViewReactor.swift; sourceTree = "<group>"; };
+		D1BD1F8D22E8C85600A260F5 /* GetRecords.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GetRecords.graphql; sourceTree = "<group>"; };
 		D1C53C0721EE4C7700DA9A1D /* XLPagerTabStrip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLPagerTabStrip.framework; path = Carthage/Build/iOS/XLPagerTabStrip.framework; sourceTree = "<group>"; };
 		D1C53C0A21EE4F1200DA9A1D /* ProfileWorksViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWorksViewReactor.swift; sourceTree = "<group>"; };
 		D1C53C0B21EE4F1200DA9A1D /* ProfileWorksViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileWorksViewController.storyboard; sourceTree = "<group>"; };
@@ -453,6 +465,17 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		D14ED3BA22E8AD2F00437DF9 /* Episode */ = {
+			isa = PBXGroup;
+			children = (
+				D1BD1F7722E8C13800A260F5 /* EpisodeRecordsViewController.storyboard */,
+				D1BD1F7822E8C13800A260F5 /* EpisodeRecordsViewController.swift */,
+				D1BD1F7922E8C13800A260F5 /* EpisodeRecordsViewReactor.swift */,
+				D1D4CD2B22E8BC5700BCBE82 /* Cells */,
+			);
+			path = Episode;
+			sourceTree = "<group>";
+		};
 		D16193C022E857E500B6BEBC /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,6 +552,7 @@
 				D13F2EB9222E2B0700509FB2 /* GetFollowingActivities.graphql */,
 				D1B27B3222526ECF007F8B95 /* SearchWorksByID.graphql */,
 				D1891A5F22E1FA5400D26512 /* UpdateStatus.graphql */,
+				D1BD1F8D22E8C85600A260F5 /* GetRecords.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -624,6 +648,7 @@
 		D1B4F15E217EB33E0011BAFF /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				D14ED3BA22E8AD2F00437DF9 /* Episode */,
 				D1F9ED0421B274C000AB3DAE /* Work */,
 				D1FFB59721B0464F001099E6 /* Search */,
 				D1621DF32186272300819D93 /* Profile */,
@@ -738,6 +763,15 @@
 				D1C53C1F21EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D1D4CD2B22E8BC5700BCBE82 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D1BD1F7322E8C11700A260F5 /* EpisodeRecordTableViewCell.swift */,
+				D1BD1F7422E8C11700A260F5 /* EpisodeRecordTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		D1F9ED0421B274C000AB3DAE /* Work */ = {
@@ -877,10 +911,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1FFB58A21AEE427001099E6 /* CreateRecord.graphql in Resources */,
+				D1BD1F8F22E8C8B600A260F5 /* GetRecords.graphql in Resources */,
 				D11D57FB2237DE2D000D3CC0 /* WorkQuoteView.xib in Resources */,
 				D123F25E217CBD2600AE38FD /* LaunchScreen.storyboard in Resources */,
 				D1621DEB2186218200819D93 /* RootTabBarController.storyboard in Resources */,
 				D1F9ED0921B274CD00AB3DAE /* WorkViewController.storyboard in Resources */,
+				D1BD1F7622E8C11700A260F5 /* EpisodeRecordTableViewCell.xib in Resources */,
 				D18389B521B05146004A072C /* SearchResultViewController.storyboard in Resources */,
 				D1FFB59C21B046BE001099E6 /* SearchViewController.storyboard in Resources */,
 				D1AF34C2219B4042004DD229 /* UserInfoTableViewCell.xib in Resources */,
@@ -894,6 +930,7 @@
 				D1621E0021862BA600819D93 /* PostRecordViewController.storyboard in Resources */,
 				D11D57EA2237BC3B000D3CC0 /* ActivityRecordTableViewCell.xib in Resources */,
 				D1E6DEF122E0EC2B003D03F0 /* WorkHeaderTableViewCell.xib in Resources */,
+				D1BD1F7A22E8C13800A260F5 /* EpisodeRecordsViewController.storyboard in Resources */,
 				D11D57F22237C663000D3CC0 /* WorkAndEpisodeQuoteView.xib in Resources */,
 				D165C9C121B15EE9002E8FFA /* SearchResultWorkCell.xib in Resources */,
 				D163090221F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.xib in Resources */,
@@ -1067,6 +1104,8 @@
 				D165C9B621B0E051002E8FFA /* UINavigationBar.swift in Sources */,
 				D1BCB8C2217F327400B84F82 /* NotificationCenter.swift in Sources */,
 				D18389B321B05137004A072C /* SearchResultViewController.swift in Sources */,
+				D1BD1F7B22E8C13800A260F5 /* EpisodeRecordsViewController.swift in Sources */,
+				D1BD1F7C22E8C13800A260F5 /* EpisodeRecordsViewReactor.swift in Sources */,
 				D1C53C1621EEFB9A00DA9A1D /* NibOwnerLoadable.swift in Sources */,
 				D136EA742180885400BA08EA /* UserDefaultsService.swift in Sources */,
 				D1FFB57921AE867B001099E6 /* StatusState.swift in Sources */,
@@ -1096,6 +1135,7 @@
 				D1FFB57B21AE8696001099E6 /* GraphQLSelectionSet.swift in Sources */,
 				D163090121F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.swift in Sources */,
 				D11D57E52237B4E9000D3CC0 /* API.swift in Sources */,
+				D1BD1F7522E8C11700A260F5 /* EpisodeRecordTableViewCell.swift in Sources */,
 				D1FFB58721AED24F001099E6 /* Ornament.swift in Sources */,
 				D1621DE92186214900819D93 /* RootTabBarController.swift in Sources */,
 				D1F553A8224B8944001D971C /* ChildPagerViewController.swift in Sources */,

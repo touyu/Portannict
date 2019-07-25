@@ -38,6 +38,10 @@ final class WorkViewReactor: Reactor {
         self.provider = provider
     }
     
+    func reactorForEpisode(index: Int) -> EpisodeRecordsViewReactor {
+        return .init(episode: currentState.episodes[index])
+    }
+    
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .fetchEpisodes:

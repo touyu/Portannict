@@ -88,6 +88,12 @@ extension WorkViewController: UITableViewDataSource {
 }
 
 extension WorkViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.section == 1 else { return }
+        EpisodeRecordsViewController.presentAsStork(fromVC: self, reactor: reactor!.reactorForEpisode(index: indexPath.item))
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 460
@@ -98,20 +104,6 @@ extension WorkViewController: UITableViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         SPStorkController.scrollViewDidScroll(scrollView)
-    }
-}
-
-extension WorkViewController: PanModalPresentable {
-    var panScrollable: UIScrollView? {
-        return tableView
-    }
-    
-    var longFormHeight: PanModalHeight {
-        return .maxHeightWithTopInset(0)
-    }
-    
-    var showDragIndicator: Bool {
-        return false
     }
 }
 

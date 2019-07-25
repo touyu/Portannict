@@ -39,3 +39,15 @@ fragment PageInfoFrag on PageInfo {
     hasPreviousPage
     startCursor
 }
+
+fragment MinimumRecord on Record {
+    annictId
+    comment
+    commentsCount
+    createdAt
+    likesCount
+    ratingState
+    user {
+        ...MinimumUser
+    }
+}
