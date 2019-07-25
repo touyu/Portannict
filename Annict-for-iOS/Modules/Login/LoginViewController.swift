@@ -11,6 +11,7 @@ import ReactorKit
 import RxSwift
 import RxCocoa
 import SafariServices
+import RxGesture
 
 final class LoginViewController: UIViewController, StoryboardView {
     typealias Reactor = LoginViewReactor
@@ -19,7 +20,9 @@ final class LoginViewController: UIViewController, StoryboardView {
 
     @IBOutlet private weak var logoImageView: UIImageView!
     @IBOutlet private weak var loginButton: UIButton!
-    
+    @IBOutlet private weak var termsOfUseLabel: UILabel!
+    @IBOutlet private weak var loginSwitch: UISwitch!
+
     private let fetchedCode = PublishRelay<String>()
 
     override func viewDidLoad() {
@@ -31,6 +34,30 @@ final class LoginViewController: UIViewController, StoryboardView {
         loginButton.layer.cornerRadius = 8
         loginButton.rx.tap
             .subscribe(onNext: tappedLoginButton)
+            .disposed(by: disposeBag)
+
+        termsOfUseLabel.attributedText = "利用規約に同意する"
+            .attr
+            .foregroundColor(.gray)
+            .range(of: "利用規約") {
+                $0.foregroundColor(UIColor.pa.blue)
+                $0.underlineStyle(.single)
+                $0.underlineColor(UIColor.pa.blue)
+            }
+            .apply()
+
+        termsOfUseLabel.rx
+            .tapGesture()
+            .subscribe(onNext: { [weak self] recognizer in
+                self?.openTermsOfService()
+            })
+            .disposed(by: disposeBag)
+
+        loginSwitch.rx.isOn
+            .subscribe(onNext: { [weak self] isOn in
+                self?.loginButton.isEnabled = isOn
+                self?.loginButton.alpha = isOn ? 1 : 0.5
+            })
             .disposed(by: disposeBag)
     }
 
@@ -69,5 +96,11 @@ final class LoginViewController: UIViewController, StoryboardView {
             .filterNil()
             .bind(to: fetchedCode)
             .disposed(by: disposeBag)
+    }
+
+    private func openTermsOfService() {
+        guard let url = URL(string: "https://touyu.github.io/Annict-for-iOS-Website/rule/") else { return }
+        let safariViewController = SFSafariViewController(url: url)
+        present(safariViewController, animated: true, completion: nil)
     }
 }

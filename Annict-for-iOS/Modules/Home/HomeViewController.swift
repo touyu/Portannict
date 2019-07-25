@@ -60,6 +60,13 @@ final class HomeViewController: UIViewController, StoryboardView {
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] _ in
                 self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
+
+        reactor.state.map { $0.isLoading }
+            .distinctUntilChanged()
+            .filter { !$0 }
+            .subscribe(onNext: { [weak self] _ in
                 self?.refreshControl.endRefreshing()
             })
             .disposed(by: disposeBag)

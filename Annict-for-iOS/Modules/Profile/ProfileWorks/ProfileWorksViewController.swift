@@ -37,8 +37,8 @@ final class ProfileWorksViewController: ChildPagerViewController, StoryboardView
         collectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
-        collectionView.rx.reachedBottom
-            .throttle(1, latest: false, scheduler: MainScheduler.instance)
+        collectionView.rx.reachedBottom()
+            .throttle(.seconds(1), latest: false, scheduler: MainScheduler.instance)
             .map { Reactor.Action.loadMore }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)

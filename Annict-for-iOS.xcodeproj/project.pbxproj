@@ -95,6 +95,8 @@
 		D1B4C84022E98B0C000C2741 /* ActivityStatusTableViewCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4C83F22E98B0C000C2741 /* ActivityStatusTableViewCellReactor.swift */; };
 		D1B4C84222E98B35000C2741 /* ActivityMultipleRecordTableViewCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4C84122E98B35000C2741 /* ActivityMultipleRecordTableViewCellReactor.swift */; };
 		D1B4C84622E9BDD5000C2741 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4C84522E9BDD5000C2741 /* CALayer.swift */; };
+		D1B4C84822E9C55B000C2741 /* SwiftyAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4C84722E9C55B000C2741 /* SwiftyAttributedString.swift */; };
+		D1B4C84C22E9C83B000C2741 /* PortannictExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4C84B22E9C83B000C2741 /* PortannictExtension.swift */; };
 		D1B4F161217EB3770011BAFF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F160217EB3770011BAFF /* RootViewController.swift */; };
 		D1B4F163217EB38D0011BAFF /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */; };
 		D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F164217EB4080011BAFF /* RootViewReactor.swift */; };
@@ -268,6 +270,8 @@
 		D1B4C83F22E98B0C000C2741 /* ActivityStatusTableViewCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatusTableViewCellReactor.swift; sourceTree = "<group>"; };
 		D1B4C84122E98B35000C2741 /* ActivityMultipleRecordTableViewCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMultipleRecordTableViewCellReactor.swift; sourceTree = "<group>"; };
 		D1B4C84522E9BDD5000C2741 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		D1B4C84722E9C55B000C2741 /* SwiftyAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyAttributedString.swift; sourceTree = "<group>"; };
+		D1B4C84B22E9C83B000C2741 /* PortannictExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortannictExtension.swift; sourceTree = "<group>"; };
 		D1B4F160217EB3770011BAFF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RootViewController.storyboard; sourceTree = "<group>"; };
 		D1B4F164217EB4080011BAFF /* RootViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewReactor.swift; sourceTree = "<group>"; };
@@ -662,6 +666,8 @@
 				D1B27B2722525B01007F8B95 /* ParentPagerViewController.swift */,
 				D1B27B2922525B57007F8B95 /* StatusBarManager.swift */,
 				D1F87E4522E17C28001EB9DD /* Taptic.swift */,
+				D1B4C84722E9C55B000C2741 /* SwiftyAttributedString.swift */,
+				D1B4C84B22E9C83B000C2741 /* PortannictExtension.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -1002,6 +1008,7 @@
 				"${BUILT_PRODUCTS_DIR}/Keys/Keys.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SPStorkController/SPStorkController.framework",
@@ -1013,6 +1020,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Keys.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPStorkController.framework",
@@ -1121,6 +1129,7 @@
 				D1F9144D21AA85C1006986A1 /* UIColor.swift in Sources */,
 				D1B4F16F217EB8A70011BAFF /* StoryboardLoadable.swift in Sources */,
 				D165C9BD21B158EA002E8FFA /* SearchResultViewReactor.swift in Sources */,
+				D1B4C84C22E9C83B000C2741 /* PortannictExtension.swift in Sources */,
 				D1B27B2822525B01007F8B95 /* ParentPagerViewController.swift in Sources */,
 				D1AF34C4219B4202004DD229 /* UITableView.swift in Sources */,
 				D1B4C83B22E987BB000C2741 /* EpisodeRecordTitleTableViewCell.swift in Sources */,
@@ -1155,6 +1164,7 @@
 				D1621E0521862F4500819D93 /* PostRecordTransitioningDelegate.swift in Sources */,
 				D1F9144A21AA7FD2006986A1 /* UserWorkCollectionViewCell.swift in Sources */,
 				D1F9ED0821B274CD00AB3DAE /* WorkViewReactor.swift in Sources */,
+				D1B4C84822E9C55B000C2741 /* SwiftyAttributedString.swift in Sources */,
 				D11D57E92237BC3B000D3CC0 /* ActivityRecordTableViewCell.swift in Sources */,
 				D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */,
 				D11D57F92237DE1A000D3CC0 /* WorkQuoteView.swift in Sources */,

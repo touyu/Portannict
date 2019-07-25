@@ -5,6 +5,9 @@ PODS:
   - RxCocoa (5.0.0):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
+  - RxGesture (3.0.0):
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
   - RxRelay (5.0.0):
     - RxSwift (~> 5)
   - RxSwift (5.0.0)
@@ -14,6 +17,7 @@ DEPENDENCIES:
   - Keys (from `Pods/CocoaPodsKeys`)
   - ReactorKit
   - RxCocoa (~> 5)
+  - RxGesture
   - RxSwift (~> 5)
   - SPStorkController
 
@@ -21,6 +25,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ReactorKit
     - RxCocoa
+    - RxGesture
     - RxRelay
     - RxSwift
     - SPStorkController
@@ -33,10 +38,11 @@ SPEC CHECKSUMS:
   Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
   ReactorKit: 8be57f0527ad1ac2963cd5c338274a46a01e57a3
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxGesture: 0cd8e37ff9a266e1c31f46bcaed6de1c536bc81e
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   SPStorkController: be4ae2a5ee052ad78782f6144ffe7e951300ea67
 
-PODFILE CHECKSUM: cd22e953c59485ed10c6401c316ab09a4ef7609f
+PODFILE CHECKSUM: 8689223b193a97c6a0de884156928737a762bb75
 
 COCOAPODS: 1.5.3

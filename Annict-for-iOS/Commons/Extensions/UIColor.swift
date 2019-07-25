@@ -56,3 +56,14 @@ extension MonoExtensionCompatible {
         return MonoExtension(self)
     }
 }
+
+extension UIColor: PortannictExtensionCompatible { }
+extension PortannictExtension where T: UIColor {
+    static var pink: UIColor {
+        return UIColor(hex: 0xFA5871)
+    }
+
+    static var blue: UIColor {
+        return UIColor(hex: 0x3498db)
+    }
+}
