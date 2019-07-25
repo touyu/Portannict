@@ -89,6 +89,8 @@
 		D1B27B3322526ECF007F8B95 /* SearchWorksByID.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1B27B3222526ECF007F8B95 /* SearchWorksByID.graphql */; };
 		D1B4C83622E983EB000C2741 /* RecordStatusTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4C83522E983EB000C2741 /* RecordStatusTagView.swift */; };
 		D1B4C83822E983F5000C2741 /* RecordStatusTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1B4C83722E983F5000C2741 /* RecordStatusTagView.xib */; };
+		D1B4C83B22E987BB000C2741 /* EpisodeRecordTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4C83922E987BB000C2741 /* EpisodeRecordTitleTableViewCell.swift */; };
+		D1B4C83C22E987BB000C2741 /* EpisodeRecordTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1B4C83A22E987BB000C2741 /* EpisodeRecordTitleTableViewCell.xib */; };
 		D1B4F161217EB3770011BAFF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F160217EB3770011BAFF /* RootViewController.swift */; };
 		D1B4F163217EB38D0011BAFF /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */; };
 		D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F164217EB4080011BAFF /* RootViewReactor.swift */; };
@@ -256,6 +258,8 @@
 		D1B27B3222526ECF007F8B95 /* SearchWorksByID.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchWorksByID.graphql; sourceTree = "<group>"; };
 		D1B4C83522E983EB000C2741 /* RecordStatusTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordStatusTagView.swift; sourceTree = "<group>"; };
 		D1B4C83722E983F5000C2741 /* RecordStatusTagView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordStatusTagView.xib; sourceTree = "<group>"; };
+		D1B4C83922E987BB000C2741 /* EpisodeRecordTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRecordTitleTableViewCell.swift; sourceTree = "<group>"; };
+		D1B4C83A22E987BB000C2741 /* EpisodeRecordTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeRecordTitleTableViewCell.xib; sourceTree = "<group>"; };
 		D1B4F160217EB3770011BAFF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RootViewController.storyboard; sourceTree = "<group>"; };
 		D1B4F164217EB4080011BAFF /* RootViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewReactor.swift; sourceTree = "<group>"; };
@@ -776,6 +780,8 @@
 			children = (
 				D1BD1F7322E8C11700A260F5 /* EpisodeRecordTableViewCell.swift */,
 				D1BD1F7422E8C11700A260F5 /* EpisodeRecordTableViewCell.xib */,
+				D1B4C83922E987BB000C2741 /* EpisodeRecordTitleTableViewCell.swift */,
+				D1B4C83A22E987BB000C2741 /* EpisodeRecordTitleTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -923,6 +929,7 @@
 				D1621DEB2186218200819D93 /* RootTabBarController.storyboard in Resources */,
 				D1F9ED0921B274CD00AB3DAE /* WorkViewController.storyboard in Resources */,
 				D1BD1F7622E8C11700A260F5 /* EpisodeRecordTableViewCell.xib in Resources */,
+				D1B4C83C22E987BB000C2741 /* EpisodeRecordTitleTableViewCell.xib in Resources */,
 				D18389B521B05146004A072C /* SearchResultViewController.storyboard in Resources */,
 				D1FFB59C21B046BE001099E6 /* SearchViewController.storyboard in Resources */,
 				D1AF34C2219B4042004DD229 /* UserInfoTableViewCell.xib in Resources */,
@@ -1104,6 +1111,7 @@
 				D165C9BD21B158EA002E8FFA /* SearchResultViewReactor.swift in Sources */,
 				D1B27B2822525B01007F8B95 /* ParentPagerViewController.swift in Sources */,
 				D1AF34C4219B4202004DD229 /* UITableView.swift in Sources */,
+				D1B4C83B22E987BB000C2741 /* EpisodeRecordTitleTableViewCell.swift in Sources */,
 				D1B4F171217EB8D50011BAFF /* NSObject.swift in Sources */,
 				D1F553A6224B8132001D971C /* ButtonMarkView.swift in Sources */,
 				D1199E50223E994700531BF3 /* CachePolicy.swift in Sources */,

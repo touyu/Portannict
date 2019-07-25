@@ -30,6 +30,7 @@ fragment MinimumEpisode on Episode {
     numberText
     sortNumber
     viewerRecordsCount
+    recordCommentsCount
     viewerDidTrack
 }
 

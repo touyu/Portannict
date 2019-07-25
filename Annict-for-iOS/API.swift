@@ -806,8 +806,8 @@ public final class SearchWorksByIdQuery: GraphQLQuery {
               self.resultMap = unsafeResultMap
             }
 
-            public init(id: GraphQLID, annictId: Int, title: String? = nil, numberText: String? = nil, sortNumber: Int, viewerRecordsCount: Int, viewerDidTrack: Bool) {
-              self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "title": title, "numberText": numberText, "sortNumber": sortNumber, "viewerRecordsCount": viewerRecordsCount, "viewerDidTrack": viewerDidTrack])
+            public init(id: GraphQLID, annictId: Int, title: String? = nil, numberText: String? = nil, sortNumber: Int, viewerRecordsCount: Int, recordCommentsCount: Int, viewerDidTrack: Bool) {
+              self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "title": title, "numberText": numberText, "sortNumber": sortNumber, "viewerRecordsCount": viewerRecordsCount, "recordCommentsCount": recordCommentsCount, "viewerDidTrack": viewerDidTrack])
             }
 
             public var __typename: String {
@@ -1138,8 +1138,8 @@ public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
                 self.resultMap = unsafeResultMap
               }
 
-              public init(id: GraphQLID, annictId: Int, title: String? = nil, numberText: String? = nil, sortNumber: Int, viewerRecordsCount: Int, viewerDidTrack: Bool) {
-                self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "title": title, "numberText": numberText, "sortNumber": sortNumber, "viewerRecordsCount": viewerRecordsCount, "viewerDidTrack": viewerDidTrack])
+              public init(id: GraphQLID, annictId: Int, title: String? = nil, numberText: String? = nil, sortNumber: Int, viewerRecordsCount: Int, recordCommentsCount: Int, viewerDidTrack: Bool) {
+                self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "title": title, "numberText": numberText, "sortNumber": sortNumber, "viewerRecordsCount": viewerRecordsCount, "recordCommentsCount": recordCommentsCount, "viewerDidTrack": viewerDidTrack])
               }
 
               public var __typename: String {
@@ -2102,8 +2102,8 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                   self.resultMap = unsafeResultMap
                 }
 
-                public init(id: GraphQLID, annictId: Int, title: String? = nil, numberText: String? = nil, sortNumber: Int, viewerRecordsCount: Int, viewerDidTrack: Bool) {
-                  self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "title": title, "numberText": numberText, "sortNumber": sortNumber, "viewerRecordsCount": viewerRecordsCount, "viewerDidTrack": viewerDidTrack])
+                public init(id: GraphQLID, annictId: Int, title: String? = nil, numberText: String? = nil, sortNumber: Int, viewerRecordsCount: Int, recordCommentsCount: Int, viewerDidTrack: Bool) {
+                  self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "title": title, "numberText": numberText, "sortNumber": sortNumber, "viewerRecordsCount": viewerRecordsCount, "recordCommentsCount": recordCommentsCount, "viewerDidTrack": viewerDidTrack])
                 }
 
                 public var __typename: String {
@@ -2623,8 +2623,8 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                       self.resultMap = unsafeResultMap
                     }
 
-                    public init(id: GraphQLID, annictId: Int, title: String? = nil, numberText: String? = nil, sortNumber: Int, viewerRecordsCount: Int, viewerDidTrack: Bool) {
-                      self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "title": title, "numberText": numberText, "sortNumber": sortNumber, "viewerRecordsCount": viewerRecordsCount, "viewerDidTrack": viewerDidTrack])
+                    public init(id: GraphQLID, annictId: Int, title: String? = nil, numberText: String? = nil, sortNumber: Int, viewerRecordsCount: Int, recordCommentsCount: Int, viewerDidTrack: Bool) {
+                      self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "title": title, "numberText": numberText, "sortNumber": sortNumber, "viewerRecordsCount": viewerRecordsCount, "recordCommentsCount": recordCommentsCount, "viewerDidTrack": viewerDidTrack])
                     }
 
                     public var __typename: String {
@@ -3646,7 +3646,7 @@ public struct MinimumUser: GraphQLFragment {
 
 public struct MinimumEpisode: GraphQLFragment {
   public static let fragmentDefinition =
-    "fragment MinimumEpisode on Episode {\n  __typename\n  id\n  annictId\n  title\n  numberText\n  sortNumber\n  viewerRecordsCount\n  viewerDidTrack\n}"
+    "fragment MinimumEpisode on Episode {\n  __typename\n  id\n  annictId\n  title\n  numberText\n  sortNumber\n  viewerRecordsCount\n  recordCommentsCount\n  viewerDidTrack\n}"
 
   public static let possibleTypes = ["Episode"]
 
@@ -3658,6 +3658,7 @@ public struct MinimumEpisode: GraphQLFragment {
     GraphQLField("numberText", type: .scalar(String.self)),
     GraphQLField("sortNumber", type: .nonNull(.scalar(Int.self))),
     GraphQLField("viewerRecordsCount", type: .nonNull(.scalar(Int.self))),
+    GraphQLField("recordCommentsCount", type: .nonNull(.scalar(Int.self))),
     GraphQLField("viewerDidTrack", type: .nonNull(.scalar(Bool.self))),
   ]
 
@@ -3667,8 +3668,8 @@ public struct MinimumEpisode: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(id: GraphQLID, annictId: Int, title: String? = nil, numberText: String? = nil, sortNumber: Int, viewerRecordsCount: Int, viewerDidTrack: Bool) {
-    self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "title": title, "numberText": numberText, "sortNumber": sortNumber, "viewerRecordsCount": viewerRecordsCount, "viewerDidTrack": viewerDidTrack])
+  public init(id: GraphQLID, annictId: Int, title: String? = nil, numberText: String? = nil, sortNumber: Int, viewerRecordsCount: Int, recordCommentsCount: Int, viewerDidTrack: Bool) {
+    self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "title": title, "numberText": numberText, "sortNumber": sortNumber, "viewerRecordsCount": viewerRecordsCount, "recordCommentsCount": recordCommentsCount, "viewerDidTrack": viewerDidTrack])
   }
 
   public var __typename: String {
@@ -3731,6 +3732,15 @@ public struct MinimumEpisode: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "viewerRecordsCount")
+    }
+  }
+
+  public var recordCommentsCount: Int {
+    get {
+      return resultMap["recordCommentsCount"]! as! Int
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "recordCommentsCount")
     }
   }
 

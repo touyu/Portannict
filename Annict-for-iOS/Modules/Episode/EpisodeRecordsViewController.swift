@@ -21,7 +21,8 @@ final class EpisodeRecordsViewController: UIViewController, StoryboardView {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(EpisodeRecordTableViewCell.self)
+        tableView.register(EpisodeRecordTableViewCell.self,
+                           EpisodeRecordTitleTableViewCell.self)
         tableView.tableFooterView = UIView()
     }
 
@@ -55,11 +56,23 @@ extension EpisodeRecordsViewController {
 }
 
 extension EpisodeRecordsViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        }
         return reactor!.currentState.records.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(classType: EpisodeRecordTitleTableViewCell.self, for: indexPath)
+            cell.configure(title: "レビュー" + " (\(reactor!.currentState.episode.recordCommentsCount))")
+            return cell
+        }
         let cell = tableView.dequeueReusableCell(classType: EpisodeRecordTableViewCell.self, for: indexPath)
         cell.configure(record: reactor!.currentState.records[indexPath.row])
         return cell
