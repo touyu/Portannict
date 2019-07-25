@@ -17,6 +17,7 @@ final class LoginViewController: UIViewController, StoryboardView {
 
     var disposeBag = DisposeBag()
 
+    @IBOutlet private weak var logoImageView: UIImageView!
     @IBOutlet private weak var loginButton: UIButton!
     
     private let fetchedCode = PublishRelay<String>()
@@ -24,6 +25,10 @@ final class LoginViewController: UIViewController, StoryboardView {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        logoImageView.layer.cornerRadius = 32
+        logoImageView.layer.smoothCorners = true
+
+        loginButton.layer.cornerRadius = 8
         loginButton.rx.tap
             .subscribe(onNext: tappedLoginButton)
             .disposed(by: disposeBag)

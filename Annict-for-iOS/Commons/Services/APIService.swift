@@ -10,14 +10,11 @@ import RxSwift
 import Apollo
 
 protocol APIServiceType {
-    var client: ApolloClient { get }
     func getOauthToken(code: String) -> Single<OauthTokenRequest.Response>
     func fetchFollowingActivities(after: String?, cachePolicy: CachePolicy) -> Observable<GetFollowingActivitiesQuery.Data>
 }
 
 final class APIService: BaseService, APIServiceType {
-    let client = AnnictGraphQL.client
-
     func getOauthToken(code: String) -> Single<OauthTokenRequest.Response> {
         let request = OauthTokenRequest(code: code)
         return HTTPClient.send(request: request)
@@ -25,7 +22,7 @@ final class APIService: BaseService, APIServiceType {
 
     func fetchFollowingActivities(after: String?, cachePolicy: CachePolicy) -> Observable<GetFollowingActivitiesQuery.Data> {
         let query = GetFollowingActivitiesQuery(after: after)
-        return client.rx.fetch(query: query, cachePolicy: cachePolicy)
+        return AnnictGraphQL.client.rx.fetch(query: query, cachePolicy: cachePolicy)
             .asObservable()
             .take(cachePolicy.takeCount)
     }

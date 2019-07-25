@@ -25,7 +25,7 @@ extension Reactive where Base: UIScrollView {
     }
     
     func triggeredPagination() -> ControlEvent<Void> {
-        return reachedBottom(offset: 200)
+        return reachedBottom(offset: 400)
     }
     
     var reachedBottom: Observable<Void> {

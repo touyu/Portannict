@@ -45,6 +45,10 @@ final class HomeViewReactor: Reactor {
         case .fetchActivities:
             let startLoading = Observable<Mutation>.just(.setLoading(true))
             let fetchActivitiesEvent = fetchActivities(cachePolicy: .returnCacheDataAndFetch).share()
+                .catchError { error -> Observable<GetFollowingActivitiesQuery.Data.Viewer.FollowingActivity> in
+                    print(error)
+                    return .empty()
+            }
             let setActivitiesEvent = fetchActivitiesEvent.map { Mutation.setActivities($0.values) }
             let setPageInfoEvent = fetchActivitiesEvent.map { Mutation.setPageInfo($0.pageInfo.fragments.pageInfoFrag) }
             let endLoading = Observable<Mutation>.just(.setLoading(false))
@@ -67,7 +71,7 @@ final class HomeViewReactor: Reactor {
             return .concat(startLoading, setActivitiesEvent, setPageInfoEvent, endLoading)
         }
     }
-    
+
     func reduce(state: State, mutation: Mutation) -> State {
         var state = state
         switch mutation {
@@ -102,7 +106,7 @@ final class HomeViewReactor: Reactor {
         case .multipleRecord(let record):
             return .multiRecord(.init(provider: provider, multipleRecord: record))
         case .review(let review):
-            return .review
+            return nil
         default:
             return nil
         }

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,21 +18,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZu-Jq-qxm">
-                                <rect key="frame" x="164" y="469" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZu-Jq-qxm">
+                                <rect key="frame" x="19" y="547" width="337.5" height="60"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.34509803919999998" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="3od-f6-z3K"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="ログイン">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="portannict_logo" translatesAutoresizingMaskIntoConstraints="NO" id="6rs-oO-Xgg">
+                                <rect key="frame" x="117.5" y="80" width="140" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="0BL-iz-AOA"/>
+                                    <constraint firstAttribute="height" constant="140" id="hrF-qJ-BjW"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6rs-oO-Xgg" firstAttribute="top" secondItem="vbO-ah-5A4" secondAttribute="top" constant="60" id="BwG-dA-Gcf"/>
+                            <constraint firstItem="rZu-Jq-qxm" firstAttribute="centerX" secondItem="vbO-ah-5A4" secondAttribute="centerX" id="Cmm-ja-nND"/>
+                            <constraint firstItem="vbO-ah-5A4" firstAttribute="bottom" secondItem="rZu-Jq-qxm" secondAttribute="bottom" constant="60" id="Es0-gC-PC1"/>
+                            <constraint firstItem="rZu-Jq-qxm" firstAttribute="width" secondItem="Zl3-Z9-qxw" secondAttribute="width" multiplier="0.9" id="IrG-kv-Rx1"/>
+                            <constraint firstItem="6rs-oO-Xgg" firstAttribute="centerX" secondItem="vbO-ah-5A4" secondAttribute="centerX" id="NKR-DG-Opd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vbO-ah-5A4"/>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="rZu-Jq-qxm" id="8Sl-3B-Dh2"/>
+                        <outlet property="logoImageView" destination="6rs-oO-Xgg" id="Eay-qV-uUr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AH4-T9-KMG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="portannict_logo" width="512" height="512"/>
+    </resources>
 </document>

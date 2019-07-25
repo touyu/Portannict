@@ -40,6 +40,7 @@ final class LoginViewReactor: Reactor {
                 .asObservable()
                 .do(onNext: { [weak self] res in
                     self?.provider.userDefaultsService.save(value: res.accessToken, forKey: .accessToken)
+                    AnnictGraphQL.resetClient()
                 })
                 .map { _ in .changeLoginSuccess(true) }
                 .catchError { .just(.setError($0)) }
