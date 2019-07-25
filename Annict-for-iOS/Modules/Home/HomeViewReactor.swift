@@ -28,9 +28,9 @@ final class HomeViewReactor: Reactor {
     }
 
     struct State {
-        var activities: [Activity] = []
         var pageInfo: PageInfoFrag?
         var isLoading: Bool = false
+        var items: [HomeSectionItem] = []
     }
     
     let initialState: HomeViewReactor.State
@@ -79,16 +79,17 @@ final class HomeViewReactor: Reactor {
         var state = state
         switch mutation {
         case .setActivities(let activities):
-            state.activities = activities
+            state.items = activities.compactMap { convertSectionItem(activity: $0) }
         case .appendActivities(let activities):
-            state.activities += activities
+            state.items += activities.compactMap { convertSectionItem(activity: $0) }
         case .setPageInfo(let pageInfo):
             state.pageInfo = pageInfo
         case .setLoading(let isLoading):
             state.isLoading = isLoading
         case .updateWork(let work):
-            guard let index = currentState.activities.firstIndex(where: { $0.work?.id == work.id }) else { return state }
-            state.activities[index].work = work
+//            guard let index = currentState.activities.firstIndex(where: { $0.work?.id == work.id }) else { return state }
+//            state.activities[index].work = work
+            break
         }
         return state
     }
@@ -100,13 +101,48 @@ final class HomeViewReactor: Reactor {
     }
 
     func reactorForWork(index: Int) -> WorkViewReactor? {
-        guard let work = currentState.activities[index].work else { return nil }
+        guard let work = currentState.items[index].work else { return nil }
         return .init(provider: provider, work: work)
+    }
+
+    private func convertSectionItem(activity: Activity) -> HomeSectionItem? {
+        switch activity.itemType {
+        case .record(let record):
+            return .record(.init(provider: provider, record: record))
+        case .status(let status):
+            return .status(.init(provider: provider, status: status))
+        case .multipleRecord(let record):
+            return .multiRecord(.init(provider: provider, multipleRecord: record))
+        case .review(let review):
+            return .review
+        default:
+            return nil
+        }
     }
 }
 
 extension GetFollowingActivitiesQuery.Data.Viewer.FollowingActivity {
     var values: [Edge.Node] {
         return edges?.compactMap { $0?.node } ?? []
+    }
+}
+
+enum HomeSectionItem {
+    case record(ActivityRecordTableViewCellReactor)
+    case status(ActivityStatusTableViewCellReactor)
+    case multiRecord(ActivityMultipleRecordTableViewCellReactor)
+    case review
+
+    var work: MinimumWork? {
+        switch self {
+        case .record(let reactor):
+            return reactor.currentState.record.work.fragments.minimumWork
+        case .status(let reactor):
+            return reactor.currentState.status.work.fragments.minimumWork
+        case .multiRecord(let reactor):
+            return reactor.currentState.multipleRecord.work.fragments.minimumWork
+        default:
+            return nil
+        }
     }
 }

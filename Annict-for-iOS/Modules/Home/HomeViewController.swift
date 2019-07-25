@@ -55,7 +55,7 @@ final class HomeViewController: UIViewController, StoryboardView {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
 
-        reactor.state.map { $0.activities }
+        reactor.state.map { $0.items }
             .subscribe(onNext: { [weak self] _ in
                 self?.tableView.reloadData()
                 self?.refreshControl.endRefreshing()
@@ -73,8 +73,7 @@ extension HomeViewController: UITableViewDataSource {
         if section == 0 {
             return 1
         }
-        guard let reactor = reactor else { return 0 }
-        return reactor.currentState.activities.count
+        return reactor!.currentState.items.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -85,25 +84,22 @@ extension HomeViewController: UITableViewDataSource {
         }
         
         guard let reactor = reactor else { return .init() }
-        let acitivity = reactor.currentState.activities[indexPath.row]
-        let heroID = "work_image_view\(indexPath.row)"
-        switch acitivity.itemType {
-        case .status(let item):
+        let item = reactor.currentState.items[indexPath.row]
+        switch item {
+        case .status(let reactor):
             let cell = tableView.dequeueReusableCell(classType: ActivityStatusTableViewCell.self, for: indexPath)
-            cell.configure(activityItem: item, heroID: heroID)
+            cell.reactor = reactor
             return cell
-        case .record(let item):
+        case .record(let reactor):
             let cell = tableView.dequeueReusableCell(classType: ActivityRecordTableViewCell.self, for: indexPath)
-            cell.configure(activityItem: item, heroID: heroID)
+            cell.reactor = reactor
             return cell
-        case .review(let item):
+        case .review:
             return .init()
-        case .multipleRecord(let item):
+        case .multiRecord(let reactor):
             let cell = tableView.dequeueReusableCell(classType: ActivityMultipleRecordTableViewCell.self, for: indexPath)
-            cell.configure(activityItem: item, heroID: heroID)
+            cell.reactor = reactor
             return cell
-        case .unknown:
-            return .init()
         }
     }
 }

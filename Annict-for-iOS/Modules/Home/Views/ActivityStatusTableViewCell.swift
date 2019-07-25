@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import ReactorKit
+import RxSwift
 
-final class ActivityStatusTableViewCell: UITableViewCell {
+final class ActivityStatusTableViewCell: UITableViewCell, StoryboardView {
+    typealias Reactor = ActivityStatusTableViewCellReactor
 
     @IBOutlet private weak var avatarImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
@@ -16,6 +19,8 @@ final class ActivityStatusTableViewCell: UITableViewCell {
     @IBOutlet private weak var messageLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var workQuoteView: WorkQuoteView!
+
+    var disposeBag = DisposeBag()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,7 +41,16 @@ final class ActivityStatusTableViewCell: UITableViewCell {
         workQuoteView.backgroundColor = .white
     }
 
-    func configure(activityItem: HomeViewReactor.Activity.AsStatus, heroID: String?) {
+    func bind(reactor: Reactor) {
+        reactor.state.map { $0.status }
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] status in
+                self?.configure(activityItem: status)
+            })
+            .disposed(by: disposeBag)
+    }
+
+    func configure(activityItem: HomeViewReactor.Activity.AsStatus) {
         let user = activityItem.user.fragments.minimumUser
         avatarImageView.setImage(url: user.avatarUrl)
         nameLabel.text = user.name
@@ -45,9 +59,6 @@ final class ActivityStatusTableViewCell: UITableViewCell {
         workQuoteView.configure(work: work)
         messageLabel.text = "ステータスを「\(activityItem.state.localizedText)」に変更しました。"
         timeLabel.text = activityItem.createdAt.toDate()?.toRelative()
-        
-        if let heroID = heroID {
-            workQuoteView.workImageView.hero.id = heroID
-        }
+
     }
 }

@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import ReactorKit
+import RxSwift
 
-final class ActivityMultipleRecordTableViewCell: UITableViewCell {
+final class ActivityMultipleRecordTableViewCell: UITableViewCell, StoryboardView {
+    typealias Reactor = ActivityMultipleRecordTableViewCellReactor
 
     @IBOutlet private weak var avatarImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
@@ -16,7 +19,9 @@ final class ActivityMultipleRecordTableViewCell: UITableViewCell {
     @IBOutlet private weak var messageLabel: UILabel!
     @IBOutlet private weak var workQuoteView: WorkQuoteView!
     @IBOutlet private weak var timeLabel: UILabel!
-    
+
+    var disposeBag = DisposeBag()
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -36,7 +41,16 @@ final class ActivityMultipleRecordTableViewCell: UITableViewCell {
         workQuoteView.backgroundColor = .white
     }
 
-    func configure(activityItem: HomeViewReactor.Activity.AsMultipleRecord, heroID: String? = nil) {
+    func bind(reactor: Reactor) {
+        reactor.state.map { $0.multipleRecord }
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] multipleRecord in
+                self?.configure(activityItem: multipleRecord)
+            })
+            .disposed(by: disposeBag)
+    }
+
+    func configure(activityItem: HomeViewReactor.Activity.AsMultipleRecord) {
         let user = activityItem.user.fragments.minimumUser
         avatarImageView.setImage(url: user.avatarUrl)
         nameLabel.text = user.name
@@ -45,10 +59,6 @@ final class ActivityMultipleRecordTableViewCell: UITableViewCell {
         workQuoteView.configure(work: work)
         timeLabel.text = activityItem.createdAt.toDate()?.toRelative()
         prepareMessageLabel(activityItem: activityItem)
-        
-        if let heroID = heroID {
-            workQuoteView.workImageView.hero.id = heroID
-        }
     }
 
     private func prepareMessageLabel(activityItem: HomeViewReactor.Activity.AsMultipleRecord) {

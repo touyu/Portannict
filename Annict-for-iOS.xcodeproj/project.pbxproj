@@ -91,6 +91,9 @@
 		D1B4C83822E983F5000C2741 /* RecordStatusTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1B4C83722E983F5000C2741 /* RecordStatusTagView.xib */; };
 		D1B4C83B22E987BB000C2741 /* EpisodeRecordTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4C83922E987BB000C2741 /* EpisodeRecordTitleTableViewCell.swift */; };
 		D1B4C83C22E987BB000C2741 /* EpisodeRecordTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1B4C83A22E987BB000C2741 /* EpisodeRecordTitleTableViewCell.xib */; };
+		D1B4C83E22E98AD8000C2741 /* ActivityRecordTableViewCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4C83D22E98AD8000C2741 /* ActivityRecordTableViewCellReactor.swift */; };
+		D1B4C84022E98B0C000C2741 /* ActivityStatusTableViewCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4C83F22E98B0C000C2741 /* ActivityStatusTableViewCellReactor.swift */; };
+		D1B4C84222E98B35000C2741 /* ActivityMultipleRecordTableViewCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4C84122E98B35000C2741 /* ActivityMultipleRecordTableViewCellReactor.swift */; };
 		D1B4F161217EB3770011BAFF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F160217EB3770011BAFF /* RootViewController.swift */; };
 		D1B4F163217EB38D0011BAFF /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */; };
 		D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F164217EB4080011BAFF /* RootViewReactor.swift */; };
@@ -260,6 +263,9 @@
 		D1B4C83722E983F5000C2741 /* RecordStatusTagView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordStatusTagView.xib; sourceTree = "<group>"; };
 		D1B4C83922E987BB000C2741 /* EpisodeRecordTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRecordTitleTableViewCell.swift; sourceTree = "<group>"; };
 		D1B4C83A22E987BB000C2741 /* EpisodeRecordTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeRecordTitleTableViewCell.xib; sourceTree = "<group>"; };
+		D1B4C83D22E98AD8000C2741 /* ActivityRecordTableViewCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRecordTableViewCellReactor.swift; sourceTree = "<group>"; };
+		D1B4C83F22E98B0C000C2741 /* ActivityStatusTableViewCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatusTableViewCellReactor.swift; sourceTree = "<group>"; };
+		D1B4C84122E98B35000C2741 /* ActivityMultipleRecordTableViewCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMultipleRecordTableViewCellReactor.swift; sourceTree = "<group>"; };
 		D1B4F160217EB3770011BAFF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RootViewController.storyboard; sourceTree = "<group>"; };
 		D1B4F164217EB4080011BAFF /* RootViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewReactor.swift; sourceTree = "<group>"; };
@@ -370,10 +376,13 @@
 			isa = PBXGroup;
 			children = (
 				D11D57E72237BC3B000D3CC0 /* ActivityRecordTableViewCell.swift */,
+				D1B4C83D22E98AD8000C2741 /* ActivityRecordTableViewCellReactor.swift */,
 				D11D57E82237BC3B000D3CC0 /* ActivityRecordTableViewCell.xib */,
 				D11D57EB2237C1DA000D3CC0 /* ActivityStatusTableViewCell.swift */,
+				D1B4C83F22E98B0C000C2741 /* ActivityStatusTableViewCellReactor.swift */,
 				D11D57EC2237C1DA000D3CC0 /* ActivityStatusTableViewCell.xib */,
 				D11D57FC2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.swift */,
+				D1B4C84122E98B35000C2741 /* ActivityMultipleRecordTableViewCellReactor.swift */,
 				D11D57FD2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.xib */,
 				D11D57EF2237C5F3000D3CC0 /* WorkAndEpisodeQuoteView.swift */,
 				D11D57F12237C663000D3CC0 /* WorkAndEpisodeQuoteView.xib */,
@@ -1134,6 +1143,7 @@
 				D1E6DEEC22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.swift in Sources */,
 				D1F87E4222E176C1001EB9DD /* WorkStatusButton.swift in Sources */,
 				D1621DF02186262300819D93 /* RecordViewReactor.swift in Sources */,
+				D1B4C84022E98B0C000C2741 /* ActivityStatusTableViewCellReactor.swift in Sources */,
 				D1621DF72186273200819D93 /* ProfileViewReactor.swift in Sources */,
 				D11D57F42237D3DD000D3CC0 /* Entity+Extension.swift in Sources */,
 				D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */,
@@ -1165,6 +1175,7 @@
 				D1B4C83622E983EB000C2741 /* RecordStatusTagView.swift in Sources */,
 				D18447C621BD021D00CF44AB /* GradationView.swift in Sources */,
 				D165C9C321B15EF1002E8FFA /* SearchResultWorkCell.swift in Sources */,
+				D1B4C83E22E98AD8000C2741 /* ActivityRecordTableViewCellReactor.swift in Sources */,
 				D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */,
 				D1F9143721AA756F006986A1 /* UIImageView.swift in Sources */,
 				D1F9144021AA7B4F006986A1 /* UserWorksWithSectionTitleCell.swift in Sources */,
@@ -1173,6 +1184,7 @@
 				D1FFB58E21AEF3A3001099E6 /* RxUIScrollView.swift in Sources */,
 				D1F9143B21AA75C8006986A1 /* UIImage.swift in Sources */,
 				D1891A6222E1FDD900D26512 /* WorkAPIService.swift in Sources */,
+				D1B4C84222E98B35000C2741 /* ActivityMultipleRecordTableViewCellReactor.swift in Sources */,
 				D1B4F176217EBF200011BAFF /* LoginViewReactor.swift in Sources */,
 				D1B4F167217EB5E60011BAFF /* RxUIViewController.swift in Sources */,
 				D1FFB59A21B04693001099E6 /* SearchViewController.swift in Sources */,
