@@ -11,6 +11,10 @@ import SwiftDate
 import ReactorKit
 import RxSwift
 
+protocol HomeQuoteViewCellDelegate: class {
+    func didSelect(item: HomeSectionItem)
+}
+
 final class ActivityRecordTableViewCell: UITableViewCell, StoryboardView {
     typealias Reactor = ActivityRecordTableViewCellReactor
 
@@ -23,12 +27,21 @@ final class ActivityRecordTableViewCell: UITableViewCell, StoryboardView {
     @IBOutlet private weak var recordStatusTagView: RecordStatusTagView!
 
     var disposeBag = DisposeBag()
+    weak var delegate: HomeQuoteViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
         avatarImageView.layer.masksToBounds = true
         avatarImageView.layer.cornerRadius = 40 / 2
+        workAndEpisodeQuoteView.delegate = self
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        disposeBag = DisposeBag()
+        workAndEpisodeQuoteView.delegate = self
     }
 
     func bind(reactor: Reactor) {
@@ -38,18 +51,6 @@ final class ActivityRecordTableViewCell: UITableViewCell, StoryboardView {
                 self?.configure(activityItem: record)
             })
             .disposed(by: disposeBag)
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        workAndEpisodeQuoteView.backgroundColor = .white
-    }
-
-    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        super.setHighlighted(highlighted, animated: animated)
-
-        workAndEpisodeQuoteView.backgroundColor = .white
     }
 
     func configure(activityItem: HomeViewReactor.Activity.AsRecord) {
@@ -68,5 +69,11 @@ final class ActivityRecordTableViewCell: UITableViewCell, StoryboardView {
         } else {
             recordStatusTagView.isHidden = true
         }
+    }
+}
+
+extension ActivityRecordTableViewCell: QuoteViewDelegate {
+    func didSelect() {
+        delegate?.didSelect(item: .record(reactor!))
     }
 }

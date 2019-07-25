@@ -21,24 +21,21 @@ final class ActivityStatusTableViewCell: UITableViewCell, StoryboardView {
     @IBOutlet private weak var workQuoteView: WorkQuoteView!
 
     var disposeBag = DisposeBag()
+    weak var delegate: HomeQuoteViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
         avatarImageView.layer.masksToBounds = true
         avatarImageView.layer.cornerRadius = 40 / 2
+        workQuoteView.delegate = self
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        workQuoteView.backgroundColor = .white
-    }
-    
-    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        super.setHighlighted(highlighted, animated: animated)
-        
-        workQuoteView.backgroundColor = .white
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        disposeBag = DisposeBag()
+        workQuoteView.delegate = self
     }
 
     func bind(reactor: Reactor) {
@@ -60,5 +57,11 @@ final class ActivityStatusTableViewCell: UITableViewCell, StoryboardView {
         messageLabel.text = "ステータスを「\(activityItem.state.localizedText)」に変更しました。"
         timeLabel.text = activityItem.createdAt.toDate()?.toRelative()
 
+    }
+}
+
+extension ActivityStatusTableViewCell: QuoteViewDelegate {
+    func didSelect() {
+        delegate?.didSelect(item: .status(reactor!))
     }
 }

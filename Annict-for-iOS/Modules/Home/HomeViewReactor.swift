@@ -24,7 +24,6 @@ final class HomeViewReactor: Reactor {
         case appendActivities([Activity])
         case setPageInfo(PageInfoFrag)
         case setLoading(Bool)
-        case updateWork(MinimumWork)
     }
 
     struct State {
@@ -68,13 +67,7 @@ final class HomeViewReactor: Reactor {
             return .concat(startLoading, setActivitiesEvent, setPageInfoEvent, endLoading)
         }
     }
-
-    func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
-        let updateWork = provider.workAPIService.event.updateWorkState
-            .map { Mutation.updateWork($0) }
-        return .merge(mutation, updateWork)
-    }
-
+    
     func reduce(state: State, mutation: Mutation) -> State {
         var state = state
         switch mutation {
@@ -86,10 +79,6 @@ final class HomeViewReactor: Reactor {
             state.pageInfo = pageInfo
         case .setLoading(let isLoading):
             state.isLoading = isLoading
-        case .updateWork(let work):
-//            guard let index = currentState.activities.firstIndex(where: { $0.work?.id == work.id }) else { return state }
-//            state.activities[index].work = work
-            break
         }
         return state
     }
@@ -100,8 +89,7 @@ final class HomeViewReactor: Reactor {
             .filterNil()
     }
 
-    func reactorForWork(index: Int) -> WorkViewReactor? {
-        guard let work = currentState.items[index].work else { return nil }
+    func reactorForWork(work: MinimumWork) -> WorkViewReactor {
         return .init(provider: provider, work: work)
     }
 

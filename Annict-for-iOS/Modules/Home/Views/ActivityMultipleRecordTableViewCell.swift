@@ -21,24 +21,21 @@ final class ActivityMultipleRecordTableViewCell: UITableViewCell, StoryboardView
     @IBOutlet private weak var timeLabel: UILabel!
 
     var disposeBag = DisposeBag()
+    weak var delegate: HomeQuoteViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
         avatarImageView.layer.masksToBounds = true
         avatarImageView.layer.cornerRadius = 40 / 2
+        workQuoteView.delegate = self
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        workQuoteView.backgroundColor = .white
-    }
-    
-    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        super.setHighlighted(highlighted, animated: animated)
-        
-        workQuoteView.backgroundColor = .white
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        disposeBag = DisposeBag()
+        workQuoteView.delegate = self
     }
 
     func bind(reactor: Reactor) {
@@ -72,5 +69,12 @@ final class ActivityMultipleRecordTableViewCell: UITableViewCell, StoryboardView
             return
         }
         messageLabel.text = "\(minEpisode)から\(maxEpisode)を見ました。"
+    }
+}
+
+
+extension ActivityMultipleRecordTableViewCell: QuoteViewDelegate {
+    func didSelect() {
+        delegate?.didSelect(item: .multiRecord(reactor!))
     }
 }

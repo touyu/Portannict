@@ -8,10 +8,23 @@
 
 import UIKit
 
+protocol QuoteViewDelegate: class {
+    func didSelect()
+}
+
 final class WorkAndEpisodeQuoteView: UIView, NibOwnerLoadable {
     @IBOutlet private(set) weak var workImageView: UIImageView!
     @IBOutlet private weak var workTitleLabel: UILabel!
     @IBOutlet private weak var episodeLabel: UILabel!
+
+    weak var delegate: QuoteViewDelegate?
+
+    private var overlay: UIView = {
+        let v = UIView()
+        v.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        v.alpha = 0
+        return v
+    }()
 
     override var intrinsicContentSize: CGSize {
         return CGSize(width: CGFloat.greatestFiniteMagnitude, height: 60)
@@ -27,6 +40,19 @@ final class WorkAndEpisodeQuoteView: UIView, NibOwnerLoadable {
         commonInit()
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        overlay.alpha = 1
+    }
+
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        overlay.alpha = 0
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        overlay.alpha = 0
+        delegate?.didSelect()
+    }
+
     private func commonInit() {
         loadNib()
 
@@ -37,6 +63,11 @@ final class WorkAndEpisodeQuoteView: UIView, NibOwnerLoadable {
         
         workImageView.layer.cornerRadius = 8
         workImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+
+        addSubview(overlay)
+        overlay.snp.makeConstraints {
+            $0.edges.equalTo(self)
+        }
     }
 
     func configure(work: MinimumWork, episode: MinimumEpisode) {

@@ -30,6 +30,7 @@ final class HomeViewController: UIViewController, StoryboardView {
                            HomeTitleTableViewCell.self)
         tableView.tableFooterView = UIView()
         tableView.refreshControl = refreshControl
+        tableView.delaysContentTouches = false
     }
     
     func bind(reactor: Reactor) {
@@ -90,31 +91,25 @@ extension HomeViewController: UITableViewDataSource {
         case .status(let reactor):
             let cell = tableView.dequeueReusableCell(classType: ActivityStatusTableViewCell.self, for: indexPath)
             cell.reactor = reactor
+            cell.delegate = self
             return cell
         case .record(let reactor):
             let cell = tableView.dequeueReusableCell(classType: ActivityRecordTableViewCell.self, for: indexPath)
             cell.reactor = reactor
+            cell.delegate = self
             return cell
         case .review:
             return .init()
         case .multiRecord(let reactor):
             let cell = tableView.dequeueReusableCell(classType: ActivityMultipleRecordTableViewCell.self, for: indexPath)
             cell.reactor = reactor
+            cell.delegate = self
             return cell
         }
     }
 }
 
 extension HomeViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 { return }
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-    
-        guard let r = reactor?.reactorForWork(index: indexPath.row) else { return }
-        WorkViewController.presentPanModal(fromVC: self, reactor: r)
-    }
-
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             return
@@ -134,5 +129,13 @@ extension HomeViewController: UITableViewDelegate {
             return UITableView.automaticDimension
         }
         return height
+    }
+}
+
+extension HomeViewController: HomeQuoteViewCellDelegate {
+    func didSelect(item: HomeSectionItem) {
+        guard let work = item.work else { return }
+        let r = reactor!.reactorForWork(work: work)
+        WorkViewController.presentPanModal(fromVC: self, reactor: r)
     }
 }
