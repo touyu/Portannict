@@ -1512,9 +1512,9 @@ public final class SearchWorksByTitleQuery: GraphQLQuery {
 
 public final class GetFollowingActivitiesQuery: GraphQLQuery {
   public let operationDefinition =
-    "query GetFollowingActivities($after: String) {\n  viewer {\n    __typename\n    followingActivities(after: $after, first: 30, orderBy: {field: CREATED_AT, direction: DESC}) {\n      __typename\n      pageInfo {\n        __typename\n        ...PageInfoFrag\n      }\n      edges {\n        __typename\n        annictId\n        node {\n          __typename\n          ... on Status {\n            createdAt\n            annictId\n            id\n            state\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on Record {\n            createdAt\n            annictId\n            id\n            comment\n            episode {\n              __typename\n              ...MinimumEpisode\n            }\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on Review {\n            createdAt\n            annictId\n            id\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on MultipleRecord {\n            createdAt\n            annictId\n            id\n            records(first: 30) {\n              __typename\n              nodes {\n                __typename\n                episode {\n                  __typename\n                  ...MinimumEpisode\n                }\n              }\n            }\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+    "query GetFollowingActivities($after: String) {\n  viewer {\n    __typename\n    followingActivities(after: $after, first: 30, orderBy: {field: CREATED_AT, direction: DESC}) {\n      __typename\n      pageInfo {\n        __typename\n        ...PageInfoFrag\n      }\n      edges {\n        __typename\n        annictId\n        node {\n          __typename\n          ... on Status {\n            createdAt\n            annictId\n            id\n            state\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on Record {\n            ...MinimumRecord\n            episode {\n              __typename\n              ...MinimumEpisode\n            }\n            work {\n              __typename\n              ...MinimumWork\n            }\n          }\n          ... on Review {\n            createdAt\n            annictId\n            id\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on MultipleRecord {\n            createdAt\n            annictId\n            id\n            records(first: 30) {\n              __typename\n              nodes {\n                __typename\n                episode {\n                  __typename\n                  ...MinimumEpisode\n                }\n              }\n            }\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n        }\n      }\n    }\n  }\n}"
 
-  public var queryDocument: String { return operationDefinition.appending(PageInfoFrag.fragmentDefinition).appending(MinimumWork.fragmentDefinition).appending(MinimumUser.fragmentDefinition).appending(MinimumEpisode.fragmentDefinition) }
+  public var queryDocument: String { return operationDefinition.appending(PageInfoFrag.fragmentDefinition).appending(MinimumWork.fragmentDefinition).appending(MinimumUser.fragmentDefinition).appending(MinimumRecord.fragmentDefinition).appending(MinimumEpisode.fragmentDefinition) }
 
   public var after: String?
 
@@ -1758,10 +1758,6 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
               return Node(unsafeResultMap: ["__typename": "Status", "createdAt": createdAt, "annictId": annictId, "id": id, "state": state, "work": work.resultMap, "user": user.resultMap])
             }
 
-            public static func makeRecord(createdAt: String, annictId: Int, id: GraphQLID, comment: String? = nil, episode: AsRecord.Episode, work: AsRecord.Work, user: AsRecord.User) -> Node {
-              return Node(unsafeResultMap: ["__typename": "Record", "createdAt": createdAt, "annictId": annictId, "id": id, "comment": comment, "episode": episode.resultMap, "work": work.resultMap, "user": user.resultMap])
-            }
-
             public static func makeReview(createdAt: String, annictId: Int, id: GraphQLID, work: AsReview.Work, user: AsReview.User) -> Node {
               return Node(unsafeResultMap: ["__typename": "Review", "createdAt": createdAt, "annictId": annictId, "id": id, "work": work.resultMap, "user": user.resultMap])
             }
@@ -1997,13 +1993,9 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
 
               public static let selections: [GraphQLSelection] = [
                 GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-                GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
-                GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
-                GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-                GraphQLField("comment", type: .scalar(String.self)),
+                GraphQLFragmentSpread(MinimumRecord.self),
                 GraphQLField("episode", type: .nonNull(.object(Episode.selections))),
                 GraphQLField("work", type: .nonNull(.object(Work.selections))),
-                GraphQLField("user", type: .nonNull(.object(User.selections))),
               ]
 
               public private(set) var resultMap: ResultMap
@@ -2012,52 +2004,12 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                 self.resultMap = unsafeResultMap
               }
 
-              public init(createdAt: String, annictId: Int, id: GraphQLID, comment: String? = nil, episode: Episode, work: Work, user: User) {
-                self.init(unsafeResultMap: ["__typename": "Record", "createdAt": createdAt, "annictId": annictId, "id": id, "comment": comment, "episode": episode.resultMap, "work": work.resultMap, "user": user.resultMap])
-              }
-
               public var __typename: String {
                 get {
                   return resultMap["__typename"]! as! String
                 }
                 set {
                   resultMap.updateValue(newValue, forKey: "__typename")
-                }
-              }
-
-              public var createdAt: String {
-                get {
-                  return resultMap["createdAt"]! as! String
-                }
-                set {
-                  resultMap.updateValue(newValue, forKey: "createdAt")
-                }
-              }
-
-              public var annictId: Int {
-                get {
-                  return resultMap["annictId"]! as! Int
-                }
-                set {
-                  resultMap.updateValue(newValue, forKey: "annictId")
-                }
-              }
-
-              public var id: GraphQLID {
-                get {
-                  return resultMap["id"]! as! GraphQLID
-                }
-                set {
-                  resultMap.updateValue(newValue, forKey: "id")
-                }
-              }
-
-              public var comment: String? {
-                get {
-                  return resultMap["comment"] as? String
-                }
-                set {
-                  resultMap.updateValue(newValue, forKey: "comment")
                 }
               }
 
@@ -2079,12 +2031,29 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                 }
               }
 
-              public var user: User {
+              public var fragments: Fragments {
                 get {
-                  return User(unsafeResultMap: resultMap["user"]! as! ResultMap)
+                  return Fragments(unsafeResultMap: resultMap)
                 }
                 set {
-                  resultMap.updateValue(newValue.resultMap, forKey: "user")
+                  resultMap += newValue.resultMap
+                }
+              }
+
+              public struct Fragments {
+                public private(set) var resultMap: ResultMap
+
+                public init(unsafeResultMap: ResultMap) {
+                  self.resultMap = unsafeResultMap
+                }
+
+                public var minimumRecord: MinimumRecord {
+                  get {
+                    return MinimumRecord(unsafeResultMap: resultMap)
+                  }
+                  set {
+                    resultMap += newValue.resultMap
+                  }
                 }
               }
 
@@ -2184,60 +2153,6 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                   public var minimumWork: MinimumWork {
                     get {
                       return MinimumWork(unsafeResultMap: resultMap)
-                    }
-                    set {
-                      resultMap += newValue.resultMap
-                    }
-                  }
-                }
-              }
-
-              public struct User: GraphQLSelectionSet {
-                public static let possibleTypes = ["User"]
-
-                public static let selections: [GraphQLSelection] = [
-                  GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-                  GraphQLFragmentSpread(MinimumUser.self),
-                ]
-
-                public private(set) var resultMap: ResultMap
-
-                public init(unsafeResultMap: ResultMap) {
-                  self.resultMap = unsafeResultMap
-                }
-
-                public init(annictId: Int, name: String, username: String, avatarUrl: String? = nil) {
-                  self.init(unsafeResultMap: ["__typename": "User", "annictId": annictId, "name": name, "username": username, "avatarUrl": avatarUrl])
-                }
-
-                public var __typename: String {
-                  get {
-                    return resultMap["__typename"]! as! String
-                  }
-                  set {
-                    resultMap.updateValue(newValue, forKey: "__typename")
-                  }
-                }
-
-                public var fragments: Fragments {
-                  get {
-                    return Fragments(unsafeResultMap: resultMap)
-                  }
-                  set {
-                    resultMap += newValue.resultMap
-                  }
-                }
-
-                public struct Fragments {
-                  public private(set) var resultMap: ResultMap
-
-                  public init(unsafeResultMap: ResultMap) {
-                    self.resultMap = unsafeResultMap
-                  }
-
-                  public var minimumUser: MinimumUser {
-                    get {
-                      return MinimumUser(unsafeResultMap: resultMap)
                     }
                     set {
                       resultMap += newValue.resultMap

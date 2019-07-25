@@ -127,7 +127,7 @@ extension GetFollowingActivitiesQuery.Data.Viewer.FollowingActivity {
     }
 }
 
-enum HomeSectionItem {
+enum HomeSectionItem: Equatable {
     case record(ActivityRecordTableViewCellReactor)
     case status(ActivityStatusTableViewCellReactor)
     case multiRecord(ActivityMultipleRecordTableViewCellReactor)
@@ -143,6 +143,21 @@ enum HomeSectionItem {
             return reactor.currentState.multipleRecord.work.fragments.minimumWork
         default:
             return nil
+        }
+    }
+
+    static func == (lhs: HomeSectionItem, rhs: HomeSectionItem) -> Bool {
+        switch (lhs, rhs) {
+        case (.record(let reactor1), .record(let reactor2)):
+            return reactor1.currentState.record.resultMap == reactor2.currentState.record.resultMap
+        case (.status(let reactor1), .status(let reactor2)):
+            return reactor1.currentState.status.resultMap == reactor2.currentState.status.resultMap
+        case (.multiRecord(let reactor1), .multiRecord(let reactor2)):
+            return reactor1.currentState.multipleRecord.resultMap == reactor2.currentState.multipleRecord.resultMap
+        case (.review, .review):
+            return true
+        default:
+            return false
         }
     }
 }

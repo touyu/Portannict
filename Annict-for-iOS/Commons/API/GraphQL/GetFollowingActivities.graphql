@@ -20,18 +20,12 @@ query GetFollowingActivities($after: String) {
             }
           }
           ... on Record {
-            createdAt
-            annictId
-            id
-            comment
+            ...MinimumRecord
             episode {
               ...MinimumEpisode
             }
             work {
               ...MinimumWork
-            }
-            user {
-              ...MinimumUser
             }
           }
           ... on Review {

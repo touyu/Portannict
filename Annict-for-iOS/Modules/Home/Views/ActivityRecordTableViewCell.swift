@@ -20,6 +20,7 @@ final class ActivityRecordTableViewCell: UITableViewCell, StoryboardView {
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var messageLabel: UILabel!
     @IBOutlet private weak var workAndEpisodeQuoteView: WorkAndEpisodeQuoteView!
+    @IBOutlet private weak var recordStatusTagView: RecordStatusTagView!
 
     var disposeBag = DisposeBag()
 
@@ -52,13 +53,20 @@ final class ActivityRecordTableViewCell: UITableViewCell, StoryboardView {
     }
 
     func configure(activityItem: HomeViewReactor.Activity.AsRecord) {
-        let user = activityItem.user.fragments.minimumUser
+        let record = activityItem.fragments.minimumRecord
+        let user = record.user.fragments.minimumUser
         avatarImageView.setImage(url: user.avatarUrl)
         nameLabel.text = user.name
         usernameLabel.text = "@" + user.username
-        timeLabel.text = activityItem.createdAt.toDate()?.toRelative()
-        messageLabel.text = activityItem.comment
+        timeLabel.text = record.createdAt.toDate()?.toRelative()
+        messageLabel.text = record.comment
         workAndEpisodeQuoteView.configure(work: activityItem.work.fragments.minimumWork,
                                           episode: activityItem.episode.fragments.minimumEpisode)
+        if let ratingState = record.ratingState {
+            recordStatusTagView.isHidden = false
+            recordStatusTagView.configure(ratingState: ratingState)
+        } else {
+            recordStatusTagView.isHidden = true
+        }
     }
 }
