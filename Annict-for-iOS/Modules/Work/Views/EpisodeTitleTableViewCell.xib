@@ -20,20 +20,34 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hO7-bb-ml7">
-                        <rect key="frame" x="20" y="37" width="378" height="17"/>
+                        <rect key="frame" x="20" y="37" width="31" height="17"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOP-vM-GQk">
+                        <rect key="frame" x="374" y="35.5" width="28" height="20"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="g14-3M-sOG"/>
+                            <constraint firstAttribute="width" constant="28" id="zI3-Un-NfM"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="hO7-bb-ml7" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8jL-NI-vra"/>
+                    <constraint firstAttribute="trailing" secondItem="YOP-vM-GQk" secondAttribute="trailing" constant="16" id="Wbp-8D-bKO"/>
+                    <constraint firstItem="YOP-vM-GQk" firstAttribute="centerY" secondItem="hO7-bb-ml7" secondAttribute="centerY" id="Xci-ll-fYA"/>
                     <constraint firstItem="hO7-bb-ml7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="b56-w3-DaE"/>
-                    <constraint firstAttribute="trailing" secondItem="hO7-bb-ml7" secondAttribute="trailing" constant="20" id="fhd-Ou-0nx"/>
+                    <constraint firstItem="YOP-vM-GQk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hO7-bb-ml7" secondAttribute="trailing" constant="4" id="j52-eS-hrD"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="countLabel" destination="YOP-vM-GQk" id="RnY-xx-TkU"/>
                 <outlet property="titleLabel" destination="hO7-bb-ml7" id="XQ7-HM-gQp"/>
             </connections>
             <point key="canvasLocation" x="118.84057971014494" y="51.227678571428569"/>
