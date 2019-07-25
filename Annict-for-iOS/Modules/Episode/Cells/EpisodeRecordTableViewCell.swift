@@ -14,7 +14,9 @@ final class EpisodeRecordTableViewCell: UITableViewCell {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var usernameLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
-    
+    @IBOutlet private weak var statusTagView: RecordStatusTagView!
+    @IBOutlet private weak var commentLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -27,5 +29,12 @@ final class EpisodeRecordTableViewCell: UITableViewCell {
         nameLabel.text = user.name
         usernameLabel.text = user.username
         timeLabel.text = record.createdAt.toDate()?.toRelative()
+        commentLabel.text = record.comment
+        if let ratingState = record.ratingState {
+            statusTagView.isHidden = false
+            statusTagView.configure(ratingState: ratingState)
+        } else {
+            statusTagView.isHidden = true
+        }
     }
 }

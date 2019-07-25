@@ -12,30 +12,29 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecordStatusTagView" customModule="Annict_for_iOS" customModuleProvider="target">
             <connections>
-                <outlet property="titleLabel" destination="ZNR-uF-8lO" id="Bzd-U4-nx1"/>
+                <outlet property="titleLabel" destination="j9V-Dh-3KZ" id="R0A-ni-8Dr"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="WMh-ea-G42">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="253" height="64"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNR-uF-8lO">
-                    <rect key="frame" x="0.0" y="28.5" width="414" height="15"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9V-Dh-3KZ">
+                    <rect key="frame" x="113" y="24.5" width="27" height="15"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="ZNR-uF-8lO" firstAttribute="centerX" secondItem="Cum-yM-UyN" secondAttribute="centerX" id="MvE-Ib-x3C"/>
-                <constraint firstItem="ZNR-uF-8lO" firstAttribute="centerY" secondItem="WMh-ea-G42" secondAttribute="centerY" id="O6Y-Vr-nwd"/>
-                <constraint firstItem="ZNR-uF-8lO" firstAttribute="width" secondItem="WMh-ea-G42" secondAttribute="width" id="sqG-Lc-rU0"/>
+                <constraint firstItem="j9V-Dh-3KZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="In3-cF-mK3"/>
+                <constraint firstItem="j9V-Dh-3KZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gfp-FM-oMY"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="Cum-yM-UyN"/>
-            <point key="canvasLocation" x="82.608695652173921" y="723.21428571428567"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="21.014492753623191" y="306.69642857142856"/>
         </view>
     </objects>
 </document>

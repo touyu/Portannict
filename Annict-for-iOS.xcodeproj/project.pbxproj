@@ -45,8 +45,8 @@
 		D14ED3B722E8857200437DF9 /* RatingStatusTagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14ED3B622E8857200437DF9 /* RatingStatusTagsView.swift */; };
 		D14ED3B922E8859000437DF9 /* RatingStatusTagsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14ED3B822E8859000437DF9 /* RatingStatusTagsView.xib */; };
 		D15F291E22E314B800D18EC3 /* annict-image.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = D15F291D22E3103800D18EC3 /* annict-image.sqlite */; };
-		D16193C222E8581400B6BEBC /* RecordStatusTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16193C122E8581400B6BEBC /* RecordStatusTagView.swift */; };
-		D16193C422E8585100B6BEBC /* RecordStatusTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D16193C322E8585100B6BEBC /* RecordStatusTagView.xib */; };
+		D16193C222E8581400B6BEBC /* RecordStatusTagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16193C122E8581400B6BEBC /* RecordStatusTagButton.swift */; };
+		D16193C422E8585100B6BEBC /* RecordStatusTagButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = D16193C322E8585100B6BEBC /* RecordStatusTagButton.xib */; };
 		D1621DE92186214900819D93 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621DE82186214900819D93 /* RootTabBarController.swift */; };
 		D1621DEB2186218200819D93 /* RootTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1621DEA2186218200819D93 /* RootTabBarController.storyboard */; };
 		D1621DF02186262300819D93 /* RecordViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621DED2186262300819D93 /* RecordViewReactor.swift */; };
@@ -87,6 +87,8 @@
 		D1B27B2822525B01007F8B95 /* ParentPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B27B2722525B01007F8B95 /* ParentPagerViewController.swift */; };
 		D1B27B2A22525B57007F8B95 /* StatusBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B27B2922525B57007F8B95 /* StatusBarManager.swift */; };
 		D1B27B3322526ECF007F8B95 /* SearchWorksByID.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1B27B3222526ECF007F8B95 /* SearchWorksByID.graphql */; };
+		D1B4C83622E983EB000C2741 /* RecordStatusTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4C83522E983EB000C2741 /* RecordStatusTagView.swift */; };
+		D1B4C83822E983F5000C2741 /* RecordStatusTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1B4C83722E983F5000C2741 /* RecordStatusTagView.xib */; };
 		D1B4F161217EB3770011BAFF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F160217EB3770011BAFF /* RootViewController.swift */; };
 		D1B4F163217EB38D0011BAFF /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */; };
 		D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F164217EB4080011BAFF /* RootViewReactor.swift */; };
@@ -207,11 +209,11 @@
 		D136EA7021807E9500BA08EA /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		D136EA732180885400BA08EA /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		D13F2EB9222E2B0700509FB2 /* GetFollowingActivities.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetFollowingActivities.graphql; sourceTree = "<group>"; };
-		D14ED3B622E8857200437DF9 /* RatingStatusTagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RatingStatusTagsView.swift; path = "../../../../../../../../../System/Volumes/Data/Users/yuto/Development/Portannict/Annict-for-iOS/Modules/Record/PostRecord/Views/RatingStatusTagsView.swift"; sourceTree = "<group>"; };
-		D14ED3B822E8859000437DF9 /* RatingStatusTagsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RatingStatusTagsView.xib; path = "../../../../../../../../../System/Volumes/Data/Users/yuto/Development/Portannict/Annict-for-iOS/Modules/Record/PostRecord/Views/RatingStatusTagsView.xib"; sourceTree = "<group>"; };
+		D14ED3B622E8857200437DF9 /* RatingStatusTagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStatusTagsView.swift; sourceTree = "<group>"; };
+		D14ED3B822E8859000437DF9 /* RatingStatusTagsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingStatusTagsView.xib; sourceTree = "<group>"; };
 		D15F291D22E3103800D18EC3 /* annict-image.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "annict-image.sqlite"; sourceTree = "<group>"; };
-		D16193C122E8581400B6BEBC /* RecordStatusTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecordStatusTagView.swift; path = "../../../../../../../System/Volumes/Data/Users/yuto/Development/Portannict/Annict-for-iOS/Commons/Views/RecordStatusTagView.swift"; sourceTree = "<group>"; };
-		D16193C322E8585100B6BEBC /* RecordStatusTagView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RecordStatusTagView.xib; path = "../../../../../../../System/Volumes/Data/Users/yuto/Development/Portannict/Annict-for-iOS/Commons/Views/RecordStatusTagView.xib"; sourceTree = "<group>"; };
+		D16193C122E8581400B6BEBC /* RecordStatusTagButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordStatusTagButton.swift; sourceTree = "<group>"; };
+		D16193C322E8585100B6BEBC /* RecordStatusTagButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordStatusTagButton.xib; sourceTree = "<group>"; };
 		D1621DE82186214900819D93 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		D1621DEA2186218200819D93 /* RootTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RootTabBarController.storyboard; sourceTree = "<group>"; };
 		D1621DED2186262300819D93 /* RecordViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewReactor.swift; sourceTree = "<group>"; };
@@ -252,6 +254,8 @@
 		D1B27B2722525B01007F8B95 /* ParentPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentPagerViewController.swift; sourceTree = "<group>"; };
 		D1B27B2922525B57007F8B95 /* StatusBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarManager.swift; sourceTree = "<group>"; };
 		D1B27B3222526ECF007F8B95 /* SearchWorksByID.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchWorksByID.graphql; sourceTree = "<group>"; };
+		D1B4C83522E983EB000C2741 /* RecordStatusTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordStatusTagView.swift; sourceTree = "<group>"; };
+		D1B4C83722E983F5000C2741 /* RecordStatusTagView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordStatusTagView.xib; sourceTree = "<group>"; };
 		D1B4F160217EB3770011BAFF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		D1B4F162217EB38D0011BAFF /* RootViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RootViewController.storyboard; sourceTree = "<group>"; };
 		D1B4F164217EB4080011BAFF /* RootViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewReactor.swift; sourceTree = "<group>"; };
@@ -479,8 +483,10 @@
 		D16193C022E857E500B6BEBC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D16193C122E8581400B6BEBC /* RecordStatusTagView.swift */,
-				D16193C322E8585100B6BEBC /* RecordStatusTagView.xib */,
+				D16193C122E8581400B6BEBC /* RecordStatusTagButton.swift */,
+				D16193C322E8585100B6BEBC /* RecordStatusTagButton.xib */,
+				D1B4C83522E983EB000C2741 /* RecordStatusTagView.swift */,
+				D1B4C83722E983F5000C2741 /* RecordStatusTagView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -934,6 +940,7 @@
 				D11D57F22237C663000D3CC0 /* WorkAndEpisodeQuoteView.xib in Resources */,
 				D165C9C121B15EE9002E8FFA /* SearchResultWorkCell.xib in Resources */,
 				D163090221F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.xib in Resources */,
+				D1B4C83822E983F5000C2741 /* RecordStatusTagView.xib in Resources */,
 				D1FFB58521AECF04001099E6 /* RecordEpisodeTableViewCell.xib in Resources */,
 				D1621E0A2186BB9300819D93 /* GetViewerWatchingEpisodes.graphql in Resources */,
 				D11D57FF2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.xib in Resources */,
@@ -944,7 +951,7 @@
 				D1F87E4422E176E2001EB9DD /* WorkStatusButton.xib in Resources */,
 				D1E6DEED22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.xib in Resources */,
 				D11D57E12237B1B0000D3CC0 /* Fragment.graphql in Resources */,
-				D16193C422E8585100B6BEBC /* RecordStatusTagView.xib in Resources */,
+				D16193C422E8585100B6BEBC /* RecordStatusTagButton.xib in Resources */,
 				D1FFB58C21AEE904001099E6 /* EpisodeDetails.graphql in Resources */,
 				D1621DF12186262300819D93 /* RecordViewController.storyboard in Resources */,
 				D1C53C1321EEFA1900DA9A1D /* ProfileHeaderView.xib in Resources */,
@@ -1091,7 +1098,7 @@
 				D1E6DEF022E0EC2B003D03F0 /* WorkHeaderTableViewCell.swift in Sources */,
 				D1B4F16A217EB8380011BAFF /* LoginViewController.swift in Sources */,
 				D1621DF22186262300819D93 /* RecordViewController.swift in Sources */,
-				D16193C222E8581400B6BEBC /* RecordStatusTagView.swift in Sources */,
+				D16193C222E8581400B6BEBC /* RecordStatusTagButton.swift in Sources */,
 				D1F9144D21AA85C1006986A1 /* UIColor.swift in Sources */,
 				D1B4F16F217EB8A70011BAFF /* StoryboardLoadable.swift in Sources */,
 				D165C9BD21B158EA002E8FFA /* SearchResultViewReactor.swift in Sources */,
@@ -1147,6 +1154,7 @@
 				D1E6DEF322E3712F003D03F0 /* Season.swift in Sources */,
 				D1BCB8C9217F3E8300B84F82 /* OauthTokenRequest.swift in Sources */,
 				D1621E0321862C3B00819D93 /* SemiModalPresentationController.swift in Sources */,
+				D1B4C83622E983EB000C2741 /* RecordStatusTagView.swift in Sources */,
 				D18447C621BD021D00CF44AB /* GradationView.swift in Sources */,
 				D165C9C321B15EF1002E8FFA /* SearchResultWorkCell.swift in Sources */,
 				D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */,

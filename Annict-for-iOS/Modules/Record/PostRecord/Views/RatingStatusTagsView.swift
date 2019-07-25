@@ -14,12 +14,12 @@ final class RatingStatusTagsView: UIView, NibOwnerLoadable {
         return allButtons.filter { $0.isSelected }.first?.ratingState
     }
     
-    @IBOutlet weak var badButton: RecordStatusTagView!
-    @IBOutlet weak var averageButton: RecordStatusTagView!
-    @IBOutlet weak var goodButton: RecordStatusTagView!
-    @IBOutlet weak var greatButton: RecordStatusTagView!
+    @IBOutlet weak var badButton: RecordStatusTagButton!
+    @IBOutlet weak var averageButton: RecordStatusTagButton!
+    @IBOutlet weak var goodButton: RecordStatusTagButton!
+    @IBOutlet weak var greatButton: RecordStatusTagButton!
     
-    var allButtons: [RecordStatusTagView] {
+    var allButtons: [RecordStatusTagButton] {
         return [badButton, averageButton, goodButton, greatButton]
     }
     
@@ -50,7 +50,7 @@ final class RatingStatusTagsView: UIView, NibOwnerLoadable {
     @objc private func tapedButton(_ sender: UITapGestureRecognizer) {
         Taptic.run(.impact(.medium))
         
-        guard let button = sender.view as? RecordStatusTagView else { return }
+        guard let button = sender.view as? RecordStatusTagButton else { return }
         button.isSelected.toggle()
         
         allButtons.filter { $0 != button }
