@@ -14,7 +14,7 @@ final class WorkHeaderTableViewCell: UITableViewCell {
     @IBOutlet private weak var blurWorkImageView: UIImageView!
     @IBOutlet private weak var workImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var statusButton: WorkStatusButton!
+    @IBOutlet private(set) weak var statusButton: WorkStatusButton!
 
     var didTapButton: (() -> Void)?
     var didTapDetail: (() -> Void)?

@@ -142,6 +142,9 @@ extension WorkViewController: WorkStatusButtonDelegate {
             ac.addAction($0)
         }
         ac.addAction(cancel)
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? WorkHeaderTableViewCell
+        ac.popoverPresentationController?.sourceView = cell
+        ac.popoverPresentationController?.sourceRect = cell?.statusButton.frame ?? .zero
         present(ac, animated: true, completion: nil)
     }
     

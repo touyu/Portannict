@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C917CDDC4A16A7899040361A /* Pods_Annict_for_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0567F169D06E4DEA7E47513F /* Pods_Annict_for_iOS.framework */; };
-		D1013CCC217E23F7001C269B /* test.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1013CCB217E23F7001C269B /* test.graphql */; };
 		D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */; };
 		D1199E492238FF3F00531BF3 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1199E472238FF3E00531BF3 /* BlurView.swift */; };
 		D1199E4A2238FF3F00531BF3 /* BlurKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1199E482238FF3E00531BF3 /* BlurKit.swift */; };
@@ -178,7 +177,6 @@
 		0567F169D06E4DEA7E47513F /* Pods_Annict_for_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Annict_for_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C866238FE78822277121123 /* Pods-Annict-for-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		CC015B11081256C34FD80D74 /* Pods-Annict-for-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		D1013CCB217E23F7001C269B /* test.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.graphql; sourceTree = "<group>"; };
 		D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		D1199E472238FF3E00531BF3 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		D1199E482238FF3E00531BF3 /* BlurKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurKit.swift; sourceTree = "<group>"; };
@@ -425,7 +423,6 @@
 			children = (
 				D1B4F15D217EB3080011BAFF /* Commons */,
 				D1B4F15E217EB33E0011BAFF /* Modules */,
-				D1B4F15C217EB2EC0011BAFF /* Samples */,
 				D123F25A217CBD2600AE38FD /* Assets.xcassets */,
 				D123F25C217CBD2600AE38FD /* LaunchScreen.storyboard */,
 				D123F25F217CBD2600AE38FD /* Info.plist */,
@@ -639,14 +636,6 @@
 				D1F553A5224B8132001D971C /* ButtonMarkView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		D1B4F15C217EB2EC0011BAFF /* Samples */ = {
-			isa = PBXGroup;
-			children = (
-				D1013CCB217E23F7001C269B /* test.graphql */,
-			);
-			path = Samples;
 			sourceTree = "<group>";
 		};
 		D1B4F15D217EB3080011BAFF /* Commons */ = {
@@ -955,7 +944,6 @@
 				D1FFB59C21B046BE001099E6 /* SearchViewController.storyboard in Resources */,
 				D1AF34C2219B4042004DD229 /* UserInfoTableViewCell.xib in Resources */,
 				D15F291E22E314B800D18EC3 /* annict-image.sqlite in Resources */,
-				D1013CCC217E23F7001C269B /* test.graphql in Resources */,
 				D1BCB8D1217F46B600B84F82 /* HomeViewController.storyboard in Resources */,
 				D1891A6022E1FA5400D26512 /* UpdateStatus.graphql in Resources */,
 				D1C53C2121EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib in Resources */,
