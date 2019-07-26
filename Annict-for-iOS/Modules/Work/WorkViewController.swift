@@ -27,7 +27,8 @@ final class WorkViewController: UIViewController, StoryboardView {
         tableView.delegate = self
         tableView.tableFooterView = UIView()
         tableView.register(WorkHeaderTableViewCell.self,
-                           EpisodeTitleTableViewCell.self)
+                           EpisodeTitleTableViewCell.self,
+                           EpisodeCountSectionTableViewCell.self)
     }
     
     func bind(reactor: Reactor) {
@@ -62,12 +63,15 @@ extension WorkViewController {
 
 extension WorkViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
            return 1
+        }
+        if section == 1 {
+            return 1
         }
         return reactor!.currentState.episodes.count
     }
@@ -79,6 +83,10 @@ extension WorkViewController: UITableViewDataSource {
             cell.configure(work: work)
             cell.delegate = self
             return cell
+        } else if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(classType: EpisodeCountSectionTableViewCell.self, for: indexPath)
+            cell.configure(episodeCount: reactor!.currentState.work.episodesCount)
+            return cell
         } else {
             let cell = tableView.dequeueReusableCell(classType: EpisodeTitleTableViewCell.self, for: indexPath)
             cell.configure(episode: reactor!.currentState.episodes[indexPath.row])
@@ -89,7 +97,7 @@ extension WorkViewController: UITableViewDataSource {
 
 extension WorkViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard indexPath.section == 1 else { return }
+        guard indexPath.section == 2 else { return }
         EpisodeRecordsViewController.presentAsStork(fromVC: self, reactor: reactor!.reactorForEpisode(index: indexPath.item))
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -97,6 +105,8 @@ extension WorkViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 460
+        } else if indexPath.section == 1 {
+            return 50
         } else {
             return 50
         }

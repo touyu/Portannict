@@ -40,6 +40,8 @@
 		D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */; };
 		D136EA7121807E9500BA08EA /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA7021807E9500BA08EA /* APIService.swift */; };
 		D136EA742180885400BA08EA /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136EA732180885400BA08EA /* UserDefaultsService.swift */; };
+		D13C668622EB75490087284B /* EpisodeCountSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13C668422EB75490087284B /* EpisodeCountSectionTableViewCell.swift */; };
+		D13C668722EB75490087284B /* EpisodeCountSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D13C668522EB75490087284B /* EpisodeCountSectionTableViewCell.xib */; };
 		D13F2EBA222E2B0700509FB2 /* GetFollowingActivities.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D13F2EB9222E2B0700509FB2 /* GetFollowingActivities.graphql */; };
 		D14ED3B722E8857200437DF9 /* RatingStatusTagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14ED3B622E8857200437DF9 /* RatingStatusTagsView.swift */; };
 		D14ED3B922E8859000437DF9 /* RatingStatusTagsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14ED3B822E8859000437DF9 /* RatingStatusTagsView.xib */; };
@@ -220,6 +222,8 @@
 		D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
 		D136EA7021807E9500BA08EA /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		D136EA732180885400BA08EA /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
+		D13C668422EB75490087284B /* EpisodeCountSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCountSectionTableViewCell.swift; sourceTree = "<group>"; };
+		D13C668522EB75490087284B /* EpisodeCountSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeCountSectionTableViewCell.xib; sourceTree = "<group>"; };
 		D13F2EB9222E2B0700509FB2 /* GetFollowingActivities.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetFollowingActivities.graphql; sourceTree = "<group>"; };
 		D14ED3B622E8857200437DF9 /* RatingStatusTagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStatusTagsView.swift; sourceTree = "<group>"; };
 		D14ED3B822E8859000437DF9 /* RatingStatusTagsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingStatusTagsView.xib; sourceTree = "<group>"; };
@@ -473,6 +477,8 @@
 				D1E6DEEF22E0EC2B003D03F0 /* WorkHeaderTableViewCell.xib */,
 				D1F87E4122E176C1001EB9DD /* WorkStatusButton.swift */,
 				D1F87E4322E176E2001EB9DD /* WorkStatusButton.xib */,
+				D13C668422EB75490087284B /* EpisodeCountSectionTableViewCell.swift */,
+				D13C668522EB75490087284B /* EpisodeCountSectionTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -961,6 +967,7 @@
 				D1AF34C2219B4042004DD229 /* UserInfoTableViewCell.xib in Resources */,
 				D15F291E22E314B800D18EC3 /* annict-image.sqlite in Resources */,
 				D1BCB8D1217F46B600B84F82 /* HomeViewController.storyboard in Resources */,
+				D13C668722EB75490087284B /* EpisodeCountSectionTableViewCell.xib in Resources */,
 				D1891A6022E1FA5400D26512 /* UpdateStatus.graphql in Resources */,
 				D1C53C2121EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib in Resources */,
 				D14ED3B922E8859000437DF9 /* RatingStatusTagsView.xib in Resources */,
@@ -1144,6 +1151,7 @@
 				D1AF34C4219B4202004DD229 /* UITableView.swift in Sources */,
 				D1B4C83B22E987BB000C2741 /* EpisodeRecordTitleTableViewCell.swift in Sources */,
 				D1B4F171217EB8D50011BAFF /* NSObject.swift in Sources */,
+				D13C668622EB75490087284B /* EpisodeCountSectionTableViewCell.swift in Sources */,
 				D1F553A6224B8132001D971C /* ButtonMarkView.swift in Sources */,
 				D1199E50223E994700531BF3 /* CachePolicy.swift in Sources */,
 				D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */,

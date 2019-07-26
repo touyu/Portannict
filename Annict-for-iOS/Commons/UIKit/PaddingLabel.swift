@@ -10,7 +10,11 @@ import UIKit
 
 class PaddingLabel: UILabel {
 
-    var padding = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
+    var padding = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8) {
+        didSet {
+            invalidateIntrinsicContentSize()
+        }
+    }
 
     override func drawText(in rect: CGRect) {
         let newRect = rect.inset(by: padding)
