@@ -112,7 +112,6 @@ class ParentPagerViewController: ButtonBarPagerTabStripViewController, ParentPag
             .filter { $0 != scrollView }
         
         for otherScrollView in otherScrollViews {
-            print(scrollView.contentOffset.y, -buttonBarView.bounds.height)
             if scrollView.contentOffset.y >= -buttonBarView.bounds.height {
                 return
             }

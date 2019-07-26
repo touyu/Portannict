@@ -35,7 +35,7 @@ class ChildPagerViewController: UIViewController, ScrollViewProvider, UIScrollVi
         
         observeContentSize()
         if let scrollView = provideScrollView() {
-            scrollView.delegate = self
+//            scrollView.delegate = self
             delegate?.scrollViewWillDisplay(scrollView)
         }
     }
@@ -58,8 +58,8 @@ class ChildPagerViewController: UIViewController, ScrollViewProvider, UIScrollVi
         }
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        delegate?.scrollViewDidScrolled(scrollView)
-    }
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        delegate?.scrollViewDidScrolled(scrollView)
+//    }
 }
 

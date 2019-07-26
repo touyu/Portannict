@@ -37,7 +37,15 @@ final class ProfileWorksViewController: ChildPagerViewController, StoryboardView
         collectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
-        collectionView.rx.reachedBottom()
+        collectionView.rx.contentOffset
+            .subscribe(onNext: { [weak self] offset in
+                print(offset)
+                guard let self = self else { return }
+                self.delegate?.scrollViewDidScrolled(self.collectionView)
+            })
+            .disposed(by: disposeBag)
+
+        collectionView.rx.triggeredPagination()
             .throttle(.seconds(1), latest: false, scheduler: MainScheduler.instance)
             .map { Reactor.Action.loadMore }
             .bind(to: reactor.action)
