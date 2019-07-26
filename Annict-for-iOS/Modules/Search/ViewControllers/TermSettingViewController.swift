@@ -25,6 +25,13 @@ final class TermSettingViewController: UIViewController, StoryboardView {
 
         pickerView.dataSource = self
         pickerView.delegate = self
+
+        thisTermButton.backgroundColor = .lightGray
+        nextTermButton.backgroundColor = .lightGray
+        thisTermButton.setTitleColor(.white, for: .normal)
+        nextTermButton.setTitleColor(.white, for: .normal)
+        thisTermButton.roundedRectangleFilter()
+        nextTermButton.roundedRectangleFilter()
     }
 
     func bind(reactor: Reactor) {
