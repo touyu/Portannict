@@ -1,7 +1,4 @@
-# ReactorKitはCheckoutsでxcodeprojを生成するのでバージョン管理に含める
-Carthage/Checkouts/*
-Carthage/Build/*
-!Carthage/Checkouts/ReactorKit/
+Carthage
 
 # Pods
 Pods/
@@ -12,3 +9,5 @@ node_modules
 vendor/bundle
 
 .env
+
+node_modules
