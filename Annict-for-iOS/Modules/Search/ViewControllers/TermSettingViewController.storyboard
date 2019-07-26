@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Term Setting View Controller-->
+        <scene sceneID="UUc-NY-ffm">
+            <objects>
+                <viewController storyboardIdentifier="TermSettingViewController" id="5jk-Hd-q3d" customClass="TermSettingViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yq1-bX-Ama">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8a-u1-f3e">
+                                <rect key="frame" x="27.5" y="60" width="320" height="216"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLe-eE-4TB">
+                                <rect key="frame" x="318" y="30" width="37" height="34"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="決定">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="C8a-u1-f3e" firstAttribute="centerX" secondItem="PJX-Es-pSC" secondAttribute="centerX" id="G5h-CZ-GiY"/>
+                            <constraint firstItem="PJX-Es-pSC" firstAttribute="trailing" secondItem="RLe-eE-4TB" secondAttribute="trailing" constant="20" id="NMM-Aj-NCy"/>
+                            <constraint firstItem="RLe-eE-4TB" firstAttribute="top" secondItem="PJX-Es-pSC" secondAttribute="top" constant="10" id="TL1-xH-tWu"/>
+                            <constraint firstItem="C8a-u1-f3e" firstAttribute="width" relation="lessThanOrEqual" secondItem="yq1-bX-Ama" secondAttribute="width" id="dmV-nd-dKU"/>
+                            <constraint firstItem="C8a-u1-f3e" firstAttribute="top" secondItem="PJX-Es-pSC" secondAttribute="top" constant="40" id="vkE-mZ-FRF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PJX-Es-pSC"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="doneButton" destination="RLe-eE-4TB" id="wKj-IB-TgN"/>
+                        <outlet property="pickerView" destination="C8a-u1-f3e" id="9T0-It-wn4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dpj-WT-0yB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
