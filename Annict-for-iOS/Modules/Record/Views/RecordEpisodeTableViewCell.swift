@@ -9,10 +9,12 @@
 import UIKit
 import RxSwift
 import ReactorKit
+import RxGesture
 
 final class RecordEpisodeTableViewCell: UITableViewCell, StoryboardView {
     typealias Reactor = RecordEpisodeTableViewCellReactor
-    
+
+    var didTapImage: (() -> Void)?
     var disposeBag = DisposeBag()
 
     @IBOutlet private weak var workImageView: UIImageView!
@@ -21,7 +23,8 @@ final class RecordEpisodeTableViewCell: UITableViewCell, StoryboardView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
+        workImageView.isUserInteractionEnabled = true
         workImageView.apply(.workImage)
     }
     
@@ -33,6 +36,13 @@ final class RecordEpisodeTableViewCell: UITableViewCell, StoryboardView {
     }
     
     func bind(reactor: Reactor) {
+        workImageView.rx.tapGesture()
+            .when(.began, .ended, .cancelled)
+            .subscribe(onNext: { [weak self] tapGesture in
+                self?.didTapImage?()
+            })
+            .disposed(by: disposeBag)
+
         reactor.state.map { $0.work }
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] work in

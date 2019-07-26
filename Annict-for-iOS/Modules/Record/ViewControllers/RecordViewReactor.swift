@@ -87,6 +87,11 @@ final class RecordViewReactor: Reactor {
         guard let episode = currentState.cellReactors[index].currentState.work.didNotTrackEpisode else { return nil }
         return .init(provider: provider, episode: episode)
     }
+
+    func reactorForWork(index: Int) -> WorkViewReactor {
+        let work = currentState.cellReactors[index].currentState.work.fragments.minimumWork
+        return .init(provider: provider, work: work)
+    }
     
     private func fetch(after: String? = nil) -> Observable<GetViewerWatchingEpisodesQuery.Data.Viewer.Work> {
         let query = GetViewerWatchingEpisodesQuery(first: 6, after: after)

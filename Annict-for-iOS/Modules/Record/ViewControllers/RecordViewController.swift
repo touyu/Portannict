@@ -91,6 +91,10 @@ extension RecordViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(classType: RecordEpisodeTableViewCell.self, for: indexPath)
         cell.reactor = reactor!.currentState.cellReactors[indexPath.row]
+        cell.didTapImage = { [weak self] in
+            guard let self = self else { return }
+            WorkViewController.presentPanModal(fromVC: self, reactor: self.reactor!.reactorForWork(index: indexPath.item))
+        }
         return cell
     }
 }
