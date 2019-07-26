@@ -43,6 +43,7 @@
 		D13F2EBA222E2B0700509FB2 /* GetFollowingActivities.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D13F2EB9222E2B0700509FB2 /* GetFollowingActivities.graphql */; };
 		D14ED3B722E8857200437DF9 /* RatingStatusTagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14ED3B622E8857200437DF9 /* RatingStatusTagsView.swift */; };
 		D14ED3B922E8859000437DF9 /* RatingStatusTagsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14ED3B822E8859000437DF9 /* RatingStatusTagsView.xib */; };
+		D15A325122EAE8CB00DDC404 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A325022EAE8CB00DDC404 /* PaddingLabel.swift */; };
 		D15F291E22E314B800D18EC3 /* annict-image.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = D15F291D22E3103800D18EC3 /* annict-image.sqlite */; };
 		D16193C222E8581400B6BEBC /* RecordStatusTagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16193C122E8581400B6BEBC /* RecordStatusTagButton.swift */; };
 		D16193C422E8585100B6BEBC /* RecordStatusTagButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = D16193C322E8585100B6BEBC /* RecordStatusTagButton.xib */; };
@@ -221,6 +222,7 @@
 		D13F2EB9222E2B0700509FB2 /* GetFollowingActivities.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetFollowingActivities.graphql; sourceTree = "<group>"; };
 		D14ED3B622E8857200437DF9 /* RatingStatusTagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStatusTagsView.swift; sourceTree = "<group>"; };
 		D14ED3B822E8859000437DF9 /* RatingStatusTagsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingStatusTagsView.xib; sourceTree = "<group>"; };
+		D15A325022EAE8CB00DDC404 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		D15F291D22E3103800D18EC3 /* annict-image.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "annict-image.sqlite"; sourceTree = "<group>"; };
 		D16193C122E8581400B6BEBC /* RecordStatusTagButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordStatusTagButton.swift; sourceTree = "<group>"; };
 		D16193C322E8585100B6BEBC /* RecordStatusTagButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordStatusTagButton.xib; sourceTree = "<group>"; };
@@ -838,6 +840,7 @@
 			children = (
 				D1FFB58621AED24F001099E6 /* Ornament.swift */,
 				D1FFB58F21AEF644001099E6 /* ActionClosurable.swift */,
+				D15A325022EAE8CB00DDC404 /* PaddingLabel.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1185,6 +1188,7 @@
 				D1FFB59021AEF644001099E6 /* ActionClosurable.swift in Sources */,
 				D11D57ED2237C1DA000D3CC0 /* ActivityStatusTableViewCell.swift in Sources */,
 				D1199E4A2238FF3F00531BF3 /* BlurKit.swift in Sources */,
+				D15A325122EAE8CB00DDC404 /* PaddingLabel.swift in Sources */,
 				D1F87E4622E17C28001EB9DD /* Taptic.swift in Sources */,
 				D1E6DEF322E3712F003D03F0 /* Season.swift in Sources */,
 				D1BCB8C9217F3E8300B84F82 /* OauthTokenRequest.swift in Sources */,

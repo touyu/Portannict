@@ -53,7 +53,7 @@ final class SearchViewController: UIViewController, StoryboardView {
         prepareNavigationBar()
         prepareCalendarButton()
         
-        collectionView.register(cellTypes: ProfileWorkCollectionViewCell.self)
+        collectionView.register(cellTypes: SeasonWorkCollectionViewCell.self)
     }
 
     override func viewDidLayoutSubviews() {
@@ -124,7 +124,7 @@ extension SearchViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(type: ProfileWorkCollectionViewCell.self, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(type: SeasonWorkCollectionViewCell.self, for: indexPath)
         guard let reactor = reactor else { return cell }
         let work = reactor.currentState.works[indexPath.item]
         cell.configure(work: work)

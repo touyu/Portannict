@@ -19,14 +19,7 @@ class ProfileWorkCollectionViewCell: UICollectionViewCell {
     }
 
     func configure(work: MinimumWork) {
-//        workImageView.setImage(url: work.image?.url)
         workImageView.setImage(workID: work.annictId)
         titleLabel.text = work.title
-    }
-    
-    func setHeroID(_ heroID: String) {
-        workImageView.hero.id = heroID
-        workImageView.hero.modifiers = [.spring(stiffness: 250, damping: 25),
-                                        .duration(0.3)]
     }
 }

@@ -10,16 +10,31 @@ import UIKit
 
 final class SeasonWorkCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet private weak var imageView: UIImageView!
-    
+    @IBOutlet private weak var workImageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var statusLabel: PaddingLabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        contentView.layer.cornerRadius = 4
-        contentView.layer.masksToBounds = true
+
+        workImageView.apply(.workImage)
+        statusLabel.layer.cornerRadius = 4
+        statusLabel.layer.masksToBounds = true
     }
 
-    func configure(url: String?) {
-        imageView.setImage(url: url)
+    func configure(work: MinimumWork) {
+        workImageView.setImage(workID: work.annictId)
+        titleLabel.text = work.title
+
+        if let state = work.viewerStatusState {
+            switch state {
+            case .wannaWatch, .watching, .watched, .onHold, .stopWatching:
+                statusLabel.isHidden = false
+                statusLabel.text = state.localizedText
+            default:
+                statusLabel.isHidden = true
+            }
+        }
+
     }
 }
