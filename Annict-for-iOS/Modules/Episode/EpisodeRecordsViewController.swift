@@ -117,6 +117,7 @@ extension EpisodeRecordsViewController: UITableViewDelegate {
 extension UIImage {
     enum ImageType: String {
         case pencil = "pencil"
+        case calendar = "calendar"
 
         var image: UIImage? {
             return UIImage(named: self.rawValue)
@@ -127,7 +128,7 @@ extension UIImage {
 extension UIButton {
 
     convenience init(imageType: UIImage.ImageType) {
-        self.init(frame: .zero)
+        self.init(type: .custom)
         setImage(imageType.image?.withRenderingMode(.alwaysTemplate), for: .normal)
         imageView?.contentMode = .scaleAspectFit
         contentHorizontalAlignment = .fill

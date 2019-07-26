@@ -293,7 +293,7 @@
 		D1BD1F7322E8C11700A260F5 /* EpisodeRecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeRecordTableViewCell.swift; sourceTree = "<group>"; };
 		D1BD1F7422E8C11700A260F5 /* EpisodeRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpisodeRecordTableViewCell.xib; sourceTree = "<group>"; };
 		D1BD1F7722E8C13800A260F5 /* EpisodeRecordsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EpisodeRecordsViewController.storyboard; sourceTree = "<group>"; };
-		D1BD1F7822E8C13800A260F5 /* EpisodeRecordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeRecordsViewController.swift; sourceTree = "<group>"; };
+		D1BD1F7822E8C13800A260F5 /* EpisodeRecordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeRecordsViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		D1BD1F7922E8C13800A260F5 /* EpisodeRecordsViewReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeRecordsViewReactor.swift; sourceTree = "<group>"; };
 		D1BD1F8D22E8C85600A260F5 /* GetRecords.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GetRecords.graphql; sourceTree = "<group>"; };
 		D1C53C0721EE4C7700DA9A1D /* XLPagerTabStrip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLPagerTabStrip.framework; path = Carthage/Build/iOS/XLPagerTabStrip.framework; sourceTree = "<group>"; };

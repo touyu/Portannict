@@ -14,6 +14,15 @@ final class SearchViewController: UIViewController, StoryboardView {
     typealias Reactor = SearchViewReactor
 
     @IBOutlet private weak var collectionView: UICollectionView!
+    private var calendarButton: UIButton = {
+        let button = UIButton(imageType: .calendar)
+        button.layer.cornerRadius = 30
+        button.backgroundColor = UIColor(hex: 0xFA5871)
+        button.tintColor = .white
+        button.imageEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+        button.applyFABShadow()
+        return button
+    }()
     
     private let column: CGFloat = 3
     private let itemSpacing: CGFloat = 18
@@ -40,8 +49,15 @@ final class SearchViewController: UIViewController, StoryboardView {
         super.viewDidLoad()
 
         prepareNavigationBar()
+        prepareCalendarButton()
         
         collectionView.register(cellTypes: ProfileWorkCollectionViewCell.self)
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        calendarButton.updateShodowPath()
     }
 
     func bind(reactor: Reactor) {
@@ -74,6 +90,15 @@ final class SearchViewController: UIViewController, StoryboardView {
         navigationItem.titleView = searchController.searchBar
         navigationItem.titleView?.frame = searchController.searchBar.frame
         navigationController?.navigationBar.transparent()
+    }
+
+    private func prepareCalendarButton() {
+        view.addSubview(calendarButton)
+        calendarButton.snp.makeConstraints {
+            $0.width.height.equalTo(60)
+            $0.trailing.equalTo(view.snp.trailing).offset(-20)
+            $0.bottom.equalTo(view.snp.bottomMargin).offset(-20)
+        }
     }
 }
 
