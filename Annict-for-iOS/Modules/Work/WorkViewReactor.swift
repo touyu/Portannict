@@ -68,7 +68,7 @@ final class WorkViewReactor: Reactor {
     
     private func fetchEpisodes() -> Observable<[MinimumEpisode]> {
         let query = SearchWorksByIdQuery(annictId: currentState.work.annictId)
-        return AnnictGraphQL.client.rx.fetchMaybe(query: query, cachePolicy: .returnCacheDataAndFetch)
+        return AnnictGraphQL.client.rx.fetch(query: query, cachePolicy: .returnCacheDataAndFetch)
             .asObservable()
             .map { $0.searchWorks?.values.first?.episodes?.values.map { $0.fragments.minimumEpisode } }
             .filterNil()

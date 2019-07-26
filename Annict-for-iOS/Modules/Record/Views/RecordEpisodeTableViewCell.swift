@@ -63,9 +63,12 @@ final class RecordEpisodeTableViewCell: UITableViewCell, StoryboardView {
 
 extension GetViewerWatchingEpisodesQuery.Data.Viewer.Work.Node {
     var didNotTrackEpisode: MinimumEpisode? {
-        return episodes?.values
+        guard let episodes = episodes else { return nil }
+        let es = episodes.values
             .map { $0.fragments.minimumEpisode }
-            .filter { !$0.viewerDidTrack }
-            .min(by: { $0.annictId < $1.annictId })
+        guard let maxDidTrack = es.filter({ $0.viewerDidTrack }).max(by: { $0.annictId < $1.annictId }) else {
+            return es.first
+        }
+        return es.filter { $0.annictId > maxDidTrack.annictId }.min(by: { $0.annictId < $1.annictId })
     }
 }
