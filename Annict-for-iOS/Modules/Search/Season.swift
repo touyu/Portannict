@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Season {
-    enum Name: String {
+struct Season: Equatable {
+    enum Name: String, Equatable {
         case spring = "spring"
         case summer = "summer"
         case autumn = "autumn"
@@ -33,6 +33,22 @@ struct Season {
     
     var value: String {
         return "\(year)-\(name.rawValue)"
+    }
+
+    func toString() -> String {
+        if self == .current {
+            return "今期"
+        }
+
+        if self == Season.current.next() {
+            return "来期"
+        }
+
+        if self == Season.current.previous() {
+            return "前期"
+        }
+
+        return "\(year) \(name.localizedText)"
     }
     
     static var currentName: Name {

@@ -13,7 +13,7 @@ final class SearchViewReactor: Reactor {
     typealias PageInfo = SearchWorksQuery.Data.SearchWork.PageInfo
     
     enum Action {
-        case fetchWorksForThisTerm
+        case fetchWorks
         case fetchMore
     }
 
@@ -22,10 +22,10 @@ final class SearchViewReactor: Reactor {
         case appendWorks([MinimumWork])
         case setPageInfo(PageInfo)
         case updateWork(MinimumWork)
+        case clearWorks
     }
 
     struct State {
-        var season: Season = .current
         var works: [MinimumWork] = []
         var pageInfo: PageInfo?
     }
@@ -33,15 +33,27 @@ final class SearchViewReactor: Reactor {
     let initialState: State
     private let provider: ServiceProviderType
     private let client = AnnictGraphQL.client
+    let reactorForTerm = TermSettingViewReactor()
     
     init(provider: ServiceProviderType) {
         self.provider = provider
         initialState = State()
     }
 
+    func transform(action: Observable<Action>) -> Observable<Action> {
+        let termStream = reactorForTerm.state.map { $0.selectedSeason }
+            .distinctUntilChanged()
+            .skip(1)
+            .do(onNext: { season in
+                print("fetch: ", season.year, season.name.localizedText)
+            })
+            .map { _ in Action.fetchWorks }
+        return .merge(action, termStream)
+    }
+
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .fetchWorksForThisTerm:
+        case .fetchWorks:
             let stream = fetch().share(replay: 1)
             let setWorks = stream.map { Mutation.setWorks($0.minimumWorks) }
             let setPageInfo = stream.map { Mutation.setPageInfo($0.pageInfo) }
@@ -60,8 +72,13 @@ final class SearchViewReactor: Reactor {
     func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
         let updateStatus = provider.workAPIService.event.updateWorkState
             .map { Mutation.updateWork($0) }
+
+        let termStream = reactorForTerm.state.map { $0.selectedSeason }
+            .distinctUntilChanged()
+            .skip(1)
+            .map { _ in Mutation.clearWorks }
         
-        return .merge(mutation, updateStatus)
+        return .merge(mutation, updateStatus, termStream)
     }
 
     func reduce(state: State, mutation: Mutation) -> State {
@@ -76,6 +93,8 @@ final class SearchViewReactor: Reactor {
         case .updateWork(let work):
             guard let index = state.works.firstIndex(where: { $0.id == work.id }) else { return state }
             state.works[index].viewerStatusState = work.viewerStatusState
+        case .clearWorks:
+            state.works = []
         }
         return state
     }
@@ -89,7 +108,7 @@ final class SearchViewReactor: Reactor {
     }
 
     private func fetch(after: String? = nil) -> Observable<SearchWorksQuery.Data.SearchWork> {
-        let request = SearchWorksQuery(season: currentState.season.value, after: after)
+        let request = SearchWorksQuery(season: reactorForTerm.currentState.selectedSeason.value, after: after)
         return client.rx.fetchMaybe(query: request, cachePolicy: .returnCacheDataAndFetch).asObservable()
             .map { $0.searchWorks }
             .filterNil()
