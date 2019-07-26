@@ -12,6 +12,7 @@ import RxSwift
 final class TermSettingViewReactor: Reactor {
     enum Action {
         case selected(Int, Int)
+        case selectedSeason(Season)
     }
 
     enum Mutation {
@@ -34,9 +35,10 @@ final class TermSettingViewReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .selected(let yearIndex, let seasonIndex):
-
             return .just(.setSelectedSeason(currentState.years[yearIndex],
                                             currentState.seasons[seasonIndex]))
+        case .selectedSeason(let season):
+            return .just(.setSelectedSeason(season.year, season.name))
         }
     }
     

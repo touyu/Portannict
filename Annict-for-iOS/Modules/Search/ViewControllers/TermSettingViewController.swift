@@ -16,6 +16,8 @@ final class TermSettingViewController: UIViewController, StoryboardView {
 
     @IBOutlet private weak var pickerView: UIPickerView!
     @IBOutlet private weak var doneButton: UIButton!
+    @IBOutlet private weak var thisTermButton: UIButton!
+    @IBOutlet private weak var nextTermButton: UIButton!
     var disposeBag = DisposeBag()
 
     override func viewDidLoad() {
@@ -40,6 +42,22 @@ final class TermSettingViewController: UIViewController, StoryboardView {
             .map { $0.1 }
             .subscribe(onNext: { [weak self] season in
                 self?.selectSeason(season)
+            })
+            .disposed(by: disposeBag)
+
+        thisTermButton.rx.tap
+            .map { Reactor.Action.selectedSeason(Season.current) }
+            .subscribe(onNext: { [weak self] action in
+                self?.reactor?.action.onNext(action)
+                self?.dismiss(animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
+
+        nextTermButton.rx.tap
+            .map { Reactor.Action.selectedSeason(Season.current.next()) }
+            .subscribe(onNext: { [weak self] action in
+                self?.reactor?.action.onNext(action)
+                self?.dismiss(animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
     }

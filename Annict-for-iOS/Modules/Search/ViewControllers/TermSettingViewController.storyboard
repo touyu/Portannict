@@ -28,21 +28,44 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rR1-bt-1KO">
+                                <rect key="frame" x="20" y="31" width="33" height="32"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="今期">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Eu-mq-7dQ">
+                                <rect key="frame" x="71" y="31" width="33" height="32"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal">
+                                    <string key="title" base64-UTF8="YES">
+COadpeacnw
+</string>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="C8a-u1-f3e" firstAttribute="centerX" secondItem="PJX-Es-pSC" secondAttribute="centerX" id="G5h-CZ-GiY"/>
+                            <constraint firstItem="rR1-bt-1KO" firstAttribute="centerY" secondItem="RLe-eE-4TB" secondAttribute="centerY" id="InT-fe-t3u"/>
                             <constraint firstItem="PJX-Es-pSC" firstAttribute="trailing" secondItem="RLe-eE-4TB" secondAttribute="trailing" constant="20" id="NMM-Aj-NCy"/>
+                            <constraint firstItem="6Eu-mq-7dQ" firstAttribute="centerY" secondItem="rR1-bt-1KO" secondAttribute="centerY" id="OW3-RD-5Mv"/>
                             <constraint firstItem="RLe-eE-4TB" firstAttribute="top" secondItem="PJX-Es-pSC" secondAttribute="top" constant="10" id="TL1-xH-tWu"/>
                             <constraint firstItem="C8a-u1-f3e" firstAttribute="width" relation="lessThanOrEqual" secondItem="yq1-bX-Ama" secondAttribute="width" id="dmV-nd-dKU"/>
                             <constraint firstItem="C8a-u1-f3e" firstAttribute="top" secondItem="PJX-Es-pSC" secondAttribute="top" constant="40" id="vkE-mZ-FRF"/>
+                            <constraint firstItem="rR1-bt-1KO" firstAttribute="leading" secondItem="PJX-Es-pSC" secondAttribute="leading" constant="20" id="wnn-gr-uyn"/>
+                            <constraint firstItem="6Eu-mq-7dQ" firstAttribute="leading" secondItem="rR1-bt-1KO" secondAttribute="trailing" constant="18" id="wpd-D8-4qW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PJX-Es-pSC"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="doneButton" destination="RLe-eE-4TB" id="wKj-IB-TgN"/>
+                        <outlet property="nextTermButton" destination="6Eu-mq-7dQ" id="0TF-Sd-MkH"/>
                         <outlet property="pickerView" destination="C8a-u1-f3e" id="9T0-It-wn4"/>
+                        <outlet property="thisTermButton" destination="rR1-bt-1KO" id="A88-5a-P09"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpj-WT-0yB" userLabel="First Responder" sceneMemberID="firstResponder"/>
