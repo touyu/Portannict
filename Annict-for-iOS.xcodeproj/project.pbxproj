@@ -44,6 +44,7 @@
 		D14ED3B722E8857200437DF9 /* RatingStatusTagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14ED3B622E8857200437DF9 /* RatingStatusTagsView.swift */; };
 		D14ED3B922E8859000437DF9 /* RatingStatusTagsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14ED3B822E8859000437DF9 /* RatingStatusTagsView.xib */; };
 		D15A325122EAE8CB00DDC404 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A325022EAE8CB00DDC404 /* PaddingLabel.swift */; };
+		D15A325322EAF30D00DDC404 /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D15A325222EAF30D00DDC404 /* PKHUD.framework */; };
 		D15F291E22E314B800D18EC3 /* annict-image.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = D15F291D22E3103800D18EC3 /* annict-image.sqlite */; };
 		D16193C222E8581400B6BEBC /* RecordStatusTagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16193C122E8581400B6BEBC /* RecordStatusTagButton.swift */; };
 		D16193C422E8585100B6BEBC /* RecordStatusTagButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = D16193C322E8585100B6BEBC /* RecordStatusTagButton.xib */; };
@@ -223,6 +224,7 @@
 		D14ED3B622E8857200437DF9 /* RatingStatusTagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStatusTagsView.swift; sourceTree = "<group>"; };
 		D14ED3B822E8859000437DF9 /* RatingStatusTagsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingStatusTagsView.xib; sourceTree = "<group>"; };
 		D15A325022EAE8CB00DDC404 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		D15A325222EAF30D00DDC404 /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
 		D15F291D22E3103800D18EC3 /* annict-image.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "annict-image.sqlite"; sourceTree = "<group>"; };
 		D16193C122E8581400B6BEBC /* RecordStatusTagButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordStatusTagButton.swift; sourceTree = "<group>"; };
 		D16193C322E8585100B6BEBC /* RecordStatusTagButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordStatusTagButton.xib; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D15A325322EAF30D00DDC404 /* PKHUD.framework in Frameworks */,
 				D123D0D122D8F2D500C023F1 /* PanModal.framework in Frameworks */,
 				D1E66AB72204B9000058BFEF /* SnapKit.framework in Frameworks */,
 				D1C53C0821EE4C7700DA9A1D /* XLPagerTabStrip.framework in Frameworks */,
@@ -442,6 +445,7 @@
 		D127410B217CCB3F00DD09C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D15A325222EAF30D00DDC404 /* PKHUD.framework */,
 				D123D0D022D8F2D500C023F1 /* PanModal.framework */,
 				D1E66AB62204B9000058BFEF /* SnapKit.framework */,
 				D1E66AB42204B8ED0058BFEF /* Carthage */,
@@ -888,11 +892,11 @@
 			buildConfigurationList = D123F262217CBD2600AE38FD /* Build configuration list for PBXNativeTarget "Annict-for-iOS" */;
 			buildPhases = (
 				8797AD0F81A25331BCAE0A81 /* [CP] Check Pods Manifest.lock */,
+				D1274122217E09D600DD09C2 /* ShellScript */,
 				D123F24C217CBD2500AE38FD /* Sources */,
 				D123F24D217CBD2500AE38FD /* Frameworks */,
 				D123F24E217CBD2500AE38FD /* Resources */,
 				D1274110217CCB5700DD09C2 /* ShellScript */,
-				D1274122217E09D600DD09C2 /* ShellScript */,
 				5BB8CB85AAE678D01443BD23 /* [CP] Embed Pods Frameworks */,
 				D136EA662180424600BA08EA /* ShellScript */,
 			);
@@ -1074,6 +1078,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/XLPagerTabStrip.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PanModal.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PKHUD.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -1098,7 +1103,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=$PATH:$HOME/.nodebrew/current/bin\nAPOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-cli.sh codegen:generate --queries=\"$(find . -name '*.graphql')\" --schema=schema.json API.swift\n";
+			shellScript = "# Do some magic so we can make sure `FRAMEWORK_SEARCH_PATHS` works correctly when there's a space in the scheme or the folder name.\nQUOTED_FRAMEWORK_SEARCH_PATHS=\\\"$(echo $FRAMEWORK_SEARCH_PATHS | tr -d '\"' | sed -e 's/ \\//\" \"\\//g')\\\"\n\n# Get the first result searching for the framework\nAPOLLO_FRAMEWORK_PATH=\"$(eval find ${QUOTED_FRAMEWORK_SEARCH_PATHS} -name \"Apollo.framework\" -maxdepth 1 -print | head -n 1)\"\n\nif [ -z \"${APOLLO_FRAMEWORK_PATH}\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${APOLLO_FRAMEWORK_PATH}\"/check-and-run-apollo-cli.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n";
 		};
 		D136EA662180424600BA08EA /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

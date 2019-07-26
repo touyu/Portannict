@@ -10,6 +10,7 @@ import UIKit
 import ReactorKit
 import RxSwift
 import PanModal
+import PKHUD
 
 final class PostRecordViewController: UIViewController, StoryboardView {
     typealias Reactor = PostRecordViewReactor
@@ -35,6 +36,9 @@ final class PostRecordViewController: UIViewController, StoryboardView {
 
     func bind(reactor: Reactor) {
         recordButton.rx.tap
+            .do(onNext: { _ in
+                HUD.show(.labeledProgress(title: "送信中", subtitle: nil))
+            })
             .map { [unowned self] in
                 Reactor.Action.record(self.textView.text,
                                       self.ratingStateView.selectedRatingState)
@@ -51,6 +55,7 @@ final class PostRecordViewController: UIViewController, StoryboardView {
             .filter { $0 }
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] _ in
+                HUD.hide()
                 self?.textView.resignFirstResponder()
                 self?.dismiss(animated: true, completion: nil)
             })

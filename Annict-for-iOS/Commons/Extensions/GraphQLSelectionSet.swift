@@ -37,8 +37,8 @@ extension Dictionary where Key == String, Value == Any? {
     }
 }
 
-extension ObservableType where E: GraphQLSelectionSet {
-    func distinctUntilChanged() -> Observable<Self.E> {
+extension ObservableType where Element: GraphQLSelectionSet {
+    func distinctUntilChanged() -> Observable<Self.Element> {
         return distinctUntilChanged { $0.resultMap == $1.resultMap }
     }
 }
