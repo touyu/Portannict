@@ -67,7 +67,16 @@ extension SearchResultViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         view.isHidden = false
         guard let text = searchController.searchBar.text else { return }
-        guard !text.isEmpty else { return }
+        if text.isEmpty {
+            reactor?.action.onNext(.clear)
+            return
+        }
         reactor?.action.onNext(.search(text))
+    }
+}
+
+extension SearchResultViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        reactor?.action.onNext(.clear)
     }
 }

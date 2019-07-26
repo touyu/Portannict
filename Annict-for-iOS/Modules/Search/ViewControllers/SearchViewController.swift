@@ -40,6 +40,7 @@ final class SearchViewController: UIViewController, StoryboardView {
         sc.searchResultsUpdater = resultController
         sc.hidesNavigationBarDuringPresentation = false
         sc.dimsBackgroundDuringPresentation = false
+        sc.searchBar.delegate = resultController
         definesPresentationContext = true
         return sc
     }()
@@ -144,45 +145,5 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let reactor = reactor?.reactorForWork(index: indexPath.item) else { return }
         WorkViewController.presentPanModal(fromVC: self, reactor: reactor)
-    }
-}
-
-enum RecommendSeasonSection: CaseIterable {
-    case present
-    case previous
-    case next
-    case previous2
-    case previous3
-    case previous4
-
-    var title: String {
-        switch self {
-        case .present:
-            return "今期のアニメ"
-        case .previous:
-            return "前期のアニメ"
-        case .next:
-            return "来期のアニメ"
-        case .previous2, .previous3, .previous4:
-            return "\(season.year)年 \(season.name.localizedText)アニメ"
-        }
-    }
-
-    var season: Season {
-        let current = Season.current
-        switch self {
-        case .present:
-            return current
-        case .previous:
-            return current.previous()
-        case .next:
-            return current.next()
-        case .previous2:
-            return current.previous(2)
-        case .previous3:
-            return current.previous(3)
-        case .previous4:
-            return current.previous(4)
-        }
     }
 }
