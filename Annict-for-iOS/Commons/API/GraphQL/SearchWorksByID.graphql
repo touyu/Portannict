@@ -1,9 +1,12 @@
-query SearchWorksByID($annictId: Int!) {
+query SearchWorksByID($annictId: Int!, $after: String) {
     searchWorks(annictIds: [$annictId]) {
         nodes {
-            episodes(first:30, orderBy:{field:SORT_NUMBER, direction:ASC}) {
+            episodes(first:30, after: $after, orderBy:{field:SORT_NUMBER, direction:ASC}) {
                 nodes {
                     ... MinimumEpisode
+                }
+                pageInfo {
+                    ...PageInfoF
                 }
             }
         }

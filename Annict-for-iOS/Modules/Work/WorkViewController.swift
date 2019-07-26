@@ -23,18 +23,29 @@ final class WorkViewController: UIViewController, StoryboardView {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
-        tableView.delegate = self
         tableView.tableFooterView = UIView()
+        tableView.showsVerticalScrollIndicator = false
         tableView.register(WorkHeaderTableViewCell.self,
                            EpisodeTitleTableViewCell.self,
                            EpisodeCountSectionTableViewCell.self)
     }
     
     func bind(reactor: Reactor) {
+        tableView.rx.setDataSource(self)
+            .disposed(by: disposeBag)
+        
+        tableView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
+        
         rx.viewWillAppear
             .take(1)
             .map { Reactor.Action.fetchEpisodes }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        tableView.rx.triggeredPagination()
+            .throttle(.seconds(1), latest: false, scheduler: MainScheduler.instance)
+            .map { Reactor.Action.loadMore }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
 

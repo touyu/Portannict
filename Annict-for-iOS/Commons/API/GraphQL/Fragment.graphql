@@ -52,3 +52,8 @@ fragment MinimumRecord on Record {
         ...MinimumUser
     }
 }
+
+fragment PageInfoF on PageInfo {
+  endCursor
+  hasNextPage
+}

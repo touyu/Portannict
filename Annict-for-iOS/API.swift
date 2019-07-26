@@ -2596,20 +2596,22 @@ public final class SearchWorksQuery: GraphQLQuery {
 
 public final class SearchWorksByIdQuery: GraphQLQuery {
   public let operationDefinition =
-    "query SearchWorksByID($annictId: Int!) {\n  searchWorks(annictIds: [$annictId]) {\n    __typename\n    nodes {\n      __typename\n      episodes(first: 30, orderBy: {field: SORT_NUMBER, direction: ASC}) {\n        __typename\n        nodes {\n          __typename\n          ...MinimumEpisode\n        }\n      }\n    }\n  }\n}"
+    "query SearchWorksByID($annictId: Int!, $after: String) {\n  searchWorks(annictIds: [$annictId]) {\n    __typename\n    nodes {\n      __typename\n      episodes(first: 30, after: $after, orderBy: {field: SORT_NUMBER, direction: ASC}) {\n        __typename\n        nodes {\n          __typename\n          ...MinimumEpisode\n        }\n        pageInfo {\n          __typename\n          ...PageInfoF\n        }\n      }\n    }\n  }\n}"
 
   public let operationName = "SearchWorksByID"
 
-  public var queryDocument: String { return operationDefinition.appending(MinimumEpisode.fragmentDefinition) }
+  public var queryDocument: String { return operationDefinition.appending(MinimumEpisode.fragmentDefinition).appending(PageInfoF.fragmentDefinition) }
 
   public var annictId: Int
+  public var after: String?
 
-  public init(annictId: Int) {
+  public init(annictId: Int, after: String? = nil) {
     self.annictId = annictId
+    self.after = after
   }
 
   public var variables: GraphQLMap? {
-    return ["annictId": annictId]
+    return ["annictId": annictId, "after": after]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -2680,7 +2682,7 @@ public final class SearchWorksByIdQuery: GraphQLQuery {
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("episodes", arguments: ["first": 30, "orderBy": ["field": "SORT_NUMBER", "direction": "ASC"]], type: .object(Episode.selections)),
+          GraphQLField("episodes", arguments: ["first": 30, "after": GraphQLVariable("after"), "orderBy": ["field": "SORT_NUMBER", "direction": "ASC"]], type: .object(Episode.selections)),
         ]
 
         public private(set) var resultMap: ResultMap
@@ -2717,6 +2719,7 @@ public final class SearchWorksByIdQuery: GraphQLQuery {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("nodes", type: .list(.object(Node.selections))),
+            GraphQLField("pageInfo", type: .nonNull(.object(PageInfo.selections))),
           ]
 
           public private(set) var resultMap: ResultMap
@@ -2725,8 +2728,8 @@ public final class SearchWorksByIdQuery: GraphQLQuery {
             self.resultMap = unsafeResultMap
           }
 
-          public init(nodes: [Node?]? = nil) {
-            self.init(unsafeResultMap: ["__typename": "EpisodeConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+          public init(nodes: [Node?]? = nil, pageInfo: PageInfo) {
+            self.init(unsafeResultMap: ["__typename": "EpisodeConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, "pageInfo": pageInfo.resultMap])
           }
 
           public var __typename: String {
@@ -2745,6 +2748,16 @@ public final class SearchWorksByIdQuery: GraphQLQuery {
             }
             set {
               resultMap.updateValue(newValue.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, forKey: "nodes")
+            }
+          }
+
+          /// Information to aid in pagination.
+          public var pageInfo: PageInfo {
+            get {
+              return PageInfo(unsafeResultMap: resultMap["pageInfo"]! as! ResultMap)
+            }
+            set {
+              resultMap.updateValue(newValue.resultMap, forKey: "pageInfo")
             }
           }
 
@@ -2794,6 +2807,60 @@ public final class SearchWorksByIdQuery: GraphQLQuery {
               public var minimumEpisode: MinimumEpisode {
                 get {
                   return MinimumEpisode(unsafeResultMap: resultMap)
+                }
+                set {
+                  resultMap += newValue.resultMap
+                }
+              }
+            }
+          }
+
+          public struct PageInfo: GraphQLSelectionSet {
+            public static let possibleTypes = ["PageInfo"]
+
+            public static let selections: [GraphQLSelection] = [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLFragmentSpread(PageInfoF.self),
+            ]
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public init(endCursor: String? = nil, hasNextPage: Bool) {
+              self.init(unsafeResultMap: ["__typename": "PageInfo", "endCursor": endCursor, "hasNextPage": hasNextPage])
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            public var fragments: Fragments {
+              get {
+                return Fragments(unsafeResultMap: resultMap)
+              }
+              set {
+                resultMap += newValue.resultMap
+              }
+            }
+
+            public struct Fragments {
+              public private(set) var resultMap: ResultMap
+
+              public init(unsafeResultMap: ResultMap) {
+                self.resultMap = unsafeResultMap
+              }
+
+              public var pageInfoF: PageInfoF {
+                get {
+                  return PageInfoF(unsafeResultMap: resultMap)
                 }
                 set {
                   resultMap += newValue.resultMap
@@ -3747,6 +3814,58 @@ public struct MinimumRecord: GraphQLFragment {
           resultMap += newValue.resultMap
         }
       }
+    }
+  }
+}
+
+public struct PageInfoF: GraphQLFragment {
+  public static let fragmentDefinition =
+    "fragment PageInfoF on PageInfo {\n  __typename\n  endCursor\n  hasNextPage\n}"
+
+  public static let possibleTypes = ["PageInfo"]
+
+  public static let selections: [GraphQLSelection] = [
+    GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+    GraphQLField("endCursor", type: .scalar(String.self)),
+    GraphQLField("hasNextPage", type: .nonNull(.scalar(Bool.self))),
+  ]
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(endCursor: String? = nil, hasNextPage: Bool) {
+    self.init(unsafeResultMap: ["__typename": "PageInfo", "endCursor": endCursor, "hasNextPage": hasNextPage])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  /// When paginating forwards, the cursor to continue.
+  public var endCursor: String? {
+    get {
+      return resultMap["endCursor"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "endCursor")
+    }
+  }
+
+  /// When paginating forwards, are there more items?
+  public var hasNextPage: Bool {
+    get {
+      return resultMap["hasNextPage"]! as! Bool
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "hasNextPage")
     }
   }
 }

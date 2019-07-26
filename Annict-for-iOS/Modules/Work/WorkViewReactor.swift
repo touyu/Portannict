@@ -12,18 +12,22 @@ import RxSwift
 final class WorkViewReactor: Reactor {
     enum Action {
         case fetchEpisodes
+        case loadMore
         case updateStatusState(StatusState)
     }
     
     enum Mutation {
         case setEpisodes([MinimumEpisode])
+        case apppendEpisodes([MinimumEpisode])
         case updateStatus(StatusState)
         case setWork(MinimumWork)
+        case setPageInfo(PageInfoF)
     }
     
     struct State {
         var work: MinimumWork
         var episodes: [MinimumEpisode] = []
+        var pageInfo: PageInfoF?
         
         init(work: MinimumWork) {
             self.work = work
@@ -45,7 +49,24 @@ final class WorkViewReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .fetchEpisodes:
-            return fetchEpisodes().map { .setEpisodes($0) }
+            let fetch = fetchEpisodes().share(replay: 1)
+            let setEpisodes = fetch
+                .map { $0.values.map { $0.fragments.minimumEpisode } }
+                .map { Mutation.setEpisodes($0) }
+            let setPageInfo = fetch
+                .map { $0.pageInfo.fragments.pageInfoF }
+                .map { Mutation.setPageInfo($0) }
+            return Observable.merge(setEpisodes, setPageInfo)
+        case .loadMore:
+            guard let pageInfo = currentState.pageInfo, pageInfo.hasNextPage else { return .empty() }
+            let fetch = fetchEpisodes(after: pageInfo.endCursor).share(replay: 1)
+            let setEpisodes = fetch
+                .map { $0.values.map { $0.fragments.minimumEpisode } }
+                .map { Mutation.apppendEpisodes($0) }
+            let setPageInfo = fetch
+                .map { $0.pageInfo.fragments.pageInfoF }
+                .map { Mutation.setPageInfo($0) }
+            return Observable.merge(setEpisodes, setPageInfo)
         case .updateStatusState(let state):
             let localUpdateStatus = Observable.just(Mutation.updateStatus(state))
             let updateStatusStream = updateStatus(state: state).map { Mutation.setWork($0) }
@@ -58,19 +79,27 @@ final class WorkViewReactor: Reactor {
         switch mutation {
         case .setEpisodes(let episodes):
             state.episodes = episodes
+        case .apppendEpisodes(let episodes):
+            state.episodes += episodes
         case .updateStatus(let statusState):
             state.work.viewerStatusState = statusState
         case .setWork(let work):
             state.work = work
+        case .setPageInfo(let pageInfo):
+            state.pageInfo = pageInfo
         }
         return state
     }
     
-    private func fetchEpisodes() -> Observable<[MinimumEpisode]> {
-        let query = SearchWorksByIdQuery(annictId: currentState.work.annictId)
-        return AnnictGraphQL.client.rx.fetch(query: query, cachePolicy: .returnCacheDataAndFetch)
-            .asObservable()
-            .map { $0.searchWorks?.values.first?.episodes?.values.map { $0.fragments.minimumEpisode } }
+    private func fetchEpisodes(after: String? = nil) -> Observable<SearchWorksByIdQuery.Data.SearchWork.Node.Episode> {
+        let query = SearchWorksByIdQuery(annictId: currentState.work.annictId, after: after)
+        var stream = AnnictGraphQL.client.rx.fetch(query: query, cachePolicy: .returnCacheDataAndFetch)
+        if after != nil {
+            stream = AnnictGraphQL.client.rx.fetchMaybe(query: query, cachePolicy: .returnCacheDataAndFetch).asObservable()
+        }
+        
+        return stream
+            .map { $0.searchWorks?.values.first?.episodes }
             .filterNil()
     }
 
