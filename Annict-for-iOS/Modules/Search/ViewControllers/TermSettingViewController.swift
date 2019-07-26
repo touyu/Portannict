@@ -108,6 +108,10 @@ extension TermSettingViewController: PanModalPresentable {
         return .contentHeight(300)
     }
 
+    var longFormHeight: PanModalHeight {
+        return shortFormHeight
+    }
+
     static func presentPanModal(fromVC: UIViewController, reactor: Reactor) {
         let vc = TermSettingViewController.loadStoryboard(reactor: reactor)
         fromVC.presentPanModal(vc)
