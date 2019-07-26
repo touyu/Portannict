@@ -39,7 +39,6 @@ final class ProfileWorksViewController: ChildPagerViewController, StoryboardView
         
         collectionView.rx.contentOffset
             .subscribe(onNext: { [weak self] offset in
-                print(offset)
                 guard let self = self else { return }
                 self.delegate?.scrollViewDidScrolled(self.collectionView)
             })
