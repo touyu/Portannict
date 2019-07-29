@@ -1,44 +1,29 @@
 # Portannict
-Unofficial annict client app for iOS
+:iphone: Annict Client App for iOS. Twitter-like UI.
 
-## Icon
-<img src="http://i.imgur.com/F3xbXac.png"  width="160">
+# Set Up
 
-## UI
-<img src="https://raw.githubusercontent.com/touyu/Annict-for-iOS/master/Docs/images/ScreenShot1.PNG" width="300">
-<!--
-<img src="http://i.imgur.com/LGcivTc.png" width="300">
-<img src="http://i.imgur.com/PVPbnHw.png" width="300">
--->
+## Xcode Plugin
+https://github.com/apollographql/xcode-graphql
 
-## Setup
+# Troubleshooting
 
-### Environment
-```
-$ git clone git@github.com:touyu/Portannict.git
-$ git clone git@github.com:touyu/portannict_env.git
-$ sh portannict_env/setup.sh
-```
+## Install ReactorKit using Carthage
+ReactorKit does not officially support Carthage.
+https://github.com/ReactorKit/ReactorKit#installation
 
-### Gem
-```
-$ bundle install --path vendor/bundle
-```
+Therefore, special operation is required.
+According to the official, we do as follows.
 
-### Carthage
 ```
-$ carthage update --platform iOS --no-use-binaries
+$ carthage update 2>/dev/null
+$ cd Carthage/Checkouts/ReactorKit
+$ swift package generate-xcodeproj
+$ carthage build
 ```
+However, this will make Deployment Target the latest iOS version.
+So, you need to change the deployment target of Reactorkit.
 
-### CocoaPods
-```
-$ bundle exec pod install
-```
+"Build Settings" -> "iOS Deployment Target" -> "iOS 11.0"
 
-### Download schema.json
-```
-$ apollo-codegen download-schema https://api.annict.com/graphql --header "Authorization: Bearer $TOKEN" --output schema.json
-```
 
-### Fastlane
-- [README](https://github.com/touyu/Portannict/blob/master/fastlane/README.md)

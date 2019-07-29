@@ -1,0 +1,64 @@
+query GetFollowingActivities($after: String) {
+  viewer {
+    followingActivities(after: $after, first: 30, orderBy:{field:CREATED_AT, direction:DESC}) {
+      pageInfo {
+          ...PageInfoFrag
+      }
+      edges {
+        annictId
+        node {
+          ... on Status {
+            createdAt
+            annictId
+            id
+            state
+            work {
+              ...MinimumWork
+            }
+            user {
+              ...MinimumUser
+            }
+          }
+          ... on Record {
+            ...MinimumRecord
+            episode {
+              ...MinimumEpisode
+            }
+            work {
+              ...MinimumWork
+            }
+          }
+          ... on Review {
+            createdAt
+            annictId
+            id
+            work {
+              ...MinimumWork
+            }
+            user {
+              ...MinimumUser
+            }
+          }
+          ... on MultipleRecord {
+            createdAt
+            annictId
+            id
+            records(first: 30) {
+              nodes {
+                episode {
+                  ...MinimumEpisode
+                }
+              }
+            }
+            work {
+              ...MinimumWork
+            }
+            user {
+              ...MinimumUser
+            }
+          }
+        }
+      }
+    }
+  }
+}

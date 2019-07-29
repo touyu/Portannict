@@ -1,25 +1,17 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '10.0'
+platform :ios, '11.0'
 
 target 'Annict-for-iOS' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for Annict-for-iOS
-  pod 'Firebase/Core'
-  pod 'Firebase/Firestore'
-  pod 'DateToolsSwift'
-
-  target 'Annict-for-iOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-    # pod 'Firebase', '~> 3.16.0'
-  end
-
-  target 'Annict-for-iOSUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  pod 'RxSwift', '~> 5'
+  pod 'RxCocoa', '~> 5'
+  pod 'RxGesture'
+  pod 'ReactorKit'
+  pod 'SPStorkController'
+  pod 'SwiftDate', :git => 'git@github.com:touyu/SwiftDate.git'
 
 end
 
@@ -27,9 +19,5 @@ plugin 'cocoapods-keys', {
   :project => "Annict-for-iOS",
   :keys => [
     "AnnictClientID",
-    "AnnictClientSecret",
-    "AnnictAccessToken",
-    "AnnictIDForReview",
-    "AnnictPassForReview",
-    "AnnictAccessTokenForReview"
+    "AnnictClientSecret"
 ]}

@@ -1,8 +1,0 @@
-app_identifier "com.YutoAkiba.Annict-for-iOS" # The bundle identifier of your app
-apple_id "akkey0222@gmail.com" # Your Apple email address
-
-team_id "V8AZ23YEL4" # Developer Portal Team ID
-itc_team_id "118078722"
-
-# you can even provide different app identifiers, Apple IDs and team names per lane:
-# More information: https://docs.fastlane.tools/advanced/#appfile

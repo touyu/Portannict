@@ -1,0 +1,22 @@
+{
+  "name": "portannict",
+  "version": "1.0.0",
+  "description": ":iphone: Annict Client App for iOS. Twitter-like UI.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/touyu/Portannict.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/touyu/Portannict/issues"
+  },
+  "homepage": "https://github.com/touyu/Portannict#readme",
+  "dependencies": {
+    "apollo": "^2.16.2"
+  }
+}

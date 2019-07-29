@@ -1,0 +1,12 @@
+query GetViewerInfo {
+    viewer {
+        watchingCount
+        recordsCount
+        followersCount
+        followingsCount
+        description
+        username
+        name
+        avatarUrl
+    }
+}

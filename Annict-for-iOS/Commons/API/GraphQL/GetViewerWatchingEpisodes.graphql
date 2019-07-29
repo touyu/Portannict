@@ -1,0 +1,20 @@
+query GetViewerWatchingEpisodes($first: Int, $after: String) {
+    viewer {
+        works(state: WATCHING, first: $first, after: $after) {
+            pageInfo {
+                endCursor
+                hasNextPage
+            } 
+            nodes {
+                ...MinimumWork
+                episodes(orderBy: {field: CREATED_AT, direction: DESC}) {
+                    nodes {
+                        ...MinimumEpisode
+                    }
+                }
+            }
+        }
+    }
+}
+
+

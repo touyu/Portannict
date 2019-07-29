@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WorkQuoteView" customModule="Annict_for_iOS" customModuleProvider="target">
+            <connections>
+                <outlet property="workImageView" destination="oPz-Tv-ZCm" id="I0K-zC-MsD"/>
+                <outlet property="workTitleLabel" destination="Bou-ny-h5W" id="1In-3s-LHy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oPz-Tv-ZCm">
+                    <rect key="frame" x="0.0" y="0.0" width="63" height="88"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="oPz-Tv-ZCm" secondAttribute="height" multiplier="1:1.4" id="kJ8-TT-Sch"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bou-ny-h5W">
+                    <rect key="frame" x="75" y="36" width="288" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="oPz-Tv-ZCm" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="RoK-pn-iCj"/>
+                <constraint firstItem="Bou-ny-h5W" firstAttribute="centerY" secondItem="oPz-Tv-ZCm" secondAttribute="centerY" id="Yjh-2x-JgK"/>
+                <constraint firstItem="oPz-Tv-ZCm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="crY-Vv-qFj"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Bou-ny-h5W" secondAttribute="trailing" constant="12" id="dHA-Mh-7Yu"/>
+                <constraint firstItem="Bou-ny-h5W" firstAttribute="leading" secondItem="oPz-Tv-ZCm" secondAttribute="trailing" constant="12" id="dcy-Hs-1pg"/>
+                <constraint firstItem="oPz-Tv-ZCm" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="idV-ke-aLe"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="138.40000000000001" y="327.4362818590705"/>
+        </view>
+    </objects>
+</document>

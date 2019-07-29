@@ -1,0 +1,7 @@
+query SearchWorksByTitle($title: String!) {
+  searchWorks(titles: [$title], orderBy: { field: WATCHERS_COUNT, direction: DESC }, first: 30) {
+    nodes {
+        ...MinimumWork
+    }
+  }
+}
