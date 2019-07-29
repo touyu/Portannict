@@ -69,3 +69,4 @@ fastlane/test_output
 fastlane/metadata
 .env
 .fastlane_env
+node_modules
