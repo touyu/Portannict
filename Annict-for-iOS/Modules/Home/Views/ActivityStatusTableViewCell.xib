@@ -63,6 +63,14 @@
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDd-1w-Ifp">
+                        <rect key="frame" x="593" y="17" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="NNR-eF-LDo"/>
+                            <constraint firstAttribute="width" constant="15" id="YgR-fO-Rdz"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="under_arrow"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="GYW-FP-YEo" firstAttribute="top" secondItem="rjl-Oh-LGb" secondAttribute="bottom" constant="8" id="0E1-go-KsB"/>
@@ -77,8 +85,11 @@
                     <constraint firstItem="TzS-Cw-iv1" firstAttribute="leading" secondItem="rjl-Oh-LGb" secondAttribute="trailing" constant="4" id="O1Q-gx-eBw"/>
                     <constraint firstAttribute="trailing" secondItem="GYW-FP-YEo" secondAttribute="trailing" constant="16" id="Qg8-gm-BUe"/>
                     <constraint firstItem="TzS-Cw-iv1" firstAttribute="centerY" secondItem="rjl-Oh-LGb" secondAttribute="centerY" id="Usk-Uj-Vwy"/>
+                    <constraint firstItem="UDd-1w-Ifp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XSA-xc-eLF" secondAttribute="trailing" constant="4" id="Ym2-nI-BQy"/>
+                    <constraint firstAttribute="trailing" secondItem="UDd-1w-Ifp" secondAttribute="trailing" constant="16" id="Zrt-es-feb"/>
                     <constraint firstItem="GYW-FP-YEo" firstAttribute="leading" secondItem="rjl-Oh-LGb" secondAttribute="leading" id="hpX-H0-cyQ"/>
                     <constraint firstItem="brf-SN-5Cz" firstAttribute="top" secondItem="hdg-Nt-Iyj" secondAttribute="top" constant="16" id="lEJ-mZ-X0M"/>
+                    <constraint firstItem="UDd-1w-Ifp" firstAttribute="centerY" secondItem="XSA-xc-eLF" secondAttribute="centerY" id="rfi-6X-urR"/>
                     <constraint firstAttribute="trailing" secondItem="Iaa-L2-Jc8" secondAttribute="trailing" constant="16" id="yt7-ib-bo4"/>
                 </constraints>
             </tableViewCellContentView>
@@ -88,10 +99,14 @@
                 <outlet property="messageLabel" destination="GYW-FP-YEo" id="F4R-gH-UjX"/>
                 <outlet property="nameLabel" destination="rjl-Oh-LGb" id="04k-QY-5qI"/>
                 <outlet property="timeLabel" destination="XSA-xc-eLF" id="AIh-hY-h6R"/>
+                <outlet property="underArrowButton" destination="UDd-1w-Ifp" id="XYA-3S-jK3"/>
                 <outlet property="usernameLabel" destination="TzS-Cw-iv1" id="Fm9-ga-EWj"/>
                 <outlet property="workQuoteView" destination="Iaa-L2-Jc8" id="Onf-yT-TKU"/>
             </connections>
             <point key="canvasLocation" x="392" y="263"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="under_arrow" width="30" height="30"/>
+    </resources>
 </document>

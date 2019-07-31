@@ -19,9 +19,10 @@ final class ActivityStatusTableViewCell: UITableViewCell, StoryboardView {
     @IBOutlet private weak var messageLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var workQuoteView: WorkQuoteView!
-
+    @IBOutlet private weak var underArrowButton: UIButton!
+    
     var disposeBag = DisposeBag()
-    weak var delegate: HomeQuoteViewCellDelegate?
+    weak var delegate: HomeCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +30,9 @@ final class ActivityStatusTableViewCell: UITableViewCell, StoryboardView {
         avatarImageView.layer.masksToBounds = true
         avatarImageView.layer.cornerRadius = 40 / 2
         workQuoteView.delegate = self
+        
+        underArrowButton.withImageRenderingMode(.alwaysTemplate)
+        underArrowButton.tintColor = UIColor(white: 0.9, alpha: 1)
     }
     
     override func prepareForReuse() {
@@ -39,6 +43,12 @@ final class ActivityStatusTableViewCell: UITableViewCell, StoryboardView {
     }
 
     func bind(reactor: Reactor) {
+        underArrowButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.delegate?.didTapUnderArrow(item: .status(reactor))
+            })
+            .disposed(by: disposeBag)
+        
         reactor.state.map { $0.status }
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] status in
