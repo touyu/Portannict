@@ -505,7 +505,7 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		D14ED3BA22E8AD2F00437DF9 /* Episode */ = {
+		D14ED3BA22E8AD2F00437DF9 /* EpisodeRecords */ = {
 			isa = PBXGroup;
 			children = (
 				D1BD1F7722E8C13800A260F5 /* EpisodeRecordsViewController.storyboard */,
@@ -513,7 +513,7 @@
 				D1BD1F7922E8C13800A260F5 /* EpisodeRecordsViewReactor.swift */,
 				D1D4CD2B22E8BC5700BCBE82 /* Cells */,
 			);
-			path = Episode;
+			path = EpisodeRecords;
 			sourceTree = "<group>";
 		};
 		D16193C022E857E500B6BEBC /* Views */ = {
@@ -684,7 +684,7 @@
 		D1B4F15E217EB33E0011BAFF /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				D14ED3BA22E8AD2F00437DF9 /* Episode */,
+				D14ED3BA22E8AD2F00437DF9 /* EpisodeRecords */,
 				D1F9ED0421B274C000AB3DAE /* Work */,
 				D1FFB59721B0464F001099E6 /* Search */,
 				D1621DF32186272300819D93 /* Profile */,

@@ -139,10 +139,23 @@ extension HomeViewController: UITableViewDelegate {
     }
 }
 
-extension HomeViewController: HomeQuoteViewCellDelegate {
+extension HomeViewController: HomeCellDelegate {
     func didSelect(item: HomeSectionItem) {
         guard let work = item.work else { return }
         let r = reactor!.reactorForWork(work: work)
         WorkViewController.presentPanModal(fromVC: self, reactor: r)
+    }
+    
+    func didTapUnderArrow() {
+        showAlert()
+    }
+    
+    private func showAlert() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let reportAction = UIAlertAction(title: "投稿を報告する", style: .default, handler: nil)
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        alert.addAction(reportAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
 }

@@ -15,6 +15,10 @@ protocol HomeQuoteViewCellDelegate: class {
     func didSelect(item: HomeSectionItem)
 }
 
+protocol HomeCellDelegate: HomeQuoteViewCellDelegate {
+    func didTapUnderArrow()
+}
+
 final class ActivityRecordTableViewCell: UITableViewCell, StoryboardView {
     typealias Reactor = ActivityRecordTableViewCellReactor
 
@@ -25,9 +29,10 @@ final class ActivityRecordTableViewCell: UITableViewCell, StoryboardView {
     @IBOutlet private weak var messageLabel: UILabel!
     @IBOutlet private weak var workAndEpisodeQuoteView: WorkAndEpisodeQuoteView!
     @IBOutlet private weak var recordStatusTagView: RecordStatusTagView!
-
+    @IBOutlet private weak var underArrowButton: UIButton!
+    
     var disposeBag = DisposeBag()
-    weak var delegate: HomeQuoteViewCellDelegate?
+    weak var delegate: HomeCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,6 +40,9 @@ final class ActivityRecordTableViewCell: UITableViewCell, StoryboardView {
         avatarImageView.layer.masksToBounds = true
         avatarImageView.layer.cornerRadius = 40 / 2
         workAndEpisodeQuoteView.delegate = self
+        
+        underArrowButton.withImageRenderingMode(.alwaysTemplate)
+        underArrowButton.tintColor = UIColor(white: 0.9, alpha: 1)
     }
 
     override func prepareForReuse() {
@@ -45,6 +53,12 @@ final class ActivityRecordTableViewCell: UITableViewCell, StoryboardView {
     }
 
     func bind(reactor: Reactor) {
+        underArrowButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.delegate?.didTapUnderArrow()
+            })
+            .disposed(by: disposeBag)
+        
         reactor.state.map { $0.record }
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] record in
@@ -59,7 +73,9 @@ final class ActivityRecordTableViewCell: UITableViewCell, StoryboardView {
         avatarImageView.setImage(url: user.avatarUrl)
         nameLabel.text = user.name
         usernameLabel.text = "@" + user.username
-        timeLabel.text = record.createdAt.toDate()?.toRelativeCurrentLocal()
+        if let time = record.createdAt.toDate()?.toRelativeCurrentLocal() {
+            timeLabel.text = "・" + time
+        }
         messageLabel.text = record.comment
         workAndEpisodeQuoteView.configure(work: activityItem.work.fragments.minimumWork,
                                           episode: activityItem.episode.fragments.minimumEpisode)

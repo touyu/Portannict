@@ -49,7 +49,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSA-xc-eLF">
-                        <rect key="frame" x="580" y="17" width="28" height="15"/>
+                        <rect key="frame" x="183" y="17" width="28" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -67,9 +67,8 @@
                 <constraints>
                     <constraint firstItem="GYW-FP-YEo" firstAttribute="top" secondItem="rjl-Oh-LGb" secondAttribute="bottom" constant="8" id="0E1-go-KsB"/>
                     <constraint firstItem="rjl-Oh-LGb" firstAttribute="top" secondItem="brf-SN-5Cz" secondAttribute="top" id="3N1-kw-0tv"/>
-                    <constraint firstAttribute="trailing" secondItem="XSA-xc-eLF" secondAttribute="trailing" constant="16" id="9Xg-yq-QfH"/>
                     <constraint firstAttribute="bottom" secondItem="Iaa-L2-Jc8" secondAttribute="bottom" priority="250" constant="16" id="BhC-xS-566"/>
-                    <constraint firstItem="XSA-xc-eLF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TzS-Cw-iv1" secondAttribute="trailing" constant="4" id="CDe-lY-025"/>
+                    <constraint firstItem="XSA-xc-eLF" firstAttribute="leading" secondItem="TzS-Cw-iv1" secondAttribute="trailing" constant="4" id="CDe-lY-025"/>
                     <constraint firstItem="brf-SN-5Cz" firstAttribute="leading" secondItem="hdg-Nt-Iyj" secondAttribute="leading" constant="16" id="CH5-ft-9Io"/>
                     <constraint firstItem="XSA-xc-eLF" firstAttribute="centerY" secondItem="TzS-Cw-iv1" secondAttribute="centerY" id="FBp-q1-TB4"/>
                     <constraint firstItem="Iaa-L2-Jc8" firstAttribute="top" secondItem="GYW-FP-YEo" secondAttribute="bottom" constant="12" id="Hp7-Hq-MRe"/>

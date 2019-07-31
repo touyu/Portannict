@@ -55,8 +55,9 @@ final class ActivityStatusTableViewCell: UITableViewCell, StoryboardView {
         let work = activityItem.work.fragments.minimumWork
         workQuoteView.configure(work: work)
         messageLabel.text = "ステータスを「\(activityItem.state.localizedText)」に変更しました。"
-        timeLabel.text = activityItem.createdAt.toDate()?.toRelativeCurrentLocal()
-
+        if let time = activityItem.createdAt.toDate()?.toRelativeCurrentLocal() {
+            timeLabel.text = "・" + time
+        }
     }
 }
 

@@ -104,6 +104,7 @@ extension EpisodeRecordsViewController: UITableViewDataSource {
         }
         let cell = tableView.dequeueReusableCell(classType: EpisodeRecordTableViewCell.self, for: indexPath)
         cell.configure(record: reactor!.currentState.records[indexPath.row])
+        cell.delegate = self
         return cell
     }
 }
@@ -111,6 +112,21 @@ extension EpisodeRecordsViewController: UITableViewDataSource {
 extension EpisodeRecordsViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         SPStorkController.scrollViewDidScroll(scrollView)
+    }
+}
+
+extension EpisodeRecordsViewController: EpisodeRecordTableViewCellDelegate {
+    func didTapUnderArrowButton() {
+        showAlert()
+    }
+    
+    private func showAlert() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let reportAction = UIAlertAction(title: "投稿を報告する", style: .default, handler: nil)
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        alert.addAction(reportAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
 }
 

@@ -54,8 +54,10 @@ final class ActivityMultipleRecordTableViewCell: UITableViewCell, StoryboardView
         usernameLabel.text = "@" + user.username
         let work = activityItem.work.fragments.minimumWork
         workQuoteView.configure(work: work)
-        timeLabel.text = activityItem.createdAt.toDate()?.toRelativeCurrentLocal()
         prepareMessageLabel(activityItem: activityItem)
+        if let time = activityItem.createdAt.toDate()?.toRelativeCurrentLocal() {
+            timeLabel.text = "・" + time
+        }
     }
 
     private func prepareMessageLabel(activityItem: HomeViewReactor.Activity.AsMultipleRecord) {

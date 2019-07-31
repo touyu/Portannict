@@ -36,7 +36,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Grg-gz-2re">
-                        <rect key="frame" x="410" y="17.5" width="28" height="14.5"/>
+                        <rect key="frame" x="183" y="17.5" width="28" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -65,20 +65,33 @@
                             </label>
                         </subviews>
                     </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQX-qW-jN4">
+                        <rect key="frame" x="423" y="17" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="15" id="CYF-xF-iai"/>
+                            <constraint firstAttribute="height" constant="15" id="PpB-SG-Ufo"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="under_arrow"/>
+                        <connections>
+                            <action selector="tappedUnderArrow:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="MOd-rt-xnj"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="XPB-3f-ZVZ" firstAttribute="leading" secondItem="rVC-UA-BLF" secondAttribute="trailing" constant="12" id="0eH-HY-89q"/>
                     <constraint firstItem="rVC-UA-BLF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="2Eu-0X-NdI"/>
                     <constraint firstItem="rVC-UA-BLF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="3yK-d6-awj"/>
                     <constraint firstItem="Grg-gz-2re" firstAttribute="centerY" secondItem="XPB-3f-ZVZ" secondAttribute="centerY" id="5my-zw-J6M"/>
+                    <constraint firstItem="lQX-qW-jN4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Grg-gz-2re" secondAttribute="trailing" constant="4" id="81Q-nY-hRA"/>
                     <constraint firstItem="pk8-H7-dZT" firstAttribute="top" secondItem="XPB-3f-ZVZ" secondAttribute="bottom" constant="8" id="BZQ-rB-ljQ"/>
                     <constraint firstAttribute="bottom" secondItem="pk8-H7-dZT" secondAttribute="bottom" constant="16" id="EqG-7e-aOf"/>
                     <constraint firstItem="Njf-yp-aDf" firstAttribute="centerY" secondItem="XPB-3f-ZVZ" secondAttribute="centerY" id="SWc-Ci-eHa"/>
                     <constraint firstItem="pk8-H7-dZT" firstAttribute="leading" secondItem="XPB-3f-ZVZ" secondAttribute="leading" id="Vmu-WL-bf9"/>
+                    <constraint firstAttribute="trailing" secondItem="lQX-qW-jN4" secondAttribute="trailing" constant="16" id="cZd-uy-K01"/>
                     <constraint firstAttribute="trailing" secondItem="pk8-H7-dZT" secondAttribute="trailing" constant="16" id="cqU-br-1P7"/>
                     <constraint firstItem="XPB-3f-ZVZ" firstAttribute="top" secondItem="rVC-UA-BLF" secondAttribute="top" id="eyO-1L-Oo8"/>
-                    <constraint firstAttribute="trailing" secondItem="Grg-gz-2re" secondAttribute="trailing" constant="16" id="hkz-Ed-WtD"/>
-                    <constraint firstItem="Grg-gz-2re" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Njf-yp-aDf" secondAttribute="trailing" constant="4" id="yfe-Wm-wYB"/>
+                    <constraint firstItem="lQX-qW-jN4" firstAttribute="centerY" secondItem="Grg-gz-2re" secondAttribute="centerY" id="nk4-do-4Qi"/>
+                    <constraint firstItem="Grg-gz-2re" firstAttribute="leading" secondItem="Njf-yp-aDf" secondAttribute="trailing" constant="4" id="yfe-Wm-wYB"/>
                     <constraint firstItem="Njf-yp-aDf" firstAttribute="leading" secondItem="XPB-3f-ZVZ" secondAttribute="trailing" constant="4" id="zbi-NS-frj"/>
                 </constraints>
             </tableViewCellContentView>
@@ -89,9 +102,13 @@
                 <outlet property="nameLabel" destination="XPB-3f-ZVZ" id="dqF-Dg-LNQ"/>
                 <outlet property="statusTagView" destination="lFa-Cv-Ktn" id="0wR-jh-o2i"/>
                 <outlet property="timeLabel" destination="Grg-gz-2re" id="G9b-nP-tQA"/>
+                <outlet property="underArrowButton" destination="lQX-qW-jN4" id="wLD-UN-r5H"/>
                 <outlet property="usernameLabel" destination="Njf-yp-aDf" id="lP6-cC-cJA"/>
             </connections>
             <point key="canvasLocation" x="234.78260869565219" y="199.88839285714286"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="under_arrow" width="30" height="30"/>
+    </resources>
 </document>
