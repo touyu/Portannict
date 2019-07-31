@@ -17,6 +17,7 @@ final class HomeViewReactor: Reactor {
         case fetchActivities
         case loadMore
         case forceFetch
+        case block(Int)
     }
 
     enum Mutation {
@@ -24,6 +25,7 @@ final class HomeViewReactor: Reactor {
         case appendActivities([Activity])
         case setPageInfo(PageInfoFrag)
         case setLoading(Bool)
+        case block(Int)
     }
 
     struct State {
@@ -69,6 +71,8 @@ final class HomeViewReactor: Reactor {
             let setPageInfoEvent = fetchActivitiesEvent.map { Mutation.setPageInfo($0.pageInfo.fragments.pageInfoFrag) }
             let endLoading = Observable<Mutation>.just(.setLoading(false))
             return .concat(startLoading, setActivitiesEvent, setPageInfoEvent, endLoading)
+        case .block(let userID):
+            return .just(.block(userID))
         }
     }
 
@@ -83,6 +87,8 @@ final class HomeViewReactor: Reactor {
             state.pageInfo = pageInfo
         case .setLoading(let isLoading):
             state.isLoading = isLoading
+        case .block(let userID):
+            state.items = state.items.filter { $0.user?.annictId != userID }
         }
         return state
     }
@@ -133,6 +139,19 @@ enum HomeSectionItem: Equatable {
             return reactor.currentState.status.work.fragments.minimumWork
         case .multiRecord(let reactor):
             return reactor.currentState.multipleRecord.work.fragments.minimumWork
+        default:
+            return nil
+        }
+    }
+    
+    var user: MinimumUser? {
+        switch self {
+        case .record(let reactor):
+            return reactor.currentState.record.fragments.minimumRecord.user.fragments.minimumUser
+        case .status(let reactor):
+            return reactor.currentState.status.user.fragments.minimumUser
+        case .multiRecord(let reactor):
+            return reactor.currentState.multipleRecord.user.fragments.minimumUser
         default:
             return nil
         }
