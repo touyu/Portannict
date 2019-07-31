@@ -5,6 +5,7 @@ query GetViewerInfo {
         followersCount
         followingsCount
         description
+        annictId
         username
         name
         avatarUrl

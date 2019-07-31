@@ -137,6 +137,7 @@
 		D1C53C1821EF38E800DA9A1D /* ProfileWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C53C1721EF38E700DA9A1D /* ProfileWorksViewController.swift */; };
 		D1C53C2021EF733200DA9A1D /* ProfileWorkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C53C1E21EF733200DA9A1D /* ProfileWorkCollectionViewCell.swift */; };
 		D1C53C2121EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1C53C1F21EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib */; };
+		D1CEDD7522F14BA000EC2D94 /* DeleteRecord.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1CEDD7422F14BA000EC2D94 /* DeleteRecord.graphql */; };
 		D1E66AB72204B9000058BFEF /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E66AB62204B9000058BFEF /* SnapKit.framework */; };
 		D1E6DEEC22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E6DEEA22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.swift */; };
 		D1E6DEED22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E6DEEB22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.xib */; };
@@ -319,6 +320,7 @@
 		D1C53C1721EF38E700DA9A1D /* ProfileWorksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileWorksViewController.swift; sourceTree = "<group>"; };
 		D1C53C1E21EF733200DA9A1D /* ProfileWorkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWorkCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1C53C1F21EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileWorkCollectionViewCell.xib; sourceTree = "<group>"; };
+		D1CEDD7422F14BA000EC2D94 /* DeleteRecord.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DeleteRecord.graphql; sourceTree = "<group>"; };
 		D1E66AB42204B8ED0058BFEF /* Carthage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Carthage; sourceTree = "<group>"; };
 		D1E66AB62204B9000058BFEF /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		D1E6DEEA22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTitleTableViewCell.swift; sourceTree = "<group>"; };
@@ -595,6 +597,7 @@
 				D1B27B3222526ECF007F8B95 /* SearchWorksByID.graphql */,
 				D1891A5F22E1FA5400D26512 /* UpdateStatus.graphql */,
 				D1BD1F8D22E8C85600A260F5 /* GetRecords.graphql */,
+				D1CEDD7422F14BA000EC2D94 /* DeleteRecord.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -985,6 +988,7 @@
 				D11D57FF2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.xib in Resources */,
 				D1B4C85322EAC713000C2741 /* TermSettingViewController.storyboard in Resources */,
 				D1AF34BC219B3CBF004DD229 /* GetViewerInfo.graphql in Resources */,
+				D1CEDD7522F14BA000EC2D94 /* DeleteRecord.graphql in Resources */,
 				D1F9144B21AA7FD2006986A1 /* UserWorkCollectionViewCell.xib in Resources */,
 				D1F9144121AA7B4F006986A1 /* UserWorksWithSectionTitleCell.xib in Resources */,
 				D11D57EE2237C1DA000D3CC0 /* ActivityStatusTableViewCell.xib in Resources */,

@@ -271,6 +271,143 @@ public final class CreateRecordMutation: GraphQLMutation {
   }
 }
 
+public final class DeleteRecordMutation: GraphQLMutation {
+  public let operationDefinition =
+    "mutation DeleteRecord($recordId: ID!) {\n  deleteRecord(input: {recordId: $recordId}) {\n    __typename\n    episode {\n      __typename\n      ...MinimumEpisode\n    }\n  }\n}"
+
+  public let operationName = "DeleteRecord"
+
+  public var queryDocument: String { return operationDefinition.appending(MinimumEpisode.fragmentDefinition) }
+
+  public var recordId: GraphQLID
+
+  public init(recordId: GraphQLID) {
+    self.recordId = recordId
+  }
+
+  public var variables: GraphQLMap? {
+    return ["recordId": recordId]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Mutation"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("deleteRecord", arguments: ["input": ["recordId": GraphQLVariable("recordId")]], type: .object(DeleteRecord.selections)),
+    ]
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(deleteRecord: DeleteRecord? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "deleteRecord": deleteRecord.flatMap { (value: DeleteRecord) -> ResultMap in value.resultMap }])
+    }
+
+    public var deleteRecord: DeleteRecord? {
+      get {
+        return (resultMap["deleteRecord"] as? ResultMap).flatMap { DeleteRecord(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "deleteRecord")
+      }
+    }
+
+    public struct DeleteRecord: GraphQLSelectionSet {
+      public static let possibleTypes = ["DeleteRecordPayload"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("episode", type: .object(Episode.selections)),
+      ]
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(episode: Episode? = nil) {
+        self.init(unsafeResultMap: ["__typename": "DeleteRecordPayload", "episode": episode.flatMap { (value: Episode) -> ResultMap in value.resultMap }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var episode: Episode? {
+        get {
+          return (resultMap["episode"] as? ResultMap).flatMap { Episode(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "episode")
+        }
+      }
+
+      public struct Episode: GraphQLSelectionSet {
+        public static let possibleTypes = ["Episode"]
+
+        public static let selections: [GraphQLSelection] = [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(MinimumEpisode.self),
+        ]
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: GraphQLID, annictId: Int, title: String? = nil, numberText: String? = nil, sortNumber: Int, viewerRecordsCount: Int, recordCommentsCount: Int, viewerDidTrack: Bool) {
+          self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "title": title, "numberText": numberText, "sortNumber": sortNumber, "viewerRecordsCount": viewerRecordsCount, "recordCommentsCount": recordCommentsCount, "viewerDidTrack": viewerDidTrack])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var minimumEpisode: MinimumEpisode {
+            get {
+              return MinimumEpisode(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 public final class GetFollowingActivitiesQuery: GraphQLQuery {
   public let operationDefinition =
     "query GetFollowingActivities($after: String) {\n  viewer {\n    __typename\n    followingActivities(after: $after, first: 30, orderBy: {field: CREATED_AT, direction: DESC}) {\n      __typename\n      pageInfo {\n        __typename\n        ...PageInfoFrag\n      }\n      edges {\n        __typename\n        annictId\n        node {\n          __typename\n          ... on Status {\n            createdAt\n            annictId\n            id\n            state\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on Record {\n            ...MinimumRecord\n            episode {\n              __typename\n              ...MinimumEpisode\n            }\n            work {\n              __typename\n              ...MinimumWork\n            }\n          }\n          ... on Review {\n            createdAt\n            annictId\n            id\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on MultipleRecord {\n            createdAt\n            annictId\n            id\n            records(first: 30) {\n              __typename\n              nodes {\n                __typename\n                episode {\n                  __typename\n                  ...MinimumEpisode\n                }\n              }\n            }\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n        }\n      }\n    }\n  }\n}"
@@ -1688,7 +1825,7 @@ public final class GetEpisodeRecordsQuery: GraphQLQuery {
 
 public final class GetViewerInfoQuery: GraphQLQuery {
   public let operationDefinition =
-    "query GetViewerInfo {\n  viewer {\n    __typename\n    watchingCount\n    recordsCount\n    followersCount\n    followingsCount\n    description\n    username\n    name\n    avatarUrl\n  }\n}"
+    "query GetViewerInfo {\n  viewer {\n    __typename\n    watchingCount\n    recordsCount\n    followersCount\n    followingsCount\n    description\n    annictId\n    username\n    name\n    avatarUrl\n  }\n}"
 
   public let operationName = "GetViewerInfo"
 
@@ -1731,6 +1868,7 @@ public final class GetViewerInfoQuery: GraphQLQuery {
         GraphQLField("followersCount", type: .nonNull(.scalar(Int.self))),
         GraphQLField("followingsCount", type: .nonNull(.scalar(Int.self))),
         GraphQLField("description", type: .nonNull(.scalar(String.self))),
+        GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
         GraphQLField("username", type: .nonNull(.scalar(String.self))),
         GraphQLField("name", type: .nonNull(.scalar(String.self))),
         GraphQLField("avatarUrl", type: .scalar(String.self)),
@@ -1742,8 +1880,8 @@ public final class GetViewerInfoQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(watchingCount: Int, recordsCount: Int, followersCount: Int, followingsCount: Int, description: String, username: String, name: String, avatarUrl: String? = nil) {
-        self.init(unsafeResultMap: ["__typename": "User", "watchingCount": watchingCount, "recordsCount": recordsCount, "followersCount": followersCount, "followingsCount": followingsCount, "description": description, "username": username, "name": name, "avatarUrl": avatarUrl])
+      public init(watchingCount: Int, recordsCount: Int, followersCount: Int, followingsCount: Int, description: String, annictId: Int, username: String, name: String, avatarUrl: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "User", "watchingCount": watchingCount, "recordsCount": recordsCount, "followersCount": followersCount, "followingsCount": followingsCount, "description": description, "annictId": annictId, "username": username, "name": name, "avatarUrl": avatarUrl])
       }
 
       public var __typename: String {
@@ -1797,6 +1935,15 @@ public final class GetViewerInfoQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "description")
+        }
+      }
+
+      public var annictId: Int {
+        get {
+          return resultMap["annictId"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "annictId")
         }
       }
 
@@ -3666,12 +3813,13 @@ public struct PageInfoFrag: GraphQLFragment {
 
 public struct MinimumRecord: GraphQLFragment {
   public static let fragmentDefinition =
-    "fragment MinimumRecord on Record {\n  __typename\n  annictId\n  comment\n  commentsCount\n  createdAt\n  likesCount\n  ratingState\n  user {\n    __typename\n    ...MinimumUser\n  }\n}"
+    "fragment MinimumRecord on Record {\n  __typename\n  id\n  annictId\n  comment\n  commentsCount\n  createdAt\n  likesCount\n  ratingState\n  user {\n    __typename\n    ...MinimumUser\n  }\n}"
 
   public static let possibleTypes = ["Record"]
 
   public static let selections: [GraphQLSelection] = [
     GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+    GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
     GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
     GraphQLField("comment", type: .scalar(String.self)),
     GraphQLField("commentsCount", type: .nonNull(.scalar(Int.self))),
@@ -3687,8 +3835,8 @@ public struct MinimumRecord: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(annictId: Int, comment: String? = nil, commentsCount: Int, createdAt: String, likesCount: Int, ratingState: RatingState? = nil, user: User) {
-    self.init(unsafeResultMap: ["__typename": "Record", "annictId": annictId, "comment": comment, "commentsCount": commentsCount, "createdAt": createdAt, "likesCount": likesCount, "ratingState": ratingState, "user": user.resultMap])
+  public init(id: GraphQLID, annictId: Int, comment: String? = nil, commentsCount: Int, createdAt: String, likesCount: Int, ratingState: RatingState? = nil, user: User) {
+    self.init(unsafeResultMap: ["__typename": "Record", "id": id, "annictId": annictId, "comment": comment, "commentsCount": commentsCount, "createdAt": createdAt, "likesCount": likesCount, "ratingState": ratingState, "user": user.resultMap])
   }
 
   public var __typename: String {
@@ -3697,6 +3845,15 @@ public struct MinimumRecord: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var id: GraphQLID {
+    get {
+      return resultMap["id"]! as! GraphQLID
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "id")
     }
   }
 

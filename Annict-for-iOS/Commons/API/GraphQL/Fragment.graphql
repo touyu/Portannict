@@ -42,6 +42,7 @@ fragment PageInfoFrag on PageInfo {
 }
 
 fragment MinimumRecord on Record {
+    id
     annictId
     comment
     commentsCount

@@ -9,9 +9,10 @@
 import ReactorKit
 import RxSwift
 
+typealias Viewer = GetViewerInfoQuery.Data.Viewer
+
 final class ProfileViewReactor: Reactor {
     typealias Work = GetViewerWorksQuery.Data.Viewer.Work.Node
-    typealias Viewer = GetViewerInfoQuery.Data.Viewer
     
     var initialState: State
     

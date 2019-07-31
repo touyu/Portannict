@@ -8,17 +8,20 @@
 
 import ReactorKit
 import RxSwift
+import Apollo
 
 final class EpisodeRecordsViewReactor: Reactor {
     enum Action {
         case fetchRecords
         case block(Int)
+        case deleteRecord(GraphQLID)
     }
 
     enum Mutation {
         case setRecords([MinimumRecord])
         case appendRecord(MinimumRecord)
         case block(Int)
+        case removeRecord(GraphQLID)
     }
 
     struct State {
@@ -44,6 +47,15 @@ final class EpisodeRecordsViewReactor: Reactor {
             return fetchRecords().map { Mutation.setRecords($0) }
         case .block(let userID):
             return .just(.block(userID))
+        case .deleteRecord(let recordId):
+            let removeRecord = Observable.just(Mutation.removeRecord(recordId))
+            let stream =  deleteRecord(recordId: recordId)
+                .flatMap { _ in return Observable<Mutation>.empty() }
+                .catchError { error -> Observable<Mutation> in
+                    print(error)
+                    return .empty()
+                }
+            return .merge(removeRecord, stream)
         }
     }
 
@@ -62,6 +74,8 @@ final class EpisodeRecordsViewReactor: Reactor {
             state.records.insert(record, at: 0)
         case .block(let userID):
             state.records = state.records.filter { $0.user.fragments.minimumUser.annictId != userID }
+        case .removeRecord(let recordId):
+            state.records.removeAll(where: { $0.id == recordId })
         }
         return state
     }
@@ -78,6 +92,14 @@ final class EpisodeRecordsViewReactor: Reactor {
             .map { $0.records?.values }
             .filterNil()
             .mapMany { $0.fragments.minimumRecord }
+    }
+    
+    private func deleteRecord(recordId: GraphQLID) -> Observable<MinimumEpisode> {
+        let mutation = DeleteRecordMutation(recordId: recordId)
+        return AnnictGraphQL.client.rx.perform(mutation: mutation)
+            .asObservable()
+            .map { $0.deleteRecord?.episode?.fragments.minimumEpisode }
+            .filterNil()
     }
 }
 

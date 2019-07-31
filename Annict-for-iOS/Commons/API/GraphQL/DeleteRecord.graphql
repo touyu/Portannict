@@ -1,0 +1,7 @@
+mutation DeleteRecord($recordId: ID!) {
+  deleteRecord(input: {recordId: $recordId}) {
+    episode {
+      ...MinimumEpisode
+    }
+  }
+}
