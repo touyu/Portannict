@@ -12,11 +12,13 @@ import RxSwift
 final class EpisodeRecordsViewReactor: Reactor {
     enum Action {
         case fetchRecords
+        case block(Int)
     }
 
     enum Mutation {
         case setRecords([MinimumRecord])
         case appendRecord(MinimumRecord)
+        case block(Int)
     }
 
     struct State {
@@ -40,6 +42,8 @@ final class EpisodeRecordsViewReactor: Reactor {
         switch action {
         case .fetchRecords:
             return fetchRecords().map { Mutation.setRecords($0) }
+        case .block(let userID):
+            return .just(.block(userID))
         }
     }
 
@@ -56,6 +60,8 @@ final class EpisodeRecordsViewReactor: Reactor {
             state.records = records
         case .appendRecord(let record):
             state.records.insert(record, at: 0)
+        case .block(let userID):
+            state.records = state.records.filter { $0.user.fragments.minimumUser.annictId != userID }
         }
         return state
     }

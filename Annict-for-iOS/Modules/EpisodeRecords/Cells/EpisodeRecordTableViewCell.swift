@@ -9,7 +9,7 @@
 import UIKit
 
 protocol EpisodeRecordTableViewCellDelegate: class {
-    func didTapUnderArrowButton()
+    func didTapUnderArrowButton(record: MinimumRecord)
 }
 
 final class EpisodeRecordTableViewCell: UITableViewCell {
@@ -23,6 +23,7 @@ final class EpisodeRecordTableViewCell: UITableViewCell {
     @IBOutlet private weak var underArrowButton: UIButton!
     
     weak var delegate: EpisodeRecordTableViewCellDelegate?
+    private var record: MinimumRecord?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,6 +34,7 @@ final class EpisodeRecordTableViewCell: UITableViewCell {
     }
     
     func configure(record: MinimumRecord) {
+        self.record = record
         let user = record.user.fragments.minimumUser
         avatarImageView.setImage(url: user.avatarUrl)
         nameLabel.text = user.name
@@ -50,7 +52,8 @@ final class EpisodeRecordTableViewCell: UITableViewCell {
     }
     
     @IBAction func tappedUnderArrow(_ sender: UIButton) {
-        delegate?.didTapUnderArrowButton()
+        guard let record = record else { return }
+        delegate?.didTapUnderArrowButton(record: record)
     }
 }
 

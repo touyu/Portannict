@@ -116,15 +116,20 @@ extension EpisodeRecordsViewController: UITableViewDelegate {
 }
 
 extension EpisodeRecordsViewController: EpisodeRecordTableViewCellDelegate {
-    func didTapUnderArrowButton() {
-        showAlert()
+    func didTapUnderArrowButton(record: MinimumRecord) {
+        let user = record.user.fragments.minimumUser
+        showAlert(user: user)
     }
     
-    private func showAlert() {
+    private func showAlert(user: MinimumUser) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let reportAction = UIAlertAction(title: "投稿を報告する", style: .default, handler: nil)
+        let blockAction = UIAlertAction(title: "ユーザーをブロックする", style: .default) { [weak self] _ in
+            self?.reactor?.action.onNext(.block(user.annictId))
+        }
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         alert.addAction(reportAction)
+        alert.addAction(blockAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
