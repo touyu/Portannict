@@ -44,8 +44,8 @@ final class ActivityMultipleRecordTableViewCell: UITableViewCell, StoryboardView
 
     func bind(reactor: Reactor) {
         underArrowButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                self?.delegate?.didTapUnderArrow(item: .multiRecord(reactor))
+            .subscribe(onNext: { [unowned self] _ in
+                self.delegate?.didTapUnderArrow(self, item: .multiRecord(reactor))
             })
             .disposed(by: disposeBag)
         

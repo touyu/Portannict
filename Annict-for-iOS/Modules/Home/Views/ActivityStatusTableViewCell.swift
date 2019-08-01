@@ -44,8 +44,8 @@ final class ActivityStatusTableViewCell: UITableViewCell, StoryboardView {
 
     func bind(reactor: Reactor) {
         underArrowButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                self?.delegate?.didTapUnderArrow(item: .status(reactor))
+            .subscribe(onNext: { [unowned self] _ in
+                self.delegate?.didTapUnderArrow(self, item: .status(reactor))
             })
             .disposed(by: disposeBag)
         

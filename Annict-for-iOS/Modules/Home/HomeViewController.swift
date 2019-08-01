@@ -146,12 +146,12 @@ extension HomeViewController: HomeCellDelegate {
         WorkViewController.presentPanModal(fromVC: self, reactor: r)
     }
     
-    func didTapUnderArrow(item: HomeSectionItem) {
+    func didTapUnderArrow(_ cell: UITableViewCell, item: HomeSectionItem) {
         guard let user = item.user else { return }
-        showAlert(user: user)
+        showAlert(cell: cell, user: user)
     }
     
-    private func showAlert(user: MinimumUser) {
+    private func showAlert(cell: UITableViewCell, user: MinimumUser) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let reportAction = UIAlertAction(title: "投稿を報告する", style: .default, handler: nil)
         let blockAction = UIAlertAction(title: "ユーザーをブロックする", style: .default) { [weak self] _ in
@@ -161,6 +161,8 @@ extension HomeViewController: HomeCellDelegate {
         alert.addAction(reportAction)
         alert.addAction(blockAction)
         alert.addAction(cancelAction)
+        alert.popoverPresentationController?.sourceView = cell.contentView
+        alert.popoverPresentationController?.sourceRect = cell.contentView.frame
         present(alert, animated: true, completion: nil)
     }
 }

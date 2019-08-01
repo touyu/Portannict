@@ -9,7 +9,7 @@
 import UIKit
 
 protocol EpisodeRecordTableViewCellDelegate: class {
-    func didTapUnderArrowButton(record: MinimumRecord)
+    func didTapUnderArrowButton(_ cell: EpisodeRecordTableViewCell,  record: MinimumRecord)
 }
 
 final class EpisodeRecordTableViewCell: UITableViewCell {
@@ -53,7 +53,7 @@ final class EpisodeRecordTableViewCell: UITableViewCell {
     
     @IBAction func tappedUnderArrow(_ sender: UIButton) {
         guard let record = record else { return }
-        delegate?.didTapUnderArrowButton(record: record)
+        delegate?.didTapUnderArrowButton(self, record: record)
     }
 }
 

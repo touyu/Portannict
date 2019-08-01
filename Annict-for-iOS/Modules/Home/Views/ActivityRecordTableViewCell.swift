@@ -16,7 +16,7 @@ protocol HomeQuoteViewCellDelegate: class {
 }
 
 protocol HomeCellDelegate: HomeQuoteViewCellDelegate {
-    func didTapUnderArrow(item: HomeSectionItem)
+    func didTapUnderArrow(_ cell: UITableViewCell, item: HomeSectionItem)
 }
 
 final class ActivityRecordTableViewCell: UITableViewCell, StoryboardView {
@@ -54,8 +54,8 @@ final class ActivityRecordTableViewCell: UITableViewCell, StoryboardView {
 
     func bind(reactor: Reactor) {
         underArrowButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                self?.delegate?.didTapUnderArrow(item: .record(reactor))
+            .subscribe(onNext: { [unowned self] _ in
+                self.delegate?.didTapUnderArrow(self, item: .record(reactor))
             })
             .disposed(by: disposeBag)
         

@@ -116,7 +116,7 @@ extension EpisodeRecordsViewController: UITableViewDelegate {
 }
 
 extension EpisodeRecordsViewController: EpisodeRecordTableViewCellDelegate {
-    func didTapUnderArrowButton(record: MinimumRecord) {
+    func didTapUnderArrowButton(_ cell: EpisodeRecordTableViewCell, record: MinimumRecord) {
         let user = record.user.fragments.minimumUser
 //        let viewer = UserDefaultsRepository.fetch(forKey: .viewer, type: Viewer.self)
         
@@ -125,10 +125,10 @@ extension EpisodeRecordsViewController: EpisodeRecordTableViewCellDelegate {
 //            return
 //        }
         
-        showAlertForOtherUser(user)
+        showAlertForOtherUser(cell: cell, user: user)
     }
     
-    private func showAlertForOtherUser(_ user: MinimumUser) {
+    private func showAlertForOtherUser(cell: EpisodeRecordTableViewCell, user: MinimumUser) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let reportAction = UIAlertAction(title: "投稿を報告する", style: .default, handler: nil)
         let blockAction = UIAlertAction(title: "ユーザーをブロックする", style: .default) { [weak self] _ in
@@ -138,6 +138,8 @@ extension EpisodeRecordsViewController: EpisodeRecordTableViewCellDelegate {
         alert.addAction(reportAction)
         alert.addAction(blockAction)
         alert.addAction(cancelAction)
+        alert.popoverPresentationController?.sourceView = cell.contentView
+        alert.popoverPresentationController?.sourceRect = cell.contentView.frame
         present(alert, animated: true, completion: nil)
     }
     
