@@ -25,7 +25,7 @@ extension UIImageView {
     }
 
     func setImage(workID: Int) {
-        setImage(url: AnnictForIOSKeys().baseImageURL + "/images/\(workID)")
+        setImage(url: Constants.baseImageURL + "/images/\(workID)")
     }
 }
 
