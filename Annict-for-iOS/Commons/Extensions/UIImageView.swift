@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher
 import SQLite
+import Keys
 
 extension UIImageView {
     func setImage(url: URLConvertible?, completion: ((UIImage?) -> Void)? = nil) {
@@ -24,10 +25,7 @@ extension UIImageView {
     }
 
     func setImage(workID: Int) {
-//        let statement = try! SQLiteManager.shared.db.prepare("select * from relations where annict_id = \(workID)")
-//        let kitsuID = statement.map { $0[3] as! String }.first ?? ""
-//        setImage(url: URL(string: "https://media.kitsu.io/anime/poster_images/\(kitsuID)/large.jpg")!)
-        setImage(url: "https://portannict.herokuapp.com/images/\(workID)")
+        setImage(url: AnnictForIOSKeys().baseImageURL + "/images/\(workID)")
     }
 }
 
