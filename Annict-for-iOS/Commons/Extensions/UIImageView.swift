@@ -24,9 +24,10 @@ extension UIImageView {
     }
 
     func setImage(workID: Int) {
-        let statement = try! SQLiteManager.shared.db.prepare("select * from relations where annict_id = \(workID)")
-        let kitsuID = statement.map { $0[3] as! String }.first ?? ""
-        setImage(url: URL(string: "https://media.kitsu.io/anime/poster_images/\(kitsuID)/large.jpg")!)
+//        let statement = try! SQLiteManager.shared.db.prepare("select * from relations where annict_id = \(workID)")
+//        let kitsuID = statement.map { $0[3] as! String }.first ?? ""
+//        setImage(url: URL(string: "https://media.kitsu.io/anime/poster_images/\(kitsuID)/large.jpg")!)
+        setImage(url: "https://portannict.herokuapp.com/images/\(workID)")
     }
 }
 
