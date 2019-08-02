@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7984F721504B319C8CBE8D54 /* Pods_Annict_for_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96973EC1B6F7917CF2A51521 /* Pods_Annict_for_iOS.framework */; };
+		C917CDDC4A16A7899040361A /* Pods_Annict_for_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0567F169D06E4DEA7E47513F /* Pods_Annict_for_iOS.framework */; };
 		D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */; };
 		D1199E492238FF3F00531BF3 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1199E472238FF3E00531BF3 /* BlurView.swift */; };
 		D1199E4A2238FF3F00531BF3 /* BlurKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1199E482238FF3E00531BF3 /* BlurKit.swift */; };
@@ -182,9 +182,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		41D7F39F5572652E4F8ED9F2 /* Pods-Annict-for-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS.release.xcconfig"; sourceTree = "<group>"; };
-		7AD634E842D814FA923420DC /* Pods-Annict-for-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		96973EC1B6F7917CF2A51521 /* Pods_Annict_for_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Annict_for_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0567F169D06E4DEA7E47513F /* Pods_Annict_for_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Annict_for_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C866238FE78822277121123 /* Pods-Annict-for-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		CC015B11081256C34FD80D74 /* Pods-Annict-for-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		D1199E472238FF3E00531BF3 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		D1199E482238FF3E00531BF3 /* BlurKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurKit.swift; sourceTree = "<group>"; };
@@ -379,22 +379,13 @@
 				D1FFB59321B03A14001099E6 /* Apollo.framework in Frameworks */,
 				D1FFB59421B03A14001099E6 /* ApolloSQLite.framework in Frameworks */,
 				D1F9143321AA6A61006986A1 /* Kingfisher.framework in Frameworks */,
-				7984F721504B319C8CBE8D54 /* Pods_Annict_for_iOS.framework in Frameworks */,
+				C917CDDC4A16A7899040361A /* Pods_Annict_for_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		32C339768D19BD99BB84EAA0 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7AD634E842D814FA923420DC /* Pods-Annict-for-iOS.debug.xcconfig */,
-				41D7F39F5572652E4F8ED9F2 /* Pods-Annict-for-iOS.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		D1199E462238FF2E00531BF3 /* BlurKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,7 +423,7 @@
 				D123F252217CBD2500AE38FD /* Annict-for-iOS */,
 				D123F251217CBD2500AE38FD /* Products */,
 				D127410B217CCB3F00DD09C2 /* Frameworks */,
-				32C339768D19BD99BB84EAA0 /* Pods */,
+				F195834130FE771215D4C51F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -474,7 +465,7 @@
 				D1274112217CCCF000DD09C2 /* RxSwift.framework */,
 				D127410C217CCB4000DD09C2 /* ReactorKit.framework */,
 				D127410D217CCB4000DD09C2 /* ReactorKitRuntime.framework */,
-				96973EC1B6F7917CF2A51521 /* Pods_Annict_for_iOS.framework */,
+				0567F169D06E4DEA7E47513F /* Pods_Annict_for_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -893,6 +884,15 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		F195834130FE771215D4C51F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CC015B11081256C34FD80D74 /* Pods-Annict-for-iOS.debug.xcconfig */,
+				4C866238FE78822277121123 /* Pods-Annict-for-iOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -900,14 +900,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D123F262217CBD2600AE38FD /* Build configuration list for PBXNativeTarget "Annict-for-iOS" */;
 			buildPhases = (
-				98CD8F12B64628B09C40635F /* [CP] Check Pods Manifest.lock */,
+				8797AD0F81A25331BCAE0A81 /* [CP] Check Pods Manifest.lock */,
 				D1274122217E09D600DD09C2 /* ShellScript */,
 				D123F24C217CBD2500AE38FD /* Sources */,
 				D123F24D217CBD2500AE38FD /* Frameworks */,
 				D123F24E217CBD2500AE38FD /* Resources */,
 				D1274110217CCB5700DD09C2 /* ShellScript */,
+				5BB8CB85AAE678D01443BD23 /* [CP] Embed Pods Frameworks */,
 				D136EA662180424600BA08EA /* ShellScript */,
-				039267A9D7AFAA45D999B1B5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1015,7 +1015,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		039267A9D7AFAA45D999B1B5 /* [CP] Embed Pods Frameworks */ = {
+		5BB8CB85AAE678D01443BD23 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1051,7 +1051,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		98CD8F12B64628B09C40635F /* [CP] Check Pods Manifest.lock */ = {
+		8797AD0F81A25331BCAE0A81 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1385,7 +1385,7 @@
 		};
 		D123F263217CBD2600AE38FD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7AD634E842D814FA923420DC /* Pods-Annict-for-iOS.debug.xcconfig */;
+			baseConfigurationReference = CC015B11081256C34FD80D74 /* Pods-Annict-for-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1409,7 +1409,7 @@
 		};
 		D123F264217CBD2600AE38FD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41D7F39F5572652E4F8ED9F2 /* Pods-Annict-for-iOS.release.xcconfig */;
+			baseConfigurationReference = 4C866238FE78822277121123 /* Pods-Annict-for-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
