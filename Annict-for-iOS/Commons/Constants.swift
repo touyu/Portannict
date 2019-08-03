@@ -19,6 +19,8 @@ struct Constants {
     static var clientSecret: String {
         return AnnictForIOSKeys().annictClientSecret
     }
+    
+    static let baseImageURL = AnnictForIOSKeys().baseImageURL
 
     static var oauthURL: URL? {
         var oauthURL = "\(rootURI)/oauth/authorize"
