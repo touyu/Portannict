@@ -22,7 +22,7 @@ public final class BlurKit<Base> {
 }
 
 public extension BlurKitCompatible {
-    public var bk: BlurKit<Self> {
+    var bk: BlurKit<Self> {
         return BlurKit(self)
     }
 }

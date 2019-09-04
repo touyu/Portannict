@@ -10,7 +10,7 @@ import UIKit
 
 public extension NSMutableParagraphStyle {
     
-    public convenience init(lineSpacing: CGFloat? = nil, lineBreakMode: NSLineBreakMode? = nil, alignment: NSTextAlignment? = nil, lineHeight: CGFloat? = nil, firstLineHeadIndent: CGFloat? = nil, headIndent: CGFloat? = nil, tailIndent: CGFloat? = nil) {
+    convenience init(lineSpacing: CGFloat? = nil, lineBreakMode: NSLineBreakMode? = nil, alignment: NSTextAlignment? = nil, lineHeight: CGFloat? = nil, firstLineHeadIndent: CGFloat? = nil, headIndent: CGFloat? = nil, tailIndent: CGFloat? = nil) {
         self.init()
         
         if let lineSpacing = lineSpacing {

@@ -10,7 +10,7 @@ import UIKit
 
 public extension UINavigationBar {
 
-    public func clearShadowLine(color: UIColor? = nil) {
+    func clearShadowLine(color: UIColor? = nil) {
         if let color = color {
             let image = UIImage.make(size: CGSize(width: 300, height: 100), color: color)
             self.setBackgroundImage(image, for: .default)
@@ -20,12 +20,12 @@ public extension UINavigationBar {
         self.shadowImage = UIImage()
     }
 
-    public func transparent() {
+    func transparent() {
         self.setBackgroundImage(UIImage(), for: .default)
         self.shadowImage = UIImage()
     }
 
-    public func untransparent() {
+    func untransparent() {
         self.setBackgroundImage(nil, for: .default)
         self.shadowImage = nil
     }

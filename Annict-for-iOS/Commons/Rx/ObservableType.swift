@@ -19,26 +19,26 @@ extension Optional: OptionalType {
     }
 }
 
-extension ObservableType where E: OptionalType {
-    func filterNil() -> Observable<E.Wrapped> {
-        return self.flatMap { element -> Observable<E.Wrapped> in
+extension ObservableType where Element: OptionalType {
+    func filterNil() -> Observable<Element.Wrapped> {
+        return self.flatMap { element -> Observable<Element.Wrapped> in
             guard let value = element.value else {
-                return Observable<E.Wrapped>.empty()
+                return Observable<Element.Wrapped>.empty()
             }
-            return Observable<E.Wrapped>.just(value)
+            return Observable<Element.Wrapped>.just(value)
         }
     }
 }
 
-extension ObservableType where E: Sequence {
-    func mapMany<R>(_ transform: @escaping (E.Element) throws -> R) -> Observable<[R]> {
+extension ObservableType where Element: Sequence {
+    func mapMany<R>(_ transform: @escaping (Element.Element) throws -> R) -> Observable<[R]> {
         return map { collection -> [R] in
             return try collection.map(transform)
         }
     }
     
-    func flatMapMany<O>(_ selector: @escaping (E.Element) throws -> O) -> Observable<[O.E]> where O: ObservableType {
-        return flatMap { collection -> Observable<[O.E]> in
+    func flatMapMany<O>(_ selector: @escaping (Element.Element) throws -> O) -> Observable<[O.Element]> where O: ObservableType {
+        return flatMap { collection -> Observable<[O.Element]> in
             let new = try collection.map(selector)
             return Observable.zip(new)
         }
