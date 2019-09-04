@@ -1388,6 +1388,8 @@
 			baseConfigurationReference = CC015B11081256C34FD80D74 /* Pods-Annict-for-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_DISPLAY_NAME_PREFIX = "Debug-";
+				BUNDLE_ID_SUFFIX = .debug;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V8AZ23YEL4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1400,6 +1402,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.YutoAkiba.Annict-for-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1412,6 +1415,8 @@
 			baseConfigurationReference = 4C866238FE78822277121123 /* Pods-Annict-for-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_DISPLAY_NAME_PREFIX = "";
+				BUNDLE_ID_SUFFIX = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V8AZ23YEL4;
 				FRAMEWORK_SEARCH_PATHS = (
