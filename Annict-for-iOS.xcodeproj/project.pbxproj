@@ -206,7 +206,7 @@
 		D11D57FC2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMultipleRecordTableViewCell.swift; sourceTree = "<group>"; };
 		D11D57FD2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityMultipleRecordTableViewCell.xib; sourceTree = "<group>"; };
 		D123D0D022D8F2D500C023F1 /* PanModal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PanModal.framework; path = Carthage/Build/iOS/PanModal.framework; sourceTree = "<group>"; };
-		D123F250217CBD2500AE38FD /* Annict-for-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Annict-for-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D123F250217CBD2500AE38FD /* Portannict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portannict.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D123F253217CBD2500AE38FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D123F25A217CBD2600AE38FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D123F25D217CBD2600AE38FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -430,7 +430,7 @@
 		D123F251217CBD2500AE38FD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D123F250217CBD2500AE38FD /* Annict-for-iOS.app */,
+				D123F250217CBD2500AE38FD /* Portannict.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -915,7 +915,7 @@
 			);
 			name = "Annict-for-iOS";
 			productName = "Annict-for-iOS";
-			productReference = D123F250217CBD2500AE38FD /* Annict-for-iOS.app */;
+			productReference = D123F250217CBD2500AE38FD /* Portannict.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1404,7 +1404,7 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.YutoAkiba.Annict-for-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Portannict;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1430,7 +1430,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.YutoAkiba.Annict-for-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Portannict;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
