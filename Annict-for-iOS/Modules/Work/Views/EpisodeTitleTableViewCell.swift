@@ -17,16 +17,18 @@ final class EpisodeTitleTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         countLabel.roundedRectangleFilter()
+        countLabel.backgroundColor = UIColor(hex: 0xEBEBEB)
+        titleLabel.textColor = UIColor(hex: 0x464646)
     }
 
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
-        countLabel.backgroundColor = .lightGray
+        countLabel.backgroundColor = UIColor(hex: 0xEBEBEB)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        countLabel.backgroundColor = .lightGray
+        countLabel.backgroundColor = UIColor(hex: 0xEBEBEB)
     }
     
     func configure(episode: MinimumEpisode) {

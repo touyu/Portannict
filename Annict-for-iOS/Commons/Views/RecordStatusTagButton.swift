@@ -44,12 +44,13 @@ final class RecordStatusTagButton: UIView, NibOwnerLoadable {
     
     private func commonInit() {
         loadNib()
-        titleLabel.textColor = .white
+        titleLabel.textColor = UIColor(hex: 0x464646)
     }
     
     func configure(ratingState: RatingState) {
         self.ratingState = ratingState
-        backgroundColor = isSelected ? ratingState.color : UIColor(white: 0.9, alpha: 1)
+        backgroundColor = isSelected ? ratingState.color : UIColor(hex: 0xEBEBEB)
+        titleLabel.textColor = isSelected ? .white : UIColor(hex: 0x464646)
         titleLabel.text = ratingState.localizedText
     }
 }
