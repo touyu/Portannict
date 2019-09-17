@@ -47,6 +47,7 @@ final class WorkStatusButton: UIView, NibOwnerLoadable {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(taped))
         addGestureRecognizer(tapGesture)
 
+        threeDots.image = UIImage(named: "three_dot")?.withRenderingMode(.alwaysTemplate)
         threeDots.isUserInteractionEnabled = true
         threeDots.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapedThreeDots)))
     }
@@ -71,10 +72,14 @@ final class WorkStatusButton: UIView, NibOwnerLoadable {
         switch status {
         case .noState:
             titleLabel.text = StatusState.wannaWatch.localizedText
-            backgroundColor = UIColor(white: 0.8, alpha: 1)
+            titleLabel.textColor = UIColor(hex: 0x464646)
+            backgroundColor = UIColor(hex: 0xEBEBEB)
+            threeDots.tintColor = UIColor(hex: 0x464646)
         case .wannaWatch, .watched, .watching, .stopWatching, .onHold:
             titleLabel.text = status.localizedText
+            titleLabel.textColor = .white
             backgroundColor = UIColor(hex: 0x3498DB)
+            threeDots.tintColor = .white
         default:
             break
         }

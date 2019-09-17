@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WorkStatusButton" customModule="Annict_for_iOS" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WorkStatusButton" customModule="Portannict" customModuleProvider="target">
             <connections>
                 <outlet property="threeDots" destination="36D-B9-exV" id="Awa-Xt-29t"/>
                 <outlet property="titleLabel" destination="Akf-zy-JhR" id="Jaw-Ui-MUY"/>

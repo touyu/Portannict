@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D123F24F217CBD2500AE38FD"
-               BuildableName = "Annict-for-iOS.app"
+               BuildableName = "Portannict.app"
                BlueprintName = "Annict-for-iOS"
                ReferencedContainer = "container:Annict-for-iOS.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D123F24F217CBD2500AE38FD"
-            BuildableName = "Annict-for-iOS.app"
+            BuildableName = "Portannict.app"
             BlueprintName = "Annict-for-iOS"
             ReferencedContainer = "container:Annict-for-iOS.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D123F24F217CBD2500AE38FD"
-            BuildableName = "Annict-for-iOS.app"
+            BuildableName = "Portannict.app"
             BlueprintName = "Annict-for-iOS"
             ReferencedContainer = "container:Annict-for-iOS.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D123F24F217CBD2500AE38FD"
-            BuildableName = "Annict-for-iOS.app"
+            BuildableName = "Portannict.app"
             BlueprintName = "Annict-for-iOS"
             ReferencedContainer = "container:Annict-for-iOS.xcodeproj">
          </BuildableReference>
