@@ -13,7 +13,7 @@
         <!--Term Setting View Controller-->
         <scene sceneID="UUc-NY-ffm">
             <objects>
-                <viewController storyboardIdentifier="TermSettingViewController" id="5jk-Hd-q3d" customClass="TermSettingViewController" customModule="Annict_for_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TermSettingViewController" id="5jk-Hd-q3d" customClass="TermSettingViewController" customModule="Portannict" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yq1-bX-Ama">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,7 +24,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLe-eE-4TB">
                                 <rect key="frame" x="318" y="30" width="37" height="34"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="決定">
+                                <state key="normal" title="検索">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
