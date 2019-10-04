@@ -2,7 +2,7 @@
 
 import Apollo
 
-public enum RatingState: RawRepresentable, Equatable, Hashable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+public enum RatingState: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
   case great
   case good
@@ -41,9 +41,18 @@ public enum RatingState: RawRepresentable, Equatable, Hashable, Apollo.JSONDecod
       default: return false
     }
   }
+
+  public static var allCases: [RatingState] {
+    return [
+      .great,
+      .good,
+      .average,
+      .bad,
+    ]
+  }
 }
 
-public enum StatusState: RawRepresentable, Equatable, Hashable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+public enum StatusState: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
   case wannaWatch
   case watching
@@ -90,10 +99,21 @@ public enum StatusState: RawRepresentable, Equatable, Hashable, Apollo.JSONDecod
       default: return false
     }
   }
+
+  public static var allCases: [StatusState] {
+    return [
+      .wannaWatch,
+      .watching,
+      .watched,
+      .onHold,
+      .stopWatching,
+      .noState,
+    ]
+  }
 }
 
 /// Season name
-public enum SeasonName: RawRepresentable, Equatable, Hashable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+public enum SeasonName: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
   case winter
   case spring
@@ -132,11 +152,29 @@ public enum SeasonName: RawRepresentable, Equatable, Hashable, Apollo.JSONDecoda
       default: return false
     }
   }
+
+  public static var allCases: [SeasonName] {
+    return [
+      .winter,
+      .spring,
+      .summer,
+      .autumn,
+    ]
+  }
 }
 
 public final class CreateRecordMutation: GraphQLMutation {
+  /// mutation CreateRecord($episodeId: ID!, $comment: String, $ratingState: RatingState) {
+  ///   createRecord(input: {episodeId: $episodeId, comment: $comment, ratingState: $ratingState}) {
+  ///     __typename
+  ///     record {
+  ///       __typename
+  ///       ...MinimumRecord
+  ///     }
+  ///   }
+  /// }
   public let operationDefinition =
-    "mutation CreateRecord($episodeId: ID!, $comment: String, $ratingState: RatingState) {\n  createRecord(input: {episodeId: $episodeId, comment: $comment, ratingState: $ratingState}) {\n    __typename\n    record {\n      __typename\n      ...MinimumRecord\n    }\n  }\n}"
+    "mutation CreateRecord($episodeId: ID!, $comment: String, $ratingState: RatingState) { createRecord(input: {episodeId: $episodeId, comment: $comment, ratingState: $ratingState}) { __typename record { __typename ...MinimumRecord } } }"
 
   public let operationName = "CreateRecord"
 
@@ -272,8 +310,17 @@ public final class CreateRecordMutation: GraphQLMutation {
 }
 
 public final class DeleteRecordMutation: GraphQLMutation {
+  /// mutation DeleteRecord($recordId: ID!) {
+  ///   deleteRecord(input: {recordId: $recordId}) {
+  ///     __typename
+  ///     episode {
+  ///       __typename
+  ///       ...MinimumEpisode
+  ///     }
+  ///   }
+  /// }
   public let operationDefinition =
-    "mutation DeleteRecord($recordId: ID!) {\n  deleteRecord(input: {recordId: $recordId}) {\n    __typename\n    episode {\n      __typename\n      ...MinimumEpisode\n    }\n  }\n}"
+    "mutation DeleteRecord($recordId: ID!) { deleteRecord(input: {recordId: $recordId}) { __typename episode { __typename ...MinimumEpisode } } }"
 
   public let operationName = "DeleteRecord"
 
@@ -409,8 +456,88 @@ public final class DeleteRecordMutation: GraphQLMutation {
 }
 
 public final class GetFollowingActivitiesQuery: GraphQLQuery {
+  /// query GetFollowingActivities($after: String) {
+  ///   viewer {
+  ///     __typename
+  ///     followingActivities(after: $after, first: 30, orderBy: {field: CREATED_AT, direction: DESC}) {
+  ///       __typename
+  ///       pageInfo {
+  ///         __typename
+  ///         ...PageInfoFrag
+  ///       }
+  ///       edges {
+  ///         __typename
+  ///         annictId
+  ///         node {
+  ///           __typename
+  ///           ... on Status {
+  ///             createdAt
+  ///             annictId
+  ///             id
+  ///             state
+  ///             work {
+  ///               __typename
+  ///               ...MinimumWork
+  ///             }
+  ///             user {
+  ///               __typename
+  ///               ...MinimumUser
+  ///             }
+  ///           }
+  ///           ... on Record {
+  ///             ...MinimumRecord
+  ///             episode {
+  ///               __typename
+  ///               ...MinimumEpisode
+  ///             }
+  ///             work {
+  ///               __typename
+  ///               ...MinimumWork
+  ///             }
+  ///           }
+  ///           ... on Review {
+  ///             createdAt
+  ///             annictId
+  ///             id
+  ///             work {
+  ///               __typename
+  ///               ...MinimumWork
+  ///             }
+  ///             user {
+  ///               __typename
+  ///               ...MinimumUser
+  ///             }
+  ///           }
+  ///           ... on MultipleRecord {
+  ///             createdAt
+  ///             annictId
+  ///             id
+  ///             records(first: 30) {
+  ///               __typename
+  ///               nodes {
+  ///                 __typename
+  ///                 episode {
+  ///                   __typename
+  ///                   ...MinimumEpisode
+  ///                 }
+  ///               }
+  ///             }
+  ///             work {
+  ///               __typename
+  ///               ...MinimumWork
+  ///             }
+  ///             user {
+  ///               __typename
+  ///               ...MinimumUser
+  ///             }
+  ///           }
+  ///         }
+  ///       }
+  ///     }
+  ///   }
+  /// }
   public let operationDefinition =
-    "query GetFollowingActivities($after: String) {\n  viewer {\n    __typename\n    followingActivities(after: $after, first: 30, orderBy: {field: CREATED_AT, direction: DESC}) {\n      __typename\n      pageInfo {\n        __typename\n        ...PageInfoFrag\n      }\n      edges {\n        __typename\n        annictId\n        node {\n          __typename\n          ... on Status {\n            createdAt\n            annictId\n            id\n            state\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on Record {\n            ...MinimumRecord\n            episode {\n              __typename\n              ...MinimumEpisode\n            }\n            work {\n              __typename\n              ...MinimumWork\n            }\n          }\n          ... on Review {\n            createdAt\n            annictId\n            id\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n          ... on MultipleRecord {\n            createdAt\n            annictId\n            id\n            records(first: 30) {\n              __typename\n              nodes {\n                __typename\n                episode {\n                  __typename\n                  ...MinimumEpisode\n                }\n              }\n            }\n            work {\n              __typename\n              ...MinimumWork\n            }\n            user {\n              __typename\n              ...MinimumUser\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+    "query GetFollowingActivities($after: String) { viewer { __typename followingActivities(after: $after, first: 30, orderBy: {field: CREATED_AT, direction: DESC}) { __typename pageInfo { __typename ...PageInfoFrag } edges { __typename annictId node { __typename ... on Status { createdAt annictId id state work { __typename ...MinimumWork } user { __typename ...MinimumUser } } ... on Record { ...MinimumRecord episode { __typename ...MinimumEpisode } work { __typename ...MinimumWork } } ... on Review { createdAt annictId id work { __typename ...MinimumWork } user { __typename ...MinimumUser } } ... on MultipleRecord { createdAt annictId id records(first: 30) { __typename nodes { __typename episode { __typename ...MinimumEpisode } } } work { __typename ...MinimumWork } user { __typename ...MinimumUser } } } } } } }"
 
   public let operationName = "GetFollowingActivities"
 
@@ -1592,8 +1719,24 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
 }
 
 public final class GetEpisodeRecordsQuery: GraphQLQuery {
+  /// query GetEpisodeRecords($episodeID: Int!) {
+  ///   searchEpisodes(first: 1, annictIds: [$episodeID]) {
+  ///     __typename
+  ///     nodes {
+  ///       __typename
+  ///       ...MinimumEpisode
+  ///       records(first: 30, hasComment: true) {
+  ///         __typename
+  ///         nodes {
+  ///           __typename
+  ///           ...MinimumRecord
+  ///         }
+  ///       }
+  ///     }
+  ///   }
+  /// }
   public let operationDefinition =
-    "query GetEpisodeRecords($episodeID: Int!) {\n  searchEpisodes(first: 1, annictIds: [$episodeID]) {\n    __typename\n    nodes {\n      __typename\n      ...MinimumEpisode\n      records(first: 30, hasComment: true) {\n        __typename\n        nodes {\n          __typename\n          ...MinimumRecord\n        }\n      }\n    }\n  }\n}"
+    "query GetEpisodeRecords($episodeID: Int!) { searchEpisodes(first: 1, annictIds: [$episodeID]) { __typename nodes { __typename ...MinimumEpisode records(first: 30, hasComment: true) { __typename nodes { __typename ...MinimumRecord } } } } }"
 
   public let operationName = "GetEpisodeRecords"
 
@@ -1824,8 +1967,22 @@ public final class GetEpisodeRecordsQuery: GraphQLQuery {
 }
 
 public final class GetViewerInfoQuery: GraphQLQuery {
+  /// query GetViewerInfo {
+  ///   viewer {
+  ///     __typename
+  ///     watchingCount
+  ///     recordsCount
+  ///     followersCount
+  ///     followingsCount
+  ///     description
+  ///     annictId
+  ///     username
+  ///     name
+  ///     avatarUrl
+  ///   }
+  /// }
   public let operationDefinition =
-    "query GetViewerInfo {\n  viewer {\n    __typename\n    watchingCount\n    recordsCount\n    followersCount\n    followingsCount\n    description\n    annictId\n    username\n    name\n    avatarUrl\n  }\n}"
+    "query GetViewerInfo { viewer { __typename watchingCount recordsCount followersCount followingsCount description annictId username name avatarUrl } }"
 
   public let operationName = "GetViewerInfo"
 
@@ -1978,8 +2135,32 @@ public final class GetViewerInfoQuery: GraphQLQuery {
 }
 
 public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
+  /// query GetViewerWatchingEpisodes($first: Int, $after: String) {
+  ///   viewer {
+  ///     __typename
+  ///     works(state: WATCHING, first: $first, after: $after) {
+  ///       __typename
+  ///       pageInfo {
+  ///         __typename
+  ///         endCursor
+  ///         hasNextPage
+  ///       }
+  ///       nodes {
+  ///         __typename
+  ///         ...MinimumWork
+  ///         episodes(orderBy: {field: CREATED_AT, direction: DESC}) {
+  ///           __typename
+  ///           nodes {
+  ///             __typename
+  ///             ...MinimumEpisode
+  ///           }
+  ///         }
+  ///       }
+  ///     }
+  ///   }
+  /// }
   public let operationDefinition =
-    "query GetViewerWatchingEpisodes($first: Int, $after: String) {\n  viewer {\n    __typename\n    works(state: WATCHING, first: $first, after: $after) {\n      __typename\n      pageInfo {\n        __typename\n        endCursor\n        hasNextPage\n      }\n      nodes {\n        __typename\n        ...MinimumWork\n        episodes(orderBy: {field: CREATED_AT, direction: DESC}) {\n          __typename\n          nodes {\n            __typename\n            ...MinimumEpisode\n          }\n        }\n      }\n    }\n  }\n}"
+    "query GetViewerWatchingEpisodes($first: Int, $after: String) { viewer { __typename works(state: WATCHING, first: $first, after: $after) { __typename pageInfo { __typename endCursor hasNextPage } nodes { __typename ...MinimumWork episodes(orderBy: {field: CREATED_AT, direction: DESC}) { __typename nodes { __typename ...MinimumEpisode } } } } } }"
 
   public let operationName = "GetViewerWatchingEpisodes"
 
@@ -2313,8 +2494,25 @@ public final class GetViewerWatchingEpisodesQuery: GraphQLQuery {
 }
 
 public final class GetViewerWorksQuery: GraphQLQuery {
+  /// query GetViewerWorks($state: StatusState, $after: String) {
+  ///   viewer {
+  ///     __typename
+  ///     works(state: $state, first: 30, after: $after, orderBy: {field: SEASON, direction: DESC}) {
+  ///       __typename
+  ///       nodes {
+  ///         __typename
+  ///         ...MinimumWork
+  ///       }
+  ///       pageInfo {
+  ///         __typename
+  ///         endCursor
+  ///         hasNextPage
+  ///       }
+  ///     }
+  ///   }
+  /// }
   public let operationDefinition =
-    "query GetViewerWorks($state: StatusState, $after: String) {\n  viewer {\n    __typename\n    works(state: $state, first: 30, after: $after, orderBy: {field: SEASON, direction: DESC}) {\n      __typename\n      nodes {\n        __typename\n        ...MinimumWork\n      }\n      pageInfo {\n        __typename\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}"
+    "query GetViewerWorks($state: StatusState, $after: String) { viewer { __typename works(state: $state, first: 30, after: $after, orderBy: {field: SEASON, direction: DESC}) { __typename nodes { __typename ...MinimumWork } pageInfo { __typename endCursor hasNextPage } } } }"
 
   public let operationName = "GetViewerWorks"
 
@@ -2546,8 +2744,22 @@ public final class GetViewerWorksQuery: GraphQLQuery {
 }
 
 public final class SearchWorksQuery: GraphQLQuery {
+  /// query SearchWorks($season: String!, $after: String) {
+  ///   searchWorks(seasons: [$season], orderBy: {field: WATCHERS_COUNT, direction: DESC}, first: 30, after: $after) {
+  ///     __typename
+  ///     nodes {
+  ///       __typename
+  ///       ...MinimumWork
+  ///     }
+  ///     pageInfo {
+  ///       __typename
+  ///       endCursor
+  ///       hasNextPage
+  ///     }
+  ///   }
+  /// }
   public let operationDefinition =
-    "query SearchWorks($season: String!, $after: String) {\n  searchWorks(seasons: [$season], orderBy: {field: WATCHERS_COUNT, direction: DESC}, first: 30, after: $after) {\n    __typename\n    nodes {\n      __typename\n      ...MinimumWork\n    }\n    pageInfo {\n      __typename\n      endCursor\n      hasNextPage\n    }\n  }\n}"
+    "query SearchWorks($season: String!, $after: String) { searchWorks(seasons: [$season], orderBy: {field: WATCHERS_COUNT, direction: DESC}, first: 30, after: $after) { __typename nodes { __typename ...MinimumWork } pageInfo { __typename endCursor hasNextPage } } }"
 
   public let operationName = "SearchWorks"
 
@@ -2742,8 +2954,27 @@ public final class SearchWorksQuery: GraphQLQuery {
 }
 
 public final class SearchWorksByIdQuery: GraphQLQuery {
+  /// query SearchWorksByID($annictId: Int!, $after: String) {
+  ///   searchWorks(annictIds: [$annictId]) {
+  ///     __typename
+  ///     nodes {
+  ///       __typename
+  ///       episodes(first: 30, after: $after, orderBy: {field: SORT_NUMBER, direction: ASC}) {
+  ///         __typename
+  ///         nodes {
+  ///           __typename
+  ///           ...MinimumEpisode
+  ///         }
+  ///         pageInfo {
+  ///           __typename
+  ///           ...PageInfoF
+  ///         }
+  ///       }
+  ///     }
+  ///   }
+  /// }
   public let operationDefinition =
-    "query SearchWorksByID($annictId: Int!, $after: String) {\n  searchWorks(annictIds: [$annictId]) {\n    __typename\n    nodes {\n      __typename\n      episodes(first: 30, after: $after, orderBy: {field: SORT_NUMBER, direction: ASC}) {\n        __typename\n        nodes {\n          __typename\n          ...MinimumEpisode\n        }\n        pageInfo {\n          __typename\n          ...PageInfoF\n        }\n      }\n    }\n  }\n}"
+    "query SearchWorksByID($annictId: Int!, $after: String) { searchWorks(annictIds: [$annictId]) { __typename nodes { __typename episodes(first: 30, after: $after, orderBy: {field: SORT_NUMBER, direction: ASC}) { __typename nodes { __typename ...MinimumEpisode } pageInfo { __typename ...PageInfoF } } } } }"
 
   public let operationName = "SearchWorksByID"
 
@@ -3022,8 +3253,17 @@ public final class SearchWorksByIdQuery: GraphQLQuery {
 }
 
 public final class SearchWorksByTitleQuery: GraphQLQuery {
+  /// query SearchWorksByTitle($title: String!) {
+  ///   searchWorks(titles: [$title], orderBy: {field: WATCHERS_COUNT, direction: DESC}, first: 30) {
+  ///     __typename
+  ///     nodes {
+  ///       __typename
+  ///       ...MinimumWork
+  ///     }
+  ///   }
+  /// }
   public let operationDefinition =
-    "query SearchWorksByTitle($title: String!) {\n  searchWorks(titles: [$title], orderBy: {field: WATCHERS_COUNT, direction: DESC}, first: 30) {\n    __typename\n    nodes {\n      __typename\n      ...MinimumWork\n    }\n  }\n}"
+    "query SearchWorksByTitle($title: String!) { searchWorks(titles: [$title], orderBy: {field: WATCHERS_COUNT, direction: DESC}, first: 30) { __typename nodes { __typename ...MinimumWork } } }"
 
   public let operationName = "SearchWorksByTitle"
 
@@ -3156,8 +3396,17 @@ public final class SearchWorksByTitleQuery: GraphQLQuery {
 }
 
 public final class UpdateStatusMutation: GraphQLMutation {
+  /// mutation UpdateStatus($state: StatusState!, $workId: ID!) {
+  ///   updateStatus(input: {state: $state, workId: $workId}) {
+  ///     __typename
+  ///     work {
+  ///       __typename
+  ///       ...MinimumWork
+  ///     }
+  ///   }
+  /// }
   public let operationDefinition =
-    "mutation UpdateStatus($state: StatusState!, $workId: ID!) {\n  updateStatus(input: {state: $state, workId: $workId}) {\n    __typename\n    work {\n      __typename\n      ...MinimumWork\n    }\n  }\n}"
+    "mutation UpdateStatus($state: StatusState!, $workId: ID!) { updateStatus(input: {state: $state, workId: $workId}) { __typename work { __typename ...MinimumWork } } }"
 
   public let operationName = "UpdateStatus"
 
@@ -3291,8 +3540,17 @@ public final class UpdateStatusMutation: GraphQLMutation {
 }
 
 public struct EpisodeDetails: GraphQLFragment {
+  /// fragment EpisodeDetails on Episode {
+  ///   __typename
+  ///   id
+  ///   annictId
+  ///   title
+  ///   viewerRecordsCount
+  ///   viewerDidTrack
+  ///   numberText
+  /// }
   public static let fragmentDefinition =
-    "fragment EpisodeDetails on Episode {\n  __typename\n  id\n  annictId\n  title\n  viewerRecordsCount\n  viewerDidTrack\n  numberText\n}"
+    "fragment EpisodeDetails on Episode { __typename id annictId title viewerRecordsCount viewerDidTrack numberText }"
 
   public static let possibleTypes = ["Episode"]
 
@@ -3381,8 +3639,25 @@ public struct EpisodeDetails: GraphQLFragment {
 }
 
 public struct MinimumWork: GraphQLFragment {
+  /// fragment MinimumWork on Work {
+  ///   __typename
+  ///   id
+  ///   annictId
+  ///   title
+  ///   episodesCount
+  ///   watchersCount
+  ///   reviewsCount
+  ///   seasonName
+  ///   seasonYear
+  ///   viewerStatusState
+  ///   image {
+  ///     __typename
+  ///     recommendedImageUrl
+  ///     twitterAvatarUrl
+  ///   }
+  /// }
   public static let fragmentDefinition =
-    "fragment MinimumWork on Work {\n  __typename\n  id\n  annictId\n  title\n  episodesCount\n  watchersCount\n  reviewsCount\n  seasonName\n  seasonYear\n  viewerStatusState\n  image {\n    __typename\n    recommendedImageUrl\n    twitterAvatarUrl\n  }\n}"
+    "fragment MinimumWork on Work { __typename id annictId title episodesCount watchersCount reviewsCount seasonName seasonYear viewerStatusState image { __typename recommendedImageUrl twitterAvatarUrl } }"
 
   public static let possibleTypes = ["Work"]
 
@@ -3558,8 +3833,15 @@ public struct MinimumWork: GraphQLFragment {
 }
 
 public struct MinimumUser: GraphQLFragment {
+  /// fragment MinimumUser on User {
+  ///   __typename
+  ///   annictId
+  ///   name
+  ///   username
+  ///   avatarUrl
+  /// }
   public static let fragmentDefinition =
-    "fragment MinimumUser on User {\n  __typename\n  annictId\n  name\n  username\n  avatarUrl\n}"
+    "fragment MinimumUser on User { __typename annictId name username avatarUrl }"
 
   public static let possibleTypes = ["User"]
 
@@ -3628,8 +3910,19 @@ public struct MinimumUser: GraphQLFragment {
 }
 
 public struct MinimumEpisode: GraphQLFragment {
+  /// fragment MinimumEpisode on Episode {
+  ///   __typename
+  ///   id
+  ///   annictId
+  ///   title
+  ///   numberText
+  ///   sortNumber
+  ///   viewerRecordsCount
+  ///   recordCommentsCount
+  ///   viewerDidTrack
+  /// }
   public static let fragmentDefinition =
-    "fragment MinimumEpisode on Episode {\n  __typename\n  id\n  annictId\n  title\n  numberText\n  sortNumber\n  viewerRecordsCount\n  recordCommentsCount\n  viewerDidTrack\n}"
+    "fragment MinimumEpisode on Episode { __typename id annictId title numberText sortNumber viewerRecordsCount recordCommentsCount viewerDidTrack }"
 
   public static let possibleTypes = ["Episode"]
 
@@ -3738,8 +4031,15 @@ public struct MinimumEpisode: GraphQLFragment {
 }
 
 public struct PageInfoFrag: GraphQLFragment {
+  /// fragment PageInfoFrag on PageInfo {
+  ///   __typename
+  ///   endCursor
+  ///   hasNextPage
+  ///   hasPreviousPage
+  ///   startCursor
+  /// }
   public static let fragmentDefinition =
-    "fragment PageInfoFrag on PageInfo {\n  __typename\n  endCursor\n  hasNextPage\n  hasPreviousPage\n  startCursor\n}"
+    "fragment PageInfoFrag on PageInfo { __typename endCursor hasNextPage hasPreviousPage startCursor }"
 
   public static let possibleTypes = ["PageInfo"]
 
@@ -3812,8 +4112,22 @@ public struct PageInfoFrag: GraphQLFragment {
 }
 
 public struct MinimumRecord: GraphQLFragment {
+  /// fragment MinimumRecord on Record {
+  ///   __typename
+  ///   id
+  ///   annictId
+  ///   comment
+  ///   commentsCount
+  ///   createdAt
+  ///   likesCount
+  ///   ratingState
+  ///   user {
+  ///     __typename
+  ///     ...MinimumUser
+  ///   }
+  /// }
   public static let fragmentDefinition =
-    "fragment MinimumRecord on Record {\n  __typename\n  id\n  annictId\n  comment\n  commentsCount\n  createdAt\n  likesCount\n  ratingState\n  user {\n    __typename\n    ...MinimumUser\n  }\n}"
+    "fragment MinimumRecord on Record { __typename id annictId comment commentsCount createdAt likesCount ratingState user { __typename ...MinimumUser } }"
 
   public static let possibleTypes = ["Record"]
 
@@ -3976,8 +4290,13 @@ public struct MinimumRecord: GraphQLFragment {
 }
 
 public struct PageInfoF: GraphQLFragment {
+  /// fragment PageInfoF on PageInfo {
+  ///   __typename
+  ///   endCursor
+  ///   hasNextPage
+  /// }
   public static let fragmentDefinition =
-    "fragment PageInfoF on PageInfo {\n  __typename\n  endCursor\n  hasNextPage\n}"
+    "fragment PageInfoF on PageInfo { __typename endCursor hasNextPage }"
 
   public static let possibleTypes = ["PageInfo"]
 

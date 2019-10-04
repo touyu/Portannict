@@ -21,6 +21,7 @@ final class PostRecordViewController: UIViewController, StoryboardView {
     @IBOutlet private weak var recordButton: UIButton!
     @IBOutlet private weak var textView: PlaceholderTextView!
     @IBOutlet private weak var ratingStateView: RatingStatusTagsView!
+    @IBOutlet private weak var twitterShareSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,7 @@ final class PostRecordViewController: UIViewController, StoryboardView {
         
         textView.rx.setDelegate(self)
             .disposed(by: disposeBag)
+        twitterShareSwitch.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
     }
 
     func bind(reactor: Reactor) {

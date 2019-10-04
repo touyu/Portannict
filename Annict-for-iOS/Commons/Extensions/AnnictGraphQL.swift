@@ -32,7 +32,7 @@ final class AnnictGraphQL {
     }
 
     private static func makeClient() -> ApolloClient {
-        let transport = HTTPNetworkTransport(url: baseURL, configuration: configuration)
+        let transport = HTTPNetworkTransport(url: baseURL, session: URLSession(configuration: configuration))
         do {
             let fileURL = try temporarySQLiteFileURL()
             let sqliteCache = try SQLiteNormalizedCache(fileURL: fileURL)
