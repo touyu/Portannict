@@ -86,7 +86,7 @@ extension PostRecordViewController: PanModalPresentable {
     }
     
     var shortFormHeight: PanModalHeight {
-        return .contentHeight(350)
+        return .contentHeight(400)
     }
     
     func willRespond(to panModalGestureRecognizer: UIPanGestureRecognizer) {
