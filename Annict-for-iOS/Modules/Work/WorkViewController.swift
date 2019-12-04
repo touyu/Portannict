@@ -152,8 +152,9 @@ extension WorkViewController: WorkStatusButtonDelegate {
         let ac = UIAlertController(title: "ステータスを変更", message: nil, preferredStyle: .actionSheet)
         
         let stateList: [StatusState] = [.noState, .wannaWatch, .watching, .watched, .onHold, .stopWatching].filter { $0 != currentState }
-        let actions = stateList.map { [weak self] statusState in
-            UIAlertAction(title: statusState.localizedText, style: .default, handler: { [weak self] _ in
+        let actions = stateList.map { [weak self] statusState -> UIAlertAction in
+            let title = statusState == .noState ? "選択を解除" : statusState.localizedText
+            return UIAlertAction(title: title, style: .default, handler: { [weak self] _ in
                 self?.updateStatusState(statusState)
             })
         }

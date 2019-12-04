@@ -71,10 +71,10 @@ final class WorkStatusButton: UIView, NibOwnerLoadable {
 
         switch status {
         case .noState:
-            titleLabel.text = StatusState.wannaWatch.localizedText
-            titleLabel.textColor = UIColor(hex: 0x464646)
-            backgroundColor = UIColor(hex: 0xEBEBEB)
-            threeDots.tintColor = UIColor(hex: 0x464646)
+            titleLabel.text = "「見たい」に追加"
+            titleLabel.textColor = UIColor(hex: 0x565859)
+            backgroundColor = UIColor(hex: 0xEEEFF0)
+            threeDots.tintColor = UIColor(hex: 0x565859)
         case .wannaWatch, .watched, .watching, .stopWatching, .onHold:
             titleLabel.text = status.localizedText
             titleLabel.textColor = .white
