@@ -29,7 +29,7 @@ final class PostRecordViewController: UIViewController, StoryboardView {
         recordButton.circleFilter()
         recordButton.tintColor = .white
         recordButton.imageEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
-        recordButton.imageView?.image = recordButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
+        recordButton.configure(icon: .paperAirplane)
         
         textView.rx.setDelegate(self)
             .disposed(by: disposeBag)
@@ -38,7 +38,7 @@ final class PostRecordViewController: UIViewController, StoryboardView {
     func bind(reactor: Reactor) {
         recordButton.rx.tap
             .do(onNext: { _ in
-                HUD.show(.labeledProgress(title: "送信中", subtitle: nil))
+                HUD.showToFront(.labeledProgress(title: "送信中", subtitle: nil))
             })
             .map { [unowned self] in
                 Reactor.Action.record(self.textView.text,
