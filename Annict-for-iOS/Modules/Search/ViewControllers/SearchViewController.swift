@@ -25,7 +25,7 @@ final class SearchViewController: UIViewController, StoryboardView {
         return button
     }()
     
-    private let column: CGFloat = 3
+    private let column: Int = 3
     private let itemSpacing: CGFloat = 18
 
     private lazy var resultController: SearchResultViewController = {
@@ -128,12 +128,14 @@ extension SearchViewController: UICollectionViewDataSource {
         guard let reactor = reactor else { return cell }
         let work = reactor.currentState.works[indexPath.item]
         cell.configure(work: work)
+        cell.setColumnCount(column)
         return cell
     }
 }
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let column = CGFloat(self.column)
         let width = (collectionView.bounds.width - itemSpacing * (column + 1)) / column
         return CGSize(width: width, height: width * 1.4 + 40)
     }

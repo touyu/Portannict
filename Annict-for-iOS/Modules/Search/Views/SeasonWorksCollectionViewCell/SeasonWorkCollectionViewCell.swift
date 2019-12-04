@@ -37,4 +37,14 @@ final class SeasonWorkCollectionViewCell: UICollectionViewCell {
         }
 
     }
+
+    func setColumnCount(_ count: Int) {
+        if count == 2 {
+            titleLabel.font = UIFont.boldSystemFont(ofSize: 12)
+        }
+
+        if count == 3 {
+            titleLabel.font = UIFont.systemFont(ofSize: 11)
+        }
+    }
 }

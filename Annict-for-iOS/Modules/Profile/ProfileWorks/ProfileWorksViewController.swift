@@ -17,6 +17,8 @@ final class ProfileWorksViewController: ChildPagerViewController, StoryboardView
     var disposeBag = DisposeBag()
 
     @IBOutlet weak var collectionView: UICollectionView!
+
+    private let column: Int = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +76,7 @@ extension ProfileWorksViewController: UICollectionViewDataSource {
         guard let reactor = reactor else { return cell }
         let work = reactor.currentState.works[indexPath.item]
         cell.configure(work: work)
+        cell.setColumnCount(column)
         return cell
     }
 }
@@ -81,7 +84,7 @@ extension ProfileWorksViewController: UICollectionViewDataSource {
 extension ProfileWorksViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let mergin: CGFloat = 18
-        let column: CGFloat = 3
+        let column = CGFloat(self.column)
         let width = (collectionView.bounds.width - mergin * (column + 1)) / column
         return CGSize(width: width, height: width * 1.4 + 40)
     }
