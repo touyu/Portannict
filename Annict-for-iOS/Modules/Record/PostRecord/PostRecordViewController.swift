@@ -47,6 +47,8 @@ final class PostRecordViewController: UIViewController, StoryboardView {
             .disposed(by: disposeBag)
 
         twitterShareButton.rx.isOn
+            .skip(1)
+            .distinctUntilChanged()
             .map { Reactor.Action.setShouldShareTwitter($0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)

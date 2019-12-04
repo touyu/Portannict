@@ -23,7 +23,7 @@ final class PostRecordViewReactor: Reactor {
     struct State {
         var episode: MinimumEpisode
         var isRecordingSuccess = false
-        var shouldShareTwitter = false
+        var shouldShareTwitter = UserDefaults.standard.shouldShareTwitter
         
         init(episode: MinimumEpisode) {
             self.episode = episode
@@ -56,6 +56,7 @@ final class PostRecordViewReactor: Reactor {
             state.isRecordingSuccess = true
         case .setShouldShareTwitter(let shouldShareTwitter):
             state.shouldShareTwitter = shouldShareTwitter
+            UserDefaults.standard.shouldShareTwitter = shouldShareTwitter
         }
         return state
     }

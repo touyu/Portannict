@@ -14,6 +14,7 @@ final class UserDefaultsRepository {
         case accessToken = "access_token"
         case viewer = "viewer"
         case viewerAllWorks = "viewer_all_works"
+        case shouldShareTwitter = "should_share_twitter"
     }
     
     private static var userDefaults: UserDefaults {
@@ -92,5 +93,18 @@ extension UserDefaults {
     func decodable<T: Decodable>(forKey key: String) -> T? {
         guard let decodableData = data(forKey: key) else { return nil }
         return try? JSONDecoder().decode(T.self, from: decodableData)
+    }
+}
+
+
+// MARK: - Deprecated Extension UserDefaults
+extension UserDefaults {
+    var shouldShareTwitter: Bool {
+        get {
+            return bool(forKey: "shouldShareTwitter")
+        }
+        set {
+            set(newValue, forKey: "shouldShareTwitter")
+        }
     }
 }
