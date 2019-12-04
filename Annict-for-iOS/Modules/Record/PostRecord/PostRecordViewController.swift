@@ -27,9 +27,7 @@ final class PostRecordViewController: UIViewController, StoryboardView {
         super.viewDidLoad()
         
         recordButton.circleFilter()
-        recordButton.tintColor = .white
-        recordButton.imageEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
-        recordButton.configure(icon: .paperAirplane)
+        recordButton.configure(icon: .paperAirplane, size: 22)
         
         textView.rx.setDelegate(self)
             .disposed(by: disposeBag)

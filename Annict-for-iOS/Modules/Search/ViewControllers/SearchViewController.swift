@@ -16,7 +16,7 @@ final class SearchViewController: UIViewController, StoryboardView {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var seasonLabel: UILabel!
     private var calendarButton: UIButton = {
-        let button = UIButton(imageType: .calendar)
+        let button = UIButton(icon: .calendar)
         button.layer.cornerRadius = 30
         button.backgroundColor = UIColor(hex: 0xFA5871)
         button.tintColor = .white

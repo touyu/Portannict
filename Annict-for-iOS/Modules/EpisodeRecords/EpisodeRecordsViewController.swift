@@ -16,7 +16,7 @@ final class EpisodeRecordsViewController: UIViewController, StoryboardView {
 
     @IBOutlet private weak var tableView: UITableView!
     private var postButton: UIButton = {
-        let button = UIButton(imageType: .pencil)
+        let button = UIButton(icon: .pencil)
         button.layer.cornerRadius = 25
         button.tintColor = UIColor(hex: 0xFA5871)
         button.applyFABShadow()
@@ -152,33 +152,5 @@ extension EpisodeRecordsViewController: EpisodeRecordTableViewCellDelegate {
         alert.addAction(deleteAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
-    }
-}
-
-extension UIImage {
-    enum ImageType: String {
-        case pencil = "pencil"
-        case calendar = "calendar"
-
-        var image: UIImage? {
-            return UIImage(named: self.rawValue)
-        }
-    }
-}
-
-extension UIButton {
-
-    convenience init(imageType: UIImage.ImageType) {
-        self.init(type: .custom)
-        setImage(imageType.image?.withRenderingMode(.alwaysTemplate), for: .normal)
-        imageView?.contentMode = .scaleAspectFit
-        contentHorizontalAlignment = .fill
-        contentVerticalAlignment = .fill
-        backgroundColor = .white
-        imageEdgeInsets = UIEdgeInsets(top: -8, left: -8, bottom: -8, right: -8)
-    }
-
-    func applyFABShadow() {
-        applyShadow(opacity: 0.4, radius: 4, offset: CGSize(width: 0, height: 3))
     }
 }
