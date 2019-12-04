@@ -1414,6 +1414,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.2.0;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.YutoAkiba.Annict-for-iOS";
 				PRODUCT_NAME = Portannict;
@@ -1441,6 +1442,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.YutoAkiba.Annict-for-iOS";
 				PRODUCT_NAME = Portannict;
 				SWIFT_VERSION = 5.0;
