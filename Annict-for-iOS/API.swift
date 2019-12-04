@@ -164,8 +164,8 @@ public enum SeasonName: RawRepresentable, Equatable, Hashable, CaseIterable, Apo
 }
 
 public final class CreateRecordMutation: GraphQLMutation {
-  /// mutation CreateRecord($episodeId: ID!, $comment: String, $ratingState: RatingState) {
-  ///   createRecord(input: {episodeId: $episodeId, comment: $comment, ratingState: $ratingState}) {
+  /// mutation CreateRecord($episodeId: ID!, $comment: String, $ratingState: RatingState, $shareTwitter: Boolean) {
+  ///   createRecord(input: {episodeId: $episodeId, comment: $comment, ratingState: $ratingState, shareTwitter: $shareTwitter}) {
   ///     __typename
   ///     record {
   ///       __typename
@@ -174,7 +174,7 @@ public final class CreateRecordMutation: GraphQLMutation {
   ///   }
   /// }
   public let operationDefinition =
-    "mutation CreateRecord($episodeId: ID!, $comment: String, $ratingState: RatingState) { createRecord(input: {episodeId: $episodeId, comment: $comment, ratingState: $ratingState}) { __typename record { __typename ...MinimumRecord } } }"
+    "mutation CreateRecord($episodeId: ID!, $comment: String, $ratingState: RatingState, $shareTwitter: Boolean) { createRecord(input: {episodeId: $episodeId, comment: $comment, ratingState: $ratingState, shareTwitter: $shareTwitter}) { __typename record { __typename ...MinimumRecord } } }"
 
   public let operationName = "CreateRecord"
 
@@ -183,22 +183,24 @@ public final class CreateRecordMutation: GraphQLMutation {
   public var episodeId: GraphQLID
   public var comment: String?
   public var ratingState: RatingState?
+  public var shareTwitter: Bool?
 
-  public init(episodeId: GraphQLID, comment: String? = nil, ratingState: RatingState? = nil) {
+  public init(episodeId: GraphQLID, comment: String? = nil, ratingState: RatingState? = nil, shareTwitter: Bool? = nil) {
     self.episodeId = episodeId
     self.comment = comment
     self.ratingState = ratingState
+    self.shareTwitter = shareTwitter
   }
 
   public var variables: GraphQLMap? {
-    return ["episodeId": episodeId, "comment": comment, "ratingState": ratingState]
+    return ["episodeId": episodeId, "comment": comment, "ratingState": ratingState, "shareTwitter": shareTwitter]
   }
 
   public struct Data: GraphQLSelectionSet {
     public static let possibleTypes = ["Mutation"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("createRecord", arguments: ["input": ["episodeId": GraphQLVariable("episodeId"), "comment": GraphQLVariable("comment"), "ratingState": GraphQLVariable("ratingState")]], type: .object(CreateRecord.selections)),
+      GraphQLField("createRecord", arguments: ["input": ["episodeId": GraphQLVariable("episodeId"), "comment": GraphQLVariable("comment"), "ratingState": GraphQLVariable("ratingState"), "shareTwitter": GraphQLVariable("shareTwitter")]], type: .object(CreateRecord.selections)),
     ]
 
     public private(set) var resultMap: ResultMap

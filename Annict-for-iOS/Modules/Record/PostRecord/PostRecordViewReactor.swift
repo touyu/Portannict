@@ -12,15 +12,18 @@ import RxSwift
 final class PostRecordViewReactor: Reactor {
     enum Action {
         case record(String?, RatingState?)
+        case setShouldShareTwitter(Bool)
     }
 
     enum Mutation {
         case recordSuccess
+        case setShouldShareTwitter(Bool)
     }
 
     struct State {
         var episode: MinimumEpisode
         var isRecordingSuccess = false
+        var shouldShareTwitter = false
         
         init(episode: MinimumEpisode) {
             self.episode = episode
@@ -39,8 +42,10 @@ final class PostRecordViewReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .record(let comment, let ratingState):
-            return provider.episodeAPIService.createRecord(episodeID: currentState.episode.id, comment: comment, ratingState: ratingState)
+            return provider.episodeAPIService.createRecord(episodeID: currentState.episode.id, comment: comment, ratingState: ratingState, shareTwitter: currentState.shouldShareTwitter)
                 .map { _ in .recordSuccess }
+        case .setShouldShareTwitter(let shouldShareTwitter):
+            return .just(.setShouldShareTwitter(shouldShareTwitter))
         }
     }
     
@@ -49,6 +54,8 @@ final class PostRecordViewReactor: Reactor {
         switch mutation {
         case .recordSuccess:
             state.isRecordingSuccess = true
+        case .setShouldShareTwitter(let shouldShareTwitter):
+            state.shouldShareTwitter = shouldShareTwitter
         }
         return state
     }

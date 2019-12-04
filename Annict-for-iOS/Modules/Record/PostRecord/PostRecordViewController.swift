@@ -21,6 +21,7 @@ final class PostRecordViewController: UIViewController, StoryboardView {
     @IBOutlet private weak var recordButton: UIButton!
     @IBOutlet private weak var textView: PlaceholderTextView!
     @IBOutlet private weak var ratingStateView: RatingStatusTagsView!
+    @IBOutlet private weak var twitterShareButton: RadioButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,11 @@ final class PostRecordViewController: UIViewController, StoryboardView {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
 
+        twitterShareButton.rx.isOn
+            .map { Reactor.Action.setShouldShareTwitter($0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+
         reactor.state.map { $0.episode.numberAndTitle }
             .distinctUntilChanged()
             .bind(to: episodeTitleLabel.rx.text)
@@ -59,6 +65,11 @@ final class PostRecordViewController: UIViewController, StoryboardView {
                 self?.textView.resignFirstResponder()
                 self?.dismiss(animated: true, completion: nil)
             })
+            .disposed(by: disposeBag)
+
+        reactor.state.map { $0.shouldShareTwitter }
+            .take(1)
+            .bind(to: twitterShareButton.rx.isOn)
             .disposed(by: disposeBag)
     }
     

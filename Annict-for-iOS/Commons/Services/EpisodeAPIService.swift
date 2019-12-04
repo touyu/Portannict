@@ -18,7 +18,7 @@ protocol EpisodeAPIServiceType {
     var event: EpisodeAPIServiceEvent { get }
     var client: ApolloClient { get }
     
-    func createRecord(episodeID: GraphQLID, comment: String?, ratingState: RatingState?) -> Observable<CreateRecordMutation.Data> 
+    func createRecord(episodeID: GraphQLID, comment: String?, ratingState: RatingState?, shareTwitter: Bool) -> Observable<CreateRecordMutation.Data>
 }
 
 final class EpisodeAPIService: BaseService, EpisodeAPIServiceType {
@@ -27,9 +27,9 @@ final class EpisodeAPIService: BaseService, EpisodeAPIServiceType {
 
     let disposeBag = DisposeBag()
 
-    func createRecord(episodeID: GraphQLID, comment: String?, ratingState: RatingState?) -> Observable<CreateRecordMutation.Data> {
+    func createRecord(episodeID: GraphQLID, comment: String?, ratingState: RatingState?, shareTwitter: Bool = false) -> Observable<CreateRecordMutation.Data> {
         event.willCreateRecordEpisodeID.onNext(episodeID)
-        let query = CreateRecordMutation(episodeId: episodeID, comment: comment, ratingState: ratingState)
+        let query = CreateRecordMutation(episodeId: episodeID, comment: comment, ratingState: ratingState, shareTwitter: shareTwitter)
         let stream = client.rx.perform(mutation: query)
             .asObservable()
             .share(replay: 1)
