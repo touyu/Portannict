@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5jk-Hd-q3d">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5jk-Hd-q3d">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C62-4O-g5u">
-                                <rect key="frame" x="16" y="44" width="34.5" height="19.5"/>
+                                <rect key="frame" x="16" y="24" width="35" height="19.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="textColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VCE-oI-Imo" customClass="PlaceholderTextView" customModule="Portannict" customModuleProvider="target">
-                                <rect key="frame" x="20" y="158.5" width="335" height="488.5"/>
+                                <rect key="frame" x="20" y="135.5" width="335" height="511.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -34,27 +32,31 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5p-Qn-OIo">
-                                <rect key="frame" x="329" y="39" width="30" height="30"/>
+                                <rect key="frame" x="329" y="19" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.20392156859999999" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="9tl-ZG-3pP"/>
                                     <constraint firstAttribute="width" constant="30" id="xOw-Wp-3Wu"/>
                                 </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="paperplane_fill"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGk-Op-PQU" customClass="RatingStatusTagsView" customModule="Portannict" customModuleProvider="target">
-                                <rect key="frame" x="16" y="79.5" width="343" height="32"/>
+                                <rect key="frame" x="16" y="59.5" width="343" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="mow-7Y-4Xf"/>
                                 </constraints>
                             </view>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Imi-L1-pET">
-                                <rect key="frame" x="16" y="119.5" width="51" height="31"/>
-                            </switch>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sSx-dv-Hez" customClass="RadioButton" customModule="Portannict" customModuleProvider="target">
+                                <rect key="frame" x="16" y="103.5" width="20" height="20"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="AKv-JP-hLc"/>
+                                    <constraint firstAttribute="height" constant="20" id="xiX-uY-35J"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Twitterにシェアする" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqo-8w-QYU">
-                                <rect key="frame" x="73" y="128" width="113" height="14.5"/>
+                                <rect key="frame" x="44" y="106.5" width="113" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -62,17 +64,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hqo-8w-QYU" firstAttribute="leading" secondItem="Imi-L1-pET" secondAttribute="trailing" constant="8" id="6I7-z8-a5d"/>
-                            <constraint firstItem="VCE-oI-Imo" firstAttribute="top" secondItem="Imi-L1-pET" secondAttribute="bottom" constant="8" id="9Fx-ig-Ugr"/>
-                            <constraint firstItem="Imi-L1-pET" firstAttribute="top" secondItem="LGk-Op-PQU" secondAttribute="bottom" constant="8" id="DEB-VA-hrs"/>
+                            <constraint firstItem="VCE-oI-Imo" firstAttribute="top" secondItem="sSx-dv-Hez" secondAttribute="bottom" constant="12" id="1WS-56-k2R"/>
                             <constraint firstItem="LGk-Op-PQU" firstAttribute="top" secondItem="C62-4O-g5u" secondAttribute="bottom" constant="16" id="EYE-z3-M3Z"/>
                             <constraint firstItem="PJX-Es-pSC" firstAttribute="trailing" secondItem="LGk-Op-PQU" secondAttribute="trailing" constant="16" id="I46-sf-BqK"/>
+                            <constraint firstItem="hqo-8w-QYU" firstAttribute="leading" secondItem="sSx-dv-Hez" secondAttribute="trailing" constant="8" id="IPk-rS-kgR"/>
                             <constraint firstItem="PJX-Es-pSC" firstAttribute="trailing" secondItem="u5p-Qn-OIo" secondAttribute="trailing" constant="16" id="KLu-57-rRY"/>
-                            <constraint firstItem="hqo-8w-QYU" firstAttribute="centerY" secondItem="Imi-L1-pET" secondAttribute="centerY" id="MPs-OL-oUH"/>
+                            <constraint firstItem="sSx-dv-Hez" firstAttribute="top" secondItem="LGk-Op-PQU" secondAttribute="bottom" constant="12" id="L1o-Ca-Iy3"/>
                             <constraint firstItem="PJX-Es-pSC" firstAttribute="bottom" secondItem="VCE-oI-Imo" secondAttribute="bottom" constant="20" id="MQl-TQ-Ugo"/>
                             <constraint firstItem="u5p-Qn-OIo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="C62-4O-g5u" secondAttribute="trailing" constant="4" id="Mro-fF-UqJ"/>
-                            <constraint firstItem="Imi-L1-pET" firstAttribute="leading" secondItem="PJX-Es-pSC" secondAttribute="leading" constant="16" id="NOy-8e-c6K"/>
+                            <constraint firstItem="hqo-8w-QYU" firstAttribute="centerY" secondItem="sSx-dv-Hez" secondAttribute="centerY" id="NJ1-GH-4U6"/>
                             <constraint firstItem="u5p-Qn-OIo" firstAttribute="centerY" secondItem="C62-4O-g5u" secondAttribute="centerY" id="PrT-ML-dwO"/>
+                            <constraint firstItem="sSx-dv-Hez" firstAttribute="leading" secondItem="PJX-Es-pSC" secondAttribute="leading" constant="16" id="Wr1-Ja-duR"/>
                             <constraint firstItem="C62-4O-g5u" firstAttribute="top" secondItem="PJX-Es-pSC" secondAttribute="top" constant="24" id="Z45-w7-rmz"/>
                             <constraint firstItem="VCE-oI-Imo" firstAttribute="leading" secondItem="PJX-Es-pSC" secondAttribute="leading" constant="20" id="gIf-Zj-eDX"/>
                             <constraint firstItem="C62-4O-g5u" firstAttribute="leading" secondItem="PJX-Es-pSC" secondAttribute="leading" constant="16" id="gf7-wP-uiR"/>
@@ -86,7 +88,6 @@
                         <outlet property="ratingStateView" destination="LGk-Op-PQU" id="RXD-YK-FF6"/>
                         <outlet property="recordButton" destination="u5p-Qn-OIo" id="NDU-gE-Fiz"/>
                         <outlet property="textView" destination="VCE-oI-Imo" id="bwq-Ld-tAz"/>
-                        <outlet property="twitterShareSwitch" destination="Imi-L1-pET" id="d1e-PI-HY8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpj-WT-0yB" userLabel="First Responder" sceneMemberID="firstResponder"/>

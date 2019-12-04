@@ -39,7 +39,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cUs-uA-pqU">
-                                <rect key="frame" x="0.0" y="87.5" width="375" height="530.5"/>
+                                <rect key="frame" x="0.0" y="87" width="375" height="530.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gur-mx-cGQ">
                                     <size key="itemSize" width="50" height="50"/>
