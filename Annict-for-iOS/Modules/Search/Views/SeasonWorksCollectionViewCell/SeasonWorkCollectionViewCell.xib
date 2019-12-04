@@ -29,30 +29,27 @@
                         <color key="textColor" red="0.1843137255" green="0.1843137255" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAx-X4-cGJ" customClass="PaddingLabel" customModule="Portannict" customModuleProvider="target">
-                        <rect key="frame" x="4" y="286.5" width="30.5" height="13.5"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="48" placeholderIntrinsicHeight="26" translatesAutoresizingMaskIntoConstraints="NO" id="C2v-0a-ypL" customClass="BlurBackgroundLabel" customModule="Portannict" customModuleProvider="target">
+                        <rect key="frame" x="4" y="274" width="48" height="26"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="pam-up-yZd" firstAttribute="leading" secondItem="C2v-0a-ypL" secondAttribute="leading" constant="-4" id="4Dg-u0-8Vi"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="leading" secondItem="pam-up-yZd" secondAttribute="leading" id="Bvc-b0-rFY"/>
-                <constraint firstItem="jAx-X4-cGJ" firstAttribute="bottom" secondItem="pam-up-yZd" secondAttribute="bottom" constant="-4" id="ICf-Rm-Wvh"/>
-                <constraint firstItem="pam-up-yZd" firstAttribute="leading" secondItem="jAx-X4-cGJ" secondAttribute="leading" constant="-4" id="Qwl-ee-if2"/>
                 <constraint firstItem="NKW-Ci-fFZ" firstAttribute="top" secondItem="pam-up-yZd" secondAttribute="bottom" constant="4" id="Vsh-zv-B3g"/>
                 <constraint firstItem="NKW-Ci-fFZ" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="4" id="WEX-pE-dQi"/>
                 <constraint firstItem="pam-up-yZd" firstAttribute="width" secondItem="pam-up-yZd" secondAttribute="height" multiplier="1:1.4" id="XnD-us-GHO"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="NKW-Ci-fFZ" secondAttribute="trailing" constant="4" id="Zg4-2b-n7N"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="pam-up-yZd" secondAttribute="top" id="d7k-iY-0od"/>
+                <constraint firstItem="C2v-0a-ypL" firstAttribute="bottom" secondItem="pam-up-yZd" secondAttribute="bottom" constant="-4" id="wsF-mp-1q1"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="pam-up-yZd" secondAttribute="trailing" id="xic-xM-894"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="217" height="371"/>
             <connections>
-                <outlet property="statusLabel" destination="jAx-X4-cGJ" id="HBS-YT-tYt"/>
+                <outlet property="statusLabel" destination="C2v-0a-ypL" id="GfD-Zj-gyn"/>
                 <outlet property="titleLabel" destination="NKW-Ci-fFZ" id="AUB-Ve-fjV"/>
                 <outlet property="workImageView" destination="pam-up-yZd" id="xOt-7O-EoS"/>
             </connections>
