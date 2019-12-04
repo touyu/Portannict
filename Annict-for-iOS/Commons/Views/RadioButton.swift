@@ -19,6 +19,7 @@ final class RadioButton: UIControl {
 
     var isOn: Bool = false {
         didSet {
+            Taptic.run(.impact(.medium))
             checkView.isHidden = !isOn
             sendActions(for: .valueChanged)
         }
@@ -47,7 +48,6 @@ final class RadioButton: UIControl {
 
         let gesture = UITapGestureRecognizer { [weak self] sender in
             self?.isOn.toggle()
-            Taptic.run(.impact(.medium))
         }
         addGestureRecognizer(gesture)
     }

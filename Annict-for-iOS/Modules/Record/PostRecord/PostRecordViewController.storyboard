@@ -89,6 +89,7 @@
                         <outlet property="recordButton" destination="u5p-Qn-OIo" id="NDU-gE-Fiz"/>
                         <outlet property="textView" destination="VCE-oI-Imo" id="bwq-Ld-tAz"/>
                         <outlet property="twitterShareButton" destination="sSx-dv-Hez" id="UIO-MG-dQ0"/>
+                        <outlet property="twitterShareLabel" destination="hqo-8w-QYU" id="Wix-WF-yjF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpj-WT-0yB" userLabel="First Responder" sceneMemberID="firstResponder"/>
