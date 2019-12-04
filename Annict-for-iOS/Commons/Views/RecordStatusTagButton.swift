@@ -9,6 +9,10 @@
 import UIKit
 
 final class RecordStatusTagButton: UIView, NibOwnerLoadable {
+    enum Const {
+        static let textNormalColor = UIColor(hex: 0x565859)
+    }
+
     @IBOutlet private weak var titleLabel: UILabel!
     
     var isSelected: Bool = false {
@@ -44,13 +48,13 @@ final class RecordStatusTagButton: UIView, NibOwnerLoadable {
     
     private func commonInit() {
         loadNib()
-        titleLabel.textColor = UIColor(hex: 0x464646)
+        titleLabel.textColor = Const.textNormalColor
     }
     
     func configure(ratingState: RatingState) {
         self.ratingState = ratingState
-        backgroundColor = isSelected ? ratingState.color : UIColor(hex: 0xEBEBEB)
-        titleLabel.textColor = isSelected ? .white : UIColor(hex: 0x464646)
+        backgroundColor = isSelected ? ratingState.color : UIColor(hex: 0xEEEFF0)
+        titleLabel.textColor = isSelected ? .white : Const.textNormalColor
         titleLabel.text = ratingState.localizedText
     }
 }
