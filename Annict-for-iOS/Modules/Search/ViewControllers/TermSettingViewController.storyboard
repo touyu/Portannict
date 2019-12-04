@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,41 +17,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8a-u1-f3e">
-                                <rect key="frame" x="27.5" y="115" width="320" height="216"/>
+                                <rect key="frame" x="27.5" y="93" width="320" height="216"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLe-eE-4TB">
-                                <rect key="frame" x="318" y="30" width="37" height="34"/>
+                                <rect key="frame" x="318" y="10" width="37" height="34"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="検索">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Irs-VY-Hdp">
-                                <rect key="frame" x="20" y="31" width="180" height="32"/>
+                                <rect key="frame" x="20" y="11" width="180" height="32"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <state key="normal" title="時期を選択してください">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="g45-gy-ijc">
-                                <rect key="frame" x="115.5" y="73" width="144" height="32"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="g45-gy-ijc">
+                                <rect key="frame" x="20" y="53" width="132" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rR1-bt-1KO">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="32"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="rQ9-uh-WEA"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="今期">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Eu-mq-7dQ">
-                                        <rect key="frame" x="84" y="0.0" width="60" height="32"/>
+                                        <rect key="frame" x="72" y="0.0" width="60" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="OWi-bg-lP7"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal">
                                             <string key="title" base64-UTF8="YES">
 COadpeacnw
@@ -66,7 +64,6 @@ COadpeacnw
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="g45-gy-ijc" firstAttribute="centerX" secondItem="PJX-Es-pSC" secondAttribute="centerX" id="0Nx-cr-iTd"/>
                             <constraint firstItem="Irs-VY-Hdp" firstAttribute="centerY" secondItem="RLe-eE-4TB" secondAttribute="centerY" id="48D-9H-85J"/>
                             <constraint firstItem="C8a-u1-f3e" firstAttribute="centerX" secondItem="PJX-Es-pSC" secondAttribute="centerX" id="G5h-CZ-GiY"/>
                             <constraint firstItem="PJX-Es-pSC" firstAttribute="trailing" secondItem="RLe-eE-4TB" secondAttribute="trailing" constant="20" id="NMM-Aj-NCy"/>
@@ -75,6 +72,7 @@ COadpeacnw
                             <constraint firstItem="C8a-u1-f3e" firstAttribute="top" secondItem="g45-gy-ijc" secondAttribute="bottom" constant="10" id="ier-nO-vsj"/>
                             <constraint firstItem="g45-gy-ijc" firstAttribute="top" secondItem="Irs-VY-Hdp" secondAttribute="bottom" constant="10" id="kmk-qZ-DRq"/>
                             <constraint firstItem="Irs-VY-Hdp" firstAttribute="leading" secondItem="PJX-Es-pSC" secondAttribute="leading" constant="20" id="r9C-AA-H4l"/>
+                            <constraint firstItem="g45-gy-ijc" firstAttribute="leading" secondItem="PJX-Es-pSC" secondAttribute="leading" constant="20" id="vfN-ZQ-xx8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PJX-Es-pSC"/>
                     </view>
