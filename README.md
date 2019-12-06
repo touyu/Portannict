@@ -32,7 +32,12 @@ $ bundle exex pod install
 $ carthage bootstrap --platform iOS --cache-builds
 ```
 
-Install apollo
+Install apollo (option)
 ```
 $ npm install
+```
+
+Download schema.json (option)
+```
+$ npx apollo schema:download --endpoint=https://api.annict.com/graphql schema.json --header="Authorization: Bearer <TOKEN>"
 ```
