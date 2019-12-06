@@ -18,7 +18,7 @@
 
 ## SetUp
 
-Create `.env`
+Create `.env` (BaseImageURL is currently undisclosed)
 ```
 AnnictClientID="<ClientID>"
 AnnictClientSecret="<ClientSecret>"
