@@ -31,3 +31,8 @@ $ bundle install
 $ bundle exex pod install
 $ carthage bootstrap --platform iOS --cache-builds
 ```
+
+Install apollo
+```
+$ npm install
+```
