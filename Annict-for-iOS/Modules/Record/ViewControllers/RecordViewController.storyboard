@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l5r-mW-0p7">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -30,9 +30,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PJX-Es-pSC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="pencil" id="iHR-sJ-oac"/>
                     <navigationItem key="navigationItem" title="Record" id="94O-5K-H7N"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="l5r-mW-0p7" id="U88-l0-tHI"/>
                     </connections>
@@ -42,7 +40,4 @@
             <point key="canvasLocation" x="398" y="14"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="pencil" width="30" height="30"/>
-    </resources>
 </document>
