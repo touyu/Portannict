@@ -63,7 +63,6 @@
 		D1621DFF21862BA600819D93 /* PostRecordViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621DFC21862BA600819D93 /* PostRecordViewReactor.swift */; };
 		D1621E0021862BA600819D93 /* PostRecordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1621DFD21862BA600819D93 /* PostRecordViewController.storyboard */; };
 		D1621E0121862BA600819D93 /* PostRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621DFE21862BA600819D93 /* PostRecordViewController.swift */; };
-		D1621E0321862C3B00819D93 /* SemiModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621E0221862C3B00819D93 /* SemiModalPresentationController.swift */; };
 		D1621E0A2186BB9300819D93 /* GetViewerWatchingEpisodes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1621E092186BB9300819D93 /* GetViewerWatchingEpisodes.graphql */; };
 		D163090121F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16308FF21F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.swift */; };
 		D163090221F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D163090021F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.xib */; };
@@ -241,7 +240,6 @@
 		D1621DFC21862BA600819D93 /* PostRecordViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRecordViewReactor.swift; sourceTree = "<group>"; };
 		D1621DFD21862BA600819D93 /* PostRecordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostRecordViewController.storyboard; sourceTree = "<group>"; };
 		D1621DFE21862BA600819D93 /* PostRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRecordViewController.swift; sourceTree = "<group>"; };
-		D1621E0221862C3B00819D93 /* SemiModalPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiModalPresentationController.swift; sourceTree = "<group>"; };
 		D1621E092186BB9300819D93 /* GetViewerWatchingEpisodes.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetViewerWatchingEpisodes.graphql; sourceTree = "<group>"; };
 		D16308FF21F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonWorkCollectionViewCell.swift; sourceTree = "<group>"; };
 		D163090021F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonWorkCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -535,7 +533,6 @@
 				D1FFB58121AECECF001099E6 /* Views */,
 				D1FFB58021AECEC1001099E6 /* ViewControllers */,
 				D1621DFB21862B8E00819D93 /* PostRecord */,
-				D1621DFA21862B5700819D93 /* Transition */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -548,14 +545,6 @@
 				D1AF34BD219B3FE5004DD229 /* ViewControllers */,
 			);
 			path = Profile;
-			sourceTree = "<group>";
-		};
-		D1621DFA21862B5700819D93 /* Transition */ = {
-			isa = PBXGroup;
-			children = (
-				D1621E0221862C3B00819D93 /* SemiModalPresentationController.swift */,
-			);
-			path = Transition;
 			sourceTree = "<group>";
 		};
 		D1621DFB21862B8E00819D93 /* PostRecord */ = {
@@ -1192,7 +1181,6 @@
 				D1F87E4622E17C28001EB9DD /* Taptic.swift in Sources */,
 				D1E6DEF322E3712F003D03F0 /* Season.swift in Sources */,
 				D1BCB8C9217F3E8300B84F82 /* OauthTokenRequest.swift in Sources */,
-				D1621E0321862C3B00819D93 /* SemiModalPresentationController.swift in Sources */,
 				D1B4C83622E983EB000C2741 /* RecordStatusTagView.swift in Sources */,
 				D1B4C84622E9BDD5000C2741 /* CALayer.swift in Sources */,
 				D18447C621BD021D00CF44AB /* GradationView.swift in Sources */,
