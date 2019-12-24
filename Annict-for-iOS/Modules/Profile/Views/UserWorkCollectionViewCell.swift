@@ -33,9 +33,4 @@ final class UserWorkCollectionViewCell: UICollectionViewCell {
         imageView.setImage(url: url)
         titleLabel.text = title
     }
-    
-    func prepareHero(indexPath: IndexPath) {
-        imageView.hero.id = "WorkImageView \(indexPath.row)"
-        titleLabel.hero.id = "TitleLabel \(indexPath.row)"
-    }
 }

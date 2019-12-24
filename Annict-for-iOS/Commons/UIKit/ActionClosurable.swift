@@ -82,13 +82,3 @@ extension ActionClosurable where Self: UISlider {
         onChanged(closure)
     }
 }
-
-extension UIView {
-    func onTap(handler: @escaping (UITapGestureRecognizer) -> Void) {
-        let tap = UITapGestureRecognizer { sender in
-            handler(sender)
-        }
-        addGestureRecognizer(tap)
-    }
-}
-

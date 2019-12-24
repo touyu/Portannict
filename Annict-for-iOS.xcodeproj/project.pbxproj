@@ -63,8 +63,6 @@
 		D1621DFF21862BA600819D93 /* PostRecordViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621DFC21862BA600819D93 /* PostRecordViewReactor.swift */; };
 		D1621E0021862BA600819D93 /* PostRecordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1621DFD21862BA600819D93 /* PostRecordViewController.storyboard */; };
 		D1621E0121862BA600819D93 /* PostRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621DFE21862BA600819D93 /* PostRecordViewController.swift */; };
-		D1621E0321862C3B00819D93 /* SemiModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621E0221862C3B00819D93 /* SemiModalPresentationController.swift */; };
-		D1621E0521862F4500819D93 /* PostRecordTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1621E0421862F4500819D93 /* PostRecordTransitioningDelegate.swift */; };
 		D1621E0A2186BB9300819D93 /* GetViewerWatchingEpisodes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1621E092186BB9300819D93 /* GetViewerWatchingEpisodes.graphql */; };
 		D163090121F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16308FF21F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.swift */; };
 		D163090221F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D163090021F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.xib */; };
@@ -75,7 +73,6 @@
 		D165C9BF21B15B36002E8FFA /* SearchWorksByTitle.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D165C9BE21B15B36002E8FFA /* SearchWorksByTitle.graphql */; };
 		D165C9C121B15EE9002E8FFA /* SearchResultWorkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D165C9C021B15EE9002E8FFA /* SearchResultWorkCell.xib */; };
 		D165C9C321B15EF1002E8FFA /* SearchResultWorkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D165C9C221B15EF1002E8FFA /* SearchResultWorkCell.swift */; };
-		D16C5985224A6824004F0983 /* AssociatedObjectStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C5984224A6824004F0983 /* AssociatedObjectStore.swift */; };
 		D18389B321B05137004A072C /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18389B221B05137004A072C /* SearchResultViewController.swift */; };
 		D18389B521B05146004A072C /* SearchResultViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D18389B421B05146004A072C /* SearchResultViewController.storyboard */; };
 		D18447C621BD021D00CF44AB /* GradationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18447C521BD021D00CF44AB /* GradationView.swift */; };
@@ -85,8 +82,6 @@
 		D19718CF217E2ED3009B5F0F /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19718CE217E2ED3009B5F0F /* ObservableType.swift */; };
 		D1AF34BA219B0921004DD229 /* GetViewerWorks.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1AF34B9219B0921004DD229 /* GetViewerWorks.graphql */; };
 		D1AF34BC219B3CBF004DD229 /* GetViewerInfo.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D1AF34BB219B3CBF004DD229 /* GetViewerInfo.graphql */; };
-		D1AF34C1219B4042004DD229 /* UserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AF34BF219B4042004DD229 /* UserInfoTableViewCell.swift */; };
-		D1AF34C2219B4042004DD229 /* UserInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1AF34C0219B4042004DD229 /* UserInfoTableViewCell.xib */; };
 		D1AF34C4219B4202004DD229 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AF34C3219B4202004DD229 /* UITableView.swift */; };
 		D1AF34C6219B4238004DD229 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AF34C5219B4238004DD229 /* UICollectionView.swift */; };
 		D1B27B2822525B01007F8B95 /* ParentPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B27B2722525B01007F8B95 /* ParentPagerViewController.swift */; };
@@ -117,7 +112,6 @@
 		D1B4F174217EBB940011BAFF /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F173217EBB940011BAFF /* UIView.swift */; };
 		D1B4F176217EBF200011BAFF /* LoginViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F175217EBF200011BAFF /* LoginViewReactor.swift */; };
 		D1B4F178217EC0970011BAFF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F177217EC0970011BAFF /* Constants.swift */; };
-		D1BCB8C2217F327400B84F82 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BCB8C1217F327400B84F82 /* NotificationCenter.swift */; };
 		D1BCB8C4217F350A00B84F82 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BCB8C3217F350A00B84F82 /* HTTPClient.swift */; };
 		D1BCB8C9217F3E8300B84F82 /* OauthTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BCB8C8217F3E8300B84F82 /* OauthTokenRequest.swift */; };
 		D1BCB8CB217F451C00B84F82 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BCB8CA217F451C00B84F82 /* UIApplication.swift */; };
@@ -157,8 +151,6 @@
 		D1F9143921AA75A0006986A1 /* URLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9143821AA75A0006986A1 /* URLConvertible.swift */; };
 		D1F9143B21AA75C8006986A1 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9143A21AA75C8006986A1 /* UIImage.swift */; };
 		D1F9143D21AA7615006986A1 /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9143C21AA7615006986A1 /* CGSize.swift */; };
-		D1F9144021AA7B4F006986A1 /* UserWorksWithSectionTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9143E21AA7B4F006986A1 /* UserWorksWithSectionTitleCell.swift */; };
-		D1F9144121AA7B4F006986A1 /* UserWorksWithSectionTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F9143F21AA7B4F006986A1 /* UserWorksWithSectionTitleCell.xib */; };
 		D1F9144A21AA7FD2006986A1 /* UserWorkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9144821AA7FD2006986A1 /* UserWorkCollectionViewCell.swift */; };
 		D1F9144B21AA7FD2006986A1 /* UserWorkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F9144921AA7FD2006986A1 /* UserWorkCollectionViewCell.xib */; };
 		D1F9144D21AA85C1006986A1 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9144C21AA85C1006986A1 /* UIColor.swift */; };
@@ -248,8 +240,6 @@
 		D1621DFC21862BA600819D93 /* PostRecordViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRecordViewReactor.swift; sourceTree = "<group>"; };
 		D1621DFD21862BA600819D93 /* PostRecordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostRecordViewController.storyboard; sourceTree = "<group>"; };
 		D1621DFE21862BA600819D93 /* PostRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRecordViewController.swift; sourceTree = "<group>"; };
-		D1621E0221862C3B00819D93 /* SemiModalPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiModalPresentationController.swift; sourceTree = "<group>"; };
-		D1621E0421862F4500819D93 /* PostRecordTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRecordTransitioningDelegate.swift; sourceTree = "<group>"; };
 		D1621E092186BB9300819D93 /* GetViewerWatchingEpisodes.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetViewerWatchingEpisodes.graphql; sourceTree = "<group>"; };
 		D16308FF21F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonWorkCollectionViewCell.swift; sourceTree = "<group>"; };
 		D163090021F0ED9F00EE3009 /* SeasonWorkCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonWorkCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -260,7 +250,6 @@
 		D165C9BE21B15B36002E8FFA /* SearchWorksByTitle.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchWorksByTitle.graphql; sourceTree = "<group>"; };
 		D165C9C021B15EE9002E8FFA /* SearchResultWorkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultWorkCell.xib; sourceTree = "<group>"; };
 		D165C9C221B15EF1002E8FFA /* SearchResultWorkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultWorkCell.swift; sourceTree = "<group>"; };
-		D16C5984224A6824004F0983 /* AssociatedObjectStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedObjectStore.swift; sourceTree = "<group>"; };
 		D18389B221B05137004A072C /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		D18389B421B05146004A072C /* SearchResultViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResultViewController.storyboard; sourceTree = "<group>"; };
 		D18447C521BD021D00CF44AB /* GradationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradationView.swift; sourceTree = "<group>"; };
@@ -270,8 +259,6 @@
 		D19718CE217E2ED3009B5F0F /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
 		D1AF34B9219B0921004DD229 /* GetViewerWorks.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetViewerWorks.graphql; sourceTree = "<group>"; };
 		D1AF34BB219B3CBF004DD229 /* GetViewerInfo.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetViewerInfo.graphql; sourceTree = "<group>"; };
-		D1AF34BF219B4042004DD229 /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewCell.swift; sourceTree = "<group>"; };
-		D1AF34C0219B4042004DD229 /* UserInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoTableViewCell.xib; sourceTree = "<group>"; };
 		D1AF34C3219B4202004DD229 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		D1AF34C5219B4238004DD229 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		D1B27B2722525B01007F8B95 /* ParentPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentPagerViewController.swift; sourceTree = "<group>"; };
@@ -302,7 +289,6 @@
 		D1B4F173217EBB940011BAFF /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		D1B4F175217EBF200011BAFF /* LoginViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewReactor.swift; sourceTree = "<group>"; };
 		D1B4F177217EC0970011BAFF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		D1BCB8C1217F327400B84F82 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		D1BCB8C3217F350A00B84F82 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		D1BCB8C8217F3E8300B84F82 /* OauthTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthTokenRequest.swift; sourceTree = "<group>"; };
 		D1BCB8CA217F451C00B84F82 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
@@ -343,8 +329,6 @@
 		D1F9143821AA75A0006986A1 /* URLConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConvertible.swift; sourceTree = "<group>"; };
 		D1F9143A21AA75C8006986A1 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		D1F9143C21AA7615006986A1 /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
-		D1F9143E21AA7B4F006986A1 /* UserWorksWithSectionTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWorksWithSectionTitleCell.swift; sourceTree = "<group>"; };
-		D1F9143F21AA7B4F006986A1 /* UserWorksWithSectionTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserWorksWithSectionTitleCell.xib; sourceTree = "<group>"; };
 		D1F9144821AA7FD2006986A1 /* UserWorkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWorkCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1F9144921AA7FD2006986A1 /* UserWorkCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserWorkCollectionViewCell.xib; sourceTree = "<group>"; };
 		D1F9144C21AA85C1006986A1 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -549,7 +533,6 @@
 				D1FFB58121AECECF001099E6 /* Views */,
 				D1FFB58021AECEC1001099E6 /* ViewControllers */,
 				D1621DFB21862B8E00819D93 /* PostRecord */,
-				D1621DFA21862B5700819D93 /* Transition */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -562,15 +545,6 @@
 				D1AF34BD219B3FE5004DD229 /* ViewControllers */,
 			);
 			path = Profile;
-			sourceTree = "<group>";
-		};
-		D1621DFA21862B5700819D93 /* Transition */ = {
-			isa = PBXGroup;
-			children = (
-				D1621E0221862C3B00819D93 /* SemiModalPresentationController.swift */,
-				D1621E0421862F4500819D93 /* PostRecordTransitioningDelegate.swift */,
-			);
-			path = Transition;
 			sourceTree = "<group>";
 		};
 		D1621DFB21862B8E00819D93 /* PostRecord */ = {
@@ -650,10 +624,6 @@
 		D1AF34BE219B400C004DD229 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D1AF34BF219B4042004DD229 /* UserInfoTableViewCell.swift */,
-				D1AF34C0219B4042004DD229 /* UserInfoTableViewCell.xib */,
-				D1F9143E21AA7B4F006986A1 /* UserWorksWithSectionTitleCell.swift */,
-				D1F9143F21AA7B4F006986A1 /* UserWorksWithSectionTitleCell.xib */,
 				D1F9144821AA7FD2006986A1 /* UserWorkCollectionViewCell.swift */,
 				D1F9144921AA7FD2006986A1 /* UserWorkCollectionViewCell.xib */,
 				D1C53C1021EEFA0300DA9A1D /* ProfileHeaderView.swift */,
@@ -677,7 +647,6 @@
 				D16193C022E857E500B6BEBC /* Views */,
 				D1B4F177217EC0970011BAFF /* Constants.swift */,
 				D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */,
-				D1BCB8C1217F327400B84F82 /* NotificationCenter.swift */,
 				D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */,
 				D1B27B2722525B01007F8B95 /* ParentPagerViewController.swift */,
 				D1B27B2922525B57007F8B95 /* StatusBarManager.swift */,
@@ -798,7 +767,6 @@
 			isa = PBXGroup;
 			children = (
 				D1C53C1521EEFB9A00DA9A1D /* NibOwnerLoadable.swift */,
-				D16C5984224A6824004F0983 /* AssociatedObjectStore.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -973,7 +941,6 @@
 				D1B4C83C22E987BB000C2741 /* EpisodeRecordTitleTableViewCell.xib in Resources */,
 				D18389B521B05146004A072C /* SearchResultViewController.storyboard in Resources */,
 				D1FFB59C21B046BE001099E6 /* SearchViewController.storyboard in Resources */,
-				D1AF34C2219B4042004DD229 /* UserInfoTableViewCell.xib in Resources */,
 				D1BCB8D1217F46B600B84F82 /* HomeViewController.storyboard in Resources */,
 				D13C668722EB75490087284B /* EpisodeCountSectionTableViewCell.xib in Resources */,
 				D1891A6022E1FA5400D26512 /* UpdateStatus.graphql in Resources */,
@@ -995,7 +962,6 @@
 				D1AF34BC219B3CBF004DD229 /* GetViewerInfo.graphql in Resources */,
 				D1CEDD7522F14BA000EC2D94 /* DeleteRecord.graphql in Resources */,
 				D1F9144B21AA7FD2006986A1 /* UserWorkCollectionViewCell.xib in Resources */,
-				D1F9144121AA7B4F006986A1 /* UserWorksWithSectionTitleCell.xib in Resources */,
 				D11D57EE2237C1DA000D3CC0 /* ActivityStatusTableViewCell.xib in Resources */,
 				D1F87E4422E176E2001EB9DD /* WorkStatusButton.xib in Resources */,
 				D1E6DEED22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.xib in Resources */,
@@ -1166,7 +1132,6 @@
 				D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */,
 				D165C9B621B0E051002E8FFA /* UINavigationBar.swift in Sources */,
 				D1B4C85422EAC713000C2741 /* TermSettingViewController.swift in Sources */,
-				D1BCB8C2217F327400B84F82 /* NotificationCenter.swift in Sources */,
 				D18389B321B05137004A072C /* SearchResultViewController.swift in Sources */,
 				D1BD1F7B22E8C13800A260F5 /* EpisodeRecordsViewController.swift in Sources */,
 				D1BD1F7C22E8C13800A260F5 /* EpisodeRecordsViewReactor.swift in Sources */,
@@ -1193,7 +1158,6 @@
 				D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */,
 				D12E01E922E38FFA000D3C10 /* RecordEpisodeTableViewCellReactor.swift in Sources */,
 				D1C53C2021EF733200DA9A1D /* ProfileWorkCollectionViewCell.swift in Sources */,
-				D1621E0521862F4500819D93 /* PostRecordTransitioningDelegate.swift in Sources */,
 				D1F9144A21AA7FD2006986A1 /* UserWorkCollectionViewCell.swift in Sources */,
 				D1F9ED0821B274CD00AB3DAE /* WorkViewReactor.swift in Sources */,
 				D1B4C84822E9C55B000C2741 /* SwiftyAttributedString.swift in Sources */,
@@ -1217,7 +1181,6 @@
 				D1F87E4622E17C28001EB9DD /* Taptic.swift in Sources */,
 				D1E6DEF322E3712F003D03F0 /* Season.swift in Sources */,
 				D1BCB8C9217F3E8300B84F82 /* OauthTokenRequest.swift in Sources */,
-				D1621E0321862C3B00819D93 /* SemiModalPresentationController.swift in Sources */,
 				D1B4C83622E983EB000C2741 /* RecordStatusTagView.swift in Sources */,
 				D1B4C84622E9BDD5000C2741 /* CALayer.swift in Sources */,
 				D18447C621BD021D00CF44AB /* GradationView.swift in Sources */,
@@ -1226,7 +1189,6 @@
 				D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */,
 				D1F9143721AA756F006986A1 /* UIImageView.swift in Sources */,
 				D1B4C84E22E9CBA3000C2741 /* SwiftyDate.swift in Sources */,
-				D1F9144021AA7B4F006986A1 /* UserWorksWithSectionTitleCell.swift in Sources */,
 				D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */,
 				D1FFB58421AECF04001099E6 /* RecordEpisodeTableViewCell.swift in Sources */,
 				D1FFB58E21AEF3A3001099E6 /* RxUIScrollView.swift in Sources */,
@@ -1237,7 +1199,6 @@
 				D1B4F167217EB5E60011BAFF /* RxUIViewController.swift in Sources */,
 				D1FFB59A21B04693001099E6 /* SearchViewController.swift in Sources */,
 				D1F9ED0A21B274CD00AB3DAE /* WorkViewController.swift in Sources */,
-				D16C5985224A6824004F0983 /* AssociatedObjectStore.swift in Sources */,
 				D1B4F178217EC0970011BAFF /* Constants.swift in Sources */,
 				D123F254217CBD2500AE38FD /* AppDelegate.swift in Sources */,
 				D11D57F72237D9B9000D3CC0 /* RootTabBarReactor.swift in Sources */,
@@ -1250,7 +1211,6 @@
 				D1FFB57F21AE98DD001099E6 /* AnnictGraphQL.swift in Sources */,
 				D1199E4D22390FA200531BF3 /* HomeTitleTableViewCell.swift in Sources */,
 				D1AF34C6219B4238004DD229 /* UICollectionView.swift in Sources */,
-				D1AF34C1219B4042004DD229 /* UserInfoTableViewCell.swift in Sources */,
 				D1621E0121862BA600819D93 /* PostRecordViewController.swift in Sources */,
 				D11D57F02237C5F3000D3CC0 /* WorkAndEpisodeQuoteView.swift in Sources */,
 				D11D57FE2237E40E000D3CC0 /* ActivityMultipleRecordTableViewCell.swift in Sources */,

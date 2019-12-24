@@ -142,15 +142,4 @@ extension EpisodeRecordsViewController: EpisodeRecordTableViewCellDelegate {
         alert.popoverPresentationController?.sourceRect = cell.contentView.frame
         present(alert, animated: true, completion: nil)
     }
-    
-    private func showAlertForMe(_ record: MinimumRecord) {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let deleteAction = UIAlertAction(title: "投稿を削除する", style: .destructive) { [weak self] _ in
-            self?.reactor?.action.onNext(.deleteRecord(record.id))
-        }
-        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
-        alert.addAction(deleteAction)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
-    }
 }

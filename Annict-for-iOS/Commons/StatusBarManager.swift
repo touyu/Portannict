@@ -32,35 +32,6 @@ final class StatusBarManager {
     }
 }
 
-protocol StatusBarAnimatable {
-    var statusBarManager: StatusBarManager { get }
-}
-
-extension StatusBarAnimatable {
-    var statusBarManager: StatusBarManager {
-        return .shared
-    }
-}
-
-extension StatusBarAnimatable where Self: UIViewController {
-    func hideStatusBar() {
-        statusBarManager.hideStatusBar()
-//        statusBarManager.isStatusBarHidden = true
-//        UIView.animate(withDuration: 0.35) { [weak self] in
-//            self?.setNeedsStatusBarAppearanceUpdate()
-//        }
-    }
-    
-    func showStatusBar() {
-        statusBarManager.showStatusBar()
-//        statusBarManager.isStatusBarHidden = false
-        
-//        UIView.animate(withDuration: 0.35) { [weak self] in
-//            self?.setNeedsStatusBarAppearanceUpdate()
-//        }
-    }
-}
-
 class StatusBarAnimatableViewController: UIViewController {
     let statusBarManager = StatusBarManager.shared
     
@@ -70,19 +41,5 @@ class StatusBarAnimatableViewController: UIViewController {
     
     override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
         return .slide
-    }
-    
-    func hideStatusBar() {
-        statusBarManager.isStatusBarHidden = true
-        UIView.animate(withDuration: 0.35) { [weak self] in
-            self?.setNeedsStatusBarAppearanceUpdate()
-        }
-    }
-    
-    func showStatusBar() {
-        statusBarManager.isStatusBarHidden = false
-        UIView.animate(withDuration: 0.35) { [weak self] in
-            self?.setNeedsStatusBarAppearanceUpdate()
-        }
     }
 }

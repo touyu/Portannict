@@ -80,10 +80,7 @@ final class PostRecordViewController: UIViewController, StoryboardView {
             .bind(to: twitterShareButton.rx.isOn)
             .disposed(by: disposeBag)
     }
-    
-    @objc private func handleGesture(_ sender: UIPanGestureRecognizer) {
-        panModalTransition(to: .longForm)
-    }
+
 }
 
 extension PostRecordViewController {
@@ -115,12 +112,5 @@ extension PostRecordViewController: UITextViewDelegate {
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         panModalTransition(to: .longForm)
         return true
-    }
-}
-
-extension Array where Element: Comparable & SignedNumeric {
-    func near(by e: Element) -> Element {
-        let index = map { abs($0 - e) }.enumerated().min(by: { $0.element < $1.element })!.offset
-        return self[index]
     }
 }

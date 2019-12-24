@@ -25,12 +25,6 @@ extension Array: GraphQLSelectionSet where Element: GraphQLSelectionSet {
     }
 }
 
-extension GraphQLSelectionSet {
-    func iSEqual(_ value: GraphQLSelectionSet) -> Bool {
-        return (self.resultMap as NSDictionary).isEqual(to: value.resultMap as [AnyHashable : Any])
-    }
-}
-
 extension Dictionary where Key == String, Value == Any? {
     static func == (lhs: Dictionary, rhs: Dictionary) -> Bool {
         return (lhs as NSDictionary).isEqual(to: rhs as [AnyHashable: Any])
