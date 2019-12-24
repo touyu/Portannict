@@ -27,35 +27,6 @@ enum GradationType {
     }
 }
 
-class GradationView: UIView {
-    
-    var gradientLayer: CAGradientLayer?
-    
-    func prepare(type: GradationType, colors: [UIColor]) {
-        self.gradientLayer?.removeFromSuperlayer()
-        self.gradientLayer = self.layer.create(type: type, colors: colors)
-        if let layer = self.gradientLayer {
-            self.layer.insertSublayer(layer, at: 0)
-        }
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.backgroundColor = .clear
-        self.gradientLayer?.frame = self.bounds
-    }
-    
-    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        let view = super.hitTest(point, with: event)
-        
-        if view == self {
-            return nil
-        }
-        
-        return view
-    }
-}
-
 extension CALayer {
     func create(type: GradationType, colors: [UIColor]) -> CAGradientLayer {
         let gradationLayer = CAGradientLayer()

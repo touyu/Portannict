@@ -12,8 +12,6 @@ import RxSwift
 typealias Viewer = GetViewerInfoQuery.Data.Viewer
 
 final class ProfileViewReactor: Reactor {
-    typealias Work = GetViewerWorksQuery.Data.Viewer.Work.Node
-    
     var initialState: State
     
     private var client = AnnictGraphQL.client
