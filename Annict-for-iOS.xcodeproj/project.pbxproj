@@ -117,7 +117,6 @@
 		D1B4F174217EBB940011BAFF /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F173217EBB940011BAFF /* UIView.swift */; };
 		D1B4F176217EBF200011BAFF /* LoginViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F175217EBF200011BAFF /* LoginViewReactor.swift */; };
 		D1B4F178217EC0970011BAFF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4F177217EC0970011BAFF /* Constants.swift */; };
-		D1BCB8C2217F327400B84F82 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BCB8C1217F327400B84F82 /* NotificationCenter.swift */; };
 		D1BCB8C4217F350A00B84F82 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BCB8C3217F350A00B84F82 /* HTTPClient.swift */; };
 		D1BCB8C9217F3E8300B84F82 /* OauthTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BCB8C8217F3E8300B84F82 /* OauthTokenRequest.swift */; };
 		D1BCB8CB217F451C00B84F82 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BCB8CA217F451C00B84F82 /* UIApplication.swift */; };
@@ -302,7 +301,6 @@
 		D1B4F173217EBB940011BAFF /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		D1B4F175217EBF200011BAFF /* LoginViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewReactor.swift; sourceTree = "<group>"; };
 		D1B4F177217EC0970011BAFF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		D1BCB8C1217F327400B84F82 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		D1BCB8C3217F350A00B84F82 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		D1BCB8C8217F3E8300B84F82 /* OauthTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthTokenRequest.swift; sourceTree = "<group>"; };
 		D1BCB8CA217F451C00B84F82 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
@@ -677,7 +675,6 @@
 				D16193C022E857E500B6BEBC /* Views */,
 				D1B4F177217EC0970011BAFF /* Constants.swift */,
 				D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */,
-				D1BCB8C1217F327400B84F82 /* NotificationCenter.swift */,
 				D136EA6D2180439B00BA08EA /* UserDefaultsRepository.swift */,
 				D1B27B2722525B01007F8B95 /* ParentPagerViewController.swift */,
 				D1B27B2922525B57007F8B95 /* StatusBarManager.swift */,
@@ -914,6 +911,7 @@
 				D1274110217CCB5700DD09C2 /* ShellScript */,
 				5BB8CB85AAE678D01443BD23 /* [CP] Embed Pods Frameworks */,
 				D136EA662180424600BA08EA /* ShellScript */,
+				CF3024F323B276D7005C634B /* Pecker */,
 			);
 			buildRules = (
 			);
@@ -1078,6 +1076,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CF3024F323B276D7005C634B /* Pecker */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Pecker;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which pecker >/dev/null; then\n  pecker\nelse\n  echo \"warning: Pecker not installed, download from https://github.com/woshiccm/Pecker\"\nfi\n";
+		};
 		D1274110217CCB5700DD09C2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1166,7 +1182,6 @@
 				D127411F217CDF1000DD09C2 /* ServiceProvider.swift in Sources */,
 				D165C9B621B0E051002E8FFA /* UINavigationBar.swift in Sources */,
 				D1B4C85422EAC713000C2741 /* TermSettingViewController.swift in Sources */,
-				D1BCB8C2217F327400B84F82 /* NotificationCenter.swift in Sources */,
 				D18389B321B05137004A072C /* SearchResultViewController.swift in Sources */,
 				D1BD1F7B22E8C13800A260F5 /* EpisodeRecordsViewController.swift in Sources */,
 				D1BD1F7C22E8C13800A260F5 /* EpisodeRecordsViewReactor.swift in Sources */,
