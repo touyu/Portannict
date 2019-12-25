@@ -56,9 +56,9 @@ final class WorkViewController: UIViewController, StoryboardView {
             })
             .disposed(by: disposeBag)
         
-        reactor.state.map { $0.episodes }
+        reactor.state.map { $0.cellReactors }
             .distinctUntilChanged()
-            .subscribe(onNext: { [weak self] episodes in
+            .subscribe(onNext: { [weak self] _ in
                 self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)
@@ -84,7 +84,7 @@ extension WorkViewController: UITableViewDataSource {
         if section == 1 {
             return 1
         }
-        return reactor!.currentState.episodes.count
+        return reactor!.currentState.cellReactors.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -100,7 +100,7 @@ extension WorkViewController: UITableViewDataSource {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(classType: EpisodeTitleTableViewCell.self, for: indexPath)
-            cell.configure(episode: reactor!.currentState.episodes[indexPath.row])
+            cell.reactor = reactor?.currentState.cellReactors[indexPath.row]
             return cell
         }
     }

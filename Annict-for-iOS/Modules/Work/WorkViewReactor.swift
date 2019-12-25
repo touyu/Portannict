@@ -26,7 +26,8 @@ final class WorkViewReactor: Reactor {
     
     struct State {
         var work: MinimumWork
-        var episodes: [MinimumEpisode] = []
+//        var episodes: [MinimumEpisode] = []
+        var cellReactors: [EpisodeTitleTableViewCellReactor] = []
         var pageInfo: PageInfoF?
         
         init(work: MinimumWork) {
@@ -43,7 +44,7 @@ final class WorkViewReactor: Reactor {
     }
     
     func reactorForEpisode(index: Int) -> EpisodeRecordsViewReactor {
-        return .init(provider: provider, episode: currentState.episodes[index])
+        return .init(provider: provider, episode: currentState.cellReactors[index].currentState.episode)
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -78,9 +79,9 @@ final class WorkViewReactor: Reactor {
         var state = state
         switch mutation {
         case .setEpisodes(let episodes):
-            state.episodes = episodes
+            state.cellReactors = episodes.map(EpisodeTitleTableViewCellReactor.init)
         case .apppendEpisodes(let episodes):
-            state.episodes += episodes
+            state.cellReactors += episodes.map(EpisodeTitleTableViewCellReactor.init)
         case .updateStatus(let statusState):
             state.work.viewerStatusState = statusState
         case .setWork(let work):

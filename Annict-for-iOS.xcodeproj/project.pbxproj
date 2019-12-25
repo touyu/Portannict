@@ -17,6 +17,7 @@
 		CFBBD25F2397ECC800127DCB /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBBD25E2397ECC800127DCB /* HUD.swift */; };
 		CFF26F4023B380BC00FF5265 /* M13Checkbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF26F3F23B380BC00FF5265 /* M13Checkbox.framework */; };
 		CFF26F4123B380BC00FF5265 /* M13Checkbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFF26F3F23B380BC00FF5265 /* M13Checkbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CFF26F4423B3849D00FF5265 /* EpisodeTitleTableViewCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF26F4323B3849D00FF5265 /* EpisodeTitleTableViewCellReactor.swift */; };
 		D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */; };
 		D1199E492238FF3F00531BF3 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1199E472238FF3E00531BF3 /* BlurView.swift */; };
 		D1199E4A2238FF3F00531BF3 /* BlurKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1199E482238FF3E00531BF3 /* BlurKit.swift */; };
@@ -207,6 +208,7 @@
 		CFBBD25C2397EB7C00127DCB /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		CFBBD25E2397ECC800127DCB /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		CFF26F3F23B380BC00FF5265 /* M13Checkbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = M13Checkbox.framework; path = Carthage/Build/iOS/M13Checkbox.framework; sourceTree = "<group>"; };
+		CFF26F4323B3849D00FF5265 /* EpisodeTitleTableViewCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTitleTableViewCellReactor.swift; sourceTree = "<group>"; };
 		D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		D1199E472238FF3E00531BF3 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		D1199E482238FF3E00531BF3 /* BlurKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurKit.swift; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 			isa = PBXGroup;
 			children = (
 				D1E6DEEA22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.swift */,
+				CFF26F4323B3849D00FF5265 /* EpisodeTitleTableViewCellReactor.swift */,
 				D1E6DEEB22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.xib */,
 				D1E6DEEE22E0EC2B003D03F0 /* WorkHeaderTableViewCell.swift */,
 				D1E6DEEF22E0EC2B003D03F0 /* WorkHeaderTableViewCell.xib */,
@@ -1233,6 +1236,7 @@
 				D1B4C83E22E98AD8000C2741 /* ActivityRecordTableViewCellReactor.swift in Sources */,
 				D136EA6E2180439B00BA08EA /* UserDefaultsRepository.swift in Sources */,
 				D1F9143721AA756F006986A1 /* UIImageView.swift in Sources */,
+				CFF26F4423B3849D00FF5265 /* EpisodeTitleTableViewCellReactor.swift in Sources */,
 				D1B4C84E22E9CBA3000C2741 /* SwiftyDate.swift in Sources */,
 				D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */,
 				D1FFB58421AECF04001099E6 /* RecordEpisodeTableViewCell.swift in Sources */,

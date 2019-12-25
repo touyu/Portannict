@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import ReactorKit
 import M13Checkbox
+import RxSwift
 
-final class EpisodeTitleTableViewCell: UITableViewCell {
+final class EpisodeTitleTableViewCell: UITableViewCell, StoryboardView {
+    typealias Reactor = EpisodeTitleTableViewCellReactor
+
+    var disposeBag = DisposeBag()
 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var countLabel: UILabel!
@@ -37,8 +42,36 @@ final class EpisodeTitleTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         countLabel.backgroundColor = UIColor(hex: 0xEBEBEB)
     }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        disposeBag = DisposeBag()
+    }
+
+    func bind(reactor: Reactor) {
+        checkbox.rx.controlEvent(.valueChanged)
+            .subscribe(onNext: { [unowned self] in
+                reactor.action.onNext(.updateIsSelected(self.checkbox.checkState == .checked ? true : false))
+            })
+            .disposed(by: disposeBag)
+
+        reactor.state.map { $0.episode }
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] episode in
+                self?.configure(episode: episode)
+            })
+            .disposed(by: disposeBag)
+
+        reactor.state.map { $0.isSelected }
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] isSelected in
+                self?.checkbox.setCheckState(isSelected ? .checked : .unchecked, animated: false)
+            })
+            .disposed(by: disposeBag)
+    }
     
-    func configure(episode: MinimumEpisode) {
+    private func configure(episode: MinimumEpisode) {
         titleLabel.text = episode.numberAndTitle
         countLabel.text = "\(episode.viewerRecordsCount)"
     }
