@@ -61,7 +61,7 @@ extension HomeViewReactor.Activity {
             case .record(let item):
                 return item.work.fragments.minimumWork
             case .review(let item):
-                return item.work.fragments.minimumWork
+                return item.fragments.review.work.fragments.minimumWork
             case .multipleRecord(let item):
                 return item.work.fragments.minimumWork
             case .unknown:
@@ -72,7 +72,7 @@ extension HomeViewReactor.Activity {
             guard let work = newValue else { return }
             asStatus?.work.fragments.minimumWork = work
             asRecord?.work.fragments.minimumWork = work
-            asReview?.work.fragments.minimumWork = work
+            asReview?.fragments.review.work.fragments.minimumWork = work
             asMultipleRecord?.work.fragments.minimumWork = work
         }
     }

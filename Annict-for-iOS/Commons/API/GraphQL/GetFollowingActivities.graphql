@@ -29,15 +29,7 @@ query GetFollowingActivities($after: String) {
             }
           }
           ... on Review {
-            createdAt
-            annictId
-            id
-            work {
-              ...MinimumWork
-            }
-            user {
-              ...MinimumUser
-            }
+            ...Review
           }
           ... on MultipleRecord {
             createdAt

@@ -58,3 +58,15 @@ fragment PageInfoF on PageInfo {
   endCursor
   hasNextPage
 }
+
+fragment Review on Review {
+    createdAt
+    annictId
+    id
+    work {
+      ...MinimumWork
+    }
+    user {
+      ...MinimumUser
+    }
+}
