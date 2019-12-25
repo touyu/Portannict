@@ -10,6 +10,7 @@ import Foundation
 enum SymbolFontIcon: Int, CaseIterable {
     case house
     case houseFill
+    case pencil
     case pencilCircle
     case pencilCircleFill
     case magnifyingglassCircle
@@ -23,6 +24,8 @@ enum SymbolFontIcon: Int, CaseIterable {
             return "􀎞"
         case .houseFill:
             return "􀎟"
+        case .pencil:
+            return "􀈊"
         case .pencilCircle:
             return "􀈋"
         case .pencilCircleFill:
