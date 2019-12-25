@@ -39,7 +39,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cUs-uA-pqU">
-                                <rect key="frame" x="0.0" y="87" width="375" height="530.5"/>
+                                <rect key="frame" x="0.0" y="87.5" width="375" height="579.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gur-mx-cGQ">
                                     <size key="itemSize" width="50" height="50"/>
@@ -61,11 +61,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GQr-AP-Zpj"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="search" id="DZb-fH-P4l"/>
                     <navigationItem key="navigationItem" id="I4U-9A-JXP">
                         <nil key="title"/>
                     </navigationItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
@@ -79,7 +77,4 @@
             <point key="canvasLocation" x="-439.19999999999999" y="106.59670164917542"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="search" width="24" height="24"/>
-    </resources>
 </document>

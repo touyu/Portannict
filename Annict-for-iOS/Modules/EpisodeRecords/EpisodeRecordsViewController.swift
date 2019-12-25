@@ -16,9 +16,9 @@ final class EpisodeRecordsViewController: UIViewController, StoryboardView {
 
     @IBOutlet private weak var tableView: UITableView!
     private var postButton: UIButton = {
-        let button = UIButton(icon: .pencil)
-        button.layer.cornerRadius = 25
-        button.tintColor = UIColor(hex: 0xFA5871)
+        let button = UIButton(symbol: .pencil, size: 30, color: .white)
+        button.layer.cornerRadius = 27
+        button.backgroundColor = UIColor(hex: 0xFA5871)
         button.applyFABShadow()
         return button
     }()
@@ -70,7 +70,7 @@ final class EpisodeRecordsViewController: UIViewController, StoryboardView {
     private func preparePostButton() {
         view.addSubview(postButton)
         postButton.snp.makeConstraints {
-            $0.width.height.equalTo(50)
+            $0.width.height.equalTo(54)
             $0.trailing.equalTo(view.snp.trailing).offset(-20)
             $0.bottom.equalTo(view.snp.bottom).offset(-40)
         }

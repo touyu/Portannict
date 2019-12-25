@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0MH-BQ-t7B">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -30,9 +30,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0eg-bL-ZUs"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="home" id="drn-Jc-vXo"/>
                     <navigationItem key="navigationItem" title="Home" id="sdo-zi-9L4"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="0MH-BQ-t7B" id="HVM-v7-I71"/>
                     </connections>
@@ -42,7 +40,4 @@
             <point key="canvasLocation" x="194" y="45"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="home" width="32" height="32"/>
-    </resources>
 </document>

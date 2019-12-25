@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		C917CDDC4A16A7899040361A /* Pods_Annict_for_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0567F169D06E4DEA7E47513F /* Pods_Annict_for_iOS.framework */; };
+		CF3024F823B286E0005C634B /* SymbolFontIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3024F723B286E0005C634B /* SymbolFontIcon.swift */; };
+		CF3024FA23B286FB005C634B /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3024F923B286FB005C634B /* Font+Extension.swift */; };
+		CF3024FB23B28ABB005C634B /* Symbols-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF3024F623B2859A005C634B /* Symbols-Medium.otf */; };
+		CF3024FC23B28ABD005C634B /* Symbols-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF3024F523B28599005C634B /* Symbols-Regular.otf */; };
 		CFBBD25B2397D5D400127DCB /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBBD25A2397D5D400127DCB /* RadioButton.swift */; };
 		CFBBD25D2397EB7C00127DCB /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBBD25C2397EB7C00127DCB /* Icon.swift */; };
 		CFBBD25F2397ECC800127DCB /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBBD25E2397ECC800127DCB /* HUD.swift */; };
@@ -179,6 +183,10 @@
 		0567F169D06E4DEA7E47513F /* Pods_Annict_for_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Annict_for_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C866238FE78822277121123 /* Pods-Annict-for-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		CC015B11081256C34FD80D74 /* Pods-Annict-for-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		CF3024F523B28599005C634B /* Symbols-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Symbols-Regular.otf"; sourceTree = "<group>"; };
+		CF3024F623B2859A005C634B /* Symbols-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Symbols-Medium.otf"; sourceTree = "<group>"; };
+		CF3024F723B286E0005C634B /* SymbolFontIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolFontIcon.swift; sourceTree = "<group>"; };
+		CF3024F923B286FB005C634B /* Font+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		CFBBD25A2397D5D400127DCB /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		CFBBD25C2397EB7C00127DCB /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		CFBBD25E2397ECC800127DCB /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
@@ -374,6 +382,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF3024F423B28583005C634B /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				CF3024F923B286FB005C634B /* Font+Extension.swift */,
+				CF3024F723B286E0005C634B /* SymbolFontIcon.swift */,
+				CF3024F623B2859A005C634B /* Symbols-Medium.otf */,
+				CF3024F523B28599005C634B /* Symbols-Regular.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		D1199E462238FF2E00531BF3 /* BlurKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -636,6 +655,7 @@
 		D1B4F15D217EB3080011BAFF /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				CF3024F423B28583005C634B /* Font */,
 				D123F253217CBD2500AE38FD /* AppDelegate.swift */,
 				D1199E462238FF2E00531BF3 /* BlurKit */,
 				D136EA6F21807DD600BA08EA /* Services */,
@@ -966,6 +986,7 @@
 				D1F87E4422E176E2001EB9DD /* WorkStatusButton.xib in Resources */,
 				D1E6DEED22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.xib in Resources */,
 				D11D57E12237B1B0000D3CC0 /* Fragment.graphql in Resources */,
+				CF3024FC23B28ABD005C634B /* Symbols-Regular.otf in Resources */,
 				D16193C422E8585100B6BEBC /* RecordStatusTagButton.xib in Resources */,
 				D1FFB58C21AEE904001099E6 /* EpisodeDetails.graphql in Resources */,
 				D1621DF12186262300819D93 /* RecordViewController.storyboard in Resources */,
@@ -979,6 +1000,7 @@
 				D123F25B217CBD2600AE38FD /* Assets.xcassets in Resources */,
 				D1B27B3322526ECF007F8B95 /* SearchWorksByID.graphql in Resources */,
 				D1B4F16C217EB8580011BAFF /* LoginViewController.storyboard in Resources */,
+				CF3024FB23B28ABB005C634B /* Symbols-Medium.otf in Resources */,
 				D1B4F163217EB38D0011BAFF /* RootViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1153,6 +1175,7 @@
 				D1F87E4222E176C1001EB9DD /* WorkStatusButton.swift in Sources */,
 				D1621DF02186262300819D93 /* RecordViewReactor.swift in Sources */,
 				D1B4C84022E98B0C000C2741 /* ActivityStatusTableViewCellReactor.swift in Sources */,
+				CF3024FA23B286FB005C634B /* Font+Extension.swift in Sources */,
 				D1621DF72186273200819D93 /* ProfileViewReactor.swift in Sources */,
 				D11D57F42237D3DD000D3CC0 /* Entity+Extension.swift in Sources */,
 				D127411D217CDEF300DD09C2 /* BaseService.swift in Sources */,
@@ -1192,6 +1215,7 @@
 				D1B4F165217EB4080011BAFF /* RootViewReactor.swift in Sources */,
 				D1FFB58421AECF04001099E6 /* RecordEpisodeTableViewCell.swift in Sources */,
 				D1FFB58E21AEF3A3001099E6 /* RxUIScrollView.swift in Sources */,
+				CF3024F823B286E0005C634B /* SymbolFontIcon.swift in Sources */,
 				D1F9143B21AA75C8006986A1 /* UIImage.swift in Sources */,
 				D1891A6222E1FDD900D26512 /* WorkAPIService.swift in Sources */,
 				D1B4C84222E98B35000C2741 /* ActivityMultipleRecordTableViewCellReactor.swift in Sources */,

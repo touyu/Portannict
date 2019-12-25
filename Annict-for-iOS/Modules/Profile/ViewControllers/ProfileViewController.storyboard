@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jry-4a-GI1">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </scrollView>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="300" translatesAutoresizingMaskIntoConstraints="NO" id="eE5-ip-1fR" customClass="ProfileHeaderView" customModule="Portannict" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
@@ -53,8 +53,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PJX-Es-pSC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="account" id="piD-M4-ylG"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="buttonBarView" destination="5Ht-d8-H75" id="FmK-KO-9EA"/>
                         <outlet property="containerView" destination="Jry-4a-GI1" id="ZoX-86-wwG"/>
@@ -67,7 +65,4 @@
             <point key="canvasLocation" x="112.8" y="26.53673163418291"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="account" width="30" height="30"/>
-    </resources>
 </document>
