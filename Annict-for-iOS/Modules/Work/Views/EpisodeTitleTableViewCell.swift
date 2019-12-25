@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import M13Checkbox
 
 final class EpisodeTitleTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var countLabel: UILabel!
+    @IBOutlet private weak var checkbox: M13Checkbox!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,6 +21,11 @@ final class EpisodeTitleTableViewCell: UITableViewCell {
         countLabel.roundedRectangleFilter()
         countLabel.backgroundColor = UIColor(hex: 0xEBEBEB)
         titleLabel.textColor = UIColor(hex: 0x464646)
+
+        checkbox.boxType = .square
+        checkbox.animationDuration = 0.2
+        checkbox.checkmarkLineWidth = 1.4
+        checkbox.boxLineWidth = 1.4
     }
 
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {

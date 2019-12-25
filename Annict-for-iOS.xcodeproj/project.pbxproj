@@ -15,6 +15,8 @@
 		CFBBD25B2397D5D400127DCB /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBBD25A2397D5D400127DCB /* RadioButton.swift */; };
 		CFBBD25D2397EB7C00127DCB /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBBD25C2397EB7C00127DCB /* Icon.swift */; };
 		CFBBD25F2397ECC800127DCB /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBBD25E2397ECC800127DCB /* HUD.swift */; };
+		CFF26F4023B380BC00FF5265 /* M13Checkbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF26F3F23B380BC00FF5265 /* M13Checkbox.framework */; };
+		CFF26F4123B380BC00FF5265 /* M13Checkbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFF26F3F23B380BC00FF5265 /* M13Checkbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */; };
 		D1199E492238FF3F00531BF3 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1199E472238FF3E00531BF3 /* BlurView.swift */; };
 		D1199E4A2238FF3F00531BF3 /* BlurKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1199E482238FF3E00531BF3 /* BlurKit.swift */; };
@@ -179,6 +181,20 @@
 		D1FFB59C21B046BE001099E6 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FFB59B21B046BE001099E6 /* SearchViewController.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		CFF26F4223B380BC00FF5265 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CFF26F4123B380BC00FF5265 /* M13Checkbox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0567F169D06E4DEA7E47513F /* Pods_Annict_for_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Annict_for_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C866238FE78822277121123 /* Pods-Annict-for-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Annict-for-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Annict-for-iOS/Pods-Annict-for-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +206,7 @@
 		CFBBD25A2397D5D400127DCB /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		CFBBD25C2397EB7C00127DCB /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		CFBBD25E2397ECC800127DCB /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
+		CFF26F3F23B380BC00FF5265 /* M13Checkbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = M13Checkbox.framework; path = Carthage/Build/iOS/M13Checkbox.framework; sourceTree = "<group>"; };
 		D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		D1199E472238FF3E00531BF3 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		D1199E482238FF3E00531BF3 /* BlurKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurKit.swift; sourceTree = "<group>"; };
@@ -319,7 +336,6 @@
 		D1C53C1E21EF733200DA9A1D /* ProfileWorkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWorkCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1C53C1F21EF733200DA9A1D /* ProfileWorkCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileWorkCollectionViewCell.xib; sourceTree = "<group>"; };
 		D1CEDD7422F14BA000EC2D94 /* DeleteRecord.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DeleteRecord.graphql; sourceTree = "<group>"; };
-		D1E66AB42204B8ED0058BFEF /* Carthage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Carthage; sourceTree = "<group>"; };
 		D1E66AB62204B9000058BFEF /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		D1E6DEEA22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTitleTableViewCell.swift; sourceTree = "<group>"; };
 		D1E6DEEB22E0EA8F003D03F0 /* EpisodeTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeTitleTableViewCell.xib; sourceTree = "<group>"; };
@@ -367,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D15A325322EAF30D00DDC404 /* PKHUD.framework in Frameworks */,
+				CFF26F4023B380BC00FF5265 /* M13Checkbox.framework in Frameworks */,
 				D123D0D122D8F2D500C023F1 /* PanModal.framework in Frameworks */,
 				D1E66AB72204B9000058BFEF /* SnapKit.framework in Frameworks */,
 				D1C53C0821EE4C7700DA9A1D /* XLPagerTabStrip.framework in Frameworks */,
@@ -457,10 +474,10 @@
 		D127410B217CCB3F00DD09C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CFF26F3F23B380BC00FF5265 /* M13Checkbox.framework */,
 				D15A325222EAF30D00DDC404 /* PKHUD.framework */,
 				D123D0D022D8F2D500C023F1 /* PanModal.framework */,
 				D1E66AB62204B9000058BFEF /* SnapKit.framework */,
-				D1E66AB42204B8ED0058BFEF /* Carthage */,
 				D1C53C0721EE4C7700DA9A1D /* XLPagerTabStrip.framework */,
 				D1F9ED0221B2748500AB3DAE /* Hero.framework */,
 				D1FFB59521B03A4D001099E6 /* SQLite.framework */,
@@ -895,13 +912,14 @@
 			buildConfigurationList = D123F262217CBD2600AE38FD /* Build configuration list for PBXNativeTarget "Annict-for-iOS" */;
 			buildPhases = (
 				8797AD0F81A25331BCAE0A81 /* [CP] Check Pods Manifest.lock */,
-				D1274122217E09D600DD09C2 /* ShellScript */,
+				D1274122217E09D600DD09C2 /* Apollo */,
 				D123F24C217CBD2500AE38FD /* Sources */,
 				D123F24D217CBD2500AE38FD /* Frameworks */,
 				D123F24E217CBD2500AE38FD /* Resources */,
-				D1274110217CCB5700DD09C2 /* ShellScript */,
+				D1274110217CCB5700DD09C2 /* Carthage */,
 				5BB8CB85AAE678D01443BD23 /* [CP] Embed Pods Frameworks */,
-				D136EA662180424600BA08EA /* ShellScript */,
+				D136EA662180424600BA08EA /* Copy Templates */,
+				CFF26F4223B380BC00FF5265 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1066,7 +1084,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D1274110217CCB5700DD09C2 /* ShellScript */ = {
+		D1274110217CCB5700DD09C2 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1083,7 +1101,9 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PanModal.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PKHUD.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/M13Checkbox.framework",
 			);
+			name = Carthage;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -1092,7 +1112,7 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
-		D1274122217E09D600DD09C2 /* ShellScript */ = {
+		D1274122217E09D600DD09C2 /* Apollo */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1101,6 +1121,7 @@
 			);
 			inputPaths = (
 			);
+			name = Apollo;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -1109,7 +1130,7 @@
 			shellPath = /bin/sh;
 			shellScript = "SCRIPT_PATH=\"${SRCROOT}/Carthage/Checkouts/apollo-ios/scripts\"\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n";
 		};
-		D136EA662180424600BA08EA /* ShellScript */ = {
+		D136EA662180424600BA08EA /* Copy Templates */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1118,6 +1139,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Copy Templates";
 			outputFileListPaths = (
 			);
 			outputPaths = (

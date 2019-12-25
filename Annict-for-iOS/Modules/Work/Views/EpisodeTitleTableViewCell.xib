@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,15 +14,9 @@
             <rect key="frame" x="0.0" y="0.0" width="418" height="91"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="418" height="90.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="418" height="91"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hO7-bb-ml7">
-                        <rect key="frame" x="20" y="37" width="31" height="17"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOP-vM-GQk">
                         <rect key="frame" x="374" y="35.5" width="28" height="20"/>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
@@ -36,17 +28,34 @@
                         <color key="textColor" red="0.27450980392156865" green="0.27450980392156865" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UhB-pX-Fk5" customClass="M13Checkbox" customModule="M13Checkbox">
+                        <rect key="frame" x="20" y="36.5" width="18" height="18"/>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="D8R-bZ-hLK"/>
+                            <constraint firstAttribute="width" constant="18" id="wgo-Sg-DPe"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hO7-bb-ml7">
+                        <rect key="frame" x="54" y="37" width="31" height="17"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="hO7-bb-ml7" firstAttribute="leading" secondItem="UhB-pX-Fk5" secondAttribute="trailing" constant="16" id="1zC-DM-w1y"/>
+                    <constraint firstItem="UhB-pX-Fk5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="2GK-XL-Isr"/>
                     <constraint firstItem="hO7-bb-ml7" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8jL-NI-vra"/>
+                    <constraint firstItem="UhB-pX-Fk5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Mz1-OB-MJI"/>
                     <constraint firstAttribute="trailing" secondItem="YOP-vM-GQk" secondAttribute="trailing" constant="16" id="Wbp-8D-bKO"/>
                     <constraint firstItem="YOP-vM-GQk" firstAttribute="centerY" secondItem="hO7-bb-ml7" secondAttribute="centerY" id="Xci-ll-fYA"/>
-                    <constraint firstItem="hO7-bb-ml7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="b56-w3-DaE"/>
                     <constraint firstItem="YOP-vM-GQk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hO7-bb-ml7" secondAttribute="trailing" constant="4" id="j52-eS-hrD"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="checkbox" destination="UhB-pX-Fk5" id="mcm-kg-Hcw"/>
                 <outlet property="countLabel" destination="YOP-vM-GQk" id="RnY-xx-TkU"/>
                 <outlet property="titleLabel" destination="hO7-bb-ml7" id="XQ7-HM-gQp"/>
             </connections>

@@ -1,4 +1,5 @@
 github "HeroTransitions/Hero" "1.4.0"
+github "Marxon13/M13Checkbox" "3.4.0"
 github "SnapKit/SnapKit" "5.0.1"
 github "apollostack/apollo-ios" "0.16.1"
 github "malcommac/SwiftDate" "6.1.0"
