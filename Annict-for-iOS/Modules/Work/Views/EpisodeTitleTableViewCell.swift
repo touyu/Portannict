@@ -11,9 +11,14 @@ import ReactorKit
 import M13Checkbox
 import RxSwift
 
+protocol EpisodeTitleTableViewCellDelegate: class {
+    func episodeTitleTableViewCell(_ cell: EpisodeTitleTableViewCell, didChangeSelected: Bool)
+}
+
 final class EpisodeTitleTableViewCell: UITableViewCell, StoryboardView {
     typealias Reactor = EpisodeTitleTableViewCellReactor
 
+    weak var delegate: EpisodeTitleTableViewCellDelegate?
     var disposeBag = DisposeBag()
 
     @IBOutlet private weak var titleLabel: UILabel!
@@ -52,7 +57,10 @@ final class EpisodeTitleTableViewCell: UITableViewCell, StoryboardView {
     func bind(reactor: Reactor) {
         checkbox.rx.controlEvent(.valueChanged)
             .subscribe(onNext: { [unowned self] in
-                reactor.action.onNext(.updateIsSelected(self.checkbox.checkState == .checked ? true : false))
+                Taptic.run(.impact(.medium))
+                let isSelected = self.checkbox.checkState == .checked ? true : false
+                reactor.action.onNext(.updateIsSelected(isSelected))
+                self.delegate?.episodeTitleTableViewCell(self, didChangeSelected: isSelected)
             })
             .disposed(by: disposeBag)
 
@@ -66,6 +74,7 @@ final class EpisodeTitleTableViewCell: UITableViewCell, StoryboardView {
         reactor.state.map { $0.isSelected }
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] isSelected in
+                print("AAAAAAAAAA")
                 self?.checkbox.setCheckState(isSelected ? .checked : .unchecked, animated: false)
             })
             .disposed(by: disposeBag)

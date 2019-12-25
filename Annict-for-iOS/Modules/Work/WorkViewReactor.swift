@@ -26,7 +26,6 @@ final class WorkViewReactor: Reactor {
     
     struct State {
         var work: MinimumWork
-//        var episodes: [MinimumEpisode] = []
         var cellReactors: [EpisodeTitleTableViewCellReactor] = []
         var pageInfo: PageInfoF?
         

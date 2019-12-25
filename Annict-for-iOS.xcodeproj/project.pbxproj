@@ -18,6 +18,7 @@
 		CFF26F4023B380BC00FF5265 /* M13Checkbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF26F3F23B380BC00FF5265 /* M13Checkbox.framework */; };
 		CFF26F4123B380BC00FF5265 /* M13Checkbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFF26F3F23B380BC00FF5265 /* M13Checkbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CFF26F4423B3849D00FF5265 /* EpisodeTitleTableViewCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF26F4323B3849D00FF5265 /* EpisodeTitleTableViewCellReactor.swift */; };
+		CFF26F4623B38ED700FF5265 /* MultiEpisodeRecordFloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF26F4523B38ED700FF5265 /* MultiEpisodeRecordFloatingView.swift */; };
 		D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */; };
 		D1199E492238FF3F00531BF3 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1199E472238FF3E00531BF3 /* BlurView.swift */; };
 		D1199E4A2238FF3F00531BF3 /* BlurKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1199E482238FF3E00531BF3 /* BlurKit.swift */; };
@@ -209,6 +210,7 @@
 		CFBBD25E2397ECC800127DCB /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		CFF26F3F23B380BC00FF5265 /* M13Checkbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = M13Checkbox.framework; path = Carthage/Build/iOS/M13Checkbox.framework; sourceTree = "<group>"; };
 		CFF26F4323B3849D00FF5265 /* EpisodeTitleTableViewCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTitleTableViewCellReactor.swift; sourceTree = "<group>"; };
+		CFF26F4523B38ED700FF5265 /* MultiEpisodeRecordFloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiEpisodeRecordFloatingView.swift; sourceTree = "<group>"; };
 		D118FCBE217F1D1C00FD5B82 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		D1199E472238FF3E00531BF3 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		D1199E482238FF3E00531BF3 /* BlurKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurKit.swift; sourceTree = "<group>"; };
@@ -507,6 +509,7 @@
 				D1F87E4322E176E2001EB9DD /* WorkStatusButton.xib */,
 				D13C668422EB75490087284B /* EpisodeCountSectionTableViewCell.swift */,
 				D13C668522EB75490087284B /* EpisodeCountSectionTableViewCell.xib */,
+				CFF26F4523B38ED700FF5265 /* MultiEpisodeRecordFloatingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1208,6 +1211,7 @@
 				D1C53C2021EF733200DA9A1D /* ProfileWorkCollectionViewCell.swift in Sources */,
 				D1F9144A21AA7FD2006986A1 /* UserWorkCollectionViewCell.swift in Sources */,
 				D1F9ED0821B274CD00AB3DAE /* WorkViewReactor.swift in Sources */,
+				CFF26F4623B38ED700FF5265 /* MultiEpisodeRecordFloatingView.swift in Sources */,
 				D1B4C84822E9C55B000C2741 /* SwiftyAttributedString.swift in Sources */,
 				D11D57E92237BC3B000D3CC0 /* ActivityRecordTableViewCell.swift in Sources */,
 				D118FCBF217F1D1C00FD5B82 /* NotificationName.swift in Sources */,

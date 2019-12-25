@@ -19,15 +19,31 @@ final class WorkViewController: UIViewController, StoryboardView {
     var disposeBag = DisposeBag()
 
     @IBOutlet private weak var tableView: UITableView!
+
+    private let multiEpisodeRecordFloatingView: MultiEpisodeRecordFloatingView = {
+        let v = MultiEpisodeRecordFloatingView()
+        v.layer.cornerRadius = 12
+        v.layer.masksToBounds = true
+        return v
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
         tableView.showsVerticalScrollIndicator = false
+        tableView.contentInset.bottom = 100
         tableView.register(WorkHeaderTableViewCell.self,
                            EpisodeTitleTableViewCell.self,
                            EpisodeCountSectionTableViewCell.self)
+
+        view.addSubview(multiEpisodeRecordFloatingView)
+        multiEpisodeRecordFloatingView.snp.makeConstraints {
+            $0.width.equalTo(view.snp.width).offset(-32)
+            $0.centerX.equalTo(view.snp.centerX)
+            $0.height.equalTo(54)
+            $0.top.equalTo(view.snp.bottom)
+        }
     }
     
     func bind(reactor: Reactor) {
@@ -101,6 +117,7 @@ extension WorkViewController: UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(classType: EpisodeTitleTableViewCell.self, for: indexPath)
             cell.reactor = reactor?.currentState.cellReactors[indexPath.row]
+            cell.delegate = self
             return cell
         }
     }
@@ -172,5 +189,39 @@ extension WorkViewController: WorkStatusButtonDelegate {
     
     private func updateStatusState(_ statusState: StatusState) {
         reactor?.action.onNext(.updateStatusState(statusState))
+    }
+}
+
+extension WorkViewController: EpisodeTitleTableViewCellDelegate {
+    func episodeTitleTableViewCell(_ cell: EpisodeTitleTableViewCell, didChangeSelected: Bool) {
+        let isSelected = reactor!.currentState.cellReactors.map({ $0.currentState.isSelected }).contains(true)
+        print(reactor!.currentState.cellReactors.map({ $0.currentState.isSelected }))
+        if isSelected {
+            multiEpisodeRecordFloatingView.snp.updateConstraints {
+                $0.top.equalTo(view.snp.bottom).offset(-100)
+            }
+
+            UIView.animate(withDuration: 0.35,
+                           delay: 0,
+                           usingSpringWithDamping: 0.8,
+                           initialSpringVelocity: 0,
+                           options: [.curveEaseInOut],
+                           animations: { [weak self] in
+                            self?.view.layoutIfNeeded()
+            }, completion: nil)
+        } else {
+            multiEpisodeRecordFloatingView.snp.updateConstraints {
+                $0.top.equalTo(view.snp.bottom)
+            }
+
+            UIView.animate(withDuration: 0.35,
+                           delay: 0,
+                           usingSpringWithDamping: 0.8,
+                           initialSpringVelocity: 0,
+                           options: [.curveEaseInOut],
+                           animations: { [weak self] in
+                            self?.view.layoutIfNeeded()
+                }, completion: nil)
+        }
     }
 }
