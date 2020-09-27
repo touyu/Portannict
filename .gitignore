@@ -5,6 +5,7 @@ Pods/
 
 .DS_Store
 **/*.xcuserstate
+xcuserdata
 node_modules
 vendor/bundle
 

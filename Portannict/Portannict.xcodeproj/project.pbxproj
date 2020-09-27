@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CF08FC0724B9AD1A00CD29DD /* PortannictApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF08FC0624B9AD1A00CD29DD /* PortannictApp.swift */; };
+		CF08FC0924B9AD1A00CD29DD /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF08FC0824B9AD1A00CD29DD /* RootTabView.swift */; };
+		CF08FC0B24B9AD1A00CD29DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF08FC0A24B9AD1A00CD29DD /* Assets.xcassets */; };
+		CF08FC0E24B9AD1A00CD29DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF08FC0D24B9AD1A00CD29DD /* Preview Assets.xcassets */; };
+		CF08FC1624B9AFC500CD29DD /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF08FC1524B9AFC500CD29DD /* ProfileView.swift */; };
+		CF08FC1824B9B04900CD29DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF08FC1724B9B04900CD29DD /* HomeView.swift */; };
+		CF42CFD124C9D73400AAD8E8 /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF42CFD024C9D73400AAD8E8 /* Work.swift */; };
+		CF42CFD324C9D7D300AAD8E8 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF42CFD224C9D7D300AAD8E8 /* Activity.swift */; };
+		CF42CFD524C9D83B00AAD8E8 /* PreviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF42CFD424C9D83B00AAD8E8 /* PreviewModel.swift */; };
+		CF841D3D24CA626400F3723B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D3C24CA626400F3723B /* HomeViewModel.swift */; };
+		CF841D4524CA69A600F3723B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4424CA69A600F3723B /* LoginView.swift */; };
+		CF841D4724CA6A1F00F3723B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4624CA6A1F00F3723B /* RootView.swift */; };
+		CFFE4FFC24C9C00D003AECE5 /* ActivityStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView.swift */; };
+		CFFE4FFE24C9C266003AECE5 /* QuoteWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE4FFD24C9C266003AECE5 /* QuoteWorkView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CF08FC0324B9AD1A00CD29DD /* Portannict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portannict.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF08FC0624B9AD1A00CD29DD /* PortannictApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortannictApp.swift; sourceTree = "<group>"; };
+		CF08FC0824B9AD1A00CD29DD /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		CF08FC0A24B9AD1A00CD29DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CF08FC0D24B9AD1A00CD29DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CF08FC0F24B9AD1A00CD29DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF08FC1524B9AFC500CD29DD /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		CF08FC1724B9B04900CD29DD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		CF42CFD024C9D73400AAD8E8 /* Work.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Work.swift; sourceTree = "<group>"; };
+		CF42CFD224C9D7D300AAD8E8 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		CF42CFD424C9D83B00AAD8E8 /* PreviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewModel.swift; sourceTree = "<group>"; };
+		CF841D3C24CA626400F3723B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		CF841D4424CA69A600F3723B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		CF841D4624CA6A1F00F3723B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatusView.swift; sourceTree = "<group>"; };
+		CFFE4FFD24C9C266003AECE5 /* QuoteWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteWorkView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CF08FC0024B9AD1A00CD29DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CF08FBFA24B9AD1A00CD29DD = {
+			isa = PBXGroup;
+			children = (
+				CF08FC0524B9AD1A00CD29DD /* Portannict */,
+				CF08FC0424B9AD1A00CD29DD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CF08FC0424B9AD1A00CD29DD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CF08FC0324B9AD1A00CD29DD /* Portannict.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF08FC0524B9AD1A00CD29DD /* Portannict */ = {
+			isa = PBXGroup;
+			children = (
+				CF841D4624CA6A1F00F3723B /* RootView.swift */,
+				CF08FC0824B9AD1A00CD29DD /* RootTabView.swift */,
+				CF08FC0624B9AD1A00CD29DD /* PortannictApp.swift */,
+				CF42CFCF24C9D72800AAD8E8 /* Models */,
+				CF841D3E24CA67F600F3723B /* Login */,
+				CFFE4FFA24C9BF1A003AECE5 /* Home */,
+				CF08FC1524B9AFC500CD29DD /* ProfileView.swift */,
+				CF08FC0A24B9AD1A00CD29DD /* Assets.xcassets */,
+				CF08FC0F24B9AD1A00CD29DD /* Info.plist */,
+				CF08FC0C24B9AD1A00CD29DD /* Preview Content */,
+			);
+			path = Portannict;
+			sourceTree = "<group>";
+		};
+		CF08FC0C24B9AD1A00CD29DD /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CF08FC0D24B9AD1A00CD29DD /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CF42CFCF24C9D72800AAD8E8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CF42CFD024C9D73400AAD8E8 /* Work.swift */,
+				CF42CFD224C9D7D300AAD8E8 /* Activity.swift */,
+				CF42CFD424C9D83B00AAD8E8 /* PreviewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CF841D3E24CA67F600F3723B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CF841D4424CA69A600F3723B /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		CFFE4FFA24C9BF1A003AECE5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CF08FC1724B9B04900CD29DD /* HomeView.swift */,
+				CF841D3C24CA626400F3723B /* HomeViewModel.swift */,
+				CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView.swift */,
+				CFFE4FFD24C9C266003AECE5 /* QuoteWorkView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CF08FC0224B9AD1A00CD29DD /* Portannict */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF08FC1224B9AD1A00CD29DD /* Build configuration list for PBXNativeTarget "Portannict" */;
+			buildPhases = (
+				CF08FBFF24B9AD1A00CD29DD /* Sources */,
+				CF08FC0024B9AD1A00CD29DD /* Frameworks */,
+				CF08FC0124B9AD1A00CD29DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Portannict;
+			productName = Portannict;
+			productReference = CF08FC0324B9AD1A00CD29DD /* Portannict.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CF08FBFB24B9AD1A00CD29DD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					CF08FC0224B9AD1A00CD29DD = {
+						CreatedOnToolsVersion = 12.0;
+					};
+				};
+			};
+			buildConfigurationList = CF08FBFE24B9AD1A00CD29DD /* Build configuration list for PBXProject "Portannict" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF08FBFA24B9AD1A00CD29DD;
+			productRefGroup = CF08FC0424B9AD1A00CD29DD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CF08FC0224B9AD1A00CD29DD /* Portannict */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CF08FC0124B9AD1A00CD29DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF08FC0E24B9AD1A00CD29DD /* Preview Assets.xcassets in Resources */,
+				CF08FC0B24B9AD1A00CD29DD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CF08FBFF24B9AD1A00CD29DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF08FC0924B9AD1A00CD29DD /* RootTabView.swift in Sources */,
+				CF42CFD124C9D73400AAD8E8 /* Work.swift in Sources */,
+				CF08FC1824B9B04900CD29DD /* HomeView.swift in Sources */,
+				CF841D3D24CA626400F3723B /* HomeViewModel.swift in Sources */,
+				CF08FC1624B9AFC500CD29DD /* ProfileView.swift in Sources */,
+				CFFE4FFC24C9C00D003AECE5 /* ActivityStatusView.swift in Sources */,
+				CF841D4524CA69A600F3723B /* LoginView.swift in Sources */,
+				CF42CFD524C9D83B00AAD8E8 /* PreviewModel.swift in Sources */,
+				CF841D4724CA6A1F00F3723B /* RootView.swift in Sources */,
+				CFFE4FFE24C9C266003AECE5 /* QuoteWorkView.swift in Sources */,
+				CF42CFD324C9D7D300AAD8E8 /* Activity.swift in Sources */,
+				CF08FC0724B9AD1A00CD29DD /* PortannictApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CF08FC1024B9AD1A00CD29DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CF08FC1124B9AD1A00CD29DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CF08FC1324B9AD1A00CD29DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Portannict/Preview Content\"";
+				DEVELOPMENT_TEAM = V8AZ23YEL4;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Portannict/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.YutoAkiba.Annict-for-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CF08FC1424B9AD1A00CD29DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Portannict/Preview Content\"";
+				DEVELOPMENT_TEAM = V8AZ23YEL4;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Portannict/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.YutoAkiba.Annict-for-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CF08FBFE24B9AD1A00CD29DD /* Build configuration list for PBXProject "Portannict" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF08FC1024B9AD1A00CD29DD /* Debug */,
+				CF08FC1124B9AD1A00CD29DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF08FC1224B9AD1A00CD29DD /* Build configuration list for PBXNativeTarget "Portannict" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF08FC1324B9AD1A00CD29DD /* Debug */,
+				CF08FC1424B9AD1A00CD29DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CF08FBFB24B9AD1A00CD29DD /* Project object */;
+}
