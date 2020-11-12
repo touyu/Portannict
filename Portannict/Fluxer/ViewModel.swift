@@ -68,7 +68,7 @@ public extension ViewModel where Self.ObjectWillChangePublisher == ObservableObj
         self.action = PassthroughSubject<Action, Never>()
         self.cancellables = Set<AnyCancellable>()
 
-        // Create bind stream
+        // Create binding stream
         let action = self.action
             .eraseToAnyPublisher()
 
