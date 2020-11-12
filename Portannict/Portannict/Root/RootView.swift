@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Fluxer
 
 struct RootView: View {
     @ObservedObject var viewModel: RootViewModel
@@ -19,11 +20,9 @@ struct RootView: View {
     var body: some View {
         VStack {
             TextField("AAAA", value: $viewModel.state.number, formatter: NumberFormatter())
-            Button(action: {
-                viewModel.action.send(.increment)
-            }, label: {
-                Text("Button")
-            })
+            Button(viewModel: viewModel, action: .increment) {
+                Text("AAAA")
+            }
         }
     }
 }

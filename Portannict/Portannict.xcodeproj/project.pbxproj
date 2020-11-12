@@ -24,6 +24,7 @@
 		CFCA3F02255D934900AA2469 /* Fluxer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCA3EFB255D934900AA2469 /* Fluxer.framework */; };
 		CFCA3F03255D934900AA2469 /* Fluxer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFCA3EFB255D934900AA2469 /* Fluxer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CFCA3F09255D935000AA2469 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCA3EF2255D8F2F00AA2469 /* ViewModel.swift */; };
+		CFCA3F11255D958300AA2469 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCA3F10255D958300AA2469 /* Button.swift */; };
 		CFFE4FFC24C9C00D003AECE5 /* ActivityStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView.swift */; };
 		CFFE4FFE24C9C266003AECE5 /* QuoteWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE4FFD24C9C266003AECE5 /* QuoteWorkView.swift */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,7 @@
 		CFCA3EFB255D934900AA2469 /* Fluxer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fluxer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFCA3EFD255D934900AA2469 /* Fluxer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fluxer.h; sourceTree = "<group>"; };
 		CFCA3EFE255D934900AA2469 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFCA3F10255D958300AA2469 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatusView.swift; sourceTree = "<group>"; };
 		CFFE4FFD24C9C266003AECE5 /* QuoteWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteWorkView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,11 +170,20 @@
 		CFCA3EFC255D934900AA2469 /* Fluxer */ = {
 			isa = PBXGroup;
 			children = (
+				CFCA3F0F255D957900AA2469 /* UI */,
 				CFCA3EF2255D8F2F00AA2469 /* ViewModel.swift */,
 				CFCA3EFD255D934900AA2469 /* Fluxer.h */,
 				CFCA3EFE255D934900AA2469 /* Info.plist */,
 			);
 			path = Fluxer;
+			sourceTree = "<group>";
+		};
+		CFCA3F0F255D957900AA2469 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CFCA3F10255D958300AA2469 /* Button.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		CFFE4FFA24C9BF1A003AECE5 /* Home */ = {
@@ -318,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFCA3F09255D935000AA2469 /* ViewModel.swift in Sources */,
+				CFCA3F11255D958300AA2469 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
