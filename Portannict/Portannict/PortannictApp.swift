@@ -11,7 +11,7 @@ import SwiftUI
 struct PortannictApp: App {
     var body: some Scene {
         WindowGroup {
-            RootView()
+            RootView(viewModel: .init())
         }
     }
 }
