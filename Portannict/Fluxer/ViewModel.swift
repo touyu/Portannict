@@ -1,6 +1,6 @@
 //
 //  ViewModel.swift
-//  Portannict
+//  Fluxer
 //
 //  Created by Yuto Akiba on 2020/11/13.
 //

@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import SwiftUI
+import Fluxer
 
 final class RootViewModel: ViewModel {
     enum Action {
@@ -43,6 +44,14 @@ final class RootViewModel: ViewModel {
         case .increment:
             state.number += 1
         }
+    }
+
+    func transform(mutation: AnyPublisher<Mutation, Never>) -> AnyPublisher<Mutation, Never> {
+        let m = Timer.publish(every: 1.0, on: .main, in: .common)
+            .autoconnect()
+            .map { _ in Mutation.increment }
+
+        return mutation.merge(with: m).eraseToAnyPublisher()
     }
 }
 

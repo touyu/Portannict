@@ -20,10 +20,37 @@
 		CF841D4524CA69A600F3723B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4424CA69A600F3723B /* LoginView.swift */; };
 		CF841D4724CA6A1F00F3723B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4624CA6A1F00F3723B /* RootView.swift */; };
 		CFB8D8BB255D18A20092764B /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB8D8BA255D18A20092764B /* RootViewModel.swift */; };
-		CFCA3EF3255D8F2F00AA2469 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCA3EF2255D8F2F00AA2469 /* ViewModel.swift */; };
+		CFCA3EFF255D934900AA2469 /* Fluxer.h in Headers */ = {isa = PBXBuildFile; fileRef = CFCA3EFD255D934900AA2469 /* Fluxer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFCA3F02255D934900AA2469 /* Fluxer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCA3EFB255D934900AA2469 /* Fluxer.framework */; };
+		CFCA3F03255D934900AA2469 /* Fluxer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFCA3EFB255D934900AA2469 /* Fluxer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CFCA3F09255D935000AA2469 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCA3EF2255D8F2F00AA2469 /* ViewModel.swift */; };
 		CFFE4FFC24C9C00D003AECE5 /* ActivityStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView.swift */; };
 		CFFE4FFE24C9C266003AECE5 /* QuoteWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE4FFD24C9C266003AECE5 /* QuoteWorkView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CFCA3F00255D934900AA2469 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF08FBFB24B9AD1A00CD29DD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFCA3EFA255D934900AA2469;
+			remoteInfo = Fluxer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CFCA3F07255D934900AA2469 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CFCA3F03255D934900AA2469 /* Fluxer.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CF08FC0324B9AD1A00CD29DD /* Portannict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portannict.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,12 +69,23 @@
 		CF841D4624CA6A1F00F3723B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		CFB8D8BA255D18A20092764B /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		CFCA3EF2255D8F2F00AA2469 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		CFCA3EFB255D934900AA2469 /* Fluxer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fluxer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFCA3EFD255D934900AA2469 /* Fluxer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fluxer.h; sourceTree = "<group>"; };
+		CFCA3EFE255D934900AA2469 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatusView.swift; sourceTree = "<group>"; };
 		CFFE4FFD24C9C266003AECE5 /* QuoteWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteWorkView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CF08FC0024B9AD1A00CD29DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFCA3F02255D934900AA2469 /* Fluxer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFCA3EF8255D934900AA2469 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -60,8 +98,8 @@
 		CF08FBFA24B9AD1A00CD29DD = {
 			isa = PBXGroup;
 			children = (
-				CFCA3EF1255D8F1A00AA2469 /* Common */,
 				CF08FC0524B9AD1A00CD29DD /* Portannict */,
+				CFCA3EFC255D934900AA2469 /* Fluxer */,
 				CF08FC0424B9AD1A00CD29DD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				CF08FC0324B9AD1A00CD29DD /* Portannict.app */,
+				CFCA3EFB255D934900AA2469 /* Fluxer.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,12 +165,14 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
-		CFCA3EF1255D8F1A00AA2469 /* Common */ = {
+		CFCA3EFC255D934900AA2469 /* Fluxer */ = {
 			isa = PBXGroup;
 			children = (
 				CFCA3EF2255D8F2F00AA2469 /* ViewModel.swift */,
+				CFCA3EFD255D934900AA2469 /* Fluxer.h */,
+				CFCA3EFE255D934900AA2469 /* Info.plist */,
 			);
-			path = Common;
+			path = Fluxer;
 			sourceTree = "<group>";
 		};
 		CFFE4FFA24C9BF1A003AECE5 /* Home */ = {
@@ -147,6 +188,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		CFCA3EF6255D934900AA2469 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFCA3EFF255D934900AA2469 /* Fluxer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		CF08FC0224B9AD1A00CD29DD /* Portannict */ = {
 			isa = PBXNativeTarget;
@@ -155,15 +207,35 @@
 				CF08FBFF24B9AD1A00CD29DD /* Sources */,
 				CF08FC0024B9AD1A00CD29DD /* Frameworks */,
 				CF08FC0124B9AD1A00CD29DD /* Resources */,
+				CFCA3F07255D934900AA2469 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CFCA3F01255D934900AA2469 /* PBXTargetDependency */,
 			);
 			name = Portannict;
 			productName = Portannict;
 			productReference = CF08FC0324B9AD1A00CD29DD /* Portannict.app */;
 			productType = "com.apple.product-type.application";
+		};
+		CFCA3EFA255D934900AA2469 /* Fluxer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFCA3F04255D934900AA2469 /* Build configuration list for PBXNativeTarget "Fluxer" */;
+			buildPhases = (
+				CFCA3EF6255D934900AA2469 /* Headers */,
+				CFCA3EF7255D934900AA2469 /* Sources */,
+				CFCA3EF8255D934900AA2469 /* Frameworks */,
+				CFCA3EF9255D934900AA2469 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Fluxer;
+			productName = Fluxer;
+			productReference = CFCA3EFB255D934900AA2469 /* Fluxer.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -176,6 +248,9 @@
 				TargetAttributes = {
 					CF08FC0224B9AD1A00CD29DD = {
 						CreatedOnToolsVersion = 12.0;
+					};
+					CFCA3EFA255D934900AA2469 = {
+						CreatedOnToolsVersion = 12.1;
 					};
 				};
 			};
@@ -193,6 +268,7 @@
 			projectRoot = "";
 			targets = (
 				CF08FC0224B9AD1A00CD29DD /* Portannict */,
+				CFCA3EFA255D934900AA2469 /* Fluxer */,
 			);
 		};
 /* End PBXProject section */
@@ -204,6 +280,13 @@
 			files = (
 				CF08FC0E24B9AD1A00CD29DD /* Preview Assets.xcassets in Resources */,
 				CF08FC0B24B9AD1A00CD29DD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFCA3EF9255D934900AA2469 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +303,6 @@
 				CF08FC1824B9B04900CD29DD /* HomeView.swift in Sources */,
 				CF841D3D24CA626400F3723B /* HomeViewModel.swift in Sources */,
 				CF08FC1624B9AFC500CD29DD /* ProfileView.swift in Sources */,
-				CFCA3EF3255D8F2F00AA2469 /* ViewModel.swift in Sources */,
 				CFFE4FFC24C9C00D003AECE5 /* ActivityStatusView.swift in Sources */,
 				CF841D4524CA69A600F3723B /* LoginView.swift in Sources */,
 				CF42CFD524C9D83B00AAD8E8 /* PreviewModel.swift in Sources */,
@@ -231,7 +313,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CFCA3EF7255D934900AA2469 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFCA3F09255D935000AA2469 /* ViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CFCA3F01255D934900AA2469 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CFCA3EFA255D934900AA2469 /* Fluxer */;
+			targetProxy = CFCA3F00255D934900AA2469 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		CF08FC1024B9AD1A00CD29DD /* Debug */ = {
@@ -353,6 +451,7 @@
 		CF08FC1324B9AD1A00CD29DD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -375,6 +474,7 @@
 		CF08FC1424B9AD1A00CD29DD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -391,6 +491,62 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CFCA3F05255D934900AA2469 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = V8AZ23YEL4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Fluxer/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.touyu.Fluxer;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CFCA3F06255D934900AA2469 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = V8AZ23YEL4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Fluxer/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.touyu.Fluxer;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -411,6 +567,15 @@
 			buildConfigurations = (
 				CF08FC1324B9AD1A00CD29DD /* Debug */,
 				CF08FC1424B9AD1A00CD29DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFCA3F04255D934900AA2469 /* Build configuration list for PBXNativeTarget "Fluxer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFCA3F05255D934900AA2469 /* Debug */,
+				CFCA3F06255D934900AA2469 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
