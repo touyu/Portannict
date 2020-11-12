@@ -29,20 +29,15 @@ public protocol ViewModel: ObservableObject {
     func initilize()
 }
 
-fileprivate enum ViewModelAssociatedKey {
-    static var action: UInt8 = 0
-    static var cancellables: UInt8 = 0
-}
-
 public extension ViewModel {
     var action: PassthroughSubject<Action, Never> {
-        get { return objc_getAssociatedObject(self, &ViewModelAssociatedKey.action) as! PassthroughSubject<Action, Never> }
-        set { objc_setAssociatedObject(self, &ViewModelAssociatedKey.action, newValue, .OBJC_ASSOCIATION_RETAIN) }
+        get { return objc_getAssociatedObject(self, &AssociatedKey.action) as! PassthroughSubject<Action, Never> }
+        set { objc_setAssociatedObject(self, &AssociatedKey.action, newValue, .OBJC_ASSOCIATION_RETAIN) }
     }
 
     var cancellables: Set<AnyCancellable> {
-        get { return objc_getAssociatedObject(self, &ViewModelAssociatedKey.cancellables) as! Set<AnyCancellable> }
-        set { objc_setAssociatedObject(self, &ViewModelAssociatedKey.cancellables, newValue, .OBJC_ASSOCIATION_RETAIN) }
+        get { return objc_getAssociatedObject(self, &AssociatedKey.cancellables) as! Set<AnyCancellable> }
+        set { objc_setAssociatedObject(self, &AssociatedKey.cancellables, newValue, .OBJC_ASSOCIATION_RETAIN) }
     }
 
     func mutate(action: Action) -> AnyPublisher<Mutation, Never> {
