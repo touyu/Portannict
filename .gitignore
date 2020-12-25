@@ -10,5 +10,6 @@ node_modules
 vendor/bundle
 
 .env
+Envfile
 
 node_modules

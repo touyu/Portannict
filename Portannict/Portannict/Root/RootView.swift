@@ -2,28 +2,22 @@
 //  RootView.swift
 //  Portannict
 //
-//  Created by Yuto Akiba on 2020/07/24.
+//  Created by Yuto Akiba on 2020/12/20.
 //
 
 import SwiftUI
-import Fluxer
 
 struct RootView: View {
-    @ObservedObject var viewModel: RootViewModel
+    typealias ViewModel = RootViewModel
 
-    @State private var isLogin: Bool = true
-
-    init(viewModel: RootViewModel) {
-        self.viewModel = viewModel
-    }
+    var viewModel: ViewModel
 
     var body: some View {
-        VStack {
-            TextField("AAAA", value: $viewModel.state.number, formatter: NumberFormatter())
-            Button(viewModel: viewModel, action: .increment) {
-                Text("AAAA")
-            }
-        }
+        LoginView(viewModel: .init())
+    }
+
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
     }
 }
 

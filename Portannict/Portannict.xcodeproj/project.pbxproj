@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,27 +18,20 @@
 		CF42CFD524C9D83B00AAD8E8 /* PreviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF42CFD424C9D83B00AAD8E8 /* PreviewModel.swift */; };
 		CF841D3D24CA626400F3723B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D3C24CA626400F3723B /* HomeViewModel.swift */; };
 		CF841D4524CA69A600F3723B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4424CA69A600F3723B /* LoginView.swift */; };
-		CF841D4724CA6A1F00F3723B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4624CA6A1F00F3723B /* RootView.swift */; };
-		CFB8D8BB255D18A20092764B /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB8D8BA255D18A20092764B /* RootViewModel.swift */; };
-		CFCA3EFF255D934900AA2469 /* Fluxer.h in Headers */ = {isa = PBXBuildFile; fileRef = CFCA3EFD255D934900AA2469 /* Fluxer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CFCA3F02255D934900AA2469 /* Fluxer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCA3EFB255D934900AA2469 /* Fluxer.framework */; };
-		CFCA3F03255D934900AA2469 /* Fluxer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFCA3EFB255D934900AA2469 /* Fluxer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CFCA3F09255D935000AA2469 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCA3EF2255D8F2F00AA2469 /* ViewModel.swift */; };
-		CFCA3F11255D958300AA2469 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCA3F10255D958300AA2469 /* Button.swift */; };
-		CFCA3F15255D9C3400AA2469 /* AssociatedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCA3F14255D9C3400AA2469 /* AssociatedKey.swift */; };
+		CF841D4724CA6A1F00F3723B /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4624CA6A1F00F3723B /* TestView.swift */; };
+		CFB8D8BB255D18A20092764B /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB8D8BA255D18A20092764B /* TestViewModel.swift */; };
+		CFC03EFF259483DA001516D3 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC03EFE259483D9001516D3 /* HTTPClient.swift */; };
+		CFC03F012594895F001516D3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC03F002594895F001516D3 /* LoginViewModel.swift */; };
+		CFC03F0525948EF2001516D3 /* OauthTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC03F0425948EF2001516D3 /* OauthTokenRequest.swift */; };
+		CFCA3FEB255DAB4900AA2469 /* Fluxer in Frameworks */ = {isa = PBXBuildFile; productRef = CFCA3FEA255DAB4900AA2469 /* Fluxer */; };
+		CFE38313258E603300CEE318 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE38312258E603300CEE318 /* RootView.swift */; };
+		CFE38315258E610F00CEE318 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE38314258E610F00CEE318 /* RootViewModel.swift */; };
+		CFE3831E258E628C00CEE318 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE3831D258E628C00CEE318 /* Constants.swift */; };
+		CFE38320258E64F600CEE318 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE3831F258E64F600CEE318 /* Env.swift */; };
+		CFEB60C2258E670700CE6B24 /* Envfile in Resources */ = {isa = PBXBuildFile; fileRef = CFEB60C1258E670700CE6B24 /* Envfile */; };
 		CFFE4FFC24C9C00D003AECE5 /* ActivityStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView.swift */; };
 		CFFE4FFE24C9C266003AECE5 /* QuoteWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE4FFD24C9C266003AECE5 /* QuoteWorkView.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		CFCA3F00255D934900AA2469 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CF08FBFB24B9AD1A00CD29DD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CFCA3EFA255D934900AA2469;
-			remoteInfo = Fluxer;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		CFCA3F07255D934900AA2469 /* Embed Frameworks */ = {
@@ -47,7 +40,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CFCA3F03255D934900AA2469 /* Fluxer.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,14 +60,16 @@
 		CF42CFD424C9D83B00AAD8E8 /* PreviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewModel.swift; sourceTree = "<group>"; };
 		CF841D3C24CA626400F3723B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CF841D4424CA69A600F3723B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		CF841D4624CA6A1F00F3723B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		CFB8D8BA255D18A20092764B /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
-		CFCA3EF2255D8F2F00AA2469 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		CFCA3EFB255D934900AA2469 /* Fluxer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fluxer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFCA3EFD255D934900AA2469 /* Fluxer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fluxer.h; sourceTree = "<group>"; };
-		CFCA3EFE255D934900AA2469 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CFCA3F10255D958300AA2469 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		CFCA3F14255D9C3400AA2469 /* AssociatedKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedKey.swift; sourceTree = "<group>"; };
+		CF841D4624CA6A1F00F3723B /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		CFB8D8BA255D18A20092764B /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
+		CFC03EFE259483D9001516D3 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		CFC03F002594895F001516D3 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		CFC03F0425948EF2001516D3 /* OauthTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OauthTokenRequest.swift; sourceTree = "<group>"; };
+		CFE38312258E603300CEE318 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		CFE38314258E610F00CEE318 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		CFE3831D258E628C00CEE318 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CFE3831F258E64F600CEE318 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
+		CFEB60C1258E670700CE6B24 /* Envfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Envfile; sourceTree = "<group>"; };
 		CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatusView.swift; sourceTree = "<group>"; };
 		CFFE4FFD24C9C266003AECE5 /* QuoteWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteWorkView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,14 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFCA3F02255D934900AA2469 /* Fluxer.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CFCA3EF8255D934900AA2469 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				CFCA3FEB255DAB4900AA2469 /* Fluxer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				CF08FC0524B9AD1A00CD29DD /* Portannict */,
-				CFCA3EFC255D934900AA2469 /* Fluxer */,
 				CF08FC0424B9AD1A00CD29DD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				CF08FC0324B9AD1A00CD29DD /* Portannict.app */,
-				CFCA3EFB255D934900AA2469 /* Fluxer.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,6 +105,8 @@
 		CF08FC0524B9AD1A00CD29DD /* Portannict */ = {
 			isa = PBXGroup;
 			children = (
+				CFE38316258E621400CEE318 /* Common */,
+				CFE38311258E5FD000CEE318 /* Test */,
 				CFB8D8B9255D18740092764B /* Root */,
 				CF08FC0824B9AD1A00CD29DD /* RootTabView.swift */,
 				CF08FC0624B9AD1A00CD29DD /* PortannictApp.swift */,
@@ -128,6 +115,7 @@
 				CFFE4FFA24C9BF1A003AECE5 /* Home */,
 				CF08FC1524B9AFC500CD29DD /* ProfileView.swift */,
 				CF08FC0A24B9AD1A00CD29DD /* Assets.xcassets */,
+				CFEB60C1258E670700CE6B24 /* Envfile */,
 				CF08FC0F24B9AD1A00CD29DD /* Info.plist */,
 				CF08FC0C24B9AD1A00CD29DD /* Preview Content */,
 			);
@@ -156,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				CF841D4424CA69A600F3723B /* LoginView.swift */,
+				CFC03F002594895F001516D3 /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -163,30 +152,46 @@
 		CFB8D8B9255D18740092764B /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				CF841D4624CA6A1F00F3723B /* RootView.swift */,
-				CFB8D8BA255D18A20092764B /* RootViewModel.swift */,
+				CFE38312258E603300CEE318 /* RootView.swift */,
+				CFE38314258E610F00CEE318 /* RootViewModel.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
 		};
-		CFCA3EFC255D934900AA2469 /* Fluxer */ = {
+		CFE38311258E5FD000CEE318 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				CFCA3F0F255D957900AA2469 /* UI */,
-				CFCA3EF2255D8F2F00AA2469 /* ViewModel.swift */,
-				CFCA3F14255D9C3400AA2469 /* AssociatedKey.swift */,
-				CFCA3EFD255D934900AA2469 /* Fluxer.h */,
-				CFCA3EFE255D934900AA2469 /* Info.plist */,
+				CF841D4624CA6A1F00F3723B /* TestView.swift */,
+				CFB8D8BA255D18A20092764B /* TestViewModel.swift */,
 			);
-			path = Fluxer;
+			path = Test;
 			sourceTree = "<group>";
 		};
-		CFCA3F0F255D957900AA2469 /* UI */ = {
+		CFE38316258E621400CEE318 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				CFCA3F10255D958300AA2469 /* Button.swift */,
+				CFE38317258E621A00CEE318 /* API */,
+				CFE3831D258E628C00CEE318 /* Constants.swift */,
+				CFE3831F258E64F600CEE318 /* Env.swift */,
 			);
-			path = UI;
+			path = Common;
+			sourceTree = "<group>";
+		};
+		CFE38317258E621A00CEE318 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				CFE38318258E623700CEE318 /* REST */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		CFE38318258E623700CEE318 /* REST */ = {
+			isa = PBXGroup;
+			children = (
+				CFC03F0425948EF2001516D3 /* OauthTokenRequest.swift */,
+				CFC03EFE259483D9001516D3 /* HTTPClient.swift */,
+			);
+			path = REST;
 			sourceTree = "<group>";
 		};
 		CFFE4FFA24C9BF1A003AECE5 /* Home */ = {
@@ -202,17 +207,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		CFCA3EF6255D934900AA2469 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CFCA3EFF255D934900AA2469 /* Fluxer.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		CF08FC0224B9AD1A00CD29DD /* Portannict */ = {
 			isa = PBXNativeTarget;
@@ -226,30 +220,14 @@
 			buildRules = (
 			);
 			dependencies = (
-				CFCA3F01255D934900AA2469 /* PBXTargetDependency */,
 			);
 			name = Portannict;
+			packageProductDependencies = (
+				CFCA3FEA255DAB4900AA2469 /* Fluxer */,
+			);
 			productName = Portannict;
 			productReference = CF08FC0324B9AD1A00CD29DD /* Portannict.app */;
 			productType = "com.apple.product-type.application";
-		};
-		CFCA3EFA255D934900AA2469 /* Fluxer */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CFCA3F04255D934900AA2469 /* Build configuration list for PBXNativeTarget "Fluxer" */;
-			buildPhases = (
-				CFCA3EF6255D934900AA2469 /* Headers */,
-				CFCA3EF7255D934900AA2469 /* Sources */,
-				CFCA3EF8255D934900AA2469 /* Frameworks */,
-				CFCA3EF9255D934900AA2469 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Fluxer;
-			productName = Fluxer;
-			productReference = CFCA3EFB255D934900AA2469 /* Fluxer.framework */;
-			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -263,9 +241,6 @@
 					CF08FC0224B9AD1A00CD29DD = {
 						CreatedOnToolsVersion = 12.0;
 					};
-					CFCA3EFA255D934900AA2469 = {
-						CreatedOnToolsVersion = 12.1;
-					};
 				};
 			};
 			buildConfigurationList = CF08FBFE24B9AD1A00CD29DD /* Build configuration list for PBXProject "Portannict" */;
@@ -277,12 +252,14 @@
 				Base,
 			);
 			mainGroup = CF08FBFA24B9AD1A00CD29DD;
+			packageReferences = (
+				CFCA3FE9255DAB4900AA2469 /* XCRemoteSwiftPackageReference "Fluxer" */,
+			);
 			productRefGroup = CF08FC0424B9AD1A00CD29DD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				CF08FC0224B9AD1A00CD29DD /* Portannict */,
-				CFCA3EFA255D934900AA2469 /* Fluxer */,
 			);
 		};
 /* End PBXProject section */
@@ -292,15 +269,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFEB60C2258E670700CE6B24 /* Envfile in Resources */,
 				CF08FC0E24B9AD1A00CD29DD /* Preview Assets.xcassets in Resources */,
 				CF08FC0B24B9AD1A00CD29DD /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CFCA3EF9255D934900AA2469 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,40 +283,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF08FC0924B9AD1A00CD29DD /* RootTabView.swift in Sources */,
+				CFE38320258E64F600CEE318 /* Env.swift in Sources */,
 				CF42CFD124C9D73400AAD8E8 /* Work.swift in Sources */,
-				CFB8D8BB255D18A20092764B /* RootViewModel.swift in Sources */,
+				CFB8D8BB255D18A20092764B /* TestViewModel.swift in Sources */,
 				CF08FC1824B9B04900CD29DD /* HomeView.swift in Sources */,
+				CFE38313258E603300CEE318 /* RootView.swift in Sources */,
 				CF841D3D24CA626400F3723B /* HomeViewModel.swift in Sources */,
 				CF08FC1624B9AFC500CD29DD /* ProfileView.swift in Sources */,
+				CFE3831E258E628C00CEE318 /* Constants.swift in Sources */,
 				CFFE4FFC24C9C00D003AECE5 /* ActivityStatusView.swift in Sources */,
 				CF841D4524CA69A600F3723B /* LoginView.swift in Sources */,
 				CF42CFD524C9D83B00AAD8E8 /* PreviewModel.swift in Sources */,
-				CF841D4724CA6A1F00F3723B /* RootView.swift in Sources */,
+				CFE38315258E610F00CEE318 /* RootViewModel.swift in Sources */,
+				CF841D4724CA6A1F00F3723B /* TestView.swift in Sources */,
+				CFC03EFF259483DA001516D3 /* HTTPClient.swift in Sources */,
 				CFFE4FFE24C9C266003AECE5 /* QuoteWorkView.swift in Sources */,
 				CF42CFD324C9D7D300AAD8E8 /* Activity.swift in Sources */,
+				CFC03F0525948EF2001516D3 /* OauthTokenRequest.swift in Sources */,
+				CFC03F012594895F001516D3 /* LoginViewModel.swift in Sources */,
 				CF08FC0724B9AD1A00CD29DD /* PortannictApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CFCA3EF7255D934900AA2469 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CFCA3F09255D935000AA2469 /* ViewModel.swift in Sources */,
-				CFCA3F15255D9C3400AA2469 /* AssociatedKey.swift in Sources */,
-				CFCA3F11255D958300AA2469 /* Button.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CFCA3F01255D934900AA2469 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CFCA3EFA255D934900AA2469 /* Fluxer */;
-			targetProxy = CFCA3F00255D934900AA2469 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		CF08FC1024B9AD1A00CD29DD /* Debug */ = {
@@ -467,7 +427,6 @@
 		CF08FC1324B9AD1A00CD29DD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -490,7 +449,6 @@
 		CF08FC1424B9AD1A00CD29DD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -507,62 +465,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		CFCA3F05255D934900AA2469 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = V8AZ23YEL4;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Fluxer/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.touyu.Fluxer;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		CFCA3F06255D934900AA2469 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = V8AZ23YEL4;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Fluxer/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.touyu.Fluxer;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -587,16 +489,26 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CFCA3F04255D934900AA2469 /* Build configuration list for PBXNativeTarget "Fluxer" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CFCA3F05255D934900AA2469 /* Debug */,
-				CFCA3F06255D934900AA2469 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CFCA3FE9255DAB4900AA2469 /* XCRemoteSwiftPackageReference "Fluxer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:touyu/Fluxer.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CFCA3FEA255DAB4900AA2469 /* Fluxer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CFCA3FE9255DAB4900AA2469 /* XCRemoteSwiftPackageReference "Fluxer" */;
+			productName = Fluxer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CF08FBFB24B9AD1A00CD29DD /* Project object */;
 }

@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Fluxer",
+        "repositoryURL": "git@github.com:touyu/Fluxer.git",
+        "state": {
+          "branch": "master",
+          "revision": "33037d811247f378892bda4d41358fd28f14ecac",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
