@@ -1,7 +1,0 @@
-mutation CreateRecord($episodeId: ID!, $comment: String, $ratingState: RatingState, $shareTwitter: Boolean) {
-  createRecord(input: {episodeId: $episodeId, comment: $comment, ratingState: $ratingState, shareTwitter: $shareTwitter}) {
-    record {
-      ...MinimumRecord
-    }
-  }
-}
