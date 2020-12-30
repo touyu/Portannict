@@ -97,7 +97,7 @@
 		CF08FBFA24B9AD1A00CD29DD = {
 			isa = PBXGroup;
 			children = (
-				CF08FC0524B9AD1A00CD29DD /* Portannict */,
+				CF08FC0524B9AD1A00CD29DD /* Sources */,
 				CF08FC0424B9AD1A00CD29DD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -110,7 +110,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CF08FC0524B9AD1A00CD29DD /* Portannict */ = {
+		CF08FC0524B9AD1A00CD29DD /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				CFE38316258E621400CEE318 /* Common */,
@@ -128,7 +128,7 @@
 				CF08FC0F24B9AD1A00CD29DD /* Info.plist */,
 				CF08FC0C24B9AD1A00CD29DD /* Preview Content */,
 			);
-			path = Portannict;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		CF08FC0C24B9AD1A00CD29DD /* Preview Content */ = {
