@@ -10,10 +10,15 @@ import SwiftUI
 struct RootView: View {
     typealias ViewModel = RootViewModel
 
-    var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
+    @EnvironmentObject var session: LoginSession
 
     var body: some View {
-        LoginView(viewModel: .init())
+        if session.accessToken == nil {
+            LoginView(viewModel: .init(session: session))
+        } else {
+            RootTabView()
+        }
     }
 
     init(viewModel: ViewModel) {

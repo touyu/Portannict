@@ -10,7 +10,7 @@ import SwiftUI
 import Combine
 import AuthenticationServices
 
-final class LoginViewModel: NSObject, ViewModel {
+final class LoginViewModel: ViewModel {
     enum Action {
         case login
     }
@@ -30,10 +30,11 @@ final class LoginViewModel: NSObject, ViewModel {
     }
 
     @Published var state = State()
+    private let presentationContextProvider = AuthPresentationContextProvider()
+    private var session: LoginSession
 
-    override init() {
-        super.init()
-
+    init(session: LoginSession) {
+        self.session = session
         initilize()
     }
 
@@ -53,6 +54,7 @@ final class LoginViewModel: NSObject, ViewModel {
         switch mutation {
         case .setAccessToken(let token):
             state.accessToken = token
+            session.accessToken = token
         case .setError(let error):
             state.error = error
         }
@@ -64,7 +66,7 @@ final class LoginViewModel: NSObject, ViewModel {
     }
 
     private func startWebAuthentication() -> Future<String, Error> {
-        return Future<String, Error> { resolve in
+        return Future<String, Error> { [weak self] resolve in
             let session = ASWebAuthenticationSession(url: Constants.oauthURL, callbackURLScheme: Constants.callbackURLScheme) { url, error in
                 if let error = error {
                     return resolve(.failure(error))
@@ -79,13 +81,13 @@ final class LoginViewModel: NSObject, ViewModel {
 
                 return resolve(.success(code))
             }
-            session.presentationContextProvider = self
+            session.presentationContextProvider = self?.presentationContextProvider
             session.start()
         }
     }
 }
 
-extension LoginViewModel: ASWebAuthenticationPresentationContextProviding {
+final class AuthPresentationContextProvider: NSObject, ASWebAuthenticationPresentationContextProviding {
     func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
         return ASPresentationAnchor()
     }

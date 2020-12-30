@@ -23,12 +23,16 @@
 		CFC03EFF259483DA001516D3 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC03EFE259483D9001516D3 /* HTTPClient.swift */; };
 		CFC03F012594895F001516D3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC03F002594895F001516D3 /* LoginViewModel.swift */; };
 		CFC03F0525948EF2001516D3 /* OauthTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC03F0425948EF2001516D3 /* OauthTokenRequest.swift */; };
+		CFC03F0725959BDD001516D3 /* LoginSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC03F0625959BDD001516D3 /* LoginSession.swift */; };
 		CFCA3FEB255DAB4900AA2469 /* Fluxer in Frameworks */ = {isa = PBXBuildFile; productRef = CFCA3FEA255DAB4900AA2469 /* Fluxer */; };
 		CFE38313258E603300CEE318 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE38312258E603300CEE318 /* RootView.swift */; };
 		CFE38315258E610F00CEE318 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE38314258E610F00CEE318 /* RootViewModel.swift */; };
 		CFE3831E258E628C00CEE318 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE3831D258E628C00CEE318 /* Constants.swift */; };
 		CFE38320258E64F600CEE318 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE3831F258E64F600CEE318 /* Env.swift */; };
 		CFEB60C2258E670700CE6B24 /* Envfile in Resources */ = {isa = PBXBuildFile; fileRef = CFEB60C1258E670700CE6B24 /* Envfile */; };
+		CFFDC8A8259C6EF6001C8E29 /* WorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFDC8A7259C6EF6001C8E29 /* WorkView.swift */; };
+		CFFDC8B3259C7E63001C8E29 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = CFFDC8B2259C7E63001C8E29 /* KingfisherSwiftUI */; };
+		CFFDC8B5259CCAFE001C8E29 /* WorkHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFDC8B4259CCAFE001C8E29 /* WorkHeaderView.swift */; };
 		CFFE4FFC24C9C00D003AECE5 /* ActivityStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView.swift */; };
 		CFFE4FFE24C9C266003AECE5 /* QuoteWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE4FFD24C9C266003AECE5 /* QuoteWorkView.swift */; };
 /* End PBXBuildFile section */
@@ -65,11 +69,14 @@
 		CFC03EFE259483D9001516D3 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		CFC03F002594895F001516D3 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CFC03F0425948EF2001516D3 /* OauthTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OauthTokenRequest.swift; sourceTree = "<group>"; };
+		CFC03F0625959BDD001516D3 /* LoginSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSession.swift; sourceTree = "<group>"; };
 		CFE38312258E603300CEE318 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		CFE38314258E610F00CEE318 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		CFE3831D258E628C00CEE318 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CFE3831F258E64F600CEE318 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		CFEB60C1258E670700CE6B24 /* Envfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Envfile; sourceTree = "<group>"; };
+		CFFDC8A7259C6EF6001C8E29 /* WorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkView.swift; sourceTree = "<group>"; };
+		CFFDC8B4259CCAFE001C8E29 /* WorkHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkHeaderView.swift; sourceTree = "<group>"; };
 		CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatusView.swift; sourceTree = "<group>"; };
 		CFFE4FFD24C9C266003AECE5 /* QuoteWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteWorkView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFFDC8B3259C7E63001C8E29 /* KingfisherSwiftUI in Frameworks */,
 				CFCA3FEB255DAB4900AA2469 /* Fluxer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,11 +117,12 @@
 				CFE38311258E5FD000CEE318 /* Test */,
 				CFB8D8B9255D18740092764B /* Root */,
 				CF08FC0824B9AD1A00CD29DD /* RootTabView.swift */,
-				CF08FC0624B9AD1A00CD29DD /* PortannictApp.swift */,
 				CF42CFCF24C9D72800AAD8E8 /* Models */,
 				CF841D3E24CA67F600F3723B /* Login */,
 				CFFE4FFA24C9BF1A003AECE5 /* Home */,
+				CFFDC8A6259C6EE9001C8E29 /* Work */,
 				CF08FC1524B9AFC500CD29DD /* ProfileView.swift */,
+				CF08FC0624B9AD1A00CD29DD /* PortannictApp.swift */,
 				CF08FC0A24B9AD1A00CD29DD /* Assets.xcassets */,
 				CFEB60C1258E670700CE6B24 /* Envfile */,
 				CF08FC0F24B9AD1A00CD29DD /* Info.plist */,
@@ -173,6 +182,7 @@
 				CFE38317258E621A00CEE318 /* API */,
 				CFE3831D258E628C00CEE318 /* Constants.swift */,
 				CFE3831F258E64F600CEE318 /* Env.swift */,
+				CFC03F0625959BDD001516D3 /* LoginSession.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -192,6 +202,15 @@
 				CFC03EFE259483D9001516D3 /* HTTPClient.swift */,
 			);
 			path = REST;
+			sourceTree = "<group>";
+		};
+		CFFDC8A6259C6EE9001C8E29 /* Work */ = {
+			isa = PBXGroup;
+			children = (
+				CFFDC8A7259C6EF6001C8E29 /* WorkView.swift */,
+				CFFDC8B4259CCAFE001C8E29 /* WorkHeaderView.swift */,
+			);
+			path = Work;
 			sourceTree = "<group>";
 		};
 		CFFE4FFA24C9BF1A003AECE5 /* Home */ = {
@@ -224,6 +243,7 @@
 			name = Portannict;
 			packageProductDependencies = (
 				CFCA3FEA255DAB4900AA2469 /* Fluxer */,
+				CFFDC8B2259C7E63001C8E29 /* KingfisherSwiftUI */,
 			);
 			productName = Portannict;
 			productReference = CF08FC0324B9AD1A00CD29DD /* Portannict.app */;
@@ -254,6 +274,7 @@
 			mainGroup = CF08FBFA24B9AD1A00CD29DD;
 			packageReferences = (
 				CFCA3FE9255DAB4900AA2469 /* XCRemoteSwiftPackageReference "Fluxer" */,
+				CFFDC8B1259C7E63001C8E29 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = CF08FC0424B9AD1A00CD29DD /* Products */;
 			projectDirPath = "";
@@ -289,13 +310,16 @@
 				CF08FC1824B9B04900CD29DD /* HomeView.swift in Sources */,
 				CFE38313258E603300CEE318 /* RootView.swift in Sources */,
 				CF841D3D24CA626400F3723B /* HomeViewModel.swift in Sources */,
+				CFC03F0725959BDD001516D3 /* LoginSession.swift in Sources */,
 				CF08FC1624B9AFC500CD29DD /* ProfileView.swift in Sources */,
 				CFE3831E258E628C00CEE318 /* Constants.swift in Sources */,
 				CFFE4FFC24C9C00D003AECE5 /* ActivityStatusView.swift in Sources */,
+				CFFDC8A8259C6EF6001C8E29 /* WorkView.swift in Sources */,
 				CF841D4524CA69A600F3723B /* LoginView.swift in Sources */,
 				CF42CFD524C9D83B00AAD8E8 /* PreviewModel.swift in Sources */,
 				CFE38315258E610F00CEE318 /* RootViewModel.swift in Sources */,
 				CF841D4724CA6A1F00F3723B /* TestView.swift in Sources */,
+				CFFDC8B5259CCAFE001C8E29 /* WorkHeaderView.swift in Sources */,
 				CFC03EFF259483DA001516D3 /* HTTPClient.swift in Sources */,
 				CFFE4FFE24C9C266003AECE5 /* QuoteWorkView.swift in Sources */,
 				CF42CFD324C9D7D300AAD8E8 /* Activity.swift in Sources */,
@@ -500,6 +524,14 @@
 				kind = branch;
 			};
 		};
+		CFFDC8B1259C7E63001C8E29 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.15.8;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -507,6 +539,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CFCA3FE9255DAB4900AA2469 /* XCRemoteSwiftPackageReference "Fluxer" */;
 			productName = Fluxer;
+		};
+		CFFDC8B2259C7E63001C8E29 /* KingfisherSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CFFDC8B1259C7E63001C8E29 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

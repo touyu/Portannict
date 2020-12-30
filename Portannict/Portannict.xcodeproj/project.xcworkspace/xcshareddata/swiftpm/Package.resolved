@@ -6,8 +6,17 @@
         "repositoryURL": "git@github.com:touyu/Fluxer.git",
         "state": {
           "branch": "master",
-          "revision": "33037d811247f378892bda4d41358fd28f14ecac",
+          "revision": "e78bfc6b04c6559e1a9765541079e528d8faeb5a",
           "version": null
+        }
+      },
+      {
+        "package": "Kingfisher",
+        "repositoryURL": "https://github.com/onevcat/Kingfisher",
+        "state": {
+          "branch": null,
+          "revision": "2a10bf41da75599a9f8e872dbd44fe0155a2e00c",
+          "version": "5.15.8"
         }
       }
     ]

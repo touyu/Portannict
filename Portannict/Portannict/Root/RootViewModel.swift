@@ -10,7 +10,7 @@ import SwiftUI
 import Fluxer
 
 final class RootViewModel: ViewModel {
-    @Environment(\.envValues) var envValues
+//    @Environment(\.envValues) var envValues
 
     enum Action {
 
@@ -21,7 +21,7 @@ final class RootViewModel: ViewModel {
     }
 
     class State: ObservableObject {
-        var accessToken: String?
+
     }
 
     @Published var state = State()

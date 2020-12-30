@@ -10,6 +10,8 @@ import SwiftUI
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
 
+    @State var isPresented: Bool = false
+
     var body: some View {
         NavigationView {
             ScrollView {
@@ -20,6 +22,12 @@ struct HomeView: View {
                         case .status:
                             ActivityStatusView(activityStatus: Binding(activity.status)!)
                                 .padding(EdgeInsets(top: 0, leading: 12, bottom: 12, trailing: 12))
+                                .onTapGesture {
+                                    isPresented = true
+                                }
+                                .sheet(isPresented: $isPresented) {
+                                    WorkView()
+                                }
                         }
                     }
                 }

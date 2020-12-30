@@ -12,7 +12,6 @@ import Fluxer
 
 struct LoginView: View {
     typealias ViewModel = LoginViewModel
-
     @ObservedObject var viewModel: LoginViewModel
 
     init(viewModel: ViewModel) {
@@ -31,6 +30,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(viewModel: .init())
+        LoginView(viewModel: .init(session: LoginSession()))
     }
 }

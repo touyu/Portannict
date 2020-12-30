@@ -13,6 +13,7 @@ struct PortannictApp: App {
     var body: some Scene {
         WindowGroup {
             RootView(viewModel: .init())
+                .environmentObject(LoginSession())
         }
     }
 }
