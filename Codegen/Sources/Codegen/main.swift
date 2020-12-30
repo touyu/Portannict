@@ -15,13 +15,6 @@ let sourceRootURL = parentFolderOfScriptFile
 let targetRootURL = sourceRootURL
     .apollo.childFolderURL(folderName: "Sources")
 
-// Set up the URL you want to use to download the project
-let endpoint = URL(string: "https://api.annict.com/graphql")!
-
-// Create an options object for downloading the schema
-let schemaDownloadOptions = ApolloSchemaOptions(endpointURL: endpoint,
-                                                headers: ["Authorization: Bearer 1Nr6dv0PB1DRdugaL8GAHtPtirQXCdq7embWuBKXg1k"],
-                                                outputFolderURL: targetRootURL)
 //
 // Calculate where you want to create the folder where the CLI will
 // be downloaded by the ApolloCodegenLib framework.
@@ -29,16 +22,24 @@ let cliFolderURL = sourceRootURL
     .apollo.childFolderURL(folderName: "Codegen")
     .apollo.childFolderURL(folderName: "ApolloCLI")
 
-do {
-  // Actually attempt to download the schema.
-  try ApolloSchemaDownloader.run(with: cliFolderURL,
-                                 options: schemaDownloadOptions)
-} catch {
-  // This makes the error message in Xcode a lot more legible,
-  // and prevents the script from continuing to try to generate
-  // code if the schema download failed.
-  exit(1)
-}
+//// Set up the URL you want to use to download the project
+//let endpoint = URL(string: "https://api.annict.com/graphql")!
+//
+//// Create an options object for downloading the schema
+//let schemaDownloadOptions = ApolloSchemaOptions(endpointURL: endpoint,
+//                                                headers: ["Authorization: Bearer 1Nr6dv0PB1DRdugaL8GAHtPtirQXCdq7embWuBKXg1k"],
+//                                                outputFolderURL: targetRootURL)
+
+//do {
+//  // Actually attempt to download the schema.
+//  try ApolloSchemaDownloader.run(with: cliFolderURL,
+//                                 options: schemaDownloadOptions)
+//} catch {
+//  // This makes the error message in Xcode a lot more legible,
+//  // and prevents the script from continuing to try to generate
+//  // code if the schema download failed.
+//  exit(1)
+//}
 
 // Create the default Codegen options object (assumes schema.json
 // is in the target root folder, all queries are in some kind
