@@ -1,5 +1,5 @@
 query SearchWorksByID($annictId: Int!, $after: String) {
-    searchWorks(annictIds: [$annictId]) {
+    searchWorks(annictIds: [$annictId], after: $after) {
         nodes {
             title
         }

@@ -9,7 +9,7 @@ public final class SearchWorksByIdQuery: GraphQLQuery {
   public let operationDefinition: String =
     """
     query SearchWorksByID($annictId: Int!, $after: String) {
-      searchWorks(annictIds: [$annictId]) {
+      searchWorks(annictIds: [$annictId], after: $after) {
         __typename
         nodes {
           __typename
@@ -21,7 +21,7 @@ public final class SearchWorksByIdQuery: GraphQLQuery {
 
   public let operationName: String = "SearchWorksByID"
 
-  public let operationIdentifier: String? = "08dc30ef401cc85bcff5882236bd4fa8c3c53a7b472e27244411992272b88395"
+  public let operationIdentifier: String? = "3b9eb2da1c386ed036fff333db148c6ded4bdf64326c73ec4b41dab4a3d31745"
 
   public var annictId: Int
   public var after: String?
@@ -40,7 +40,7 @@ public final class SearchWorksByIdQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("searchWorks", arguments: ["annictIds": [GraphQLVariable("annictId")]], type: .object(SearchWork.selections)),
+        GraphQLField("searchWorks", arguments: ["annictIds": [GraphQLVariable("annictId")], "after": GraphQLVariable("after")], type: .object(SearchWork.selections)),
       ]
     }
 

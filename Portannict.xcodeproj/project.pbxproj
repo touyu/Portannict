@@ -247,6 +247,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF08FC1224B9AD1A00CD29DD /* Build configuration list for PBXNativeTarget "Portannict" */;
 			buildPhases = (
+				CF1E5E8A259CF79B00035D50 /* Apollo Codegen */,
 				CF08FBFF24B9AD1A00CD29DD /* Sources */,
 				CF08FC0024B9AD1A00CD29DD /* Frameworks */,
 				CF08FC0124B9AD1A00CD29DD /* Resources */,
@@ -316,6 +317,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CF1E5E8A259CF79B00035D50 /* Apollo Codegen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Apollo Codegen";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"${SRCROOT}\"/Codegen\nxcrun -sdk macosx swift run\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CF08FBFF24B9AD1A00CD29DD /* Sources */ = {
