@@ -13,3 +13,6 @@ vendor/bundle
 Envfile
 
 node_modules
+
+# Apollo
+Codegen/ApolloCLI

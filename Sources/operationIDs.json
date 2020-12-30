@@ -1,0 +1,6 @@
+{
+  "08dc30ef401cc85bcff5882236bd4fa8c3c53a7b472e27244411992272b88395": {
+    "name": "SearchWorksByID",
+    "source": "query SearchWorksByID($annictId: Int!, $after: String) {\n  searchWorks(annictIds: [$annictId]) {\n    __typename\n    nodes {\n      __typename\n      title\n    }\n  }\n}"
+  }
+}

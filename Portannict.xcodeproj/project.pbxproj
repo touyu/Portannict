@@ -14,6 +14,9 @@
 		CF08FC1624B9AFC500CD29DD /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF08FC1524B9AFC500CD29DD /* ProfileView.swift */; };
 		CF08FC1824B9B04900CD29DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF08FC1724B9B04900CD29DD /* HomeView.swift */; };
 		CF1E5E5D259CE88500035D50 /* Envfile in Resources */ = {isa = PBXBuildFile; fileRef = CF1E5E5C259CE88500035D50 /* Envfile */; };
+		CF1E5E60259CEA5300035D50 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = CF1E5E5F259CEA5300035D50 /* Apollo */; };
+		CF1E5E87259CF4CE00035D50 /* SearchWorksByID.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CF1E5E86259CF4CE00035D50 /* SearchWorksByID.graphql */; };
+		CF1E5E89259CF69E00035D50 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1E5E88259CF69E00035D50 /* API.swift */; };
 		CF42CFD124C9D73400AAD8E8 /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF42CFD024C9D73400AAD8E8 /* Work.swift */; };
 		CF42CFD324C9D7D300AAD8E8 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF42CFD224C9D7D300AAD8E8 /* Activity.swift */; };
 		CF42CFD524C9D83B00AAD8E8 /* PreviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF42CFD424C9D83B00AAD8E8 /* PreviewModel.swift */; };
@@ -60,6 +63,8 @@
 		CF08FC1524B9AFC500CD29DD /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		CF08FC1724B9B04900CD29DD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CF1E5E5C259CE88500035D50 /* Envfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Envfile; sourceTree = "<group>"; };
+		CF1E5E86259CF4CE00035D50 /* SearchWorksByID.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchWorksByID.graphql; sourceTree = "<group>"; };
+		CF1E5E88259CF69E00035D50 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CF42CFD024C9D73400AAD8E8 /* Work.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Work.swift; sourceTree = "<group>"; };
 		CF42CFD224C9D7D300AAD8E8 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		CF42CFD424C9D83B00AAD8E8 /* PreviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewModel.swift; sourceTree = "<group>"; };
@@ -87,6 +92,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFFDC8B3259C7E63001C8E29 /* KingfisherSwiftUI in Frameworks */,
+				CF1E5E60259CEA5300035D50 /* Apollo in Frameworks */,
 				CFCA3FEB255DAB4900AA2469 /* Fluxer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +119,7 @@
 		CF08FC0524B9AD1A00CD29DD /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				CF1E5E88259CF69E00035D50 /* API.swift */,
 				CFE38316258E621400CEE318 /* Common */,
 				CFE38311258E5FD000CEE318 /* Test */,
 				CFB8D8B9255D18740092764B /* Root */,
@@ -137,6 +144,14 @@
 				CF08FC0D24B9AD1A00CD29DD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CF1E5E85259CF4B800035D50 /* Query */ = {
+			isa = PBXGroup;
+			children = (
+				CF1E5E86259CF4CE00035D50 /* SearchWorksByID.graphql */,
+			);
+			path = Query;
 			sourceTree = "<group>";
 		};
 		CF42CFCF24C9D72800AAD8E8 /* Models */ = {
@@ -190,6 +205,7 @@
 		CFE38317258E621A00CEE318 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				CF1E5E85259CF4B800035D50 /* Query */,
 				CFE38318258E623700CEE318 /* REST */,
 			);
 			path = API;
@@ -244,6 +260,7 @@
 			packageProductDependencies = (
 				CFCA3FEA255DAB4900AA2469 /* Fluxer */,
 				CFFDC8B2259C7E63001C8E29 /* KingfisherSwiftUI */,
+				CF1E5E5F259CEA5300035D50 /* Apollo */,
 			);
 			productName = Portannict;
 			productReference = CF08FC0324B9AD1A00CD29DD /* Portannict.app */;
@@ -275,6 +292,7 @@
 			packageReferences = (
 				CFCA3FE9255DAB4900AA2469 /* XCRemoteSwiftPackageReference "Fluxer" */,
 				CFFDC8B1259C7E63001C8E29 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				CF1E5E5E259CEA5300035D50 /* XCRemoteSwiftPackageReference "apollo-ios" */,
 			);
 			productRefGroup = CF08FC0424B9AD1A00CD29DD /* Products */;
 			projectDirPath = "";
@@ -293,6 +311,7 @@
 				CF1E5E5D259CE88500035D50 /* Envfile in Resources */,
 				CF08FC0E24B9AD1A00CD29DD /* Preview Assets.xcassets in Resources */,
 				CF08FC0B24B9AD1A00CD29DD /* Assets.xcassets in Resources */,
+				CF1E5E87259CF4CE00035D50 /* SearchWorksByID.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +344,7 @@
 				CF42CFD324C9D7D300AAD8E8 /* Activity.swift in Sources */,
 				CFC03F0525948EF2001516D3 /* OauthTokenRequest.swift in Sources */,
 				CFC03F012594895F001516D3 /* LoginViewModel.swift in Sources */,
+				CF1E5E89259CF69E00035D50 /* API.swift in Sources */,
 				CF08FC0724B9AD1A00CD29DD /* PortannictApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,6 +536,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CF1E5E5E259CEA5300035D50 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.39.0;
+			};
+		};
 		CFCA3FE9255DAB4900AA2469 /* XCRemoteSwiftPackageReference "Fluxer" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:touyu/Fluxer.git";
@@ -535,6 +563,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CF1E5E5F259CEA5300035D50 /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF1E5E5E259CEA5300035D50 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
 		CFCA3FEA255DAB4900AA2469 /* Fluxer */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CFCA3FE9255DAB4900AA2469 /* XCRemoteSwiftPackageReference "Fluxer" */;

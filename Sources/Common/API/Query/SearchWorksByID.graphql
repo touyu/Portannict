@@ -1,0 +1,7 @@
+query SearchWorksByID($annictId: Int!, $after: String) {
+    searchWorks(annictIds: [$annictId]) {
+        nodes {
+            title
+        }
+    }
+}
