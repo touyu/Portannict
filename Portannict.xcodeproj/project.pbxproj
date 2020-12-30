@@ -13,13 +13,13 @@
 		CF08FC0E24B9AD1A00CD29DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF08FC0D24B9AD1A00CD29DD /* Preview Assets.xcassets */; };
 		CF08FC1624B9AFC500CD29DD /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF08FC1524B9AFC500CD29DD /* ProfileView.swift */; };
 		CF08FC1824B9B04900CD29DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF08FC1724B9B04900CD29DD /* HomeView.swift */; };
+		CF1E5E5D259CE88500035D50 /* Envfile in Resources */ = {isa = PBXBuildFile; fileRef = CF1E5E5C259CE88500035D50 /* Envfile */; };
 		CF42CFD124C9D73400AAD8E8 /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF42CFD024C9D73400AAD8E8 /* Work.swift */; };
 		CF42CFD324C9D7D300AAD8E8 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF42CFD224C9D7D300AAD8E8 /* Activity.swift */; };
 		CF42CFD524C9D83B00AAD8E8 /* PreviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF42CFD424C9D83B00AAD8E8 /* PreviewModel.swift */; };
 		CF841D3D24CA626400F3723B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D3C24CA626400F3723B /* HomeViewModel.swift */; };
 		CF841D4524CA69A600F3723B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4424CA69A600F3723B /* LoginView.swift */; };
 		CF841D4724CA6A1F00F3723B /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4624CA6A1F00F3723B /* TestView.swift */; };
-		CFA7129B259CE78600DD0195 /* Envfile in Resources */ = {isa = PBXBuildFile; fileRef = CFA7129A259CE78600DD0195 /* Envfile */; };
 		CFB8D8BB255D18A20092764B /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB8D8BA255D18A20092764B /* TestViewModel.swift */; };
 		CFC03EFF259483DA001516D3 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC03EFE259483D9001516D3 /* HTTPClient.swift */; };
 		CFC03F012594895F001516D3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC03F002594895F001516D3 /* LoginViewModel.swift */; };
@@ -59,13 +59,13 @@
 		CF08FC0F24B9AD1A00CD29DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF08FC1524B9AFC500CD29DD /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		CF08FC1724B9B04900CD29DD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		CF1E5E5C259CE88500035D50 /* Envfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Envfile; sourceTree = "<group>"; };
 		CF42CFD024C9D73400AAD8E8 /* Work.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Work.swift; sourceTree = "<group>"; };
 		CF42CFD224C9D7D300AAD8E8 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		CF42CFD424C9D83B00AAD8E8 /* PreviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewModel.swift; sourceTree = "<group>"; };
 		CF841D3C24CA626400F3723B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CF841D4424CA69A600F3723B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CF841D4624CA6A1F00F3723B /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
-		CFA7129A259CE78600DD0195 /* Envfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Envfile; sourceTree = SOURCE_ROOT; };
 		CFB8D8BA255D18A20092764B /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		CFC03EFE259483D9001516D3 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		CFC03F002594895F001516D3 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 				CF08FC1524B9AFC500CD29DD /* ProfileView.swift */,
 				CF08FC0624B9AD1A00CD29DD /* PortannictApp.swift */,
 				CF08FC0A24B9AD1A00CD29DD /* Assets.xcassets */,
-				CFA7129A259CE78600DD0195 /* Envfile */,
+				CF1E5E5C259CE88500035D50 /* Envfile */,
 				CF08FC0F24B9AD1A00CD29DD /* Info.plist */,
 				CF08FC0C24B9AD1A00CD29DD /* Preview Content */,
 			);
@@ -290,7 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFA7129B259CE78600DD0195 /* Envfile in Resources */,
+				CF1E5E5D259CE88500035D50 /* Envfile in Resources */,
 				CF08FC0E24B9AD1A00CD29DD /* Preview Assets.xcassets in Resources */,
 				CF08FC0B24B9AD1A00CD29DD /* Assets.xcassets in Resources */,
 			);
