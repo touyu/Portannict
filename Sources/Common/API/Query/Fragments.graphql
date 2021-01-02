@@ -1,0 +1,28 @@
+fragment WorkFragment on Work {
+	id
+	annictId
+	title
+	episodesCount
+	watchersCount
+	reviewsCount
+	seasonName
+	seasonYear
+	viewerStatusState
+}
+
+fragment RecordFragment on Record {
+	id
+	annictId
+	user {
+		...UserFragment
+	}
+	work {
+		...WorkFragment
+	}
+}
+
+fragment UserFragment on User {
+  id
+  name
+  username
+}

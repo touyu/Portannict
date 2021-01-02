@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct QuoteWorkView: View {
-    @Binding var work: Work
+    @Binding var work: WorkFragment
 
     var body: some View {
         HStack(alignment: .center, spacing: 8) {
@@ -24,8 +24,7 @@ struct QuoteWorkView: View {
 
 struct QuoteWorkView_Previews: PreviewProvider {
     static var previews: some View {
-        let work = PreviewModel.work
-        QuoteWorkView(work: .constant(work))
+        QuoteWorkView(work: .constant(WorkFragment.dummy))
             .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/375.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/))
     }
 }

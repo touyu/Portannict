@@ -1,0 +1,22 @@
+query GetFollowingActivities($first: Int, $after: String) {
+	viewer {
+		followingActivities(first: $first, after: $after, orderBy: {field: CREATED_AT, direction: DESC}) {
+			edges {
+				node {
+					... on Record {
+						...RecordFragment
+					}
+					... on Review {
+						id
+					}
+					... on Status {
+						id
+					}
+					... on MultipleRecord {
+						id
+					}
+				}
+			}
+		}
+	}
+}

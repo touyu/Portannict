@@ -6,18 +6,45 @@
 //
 
 import Foundation
+import Combine
+import Fluxer
 
-final class HomeViewModel: ObservableObject {
-    @Published var activities: [Activity] = []
+final class HomeViewModel: ViewModel {
+//    @Published var activities: [Activity] = []
+//
+//    init(activities: [Activity] = []) {
+//        self.activities = activities
+//    }
 
-    init(activities: [Activity] = []) {
-        self.activities = activities
+    enum Action {
+//        case fetch
+    }
+
+    enum Mutation {
+
+    }
+
+    class State: ObservableObject {
+        
+    }
+
+    @Published var state: State = State()
+
+    init() {
+        initilize()
+    }
+
+    func mutate(action: Action) -> AnyPublisher<Mutation, Never> {
+        return Empty().eraseToAnyPublisher()
+    }
+
+    func reduce(mutation: Mutation) {
+
     }
 
     func fetch() {
-        print("Fetch")
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { [weak self] _ in
-            self?.activities = PreviewModel.activities
-        }
+//        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { [weak self] _ in
+//            self?.activities = PreviewModel.activities
+//        }
     }
 }

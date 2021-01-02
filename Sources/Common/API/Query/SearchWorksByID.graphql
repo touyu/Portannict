@@ -1,7 +1,16 @@
 query SearchWorksByID($annictId: Int!, $after: String) {
-    searchWorks(annictIds: [$annictId], after: $after) {
-        nodes {
-            title
-        }
-    }
+	searchWorks(annictIds: [$annictId], after: $after) {
+		nodes {
+			...WorkFragment
+			episodes(first: 5, orderBy:{direction: ASC, field:SORT_NUMBER}) {
+				nodes {
+					id
+					annictId
+					title
+					numberText
+					viewerRecordsCount
+				}
+			}
+		}
+	}
 }
