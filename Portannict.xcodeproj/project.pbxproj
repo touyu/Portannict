@@ -31,6 +31,9 @@
 		CFC03F0525948EF2001516D3 /* OauthTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC03F0425948EF2001516D3 /* OauthTokenRequest.swift */; };
 		CFC03F0725959BDD001516D3 /* LoginSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC03F0625959BDD001516D3 /* LoginSession.swift */; };
 		CFCA3FEB255DAB4900AA2469 /* Fluxer in Frameworks */ = {isa = PBXBuildFile; productRef = CFCA3FEA255DAB4900AA2469 /* Fluxer */; };
+		CFD82D3525A630E7005401AF /* RatingStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD82D3425A630E7005401AF /* RatingStateView.swift */; };
+		CFD82D3725A63915005401AF /* Model+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD82D3625A63915005401AF /* Model+Extension.swift */; };
+		CFD82D3A25A63F8E005401AF /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = CFD82D3925A63F8E005401AF /* SwiftDate */; };
 		CFE38313258E603300CEE318 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE38312258E603300CEE318 /* RootView.swift */; };
 		CFE38315258E610F00CEE318 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE38314258E610F00CEE318 /* RootViewModel.swift */; };
 		CFE3831E258E628C00CEE318 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE3831D258E628C00CEE318 /* Constants.swift */; };
@@ -79,6 +82,8 @@
 		CFC03F002594895F001516D3 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CFC03F0425948EF2001516D3 /* OauthTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OauthTokenRequest.swift; sourceTree = "<group>"; };
 		CFC03F0625959BDD001516D3 /* LoginSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSession.swift; sourceTree = "<group>"; };
+		CFD82D3425A630E7005401AF /* RatingStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStateView.swift; sourceTree = "<group>"; };
+		CFD82D3625A63915005401AF /* Model+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model+Extension.swift"; sourceTree = "<group>"; };
 		CFE38312258E603300CEE318 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		CFE38314258E610F00CEE318 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		CFE3831D258E628C00CEE318 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -96,6 +101,7 @@
 			files = (
 				CFFDC8B3259C7E63001C8E29 /* KingfisherSwiftUI in Frameworks */,
 				CFADCD0825A5A78000939DA7 /* SkeletonUI in Frameworks */,
+				CFD82D3A25A63F8E005401AF /* SwiftDate in Frameworks */,
 				CF1E5E60259CEA5300035D50 /* Apollo in Frameworks */,
 				CFCA3FEB255DAB4900AA2469 /* Fluxer in Frameworks */,
 			);
@@ -188,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				CFBB73B625A575D700601DCB /* KFImage.swift */,
+				CFD82D3625A63915005401AF /* Model+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -238,9 +245,10 @@
 			children = (
 				CF08FC1724B9B04900CD29DD /* HomeView.swift */,
 				CF841D3C24CA626400F3723B /* HomeViewModel.swift */,
-				CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView.swift */,
-				CFFE4FFD24C9C266003AECE5 /* QuoteWorkView.swift */,
 				CFB9BA75259DCA7500C51708 /* ActivityRecordView.swift */,
+				CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView.swift */,
+				CFD82D3425A630E7005401AF /* RatingStateView.swift */,
+				CFFE4FFD24C9C266003AECE5 /* QuoteWorkView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -268,6 +276,7 @@
 				CFFDC8B2259C7E63001C8E29 /* KingfisherSwiftUI */,
 				CF1E5E5F259CEA5300035D50 /* Apollo */,
 				CFADCD0725A5A78000939DA7 /* SkeletonUI */,
+				CFD82D3925A63F8E005401AF /* SwiftDate */,
 			);
 			productName = Portannict;
 			productReference = CF08FC0324B9AD1A00CD29DD /* Portannict.app */;
@@ -301,6 +310,7 @@
 				CFFDC8B1259C7E63001C8E29 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				CF1E5E5E259CEA5300035D50 /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				CFADCD0625A5A78000939DA7 /* XCRemoteSwiftPackageReference "SkeletonUI" */,
+				CFD82D3825A63F8E005401AF /* XCRemoteSwiftPackageReference "SwiftDate" */,
 			);
 			productRefGroup = CF08FC0424B9AD1A00CD29DD /* Products */;
 			projectDirPath = "";
@@ -354,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF08FC0924B9AD1A00CD29DD /* RootTabView.swift in Sources */,
+				CFD82D3725A63915005401AF /* Model+Extension.swift in Sources */,
 				CFE38320258E64F600CEE318 /* Env.swift in Sources */,
 				CF08FC1824B9B04900CD29DD /* HomeView.swift in Sources */,
 				CFE38313258E603300CEE318 /* RootView.swift in Sources */,
@@ -370,6 +381,7 @@
 				CFE38315258E610F00CEE318 /* RootViewModel.swift in Sources */,
 				CFFDC8B5259CCAFE001C8E29 /* WorkHeaderView.swift in Sources */,
 				CFC03EFF259483DA001516D3 /* HTTPClient.swift in Sources */,
+				CFD82D3525A630E7005401AF /* RatingStateView.swift in Sources */,
 				CFFE4FFE24C9C266003AECE5 /* QuoteWorkView.swift in Sources */,
 				CFC03F0525948EF2001516D3 /* OauthTokenRequest.swift in Sources */,
 				CFC03F012594895F001516D3 /* LoginViewModel.swift in Sources */,
@@ -590,6 +602,14 @@
 				kind = branch;
 			};
 		};
+		CFD82D3825A63F8E005401AF /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.1;
+			};
+		};
 		CFFDC8B1259C7E63001C8E29 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
@@ -615,6 +635,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CFCA3FE9255DAB4900AA2469 /* XCRemoteSwiftPackageReference "Fluxer" */;
 			productName = Fluxer;
+		};
+		CFD82D3925A63F8E005401AF /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CFD82D3825A63F8E005401AF /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
 		};
 		CFFDC8B2259C7E63001C8E29 /* KingfisherSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;

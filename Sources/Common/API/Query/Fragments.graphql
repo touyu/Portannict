@@ -13,11 +13,17 @@ fragment WorkFragment on Work {
 fragment RecordFragment on Record {
 	id
 	annictId
+	comment
+	ratingState
+	createdAt
 	user {
 		...UserFragment
 	}
 	work {
 		...WorkFragment
+	}
+	episode {
+		...EpisodeFragment
 	}
 }
 
@@ -26,4 +32,11 @@ fragment UserFragment on User {
 	name
 	username
 	avatarUrl
+}
+
+fragment EpisodeFragment on Episode {
+	id
+	annictId
+	numberText
+	title
 }

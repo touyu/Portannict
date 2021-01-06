@@ -22,21 +22,27 @@ struct ActivityRecordView: View {
                 .foregroundColor(.gray)
                 .frame(width: 40, height: 40, alignment: .leading)
             VStack(alignment: .leading, spacing: 12) {
-                HStack {
+                HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
                     Text(record.user.name)
                         .font(.system(size: 14, weight: .bold, design: .default))
                     Text("@\(record.user.username)")
-                        .font(.system(size: 14, weight: .regular, design: .default))
+                        .font(.system(size: 12, weight: .regular, design: .default))
                         .foregroundColor(.gray)
-                    Text("・10分前")
-                        .font(.system(size: 14, weight: .regular, design: .default))
+                    Spacer()
+                    Text(record.createdAt.toDate()?.toRelative())
+                        .font(.system(size: 12, weight: .regular, design: .default))
                         .foregroundColor(.gray)
                 }
-                Text("記録しました")
+                if let ratingState = record.ratingState {
+                    RatingStateView(ratingState: ratingState)
+                }
+                if let comemnt = record.comment, !comemnt.isEmpty {
+                    Text(comemnt)
+                }
                 Button(action: {
                     isPresented = true
                 }) {
-                    QuoteWorkView(work: .constant(record.work.fragments.workFragment))
+                    QuoteWorkView(work: record.work.fragments.workFragment, episode: record.episode.fragments.episodeFragment)
                         .frame(height: 80)
                         .cornerRadius(8)
 //                        .overlay(RoundedRectangle(cornerRadius: 8)
@@ -52,15 +58,18 @@ struct ActivityRecordView: View {
 
 struct ActivityRecordView_Previews: PreviewProvider {
     static var previews: some View {
-        let recordWork = RecordFragment.Work(id: "record", annictId: 586, title: "Test", episodesCount: 0, watchersCount: 0, reviewsCount: 0)
+        let recordWork = RecordFragment.Work(id: "record", annictId: 6801, title: "GREAT PRETENDER", episodesCount: 0, watchersCount: 0, reviewsCount: 0)
+        let recordEpisode = RecordFragment.Episode(id: "", annictId: 124160, numberText: "Case_1_1", title: "Los Angeles Connection")
         let user = RecordFragment.User(id: "user", name: "touyu", username: "touyu")
-        return ActivityRecordView(record: RecordFragment(id: "", annictId: 0, user: user, work: recordWork))
+        return ActivityRecordView(record: RecordFragment(id: "", annictId: 0, comment: "いい話だった", ratingState: .good, createdAt: "2021-01-06T17:20:54Z", user: user, work: recordWork, episode: recordEpisode))
             .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/375.0/*@END_MENU_TOKEN@*/, height: 200))
     }
 }
 
-struct ActivityRecordEmptyView: View {
+struct ActivityEmptyView: View {
+    let rondomValue = Int.random(in: 0...2)
+
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
             Circle()
@@ -73,18 +82,23 @@ struct ActivityRecordEmptyView: View {
                         .skeleton(with: true)
                         .frame(height: 14)
                 }
-                Text("記録しました")
+                Text("")
                     .skeleton(with: true)
                     .frame(height: 18)
+                if rondomValue != 0 {
+                    RoundedRectangle(cornerRadius: 8)
+                        .skeleton(with: true)
+                        .shape(type: .rounded(.radius(8, style: .circular)))
+                        .frame(height: 80)
+                }
             }
-            Spacer(minLength: 0)
         }
     }
 }
 
-struct ActivityRecordEmptyView_Previews: PreviewProvider {
+struct ActivityEmptyView_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityRecordEmptyView()
+        ActivityEmptyView()
             .previewLayout(.fixed(width: 375, height: 200))
     }
 }

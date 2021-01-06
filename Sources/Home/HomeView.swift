@@ -20,9 +20,8 @@ struct HomeView: View {
                 if viewModel.state.activities.isEmpty {
                     VStack {
                         ForEach(0..<10) { i in
-                            ActivityRecordEmptyView()
-                                .frame(height: 80)
-                                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+                            ActivityEmptyView()
+                                .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
                         }
                     }
                 }
@@ -72,35 +71,5 @@ struct HomeView_Previews: PreviewProvider {
         Group {
             HomeView(viewModel: viewModel)
         }
-    }
-}
-
-extension GetFollowingActivitiesQuery.Data.Viewer.FollowingActivity.Edge.Node {
-    enum ActivityItem {
-        case none
-        case record(AsRecord)
-        case review(AsReview)
-        case status(AsStatus)
-        case multipleRecord(AsMultipleRecord)
-    }
-
-    var activityItem: ActivityItem {
-        if let record = asRecord {
-            return .record(record)
-        }
-
-        if let review = asReview {
-            return .review(review)
-        }
-
-        if let status = asStatus {
-            return .status(status)
-        }
-
-        if let multi = asMultipleRecord {
-            return .multipleRecord(multi)
-        }
-
-        return .none
     }
 }
