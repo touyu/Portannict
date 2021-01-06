@@ -9,9 +9,6 @@ import SwiftUI
 import KingfisherSwiftUI
 
 struct WorkHeaderView: View {
-    private let psychopassURL = URL(string: "https://media.kitsu.io/anime/poster_images/7000/large.jpg?1597696781")
-    private let summerwarsURL = URL(string: "https://media.kitsu.io/anime/poster_images/4241/large.jpg?1597697638")
-
     let work: WorkFragment
 
     init(work: WorkFragment) {
@@ -33,6 +30,7 @@ struct WorkHeaderView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: geometry.size.width, height: geometry.size.width * 1.5, alignment: .top)
+                    .background(Color.gray)
                 LinearGradient(gradient: gradient,
                                startPoint: .top,
                                endPoint: .bottom)

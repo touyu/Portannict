@@ -7,8 +7,13 @@
 
 import Foundation
 import Apollo
+import Combine
 
-class Network {
+enum NetworkError: Error {
+    case notFoundData
+}
+
+final class Network {
     static let shared = Network()
 
     private var headers: [String: String] {
@@ -37,3 +42,22 @@ class Network {
     }()
 }
 
+extension ApolloClient {
+    func fetch<Query: GraphQLQuery>(query: Query) -> AnyPublisher<Query.Data, Error> {
+        return Future<Query.Data, Error> { [weak self] promise in
+            self?.fetch(query: query) { result in
+                switch result {
+                case .success(let data):
+                    guard let data = data.data else {
+                        promise(.failure(NetworkError.notFoundData))
+                        return
+                    }
+                    promise(.success(data))
+                case .failure(let error):
+                    promise(.failure(error))
+                }
+            }
+        }
+        .eraseToAnyPublisher()
+    }
+}

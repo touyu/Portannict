@@ -2,6 +2,7 @@ query GetFollowingActivities($first: Int, $after: String) {
 	viewer {
 		followingActivities(first: $first, after: $after, orderBy: {field: CREATED_AT, direction: DESC}) {
 			edges {
+				cursor
 				node {
 					... on Record {
 						...RecordFragment
@@ -16,6 +17,10 @@ query GetFollowingActivities($first: Int, $after: String) {
 						id
 					}
 				}
+			}
+			pageInfo {
+				endCursor
+				hasNextPage
 			}
 		}
 	}

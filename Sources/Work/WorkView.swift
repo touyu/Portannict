@@ -17,7 +17,6 @@ struct WorkView: View {
     @State var work: SearchWorksByIdQuery.Data.SearchWork.Node?
 
     init(workID: Int) {
-        print(workID)
         self.workID = workID
     }
 

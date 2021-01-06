@@ -126,6 +126,7 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
           __typename
           edges {
             __typename
+            cursor
             node {
               __typename
               ... on Record {
@@ -142,6 +143,11 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
               }
             }
           }
+          pageInfo {
+            __typename
+            endCursor
+            hasNextPage
+          }
         }
       }
     }
@@ -149,7 +155,7 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
 
   public let operationName: String = "GetFollowingActivities"
 
-  public let operationIdentifier: String? = "42d4d6b70b281cf29b3e2379b771cce6ec952dafbc36a873ee95c01a762456a1"
+  public let operationIdentifier: String? = "6fef9ab9cc2cae178f518a3f679943e0891b83d51cd593356373e86c5a4c7206"
 
   public var queryDocument: String { return operationDefinition.appending(RecordFragment.fragmentDefinition).appending(UserFragment.fragmentDefinition).appending(WorkFragment.fragmentDefinition) }
 
@@ -238,6 +244,7 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("edges", type: .list(.object(Edge.selections))),
+            GraphQLField("pageInfo", type: .nonNull(.object(PageInfo.selections))),
           ]
         }
 
@@ -247,8 +254,8 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(edges: [Edge?]? = nil) {
-          self.init(unsafeResultMap: ["__typename": "ActivityConnection", "edges": edges.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }])
+        public init(edges: [Edge?]? = nil, pageInfo: PageInfo) {
+          self.init(unsafeResultMap: ["__typename": "ActivityConnection", "edges": edges.flatMap { (value: [Edge?]) -> [ResultMap?] in value.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } } }, "pageInfo": pageInfo.resultMap])
         }
 
         public var __typename: String {
@@ -270,12 +277,23 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
           }
         }
 
+        /// Information to aid in pagination.
+        public var pageInfo: PageInfo {
+          get {
+            return PageInfo(unsafeResultMap: resultMap["pageInfo"]! as! ResultMap)
+          }
+          set {
+            resultMap.updateValue(newValue.resultMap, forKey: "pageInfo")
+          }
+        }
+
         public struct Edge: GraphQLSelectionSet {
           public static let possibleTypes: [String] = ["ActivityEdge"]
 
           public static var selections: [GraphQLSelection] {
             return [
               GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("cursor", type: .nonNull(.scalar(String.self))),
               GraphQLField("node", type: .object(Node.selections)),
             ]
           }
@@ -286,8 +304,8 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
             self.resultMap = unsafeResultMap
           }
 
-          public init(node: Node? = nil) {
-            self.init(unsafeResultMap: ["__typename": "ActivityEdge", "node": node.flatMap { (value: Node) -> ResultMap in value.resultMap }])
+          public init(cursor: String, node: Node? = nil) {
+            self.init(unsafeResultMap: ["__typename": "ActivityEdge", "cursor": cursor, "node": node.flatMap { (value: Node) -> ResultMap in value.resultMap }])
           }
 
           public var __typename: String {
@@ -296,6 +314,16 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
             }
             set {
               resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// A cursor for use in pagination.
+          public var cursor: String {
+            get {
+              return resultMap["cursor"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "cursor")
             }
           }
 
@@ -850,6 +878,57 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                   resultMap.updateValue(newValue, forKey: "id")
                 }
               }
+            }
+          }
+        }
+
+        public struct PageInfo: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["PageInfo"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("endCursor", type: .scalar(String.self)),
+              GraphQLField("hasNextPage", type: .nonNull(.scalar(Bool.self))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(endCursor: String? = nil, hasNextPage: Bool) {
+            self.init(unsafeResultMap: ["__typename": "PageInfo", "endCursor": endCursor, "hasNextPage": hasNextPage])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// When paginating forwards, the cursor to continue.
+          public var endCursor: String? {
+            get {
+              return resultMap["endCursor"] as? String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "endCursor")
+            }
+          }
+
+          /// When paginating forwards, are there more items?
+          public var hasNextPage: Bool {
+            get {
+              return resultMap["hasNextPage"]! as! Bool
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "hasNextPage")
             }
           }
         }

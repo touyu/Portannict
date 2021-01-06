@@ -1,7 +1,7 @@
 {
-  "42d4d6b70b281cf29b3e2379b771cce6ec952dafbc36a873ee95c01a762456a1": {
+  "6fef9ab9cc2cae178f518a3f679943e0891b83d51cd593356373e86c5a4c7206": {
     "name": "GetFollowingActivities",
-    "source": "query GetFollowingActivities($first: Int, $after: String) {\n  viewer {\n    __typename\n    followingActivities(first: $first, after: $after, orderBy: {field: CREATED_AT, direction: DESC}) {\n      __typename\n      edges {\n        __typename\n        node {\n          __typename\n          ... on Record {\n            ...RecordFragment\n          }\n          ... on Review {\n            id\n          }\n          ... on Status {\n            id\n          }\n          ... on MultipleRecord {\n            id\n          }\n        }\n      }\n    }\n  }\n}"
+    "source": "query GetFollowingActivities($first: Int, $after: String) {\n  viewer {\n    __typename\n    followingActivities(first: $first, after: $after, orderBy: {field: CREATED_AT, direction: DESC}) {\n      __typename\n      edges {\n        __typename\n        cursor\n        node {\n          __typename\n          ... on Record {\n            ...RecordFragment\n          }\n          ... on Review {\n            id\n          }\n          ... on Status {\n            id\n          }\n          ... on MultipleRecord {\n            id\n          }\n        }\n      }\n      pageInfo {\n        __typename\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}"
   },
   "999459cc336c9f020f1ff9e3492ae12d5bc379d1b7e4fad6a468f862565f1172": {
     "name": "SearchWorksByID",
