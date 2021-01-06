@@ -20,13 +20,12 @@ struct HomeView: View {
                     ForEach(viewModel.state.activities.indices, id: \.self) { index in
                         let activity = viewModel.state.activities[index]
                         activityItemView(activity: activity)
-                            .onAppear {
-                                if index == viewModel.state.activities.count-10 {
-                                    print("FetchMore")
-                                    viewModel.action.send(.fetchMore)
-                                }
-                            }
                     }
+                    ActivityIndicator(isAnimating: .constant(true), style: .medium)
+                        .frame(height: 40)
+                        .onAppear {
+                            viewModel.action.send(.fetchMore)
+                        }
                 }
                 .padding(.top, 24)
             }

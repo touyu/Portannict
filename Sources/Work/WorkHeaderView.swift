@@ -40,6 +40,7 @@ struct WorkHeaderView: View {
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                     .offset(x: 16, y: -32)
+                    .frame(maxWidth: geometry.size.width - 32, alignment: .leading)
             }
         }
     }
