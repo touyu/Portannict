@@ -21,6 +21,7 @@
 		CF841D3D24CA626400F3723B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D3C24CA626400F3723B /* HomeViewModel.swift */; };
 		CF841D4524CA69A600F3723B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4424CA69A600F3723B /* LoginView.swift */; };
 		CFADCD0525A5A35900939DA7 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFADCD0425A5A35900939DA7 /* ActivityIndicator.swift */; };
+		CFADCD0825A5A78000939DA7 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = CFADCD0725A5A78000939DA7 /* SkeletonUI */; };
 		CFB9BA76259DCA7500C51708 /* ActivityRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB9BA75259DCA7500C51708 /* ActivityRecordView.swift */; };
 		CFB9BA78259DCD0D00C51708 /* Fragments.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFB9BA77259DCD0D00C51708 /* Fragments.graphql */; };
 		CFBB73B425A5718900601DCB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB73B325A5718900601DCB /* Network.swift */; };
@@ -94,6 +95,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFFDC8B3259C7E63001C8E29 /* KingfisherSwiftUI in Frameworks */,
+				CFADCD0825A5A78000939DA7 /* SkeletonUI in Frameworks */,
 				CF1E5E60259CEA5300035D50 /* Apollo in Frameworks */,
 				CFCA3FEB255DAB4900AA2469 /* Fluxer in Frameworks */,
 			);
@@ -265,6 +267,7 @@
 				CFCA3FEA255DAB4900AA2469 /* Fluxer */,
 				CFFDC8B2259C7E63001C8E29 /* KingfisherSwiftUI */,
 				CF1E5E5F259CEA5300035D50 /* Apollo */,
+				CFADCD0725A5A78000939DA7 /* SkeletonUI */,
 			);
 			productName = Portannict;
 			productReference = CF08FC0324B9AD1A00CD29DD /* Portannict.app */;
@@ -297,6 +300,7 @@
 				CFCA3FE9255DAB4900AA2469 /* XCRemoteSwiftPackageReference "Fluxer" */,
 				CFFDC8B1259C7E63001C8E29 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				CF1E5E5E259CEA5300035D50 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				CFADCD0625A5A78000939DA7 /* XCRemoteSwiftPackageReference "SkeletonUI" */,
 			);
 			productRefGroup = CF08FC0424B9AD1A00CD29DD /* Products */;
 			projectDirPath = "";
@@ -570,6 +574,14 @@
 				minimumVersion = 0.39.0;
 			};
 		};
+		CFADCD0625A5A78000939DA7 /* XCRemoteSwiftPackageReference "SkeletonUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CSolanaM/SkeletonUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.5;
+			};
+		};
 		CFCA3FE9255DAB4900AA2469 /* XCRemoteSwiftPackageReference "Fluxer" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:touyu/Fluxer.git";
@@ -593,6 +605,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CF1E5E5E259CEA5300035D50 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;
+		};
+		CFADCD0725A5A78000939DA7 /* SkeletonUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CFADCD0625A5A78000939DA7 /* XCRemoteSwiftPackageReference "SkeletonUI" */;
+			productName = SkeletonUI;
 		};
 		CFCA3FEA255DAB4900AA2469 /* Fluxer */ = {
 			isa = XCSwiftPackageProductDependency;

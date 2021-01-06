@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SkeletonUI
 
 struct HomeView: View {
     typealias Activity = GetFollowingActivitiesQuery.Data.Viewer.FollowingActivity.Edge.Node
@@ -16,10 +17,21 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ScrollView {
+                if viewModel.state.activities.isEmpty {
+                    VStack {
+                        ForEach(0..<10) { i in
+                            ActivityRecordEmptyView()
+                                .frame(height: 80)
+                                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+                        }
+                    }
+                }
+
                 LazyVStack {
                     ForEach(viewModel.state.activities.indices, id: \.self) { index in
                         let activity = viewModel.state.activities[index]
                         activityItemView(activity: activity)
+                            .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                     }
                     ActivityIndicator(isAnimating: .constant(true), style: .medium)
                         .frame(height: 40)

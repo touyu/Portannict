@@ -77,7 +77,6 @@ final class HomeViewModel: ViewModel {
             state.activities = activities
         case .appendActivities(let activities):
             state.activities.append(contentsOf: activities)
-            print(state.activities.count)
         case .setPageInfo(let pageInfo):
             state.pageInfo = pageInfo
         case .setError(let error):

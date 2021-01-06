@@ -22,6 +22,7 @@ struct QuoteWorkView: View {
                 .foregroundColor(Color.primary)
             Spacer(minLength: 0)
         }
+        .background(Color(UIColor.secondarySystemBackground))
     }
 }
 
