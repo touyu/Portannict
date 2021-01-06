@@ -12,7 +12,14 @@ import Apollo
 struct WorkView: View {
     private let black = Color(hex: 0x222222)
 
+    let workID: Int
+
     @State var work: SearchWorksByIdQuery.Data.SearchWork.Node?
+
+    init(workID: Int) {
+        print(workID)
+        self.workID = workID
+    }
 
     var body: some View {
         GeometryReader { geometry in
@@ -57,7 +64,7 @@ struct WorkView: View {
     }
 
     private func fetch() {
-        Network.shared.apollo.fetch(query: SearchWorksByIdQuery(annictId: 865)) { result in
+        Network.shared.apollo.fetch(query: SearchWorksByIdQuery(annictId: workID)) { result in
             switch result {
             case .success(let data):
                 self.work = data.data?.searchWorks?.nodes?.first ?? nil
@@ -70,7 +77,7 @@ struct WorkView: View {
 
 struct WorkView_Previews: PreviewProvider {
     static var previews: some View {
-        WorkView()
+        WorkView(workID: 865)
     }
 }
 
@@ -102,33 +109,4 @@ extension Color {
             opacity: alpha
         )
     }
-}
-
-class Network {
-    static let shared = Network()
-
-    private var headers: [String: String] {
-        guard let token = UserDefaults.standard.string(forKey: "accessToken") else { return [:] }
-        return ["Authorization": "Bearer \(token)"]
-    }
-
-    private(set) lazy var apollo: ApolloClient = {
-        // The cache is necessary to set up the store, which we're going to hand to the provider
-        let cache = InMemoryNormalizedCache()
-        let store = ApolloStore(cache: cache)
-
-        let client = URLSessionClient()
-        let provider = LegacyInterceptorProvider(client: client, store: store)
-        let url = URL(string: "https://api.annict.com/graphql")!
-
-        let requestChainTransport = RequestChainNetworkTransport(interceptorProvider: provider,
-                                                                 endpointURL: url,
-                                                                 additionalHeaders: headers)
-
-
-        // Remember to give the store you already created to the client so it
-        // doesn't create one on its own
-        return ApolloClient(networkTransport: requestChainTransport,
-                            store: store)
-    }()
 }

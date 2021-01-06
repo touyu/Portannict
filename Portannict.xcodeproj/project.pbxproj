@@ -22,6 +22,8 @@
 		CF841D4524CA69A600F3723B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4424CA69A600F3723B /* LoginView.swift */; };
 		CFB9BA76259DCA7500C51708 /* ActivityRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB9BA75259DCA7500C51708 /* ActivityRecordView.swift */; };
 		CFB9BA78259DCD0D00C51708 /* Fragments.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFB9BA77259DCD0D00C51708 /* Fragments.graphql */; };
+		CFBB73B425A5718900601DCB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB73B325A5718900601DCB /* Network.swift */; };
+		CFBB73B725A575D700601DCB /* KFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB73B625A575D700601DCB /* KFImage.swift */; };
 		CFC03EFF259483DA001516D3 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC03EFE259483D9001516D3 /* HTTPClient.swift */; };
 		CFC03F012594895F001516D3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC03F002594895F001516D3 /* LoginViewModel.swift */; };
 		CFC03F0525948EF2001516D3 /* OauthTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC03F0425948EF2001516D3 /* OauthTokenRequest.swift */; };
@@ -68,6 +70,8 @@
 		CF841D4424CA69A600F3723B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CFB9BA75259DCA7500C51708 /* ActivityRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRecordView.swift; sourceTree = "<group>"; };
 		CFB9BA77259DCD0D00C51708 /* Fragments.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fragments.graphql; sourceTree = "<group>"; };
+		CFBB73B325A5718900601DCB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		CFBB73B625A575D700601DCB /* KFImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFImage.swift; sourceTree = "<group>"; };
 		CFC03EFE259483D9001516D3 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		CFC03F002594895F001516D3 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CFC03F0425948EF2001516D3 /* OauthTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OauthTokenRequest.swift; sourceTree = "<group>"; };
@@ -168,9 +172,18 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
+		CFBB73B525A575CD00601DCB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CFBB73B625A575D700601DCB /* KFImage.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		CFE38316258E621400CEE318 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CFBB73B525A575CD00601DCB /* Extension */,
 				CFE38317258E621A00CEE318 /* API */,
 				CFE3831D258E628C00CEE318 /* Constants.swift */,
 				CFE3831F258E64F600CEE318 /* Env.swift */,
@@ -184,6 +197,7 @@
 			children = (
 				CF1E5E85259CF4B800035D50 /* Query */,
 				CFE38318258E623700CEE318 /* REST */,
+				CFBB73B325A5718900601DCB /* Network.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -329,8 +343,10 @@
 				CF08FC1824B9B04900CD29DD /* HomeView.swift in Sources */,
 				CFE38313258E603300CEE318 /* RootView.swift in Sources */,
 				CF841D3D24CA626400F3723B /* HomeViewModel.swift in Sources */,
+				CFBB73B425A5718900601DCB /* Network.swift in Sources */,
 				CFC03F0725959BDD001516D3 /* LoginSession.swift in Sources */,
 				CF08FC1624B9AFC500CD29DD /* ProfileView.swift in Sources */,
+				CFBB73B725A575D700601DCB /* KFImage.swift in Sources */,
 				CFE3831E258E628C00CEE318 /* Constants.swift in Sources */,
 				CFFE4FFC24C9C00D003AECE5 /* ActivityStatusView.swift in Sources */,
 				CFFDC8A8259C6EF6001C8E29 /* WorkView.swift in Sources */,

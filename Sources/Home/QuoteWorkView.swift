@@ -6,17 +6,20 @@
 //
 
 import SwiftUI
+import KingfisherSwiftUI
 
 struct QuoteWorkView: View {
     @Binding var work: WorkFragment
 
     var body: some View {
         HStack(alignment: .center, spacing: 8) {
-            Rectangle()
-                .foregroundColor(.gray)
+            KFImage(work.annictId)
+                .resizable()
                 .aspectRatio(3/4, contentMode: .fit)
+                .background(Color.gray)
             Text(work.title)
                 .font(.subheadline)
+                .foregroundColor(Color.primary)
             Spacer(minLength: 0)
         }
     }

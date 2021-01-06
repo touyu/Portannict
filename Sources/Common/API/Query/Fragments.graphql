@@ -22,7 +22,8 @@ fragment RecordFragment on Record {
 }
 
 fragment UserFragment on User {
-  id
-  name
-  username
+	id
+	name
+	username
+	avatarUrl
 }

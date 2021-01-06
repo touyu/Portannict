@@ -149,7 +149,7 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
 
   public let operationName: String = "GetFollowingActivities"
 
-  public let operationIdentifier: String? = "b012a2ace9950d6d55c36de1147976ac1ac38abb05b78ee6b4fc153f6d4937a3"
+  public let operationIdentifier: String? = "42d4d6b70b281cf29b3e2379b771cce6ec952dafbc36a873ee95c01a762456a1"
 
   public var queryDocument: String { return operationDefinition.appending(RecordFragment.fragmentDefinition).appending(UserFragment.fragmentDefinition).appending(WorkFragment.fragmentDefinition) }
 
@@ -469,6 +469,7 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                     GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
                     GraphQLField("name", type: .nonNull(.scalar(String.self))),
                     GraphQLField("username", type: .nonNull(.scalar(String.self))),
+                    GraphQLField("avatarUrl", type: .scalar(String.self)),
                   ]
                 }
 
@@ -478,8 +479,8 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                   self.resultMap = unsafeResultMap
                 }
 
-                public init(id: GraphQLID, name: String, username: String) {
-                  self.init(unsafeResultMap: ["__typename": "User", "id": id, "name": name, "username": username])
+                public init(id: GraphQLID, name: String, username: String, avatarUrl: String? = nil) {
+                  self.init(unsafeResultMap: ["__typename": "User", "id": id, "name": name, "username": username, "avatarUrl": avatarUrl])
                 }
 
                 public var __typename: String {
@@ -515,6 +516,15 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                   }
                   set {
                     resultMap.updateValue(newValue, forKey: "username")
+                  }
+                }
+
+                public var avatarUrl: String? {
+                  get {
+                    return resultMap["avatarUrl"] as? String
+                  }
+                  set {
+                    resultMap.updateValue(newValue, forKey: "avatarUrl")
                   }
                 }
 
@@ -1469,6 +1479,7 @@ public struct RecordFragment: GraphQLFragment {
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
         GraphQLField("name", type: .nonNull(.scalar(String.self))),
         GraphQLField("username", type: .nonNull(.scalar(String.self))),
+        GraphQLField("avatarUrl", type: .scalar(String.self)),
       ]
     }
 
@@ -1478,8 +1489,8 @@ public struct RecordFragment: GraphQLFragment {
       self.resultMap = unsafeResultMap
     }
 
-    public init(id: GraphQLID, name: String, username: String) {
-      self.init(unsafeResultMap: ["__typename": "User", "id": id, "name": name, "username": username])
+    public init(id: GraphQLID, name: String, username: String, avatarUrl: String? = nil) {
+      self.init(unsafeResultMap: ["__typename": "User", "id": id, "name": name, "username": username, "avatarUrl": avatarUrl])
     }
 
     public var __typename: String {
@@ -1515,6 +1526,15 @@ public struct RecordFragment: GraphQLFragment {
       }
       set {
         resultMap.updateValue(newValue, forKey: "username")
+      }
+    }
+
+    public var avatarUrl: String? {
+      get {
+        return resultMap["avatarUrl"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "avatarUrl")
       }
     }
 
@@ -1701,6 +1721,7 @@ public struct UserFragment: GraphQLFragment {
       id
       name
       username
+      avatarUrl
     }
     """
 
@@ -1712,6 +1733,7 @@ public struct UserFragment: GraphQLFragment {
       GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
       GraphQLField("name", type: .nonNull(.scalar(String.self))),
       GraphQLField("username", type: .nonNull(.scalar(String.self))),
+      GraphQLField("avatarUrl", type: .scalar(String.self)),
     ]
   }
 
@@ -1721,8 +1743,8 @@ public struct UserFragment: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(id: GraphQLID, name: String, username: String) {
-    self.init(unsafeResultMap: ["__typename": "User", "id": id, "name": name, "username": username])
+  public init(id: GraphQLID, name: String, username: String, avatarUrl: String? = nil) {
+    self.init(unsafeResultMap: ["__typename": "User", "id": id, "name": name, "username": username, "avatarUrl": avatarUrl])
   }
 
   public var __typename: String {
@@ -1758,6 +1780,15 @@ public struct UserFragment: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "username")
+    }
+  }
+
+  public var avatarUrl: String? {
+    get {
+      return resultMap["avatarUrl"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "avatarUrl")
     }
   }
 }

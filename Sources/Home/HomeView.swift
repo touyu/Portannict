@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct HomeView: View {
+    typealias Activity = GetFollowingActivitiesQuery.Data.Viewer.FollowingActivity.Edge.Node
+
     @ObservedObject var viewModel: HomeViewModel
-
-    @State var isPresented: Bool = true
-
-    @State var activities: [GetFollowingActivitiesQuery.Data.Viewer.FollowingActivity.Edge.Node] = []
+    @State var activities: [Activity] = []
 
     var body: some View {
         NavigationView {
@@ -33,26 +32,12 @@ struct HomeView: View {
                             Text("None")
                         }
                     }
-//                    ForEach(viewModel.activities.indices, id: \.self) { index in
-//                        let activity = $viewModel.activities[index]
-//                        switch activity.wrappedValue.action {
-//                        case .status:
-//                            ActivityStatusView(activityStatus: Binding(activity.status)!)
-//                                .padding(EdgeInsets(top: 0, leading: 12, bottom: 12, trailing: 12))
-//                                .onTapGesture {
-//                                    isPresented = true
-//                                }
-//                                .sheet(isPresented: $isPresented) {
-//                                    WorkView()
-//                                }
-//                        }
-//                    }
                 }
                 .padding(.top, 24)
             }
             .navigationBarTitle("Home")
             .onAppear {
-//                viewModel.fetch()
+                //                viewModel.fetch()
                 fetch()
             }
         }
@@ -74,7 +59,9 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = HomeViewModel()
-        HomeView(viewModel: viewModel)
+        Group {
+            HomeView(viewModel: viewModel)
+        }
     }
 }
 
@@ -86,6 +73,20 @@ extension GetFollowingActivitiesQuery.Data.Viewer.FollowingActivity.Edge.Node {
         case status(AsStatus)
         case multipleRecord(AsMultipleRecord)
 
+        var work: WorkFragment? {
+            switch self {
+            case .none:
+                return nil
+            case .record(let record):
+                return record.fragments.recordFragment.work.fragments.workFragment
+            case .status(let status):
+                return nil
+            case .review(let review):
+                return nil
+            case .multipleRecord(let mRecord):
+                return nil
+            }
+        }
     }
 
     var activityItem: ActivityItem {

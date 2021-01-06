@@ -29,7 +29,7 @@ struct WorkHeaderView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .bottomLeading) {
-                KFImage(URL(string: "\(Constants.baseImageURL)/images/\(work.annictId)"))
+                KFImage("\(Constants.baseImageURL)/images/\(work.annictId)")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: geometry.size.width, height: geometry.size.width * 1.5, alignment: .top)

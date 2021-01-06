@@ -6,20 +6,24 @@
 //
 
 import SwiftUI
+import KingfisherSwiftUI
 
 struct ActivityRecordView: View {
     let record: RecordFragment
 
+    @State var isPresented: Bool = false
+
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
-            Circle()
+            KFImage(record.user.avatarUrl)
+                .resizable()
+                .clipShape(Circle())
                 .frame(width: 40, height: 40, alignment: .leading)
-                .foregroundColor(.gray)
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
                     Text(record.user.name)
                         .font(.system(size: 14, weight: .bold, design: .default))
-                    Text("\(record.user.username)")
+                    Text("@\(record.user.username)")
                         .font(.system(size: 14, weight: .regular, design: .default))
                         .foregroundColor(.gray)
                     Text("・10分前")
@@ -27,11 +31,18 @@ struct ActivityRecordView: View {
                         .foregroundColor(.gray)
                 }
                 Text("記録しました")
-//                QuoteWorkView(work: activityStatus.work)
-//                    .frame(height: 80)
-//                    .cornerRadius(8)
-//                    .overlay(RoundedRectangle(cornerRadius: 8)
-//                                .stroke(Color.gray, lineWidth: 0.5))
+                Button(action: {
+                    isPresented = true
+                }) {
+                    QuoteWorkView(work: .constant(record.work.fragments.workFragment))
+                        .frame(height: 80)
+                        .cornerRadius(8)
+                        .overlay(RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.gray, lineWidth: 0.5))
+                }
+                .sheet(isPresented: $isPresented) {
+                    WorkView(workID: record.work.fragments.workFragment.annictId)
+                }
             }
             Spacer(minLength: 0)
         }
