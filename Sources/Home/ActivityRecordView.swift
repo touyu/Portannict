@@ -19,6 +19,7 @@ struct ActivityRecordView: View {
             KFImage(record.user.avatarUrl)
                 .resizable()
                 .clipShape(Circle())
+                .foregroundColor(.gray)
                 .frame(width: 40, height: 40, alignment: .leading)
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
@@ -45,7 +46,6 @@ struct ActivityRecordView: View {
                     WorkView(workID: record.work.fragments.workFragment.annictId)
                 }
             }
-            Spacer(minLength: 0)
         }
     }
 }
