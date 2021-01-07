@@ -48,7 +48,7 @@
 		CFE7E5D425A700E8009EB3DC /* GetViewerWorks.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFE7E5D325A700E8009EB3DC /* GetViewerWorks.graphql */; };
 		CFE7E5D725A7077D009EB3DC /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7E5D625A7077D009EB3DC /* RecordView.swift */; };
 		CFE7E5DA25A70826009EB3DC /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7E5D925A70826009EB3DC /* SearchView.swift */; };
-		CFE7E5DC25A71324009EB3DC /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7E5DB25A71324009EB3DC /* SearchBar.swift */; };
+		CFE7E5DF25A72F63009EB3DC /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = CFE7E5DE25A72F63009EB3DC /* SwiftUIX */; };
 		CFFDC8A8259C6EF6001C8E29 /* WorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFDC8A7259C6EF6001C8E29 /* WorkView.swift */; };
 		CFFDC8B3259C7E63001C8E29 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = CFFDC8B2259C7E63001C8E29 /* KingfisherSwiftUI */; };
 		CFFDC8B5259CCAFE001C8E29 /* WorkHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFDC8B4259CCAFE001C8E29 /* WorkHeaderView.swift */; };
@@ -109,7 +109,6 @@
 		CFE7E5D325A700E8009EB3DC /* GetViewerWorks.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetViewerWorks.graphql; sourceTree = "<group>"; };
 		CFE7E5D625A7077D009EB3DC /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		CFE7E5D925A70826009EB3DC /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		CFE7E5DB25A71324009EB3DC /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		CFFDC8A7259C6EF6001C8E29 /* WorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkView.swift; sourceTree = "<group>"; };
 		CFFDC8B4259CCAFE001C8E29 /* WorkHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkHeaderView.swift; sourceTree = "<group>"; };
 		CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatusView.swift; sourceTree = "<group>"; };
@@ -124,6 +123,7 @@
 				CFFDC8B3259C7E63001C8E29 /* KingfisherSwiftUI in Frameworks */,
 				CFADCD0825A5A78000939DA7 /* SkeletonUI in Frameworks */,
 				CFD82D3A25A63F8E005401AF /* SwiftDate in Frameworks */,
+				CFE7E5DF25A72F63009EB3DC /* SwiftUIX in Frameworks */,
 				CF1E5E60259CEA5300035D50 /* Apollo in Frameworks */,
 				CFCA3FEB255DAB4900AA2469 /* Fluxer in Frameworks */,
 			);
@@ -236,7 +236,6 @@
 				CFE3831D258E628C00CEE318 /* Constants.swift */,
 				CFE3831F258E64F600CEE318 /* Env.swift */,
 				CFC03F0625959BDD001516D3 /* LoginSession.swift */,
-				CFE7E5DB25A71324009EB3DC /* SearchBar.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -342,6 +341,7 @@
 				CF1E5E5F259CEA5300035D50 /* Apollo */,
 				CFADCD0725A5A78000939DA7 /* SkeletonUI */,
 				CFD82D3925A63F8E005401AF /* SwiftDate */,
+				CFE7E5DE25A72F63009EB3DC /* SwiftUIX */,
 			);
 			productName = Portannict;
 			productReference = CF08FC0324B9AD1A00CD29DD /* Portannict.app */;
@@ -376,6 +376,7 @@
 				CF1E5E5E259CEA5300035D50 /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				CFADCD0625A5A78000939DA7 /* XCRemoteSwiftPackageReference "SkeletonUI" */,
 				CFD82D3825A63F8E005401AF /* XCRemoteSwiftPackageReference "SwiftDate" */,
+				CFE7E5DD25A72F63009EB3DC /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 			);
 			productRefGroup = CF08FC0424B9AD1A00CD29DD /* Products */;
 			projectDirPath = "";
@@ -451,7 +452,6 @@
 				CFADCD0525A5A35900939DA7 /* ActivityIndicator.swift in Sources */,
 				CF841D4524CA69A600F3723B /* LoginView.swift in Sources */,
 				CFE38315258E610F00CEE318 /* RootViewModel.swift in Sources */,
-				CFE7E5DC25A71324009EB3DC /* SearchBar.swift in Sources */,
 				CFFDC8B5259CCAFE001C8E29 /* WorkHeaderView.swift in Sources */,
 				CFC03EFF259483DA001516D3 /* HTTPClient.swift in Sources */,
 				CFD82D3525A630E7005401AF /* RatingStateView.swift in Sources */,
@@ -686,6 +686,14 @@
 				minimumVersion = 6.3.1;
 			};
 		};
+		CFE7E5DD25A72F63009EB3DC /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.5;
+			};
+		};
 		CFFDC8B1259C7E63001C8E29 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
@@ -716,6 +724,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CFD82D3825A63F8E005401AF /* XCRemoteSwiftPackageReference "SwiftDate" */;
 			productName = SwiftDate;
+		};
+		CFE7E5DE25A72F63009EB3DC /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CFE7E5DD25A72F63009EB3DC /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			productName = SwiftUIX;
 		};
 		CFFDC8B2259C7E63001C8E29 /* KingfisherSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;

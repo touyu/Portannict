@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIX
 import KingfisherSwiftUI
 
 struct SearchView: View {
@@ -17,22 +18,25 @@ struct SearchView: View {
         NavigationView {
             ScrollView(.vertical) {
                 VStack(alignment: .leading) {
-                    SearchBar(searchBarStyle: .minimal, text: $searchText) { text in
-                        print(text)
-                    }
-                    ForEach(works.indices, id: \.self) { index in
-                        let work = works[index]
-                        HStack {
-                            KFImage(work.annictId)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 60)
-                                .cornerRadius(8)
-                            Text(work.title)
+                    SearchBar("タイトルを入力", text: $searchText)
+                    if searchText.isEmpty {
+
+                    } else {
+                        Text("検索結果")
+                        ForEach(works.indices, id: \.self) { index in
+                            let work = works[index]
+                            HStack(spacing: 8) {
+                                KFImage(work.annictId)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 60)
+                                    .cornerRadius(8)
+                                Text(work.title)
+                            }
                         }
+                        .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                     }
                 }
-                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
             }
             .navigationBarTitle("Search")
         }
