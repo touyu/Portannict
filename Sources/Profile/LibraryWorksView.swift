@@ -79,7 +79,7 @@ struct LibraryWorkView: View {
                     .padding(8)
             }
             .frame(width: maxWidth)
-            .background(Color(.secondarySystemBackground))
+            .background(Color(.quaternarySystemFill))
             .cornerRadius(4)
         })
         .sheet(isPresented: $isPresent) {

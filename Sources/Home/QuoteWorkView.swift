@@ -35,7 +35,7 @@ struct QuoteWorkView: View {
             }
             Spacer(minLength: 0)
         }
-        .background(Color(UIColor.secondarySystemBackground))
+        .background(Color(.quaternarySystemFill))
     }
 }
 

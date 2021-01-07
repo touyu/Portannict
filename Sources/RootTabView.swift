@@ -8,28 +8,47 @@
 import SwiftUI
 
 struct RootTabView: View {
+    @State private var selection = 0
+
     var body: some View {
-        TabView {
+        TabView(selection: $selection) {
             HomeView(viewModel: HomeViewModel())
                 .tabItem {
-                    Image(systemName: "house.fill")
-                        .font(.system(size: 21))
+                    RootTabItem(normalIcon: "house", selectedIcon: "house.fill", selection: selection == 0)
                 }
+                .tag(0)
             RecordView()
                 .tabItem {
-                    Image(systemName: "pencil.circle.fill")
-                        .font(.system(size: 21))
+                    RootTabItem(normalIcon: "pencil.circle", selectedIcon: "pencil.circle.fill", selection: selection == 1)
                 }
+                .tag(1)
             SearchView()
                 .tabItem {
-                    Image(systemName: "magnifyingglass.circle.fill")
-                        .font(.system(size: 21))
+                    RootTabItem(normalIcon: "magnifyingglass.circle", selectedIcon: "magnifyingglass.circle.fill", selection: selection == 2)
                 }
+                .tag(2)
             ProfileView()
                 .tabItem {
-                    Image(systemName: "person.fill")
-                        .font(.system(size: 21))
+                    RootTabItem(normalIcon: "person", selectedIcon: "person.fill", selection: selection == 3)
                 }
+                .tag(3)
+        }
+        .accentColor(.annictPink)
+    }
+}
+
+struct RootTabItem: View {
+    let normalIcon: String
+    let selectedIcon: String
+    let selection: Bool
+
+    var body: some View {
+        if selection {
+            Image(systemName: selectedIcon)
+                .font(.system(size: 21))
+        } else {
+            Image(systemName: normalIcon)
+                .font(.system(size: 21))
         }
     }
 }
@@ -39,5 +58,11 @@ struct RootTabView_Previews: PreviewProvider {
         RootTabView()
             .previewDevice("iPhone 11")
 
+    }
+}
+
+extension Color {
+    static var annictPink: Color {
+        return Color(hex: 0xF85B73)
     }
 }
