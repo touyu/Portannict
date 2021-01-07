@@ -42,6 +42,7 @@ struct HomeView: View {
             .navigationBarTitle("Home")
             .onAppear {
                 viewModel.action.send(.fetch)
+                UIScrollView.appearance().keyboardDismissMode = .interactive
             }
         }
     }
