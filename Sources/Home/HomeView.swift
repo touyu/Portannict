@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIX
 import SkeletonUI
 
 struct HomeView: View {
@@ -31,8 +32,10 @@ struct HomeView: View {
                         let activity = viewModel.state.activities[index]
                         activityItemView(activity: activity)
                     }
-                    ActivityIndicator(isAnimating: .constant(true), style: .medium)
-                        .frame(height: 40)
+                    ActivityIndicator()
+                        .animated(true)
+                        .style(.medium)
+                        .frame(height: 80)
                         .onAppear {
                             viewModel.action.send(.fetchMore)
                         }

@@ -57,6 +57,14 @@ struct WorkHeaderView_Previews: PreviewProvider {
 
 extension WorkFragment {
     static var dummy: WorkFragment {
-        WorkFragment(id: "", annictId: 7193, title: "PSYCHO-PASS", episodesCount: 0, watchersCount: 0, reviewsCount: 0)
+        WorkFragment(id: "", annictId: 6524, title: "PSYCHO-PASS", episodesCount: 0, watchersCount: 0, reviewsCount: 0)
+    }
+
+    static var dummy2: WorkFragment {
+        WorkFragment(id: "", annictId: 0, title: "No Title No Title No Title", episodesCount: 0, watchersCount: 0, reviewsCount: 0)
+    }
+
+    static var dummy3: WorkFragment {
+        WorkFragment(id: "", annictId: 6524, title: "No Title No Title No Title No Title No Title No Title", episodesCount: 0, watchersCount: 0, reviewsCount: 0)
     }
 }

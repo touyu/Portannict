@@ -32,9 +32,10 @@ struct LibraryWorksView: View {
                     .padding(.trailing, 16)
             }
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 12) {
+                HStack(alignment: .top, spacing: 12) {
                     ForEach(works.indices, id: \.self) { index in
                         LibraryWorkView(work: works[index])
+                            .frame(width: 140, height: 140 * 1.7)
                     }
                 }
                 .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
@@ -57,33 +58,10 @@ struct LibraryWorksView: View {
     }
 }
 
-struct LibraryWorkView: View {
-    let work: WorkFragment
-
-    @State private var isPresent: Bool = false
-    private let maxWidth: CGFloat = 140
-
-    var body: some View {
-        Button(action: {
-            isPresent = true
-        }, label: {
-            VStack(alignment: .leading, spacing: 0) {
-                KFImage(work.annictId)
-                    .resizable()
-                    .background(Color(.lightGray))
-                    .aspectRatio(3/4, contentMode: .fill)
-                    .frame(width: maxWidth)
-                Text(work.title)
-                    .font(.system(size: 12))
-                    .foregroundColor(.primary)
-                    .padding(8)
-            }
-            .frame(width: maxWidth)
-            .background(Color(.quaternarySystemFill))
-            .cornerRadius(4)
-        })
-        .sheet(isPresented: $isPresent) {
-            WorkView(workID: work.annictId)
-        }
+struct LibraryWorksView_Previews: PreviewProvider {
+    static var previews: some View {
+        LibraryWorksView(status: .watching, count: 100)
+            .previewLayout(.fixed(width: 375, height: 400))
     }
 }
+
