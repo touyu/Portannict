@@ -34,10 +34,12 @@
 		CFD82D3525A630E7005401AF /* RatingStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD82D3425A630E7005401AF /* RatingStateView.swift */; };
 		CFD82D3725A63915005401AF /* Model+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD82D3625A63915005401AF /* Model+Extension.swift */; };
 		CFD82D3A25A63F8E005401AF /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = CFD82D3925A63F8E005401AF /* SwiftDate */; };
+		CFD82D3C25A64157005401AF /* GetViewer.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFD82D3B25A64157005401AF /* GetViewer.graphql */; };
 		CFE38313258E603300CEE318 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE38312258E603300CEE318 /* RootView.swift */; };
 		CFE38315258E610F00CEE318 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE38314258E610F00CEE318 /* RootViewModel.swift */; };
 		CFE3831E258E628C00CEE318 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE3831D258E628C00CEE318 /* Constants.swift */; };
 		CFE38320258E64F600CEE318 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE3831F258E64F600CEE318 /* Env.swift */; };
+		CFE7E5C525A6D65A009EB3DC /* LibraryWorksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7E5C425A6D65A009EB3DC /* LibraryWorksView.swift */; };
 		CFFDC8A8259C6EF6001C8E29 /* WorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFDC8A7259C6EF6001C8E29 /* WorkView.swift */; };
 		CFFDC8B3259C7E63001C8E29 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = CFFDC8B2259C7E63001C8E29 /* KingfisherSwiftUI */; };
 		CFFDC8B5259CCAFE001C8E29 /* WorkHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFDC8B4259CCAFE001C8E29 /* WorkHeaderView.swift */; };
@@ -84,10 +86,12 @@
 		CFC03F0625959BDD001516D3 /* LoginSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSession.swift; sourceTree = "<group>"; };
 		CFD82D3425A630E7005401AF /* RatingStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStateView.swift; sourceTree = "<group>"; };
 		CFD82D3625A63915005401AF /* Model+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model+Extension.swift"; sourceTree = "<group>"; };
+		CFD82D3B25A64157005401AF /* GetViewer.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetViewer.graphql; sourceTree = "<group>"; };
 		CFE38312258E603300CEE318 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		CFE38314258E610F00CEE318 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		CFE3831D258E628C00CEE318 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CFE3831F258E64F600CEE318 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
+		CFE7E5C425A6D65A009EB3DC /* LibraryWorksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryWorksView.swift; sourceTree = "<group>"; };
 		CFFDC8A7259C6EF6001C8E29 /* WorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkView.swift; sourceTree = "<group>"; };
 		CFFDC8B4259CCAFE001C8E29 /* WorkHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkHeaderView.swift; sourceTree = "<group>"; };
 		CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatusView.swift; sourceTree = "<group>"; };
@@ -136,7 +140,7 @@
 				CF841D3E24CA67F600F3723B /* Login */,
 				CFFE4FFA24C9BF1A003AECE5 /* Home */,
 				CFFDC8A6259C6EE9001C8E29 /* Work */,
-				CF08FC1524B9AFC500CD29DD /* ProfileView.swift */,
+				CFE7E5C325A6D64E009EB3DC /* Profile */,
 				CF08FC0624B9AD1A00CD29DD /* PortannictApp.swift */,
 				CF08FC0A24B9AD1A00CD29DD /* Assets.xcassets */,
 				CF1E5E5C259CE88500035D50 /* Envfile */,
@@ -160,6 +164,7 @@
 				CF1E5E86259CF4CE00035D50 /* SearchWorksByID.graphql */,
 				CF2E1D92259DC19100824A3C /* GetFollowingActivities.graphql */,
 				CFB9BA77259DCD0D00C51708 /* Fragments.graphql */,
+				CFD82D3B25A64157005401AF /* GetViewer.graphql */,
 			);
 			path = Query;
 			sourceTree = "<group>";
@@ -229,6 +234,15 @@
 				CFC03EFE259483D9001516D3 /* HTTPClient.swift */,
 			);
 			path = REST;
+			sourceTree = "<group>";
+		};
+		CFE7E5C325A6D64E009EB3DC /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CF08FC1524B9AFC500CD29DD /* ProfileView.swift */,
+				CFE7E5C425A6D65A009EB3DC /* LibraryWorksView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		CFFDC8A6259C6EE9001C8E29 /* Work */ = {
@@ -326,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFD82D3C25A64157005401AF /* GetViewer.graphql in Resources */,
 				CF2E1D93259DC19100824A3C /* GetFollowingActivities.graphql in Resources */,
 				CFB9BA78259DCD0D00C51708 /* Fragments.graphql in Resources */,
 				CF1E5E5D259CE88500035D50 /* Envfile in Resources */,
@@ -376,6 +391,7 @@
 				CFE3831E258E628C00CEE318 /* Constants.swift in Sources */,
 				CFFE4FFC24C9C00D003AECE5 /* ActivityStatusView.swift in Sources */,
 				CFFDC8A8259C6EF6001C8E29 /* WorkView.swift in Sources */,
+				CFE7E5C525A6D65A009EB3DC /* LibraryWorksView.swift in Sources */,
 				CFADCD0525A5A35900939DA7 /* ActivityIndicator.swift in Sources */,
 				CF841D4524CA69A600F3723B /* LoginView.swift in Sources */,
 				CFE38315258E610F00CEE318 /* RootViewModel.swift in Sources */,

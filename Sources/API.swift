@@ -1123,6 +1123,204 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
   }
 }
 
+public final class GetViewerQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query GetViewer {
+      viewer {
+        __typename
+        id
+        annictId
+        name
+        username
+        avatarUrl
+        description
+        wannaWatchCount
+        watchingCount
+        watchedCount
+        onHoldCount
+        stopWatchingCount
+      }
+    }
+    """
+
+  public let operationName: String = "GetViewer"
+
+  public let operationIdentifier: String? = "439135c366daff60762a9040bc7e788dbb8b6c95ef2b9d249a14c1e2181fda89"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("viewer", type: .object(Viewer.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(viewer: Viewer? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Query", "viewer": viewer.flatMap { (value: Viewer) -> ResultMap in value.resultMap }])
+    }
+
+    public var viewer: Viewer? {
+      get {
+        return (resultMap["viewer"] as? ResultMap).flatMap { Viewer(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "viewer")
+      }
+    }
+
+    public struct Viewer: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["User"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+          GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("username", type: .nonNull(.scalar(String.self))),
+          GraphQLField("avatarUrl", type: .scalar(String.self)),
+          GraphQLField("description", type: .nonNull(.scalar(String.self))),
+          GraphQLField("wannaWatchCount", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("watchingCount", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("watchedCount", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("onHoldCount", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("stopWatchingCount", type: .nonNull(.scalar(Int.self))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(id: GraphQLID, annictId: Int, name: String, username: String, avatarUrl: String? = nil, description: String, wannaWatchCount: Int, watchingCount: Int, watchedCount: Int, onHoldCount: Int, stopWatchingCount: Int) {
+        self.init(unsafeResultMap: ["__typename": "User", "id": id, "annictId": annictId, "name": name, "username": username, "avatarUrl": avatarUrl, "description": description, "wannaWatchCount": wannaWatchCount, "watchingCount": watchingCount, "watchedCount": watchedCount, "onHoldCount": onHoldCount, "stopWatchingCount": stopWatchingCount])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var id: GraphQLID {
+        get {
+          return resultMap["id"]! as! GraphQLID
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      public var annictId: Int {
+        get {
+          return resultMap["annictId"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "annictId")
+        }
+      }
+
+      public var name: String {
+        get {
+          return resultMap["name"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "name")
+        }
+      }
+
+      public var username: String {
+        get {
+          return resultMap["username"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "username")
+        }
+      }
+
+      public var avatarUrl: String? {
+        get {
+          return resultMap["avatarUrl"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "avatarUrl")
+        }
+      }
+
+      public var description: String {
+        get {
+          return resultMap["description"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "description")
+        }
+      }
+
+      public var wannaWatchCount: Int {
+        get {
+          return resultMap["wannaWatchCount"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "wannaWatchCount")
+        }
+      }
+
+      public var watchingCount: Int {
+        get {
+          return resultMap["watchingCount"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "watchingCount")
+        }
+      }
+
+      public var watchedCount: Int {
+        get {
+          return resultMap["watchedCount"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "watchedCount")
+        }
+      }
+
+      public var onHoldCount: Int {
+        get {
+          return resultMap["onHoldCount"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "onHoldCount")
+        }
+      }
+
+      public var stopWatchingCount: Int {
+        get {
+          return resultMap["stopWatchingCount"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "stopWatchingCount")
+        }
+      }
+    }
+  }
+}
+
 public final class SearchWorksByIdQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
