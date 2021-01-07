@@ -1,0 +1,11 @@
+query GetViewerWorks($first: Int, $after: String, $state: StatusState!) {
+	viewer {
+		works(first: $first, after: $after, state: $state) {
+			edges {
+				node {
+					...WorkFragment
+				}
+			}
+		}
+	}
+}

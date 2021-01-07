@@ -45,6 +45,7 @@
 		CFE7E5CC25A6E8D8009EB3DC /* UserRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7E5CB25A6E8D8009EB3DC /* UserRepresentable.swift */; };
 		CFE7E5CE25A6EC6B009EB3DC /* GetUser.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFE7E5CD25A6EC6B009EB3DC /* GetUser.graphql */; };
 		CFE7E5D025A6F6BA009EB3DC /* ActivityReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7E5CF25A6F6BA009EB3DC /* ActivityReviewView.swift */; };
+		CFE7E5D425A700E8009EB3DC /* GetViewerWorks.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFE7E5D325A700E8009EB3DC /* GetViewerWorks.graphql */; };
 		CFFDC8A8259C6EF6001C8E29 /* WorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFDC8A7259C6EF6001C8E29 /* WorkView.swift */; };
 		CFFDC8B3259C7E63001C8E29 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = CFFDC8B2259C7E63001C8E29 /* KingfisherSwiftUI */; };
 		CFFDC8B5259CCAFE001C8E29 /* WorkHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFDC8B4259CCAFE001C8E29 /* WorkHeaderView.swift */; };
@@ -102,6 +103,7 @@
 		CFE7E5CB25A6E8D8009EB3DC /* UserRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepresentable.swift; sourceTree = "<group>"; };
 		CFE7E5CD25A6EC6B009EB3DC /* GetUser.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetUser.graphql; sourceTree = "<group>"; };
 		CFE7E5CF25A6F6BA009EB3DC /* ActivityReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityReviewView.swift; sourceTree = "<group>"; };
+		CFE7E5D325A700E8009EB3DC /* GetViewerWorks.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetViewerWorks.graphql; sourceTree = "<group>"; };
 		CFFDC8A7259C6EF6001C8E29 /* WorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkView.swift; sourceTree = "<group>"; };
 		CFFDC8B4259CCAFE001C8E29 /* WorkHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkHeaderView.swift; sourceTree = "<group>"; };
 		CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatusView.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				CF2E1D92259DC19100824A3C /* GetFollowingActivities.graphql */,
 				CFD82D3B25A64157005401AF /* GetViewer.graphql */,
 				CFE7E5CD25A6EC6B009EB3DC /* GetUser.graphql */,
+				CFE7E5D325A700E8009EB3DC /* GetViewerWorks.graphql */,
 				CFB9BA77259DCD0D00C51708 /* Fragments.graphql */,
 			);
 			path = Query;
@@ -370,6 +373,7 @@
 				CF1E5E5D259CE88500035D50 /* Envfile in Resources */,
 				CF08FC0E24B9AD1A00CD29DD /* Preview Assets.xcassets in Resources */,
 				CF08FC0B24B9AD1A00CD29DD /* Assets.xcassets in Resources */,
+				CFE7E5D425A700E8009EB3DC /* GetViewerWorks.graphql in Resources */,
 				CF1E5E87259CF4CE00035D50 /* SearchWorksByID.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

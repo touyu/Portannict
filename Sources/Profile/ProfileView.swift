@@ -49,11 +49,11 @@ struct ProfileView: View {
 
     func libraryView(viewer: Viewer) -> some View {
         Group {
-            LibraryWorksView(title: "見てる \(viewer.watchingCount)")
-            LibraryWorksView(title: "見たい \(viewer.wannaWatchCount)")
-            LibraryWorksView(title: "見た \(viewer.watchedCount)")
-            LibraryWorksView(title: "一時中断 \(viewer.onHoldCount)")
-            LibraryWorksView(title: "視聴中止 \(viewer.stopWatchingCount)")
+            LibraryWorksView(status: .watching, count: viewer.watchingCount)
+            LibraryWorksView(status: .wannaWatch, count: viewer.wannaWatchCount)
+            LibraryWorksView(status: .watched, count: viewer.watchedCount)
+            LibraryWorksView(status: .onHold, count: viewer.onHoldCount)
+            LibraryWorksView(status: .stopWatching, count: viewer.stopWatchingCount)
         }
     }
 
