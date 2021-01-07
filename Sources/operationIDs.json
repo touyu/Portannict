@@ -1,7 +1,11 @@
 {
-  "989768f90f2c3ac24489b612b1e69ea9af266eb97c4d41b966885e9c418b2ce3": {
+  "85e752c5006409898daa5cdbce370f805faef08b468e746651a51f1d78d9e06c": {
     "name": "GetFollowingActivities",
-    "source": "query GetFollowingActivities($first: Int, $after: String) {\n  viewer {\n    __typename\n    followingActivities(first: $first, after: $after, orderBy: {field: CREATED_AT, direction: DESC}) {\n      __typename\n      edges {\n        __typename\n        cursor\n        node {\n          __typename\n          ... on Record {\n            ...RecordFragment\n          }\n          ... on Review {\n            id\n          }\n          ... on Status {\n            id\n          }\n          ... on MultipleRecord {\n            id\n          }\n        }\n      }\n      pageInfo {\n        __typename\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}"
+    "source": "query GetFollowingActivities($first: Int, $after: String) {\n  viewer {\n    __typename\n    followingActivities(first: $first, after: $after, orderBy: {field: CREATED_AT, direction: DESC}) {\n      __typename\n      edges {\n        __typename\n        cursor\n        node {\n          __typename\n          ... on Record {\n            ...RecordFragment\n          }\n          ... on Review {\n            ...ReviewFragment\n          }\n          ... on Status {\n            ...StatusFragment\n          }\n          ... on MultipleRecord {\n            id\n          }\n        }\n      }\n      pageInfo {\n        __typename\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}"
+  },
+  "82718d3fac6860babf60481e49f8bd842e44727cf17acaeffcc20de77669d214": {
+    "name": "GetUser",
+    "source": "query GetUser($username: String!) {\n  user(username: $username) {\n    __typename\n    ...UserFragment\n  }\n}"
   },
   "439135c366daff60762a9040bc7e788dbb8b6c95ef2b9d249a14c1e2181fda89": {
     "name": "GetViewer",

@@ -27,11 +27,25 @@ fragment RecordFragment on Record {
 	}
 }
 
+fragment StatusFragment on Status {
+	id
+	annictId
+	createdAt
+	state
+	user {
+		...UserFragment
+	}
+	work {
+		...WorkFragment
+	}
+}
+
 fragment UserFragment on User {
 	id
 	name
 	username
 	avatarUrl
+	description
 }
 
 fragment EpisodeFragment on Episode {
@@ -39,4 +53,18 @@ fragment EpisodeFragment on Episode {
 	annictId
 	numberText
 	title
+}
+
+fragment ReviewFragment on Review {
+  id
+  annictId
+  createdAt
+  body
+  ratingAnimationState
+  user {
+	...UserFragment
+  }
+  work {
+	...WorkFragment
+  }
 }

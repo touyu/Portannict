@@ -12,7 +12,8 @@ import SkeletonUI
 struct ActivityRecordView: View {
     let record: RecordFragment
 
-    @State var isPresented: Bool = false
+    @State var isPresentedWorkView: Bool = false
+    @State var isPresentedUserView: Bool = false
 
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
@@ -21,6 +22,13 @@ struct ActivityRecordView: View {
                 .clipShape(Circle())
                 .foregroundColor(.gray)
                 .frame(width: 40, height: 40, alignment: .leading)
+                .onTapGesture {
+                    isPresentedUserView = true
+                }
+                .sheet(isPresented: $isPresentedUserView) {
+                    UserView(username: record.user.fragments.userFragment.username)
+                }
+
             VStack(alignment: .leading, spacing: 12) {
                 HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
                     Text(record.user.name)
@@ -38,17 +46,16 @@ struct ActivityRecordView: View {
                 }
                 if let comemnt = record.comment, !comemnt.isEmpty {
                     Text(comemnt)
+                        .font(.body)
                 }
                 Button(action: {
-                    isPresented = true
+                    isPresentedWorkView = true
                 }) {
                     QuoteWorkView(work: record.work.fragments.workFragment, episode: record.episode.fragments.episodeFragment)
                         .frame(height: 80)
                         .cornerRadius(8)
-//                        .overlay(RoundedRectangle(cornerRadius: 8)
-//                                    .stroke(Color.gray, lineWidth: 0.5))
                 }
-                .sheet(isPresented: $isPresented) {
+                .sheet(isPresented: $isPresentedWorkView) {
                     WorkView(workID: record.work.fragments.workFragment.annictId)
                 }
             }
@@ -60,7 +67,7 @@ struct ActivityRecordView_Previews: PreviewProvider {
     static var previews: some View {
         let recordWork = RecordFragment.Work(id: "record", annictId: 6801, title: "GREAT PRETENDER", episodesCount: 0, watchersCount: 0, reviewsCount: 0)
         let recordEpisode = RecordFragment.Episode(id: "", annictId: 124160, numberText: "Case_1_1", title: "Los Angeles Connection")
-        let user = RecordFragment.User(id: "user", name: "touyu", username: "touyu")
+        let user = RecordFragment.User(id: "user", name: "touyu", username: "touyu", description: "")
         return ActivityRecordView(record: RecordFragment(id: "", annictId: 0, comment: "いい話だった", ratingState: .good, createdAt: "2021-01-06T17:20:54Z", user: user, work: recordWork, episode: recordEpisode))
             .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/375.0/*@END_MENU_TOKEN@*/, height: 200))
@@ -99,6 +106,7 @@ struct ActivityEmptyView: View {
 struct ActivityEmptyView_Previews: PreviewProvider {
     static var previews: some View {
         ActivityEmptyView()
+            .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 375, height: 200))
     }
 }

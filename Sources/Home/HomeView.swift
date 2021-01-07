@@ -26,11 +26,10 @@ struct HomeView: View {
                     }
                 }
 
-                LazyVStack {
+                LazyVStack(spacing: 20) {
                     ForEach(viewModel.state.activities.indices, id: \.self) { index in
                         let activity = viewModel.state.activities[index]
                         activityItemView(activity: activity)
-                            .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                     }
                     ActivityIndicator(isAnimating: .constant(true), style: .medium)
                         .frame(height: 40)
@@ -38,7 +37,7 @@ struct HomeView: View {
                             viewModel.action.send(.fetchMore)
                         }
                 }
-                .padding(.top, 24)
+                .padding(EdgeInsets(top: 24, leading: 16, bottom: 0, trailing: 16))
             }
             .navigationBarTitle("Home")
             .onAppear {
@@ -54,12 +53,12 @@ struct HomeView: View {
                 ActivityRecordView(record: record.fragments.recordFragment)
             case .review:
                 Text("Review")
-            case .status:
-                Text("Status")
+            case .status(let status):
+                ActivityStatusView(status: status.fragments.statusFragment)
             case .multipleRecord:
-                Text("MultipleRecord")
+                EmptyView()
             case .none:
-                Text("None")
+                EmptyView()
             }
         }
     }

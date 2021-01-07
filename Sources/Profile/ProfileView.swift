@@ -18,7 +18,8 @@ struct ProfileView: View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading) {
                 if let viewer = viewer {
-                    header()
+                    UserHeaderView(user: viewer)
+                        .padding(.init(top: 0, leading: 16, bottom: 0, trailing: 16))
                     VStack(alignment: .leading, spacing: 24) {
                         Picker("", selection: $selectorIndex) {
                             Text("ライブラリ")
@@ -44,31 +45,6 @@ struct ProfileView: View {
         .onAppear {
             fetch()
         }
-    }
-
-    func header() -> some View {
-        Group {
-            HStack(spacing: 16) {
-                KFImage(viewer?.avatarUrl)
-                    .resizable()
-                    .clipShape(Circle())
-                    .foregroundColor(.gray)
-                    .frame(width: 80, height: 80)
-                VStack(alignment: .leading) {
-                    Text(viewer?.name)
-                        .font(.title)
-                        .bold()
-                    Text("@\(viewer?.name ?? "")")
-                        .fontWeight(.medium)
-                        .foregroundColor(.gray)
-                }
-                Spacer()
-            }
-            .padding(.init(top: 20, leading: 0, bottom: 20, trailing: 0))
-            Text(viewer?.description)
-                .font(.body)
-        }
-        .padding(.init(top: 0, leading: 16, bottom: 0, trailing: 16))
     }
 
     func libraryView(viewer: Viewer) -> some View {

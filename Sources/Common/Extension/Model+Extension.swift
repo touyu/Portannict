@@ -71,3 +71,26 @@ extension RatingState {
         }
     }
 }
+
+extension StatusState {
+    var title: String {
+        switch self {
+        case .watching:
+            return "見てる"
+        case .wannaWatch:
+            return "見たい"
+        case .watched:
+            return "見た"
+        case .onHold:
+            return "一時中断"
+        case .stopWatching:
+            return "視聴中止"
+        default:
+            return ""
+        }
+    }
+}
+
+extension UserFragment {
+    static var dummy = UserFragment(id: "user", name: "touyu", username: "touyu", description: "")
+}

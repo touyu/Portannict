@@ -1,0 +1,5 @@
+query GetUser($username: String!) {
+	user(username: $username) {
+		...UserFragment
+	}
+}

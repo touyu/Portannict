@@ -8,10 +8,10 @@ query GetFollowingActivities($first: Int, $after: String) {
 						...RecordFragment
 					}
 					... on Review {
-						id
+						...ReviewFragment
 					}
 					... on Status {
-						id
+						...StatusFragment
 					}
 					... on MultipleRecord {
 						id
