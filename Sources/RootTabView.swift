@@ -15,12 +15,12 @@ struct RootTabView: View {
                     Image(systemName: "house.fill")
                         .font(.system(size: 21))
                 }
-            Image(systemName: "pencil.circle.fill")
+            RecordView()
                 .tabItem {
                     Image(systemName: "pencil.circle.fill")
                         .font(.system(size: 21))
                 }
-            Image(systemName: "pencil.circle.fill")
+            SearchView()
                 .tabItem {
                     Image(systemName: "magnifyingglass.circle.fill")
                         .font(.system(size: 21))

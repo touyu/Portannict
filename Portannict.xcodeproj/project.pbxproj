@@ -46,6 +46,8 @@
 		CFE7E5CE25A6EC6B009EB3DC /* GetUser.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFE7E5CD25A6EC6B009EB3DC /* GetUser.graphql */; };
 		CFE7E5D025A6F6BA009EB3DC /* ActivityReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7E5CF25A6F6BA009EB3DC /* ActivityReviewView.swift */; };
 		CFE7E5D425A700E8009EB3DC /* GetViewerWorks.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFE7E5D325A700E8009EB3DC /* GetViewerWorks.graphql */; };
+		CFE7E5D725A7077D009EB3DC /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7E5D625A7077D009EB3DC /* RecordView.swift */; };
+		CFE7E5DA25A70826009EB3DC /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7E5D925A70826009EB3DC /* SearchView.swift */; };
 		CFFDC8A8259C6EF6001C8E29 /* WorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFDC8A7259C6EF6001C8E29 /* WorkView.swift */; };
 		CFFDC8B3259C7E63001C8E29 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = CFFDC8B2259C7E63001C8E29 /* KingfisherSwiftUI */; };
 		CFFDC8B5259CCAFE001C8E29 /* WorkHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFDC8B4259CCAFE001C8E29 /* WorkHeaderView.swift */; };
@@ -104,6 +106,8 @@
 		CFE7E5CD25A6EC6B009EB3DC /* GetUser.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetUser.graphql; sourceTree = "<group>"; };
 		CFE7E5CF25A6F6BA009EB3DC /* ActivityReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityReviewView.swift; sourceTree = "<group>"; };
 		CFE7E5D325A700E8009EB3DC /* GetViewerWorks.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetViewerWorks.graphql; sourceTree = "<group>"; };
+		CFE7E5D625A7077D009EB3DC /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		CFE7E5D925A70826009EB3DC /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		CFFDC8A7259C6EF6001C8E29 /* WorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkView.swift; sourceTree = "<group>"; };
 		CFFDC8B4259CCAFE001C8E29 /* WorkHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkHeaderView.swift; sourceTree = "<group>"; };
 		CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatusView.swift; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 				CFFDC8A6259C6EE9001C8E29 /* Work */,
 				CFE7E5C325A6D64E009EB3DC /* Profile */,
 				CFE7E5C625A6E6C3009EB3DC /* User */,
+				CFE7E5D525A70764009EB3DC /* Record */,
+				CFE7E5D825A7081A009EB3DC /* Search */,
 				CF08FC0624B9AD1A00CD29DD /* PortannictApp.swift */,
 				CF08FC0A24B9AD1A00CD29DD /* Assets.xcassets */,
 				CF1E5E5C259CE88500035D50 /* Envfile */,
@@ -268,6 +274,22 @@
 				CFE7E5CB25A6E8D8009EB3DC /* UserRepresentable.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		CFE7E5D525A70764009EB3DC /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				CFE7E5D625A7077D009EB3DC /* RecordView.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		CFE7E5D825A7081A009EB3DC /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				CFE7E5D925A70826009EB3DC /* SearchView.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		CFFDC8A6259C6EE9001C8E29 /* Work */ = {
@@ -414,6 +436,7 @@
 				CF841D3D24CA626400F3723B /* HomeViewModel.swift in Sources */,
 				CFBB73B425A5718900601DCB /* Network.swift in Sources */,
 				CFC03F0725959BDD001516D3 /* LoginSession.swift in Sources */,
+				CFE7E5D725A7077D009EB3DC /* RecordView.swift in Sources */,
 				CF08FC1624B9AFC500CD29DD /* ProfileView.swift in Sources */,
 				CFBB73B725A575D700601DCB /* KFImage.swift in Sources */,
 				CFE3831E258E628C00CEE318 /* Constants.swift in Sources */,
@@ -433,6 +456,7 @@
 				CFC03F0525948EF2001516D3 /* OauthTokenRequest.swift in Sources */,
 				CFC03F012594895F001516D3 /* LoginViewModel.swift in Sources */,
 				CF1E5E89259CF69E00035D50 /* API.swift in Sources */,
+				CFE7E5DA25A70826009EB3DC /* SearchView.swift in Sources */,
 				CFB9BA76259DCA7500C51708 /* ActivityRecordView.swift in Sources */,
 				CFE7E5C825A6E6D7009EB3DC /* UserView.swift in Sources */,
 				CF08FC0724B9AD1A00CD29DD /* PortannictApp.swift in Sources */,
