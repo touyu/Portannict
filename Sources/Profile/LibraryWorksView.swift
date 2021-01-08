@@ -35,7 +35,7 @@ struct LibraryWorksView: View {
                 HStack(alignment: .top, spacing: 12) {
                     ForEach(works.indices, id: \.self) { index in
                         LibraryWorkView(work: works[index])
-                            .frame(width: 140, height: 140 * 1.7)
+                            .frame(width: 140, height: 140 * 5/3)
                     }
                 }
                 .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
