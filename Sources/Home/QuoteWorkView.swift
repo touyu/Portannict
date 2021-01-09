@@ -12,38 +12,140 @@ struct QuoteWorkView: View {
     let work: WorkFragment
     let episode: EpisodeFragment?
 
+    @State private var isExpanded: Bool = false
+    @Namespace private var namespace
+
     init(work: WorkFragment, episode: EpisodeFragment? = nil) {
         self.work = work
         self.episode = episode
     }
 
     var body: some View {
-        HStack(alignment: .center, spacing: 8) {
-            KFImage(work.annictId)
-                .resizable()
-                .aspectRatio(3/4, contentMode: .fit)
-                .background(Color.gray)
-            VStack(alignment: .leading, spacing: 4) {
-                Text(work.title)
-                    .font(.system(size: 14))
-                    .foregroundColor(Color.primary)
-                if let epi = episode {
-                    Text("\(epi.numberText ?? "") \(epi.title ?? "")")
-                        .font(.system(size: 11))
-                        .foregroundColor(Color.primary)
+        Group {
+            if isExpanded {
+                VStack(alignment: .leading) {
+                    HStack(alignment: .top, spacing: 8) {
+                        WorkImage(workID: work.annictId)
+                            .matchedGeometryEffect(id: "WorkImage", in: namespace)
+                            .aspectRatio(3/4, contentMode: .fit)
+                            .cornerRadius(8)
+                            .frame(height: 80)
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text(work.title)
+                                .matchedGeometryEffect(id: "Title", in: namespace)
+                                .font(.system(size: 14))
+                                .foregroundColor(Color.primary)
+
+                            if let epi = episode {
+                                Text("\(epi.numberText ?? "") \(epi.title ?? "")")
+                                    .matchedGeometryEffect(id: "Episode", in: namespace)
+                                    .font(.system(size: 11))
+                                    .foregroundColor(Color.primary)
+                            }
+                            Spacer()
+                        }
+                        Spacer()
+                    }
+                    .padding(8)
+
+                    HStack(spacing: 8) {
+                        Button(action: {
+
+                        }, label: {
+                            Text("ステータスを変更")
+                                .font(.system(size: 14))
+                                .foregroundColor(.primary)
+                                .frame(height: 40)
+                                .frame(maxWidth: .infinity)
+                                .background(Color(.tertiarySystemBackground))
+                                .cornerRadius(20)
+                        })
+
+                        Button(action: {
+
+                        }, label: {
+                            Text("詳細を見る")
+                                .font(.system(size: 14))
+                                .foregroundColor(.primary)
+                                .frame(height: 40)
+                                .frame(maxWidth: .infinity)
+                                .background(Color(.tertiarySystemBackground))
+                                .cornerRadius(20)
+                        })
+                    }
+                    .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
+                    
+                    Spacer()
+                        .layoutPriority(1)
                 }
+                .background(Color(.quaternarySystemFill))
+                .cornerRadius(8)
+            } else {
+                HStack(alignment: .center, spacing: 8) {
+                    WorkImage(workID: work.annictId)
+                        .matchedGeometryEffect(id: "WorkImage", in: namespace)
+                        .aspectRatio(3/4, contentMode: .fit)
+                        .frame(height: 80)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(work.title)
+                            .matchedGeometryEffect(id: "Title", in: namespace)
+                            .font(.system(size: 14))
+                            .foregroundColor(Color.primary)
+                        if let epi = episode {
+                            Text("\(epi.numberText ?? "") \(epi.title ?? "")")
+                                .matchedGeometryEffect(id: "Episode", in: namespace)
+                                .font(.system(size: 11))
+                                .foregroundColor(Color.primary)
+                        }
+                    }
+                    Spacer()
+                }
+                .background(Color(.quaternarySystemFill))
+                .cornerRadius(8)
             }
-            Spacer(minLength: 0)
+
         }
-        .background(Color(.quaternarySystemFill))
+        .onTapGesture {
+            withAnimation(.easeOut(duration: 0.25)) {
+                isExpanded.toggle()
+            }
+        }
     }
 }
 
 struct QuoteWorkView_Previews: PreviewProvider {
+    @Namespace private static var namespace
+
     static var previews: some View {
         QuoteWorkView(work: WorkFragment.dummy)
             .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/375.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/))
         QuoteWorkView(work: WorkFragment.dummy, episode: EpisodeFragment(id: "", annictId: 0, numberText: "第1話", title: "冒険の始まり"))
             .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/375.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/))
+    }
+}
+
+struct WorkImage: View {
+    let workID: Int
+
+    var body: some View {
+        KFImage(workID)
+            .resizable()
+            .placeholder {
+                let placeholder = Text("No Image")
+                    .foregroundColor(.systemGray)
+                    .font(.system(size: 16))
+                    .fontWeight(.bold)
+                Color(.lightGray)
+                    .overlay(placeholder)
+            }
+    }
+}
+
+struct WorkImage_Previews: PreviewProvider {
+    static var previews: some View {
+        WorkImage(workID: WorkFragment.dummy.annictId)
+            .previewLayout(.fixed(width: 100, height: 100))
+        WorkImage(workID: 0)
+            .previewLayout(.fixed(width: 100, height: 100))
     }
 }

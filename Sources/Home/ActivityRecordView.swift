@@ -48,16 +48,7 @@ struct ActivityRecordView: View {
                     Text(comemnt)
                         .font(.body)
                 }
-                Button(action: {
-                    isPresentedWorkView = true
-                }) {
-                    QuoteWorkView(work: record.work.fragments.workFragment, episode: record.episode.fragments.episodeFragment)
-                        .frame(height: 80)
-                        .cornerRadius(8)
-                }
-                .sheet(isPresented: $isPresentedWorkView) {
-                    WorkView(workID: record.work.fragments.workFragment.annictId)
-                }
+                QuoteWorkView(work: record.work.fragments.workFragment, episode: record.episode.fragments.episodeFragment)
             }
         }
     }

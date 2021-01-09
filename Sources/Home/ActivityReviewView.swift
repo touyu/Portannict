@@ -11,8 +11,6 @@ import KingfisherSwiftUI
 struct ActivityReviewView: View {
     let review: ReviewFragment
 
-    @State var isPresented: Bool = false
-
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
             KFImage(review.user.avatarUrl)
@@ -37,16 +35,7 @@ struct ActivityReviewView: View {
                 }
                 Text(review.body)
                     .font(.body)
-                Button(action: {
-                    isPresented = true
-                }) {
-                    QuoteWorkView(work: review.work.fragments.workFragment)
-                        .frame(height: 80)
-                        .cornerRadius(8)
-                }
-                .sheet(isPresented: $isPresented) {
-                    WorkView(workID: review.work.fragments.workFragment.annictId)
-                }
+                QuoteWorkView(work: review.work.fragments.workFragment)
             }
         }
     }

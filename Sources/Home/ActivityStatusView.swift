@@ -11,8 +11,6 @@ import KingfisherSwiftUI
 struct ActivityStatusView: View {
     let status: StatusFragment
 
-    @State var isPresented: Bool = false
-
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
             KFImage(status.user.avatarUrl)
@@ -34,16 +32,7 @@ struct ActivityStatusView: View {
                 }
                 Text("ステータスを「\(status.state.title)」に変更しました")
                     .font(.body)
-                Button(action: {
-                    isPresented = true
-                }) {
-                    QuoteWorkView(work: status.work.fragments.workFragment)
-                        .frame(height: 80)
-                        .cornerRadius(8)
-                }
-                .sheet(isPresented: $isPresented) {
-                    WorkView(workID: status.work.fragments.workFragment.annictId)
-                }
+                QuoteWorkView(work: status.work.fragments.workFragment)
             }
         }
     }
