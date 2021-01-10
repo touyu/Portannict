@@ -13,7 +13,7 @@ import KingfisherSwiftUI
 struct SearchView: View {
     @StateObject var viewModel: SearchViewModel = .init()
 
-    @State private var isEditing : Bool = false
+    @State private var isEditing: Bool = false
 
     var body: some View {
         NavigationView {
@@ -25,42 +25,17 @@ struct SearchView: View {
                             Keyboard.dismiss()
                         }
                     if viewModel.searchText.isEmpty {
-//                        SearchRecommendedWorksView(season: viewModel.state.annictSeason,
-//                                                   works: viewModel.state.recomendedWorks)
-//                            .onTapChangeSeasonButton { season in
-//                                viewModel.action.send(.fetch(season))
-//                            }
                         SearchRecommendedWorksView(viewModel: .init())
                     } else {
-                        SearchResultsView(title: "検索結果",
-                                          works: viewModel.state.searchResultWorks)
+                        SearchResultsView(works: viewModel.state.searchResultWorks)
                     }
                 }
                 .padding(.bottom, 40)
             }
             .navigationBarTitle("Search")
-//            .onAppear {
-//                viewModel.action.send(.fetch(.current))
-//            }
             .gesture(
                 DragGesture().onChanged { value in
                     Keyboard.dismiss()
-                }
-            )
-            .onReceive(
-                viewModel.$searchText
-                    .debounce(for: 0.4, scheduler: DispatchQueue.main),
-                perform: { text in
-                    viewModel.action.send(.search(text))
-                }
-            )
-            .onReceive(
-                viewModel.$searchText
-                    .receive(on: DispatchQueue.main),
-                perform: { text in
-                    if text.isEmpty {
-                        viewModel.action.send(.clearSearchResults)
-                    }
                 }
             )
         }

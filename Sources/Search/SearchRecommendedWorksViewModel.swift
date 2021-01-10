@@ -35,12 +35,8 @@ final class SearchRecommendedWorksViewModel: ViewModel {
     func mutate(action: Action) -> AnyPublisher<Mutation, Never> {
         switch action {
         case .fetch(let season):
-            print(season)
             let fetchStream = fetch(season: season)
                 .map { $0.searchWorks?.edges?.compactMap { $0?.node?.fragments.workFragment } ?? []  }
-                .handleEvents(receiveOutput: { output in
-                    print(output)
-                })
                 .map { Mutation.setRecomendedWorks($0) }
                 .catch { Just(.setError($0)) }
                 .assertNoFailure()

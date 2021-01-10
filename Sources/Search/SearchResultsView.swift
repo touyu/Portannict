@@ -9,17 +9,15 @@ import SwiftUI
 import KingfisherSwiftUI
 
 struct SearchResultsView: View {
-    let title: String
     let works: [WorkFragment]
 
-    init(title: String, works: [WorkFragment]) {
-        self.title = title
+    init(works: [WorkFragment]) {
         self.works = works
     }
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .bottom) {
-                Text(title)
+                Text("検索結果")
                     .font(.system(size: 18))
                     .fontWeight(.bold)
             }
@@ -36,7 +34,7 @@ struct SearchResultsView: View {
 
 struct SearchResultsView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchResultsView(title: "検索結果", works: Array(repeating: .dummy, count: 4))
+        SearchResultsView(works: Array(repeating: .dummy, count: 4))
             .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 370, height: 600))
     }
@@ -93,7 +91,7 @@ struct SearchResultView: View {
                     var buttons = StatusState.allCases[0...4]
                         .map { state in
                             return ActionSheet.Button.default(Text(state.title)) {
-//                                selectStateAction?(state)
+                                //                                selectStateAction?(state)
                             }
                         }
                     buttons.append(.cancel())
