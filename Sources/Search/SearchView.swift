@@ -28,8 +28,8 @@ struct SearchView: View {
                         SearchResultView(title: viewModel.state.annictSeason.title,
                                          works: viewModel.state.recomendedWorks,
                                          mode: .recommend)
-                            .onTapChangeSeasonButton {
-                                viewModel.action.send(.fetch(viewModel.state.annictSeason.previous))
+                            .onTapChangeSeasonButton { season in
+                                viewModel.action.send(.fetch(season))
                             }
                     } else {
                         SearchResultView(title: "検索結果",
@@ -79,13 +79,17 @@ struct SearchResultView: View {
     let works: [WorkFragment]
     let mode: Mode
 
+    @State private var seasonSelection = 1
+    @State private var showPicker = false
+
+    private let seasons = allSeasons()
+    private var changeSeasonAction: ((AnnictSeason) -> Void)?
+
     init(title: String, works: [WorkFragment], mode: Mode) {
         self.title = title
         self.works = works
         self.mode = mode
     }
-
-    private var changeSeasonAction: (() -> Void)?
 
     enum Mode {
         case recommend
@@ -100,10 +104,21 @@ struct SearchResultView: View {
                     .fontWeight(.bold)
                 if mode == .recommend {
                     Spacer()
-                    Button("期間を変更する") {
-                        changeSeasonAction?()
+                    Button(showPicker ? "決定" : "期間を変更する") {
+                        withAnimation {
+                            showPicker.toggle()
+                        }
+                        changeSeasonAction?(seasons[seasonSelection])
                     }
                     .foregroundColor(.primary)
+                }
+            }
+            if showPicker {
+                Picker(selection: $seasonSelection, label: EmptyView()) {
+                    ForEach(seasons.indices) { index in
+                        let season = seasons[index]
+                        Text(season.title)
+                    }
                 }
             }
             LazyVStack(alignment: .leading, spacing: 16) {
@@ -166,10 +181,20 @@ struct SearchResultView: View {
         .cornerRadius(8)
     }
 
-    func onTapChangeSeasonButton(_ action: @escaping (() -> Void)) -> SearchResultView {
+    func onTapChangeSeasonButton(_ action: @escaping ((AnnictSeason) -> Void)) -> SearchResultView {
         var result = self
         result.changeSeasonAction = action
         return result
+    }
+
+    private static func allSeasons() -> [AnnictSeason] {
+        var item = AnnictSeason.current.next
+        var results = [AnnictSeason]()
+        for _ in 0..<200 {
+            results.append(item)
+            item = item.previous
+        }
+        return results
     }
 
     private func viewerStatusStateTitle(state: StatusState?) -> String {
