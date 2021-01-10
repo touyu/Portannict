@@ -23,6 +23,7 @@
 		CF841D3D24CA626400F3723B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D3C24CA626400F3723B /* HomeViewModel.swift */; };
 		CF841D4524CA69A600F3723B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4424CA69A600F3723B /* LoginView.swift */; };
 		CF9A375B25AB3502003077D5 /* SearchRecomendedWorksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9A375A25AB3502003077D5 /* SearchRecomendedWorksView.swift */; };
+		CF9A375D25AB3EF8003077D5 /* AnnictSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */; };
 		CFADCD0825A5A78000939DA7 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = CFADCD0725A5A78000939DA7 /* SkeletonUI */; };
 		CFB9BA76259DCA7500C51708 /* ActivityRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB9BA75259DCA7500C51708 /* ActivityRecordView.swift */; };
 		CFB9BA78259DCD0D00C51708 /* Fragments.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFB9BA77259DCD0D00C51708 /* Fragments.graphql */; };
@@ -90,6 +91,7 @@
 		CF841D3C24CA626400F3723B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CF841D4424CA69A600F3723B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CF9A375A25AB3502003077D5 /* SearchRecomendedWorksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecomendedWorksView.swift; sourceTree = "<group>"; };
+		CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnictSeason.swift; sourceTree = "<group>"; };
 		CFB9BA75259DCA7500C51708 /* ActivityRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRecordView.swift; sourceTree = "<group>"; };
 		CFB9BA77259DCD0D00C51708 /* Fragments.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fragments.graphql; sourceTree = "<group>"; };
 		CFBB73B325A5718900601DCB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 		CFE38316258E621400CEE318 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */,
 				CFADCD0325A5A34F00939DA7 /* Views */,
 				CFBB73B525A575CD00601DCB /* Extension */,
 				CFE38317258E621A00CEE318 /* API */,
@@ -457,6 +460,7 @@
 				CFBB73B725A575D700601DCB /* KFImage.swift in Sources */,
 				CFE3831E258E628C00CEE318 /* Constants.swift in Sources */,
 				CFFE4FFC24C9C00D003AECE5 /* ActivityStatusView.swift in Sources */,
+				CF9A375D25AB3EF8003077D5 /* AnnictSeason.swift in Sources */,
 				CFFDC8A8259C6EF6001C8E29 /* WorkView.swift in Sources */,
 				CFE7E5D025A6F6BA009EB3DC /* ActivityReviewView.swift in Sources */,
 				CFE7E5C525A6D65A009EB3DC /* LibraryWorksView.swift in Sources */,

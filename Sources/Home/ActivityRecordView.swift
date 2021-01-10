@@ -59,7 +59,7 @@ struct ActivityRecordView: View {
 
 struct ActivityRecordView_Previews: PreviewProvider {
     static var previews: some View {
-        let recordWork = RecordFragment.Work(id: "record", annictId: 6801, title: "GREAT PRETENDER", episodesCount: 0, watchersCount: 0, reviewsCount: 0)
+        let recordWork = RecordFragment.Work(unsafeResultMap: WorkFragment.dummy.resultMap)
         let recordEpisode = RecordFragment.Episode(id: "", annictId: 124160, numberText: "Case_1_1", title: "Los Angeles Connection")
         let user = RecordFragment.User(id: "user", name: "touyu", username: "touyu", description: "")
         return ActivityRecordView(record: RecordFragment(id: "", annictId: 0, comment: "いい話だった", ratingState: .good, createdAt: "2021-01-06T17:20:54Z", user: user, work: recordWork, episode: recordEpisode))

@@ -91,6 +91,23 @@ extension StatusState {
     }
 }
 
+extension Media {
+    var localizedText: String {
+        switch self {
+        case .movie:
+            return "映画"
+        case .tv:
+            return "TV"
+        case .ova:
+            return "OVA"
+        case .web:
+            return "Web"
+        default:
+            return "その他"
+        }
+    }
+}
+
 extension UserFragment {
     static var dummy = UserFragment(id: "user", name: "touyu", username: "touyu", description: "")
 }

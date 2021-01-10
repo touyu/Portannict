@@ -115,6 +115,62 @@ public enum SeasonName: RawRepresentable, Equatable, Hashable, CaseIterable, Apo
   }
 }
 
+/// Media of anime
+public enum Media: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case tv
+  case ova
+  case movie
+  case web
+  case other
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "TV": self = .tv
+      case "OVA": self = .ova
+      case "MOVIE": self = .movie
+      case "WEB": self = .web
+      case "OTHER": self = .other
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .tv: return "TV"
+      case .ova: return "OVA"
+      case .movie: return "MOVIE"
+      case .web: return "WEB"
+      case .other: return "OTHER"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: Media, rhs: Media) -> Bool {
+    switch (lhs, rhs) {
+      case (.tv, .tv): return true
+      case (.ova, .ova): return true
+      case (.movie, .movie): return true
+      case (.web, .web): return true
+      case (.other, .other): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [Media] {
+    return [
+      .tv,
+      .ova,
+      .movie,
+      .web,
+      .other,
+    ]
+  }
+}
+
 public enum RatingState: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
   case great
@@ -205,7 +261,7 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
 
   public let operationName: String = "GetFollowingActivities"
 
-  public let operationIdentifier: String? = "85e752c5006409898daa5cdbce370f805faef08b468e746651a51f1d78d9e06c"
+  public let operationIdentifier: String? = "a84b63d64f36512aea6ae54594f2c88d8cf24105187cde1195cfae980e5dcc1a"
 
   public var queryDocument: String { return operationDefinition.appending(RecordFragment.fragmentDefinition).appending(UserFragment.fragmentDefinition).appending(WorkFragment.fragmentDefinition).appending(EpisodeFragment.fragmentDefinition).appending(ReviewFragment.fragmentDefinition).appending(StatusFragment.fragmentDefinition) }
 
@@ -699,6 +755,7 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                     GraphQLField("seasonName", type: .scalar(SeasonName.self)),
                     GraphQLField("seasonYear", type: .scalar(Int.self)),
                     GraphQLField("viewerStatusState", type: .scalar(StatusState.self)),
+                    GraphQLField("media", type: .nonNull(.scalar(Media.self))),
                   ]
                 }
 
@@ -708,8 +765,8 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                   self.resultMap = unsafeResultMap
                 }
 
-                public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil) {
-                  self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState])
+                public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil, media: Media) {
+                  self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState, "media": media])
                 }
 
                 public var __typename: String {
@@ -799,6 +856,15 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                   }
                   set {
                     resultMap.updateValue(newValue, forKey: "viewerStatusState")
+                  }
+                }
+
+                public var media: Media {
+                  get {
+                    return resultMap["media"]! as! Media
+                  }
+                  set {
+                    resultMap.updateValue(newValue, forKey: "media")
                   }
                 }
 
@@ -1184,6 +1250,7 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                     GraphQLField("seasonName", type: .scalar(SeasonName.self)),
                     GraphQLField("seasonYear", type: .scalar(Int.self)),
                     GraphQLField("viewerStatusState", type: .scalar(StatusState.self)),
+                    GraphQLField("media", type: .nonNull(.scalar(Media.self))),
                   ]
                 }
 
@@ -1193,8 +1260,8 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                   self.resultMap = unsafeResultMap
                 }
 
-                public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil) {
-                  self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState])
+                public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil, media: Media) {
+                  self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState, "media": media])
                 }
 
                 public var __typename: String {
@@ -1284,6 +1351,15 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                   }
                   set {
                     resultMap.updateValue(newValue, forKey: "viewerStatusState")
+                  }
+                }
+
+                public var media: Media {
+                  get {
+                    return resultMap["media"]! as! Media
+                  }
+                  set {
+                    resultMap.updateValue(newValue, forKey: "media")
                   }
                 }
 
@@ -1563,6 +1639,7 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                     GraphQLField("seasonName", type: .scalar(SeasonName.self)),
                     GraphQLField("seasonYear", type: .scalar(Int.self)),
                     GraphQLField("viewerStatusState", type: .scalar(StatusState.self)),
+                    GraphQLField("media", type: .nonNull(.scalar(Media.self))),
                   ]
                 }
 
@@ -1572,8 +1649,8 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                   self.resultMap = unsafeResultMap
                 }
 
-                public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil) {
-                  self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState])
+                public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil, media: Media) {
+                  self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState, "media": media])
                 }
 
                 public var __typename: String {
@@ -1663,6 +1740,15 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                   }
                   set {
                     resultMap.updateValue(newValue, forKey: "viewerStatusState")
+                  }
+                }
+
+                public var media: Media {
+                  get {
+                    return resultMap["media"]! as! Media
+                  }
+                  set {
+                    resultMap.updateValue(newValue, forKey: "media")
                   }
                 }
 
@@ -2186,7 +2272,7 @@ public final class GetViewerWorksQuery: GraphQLQuery {
 
   public let operationName: String = "GetViewerWorks"
 
-  public let operationIdentifier: String? = "e564d43cd48f4853fb9d76ec93e35740abdcd1e88f8e9e70be5ed7cb98c8f0bb"
+  public let operationIdentifier: String? = "da28f4048d2537a3ee229489ef3b24356ca568d5e5f5354efd9e258195cf29b7"
 
   public var queryDocument: String { return operationDefinition.appending(WorkFragment.fragmentDefinition) }
 
@@ -2364,6 +2450,7 @@ public final class GetViewerWorksQuery: GraphQLQuery {
                 GraphQLField("seasonName", type: .scalar(SeasonName.self)),
                 GraphQLField("seasonYear", type: .scalar(Int.self)),
                 GraphQLField("viewerStatusState", type: .scalar(StatusState.self)),
+                GraphQLField("media", type: .nonNull(.scalar(Media.self))),
               ]
             }
 
@@ -2373,8 +2460,8 @@ public final class GetViewerWorksQuery: GraphQLQuery {
               self.resultMap = unsafeResultMap
             }
 
-            public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil) {
-              self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState])
+            public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil, media: Media) {
+              self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState, "media": media])
             }
 
             public var __typename: String {
@@ -2467,6 +2554,15 @@ public final class GetViewerWorksQuery: GraphQLQuery {
               }
             }
 
+            public var media: Media {
+              get {
+                return resultMap["media"]! as! Media
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "media")
+              }
+            }
+
             public var fragments: Fragments {
               get {
                 return Fragments(unsafeResultMap: resultMap)
@@ -2527,7 +2623,7 @@ public final class SearchWorksByIdQuery: GraphQLQuery {
 
   public let operationName: String = "SearchWorksByID"
 
-  public let operationIdentifier: String? = "999459cc336c9f020f1ff9e3492ae12d5bc379d1b7e4fad6a468f862565f1172"
+  public let operationIdentifier: String? = "5e9902975ee56d522b235f58534e946edcdcda99e767b6c9a23b7edbe894263e"
 
   public var queryDocument: String { return operationDefinition.appending(WorkFragment.fragmentDefinition) }
 
@@ -2626,6 +2722,7 @@ public final class SearchWorksByIdQuery: GraphQLQuery {
             GraphQLField("seasonName", type: .scalar(SeasonName.self)),
             GraphQLField("seasonYear", type: .scalar(Int.self)),
             GraphQLField("viewerStatusState", type: .scalar(StatusState.self)),
+            GraphQLField("media", type: .nonNull(.scalar(Media.self))),
             GraphQLField("episodes", arguments: ["first": 5, "orderBy": ["direction": "ASC", "field": "SORT_NUMBER"]], type: .object(Episode.selections)),
           ]
         }
@@ -2636,8 +2733,8 @@ public final class SearchWorksByIdQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil, episodes: Episode? = nil) {
-          self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState, "episodes": episodes.flatMap { (value: Episode) -> ResultMap in value.resultMap }])
+        public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil, media: Media, episodes: Episode? = nil) {
+          self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState, "media": media, "episodes": episodes.flatMap { (value: Episode) -> ResultMap in value.resultMap }])
         }
 
         public var __typename: String {
@@ -2727,6 +2824,15 @@ public final class SearchWorksByIdQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "viewerStatusState")
+          }
+        }
+
+        public var media: Media {
+          get {
+            return resultMap["media"]! as! Media
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "media")
           }
         }
 
@@ -2908,7 +3014,7 @@ public final class SearchWorksBySeasonQuery: GraphQLQuery {
 
   public let operationName: String = "SearchWorksBySeason"
 
-  public let operationIdentifier: String? = "f93d24477dc8c443991f3f85b8f44aca4a67ef9ad9fe63d46385f2b4078352a9"
+  public let operationIdentifier: String? = "fff6f2046042c3480b6ca07916908d909201b786fa6455087e14763668c215e5"
 
   public var queryDocument: String { return operationDefinition.appending(WorkFragment.fragmentDefinition) }
 
@@ -3048,6 +3154,7 @@ public final class SearchWorksBySeasonQuery: GraphQLQuery {
               GraphQLField("seasonName", type: .scalar(SeasonName.self)),
               GraphQLField("seasonYear", type: .scalar(Int.self)),
               GraphQLField("viewerStatusState", type: .scalar(StatusState.self)),
+              GraphQLField("media", type: .nonNull(.scalar(Media.self))),
             ]
           }
 
@@ -3057,8 +3164,8 @@ public final class SearchWorksBySeasonQuery: GraphQLQuery {
             self.resultMap = unsafeResultMap
           }
 
-          public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil) {
-            self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState])
+          public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil, media: Media) {
+            self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState, "media": media])
           }
 
           public var __typename: String {
@@ -3151,6 +3258,15 @@ public final class SearchWorksBySeasonQuery: GraphQLQuery {
             }
           }
 
+          public var media: Media {
+            get {
+              return resultMap["media"]! as! Media
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "media")
+            }
+          }
+
           public var fragments: Fragments {
             get {
               return Fragments(unsafeResultMap: resultMap)
@@ -3197,6 +3313,7 @@ public struct WorkFragment: GraphQLFragment {
       seasonName
       seasonYear
       viewerStatusState
+      media
     }
     """
 
@@ -3214,6 +3331,7 @@ public struct WorkFragment: GraphQLFragment {
       GraphQLField("seasonName", type: .scalar(SeasonName.self)),
       GraphQLField("seasonYear", type: .scalar(Int.self)),
       GraphQLField("viewerStatusState", type: .scalar(StatusState.self)),
+      GraphQLField("media", type: .nonNull(.scalar(Media.self))),
     ]
   }
 
@@ -3223,8 +3341,8 @@ public struct WorkFragment: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState])
+  public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil, media: Media) {
+    self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState, "media": media])
   }
 
   public var __typename: String {
@@ -3314,6 +3432,15 @@ public struct WorkFragment: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "viewerStatusState")
+    }
+  }
+
+  public var media: Media {
+    get {
+      return resultMap["media"]! as! Media
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "media")
     }
   }
 }
@@ -3573,6 +3700,7 @@ public struct RecordFragment: GraphQLFragment {
         GraphQLField("seasonName", type: .scalar(SeasonName.self)),
         GraphQLField("seasonYear", type: .scalar(Int.self)),
         GraphQLField("viewerStatusState", type: .scalar(StatusState.self)),
+        GraphQLField("media", type: .nonNull(.scalar(Media.self))),
       ]
     }
 
@@ -3582,8 +3710,8 @@ public struct RecordFragment: GraphQLFragment {
       self.resultMap = unsafeResultMap
     }
 
-    public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil) {
-      self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState])
+    public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil, media: Media) {
+      self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState, "media": media])
     }
 
     public var __typename: String {
@@ -3673,6 +3801,15 @@ public struct RecordFragment: GraphQLFragment {
       }
       set {
         resultMap.updateValue(newValue, forKey: "viewerStatusState")
+      }
+    }
+
+    public var media: Media {
+      get {
+        return resultMap["media"]! as! Media
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "media")
       }
     }
 
@@ -4030,6 +4167,7 @@ public struct StatusFragment: GraphQLFragment {
         GraphQLField("seasonName", type: .scalar(SeasonName.self)),
         GraphQLField("seasonYear", type: .scalar(Int.self)),
         GraphQLField("viewerStatusState", type: .scalar(StatusState.self)),
+        GraphQLField("media", type: .nonNull(.scalar(Media.self))),
       ]
     }
 
@@ -4039,8 +4177,8 @@ public struct StatusFragment: GraphQLFragment {
       self.resultMap = unsafeResultMap
     }
 
-    public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil) {
-      self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState])
+    public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil, media: Media) {
+      self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState, "media": media])
     }
 
     public var __typename: String {
@@ -4130,6 +4268,15 @@ public struct StatusFragment: GraphQLFragment {
       }
       set {
         resultMap.updateValue(newValue, forKey: "viewerStatusState")
+      }
+    }
+
+    public var media: Media {
+      get {
+        return resultMap["media"]! as! Media
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "media")
       }
     }
 
@@ -4575,6 +4722,7 @@ public struct ReviewFragment: GraphQLFragment {
         GraphQLField("seasonName", type: .scalar(SeasonName.self)),
         GraphQLField("seasonYear", type: .scalar(Int.self)),
         GraphQLField("viewerStatusState", type: .scalar(StatusState.self)),
+        GraphQLField("media", type: .nonNull(.scalar(Media.self))),
       ]
     }
 
@@ -4584,8 +4732,8 @@ public struct ReviewFragment: GraphQLFragment {
       self.resultMap = unsafeResultMap
     }
 
-    public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil) {
-      self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState])
+    public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil, media: Media) {
+      self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState, "media": media])
     }
 
     public var __typename: String {
@@ -4675,6 +4823,15 @@ public struct ReviewFragment: GraphQLFragment {
       }
       set {
         resultMap.updateValue(newValue, forKey: "viewerStatusState")
+      }
+    }
+
+    public var media: Media {
+      get {
+        return resultMap["media"]! as! Media
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "media")
       }
     }
 

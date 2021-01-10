@@ -13,6 +13,7 @@ struct SearchView: View {
     @StateObject var viewModel: SearchViewModel = .init()
 
     @State private var searchText : String = ""
+    @State private var isEditing : Bool = false
     
     private var results: [WorkFragment] = [.dummy, .dummy, .dummy, .dummy, .dummy]
 
@@ -20,16 +21,22 @@ struct SearchView: View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 16) {
-                    SearchBar("タイトルを入力", text: $searchText)
+                    SearchBar("タイトルを入力", text: $searchText, isEditing: $isEditing)
+                        .showsCancelButton(isEditing)
+                        .onCancel {
+                            Keyboard.dismiss()
+                        }
                     if searchText.isEmpty {
-                        SearchRecomendedWorksView2(title: viewModel.state.annictSeason.title,
-                                                  works: viewModel.state.recomendedWorks)
+                        SearchResultView(title: viewModel.state.annictSeason.title,
+                                         works: viewModel.state.recomendedWorks,
+                                         mode: .recommend)
                             .onTapChangeSeasonButton {
                                 viewModel.action.send(.fetch(viewModel.state.annictSeason.previous))
                             }
                     } else {
-                        SearchResultView(works: results)
-                            .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+                        SearchResultView(title: "検索結果",
+                                         works: results,
+                                         mode: .searchResult)
                     }
                 }
                 .padding(.bottom, 40)
@@ -38,15 +45,38 @@ struct SearchView: View {
             .onAppear {
                 viewModel.action.send(.fetch(.current))
             }
+            .gesture(
+                DragGesture().onChanged { value in
+                    Keyboard.dismiss()
+                }
+            )
         }
     }
 }
 
-struct SearchRecomendedWorksView2: View {
+struct SearchView_Previews: PreviewProvider {
+    static var previews: some View {
+        SearchView()
+    }
+}
+
+struct SearchResultView: View {
     let title: String
     let works: [WorkFragment]
+    let mode: Mode
 
-    var changeSeasonAction: (() -> Void)?
+    init(title: String, works: [WorkFragment], mode: Mode) {
+        self.title = title
+        self.works = works
+        self.mode = mode
+    }
+
+    private var changeSeasonAction: (() -> Void)?
+
+    enum Mode {
+        case recommend
+        case searchResult
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -54,58 +84,75 @@ struct SearchRecomendedWorksView2: View {
                 Text(title)
                     .font(.system(size: 18))
                     .fontWeight(.bold)
-                Spacer()
-                Button("期間を変更する") {
-                    changeSeasonAction?()
+                if mode == .recommend {
+                    Spacer()
+                    Button("期間を変更する") {
+                        changeSeasonAction?()
+                    }
+                    .foregroundColor(.primary)
                 }
-                .foregroundColor(.primary)
             }
             LazyVStack(alignment: .leading, spacing: 16) {
                 ForEach(works.indices, id: \.self) { index in
                     let work = works[index]
-                    HStack(spacing: 16) {
-                        KFImage(work.annictId)
-                            .resizable()
-                            .placeholder {
-                                let placeholder = Text("No Image")
-                                    .foregroundColor(.systemGray)
-                                    .font(.system(size: 16))
-                                    .fontWeight(.bold)
-                                Color(.lightGray)
-                                    .overlay(placeholder)
-                            }
-                            .aspectRatio(3/4, contentMode: .fit)
-                            .frame(width: 60)
-                            .cornerRadius(8)
-
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text(work.title)
-
-                            Button(action: {
-
-                            }, label: {
-                                HStack(alignment: .center, spacing: 8) {
-                                    Text(viewerStatusStateTitle(state: work.viewerStatusState))
-                                        .font(.system(size: 12))
-                                        .foregroundColor(work.viewerStatusState != .noState ? .white : .primary)
-                                    Image(systemName: .arrowtriangleDownFill)
-                                        .font(.system(size: 8))
-                                        .foregroundColor(work.viewerStatusState != .noState ? .white : .primary)
-                                }
-                            })
-                            .frame(width: 120, height: 32)
-                            .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12))
-                            .background(work.viewerStatusState != .noState ? .blue : Color(.tertiarySystemBackground))
-                            .cornerRadius(16)
-                        }
-                    }
+                    row(work: work)
                 }
             }
         }
-        .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+        .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12))
     }
 
-    func onTapChangeSeasonButton(_ action: @escaping (() -> Void)) -> SearchRecomendedWorksView2 {
+    func row(work: WorkFragment) -> some View {
+        HStack(alignment: .top, spacing: 16) {
+            KFImage(work.annictId)
+                .resizable()
+                .placeholder {
+                    let placeholder = Text("No Image")
+                        .foregroundColor(.systemGray)
+                        .font(.system(size: 16))
+                        .fontWeight(.bold)
+                    Color(.lightGray)
+                        .overlay(placeholder)
+                }
+                .aspectRatio(3/4, contentMode: .fit)
+                .frame(width: 60)
+                .cornerRadius(8)
+
+            VStack(alignment: .leading, spacing: 8) {
+                Text(work.title)
+                    .fontWeight(.semibold)
+
+                Text(work.media.localizedText)
+                    .font(.system(size: 12))
+                    .padding(EdgeInsets(top: 2, leading: 8, bottom: 2, trailing: 8))
+                    .background(Color(.tertiarySystemBackground))
+                    .cornerRadius(4)
+
+                Button(action: {
+
+                }, label: {
+                    HStack(alignment: .center, spacing: 8) {
+                        Text(viewerStatusStateTitle(state: work.viewerStatusState))
+                            .font(.system(size: 13))
+                            .foregroundColor(work.viewerStatusState != .noState ? .white : .primary)
+                        Image(systemName: .arrowtriangleDownFill)
+                            .font(.system(size: 8))
+                            .foregroundColor(work.viewerStatusState != .noState ? .white : .primary)
+                    }
+                })
+                .frame(height: 32)
+                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+                .background(work.viewerStatusState != .noState ? .blue : Color(.tertiarySystemBackground))
+                .cornerRadius(16)
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
+        .background(Color(.secondarySystemBackground))
+        .cornerRadius(8)
+    }
+
+    func onTapChangeSeasonButton(_ action: @escaping (() -> Void)) -> SearchResultView {
         var result = self
         result.changeSeasonAction = action
         return result
@@ -119,143 +166,10 @@ struct SearchRecomendedWorksView2: View {
     }
 }
 
-struct SearchRecomendedWorksView2_Previews: PreviewProvider {
+struct SearchResultViiew_Previews: PreviewProvider {
     static var previews: some View {
-        SearchRecomendedWorksView2(title: "今期", works: Array(repeating: .dummy, count: 4))
+        SearchResultView(title: "今期", works: Array(repeating: .dummy, count: 4), mode: .recommend)
+            .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 370, height: 600))
-    }
-}
-
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchView()
-    }
-}
-
-
-struct SearchResultView: View {
-    let works: [WorkFragment]
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text("検索結果")
-            ForEach(works.indices, id: \.self) { index in
-                let work = works[index]
-                HStack(spacing: 8) {
-                    KFImage(work.annictId)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 60)
-                        .cornerRadius(8)
-                    Text(work.title)
-                }
-            }
-        }
-    }
-}
-
-struct AnnictSeason: Equatable {
-    let year: Int
-    let season: Season
-
-    static var current: AnnictSeason {
-        return .init(year: Date().year, season: .current)
-    }
-
-    var next: AnnictSeason {
-        var newYear = self.year
-        if season == .autumn {
-            newYear += 1
-        }
-        return .init(year: newYear, season: season.next)
-    }
-
-    var previous: AnnictSeason {
-        var newYear = self.year
-        if season == .winter {
-            newYear -= 1
-        }
-        return .init(year: newYear, season: season.previous)
-    }
-
-    var id: String {
-        return "\(year)-\(season.rawValue)"
-    }
-
-    var title: String {
-        if self == AnnictSeason.current {
-            return "今期"
-        }
-        switch self {
-        case .current:
-            return "今期"
-        case AnnictSeason.current.next:
-            return "来期"
-        case AnnictSeason.current.previous:
-            return "前期"
-        default:
-            return "\(year)年 \(season.localizedText)"
-        }
-    }
-
-    enum Season: String, Equatable {
-        case winter
-        case spring
-        case summer
-        case autumn
-
-        static var current: Season {
-            switch Date().month {
-            case 1...3:
-                return .winter
-            case 4...6:
-                return .spring
-            case 7...9:
-                return .summer
-            case 10...12:
-                return .autumn
-            default:
-                fatalError("Not found season")
-            }
-        }
-
-        var localizedText: String {
-            switch self {
-            case .winter:
-                return "冬"
-            case .spring:
-                return "春"
-            case .summer:
-                return "夏"
-            case .autumn:
-                return "秋"
-            }
-        }
-
-        var next: Season {
-            switch self {
-            case .winter:
-                return .spring
-            case .spring:
-                return .summer
-            case .summer:
-                return .autumn
-            case .autumn:
-                return .winter
-            }
-        }
-
-        var previous: Season {
-            switch self {
-            case .winter:
-                return .autumn
-            case .spring:
-                return .winter
-            case .summer:
-                return .spring
-            case .autumn:
-                return .summer
-            }
-        }
     }
 }

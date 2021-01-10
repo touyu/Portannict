@@ -1,5 +1,5 @@
 {
-  "85e752c5006409898daa5cdbce370f805faef08b468e746651a51f1d78d9e06c": {
+  "a84b63d64f36512aea6ae54594f2c88d8cf24105187cde1195cfae980e5dcc1a": {
     "name": "GetFollowingActivities",
     "source": "query GetFollowingActivities($first: Int, $after: String) {\n  viewer {\n    __typename\n    followingActivities(first: $first, after: $after, orderBy: {field: CREATED_AT, direction: DESC}) {\n      __typename\n      edges {\n        __typename\n        cursor\n        node {\n          __typename\n          ... on Record {\n            ...RecordFragment\n          }\n          ... on Review {\n            ...ReviewFragment\n          }\n          ... on Status {\n            ...StatusFragment\n          }\n          ... on MultipleRecord {\n            id\n          }\n        }\n      }\n      pageInfo {\n        __typename\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}"
   },
@@ -11,15 +11,15 @@
     "name": "GetViewer",
     "source": "query GetViewer {\n  viewer {\n    __typename\n    id\n    annictId\n    name\n    username\n    avatarUrl\n    description\n    wannaWatchCount\n    watchingCount\n    watchedCount\n    onHoldCount\n    stopWatchingCount\n  }\n}"
   },
-  "e564d43cd48f4853fb9d76ec93e35740abdcd1e88f8e9e70be5ed7cb98c8f0bb": {
+  "da28f4048d2537a3ee229489ef3b24356ca568d5e5f5354efd9e258195cf29b7": {
     "name": "GetViewerWorks",
     "source": "query GetViewerWorks($first: Int, $after: String, $state: StatusState!) {\n  viewer {\n    __typename\n    works(first: $first, after: $after, state: $state, orderBy: {direction: DESC, field: WATCHERS_COUNT}) {\n      __typename\n      edges {\n        __typename\n        node {\n          __typename\n          ...WorkFragment\n        }\n      }\n    }\n  }\n}"
   },
-  "999459cc336c9f020f1ff9e3492ae12d5bc379d1b7e4fad6a468f862565f1172": {
+  "5e9902975ee56d522b235f58534e946edcdcda99e767b6c9a23b7edbe894263e": {
     "name": "SearchWorksByID",
     "source": "query SearchWorksByID($annictId: Int!, $after: String) {\n  searchWorks(annictIds: [$annictId], after: $after) {\n    __typename\n    nodes {\n      __typename\n      ...WorkFragment\n      episodes(first: 5, orderBy: {direction: ASC, field: SORT_NUMBER}) {\n        __typename\n        nodes {\n          __typename\n          id\n          annictId\n          title\n          numberText\n          viewerRecordsCount\n        }\n      }\n    }\n  }\n}"
   },
-  "f93d24477dc8c443991f3f85b8f44aca4a67ef9ad9fe63d46385f2b4078352a9": {
+  "fff6f2046042c3480b6ca07916908d909201b786fa6455087e14763668c215e5": {
     "name": "SearchWorksBySeason",
     "source": "query SearchWorksBySeason($first: Int, $after: String, $seasons: [String!]) {\n  searchWorks(first: $first, after: $after, seasons: $seasons, orderBy: {direction: DESC, field: WATCHERS_COUNT}) {\n    __typename\n    edges {\n      __typename\n      node {\n        __typename\n        ...WorkFragment\n      }\n    }\n  }\n}"
   }

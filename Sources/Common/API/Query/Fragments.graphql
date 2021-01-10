@@ -8,6 +8,7 @@ fragment WorkFragment on Work {
 	seasonName
 	seasonYear
 	viewerStatusState
+	media
 }
 
 fragment RecordFragment on Record {
