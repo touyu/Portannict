@@ -22,7 +22,7 @@ struct SearchView: View {
                 VStack(alignment: .leading, spacing: 16) {
                     SearchBar("タイトルを入力", text: $searchText)
                     if searchText.isEmpty {
-                        SearchRecomendedWorksView(title: viewModel.state.annictSeason.title,
+                        SearchRecomendedWorksView2(title: viewModel.state.annictSeason.title,
                                                   works: viewModel.state.recomendedWorks)
                             .onTapChangeSeasonButton {
                                 viewModel.action.send(.fetch(viewModel.state.annictSeason.previous))
@@ -42,19 +42,12 @@ struct SearchView: View {
     }
 }
 
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchView()
-    }
-}
-
-
-struct SearchRecomendedWorksView: View {
+struct SearchRecomendedWorksView2: View {
     let title: String
     let works: [WorkFragment]
 
     var changeSeasonAction: (() -> Void)?
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .bottom) {
@@ -67,23 +60,78 @@ struct SearchRecomendedWorksView: View {
                 }
                 .foregroundColor(.primary)
             }
-            LazyVGrid(columns: Array(repeating: GridItem(spacing: 10), count: 2), spacing: 10) {
+            LazyVStack(alignment: .leading, spacing: 16) {
                 ForEach(works.indices, id: \.self) { index in
                     let work = works[index]
-                    LibraryWorkView(work: work)
-                        .aspectRatio(3/5, contentMode: .fit)
+                    HStack(spacing: 16) {
+                        KFImage(work.annictId)
+                            .resizable()
+                            .placeholder {
+                                let placeholder = Text("No Image")
+                                    .foregroundColor(.systemGray)
+                                    .font(.system(size: 16))
+                                    .fontWeight(.bold)
+                                Color(.lightGray)
+                                    .overlay(placeholder)
+                            }
+                            .aspectRatio(3/4, contentMode: .fit)
+                            .frame(width: 60)
+                            .cornerRadius(8)
+
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text(work.title)
+
+                            Button(action: {
+
+                            }, label: {
+                                HStack(alignment: .center, spacing: 8) {
+                                    Text(viewerStatusStateTitle(state: work.viewerStatusState))
+                                        .font(.system(size: 12))
+                                        .foregroundColor(work.viewerStatusState != .noState ? .white : .primary)
+                                    Image(systemName: .arrowtriangleDownFill)
+                                        .font(.system(size: 8))
+                                        .foregroundColor(work.viewerStatusState != .noState ? .white : .primary)
+                                }
+                            })
+                            .frame(width: 120, height: 32)
+                            .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12))
+                            .background(work.viewerStatusState != .noState ? .blue : Color(.tertiarySystemBackground))
+                            .cornerRadius(16)
+                        }
+                    }
                 }
             }
         }
         .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
     }
 
-    func onTapChangeSeasonButton(_ action: @escaping (() -> Void)) -> SearchRecomendedWorksView {
+    func onTapChangeSeasonButton(_ action: @escaping (() -> Void)) -> SearchRecomendedWorksView2 {
         var result = self
         result.changeSeasonAction = action
         return result
     }
+
+    private func viewerStatusStateTitle(state: StatusState?) -> String {
+        if let title = state?.title, !title.isEmpty {
+            return title
+        }
+        return "ステータスを変更"
+    }
 }
+
+struct SearchRecomendedWorksView2_Previews: PreviewProvider {
+    static var previews: some View {
+        SearchRecomendedWorksView2(title: "今期", works: Array(repeating: .dummy, count: 4))
+            .previewLayout(.fixed(width: 370, height: 600))
+    }
+}
+
+struct SearchView_Previews: PreviewProvider {
+    static var previews: some View {
+        SearchView()
+    }
+}
+
 
 struct SearchResultView: View {
     let works: [WorkFragment]

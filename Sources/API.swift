@@ -2170,7 +2170,7 @@ public final class GetViewerWorksQuery: GraphQLQuery {
     query GetViewerWorks($first: Int, $after: String, $state: StatusState!) {
       viewer {
         __typename
-        works(first: $first, after: $after, state: $state) {
+        works(first: $first, after: $after, state: $state, orderBy: {direction: DESC, field: WATCHERS_COUNT}) {
           __typename
           edges {
             __typename
@@ -2186,7 +2186,7 @@ public final class GetViewerWorksQuery: GraphQLQuery {
 
   public let operationName: String = "GetViewerWorks"
 
-  public let operationIdentifier: String? = "d1a522475f872cdc8485a59600f54d67cac7f6bc9971257e732229da9d44ae32"
+  public let operationIdentifier: String? = "e564d43cd48f4853fb9d76ec93e35740abdcd1e88f8e9e70be5ed7cb98c8f0bb"
 
   public var queryDocument: String { return operationDefinition.appending(WorkFragment.fragmentDefinition) }
 
@@ -2238,7 +2238,7 @@ public final class GetViewerWorksQuery: GraphQLQuery {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("works", arguments: ["first": GraphQLVariable("first"), "after": GraphQLVariable("after"), "state": GraphQLVariable("state")], type: .object(Work.selections)),
+          GraphQLField("works", arguments: ["first": GraphQLVariable("first"), "after": GraphQLVariable("after"), "state": GraphQLVariable("state"), "orderBy": ["direction": "DESC", "field": "WATCHERS_COUNT"]], type: .object(Work.selections)),
         ]
       }
 

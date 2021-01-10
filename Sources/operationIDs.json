@@ -11,9 +11,9 @@
     "name": "GetViewer",
     "source": "query GetViewer {\n  viewer {\n    __typename\n    id\n    annictId\n    name\n    username\n    avatarUrl\n    description\n    wannaWatchCount\n    watchingCount\n    watchedCount\n    onHoldCount\n    stopWatchingCount\n  }\n}"
   },
-  "d1a522475f872cdc8485a59600f54d67cac7f6bc9971257e732229da9d44ae32": {
+  "e564d43cd48f4853fb9d76ec93e35740abdcd1e88f8e9e70be5ed7cb98c8f0bb": {
     "name": "GetViewerWorks",
-    "source": "query GetViewerWorks($first: Int, $after: String, $state: StatusState!) {\n  viewer {\n    __typename\n    works(first: $first, after: $after, state: $state) {\n      __typename\n      edges {\n        __typename\n        node {\n          __typename\n          ...WorkFragment\n        }\n      }\n    }\n  }\n}"
+    "source": "query GetViewerWorks($first: Int, $after: String, $state: StatusState!) {\n  viewer {\n    __typename\n    works(first: $first, after: $after, state: $state, orderBy: {direction: DESC, field: WATCHERS_COUNT}) {\n      __typename\n      edges {\n        __typename\n        node {\n          __typename\n          ...WorkFragment\n        }\n      }\n    }\n  }\n}"
   },
   "999459cc336c9f020f1ff9e3492ae12d5bc379d1b7e4fad6a468f862565f1172": {
     "name": "SearchWorksByID",

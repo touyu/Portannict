@@ -22,6 +22,7 @@
 		CF2E1D93259DC19100824A3C /* GetFollowingActivities.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CF2E1D92259DC19100824A3C /* GetFollowingActivities.graphql */; };
 		CF841D3D24CA626400F3723B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D3C24CA626400F3723B /* HomeViewModel.swift */; };
 		CF841D4524CA69A600F3723B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4424CA69A600F3723B /* LoginView.swift */; };
+		CF9A375B25AB3502003077D5 /* SearchRecomendedWorksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9A375A25AB3502003077D5 /* SearchRecomendedWorksView.swift */; };
 		CFADCD0825A5A78000939DA7 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = CFADCD0725A5A78000939DA7 /* SkeletonUI */; };
 		CFB9BA76259DCA7500C51708 /* ActivityRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB9BA75259DCA7500C51708 /* ActivityRecordView.swift */; };
 		CFB9BA78259DCD0D00C51708 /* Fragments.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFB9BA77259DCD0D00C51708 /* Fragments.graphql */; };
@@ -88,6 +89,7 @@
 		CF2E1D92259DC19100824A3C /* GetFollowingActivities.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetFollowingActivities.graphql; sourceTree = "<group>"; };
 		CF841D3C24CA626400F3723B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CF841D4424CA69A600F3723B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		CF9A375A25AB3502003077D5 /* SearchRecomendedWorksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecomendedWorksView.swift; sourceTree = "<group>"; };
 		CFB9BA75259DCA7500C51708 /* ActivityRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRecordView.swift; sourceTree = "<group>"; };
 		CFB9BA77259DCD0D00C51708 /* Fragments.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fragments.graphql; sourceTree = "<group>"; };
 		CFBB73B325A5718900601DCB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 			children = (
 				CFE7E5D925A70826009EB3DC /* SearchView.swift */,
 				CF13E35125AAF78A005D11F8 /* SearchViewModel.swift */,
+				CF9A375A25AB3502003077D5 /* SearchRecomendedWorksView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				CFC03F0525948EF2001516D3 /* OauthTokenRequest.swift in Sources */,
 				CFC03F012594895F001516D3 /* LoginViewModel.swift in Sources */,
 				CF1E5E89259CF69E00035D50 /* API.swift in Sources */,
+				CF9A375B25AB3502003077D5 /* SearchRecomendedWorksView.swift in Sources */,
 				CFE7E5DA25A70826009EB3DC /* SearchView.swift in Sources */,
 				CFB9BA76259DCA7500C51708 /* ActivityRecordView.swift in Sources */,
 				CFE7E5C825A6E6D7009EB3DC /* UserView.swift in Sources */,

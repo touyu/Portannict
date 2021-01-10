@@ -1,6 +1,6 @@
 query GetViewerWorks($first: Int, $after: String, $state: StatusState!) {
 	viewer {
-		works(first: $first, after: $after, state: $state) {
+		works(first: $first, after: $after, state: $state, orderBy:{direction:DESC, field:WATCHERS_COUNT}) {
 			edges {
 				node {
 					...WorkFragment
