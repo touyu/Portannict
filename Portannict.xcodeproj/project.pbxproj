@@ -29,6 +29,7 @@
 		CFB9BA78259DCD0D00C51708 /* Fragments.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFB9BA77259DCD0D00C51708 /* Fragments.graphql */; };
 		CFBB73B425A5718900601DCB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB73B325A5718900601DCB /* Network.swift */; };
 		CFBB73B725A575D700601DCB /* KFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB73B625A575D700601DCB /* KFImage.swift */; };
+		CFBCA06325AB49FB00C5386C /* SearchWorksByTitle.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFBCA06225AB49FB00C5386C /* SearchWorksByTitle.graphql */; };
 		CFC03EFF259483DA001516D3 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC03EFE259483D9001516D3 /* HTTPClient.swift */; };
 		CFC03F012594895F001516D3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC03F002594895F001516D3 /* LoginViewModel.swift */; };
 		CFC03F0525948EF2001516D3 /* OauthTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC03F0425948EF2001516D3 /* OauthTokenRequest.swift */; };
@@ -96,6 +97,7 @@
 		CFB9BA77259DCD0D00C51708 /* Fragments.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fragments.graphql; sourceTree = "<group>"; };
 		CFBB73B325A5718900601DCB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		CFBB73B625A575D700601DCB /* KFImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFImage.swift; sourceTree = "<group>"; };
+		CFBCA06225AB49FB00C5386C /* SearchWorksByTitle.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchWorksByTitle.graphql; sourceTree = "<group>"; };
 		CFC03EFE259483D9001516D3 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		CFC03F002594895F001516D3 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CFC03F0425948EF2001516D3 /* OauthTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OauthTokenRequest.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				CFE7E5CD25A6EC6B009EB3DC /* GetUser.graphql */,
 				CFE7E5D325A700E8009EB3DC /* GetViewerWorks.graphql */,
 				CFB9BA77259DCD0D00C51708 /* Fragments.graphql */,
+				CFBCA06225AB49FB00C5386C /* SearchWorksByTitle.graphql */,
 			);
 			path = Query;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFBCA06325AB49FB00C5386C /* SearchWorksByTitle.graphql in Resources */,
 				CFD82D3C25A64157005401AF /* GetViewer.graphql in Resources */,
 				CF2E1D93259DC19100824A3C /* GetFollowingActivities.graphql in Resources */,
 				CFB9BA78259DCD0D00C51708 /* Fragments.graphql in Resources */,

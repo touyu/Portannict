@@ -7,26 +7,24 @@
 
 import SwiftUI
 import SwiftUIX
+import Combine
 import KingfisherSwiftUI
 
 struct SearchView: View {
     @StateObject var viewModel: SearchViewModel = .init()
 
-    @State private var searchText : String = ""
     @State private var isEditing : Bool = false
-    
-    private var results: [WorkFragment] = [.dummy, .dummy, .dummy, .dummy, .dummy]
 
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 16) {
-                    SearchBar("タイトルを入力", text: $searchText, isEditing: $isEditing)
+                    SearchBar("タイトルを入力", text: $viewModel.searchText, isEditing: $isEditing)
                         .showsCancelButton(isEditing)
                         .onCancel {
                             Keyboard.dismiss()
                         }
-                    if searchText.isEmpty {
+                    if viewModel.searchText.isEmpty {
                         SearchResultView(title: viewModel.state.annictSeason.title,
                                          works: viewModel.state.recomendedWorks,
                                          mode: .recommend)
@@ -35,7 +33,7 @@ struct SearchView: View {
                             }
                     } else {
                         SearchResultView(title: "検索結果",
-                                         works: results,
+                                         works: viewModel.state.searchResultWorks,
                                          mode: .searchResult)
                     }
                 }
@@ -48,6 +46,22 @@ struct SearchView: View {
             .gesture(
                 DragGesture().onChanged { value in
                     Keyboard.dismiss()
+                }
+            )
+            .onReceive(
+                viewModel.$searchText
+                    .debounce(for: 0.4, scheduler: DispatchQueue.main),
+                perform: { text in
+                    viewModel.action.send(.search(text))
+                }
+            )
+            .onReceive(
+                viewModel.$searchText
+                    .receive(on: DispatchQueue.main),
+                perform: { text in
+                    if text.isEmpty {
+                        viewModel.action.send(.clearSearchResults)
+                    }
                 }
             )
         }
