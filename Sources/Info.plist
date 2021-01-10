@@ -23,7 +23,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>annict</string>
+				<string>porannict</string>
 			</array>
 		</dict>
 	</array>

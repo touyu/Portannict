@@ -54,8 +54,8 @@ struct HomeView: View {
             switch activity.activityItem {
             case .record(let record):
                 ActivityRecordView(record: record.fragments.recordFragment)
-            case .review:
-                Text("Review")
+            case .review(let review):
+                ActivityReviewView(review: review.fragments.reviewFragment)
             case .status(let status):
                 ActivityStatusView(status: status.fragments.statusFragment)
             case .multipleRecord:

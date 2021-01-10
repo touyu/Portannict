@@ -18,5 +18,9 @@
   "999459cc336c9f020f1ff9e3492ae12d5bc379d1b7e4fad6a468f862565f1172": {
     "name": "SearchWorksByID",
     "source": "query SearchWorksByID($annictId: Int!, $after: String) {\n  searchWorks(annictIds: [$annictId], after: $after) {\n    __typename\n    nodes {\n      __typename\n      ...WorkFragment\n      episodes(first: 5, orderBy: {direction: ASC, field: SORT_NUMBER}) {\n        __typename\n        nodes {\n          __typename\n          id\n          annictId\n          title\n          numberText\n          viewerRecordsCount\n        }\n      }\n    }\n  }\n}"
+  },
+  "f93d24477dc8c443991f3f85b8f44aca4a67ef9ad9fe63d46385f2b4078352a9": {
+    "name": "SearchWorksBySeason",
+    "source": "query SearchWorksBySeason($first: Int, $after: String, $seasons: [String!]) {\n  searchWorks(first: $first, after: $after, seasons: $seasons, orderBy: {direction: DESC, field: WATCHERS_COUNT}) {\n    __typename\n    edges {\n      __typename\n      node {\n        __typename\n        ...WorkFragment\n      }\n    }\n  }\n}"
   }
 }

@@ -13,7 +13,12 @@ struct QuoteWorkView: View {
     let episode: EpisodeFragment?
 
     @State private var isExpanded: Bool = false
+    @State private var isPresentedWorkView: Bool = false
+    @State private var showingActionSheet = false
     @Namespace private var namespace
+
+//    var onSelectState: ((StatusState) -> QuoteWorkView)?
+    var selectStateAction: ((StatusState) -> Void)?
 
     init(work: WorkFragment, episode: EpisodeFragment? = nil) {
         self.work = work
@@ -26,13 +31,13 @@ struct QuoteWorkView: View {
                 VStack(alignment: .leading) {
                     HStack(alignment: .top, spacing: 8) {
                         WorkImage(workID: work.annictId)
-                            .matchedGeometryEffect(id: "WorkImage", in: namespace)
+                            .matchedGeometryEffect(id: "WorkImage", in: namespace, anchor: .topLeading)
                             .aspectRatio(3/4, contentMode: .fit)
                             .cornerRadius(8)
                             .frame(height: 80)
                         VStack(alignment: .leading, spacing: 8) {
                             Text(work.title)
-                                .matchedGeometryEffect(id: "Title", in: namespace)
+                                .matchedGeometryEffect(id: "Title", in: namespace, anchor: .leading)
                                 .font(.system(size: 14))
                                 .foregroundColor(Color.primary)
 
@@ -49,32 +54,42 @@ struct QuoteWorkView: View {
                     .padding(8)
 
                     HStack(spacing: 8) {
-                        Button(action: {
+                        let title = viewerStatusStateTitle(state: work.viewerStatusState)
+                        Button(title) {
+                            showingActionSheet = true
+                        }
+                        .font(.system(size: 14))
+                        .foregroundColor(work.viewerStatusState != .noState ? .white : .primary)
+                        .frame(height: 40)
+                        .frame(maxWidth: .infinity)
+                        .background(work.viewerStatusState != .noState ? .blue : Color(.tertiarySystemBackground))
+                        .cornerRadius(20)
+                        .actionSheet(isPresented: $showingActionSheet) {
+                            var buttons = StatusState.allCases[0...4]
+                                .map { state in
+                                    return ActionSheet.Button.default(Text(state.title)) {
+                                        selectStateAction?(state)
+                                    }
+                                }
+                            buttons.append(.cancel())
+                            return ActionSheet(title: Text("ステータスを変更"), buttons: buttons)
+                        }
 
-                        }, label: {
-                            Text("ステータスを変更")
-                                .font(.system(size: 14))
-                                .foregroundColor(.primary)
-                                .frame(height: 40)
-                                .frame(maxWidth: .infinity)
-                                .background(Color(.tertiarySystemBackground))
-                                .cornerRadius(20)
-                        })
-
-                        Button(action: {
-
-                        }, label: {
-                            Text("詳細を見る")
-                                .font(.system(size: 14))
-                                .foregroundColor(.primary)
-                                .frame(height: 40)
-                                .frame(maxWidth: .infinity)
-                                .background(Color(.tertiarySystemBackground))
-                                .cornerRadius(20)
-                        })
+                        Button("詳細を見る") {
+                            isPresentedWorkView = true
+                        }
+                        .font(.system(size: 14))
+                        .foregroundColor(.primary)
+                        .frame(height: 40)
+                        .frame(maxWidth: .infinity)
+                        .background(Color(.tertiarySystemBackground))
+                        .cornerRadius(20)
+                        .sheet(isPresented: $isPresentedWorkView) {
+                            WorkView(workID: work.annictId)
+                        }
                     }
                     .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
-                    
+
                     Spacer()
                         .layoutPriority(1)
                 }
@@ -83,12 +98,12 @@ struct QuoteWorkView: View {
             } else {
                 HStack(alignment: .center, spacing: 8) {
                     WorkImage(workID: work.annictId)
-                        .matchedGeometryEffect(id: "WorkImage", in: namespace)
+                        .matchedGeometryEffect(id: "WorkImage", in: namespace, anchor: .topLeading)
                         .aspectRatio(3/4, contentMode: .fit)
                         .frame(height: 80)
                     VStack(alignment: .leading, spacing: 4) {
                         Text(work.title)
-                            .matchedGeometryEffect(id: "Title", in: namespace)
+                            .matchedGeometryEffect(id: "Title", in: namespace, anchor: .leading)
                             .font(.system(size: 14))
                             .foregroundColor(Color.primary)
                         if let epi = episode {
@@ -110,6 +125,19 @@ struct QuoteWorkView: View {
                 isExpanded.toggle()
             }
         }
+    }
+
+    func onSelectState(_ action: @escaping (StatusState) -> Void) -> QuoteWorkView {
+        var result = self
+        result.selectStateAction = action
+        return result
+    }
+
+    private func viewerStatusStateTitle(state: StatusState?) -> String {
+        if let title = state?.title, !title.isEmpty {
+            return title
+        }
+        return "ステータスを変更"
     }
 }
 

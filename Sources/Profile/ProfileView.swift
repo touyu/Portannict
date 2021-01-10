@@ -13,6 +13,7 @@ struct ProfileView: View {
 
     @State var viewer: Viewer?
     @State private var selectorIndex = 0
+    @EnvironmentObject var session: LoginSession
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {

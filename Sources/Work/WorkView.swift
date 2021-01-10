@@ -24,34 +24,18 @@ struct WorkView: View {
         GeometryReader { geometry in
             ScrollView(.vertical) {
                 if let work = work {
-                    WorkHeaderView(work: work.fragments.workFragment)
-                        .frame(width: geometry.size.width, height: geometry.size.width * 1.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     LazyVStack(alignment: .leading, spacing: 24) {
-                        Text("Episodes")
-                            .font(.title2)
-                            .fontWeight(.bold)
-                        ForEach((work.episodes?.nodes ?? []).indices) { index in
-                            if let episode = work.episodes?.nodes?[index] {
-                                WorkEpisodeCell(episode: episode)
+                        WorkHeaderView(work: work.fragments.workFragment)
+                            .frame(width: geometry.size.width, height: geometry.size.width * 1.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        Group {
+                            if work.episodesCount > 0 {
+                                episodeSection(work: work)
                             }
+                            reviewsSection(work: work)
+                            charactorsSection(work: work)
                         }
-                        Button(action: {
-
-                        }, label: {
-                            Spacer()
-                            Text("もっと見る")
-                                .font(.system(size: 14))
-                            Spacer()
-
-                        })
-                        //                    Text("Charactors")
-                        //                        .font(.title2)
-                        //                        .fontWeight(.bold)
-                        //                    ForEach(10..<15, id: \.self) { i in
-                        //                        WorkEpisodeCell(number: i+1, title: "魔神が生まれた日")
-                        //                    }
+                        .padding(.init(top: 0, leading: 16, bottom: 48, trailing: 16))
                     }
-                    .padding(.init(top: 0, leading: 16, bottom: 48, trailing: 16))
                 }
             }
         }
@@ -59,6 +43,72 @@ struct WorkView: View {
         .edgesIgnoringSafeArea(.all)
         .onAppear {
             fetch()
+        }
+    }
+
+    private func episodeSection(work: SearchWorksByIdQuery.Data.SearchWork.Node) -> some View {
+        LazyVStack(alignment: .leading, spacing: 16) {
+            Text("Episodes \(work.episodesCount)")
+                .font(.title2)
+                .fontWeight(.bold)
+            ForEach((work.episodes?.nodes ?? []).indices) { index in
+                if let episode = work.episodes?.nodes?[index] {
+                    WorkEpisodeCell(episode: episode)
+                }
+            }
+            Button(action: {
+
+            }, label: {
+                Spacer()
+                Text("もっと見る")
+                    .font(.system(size: 14))
+                Spacer()
+
+            })
+        }
+    }
+
+    private func reviewsSection(work: SearchWorksByIdQuery.Data.SearchWork.Node) -> some View {
+        LazyVStack(alignment: .leading, spacing: 16) {
+            Text("Reviews \(work.episodesCount)")
+                .font(.title2)
+                .fontWeight(.bold)
+            ForEach((work.episodes?.nodes ?? []).indices) { index in
+                if let episode = work.episodes?.nodes?[index] {
+                    WorkEpisodeCell(episode: episode)
+                }
+            }
+            Button(action: {
+
+            }, label: {
+                Spacer()
+                Text("もっと見る")
+                    .font(.system(size: 14))
+                Spacer()
+
+            })
+        }
+    }
+
+    private func charactorsSection(work: SearchWorksByIdQuery.Data.SearchWork.Node) -> some View {
+        LazyVStack(alignment: .leading, spacing: 16) {
+            Text("Charactors \(work.episodesCount)")
+                .font(.title2)
+                .fontWeight(.bold)
+            ForEach((work.episodes?.nodes ?? []).indices) { index in
+                if let episode = work.episodes?.nodes?[index] {
+                    WorkEpisodeCell(episode: episode)
+                }
+            }
+            Button(action: {
+
+            }, label: {
+                Spacer()
+                Text("もっと見る")
+                    .font(.system(size: 14))
+                Spacer()
+
+            })
         }
     }
 

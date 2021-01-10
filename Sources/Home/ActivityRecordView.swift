@@ -49,6 +49,9 @@ struct ActivityRecordView: View {
                         .font(.body)
                 }
                 QuoteWorkView(work: record.work.fragments.workFragment, episode: record.episode.fragments.episodeFragment)
+                    .onSelectState { state in
+                        print(state.title)
+                    }
             }
         }
     }
