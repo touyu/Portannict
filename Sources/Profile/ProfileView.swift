@@ -21,6 +21,9 @@ struct ProfileView: View {
                 if let viewer = viewer {
                     UserHeaderView(user: viewer)
                         .padding(.init(top: 0, leading: 16, bottom: 0, trailing: 16))
+                    Button("Logout") {
+                        session.accessToken = nil
+                    }
                     VStack(alignment: .leading, spacing: 24) {
                         Picker("", selection: $selectorIndex) {
                             Text("ライブラリ")

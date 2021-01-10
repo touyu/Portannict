@@ -22,7 +22,6 @@
 		CF2E1D93259DC19100824A3C /* GetFollowingActivities.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CF2E1D92259DC19100824A3C /* GetFollowingActivities.graphql */; };
 		CF841D3D24CA626400F3723B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D3C24CA626400F3723B /* HomeViewModel.swift */; };
 		CF841D4524CA69A600F3723B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4424CA69A600F3723B /* LoginView.swift */; };
-		CF9A375B25AB3502003077D5 /* SearchRecomendedWorksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9A375A25AB3502003077D5 /* SearchRecomendedWorksView.swift */; };
 		CF9A375D25AB3EF8003077D5 /* AnnictSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */; };
 		CFADCD0825A5A78000939DA7 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = CFADCD0725A5A78000939DA7 /* SkeletonUI */; };
 		CFB9BA76259DCA7500C51708 /* ActivityRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB9BA75259DCA7500C51708 /* ActivityRecordView.swift */; };
@@ -30,6 +29,10 @@
 		CFBB73B425A5718900601DCB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB73B325A5718900601DCB /* Network.swift */; };
 		CFBB73B725A575D700601DCB /* KFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB73B625A575D700601DCB /* KFImage.swift */; };
 		CFBCA06325AB49FB00C5386C /* SearchWorksByTitle.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFBCA06225AB49FB00C5386C /* SearchWorksByTitle.graphql */; };
+		CFBCA06525AB6B0E00C5386C /* UpdateStatus.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFBCA06425AB6B0E00C5386C /* UpdateStatus.graphql */; };
+		CFBCA06725AB709D00C5386C /* SearchRecommendedWorksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBCA06625AB709D00C5386C /* SearchRecommendedWorksView.swift */; };
+		CFBCA06925AB70C600C5386C /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBCA06825AB70C600C5386C /* SearchResultsView.swift */; };
+		CFBCA06B25AB719B00C5386C /* SearchRecommendedWorksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBCA06A25AB719B00C5386C /* SearchRecommendedWorksViewModel.swift */; };
 		CFC03EFF259483DA001516D3 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC03EFE259483D9001516D3 /* HTTPClient.swift */; };
 		CFC03F012594895F001516D3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC03F002594895F001516D3 /* LoginViewModel.swift */; };
 		CFC03F0525948EF2001516D3 /* OauthTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC03F0425948EF2001516D3 /* OauthTokenRequest.swift */; };
@@ -91,13 +94,16 @@
 		CF2E1D92259DC19100824A3C /* GetFollowingActivities.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetFollowingActivities.graphql; sourceTree = "<group>"; };
 		CF841D3C24CA626400F3723B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CF841D4424CA69A600F3723B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		CF9A375A25AB3502003077D5 /* SearchRecomendedWorksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecomendedWorksView.swift; sourceTree = "<group>"; };
 		CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnictSeason.swift; sourceTree = "<group>"; };
 		CFB9BA75259DCA7500C51708 /* ActivityRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRecordView.swift; sourceTree = "<group>"; };
 		CFB9BA77259DCD0D00C51708 /* Fragments.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fragments.graphql; sourceTree = "<group>"; };
 		CFBB73B325A5718900601DCB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		CFBB73B625A575D700601DCB /* KFImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFImage.swift; sourceTree = "<group>"; };
 		CFBCA06225AB49FB00C5386C /* SearchWorksByTitle.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchWorksByTitle.graphql; sourceTree = "<group>"; };
+		CFBCA06425AB6B0E00C5386C /* UpdateStatus.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = UpdateStatus.graphql; sourceTree = "<group>"; };
+		CFBCA06625AB709D00C5386C /* SearchRecommendedWorksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecommendedWorksView.swift; sourceTree = "<group>"; };
+		CFBCA06825AB70C600C5386C /* SearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
+		CFBCA06A25AB719B00C5386C /* SearchRecommendedWorksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecommendedWorksViewModel.swift; sourceTree = "<group>"; };
 		CFC03EFE259483D9001516D3 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		CFC03F002594895F001516D3 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CFC03F0425948EF2001516D3 /* OauthTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OauthTokenRequest.swift; sourceTree = "<group>"; };
@@ -200,6 +206,7 @@
 				CFE7E5D325A700E8009EB3DC /* GetViewerWorks.graphql */,
 				CFB9BA77259DCD0D00C51708 /* Fragments.graphql */,
 				CFBCA06225AB49FB00C5386C /* SearchWorksByTitle.graphql */,
+				CFBCA06425AB6B0E00C5386C /* UpdateStatus.graphql */,
 			);
 			path = Query;
 			sourceTree = "<group>";
@@ -304,7 +311,9 @@
 			children = (
 				CFE7E5D925A70826009EB3DC /* SearchView.swift */,
 				CF13E35125AAF78A005D11F8 /* SearchViewModel.swift */,
-				CF9A375A25AB3502003077D5 /* SearchRecomendedWorksView.swift */,
+				CFBCA06825AB70C600C5386C /* SearchResultsView.swift */,
+				CFBCA06625AB709D00C5386C /* SearchRecommendedWorksView.swift */,
+				CFBCA06A25AB719B00C5386C /* SearchRecommendedWorksViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -411,6 +420,7 @@
 				CFD82D3C25A64157005401AF /* GetViewer.graphql in Resources */,
 				CF2E1D93259DC19100824A3C /* GetFollowingActivities.graphql in Resources */,
 				CFB9BA78259DCD0D00C51708 /* Fragments.graphql in Resources */,
+				CFBCA06525AB6B0E00C5386C /* UpdateStatus.graphql in Resources */,
 				CFE7E5CE25A6EC6B009EB3DC /* GetUser.graphql in Resources */,
 				CF1E5E5D259CE88500035D50 /* Envfile in Resources */,
 				CF08FC0E24B9AD1A00CD29DD /* Preview Assets.xcassets in Resources */,
@@ -449,7 +459,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFBCA06B25AB719B00C5386C /* SearchRecommendedWorksViewModel.swift in Sources */,
 				CF13E35225AAF78A005D11F8 /* SearchViewModel.swift in Sources */,
+				CFBCA06925AB70C600C5386C /* SearchResultsView.swift in Sources */,
 				CF08FC0924B9AD1A00CD29DD /* RootTabView.swift in Sources */,
 				CFD82D3725A63915005401AF /* Model+Extension.swift in Sources */,
 				CFE38320258E64F600CEE318 /* Env.swift in Sources */,
@@ -479,7 +491,7 @@
 				CFC03F0525948EF2001516D3 /* OauthTokenRequest.swift in Sources */,
 				CFC03F012594895F001516D3 /* LoginViewModel.swift in Sources */,
 				CF1E5E89259CF69E00035D50 /* API.swift in Sources */,
-				CF9A375B25AB3502003077D5 /* SearchRecomendedWorksView.swift in Sources */,
+				CFBCA06725AB709D00C5386C /* SearchRecommendedWorksView.swift in Sources */,
 				CFE7E5DA25A70826009EB3DC /* SearchView.swift in Sources */,
 				CFB9BA76259DCA7500C51708 /* ActivityRecordView.swift in Sources */,
 				CFE7E5C825A6E6D7009EB3DC /* UserView.swift in Sources */,

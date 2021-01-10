@@ -26,5 +26,9 @@
   "9b9adbe8fd1d8928932d3a15ad2c0b84532046c617d12a05ac13ca68d6f9fe6f": {
     "name": "SearchWorksByTitles",
     "source": "query SearchWorksByTitles($first: Int, $after: String, $titles: [String!]) {\n  searchWorks(first: $first, after: $after, titles: $titles, orderBy: {direction: DESC, field: WATCHERS_COUNT}) {\n    __typename\n    edges {\n      __typename\n      node {\n        __typename\n        ...WorkFragment\n      }\n    }\n  }\n}"
+  },
+  "5c9ffdf0f3800cd1291a6377b7e44f9b166390ba9b3912a596692cc79aecddd7": {
+    "name": "updateStatus",
+    "source": "mutation updateStatus($workId: ID!, $state: StatusState!) {\n  updateStatus(input: {workId: $workId, state: $state}) {\n    __typename\n    work {\n      __typename\n      ...WorkFragment\n    }\n  }\n}"
   }
 }

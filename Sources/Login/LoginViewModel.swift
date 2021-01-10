@@ -82,6 +82,7 @@ final class LoginViewModel: ViewModel {
                 return resolve(.success(code))
             }
             session.presentationContextProvider = self?.presentationContextProvider
+            session.prefersEphemeralWebBrowserSession = true
             session.start()
         }
     }

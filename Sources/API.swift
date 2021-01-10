@@ -3602,6 +3602,264 @@ public final class SearchWorksByTitlesQuery: GraphQLQuery {
   }
 }
 
+public final class UpdateStatusMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation updateStatus($workId: ID!, $state: StatusState!) {
+      updateStatus(input: {workId: $workId, state: $state}) {
+        __typename
+        work {
+          __typename
+          ...WorkFragment
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "updateStatus"
+
+  public let operationIdentifier: String? = "5c9ffdf0f3800cd1291a6377b7e44f9b166390ba9b3912a596692cc79aecddd7"
+
+  public var queryDocument: String { return operationDefinition.appending(WorkFragment.fragmentDefinition) }
+
+  public var workId: GraphQLID
+  public var state: StatusState
+
+  public init(workId: GraphQLID, state: StatusState) {
+    self.workId = workId
+    self.state = state
+  }
+
+  public var variables: GraphQLMap? {
+    return ["workId": workId, "state": state]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("updateStatus", arguments: ["input": ["workId": GraphQLVariable("workId"), "state": GraphQLVariable("state")]], type: .object(UpdateStatus.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(updateStatus: UpdateStatus? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "updateStatus": updateStatus.flatMap { (value: UpdateStatus) -> ResultMap in value.resultMap }])
+    }
+
+    public var updateStatus: UpdateStatus? {
+      get {
+        return (resultMap["updateStatus"] as? ResultMap).flatMap { UpdateStatus(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "updateStatus")
+      }
+    }
+
+    public struct UpdateStatus: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["UpdateStatusPayload"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("work", type: .object(Work.selections)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(work: Work? = nil) {
+        self.init(unsafeResultMap: ["__typename": "UpdateStatusPayload", "work": work.flatMap { (value: Work) -> ResultMap in value.resultMap }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var work: Work? {
+        get {
+          return (resultMap["work"] as? ResultMap).flatMap { Work(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "work")
+        }
+      }
+
+      public struct Work: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Work"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+            GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
+            GraphQLField("title", type: .nonNull(.scalar(String.self))),
+            GraphQLField("episodesCount", type: .nonNull(.scalar(Int.self))),
+            GraphQLField("watchersCount", type: .nonNull(.scalar(Int.self))),
+            GraphQLField("reviewsCount", type: .nonNull(.scalar(Int.self))),
+            GraphQLField("seasonName", type: .scalar(SeasonName.self)),
+            GraphQLField("seasonYear", type: .scalar(Int.self)),
+            GraphQLField("viewerStatusState", type: .scalar(StatusState.self)),
+            GraphQLField("media", type: .nonNull(.scalar(Media.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: GraphQLID, annictId: Int, title: String, episodesCount: Int, watchersCount: Int, reviewsCount: Int, seasonName: SeasonName? = nil, seasonYear: Int? = nil, viewerStatusState: StatusState? = nil, media: Media) {
+          self.init(unsafeResultMap: ["__typename": "Work", "id": id, "annictId": annictId, "title": title, "episodesCount": episodesCount, "watchersCount": watchersCount, "reviewsCount": reviewsCount, "seasonName": seasonName, "seasonYear": seasonYear, "viewerStatusState": viewerStatusState, "media": media])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: GraphQLID {
+          get {
+            return resultMap["id"]! as! GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var annictId: Int {
+          get {
+            return resultMap["annictId"]! as! Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "annictId")
+          }
+        }
+
+        public var title: String {
+          get {
+            return resultMap["title"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "title")
+          }
+        }
+
+        public var episodesCount: Int {
+          get {
+            return resultMap["episodesCount"]! as! Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "episodesCount")
+          }
+        }
+
+        public var watchersCount: Int {
+          get {
+            return resultMap["watchersCount"]! as! Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "watchersCount")
+          }
+        }
+
+        public var reviewsCount: Int {
+          get {
+            return resultMap["reviewsCount"]! as! Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "reviewsCount")
+          }
+        }
+
+        public var seasonName: SeasonName? {
+          get {
+            return resultMap["seasonName"] as? SeasonName
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "seasonName")
+          }
+        }
+
+        public var seasonYear: Int? {
+          get {
+            return resultMap["seasonYear"] as? Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "seasonYear")
+          }
+        }
+
+        public var viewerStatusState: StatusState? {
+          get {
+            return resultMap["viewerStatusState"] as? StatusState
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "viewerStatusState")
+          }
+        }
+
+        public var media: Media {
+          get {
+            return resultMap["media"]! as! Media
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "media")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var workFragment: WorkFragment {
+            get {
+              return WorkFragment(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 public struct WorkFragment: GraphQLFragment {
   /// The raw GraphQL definition of this fragment.
   public static let fragmentDefinition: String =
