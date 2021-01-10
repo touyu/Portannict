@@ -13,7 +13,7 @@ struct SearchRecommendedWorksView: View {
     @State private var showPicker = false
 
     private let seasons = allSeasons()
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .bottom) {
@@ -46,7 +46,6 @@ struct SearchRecommendedWorksView: View {
         }
         .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12))
         .onAppear {
-            print("AAAAAA")
             viewModel.action.send(.fetch(viewModel.state.annictSeason))
         }
     }
