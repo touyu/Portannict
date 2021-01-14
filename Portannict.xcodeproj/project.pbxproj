@@ -91,6 +91,7 @@
 		CF1E5E5C259CE88500035D50 /* Envfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Envfile; sourceTree = "<group>"; };
 		CF1E5E86259CF4CE00035D50 /* SearchWorksByID.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchWorksByID.graphql; sourceTree = "<group>"; };
 		CF1E5E88259CF69E00035D50 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		CF2A8E8525B00418001D2AF1 /* Portannict.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Portannict.entitlements; sourceTree = "<group>"; };
 		CF2E1D92259DC19100824A3C /* GetFollowingActivities.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetFollowingActivities.graphql; sourceTree = "<group>"; };
 		CF841D3C24CA626400F3723B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CF841D4424CA69A600F3723B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -151,6 +152,7 @@
 		CF08FBFA24B9AD1A00CD29DD = {
 			isa = PBXGroup;
 			children = (
+				CF2A8E8525B00418001D2AF1 /* Portannict.entitlements */,
 				CF08FC0524B9AD1A00CD29DD /* Sources */,
 				CF08FC0424B9AD1A00CD29DD /* Products */,
 			);
@@ -623,6 +625,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Portannict.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Sources/Preview Content\"";
 				DEVELOPMENT_TEAM = V8AZ23YEL4;
@@ -635,6 +638,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.YutoAkiba.Annict-for-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -645,6 +649,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Portannict.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Sources/Preview Content\"";
 				DEVELOPMENT_TEAM = V8AZ23YEL4;
@@ -657,6 +662,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.YutoAkiba.Annict-for-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

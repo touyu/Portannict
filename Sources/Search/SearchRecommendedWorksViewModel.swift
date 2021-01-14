@@ -22,7 +22,7 @@ final class SearchRecommendedWorksViewModel: ViewModel {
 
     class State: ObservableObject {
         @Published var recomendedWorks: [WorkFragment] = []
-        @Published var annictSeason: AnnictSeason = .current
+        @Published var annictSeason: AnnictSeason?
         @Published var error: Error?
     }
 
@@ -35,6 +35,7 @@ final class SearchRecommendedWorksViewModel: ViewModel {
     func mutate(action: Action) -> AnyPublisher<Mutation, Never> {
         switch action {
         case .fetch(let season):
+            guard state.annictSeason != season else { return Empty().eraseToAnyPublisher() }
             let fetchStream = fetch(season: season)
                 .map { $0.searchWorks?.edges?.compactMap { $0?.node?.fragments.workFragment } ?? []  }
                 .map { Mutation.setRecomendedWorks($0) }
@@ -55,6 +56,7 @@ final class SearchRecommendedWorksViewModel: ViewModel {
             state.recomendedWorks = works
         case .setAnnictSeason(let season):
             state.annictSeason = season
+            state.recomendedWorks = []
         case .setError(let error):
             state.error = error
         }

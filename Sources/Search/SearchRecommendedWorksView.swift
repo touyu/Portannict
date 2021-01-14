@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIX
 
 struct SearchRecommendedWorksView: View {
     @StateObject var viewModel: SearchRecommendedWorksViewModel
@@ -17,7 +18,7 @@ struct SearchRecommendedWorksView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .bottom) {
-                Text(viewModel.state.annictSeason.title)
+                Text(viewModel.state.annictSeason?.title)
                     .font(.system(size: 18))
                     .fontWeight(.bold)
                 Spacer()
@@ -36,17 +37,24 @@ struct SearchRecommendedWorksView: View {
                         Text(season.title)
                     }
                 }
-            }
-            LazyVStack(alignment: .leading, spacing: 16) {
-                ForEach(viewModel.state.recomendedWorks.indices, id: \.self) { index in
-                    let work = viewModel.state.recomendedWorks[index]
-                    SearchResultView(work: work)
+            } else {
+                if viewModel.state.recomendedWorks.isEmpty {
+                    ActivityIndicator()
+                        .frame(height: 40)
+                        .frame(maxWidth: .infinity)
+                } else {
+                    LazyVStack(alignment: .leading, spacing: 16) {
+                        ForEach(viewModel.state.recomendedWorks.indices, id: \.self) { index in
+                            let work = viewModel.state.recomendedWorks[index]
+                            SearchResultView(work: work)
+                        }
+                    }
                 }
             }
         }
         .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12))
         .onAppear {
-            viewModel.action.send(.fetch(viewModel.state.annictSeason))
+            viewModel.action.send(.fetch(.current))
         }
     }
 
