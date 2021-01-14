@@ -12,6 +12,8 @@ import SkeletonUI
 struct ActivityRecordView: View {
     let record: RecordFragment
 
+    var selectStateAction: ((StatusState) -> Void)?
+
     @State var isPresentedWorkView: Bool = false
     @State var isPresentedUserView: Bool = false
 
@@ -50,10 +52,16 @@ struct ActivityRecordView: View {
                 }
                 QuoteWorkView(work: record.work.fragments.workFragment, episode: record.episode.fragments.episodeFragment)
                     .onSelectState { state in
-                        print(state.title)
+                        selectStateAction?(state)
                     }
             }
         }
+    }
+
+    func onSelectState(_ action: @escaping (StatusState) -> Void) -> ActivityRecordView {
+        var result = self
+        result.selectStateAction = action
+        return result
     }
 }
 

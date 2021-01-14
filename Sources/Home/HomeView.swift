@@ -54,6 +54,10 @@ struct HomeView: View {
             switch activity.activityItem {
             case .record(let record):
                 ActivityRecordView(record: record.fragments.recordFragment)
+                    .onSelectState { state in
+                        print(state.title)
+                        viewModel.action.send(.updateWork(record.work.fragments.workFragment.id, state))
+                    }
             case .review(let review):
                 ActivityReviewView(review: review.fragments.reviewFragment)
             case .status(let status):

@@ -60,4 +60,22 @@ extension ApolloClient {
         }
         .eraseToAnyPublisher()
     }
+
+    func perform<Mutation: GraphQLMutation>(mutation: Mutation) -> AnyPublisher<Mutation.Data, Error> {
+        return Future<Mutation.Data, Error> { [weak self] promise in
+            self?.perform(mutation: mutation) { result in
+                switch result {
+                case .success(let data):
+                    guard let data = data.data else {
+                        promise(.failure(NetworkError.notFoundData))
+                        return
+                    }
+                    promise(.success(data))
+                case .failure(let error):
+                    promise(.failure(error))
+                }
+            }
+        }
+        .eraseToAnyPublisher()
+    }
 }

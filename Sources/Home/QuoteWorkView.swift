@@ -17,7 +17,6 @@ struct QuoteWorkView: View {
     @State private var showingActionSheet = false
     @Namespace private var namespace
 
-//    var onSelectState: ((StatusState) -> QuoteWorkView)?
     var selectStateAction: ((StatusState) -> Void)?
 
     init(work: WorkFragment, episode: EpisodeFragment? = nil) {
