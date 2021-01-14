@@ -33,9 +33,18 @@ struct LibraryWorksView: View {
             }
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 12) {
-                    ForEach(works.indices, id: \.self) { index in
-                        LibraryWorkView(work: works[index])
-                            .frame(width: 140, height: 140 * 5/3)
+                    if works.isEmpty {
+                        ForEach(0..<3) { index in
+                            Rectangle() 
+                                .skeleton(with: true)
+                                .shape(type: .rounded(.radius(8, style: .circular)))
+                                .frame(width: 140, height: 140 * 5/3)
+                        }
+                    } else {
+                        ForEach(works.indices, id: \.self) { index in
+                            LibraryWorkView(work: works[index])
+                                .frame(width: 140, height: 140 * 5/3)
+                        }
                     }
                 }
                 .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
@@ -61,7 +70,7 @@ struct LibraryWorksView: View {
 struct LibraryWorksView_Previews: PreviewProvider {
     static var previews: some View {
         LibraryWorksView(status: .watching, count: 100)
-            .previewLayout(.fixed(width: 375, height: 400))
+            .previewLayout(.fixed(width: 375, height: 300))
     }
 }
 

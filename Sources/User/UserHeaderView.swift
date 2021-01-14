@@ -12,7 +12,7 @@ struct UserHeaderView: View {
     let user: UserRepresentable
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             HStack(spacing: 16) {
                 KFImage(user.avatarUrl)
                     .resizable()

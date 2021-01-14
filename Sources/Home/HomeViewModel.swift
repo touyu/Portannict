@@ -107,7 +107,6 @@ final class HomeViewModel: ViewModel {
         case .updateWork(let work):
             guard let index = state.activities.firstIndex(where: { $0.work?.id == work.id } ) else { return }
             state.activities[index].work = work
-            print(work)
         case .setError(let error):
             state.error = error
         }
