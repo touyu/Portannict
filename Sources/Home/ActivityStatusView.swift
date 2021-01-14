@@ -9,7 +9,7 @@ import SwiftUI
 import KingfisherSwiftUI
 
 struct ActivityStatusView: View {
-    let status: StatusFragment
+    @Binding var status: StatusFragment
 
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
@@ -32,7 +32,7 @@ struct ActivityStatusView: View {
                 }
                 Text("ステータスを「\(status.state.title)」に変更しました")
                     .font(.body)
-                QuoteWorkView(work: status.work.fragments.workFragment)
+                QuoteWorkView(work: $status.work.fragments.workFragment)
             }
         }
     }
@@ -40,10 +40,11 @@ struct ActivityStatusView: View {
 
 struct ActivityStatusView_Previews: PreviewProvider {
     static var previews: some View {
-        return ActivityStatusView(status: .init(id: "", annictId: 0, createdAt: "2021-01-06T17:20:54Z",
-                                                state: .wannaWatch,
-                                                user: .init(unsafeResultMap: UserFragment.dummy.resultMap),
-                                                work: .init(unsafeResultMap: WorkFragment.dummy.resultMap)))
+        let status = StatusFragment(id: "", annictId: 0, createdAt: "2021-01-06T17:20:54Z",
+                           state: .wannaWatch,
+                           user: .init(unsafeResultMap: UserFragment.dummy.resultMap),
+                           work: .init(unsafeResultMap: WorkFragment.dummy.resultMap))
+        return ActivityStatusView(status: .constant(status))
             .previewLayout(.fixed(width: 375, height: 200))
     }
 }

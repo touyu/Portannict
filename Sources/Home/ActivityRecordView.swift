@@ -10,7 +10,7 @@ import KingfisherSwiftUI
 import SkeletonUI
 
 struct ActivityRecordView: View {
-    let record: RecordFragment
+    @Binding var record: RecordFragment
 
     var selectStateAction: ((StatusState) -> Void)?
 
@@ -50,7 +50,7 @@ struct ActivityRecordView: View {
                     Text(comemnt)
                         .font(.body)
                 }
-                QuoteWorkView(work: record.work.fragments.workFragment, episode: record.episode.fragments.episodeFragment)
+                QuoteWorkView(work: $record.work.fragments.workFragment, episode: record.episode.fragments.episodeFragment)
                     .onSelectState { state in
                         selectStateAction?(state)
                     }
@@ -70,7 +70,8 @@ struct ActivityRecordView_Previews: PreviewProvider {
         let recordWork = RecordFragment.Work(unsafeResultMap: WorkFragment.dummy.resultMap)
         let recordEpisode = RecordFragment.Episode(id: "", annictId: 124160, numberText: "Case_1_1", title: "Los Angeles Connection")
         let user = RecordFragment.User(id: "user", name: "touyu", username: "touyu", description: "")
-        return ActivityRecordView(record: RecordFragment(id: "", annictId: 0, comment: "いい話だった", ratingState: .good, createdAt: "2021-01-06T17:20:54Z", user: user, work: recordWork, episode: recordEpisode))
+        let record = RecordFragment(id: "", annictId: 0, comment: "いい話だった", ratingState: .good, createdAt: "2021-01-06T17:20:54Z", user: user, work: recordWork, episode: recordEpisode)
+        return ActivityRecordView(record: .constant(record))
             .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/375.0/*@END_MENU_TOKEN@*/, height: 200))
     }

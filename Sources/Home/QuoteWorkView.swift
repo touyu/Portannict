@@ -9,7 +9,7 @@ import SwiftUI
 import KingfisherSwiftUI
 
 struct QuoteWorkView: View {
-    let work: WorkFragment
+    @Binding var work: WorkFragment
     let episode: EpisodeFragment?
 
     @State private var isExpanded: Bool = false
@@ -19,8 +19,8 @@ struct QuoteWorkView: View {
 
     var selectStateAction: ((StatusState) -> Void)?
 
-    init(work: WorkFragment, episode: EpisodeFragment? = nil) {
-        self.work = work
+    init(work: Binding<WorkFragment>, episode: EpisodeFragment? = nil) {
+        self._work = work
         self.episode = episode
     }
 
@@ -68,6 +68,7 @@ struct QuoteWorkView: View {
                                 .map { state in
                                     return ActionSheet.Button.default(Text(state.title)) {
                                         selectStateAction?(state)
+                                        work.viewerStatusState = state
                                     }
                                 }
                             buttons.append(.cancel())
@@ -144,9 +145,9 @@ struct QuoteWorkView_Previews: PreviewProvider {
     @Namespace private static var namespace
 
     static var previews: some View {
-        QuoteWorkView(work: WorkFragment.dummy)
+        QuoteWorkView(work: .constant(WorkFragment.dummy))
             .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/375.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/))
-        QuoteWorkView(work: WorkFragment.dummy, episode: EpisodeFragment(id: "", annictId: 0, numberText: "第1話", title: "冒険の始まり"))
+        QuoteWorkView(work: .constant(WorkFragment.dummy), episode: EpisodeFragment(id: "", annictId: 0, numberText: "第1話", title: "冒険の始まり"))
             .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/375.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/))
     }
 }

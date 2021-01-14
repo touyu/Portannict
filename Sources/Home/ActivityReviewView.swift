@@ -9,7 +9,7 @@ import SwiftUI
 import KingfisherSwiftUI
 
 struct ActivityReviewView: View {
-    let review: ReviewFragment
+    @Binding var review: ReviewFragment
 
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
@@ -35,7 +35,7 @@ struct ActivityReviewView: View {
                 }
                 Text(review.body)
                     .font(.body)
-                QuoteWorkView(work: review.work.fragments.workFragment)
+                QuoteWorkView(work: $review.work.fragments.workFragment)
             }
         }
     }
@@ -50,7 +50,7 @@ struct ActivityReviewView_Previews: PreviewProvider {
                                ratingAnimationState: RatingState.good,
                                user: .init(unsafeResultMap: UserFragment.dummy.resultMap),
                                work: .init(unsafeResultMap: WorkFragment.dummy.resultMap))
-        ActivityReviewView(review: review)
+        ActivityReviewView(review: .constant(review))
             .previewLayout(.fixed(width: 375, height: 200))
     }
 }

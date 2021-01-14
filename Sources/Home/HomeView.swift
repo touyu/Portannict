@@ -29,8 +29,7 @@ struct HomeView: View {
 
                 LazyVStack(spacing: 20) {
                     ForEach(viewModel.state.activities.indices, id: \.self) { index in
-                        let activity = viewModel.state.activities[index]
-                        activityItemView(activity: activity)
+                        activityItemView(index: index)
                     }
                     ActivityIndicator()
                         .animated(true)
@@ -49,22 +48,19 @@ struct HomeView: View {
         }
     }
 
-    func activityItemView(activity: Activity) -> some View {
+    func activityItemView(index: Int) -> some View {
         Group {
-            switch activity.activityItem {
-            case .record(let record):
-                ActivityRecordView(record: record.fragments.recordFragment)
+            let activity = $viewModel.state.activities[index]
+            if let record = activity.wrappedValue.asRecord {
+                ActivityRecordView(record: activity.map(\.asRecord!.fragments.recordFragment))
                     .onSelectState { state in
-                        print(state.title)
                         viewModel.action.send(.updateWork(record.work.fragments.workFragment.id, state))
                     }
-            case .review(let review):
-                ActivityReviewView(review: review.fragments.reviewFragment)
-            case .status(let status):
-                ActivityStatusView(status: status.fragments.statusFragment)
-            case .multipleRecord:
-                EmptyView()
-            case .none:
+            } else if let _ = activity.wrappedValue.asReview {
+                ActivityReviewView(review: activity.map(\.asReview!.fragments.reviewFragment))
+            } else if let _ = activity.wrappedValue.asStatus {
+                ActivityStatusView(status: activity.map(\.asStatus!.fragments.statusFragment))
+            } else {
                 EmptyView()
             }
         }
