@@ -155,25 +155,40 @@ struct QuoteWorkView_Previews: PreviewProvider {
 struct WorkImage: View {
     let workID: Int
 
+    private var placeholderFont: Font?
+
+    init(workID: Int) {
+        self.workID = workID
+    }
+
     var body: some View {
         KFImage(workID)
             .resizable()
             .placeholder {
-                let placeholder = Text("No Image")
+                Text("No Image")
                     .foregroundColor(.systemGray)
-                    .font(.system(size: 16))
+                    .font(placeholderFont ?? .system(size: 16))
                     .fontWeight(.bold)
-                Color(.lightGray)
-                    .overlay(placeholder)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .background(Color(.lightGray))
             }
+    }
+
+    func plceholderFont(_ font: Font) -> WorkImage {
+        var result = self
+        result.placeholderFont = font
+        return result
     }
 }
 
 struct WorkImage_Previews: PreviewProvider {
     static var previews: some View {
         WorkImage(workID: WorkFragment.dummy.annictId)
-            .previewLayout(.fixed(width: 100, height: 100))
+            .previewLayout(.fixed(width: 200, height: 200))
         WorkImage(workID: 0)
-            .previewLayout(.fixed(width: 100, height: 100))
+            .previewLayout(.fixed(width: 200, height: 200))
+        WorkImage(workID: 0)
+            .plceholderFont(.system(size: 32))
+            .previewLayout(.fixed(width: 200, height: 200))
     }
 }

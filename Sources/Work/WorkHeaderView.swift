@@ -26,8 +26,11 @@ struct WorkHeaderView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .bottomLeading) {
-                KFImage("\(Constants.baseImageURL)/images/\(work.annictId)")
-                    .resizable()
+//                KFImage("\(Constants.baseImageURL)/images/\(work.annictId)")
+//                    .resizable()
+
+                WorkImage(workID: work.annictId)
+                    .plceholderFont(.system(size: 64))
                     .aspectRatio(contentMode: .fill)
                     .frame(width: geometry.size.width, height: geometry.size.width * 1.5, alignment: .top)
                     .background(Color.gray)
@@ -49,9 +52,8 @@ struct WorkHeaderView: View {
 
 struct WorkHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            WorkHeaderView(work: .dummy)
-        }
+        WorkHeaderView(work: .dummy)
+        WorkHeaderView(work: .dummy2)
     }
 }
 
