@@ -23,6 +23,12 @@
 		CF3B2FCF25B411600017A7C0 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B2FCE25B411600017A7C0 /* SearchResultView.swift */; };
 		CF3B2FD125B42D1E0017A7C0 /* SearchWorkEpisodes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CF3B2FD025B42D1E0017A7C0 /* SearchWorkEpisodes.graphql */; };
 		CF3B2FD325B44F680017A7C0 /* StatusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B2FD225B44F680017A7C0 /* StatusButton.swift */; };
+		CF3B2FD725B46F710017A7C0 /* SearchWorkReviews.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CF3B2FD625B46F710017A7C0 /* SearchWorkReviews.graphql */; };
+		CF3B2FD925B484AD0017A7C0 /* WorkEpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B2FD825B484AD0017A7C0 /* WorkEpisodeCell.swift */; };
+		CF3B2FDB25B484DC0017A7C0 /* WorkMoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B2FDA25B484DC0017A7C0 /* WorkMoreButton.swift */; };
+		CF3B2FDD25B484F20017A7C0 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B2FDC25B484F20017A7C0 /* Color.swift */; };
+		CF3B2FDF25B485230017A7C0 /* WorkReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B2FDE25B485230017A7C0 /* WorkReviewCell.swift */; };
+		CF3B2FE125B485DC0017A7C0 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B2FE025B485DC0017A7C0 /* Dummy.swift */; };
 		CF841D3D24CA626400F3723B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D3C24CA626400F3723B /* HomeViewModel.swift */; };
 		CF841D4524CA69A600F3723B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4424CA69A600F3723B /* LoginView.swift */; };
 		CF9A375D25AB3EF8003077D5 /* AnnictSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */; };
@@ -99,6 +105,12 @@
 		CF3B2FCE25B411600017A7C0 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		CF3B2FD025B42D1E0017A7C0 /* SearchWorkEpisodes.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchWorkEpisodes.graphql; sourceTree = "<group>"; };
 		CF3B2FD225B44F680017A7C0 /* StatusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusButton.swift; sourceTree = "<group>"; };
+		CF3B2FD625B46F710017A7C0 /* SearchWorkReviews.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchWorkReviews.graphql; sourceTree = "<group>"; };
+		CF3B2FD825B484AD0017A7C0 /* WorkEpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkEpisodeCell.swift; sourceTree = "<group>"; };
+		CF3B2FDA25B484DC0017A7C0 /* WorkMoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkMoreButton.swift; sourceTree = "<group>"; };
+		CF3B2FDC25B484F20017A7C0 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		CF3B2FDE25B485230017A7C0 /* WorkReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkReviewCell.swift; sourceTree = "<group>"; };
+		CF3B2FE025B485DC0017A7C0 /* Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
 		CF841D3C24CA626400F3723B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CF841D4424CA69A600F3723B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnictSeason.swift; sourceTree = "<group>"; };
@@ -216,6 +228,7 @@
 				CFBCA06225AB49FB00C5386C /* SearchWorksByTitle.graphql */,
 				CFBCA06425AB6B0E00C5386C /* UpdateStatus.graphql */,
 				CF3B2FD025B42D1E0017A7C0 /* SearchWorkEpisodes.graphql */,
+				CF3B2FD625B46F710017A7C0 /* SearchWorkReviews.graphql */,
 			);
 			path = Query;
 			sourceTree = "<group>";
@@ -251,6 +264,8 @@
 			children = (
 				CFBB73B625A575D700601DCB /* KFImage.swift */,
 				CFD82D3625A63915005401AF /* Model+Extension.swift */,
+				CF3B2FDC25B484F20017A7C0 /* Color.swift */,
+				CF3B2FE025B485DC0017A7C0 /* Dummy.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -333,7 +348,10 @@
 			isa = PBXGroup;
 			children = (
 				CFFDC8A7259C6EF6001C8E29 /* WorkView.swift */,
+				CF3B2FDA25B484DC0017A7C0 /* WorkMoreButton.swift */,
 				CFFDC8B4259CCAFE001C8E29 /* WorkHeaderView.swift */,
+				CF3B2FD825B484AD0017A7C0 /* WorkEpisodeCell.swift */,
+				CF3B2FDE25B485230017A7C0 /* WorkReviewCell.swift */,
 			);
 			path = Work;
 			sourceTree = "<group>";
@@ -431,6 +449,7 @@
 				CFD82D3C25A64157005401AF /* GetViewer.graphql in Resources */,
 				CF3B2FD125B42D1E0017A7C0 /* SearchWorkEpisodes.graphql in Resources */,
 				CF2E1D93259DC19100824A3C /* GetFollowingActivities.graphql in Resources */,
+				CF3B2FD725B46F710017A7C0 /* SearchWorkReviews.graphql in Resources */,
 				CFB9BA78259DCD0D00C51708 /* Fragments.graphql in Resources */,
 				CFBCA06525AB6B0E00C5386C /* UpdateStatus.graphql in Resources */,
 				CFE7E5CE25A6EC6B009EB3DC /* GetUser.graphql in Resources */,
@@ -473,6 +492,7 @@
 			files = (
 				CFBCA06B25AB719B00C5386C /* SearchRecommendedWorksViewModel.swift in Sources */,
 				CF13E35225AAF78A005D11F8 /* SearchViewModel.swift in Sources */,
+				CF3B2FE125B485DC0017A7C0 /* Dummy.swift in Sources */,
 				CFBCA06925AB70C600C5386C /* SearchResultsView.swift in Sources */,
 				CF3B2FCF25B411600017A7C0 /* SearchResultView.swift in Sources */,
 				CF08FC0924B9AD1A00CD29DD /* RootTabView.swift in Sources */,
@@ -486,14 +506,18 @@
 				CFC03F0725959BDD001516D3 /* LoginSession.swift in Sources */,
 				CFE7E5D725A7077D009EB3DC /* RecordView.swift in Sources */,
 				CF08FC1624B9AFC500CD29DD /* ProfileView.swift in Sources */,
+				CF3B2FDB25B484DC0017A7C0 /* WorkMoreButton.swift in Sources */,
 				CFBB73B725A575D700601DCB /* KFImage.swift in Sources */,
 				CFE3831E258E628C00CEE318 /* Constants.swift in Sources */,
 				CFFE4FFC24C9C00D003AECE5 /* ActivityStatusView.swift in Sources */,
 				CF9A375D25AB3EF8003077D5 /* AnnictSeason.swift in Sources */,
 				CFFDC8A8259C6EF6001C8E29 /* WorkView.swift in Sources */,
+				CF3B2FD925B484AD0017A7C0 /* WorkEpisodeCell.swift in Sources */,
 				CFE7E5D025A6F6BA009EB3DC /* ActivityReviewView.swift in Sources */,
+				CF3B2FDD25B484F20017A7C0 /* Color.swift in Sources */,
 				CFE7E5C525A6D65A009EB3DC /* LibraryWorksView.swift in Sources */,
 				CFE7E5CA25A6E71C009EB3DC /* UserHeaderView.swift in Sources */,
+				CF3B2FDF25B485230017A7C0 /* WorkReviewCell.swift in Sources */,
 				CF841D4524CA69A600F3723B /* LoginView.swift in Sources */,
 				CFE38315258E610F00CEE318 /* RootViewModel.swift in Sources */,
 				CF3B2FD325B44F680017A7C0 /* StatusButton.swift in Sources */,

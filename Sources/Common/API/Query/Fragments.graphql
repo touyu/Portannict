@@ -58,15 +58,27 @@ fragment UserFragment on User {
 }
 
 fragment ReviewFragment on Review {
-  id
-  annictId
-  createdAt
-  body
-  ratingAnimationState
-  user {
-	...UserFragment
-  }
-  work {
-	...WorkFragment
-  }
+	id
+	annictId
+	title
+	body
+	ratingAnimationState
+	ratingOverallState
+	ratingMusicState
+	ratingStoryState
+	ratingCharacterState
+	createdAt
+	user {
+		...UserFragment
+	}
+	work {
+		...WorkFragment
+	}
+}
+
+fragment PageInfoFragment on PageInfo {
+  hasNextPage
+  hasPreviousPage
+  endCursor
+  startCursor
 }

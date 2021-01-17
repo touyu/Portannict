@@ -1,0 +1,17 @@
+query SearchWorkReviews($workAnnictId: Int!, $first: Int, $after: String) {
+	searchWorks(annictIds: [$workAnnictId]) {
+		nodes {
+			...WorkFragment
+			reviews(first: $first, after: $after, orderBy: {direction: DESC, field: CREATED_AT}, hasBody: true) {
+				edges {
+					node {
+						...ReviewFragment
+					}
+				}
+				pageInfo {
+					...PageInfoFragment
+				}
+			}
+		}
+	}
+}

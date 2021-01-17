@@ -43,13 +43,7 @@ struct ActivityReviewView: View {
 
 struct ActivityReviewView_Previews: PreviewProvider {
     static var previews: some View {
-        let review = ReviewFragment(id: "",
-                               annictId: 0,
-                               createdAt: "",
-                               body: "面白い作品だった",
-                               ratingAnimationState: RatingState.good,
-                               user: .init(unsafeResultMap: UserFragment.dummy.resultMap),
-                               work: .init(unsafeResultMap: WorkFragment.dummy.resultMap))
+        let review = ReviewFragment(id: "", annictId: 0, body: "", createdAt: "", user: .init(unsafeResultMap: UserFragment.dummy.resultMap), work: .init(unsafeResultMap: WorkFragment.dummy.resultMap))
         ActivityReviewView(review: .constant(review))
             .previewLayout(.fixed(width: 375, height: 200))
     }

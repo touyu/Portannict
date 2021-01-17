@@ -20,6 +20,10 @@ struct WorkView: View {
     @State var episodesPageInfo: SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode.PageInfo?
     @State var isEpisodesLoading = false
 
+    @State var reviews: [ReviewFragment] = []
+    @State var reviewsPageInfo: PageInfoFragment?
+    @State var isReviewsLoading = false
+
     @State private var showingActionSheet = false
 
     init(workID: Int) {
@@ -32,7 +36,7 @@ struct WorkView: View {
                 if let work = work {
                     LazyVStack(alignment: .leading, spacing: 24) {
                         WorkHeaderView(work: work)
-                            .frame(width: geometry.size.width, height: geometry.size.width * 1.5, alignment: .center)
+                            .frame(width: geometry.size.width, height: geometry.size.width * 1.4, alignment: .center)
                         StatusButton(state: work.viewerStatusState ?? .noState) {
                             showingActionSheet = true
                         }
@@ -53,6 +57,9 @@ struct WorkView: View {
                             if episodes.count > 0 {
                                 episodeSection(work: work)
                             }
+                            if reviews.count > 0 {
+                                reviewsSection(work: work)
+                            }
                             //                            reviewsSection(work: work)
                             //                            charactorsSection(work: work)
                         }
@@ -66,6 +73,7 @@ struct WorkView: View {
         .onAppear {
             fetch()
             fetchEpisodes()
+            fetchReviews()
         }
     }
 
@@ -99,25 +107,33 @@ struct WorkView: View {
         }
     }
 
-    private func reviewsSection(work: SearchWorksByIdQuery.Data.SearchWork.Node) -> some View {
-        LazyVStack(alignment: .leading, spacing: 16) {
-            Text("Reviews \(work.episodesCount)")
+    private func reviewsSection(work: WorkFragment) -> some View {
+        LazyVStack(alignment: .leading, spacing: 20) {
+            Text("Reviews \(work.reviewsCount)")
                 .font(.title2)
                 .fontWeight(.bold)
-            ForEach(episodes.indices) { index in
-                if let episode = episodes[index] {
-                    WorkEpisodeCell(episode: episode)
+            ForEach(reviews.indices, id: \.self) { index in
+                if let review = reviews[index] {
+                    WorkReviewCell(review: review)
                 }
             }
-            Button(action: {
+            if let reviewsPageInfo = reviewsPageInfo, reviewsPageInfo.hasNextPage == true {
+                HStack {
+                    Spacer()
+                    if isReviewsLoading {
+                        ActivityIndicator()
+                            .animated(true)
+                            .style(.medium)
+                            .frame(height: 40)
 
-            }, label: {
-                Spacer()
-                Text("もっと見る")
-                    .font(.system(size: 14))
-                Spacer()
-
-            })
+                    } else {
+                        WorkMoreButton {
+                            fetchMoreReviews()
+                        }
+                    }
+                    Spacer()
+                }
+            }
         }
     }
 
@@ -155,7 +171,7 @@ struct WorkView: View {
     }
 
     private func fetchEpisodes() {
-        Network.shared.apollo.fetch(query: SearchWorkEpisodesQuery(workAnnictId: workID, first: 30)) { result in
+        Network.shared.apollo.fetch(query: SearchWorkEpisodesQuery(workAnnictId: workID, first: 5)) { result in
             switch result {
             case .success(let data):
                 self.episodes = data.data?.searchWorks?.nodes?.first??.episodes?.edges?.compactMap { $0?.node?.fragments.episodeFragment } ?? []
@@ -195,80 +211,39 @@ struct WorkView: View {
             }
         }
     }
+
+    private func fetchReviews() {
+        Network.shared.apollo.fetch(query: SearchWorkReviewsQuery(workAnnictId: workID, first: 5, after: nil)) { result in
+            switch result {
+            case .success(let data):
+                self.reviews = data.data?.searchWorks?.nodes?.first??.reviews?.edges?.compactMap { $0?.node?.fragments.reviewFragment } ?? []
+                self.reviewsPageInfo = data.data?.searchWorks?.nodes?.first??.reviews?.pageInfo.fragments.pageInfoFragment
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
+    private func fetchMoreReviews() {
+        isReviewsLoading = true
+        guard let pageInfo = reviewsPageInfo else { return }
+        guard pageInfo.hasNextPage else { return }
+        Network.shared.apollo.fetch(query: SearchWorkReviewsQuery(workAnnictId: workID, first: 30, after: pageInfo.endCursor)) { result in
+            switch result {
+            case .success(let data):
+                let nodes = data.data?.searchWorks?.nodes?.first??.reviews?.edges?.compactMap { $0?.node?.fragments.reviewFragment } ?? []
+                self.reviews.append(contentsOf: nodes)
+                self.reviewsPageInfo = data.data?.searchWorks?.nodes?.first??.reviews?.pageInfo.fragments.pageInfoFragment
+                isReviewsLoading = false
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
 
 struct WorkView_Previews: PreviewProvider {
     static var previews: some View {
         WorkView(workID: 865)
-    }
-}
-
-struct WorkEpisodeCell: View {
-    let episode: EpisodeFragment
-
-    var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(episode.numberText ?? "Unknown")
-                    .font(.system(size: 14))
-                Text(episode.title ?? "Unknown")
-                    .font(.system(size: 16))
-            }
-            Spacer()
-            Text("\(episode.viewerRecordsCount)")
-                .frame(height: 20)
-                .padding(EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16))
-                .background(Color.secondarySystemBackground)
-                .cornerRadius(18)
-        }
-    }
-}
-
-struct WorkMoreButton: View {
-    let action: () -> Void
-
-    init(action: @escaping () -> Void) {
-        self.action = action
-    }
-
-    var body: some View {
-        Button(action: {
-            action()
-        }, label: {
-            Text("もっと見る")
-                .font(.system(size: 14))
-                .foregroundColor(.primary)
-
-        })
-        .frame(height: 24)
-        .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-        .background(Color.secondarySystemBackground)
-        .cornerRadius(28)
-    }
-}
-
-struct WorkMoreButton_Previews: PreviewProvider {
-    static var previews: some View {
-        WorkMoreButton {
-
-        }
-        .previewLayout(.fixed(width: 200, height: 200))
-    }
-}
-
-extension Color {
-    init(hex: Int, alpha: Double = 1) {
-        let components = (
-            R: Double((hex >> 16) & 0xff) / 255,
-            G: Double((hex >> 08) & 0xff) / 255,
-            B: Double((hex >> 00) & 0xff) / 255
-        )
-        self.init(
-            .sRGB,
-            red: components.R,
-            green: components.G,
-            blue: components.B,
-            opacity: alpha
-        )
     }
 }

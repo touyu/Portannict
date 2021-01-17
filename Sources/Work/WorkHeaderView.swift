@@ -27,12 +27,12 @@ struct WorkHeaderView: View {
                 WorkImage(workID: work.annictId)
                     .plceholderFont(.system(size: 64))
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: geometry.size.width, height: geometry.size.width * 1.5)
+                    .frame(width: geometry.size.width, height: geometry.size.width * 1.4)
                 ZStack(alignment: .bottomLeading) {
                     LinearGradient(gradient: gradient,
                                    startPoint: .top,
                                    endPoint: .bottom)
-                        .frame(width: geometry.size.width, height: geometry.size.width * 1.51) // チラつきを防ぐために画像より大きめに
+                        .frame(width: geometry.size.width, height: geometry.size.width * 1.41) // チラつきを防ぐために画像より大きめに
                     Text(work.title)
                         .font(.title)
                         .fontWeight(.bold)
@@ -49,19 +49,5 @@ struct WorkHeaderView_Previews: PreviewProvider {
     static var previews: some View {
         WorkHeaderView(work: .dummy)
         WorkHeaderView(work: .dummy2)
-    }
-}
-
-extension WorkFragment {
-    static var dummy: WorkFragment {
-        WorkFragment(id: "", annictId: 6524, title: "PSYCHO-PASS", episodesCount: 0, watchersCount: 0, reviewsCount: 0, media: .tv)
-    }
-
-    static var dummy2: WorkFragment {
-        WorkFragment(id: "", annictId: 0, title: "No Title No Title No Title", episodesCount: 0, watchersCount: 0, reviewsCount: 0, media: .tv)
-    }
-
-    static var dummy3: WorkFragment {
-        WorkFragment(id: "", annictId: 6524, title: "No Title No Title No Title No Title No Title No Title", episodesCount: 0, watchersCount: 0, reviewsCount: 0, media: .tv)
     }
 }

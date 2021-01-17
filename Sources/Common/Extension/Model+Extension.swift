@@ -142,10 +142,6 @@ extension Media {
     }
 }
 
-extension UserFragment {
-    static var dummy = UserFragment(id: "user", name: "touyu", username: "touyu", description: "")
-}
-
 // GraphQL
 
 extension SearchWorksBySeasonQuery.Data.SearchWork {
