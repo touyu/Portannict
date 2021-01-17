@@ -6,10 +6,23 @@
 //
 
 import SwiftUI
+import SwiftUIX
 import KingfisherSwiftUI
 
 struct SearchResultsView: View {
     @Binding var works: [WorkFragment]
+    @State private var presentation: Presentation?
+
+    enum Presentation: View, Identifiable, Hashable {
+        case work(WorkFragment)
+
+        var body: some View {
+            switch self {
+            case .work(let work):
+                WorkView(workID: work.annictId)
+            }
+        }
+    }
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -20,7 +33,13 @@ struct SearchResultsView: View {
             }
             LazyVStack(alignment: .leading, spacing: 16) {
                 ForEach(works.indices, id: \.self) { index in
-                    SearchResultView(work: $works[index])
+                    Button(action: {
+                        presentation = .work(works[index])
+                    }, label: {
+                        SearchResultView(work: $works[index])
+                    })
+                    .accentColor(.primary)
+                    .sheet(item: $presentation) { $0 }
                 }
             }
         }

@@ -12,6 +12,18 @@ struct SearchRecommendedWorksView: View {
     @StateObject var viewModel: SearchRecommendedWorksViewModel
     @State private var seasonSelection = 1
     @State private var showPicker = false
+    @State private var presentation: Presentation?
+
+    enum Presentation: View, Identifiable, Hashable {
+        case work(WorkFragment)
+
+        var body: some View {
+            switch self {
+            case .work(let work):
+                WorkView(workID: work.annictId)
+            }
+        }
+    }
 
     private let seasons = allSeasons()
 
@@ -46,7 +58,13 @@ struct SearchRecommendedWorksView: View {
                     LazyVStack(alignment: .leading, spacing: 16) {
                         ForEach(viewModel.state.recomendedWorks.indices, id: \.self) { index in
                             let work = $viewModel.state.recomendedWorks[index]
-                            SearchResultView(work: work)
+                            Button(action: {
+                                presentation = .work(work.wrappedValue)
+                            }, label: {
+                                SearchResultView(work: work)
+                            })
+                            .accentColor(.primary)
+                            .sheet(item: $presentation) { $0 }
                         }
                     }
                 }
@@ -66,5 +84,11 @@ struct SearchRecommendedWorksView: View {
             item = item.previous
         }
         return results
+    }
+}
+
+extension WorkFragment: Identifiable, Hashable {
+    public func hash(into hasher: inout Hasher) {
+        id.hash(into: &hasher)
     }
 }

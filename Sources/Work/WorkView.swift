@@ -45,7 +45,7 @@ struct WorkView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            ScrollView(.vertical) {
+            ScrollView(.vertical, showsIndicators: false) {
                 if let work = work {
                     LazyVStack(alignment: .leading, spacing: 24) {
                         WorkHeaderView(work: work)
