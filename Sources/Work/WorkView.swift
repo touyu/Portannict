@@ -108,7 +108,7 @@ struct WorkView: View {
     }
 
     private func reviewsSection(work: WorkFragment) -> some View {
-        LazyVStack(alignment: .leading, spacing: 20) {
+        LazyVStack(alignment: .leading, spacing: 24) {
             Text("Reviews \(work.reviewsCount)")
                 .font(.title2)
                 .fontWeight(.bold)

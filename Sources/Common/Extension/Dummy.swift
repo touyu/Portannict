@@ -9,7 +9,21 @@ import Foundation
 
 extension ReviewFragment {
     static var dummy: ReviewFragment {
-        ReviewFragment(id: "", annictId: 0, body: "良い作品だった", ratingAnimationState: .good, createdAt: "2021-01-06T17:20:54Z", user: .init(unsafeResultMap: UserFragment.dummy.resultMap), work: .init(unsafeResultMap: WorkFragment.dummy.resultMap))
+        ReviewFragment(id: "", annictId: 0, body: "良い作品だった", ratingOverallState: .good, createdAt: "2021-01-06T17:20:54Z", user: .init(unsafeResultMap: UserFragment.dummy.resultMap), work: .init(unsafeResultMap: WorkFragment.dummy.resultMap))
+    }
+
+    static var dummy2: ReviewFragment {
+        ReviewFragment(id: "",
+                       annictId: 0,
+                       body: "良い作品だった",
+                       ratingAnimationState: .good,
+                       ratingOverallState: .great,
+                       ratingMusicState: .average,
+                       ratingStoryState: .bad,
+                       ratingCharacterState: .great,
+                       createdAt: "2021-01-06T17:20:54Z",
+                       user: .init(unsafeResultMap: UserFragment.dummy.resultMap),
+                       work: .init(unsafeResultMap: WorkFragment.dummy.resultMap))
     }
 }
 

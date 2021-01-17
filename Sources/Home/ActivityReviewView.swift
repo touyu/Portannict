@@ -30,7 +30,7 @@ struct ActivityReviewView: View {
                         .font(.system(size: 12, weight: .regular, design: .default))
                         .foregroundColor(.gray)
                 }
-                if let state = review.ratingAnimationState {
+                if let state = review.ratingOverallState {
                     RatingStateView(ratingState: state)
                 }
                 Text(review.body)
