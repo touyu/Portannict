@@ -11,6 +11,14 @@ fragment WorkFragment on Work {
 	media
 }
 
+fragment EpisodeFragment on Episode {
+	id
+	annictId
+	title
+	numberText
+	viewerRecordsCount
+}
+
 fragment RecordFragment on Record {
 	id
 	annictId

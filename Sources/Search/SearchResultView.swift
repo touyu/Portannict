@@ -16,16 +16,7 @@ struct SearchResultView: View {
 
     var body: some View {
         HStack(alignment: .top, spacing: 16) {
-            KFImage(work.annictId)
-                .resizable()
-                .placeholder {
-                    let placeholder = Text("No Image")
-                        .foregroundColor(.systemGray)
-                        .font(.system(size: 16))
-                        .fontWeight(.bold)
-                    Color(.lightGray)
-                        .overlay(placeholder)
-                }
+            WorkImage(workID: work.annictId)
                 .aspectRatio(3/4, contentMode: .fit)
                 .frame(width: 60)
                 .cornerRadius(8)
@@ -96,3 +87,12 @@ struct SearchResultView: View {
     }
 }
 
+struct SearchResultView_Previews: PreviewProvider {
+    static var previews: some View {
+        SearchResultView(work: .constant(.dummy))
+            .previewLayout(.fixed(width: 375, height: 300))
+        SearchResultView(work: .constant(.dummy))
+            .preferredColorScheme(.dark)
+            .previewLayout(.fixed(width: 375, height: 300))
+    }
+}

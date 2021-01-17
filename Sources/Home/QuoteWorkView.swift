@@ -170,7 +170,7 @@ struct WorkImage: View {
                     .font(placeholderFont ?? .system(size: 16))
                     .fontWeight(.bold)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                    .background(Color(.lightGray))
+                    .background(Color(hex: 0xE2E2E2))
             }
     }
 
