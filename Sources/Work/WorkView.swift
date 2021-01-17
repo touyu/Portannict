@@ -15,16 +15,29 @@ struct WorkView: View {
 
     let workID: Int
 
-    @State var work: WorkFragment?
-    @State var episodes: [EpisodeFragment] = []
-    @State var episodesPageInfo: SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode.PageInfo?
-    @State var isEpisodesLoading = false
+    @State private var work: WorkFragment?
+    @State private var episodes: [EpisodeFragment] = []
+    @State private var episodesPageInfo: SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode.PageInfo?
+    @State private var isEpisodesLoading = false
 
-    @State var reviews: [ReviewFragment] = []
-    @State var reviewsPageInfo: PageInfoFragment?
-    @State var isReviewsLoading = false
+    @State private var reviews: [ReviewFragment] = []
+    @State private var reviewsPageInfo: PageInfoFragment?
+    @State private var isReviewsLoading = false
+    @State private var selectedEpisode: EpisodeFragment?
 
     @State private var showingActionSheet = false
+    @State var presentation: Presentation?
+
+    enum Presentation: View, Identifiable, Hashable {
+        case episode(EpisodeFragment)
+
+        var body: some View {
+            switch self {
+            case .episode(let episode):
+                EpisodeView(episode: episode)
+            }
+        }
+    }
 
     init(workID: Int) {
         self.workID = workID
@@ -60,8 +73,6 @@ struct WorkView: View {
                             if reviews.count > 0 {
                                 reviewsSection(work: work)
                             }
-                            //                            reviewsSection(work: work)
-                            //                            charactorsSection(work: work)
                         }
                         .padding(.init(top: 0, leading: 16, bottom: 48, trailing: 16))
                     }
@@ -83,9 +94,14 @@ struct WorkView: View {
                 .font(.title2)
                 .fontWeight(.bold)
             ForEach(episodes.indices, id: \.self) { index in
-                if let episode = episodes[index] {
+                let episode = episodes[index]
+                Button(action: {
+                    presentation = .episode(episode)
+                }, label: {
                     WorkEpisodeCell(episode: episode)
-                }
+                        .foregroundColor(.primary)
+                })
+                .sheet(item: $presentation) { $0 }
             }
             if let episodesPageInfo = episodesPageInfo, episodesPageInfo.hasNextPage == true {
                 HStack {
@@ -245,5 +261,11 @@ struct WorkView: View {
 struct WorkView_Previews: PreviewProvider {
     static var previews: some View {
         WorkView(workID: 865)
+    }
+}
+
+extension EpisodeFragment: Identifiable, Hashable {
+    public func hash(into hasher: inout Hasher) {
+        id.hash(into: &hasher)
     }
 }
