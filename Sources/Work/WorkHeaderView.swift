@@ -15,35 +15,30 @@ struct WorkHeaderView: View {
         self.work = work
     }
 
-    private let black = Color(hex: 0x222222)
     private var gradient: Gradient {
-        Gradient(stops: [Gradient.Stop(color: black, location: 0),
-                         Gradient.Stop(color: .clear, location: 0.5),
-                         Gradient.Stop(color: black.opacity(0.9), location: 0.8),
-                         Gradient.Stop(color: black, location: 1)])
+        Gradient(stops: [Gradient.Stop(color: .clear, location: 0),
+                         Gradient.Stop(color: Color.systemBackground.opacity(0.9), location: 0.8),
+                         Gradient.Stop(color: Color.systemBackground, location: 1)])
     }
 
     var body: some View {
         GeometryReader { geometry in
-            ZStack(alignment: .bottomLeading) {
-//                KFImage("\(Constants.baseImageURL)/images/\(work.annictId)")
-//                    .resizable()
-
+            ZStack(alignment: .top) {
                 WorkImage(workID: work.annictId)
                     .plceholderFont(.system(size: 64))
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: geometry.size.width, height: geometry.size.width * 1.5, alignment: .top)
-                    .background(Color.gray)
-                LinearGradient(gradient: gradient,
-                               startPoint: .top,
-                               endPoint: .bottom)
                     .frame(width: geometry.size.width, height: geometry.size.width * 1.5)
-                Text(work.title)
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .offset(x: 16, y: -32)
-                    .frame(maxWidth: geometry.size.width - 32, alignment: .leading)
+                ZStack(alignment: .bottomLeading) {
+                    LinearGradient(gradient: gradient,
+                                   startPoint: .top,
+                                   endPoint: .bottom)
+                        .frame(width: geometry.size.width, height: geometry.size.width * 1.51) // チラつきを防ぐために画像より大きめに
+                    Text(work.title)
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(.primary)
+                        .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))
+                }
             }
         }
     }

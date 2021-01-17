@@ -8,6 +8,7 @@
 import SwiftUI
 import KingfisherSwiftUI
 import Apollo
+import SwiftUIX
 
 struct WorkView: View {
     private let black = Color(hex: 0x222222)
@@ -17,6 +18,7 @@ struct WorkView: View {
     @State var work: SearchWorksByIdQuery.Data.SearchWork.Node?
     @State var episodes: [EpisodeFragment] = []
     @State var episodesPageInfo: SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode.PageInfo?
+    @State var isEpisodesLoading = false
 
     init(workID: Int) {
         self.workID = workID
@@ -27,8 +29,8 @@ struct WorkView: View {
             ScrollView(.vertical) {
                 if let work = work {
                     LazyVStack(alignment: .leading, spacing: 24) {
-//                        WorkHeaderView(work: work.fragments.workFragment)
-//                            .frame(width: geometry.size.width, height: geometry.size.width * 1.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        WorkHeaderView(work: work.fragments.workFragment)
+                            .frame(width: geometry.size.width, height: geometry.size.width * 1.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         Group {
                             if episodes.count > 0 {
                                 episodeSection(work: work)
@@ -62,8 +64,16 @@ struct WorkView: View {
             if let episodesPageInfo = episodesPageInfo, episodesPageInfo.hasNextPage == true {
                 HStack {
                     Spacer()
-                    WorkMoreButton {
-                        fetchMoreEpisodes()
+                    if isEpisodesLoading {
+                        ActivityIndicator()
+                            .animated(true)
+                            .style(.medium)
+                            .frame(height: 40)
+                        
+                    } else {
+                        WorkMoreButton {
+                            fetchMoreEpisodes()
+                        }
                     }
                     Spacer()
                 }
@@ -139,6 +149,7 @@ struct WorkView: View {
     }
 
     private func fetchMoreEpisodes() {
+        isEpisodesLoading = true
         guard let pageInfo = episodesPageInfo else { return }
         guard pageInfo.hasNextPage else { return }
         Network.shared.apollo.fetch(query: SearchWorkEpisodesQuery(workAnnictId: workID, first: 30, after: pageInfo.endCursor)) { result in
@@ -147,6 +158,7 @@ struct WorkView: View {
                 let nodes = data.data?.searchWorks?.nodes?.first??.episodes?.edges?.compactMap { $0?.node?.fragments.episodeFragment } ?? []
                 self.episodes.append(contentsOf: nodes)
                 self.episodesPageInfo = data.data?.searchWorks?.nodes?.first??.episodes?.pageInfo
+                isEpisodesLoading = false
             case .failure(let error):
                 print(error)
             }
