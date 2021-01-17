@@ -20,6 +20,7 @@
 		CF1E5E87259CF4CE00035D50 /* SearchWorksByID.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CF1E5E86259CF4CE00035D50 /* SearchWorksByID.graphql */; };
 		CF1E5E89259CF69E00035D50 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1E5E88259CF69E00035D50 /* API.swift */; };
 		CF2E1D93259DC19100824A3C /* GetFollowingActivities.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CF2E1D92259DC19100824A3C /* GetFollowingActivities.graphql */; };
+		CF3B2FCF25B411600017A7C0 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B2FCE25B411600017A7C0 /* SearchResultView.swift */; };
 		CF841D3D24CA626400F3723B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D3C24CA626400F3723B /* HomeViewModel.swift */; };
 		CF841D4524CA69A600F3723B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4424CA69A600F3723B /* LoginView.swift */; };
 		CF9A375D25AB3EF8003077D5 /* AnnictSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */; };
@@ -93,6 +94,7 @@
 		CF1E5E88259CF69E00035D50 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CF2A8E8525B00418001D2AF1 /* Portannict.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Portannict.entitlements; sourceTree = "<group>"; };
 		CF2E1D92259DC19100824A3C /* GetFollowingActivities.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetFollowingActivities.graphql; sourceTree = "<group>"; };
+		CF3B2FCE25B411600017A7C0 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		CF841D3C24CA626400F3723B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CF841D4424CA69A600F3723B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnictSeason.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				CFE7E5D925A70826009EB3DC /* SearchView.swift */,
 				CF13E35125AAF78A005D11F8 /* SearchViewModel.swift */,
 				CFBCA06825AB70C600C5386C /* SearchResultsView.swift */,
+				CF3B2FCE25B411600017A7C0 /* SearchResultView.swift */,
 				CFBCA06625AB709D00C5386C /* SearchRecommendedWorksView.swift */,
 				CFBCA06A25AB719B00C5386C /* SearchRecommendedWorksViewModel.swift */,
 			);
@@ -464,6 +467,7 @@
 				CFBCA06B25AB719B00C5386C /* SearchRecommendedWorksViewModel.swift in Sources */,
 				CF13E35225AAF78A005D11F8 /* SearchViewModel.swift in Sources */,
 				CFBCA06925AB70C600C5386C /* SearchResultsView.swift in Sources */,
+				CF3B2FCF25B411600017A7C0 /* SearchResultView.swift in Sources */,
 				CF08FC0924B9AD1A00CD29DD /* RootTabView.swift in Sources */,
 				CFD82D3725A63915005401AF /* Model+Extension.swift in Sources */,
 				CFE38320258E64F600CEE318 /* Env.swift in Sources */,

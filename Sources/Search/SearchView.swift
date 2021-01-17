@@ -27,7 +27,7 @@ struct SearchView: View {
                     if viewModel.searchText.isEmpty {
                         SearchRecommendedWorksView(viewModel: .init())
                     } else {
-                        SearchResultsView(works: viewModel.state.searchResultWorks)
+                        SearchResultsView(works: $viewModel.state.searchResultWorks)
                     }
                 }
                 .padding(.bottom, 40)

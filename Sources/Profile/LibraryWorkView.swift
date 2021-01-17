@@ -20,28 +20,21 @@ struct LibraryWorkView: View {
             Button(action: {
                 isPresent = true
             }, label: {
-                VStack(alignment: .leading, spacing: 0) {
-                    KFImage(work.annictId)
-                        .resizable()
-                        .placeholder {
-                            Text("No Image")
-                                .foregroundColor(.systemGray)
-                                .font(.system(size: 16))
-                                .fontWeight(.bold)
-                        }
+                ZStack(alignment: .bottom) {
+                    WorkImage(workID: work.annictId)
                         .aspectRatio(contentMode: .fill)
                         .frame(width: geometry.size.width)
-                        .background(Color(.systemGray6))
                     Text(work.title)
                         .lineLimit(2)
                         .font(.system(size: 12))
                         .foregroundColor(.primary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(8)
+                        .background(Color(.secondarySystemBackground))
                 }
+                .cornerRadius(4)
             })
-            .background(Color(.quaternarySystemFill))
-            .frame(height: geometry.size.width * 5/3)
-            .cornerRadius(4)
+//            .frame(height: geometry.size.width * 5/3)
             .sheet(isPresented: $isPresent) {
                 WorkView(workID: work.annictId)
             }
@@ -53,15 +46,15 @@ struct LibraryWorkView_Previews: PreviewProvider {
     static var previews: some View {
         LibraryWorkView(work: .dummy)
             .preferredColorScheme(.dark)
-            .frame(width: 140)
+            .frame(width: 140, height: 140 * 5/3)
             .previewLayout(.fixed(width: 200, height: 300))
         LibraryWorkView(work: .dummy3)
             .preferredColorScheme(.dark)
-            .frame(width: 140)
+            .frame(width: 140, height: 140 * 5/3)
             .previewLayout(.fixed(width: 200, height: 300))
         LibraryWorkView(work: .dummy2)
             .preferredColorScheme(.dark)
-            .frame(width: 140)
+            .frame(width: 140, height: 140 * 5/3)
             .previewLayout(.fixed(width: 200, height: 300))
     }
 }

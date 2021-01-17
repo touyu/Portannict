@@ -45,7 +45,7 @@ struct SearchRecommendedWorksView: View {
                 } else {
                     LazyVStack(alignment: .leading, spacing: 16) {
                         ForEach(viewModel.state.recomendedWorks.indices, id: \.self) { index in
-                            let work = viewModel.state.recomendedWorks[index]
+                            let work = $viewModel.state.recomendedWorks[index]
                             SearchResultView(work: work)
                         }
                     }
