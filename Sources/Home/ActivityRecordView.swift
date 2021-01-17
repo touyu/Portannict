@@ -12,10 +12,15 @@ import SkeletonUI
 struct ActivityRecordView: View {
     @Binding var record: RecordFragment
 
-    var selectStateAction: ((StatusState) -> Void)?
+    init(record: Binding<RecordFragment>) {
+        self._record = record
+    }
 
-    @State var isPresentedWorkView: Bool = false
-    @State var isPresentedUserView: Bool = false
+    @State private var isPresentedWorkView: Bool = false
+    @State private var isPresentedUserView: Bool = false
+
+    private var selectStateAction: ((StatusState) -> Void)?
+    private var isHiddenQuote = false
 
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
@@ -50,10 +55,12 @@ struct ActivityRecordView: View {
                     Text(comemnt)
                         .font(.body)
                 }
-                QuoteWorkView(work: $record.work.fragments.workFragment, episode: record.episode.fragments.episodeFragment)
-                    .onSelectState { state in
-                        selectStateAction?(state)
-                    }
+                if !isHiddenQuote {
+                    QuoteWorkView(work: $record.work.fragments.workFragment, episode: record.episode.fragments.episodeFragment)
+                        .onSelectState { state in
+                            selectStateAction?(state)
+                        }
+                }
             }
         }
     }
@@ -61,6 +68,12 @@ struct ActivityRecordView: View {
     func onSelectState(_ action: @escaping (StatusState) -> Void) -> ActivityRecordView {
         var result = self
         result.selectStateAction = action
+        return result
+    }
+
+    func hideQuote() -> ActivityRecordView {
+        var result = self
+        result.isHiddenQuote = true
         return result
     }
 }

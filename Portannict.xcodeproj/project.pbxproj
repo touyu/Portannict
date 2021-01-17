@@ -32,6 +32,7 @@
 		CF3B2FE325B493960017A7C0 /* AllRatingsStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B2FE225B493960017A7C0 /* AllRatingsStateView.swift */; };
 		CF3BC74D25B495E90046631F /* EpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3BC74C25B495E90046631F /* EpisodeView.swift */; };
 		CF3BC74F25B4A0590046631F /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3BC74E25B4A0590046631F /* Identifiable.swift */; };
+		CF3BC75125B4A1A70046631F /* SearchEpisodes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CF3BC75025B4A1A70046631F /* SearchEpisodes.graphql */; };
 		CF841D3D24CA626400F3723B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D3C24CA626400F3723B /* HomeViewModel.swift */; };
 		CF841D4524CA69A600F3723B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4424CA69A600F3723B /* LoginView.swift */; };
 		CF9A375D25AB3EF8003077D5 /* AnnictSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */; };
@@ -117,6 +118,7 @@
 		CF3B2FE225B493960017A7C0 /* AllRatingsStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRatingsStateView.swift; sourceTree = "<group>"; };
 		CF3BC74C25B495E90046631F /* EpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeView.swift; sourceTree = "<group>"; };
 		CF3BC74E25B4A0590046631F /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		CF3BC75025B4A1A70046631F /* SearchEpisodes.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchEpisodes.graphql; sourceTree = "<group>"; };
 		CF841D3C24CA626400F3723B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CF841D4424CA69A600F3723B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnictSeason.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				CFBCA06425AB6B0E00C5386C /* UpdateStatus.graphql */,
 				CF3B2FD025B42D1E0017A7C0 /* SearchWorkEpisodes.graphql */,
 				CF3B2FD625B46F710017A7C0 /* SearchWorkReviews.graphql */,
+				CF3BC75025B4A1A70046631F /* SearchEpisodes.graphql */,
 			);
 			path = Query;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				CF08FC0B24B9AD1A00CD29DD /* Assets.xcassets in Resources */,
 				CF13E35025AAF38D005D11F8 /* SearchWorksBySeason.graphql in Resources */,
 				CFE7E5D425A700E8009EB3DC /* GetViewerWorks.graphql in Resources */,
+				CF3BC75125B4A1A70046631F /* SearchEpisodes.graphql in Resources */,
 				CF1E5E87259CF4CE00035D50 /* SearchWorksByID.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

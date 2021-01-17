@@ -10,16 +10,38 @@ import SwiftUI
 struct EpisodeView: View {
     let episode: EpisodeFragment
 
+    @State private var records: [RecordFragment] = []
+
     var body: some View {
         ScrollView(.vertical) {
-            LazyVStack(alignment: .leading, spacing: 8) {
+            LazyVStack(alignment: .leading, spacing: 24) {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(episode.numberText)
                         .font(.headline, weight: .bold)
                     Text(episode.title)
                         .font(.title, weight: .bold)
                 }
-                .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
+//                .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0))
+                ForEach(records.indices, id: \.self) { index in
+                    ActivityRecordView(record: $records[index])
+                        .hideQuote()
+                }
+            }
+            .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
+        }
+        .onAppear {
+            fetch()
+        }
+    }
+
+    private func fetch() {
+        let query = SearchEpisodeRecordsQuery(annictId: episode.annictId, first: 30, after: nil)
+        Network.shared.apollo.fetch(query: query) { result in
+            switch result {
+            case .success(let data):
+                self.records = data.data?.searchEpisodes?.edges?.first??.node?.records?.edges?.compactMap { $0?.node?.fragments.recordFragment } ?? []
+            case .failure(let error):
+                print(error)
             }
         }
     }

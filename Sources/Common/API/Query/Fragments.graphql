@@ -77,8 +77,8 @@ fragment ReviewFragment on Review {
 }
 
 fragment PageInfoFragment on PageInfo {
-  hasNextPage
-  hasPreviousPage
-  endCursor
-  startCursor
+	hasNextPage
+	hasPreviousPage
+	endCursor
+	startCursor
 }
