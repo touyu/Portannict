@@ -1,5 +1,5 @@
 {
-  "a84b63d64f36512aea6ae54594f2c88d8cf24105187cde1195cfae980e5dcc1a": {
+  "6c004fdf49fe0eb0fff3f8488ac0e096fad0793a4b8a563ed0e0b989b294b4d7": {
     "name": "GetFollowingActivities",
     "source": "query GetFollowingActivities($first: Int, $after: String) {\n  viewer {\n    __typename\n    followingActivities(first: $first, after: $after, orderBy: {field: CREATED_AT, direction: DESC}) {\n      __typename\n      edges {\n        __typename\n        cursor\n        node {\n          __typename\n          ... on Record {\n            ...RecordFragment\n          }\n          ... on Review {\n            ...ReviewFragment\n          }\n          ... on Status {\n            ...StatusFragment\n          }\n          ... on MultipleRecord {\n            id\n          }\n        }\n      }\n      pageInfo {\n        __typename\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}"
   },
@@ -15,7 +15,7 @@
     "name": "GetViewerWorks",
     "source": "query GetViewerWorks($first: Int, $after: String, $state: StatusState!) {\n  viewer {\n    __typename\n    works(first: $first, after: $after, state: $state, orderBy: {direction: DESC, field: WATCHERS_COUNT}) {\n      __typename\n      edges {\n        __typename\n        node {\n          __typename\n          ...WorkFragment\n        }\n      }\n    }\n  }\n}"
   },
-  "cfca8215e8436403c0bee3022caf49dc6f401da7b34e4f43572fca5c7a0a9140": {
+  "bc7fdd907a96b06744895095e150fc76b0f84cf9bb99393a4a531d13618a376d": {
     "name": "SearchWorkEpisodes",
     "source": "query SearchWorkEpisodes($workAnnictId: Int!, $first: Int, $after: String) {\n  searchWorks(annictIds: [$workAnnictId]) {\n    __typename\n    nodes {\n      __typename\n      ...WorkFragment\n      episodes(first: $first, after: $after, orderBy: {direction: ASC, field: SORT_NUMBER}) {\n        __typename\n        edges {\n          __typename\n          node {\n            __typename\n            ...EpisodeFragment\n          }\n        }\n        pageInfo {\n          __typename\n          endCursor\n          hasNextPage\n        }\n      }\n    }\n  }\n}"
   },

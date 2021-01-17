@@ -147,7 +147,7 @@ struct QuoteWorkView_Previews: PreviewProvider {
     static var previews: some View {
         QuoteWorkView(work: .constant(WorkFragment.dummy))
             .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/375.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/))
-        QuoteWorkView(work: .constant(WorkFragment.dummy), episode: EpisodeFragment(id: "", annictId: 0, numberText: "第1話", title: "冒険の始まり"))
+        QuoteWorkView(work: .constant(WorkFragment.dummy), episode: EpisodeFragment(id: "", annictId: 0, title: "冒険の始まり", numberText: "第1話", viewerRecordsCount: 0))
             .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/375.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/))
     }
 }

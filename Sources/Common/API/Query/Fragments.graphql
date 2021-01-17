@@ -57,13 +57,6 @@ fragment UserFragment on User {
 	description
 }
 
-fragment EpisodeFragment on Episode {
-	id
-	annictId
-	numberText
-	title
-}
-
 fragment ReviewFragment on Review {
   id
   annictId

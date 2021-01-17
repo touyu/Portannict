@@ -261,7 +261,7 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
 
   public let operationName: String = "GetFollowingActivities"
 
-  public let operationIdentifier: String? = "a84b63d64f36512aea6ae54594f2c88d8cf24105187cde1195cfae980e5dcc1a"
+  public let operationIdentifier: String? = "6c004fdf49fe0eb0fff3f8488ac0e096fad0793a4b8a563ed0e0b989b294b4d7"
 
   public var queryDocument: String { return operationDefinition.appending(RecordFragment.fragmentDefinition).appending(UserFragment.fragmentDefinition).appending(WorkFragment.fragmentDefinition).appending(EpisodeFragment.fragmentDefinition).appending(ReviewFragment.fragmentDefinition).appending(StatusFragment.fragmentDefinition) }
 
@@ -904,8 +904,9 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                     GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
                     GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
                     GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
-                    GraphQLField("numberText", type: .scalar(String.self)),
                     GraphQLField("title", type: .scalar(String.self)),
+                    GraphQLField("numberText", type: .scalar(String.self)),
+                    GraphQLField("viewerRecordsCount", type: .nonNull(.scalar(Int.self))),
                   ]
                 }
 
@@ -915,8 +916,8 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                   self.resultMap = unsafeResultMap
                 }
 
-                public init(id: GraphQLID, annictId: Int, numberText: String? = nil, title: String? = nil) {
-                  self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "numberText": numberText, "title": title])
+                public init(id: GraphQLID, annictId: Int, title: String? = nil, numberText: String? = nil, viewerRecordsCount: Int) {
+                  self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "title": title, "numberText": numberText, "viewerRecordsCount": viewerRecordsCount])
                 }
 
                 public var __typename: String {
@@ -946,6 +947,15 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                   }
                 }
 
+                public var title: String? {
+                  get {
+                    return resultMap["title"] as? String
+                  }
+                  set {
+                    resultMap.updateValue(newValue, forKey: "title")
+                  }
+                }
+
                 public var numberText: String? {
                   get {
                     return resultMap["numberText"] as? String
@@ -955,12 +965,12 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
                   }
                 }
 
-                public var title: String? {
+                public var viewerRecordsCount: Int {
                   get {
-                    return resultMap["title"] as? String
+                    return resultMap["viewerRecordsCount"]! as! Int
                   }
                   set {
-                    resultMap.updateValue(newValue, forKey: "title")
+                    resultMap.updateValue(newValue, forKey: "viewerRecordsCount")
                   }
                 }
 
@@ -2627,7 +2637,7 @@ public final class SearchWorkEpisodesQuery: GraphQLQuery {
 
   public let operationName: String = "SearchWorkEpisodes"
 
-  public let operationIdentifier: String? = "cfca8215e8436403c0bee3022caf49dc6f401da7b34e4f43572fca5c7a0a9140"
+  public let operationIdentifier: String? = "bc7fdd907a96b06744895095e150fc76b0f84cf9bb99393a4a531d13618a376d"
 
   public var queryDocument: String { return operationDefinition.appending(WorkFragment.fragmentDefinition).appending(EpisodeFragment.fragmentDefinition) }
 
@@ -2975,8 +2985,9 @@ public final class SearchWorkEpisodesQuery: GraphQLQuery {
                   GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
                   GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
                   GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
-                  GraphQLField("numberText", type: .scalar(String.self)),
                   GraphQLField("title", type: .scalar(String.self)),
+                  GraphQLField("numberText", type: .scalar(String.self)),
+                  GraphQLField("viewerRecordsCount", type: .nonNull(.scalar(Int.self))),
                 ]
               }
 
@@ -2986,8 +2997,8 @@ public final class SearchWorkEpisodesQuery: GraphQLQuery {
                 self.resultMap = unsafeResultMap
               }
 
-              public init(id: GraphQLID, annictId: Int, numberText: String? = nil, title: String? = nil) {
-                self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "numberText": numberText, "title": title])
+              public init(id: GraphQLID, annictId: Int, title: String? = nil, numberText: String? = nil, viewerRecordsCount: Int) {
+                self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "title": title, "numberText": numberText, "viewerRecordsCount": viewerRecordsCount])
               }
 
               public var __typename: String {
@@ -3017,6 +3028,15 @@ public final class SearchWorkEpisodesQuery: GraphQLQuery {
                 }
               }
 
+              public var title: String? {
+                get {
+                  return resultMap["title"] as? String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "title")
+                }
+              }
+
               public var numberText: String? {
                 get {
                   return resultMap["numberText"] as? String
@@ -3026,12 +3046,12 @@ public final class SearchWorkEpisodesQuery: GraphQLQuery {
                 }
               }
 
-              public var title: String? {
+              public var viewerRecordsCount: Int {
                 get {
-                  return resultMap["title"] as? String
+                  return resultMap["viewerRecordsCount"]! as! Int
                 }
                 set {
-                  resultMap.updateValue(newValue, forKey: "title")
+                  resultMap.updateValue(newValue, forKey: "viewerRecordsCount")
                 }
               }
 
@@ -4539,8 +4559,9 @@ public struct EpisodeFragment: GraphQLFragment {
       __typename
       id
       annictId
-      numberText
       title
+      numberText
+      viewerRecordsCount
     }
     """
 
@@ -4551,8 +4572,9 @@ public struct EpisodeFragment: GraphQLFragment {
       GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
       GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
       GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
-      GraphQLField("numberText", type: .scalar(String.self)),
       GraphQLField("title", type: .scalar(String.self)),
+      GraphQLField("numberText", type: .scalar(String.self)),
+      GraphQLField("viewerRecordsCount", type: .nonNull(.scalar(Int.self))),
     ]
   }
 
@@ -4562,8 +4584,8 @@ public struct EpisodeFragment: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(id: GraphQLID, annictId: Int, numberText: String? = nil, title: String? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "numberText": numberText, "title": title])
+  public init(id: GraphQLID, annictId: Int, title: String? = nil, numberText: String? = nil, viewerRecordsCount: Int) {
+    self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "title": title, "numberText": numberText, "viewerRecordsCount": viewerRecordsCount])
   }
 
   public var __typename: String {
@@ -4593,6 +4615,15 @@ public struct EpisodeFragment: GraphQLFragment {
     }
   }
 
+  public var title: String? {
+    get {
+      return resultMap["title"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "title")
+    }
+  }
+
   public var numberText: String? {
     get {
       return resultMap["numberText"] as? String
@@ -4602,12 +4633,12 @@ public struct EpisodeFragment: GraphQLFragment {
     }
   }
 
-  public var title: String? {
+  public var viewerRecordsCount: Int {
     get {
-      return resultMap["title"] as? String
+      return resultMap["viewerRecordsCount"]! as! Int
     }
     set {
-      resultMap.updateValue(newValue, forKey: "title")
+      resultMap.updateValue(newValue, forKey: "viewerRecordsCount")
     }
   }
 }
@@ -5016,8 +5047,9 @@ public struct RecordFragment: GraphQLFragment {
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
         GraphQLField("annictId", type: .nonNull(.scalar(Int.self))),
-        GraphQLField("numberText", type: .scalar(String.self)),
         GraphQLField("title", type: .scalar(String.self)),
+        GraphQLField("numberText", type: .scalar(String.self)),
+        GraphQLField("viewerRecordsCount", type: .nonNull(.scalar(Int.self))),
       ]
     }
 
@@ -5027,8 +5059,8 @@ public struct RecordFragment: GraphQLFragment {
       self.resultMap = unsafeResultMap
     }
 
-    public init(id: GraphQLID, annictId: Int, numberText: String? = nil, title: String? = nil) {
-      self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "numberText": numberText, "title": title])
+    public init(id: GraphQLID, annictId: Int, title: String? = nil, numberText: String? = nil, viewerRecordsCount: Int) {
+      self.init(unsafeResultMap: ["__typename": "Episode", "id": id, "annictId": annictId, "title": title, "numberText": numberText, "viewerRecordsCount": viewerRecordsCount])
     }
 
     public var __typename: String {
@@ -5058,6 +5090,15 @@ public struct RecordFragment: GraphQLFragment {
       }
     }
 
+    public var title: String? {
+      get {
+        return resultMap["title"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "title")
+      }
+    }
+
     public var numberText: String? {
       get {
         return resultMap["numberText"] as? String
@@ -5067,12 +5108,12 @@ public struct RecordFragment: GraphQLFragment {
       }
     }
 
-    public var title: String? {
+    public var viewerRecordsCount: Int {
       get {
-        return resultMap["title"] as? String
+        return resultMap["viewerRecordsCount"]! as! Int
       }
       set {
-        resultMap.updateValue(newValue, forKey: "title")
+        resultMap.updateValue(newValue, forKey: "viewerRecordsCount")
       }
     }
 

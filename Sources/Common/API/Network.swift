@@ -37,8 +37,10 @@ final class Network {
 
         // Remember to give the store you already created to the client so it
         // doesn't create one on its own
-        return ApolloClient(networkTransport: requestChainTransport,
+        let apolloClient = ApolloClient(networkTransport: requestChainTransport,
                             store: store)
+        apolloClient.cacheKeyForObject = { $0["id"] }
+        return apolloClient
     }()
 }
 

@@ -22,6 +22,7 @@
 		CF2E1D93259DC19100824A3C /* GetFollowingActivities.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CF2E1D92259DC19100824A3C /* GetFollowingActivities.graphql */; };
 		CF3B2FCF25B411600017A7C0 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B2FCE25B411600017A7C0 /* SearchResultView.swift */; };
 		CF3B2FD125B42D1E0017A7C0 /* SearchWorkEpisodes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CF3B2FD025B42D1E0017A7C0 /* SearchWorkEpisodes.graphql */; };
+		CF3B2FD325B44F680017A7C0 /* StatusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B2FD225B44F680017A7C0 /* StatusButton.swift */; };
 		CF841D3D24CA626400F3723B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D3C24CA626400F3723B /* HomeViewModel.swift */; };
 		CF841D4524CA69A600F3723B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4424CA69A600F3723B /* LoginView.swift */; };
 		CF9A375D25AB3EF8003077D5 /* AnnictSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */; };
@@ -97,6 +98,7 @@
 		CF2E1D92259DC19100824A3C /* GetFollowingActivities.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetFollowingActivities.graphql; sourceTree = "<group>"; };
 		CF3B2FCE25B411600017A7C0 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		CF3B2FD025B42D1E0017A7C0 /* SearchWorkEpisodes.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchWorkEpisodes.graphql; sourceTree = "<group>"; };
+		CF3B2FD225B44F680017A7C0 /* StatusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusButton.swift; sourceTree = "<group>"; };
 		CF841D3C24CA626400F3723B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CF841D4424CA69A600F3723B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnictSeason.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 		CFADCD0325A5A34F00939DA7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CF3B2FD225B44F680017A7C0 /* StatusButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				CFE7E5CA25A6E71C009EB3DC /* UserHeaderView.swift in Sources */,
 				CF841D4524CA69A600F3723B /* LoginView.swift in Sources */,
 				CFE38315258E610F00CEE318 /* RootViewModel.swift in Sources */,
+				CF3B2FD325B44F680017A7C0 /* StatusButton.swift in Sources */,
 				CFFDC8B5259CCAFE001C8E29 /* WorkHeaderView.swift in Sources */,
 				CFC03EFF259483DA001516D3 /* HTTPClient.swift in Sources */,
 				CFD82D3525A630E7005401AF /* RatingStateView.swift in Sources */,

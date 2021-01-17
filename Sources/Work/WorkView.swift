@@ -15,10 +15,12 @@ struct WorkView: View {
 
     let workID: Int
 
-    @State var work: SearchWorksByIdQuery.Data.SearchWork.Node?
+    @State var work: WorkFragment?
     @State var episodes: [EpisodeFragment] = []
     @State var episodesPageInfo: SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode.PageInfo?
     @State var isEpisodesLoading = false
+
+    @State private var showingActionSheet = false
 
     init(workID: Int) {
         self.workID = workID
@@ -29,8 +31,24 @@ struct WorkView: View {
             ScrollView(.vertical) {
                 if let work = work {
                     LazyVStack(alignment: .leading, spacing: 24) {
-                        WorkHeaderView(work: work.fragments.workFragment)
-                            .frame(width: geometry.size.width, height: geometry.size.width * 1.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        WorkHeaderView(work: work)
+                            .frame(width: geometry.size.width, height: geometry.size.width * 1.5, alignment: .center)
+                        StatusButton(state: work.viewerStatusState ?? .noState) {
+                            showingActionSheet = true
+                        }
+                        .frame(height: 44)
+                        .padding(.init(top: 0, leading: 16, bottom: 16, trailing: 16))
+                        .actionSheet(isPresented: $showingActionSheet) {
+                            var buttons = StatusState.allCases[0...4]
+                                .map { state in
+                                    return ActionSheet.Button.default(Text(state.title)) {
+                                        self.work?.viewerStatusState = state
+                                        updateStatus(id: work.id, state: state)
+                                    }
+                                }
+                            buttons.append(.cancel())
+                            return ActionSheet(title: Text("ステータスを変更"), buttons: buttons)
+                        }
                         Group {
                             if episodes.count > 0 {
                                 episodeSection(work: work)
@@ -51,8 +69,8 @@ struct WorkView: View {
         }
     }
 
-    private func episodeSection(work: SearchWorksByIdQuery.Data.SearchWork.Node) -> some View {
-        LazyVStack(alignment: .leading, spacing: 16) {
+    private func episodeSection(work: WorkFragment) -> some View {
+        LazyVStack(alignment: .leading, spacing: 20) {
             Text("Episodes \(work.episodesCount)")
                 .font(.title2)
                 .fontWeight(.bold)
@@ -129,7 +147,7 @@ struct WorkView: View {
         Network.shared.apollo.fetch(query: SearchWorksByIdQuery(annictId: workID)) { result in
             switch result {
             case .success(let data):
-                self.work = data.data?.searchWorks?.nodes?.first ?? nil
+                self.work = data.data?.searchWorks?.nodes?.first??.fragments.workFragment ?? nil
             case .failure(let error):
                 print(error)
             }
@@ -137,7 +155,7 @@ struct WorkView: View {
     }
 
     private func fetchEpisodes() {
-        Network.shared.apollo.fetch(query: SearchWorkEpisodesQuery(workAnnictId: workID, first: 5)) { result in
+        Network.shared.apollo.fetch(query: SearchWorkEpisodesQuery(workAnnictId: workID, first: 30)) { result in
             switch result {
             case .success(let data):
                 self.episodes = data.data?.searchWorks?.nodes?.first??.episodes?.edges?.compactMap { $0?.node?.fragments.episodeFragment } ?? []
@@ -164,6 +182,19 @@ struct WorkView: View {
             }
         }
     }
+
+    private func updateStatus(id: GraphQLID, state: StatusState) {
+        let mutation = UpdateStatusMutation(workId: id, state: state)
+        Network.shared.apollo.perform(mutation: mutation) { result in
+            switch result {
+            case .success(let data):
+                guard let work = data.data?.updateStatus?.work?.fragments.workFragment else { return }
+                self.work?.viewerStatusState = work.viewerStatusState
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
 
 struct WorkView_Previews: PreviewProvider {
@@ -176,11 +207,19 @@ struct WorkEpisodeCell: View {
     let episode: EpisodeFragment
 
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(episode.numberText ?? "Unknown")
-                .font(.system(size: 14))
-            Text(episode.title ?? "Unknown")
-                .font(.system(size: 16))
+        HStack {
+            VStack(alignment: .leading) {
+                Text(episode.numberText ?? "Unknown")
+                    .font(.system(size: 14))
+                Text(episode.title ?? "Unknown")
+                    .font(.system(size: 16))
+            }
+            Spacer()
+            Text("\(episode.viewerRecordsCount)")
+                .frame(height: 20)
+                .padding(EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16))
+                .background(Color.secondarySystemBackground)
+                .cornerRadius(18)
         }
     }
 }
