@@ -19,6 +19,7 @@ struct UserView: View {
         VStack {
             if let user = user {
                 UserHeaderView(user: user)
+                    .hideSettingButton()
                     .padding(.init(top: 0, leading: 16, bottom: 0, trailing: 16))
             }
         }

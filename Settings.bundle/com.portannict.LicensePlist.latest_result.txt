@@ -1,0 +1,31 @@
+name: apollo-ios, nameSpecified: Apollo, owner: apollographql, version: 0.39.0
+
+name: Fluxer, nameSpecified: Fluxer, owner: touyu, version: 
+
+name: InflectorKit, nameSpecified: InflectorKit, owner: apollographql, version: 0.0.2
+
+name: Kingfisher, nameSpecified: Kingfisher, owner: onevcat, version: 5.15.8
+
+name: PathKit, nameSpecified: PathKit, owner: kylef, version: 1.0.0
+
+name: SkeletonUI, nameSpecified: SkeletonUI, owner: CSolanaM, version: 1.0.5
+
+name: Spectre, nameSpecified: Spectre, owner: kylef, version: 0.9.2
+
+name: SQLite.swift, nameSpecified: SQLite.swift, owner: stephencelis, version: 0.12.2
+
+name: Starscream, nameSpecified: Starscream, owner: daltoniam, version: 3.1.1
+
+name: Stencil, nameSpecified: Stencil, owner: stencilproject, version: 0.14.0
+
+name: swift-nio-zlib-support, nameSpecified: swift-nio-zlib-support, owner: apple, version: 1.0.0
+
+name: swift-snapshot-testing, nameSpecified: SnapshotTesting, owner: pointfreeco, version: 1.8.2
+
+name: SwiftDate, nameSpecified: SwiftDate, owner: malcommac, version: 6.3.1
+
+name: SwiftUIX, nameSpecified: SwiftUIX, owner: SwiftUIX, version: 0.0.5
+
+add-version-numbers: false
+
+LicensePlist Version: 3.0.5

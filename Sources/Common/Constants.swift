@@ -16,6 +16,7 @@ struct Constants {
     static var clientID = envValues["AnnictClientID"] as! String
     static var clientSecret = envValues["AnnictClientSecret"] as! String
     static let baseImageURL = envValues["BaseImageURL"] as! String
+    static let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
 
     static var oauthURL: URL! {
         var oauthURL = "\(rootURI)/oauth/authorize"

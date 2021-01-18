@@ -69,7 +69,7 @@ final class SearchViewModel: ViewModel {
     }
 
     private func search(title: String) -> AnyPublisher<SearchWorksByTitlesQuery.Data, Error> {
-        let query = SearchWorksByTitlesQuery(first: 100, after: nil, titles: [title])
+        let query = SearchWorksByTitlesQuery(first: 30, after: nil, titles: [title])
         return Network.shared.apollo.fetch(query: query)
     }
 }
