@@ -58,6 +58,7 @@
 		CFCE3E3725B5C425000CFF34 /* Licenses.html in Resources */ = {isa = PBXBuildFile; fileRef = CFCE3E3625B5C425000CFF34 /* Licenses.html */; };
 		CFCE3E3925B60B3A000CFF34 /* WorkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCE3E3825B60B3A000CFF34 /* WorkImageView.swift */; };
 		CFCE3E3B25B60C85000CFF34 /* AvatarIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCE3E3A25B60C85000CFF34 /* AvatarIImageView.swift */; };
+		CFCE3E3D25B610C8000CFF34 /* Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCE3E3C25B610C8000CFF34 /* Safe.swift */; };
 		CFD82D3525A630E7005401AF /* RatingStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD82D3425A630E7005401AF /* RatingStateView.swift */; };
 		CFD82D3725A63915005401AF /* Model+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD82D3625A63915005401AF /* Model+Extension.swift */; };
 		CFD82D3A25A63F8E005401AF /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = CFD82D3925A63F8E005401AF /* SwiftDate */; };
@@ -149,6 +150,7 @@
 		CFCE3E3625B5C425000CFF34 /* Licenses.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Licenses.html; sourceTree = "<group>"; };
 		CFCE3E3825B60B3A000CFF34 /* WorkImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkImageView.swift; sourceTree = "<group>"; };
 		CFCE3E3A25B60C85000CFF34 /* AvatarIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarIImageView.swift; sourceTree = "<group>"; };
+		CFCE3E3C25B610C8000CFF34 /* Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Safe.swift; sourceTree = "<group>"; };
 		CFD82D3425A630E7005401AF /* RatingStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStateView.swift; sourceTree = "<group>"; };
 		CFD82D3625A63915005401AF /* Model+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model+Extension.swift"; sourceTree = "<group>"; };
 		CFD82D3B25A64157005401AF /* GetViewer.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetViewer.graphql; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 		CFADCD0325A5A34F00939DA7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CFCE3E3C25B610C8000CFF34 /* Safe.swift */,
 				CFCE3E3225B5BC09000CFF34 /* WebView.swift */,
 				CF3B2FD225B44F680017A7C0 /* StatusButton.swift */,
 				CFD82D3425A630E7005401AF /* RatingStateView.swift */,
@@ -331,13 +334,13 @@
 		CFE38316258E621400CEE318 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */,
 				CFADCD0325A5A34F00939DA7 /* Views */,
 				CFBB73B525A575CD00601DCB /* Extension */,
 				CFE38317258E621A00CEE318 /* API */,
 				CFE3831D258E628C00CEE318 /* Constants.swift */,
 				CFE3831F258E64F600CEE318 /* Env.swift */,
 				CFC03F0625959BDD001516D3 /* LoginSession.swift */,
+				CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -580,6 +583,7 @@
 				CF3B2FDD25B484F20017A7C0 /* Color.swift in Sources */,
 				CFCE3E3325B5BC09000CFF34 /* WebView.swift in Sources */,
 				CFE7E5C525A6D65A009EB3DC /* LibraryWorksView.swift in Sources */,
+				CFCE3E3D25B610C8000CFF34 /* Safe.swift in Sources */,
 				CF3B2FE325B493960017A7C0 /* AllRatingsStateView.swift in Sources */,
 				CFE7E5CA25A6E71C009EB3DC /* UserHeaderView.swift in Sources */,
 				CF3B2FDF25B485230017A7C0 /* WorkReviewCell.swift in Sources */,

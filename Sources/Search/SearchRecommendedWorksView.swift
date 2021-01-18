@@ -57,14 +57,15 @@ struct SearchRecommendedWorksView: View {
                 } else {
                     LazyVStack(alignment: .leading, spacing: 16) {
                         ForEach(viewModel.state.recomendedWorks.indices, id: \.self) { index in
-                            let work = $viewModel.state.recomendedWorks[index]
-                            Button(action: {
-                                presentation = .work(work.wrappedValue)
-                            }, label: {
-//                                SearchResultView(work: work)
-                                Text(work.wrappedValue.title)
-                            })
-                            .accentColor(.primary)
+                            let work = $viewModel.state.recomendedWorks
+                            Safe(work, index: index) { work in
+                                Button(action: {
+                                    presentation = .work(work.wrappedValue)
+                                }, label: {
+                                    SearchResultView(work: work)
+                                })
+                                .accentColor(.primary)
+                            }
                         }
                     }
                 }
