@@ -61,16 +61,17 @@ struct SearchRecommendedWorksView: View {
                             Button(action: {
                                 presentation = .work(work.wrappedValue)
                             }, label: {
-                                SearchResultView(work: work)
+//                                SearchResultView(work: work)
+                                Text(work.wrappedValue.title)
                             })
                             .accentColor(.primary)
-                            .sheet(item: $presentation) { $0 }
                         }
                     }
                 }
             }
         }
         .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12))
+        .sheet(item: $presentation) { $0 }
         .onAppear {
             viewModel.action.send(.fetch(.current))
         }

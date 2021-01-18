@@ -56,6 +56,8 @@
 		CFCE3E3325B5BC09000CFF34 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCE3E3225B5BC09000CFF34 /* WebView.swift */; };
 		CFCE3E3525B5BDDE000CFF34 /* LicensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCE3E3425B5BDDE000CFF34 /* LicensesView.swift */; };
 		CFCE3E3725B5C425000CFF34 /* Licenses.html in Resources */ = {isa = PBXBuildFile; fileRef = CFCE3E3625B5C425000CFF34 /* Licenses.html */; };
+		CFCE3E3925B60B3A000CFF34 /* WorkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCE3E3825B60B3A000CFF34 /* WorkImageView.swift */; };
+		CFCE3E3B25B60C85000CFF34 /* AvatarIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCE3E3A25B60C85000CFF34 /* AvatarIImageView.swift */; };
 		CFD82D3525A630E7005401AF /* RatingStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD82D3425A630E7005401AF /* RatingStateView.swift */; };
 		CFD82D3725A63915005401AF /* Model+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD82D3625A63915005401AF /* Model+Extension.swift */; };
 		CFD82D3A25A63F8E005401AF /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = CFD82D3925A63F8E005401AF /* SwiftDate */; };
@@ -145,6 +147,8 @@
 		CFCE3E3225B5BC09000CFF34 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		CFCE3E3425B5BDDE000CFF34 /* LicensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesView.swift; sourceTree = "<group>"; };
 		CFCE3E3625B5C425000CFF34 /* Licenses.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Licenses.html; sourceTree = "<group>"; };
+		CFCE3E3825B60B3A000CFF34 /* WorkImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkImageView.swift; sourceTree = "<group>"; };
+		CFCE3E3A25B60C85000CFF34 /* AvatarIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarIImageView.swift; sourceTree = "<group>"; };
 		CFD82D3425A630E7005401AF /* RatingStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStateView.swift; sourceTree = "<group>"; };
 		CFD82D3625A63915005401AF /* Model+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model+Extension.swift"; sourceTree = "<group>"; };
 		CFD82D3B25A64157005401AF /* GetViewer.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetViewer.graphql; sourceTree = "<group>"; };
@@ -280,6 +284,8 @@
 				CF3B2FD225B44F680017A7C0 /* StatusButton.swift */,
 				CFD82D3425A630E7005401AF /* RatingStateView.swift */,
 				CF3B2FE225B493960017A7C0 /* AllRatingsStateView.swift */,
+				CFCE3E3825B60B3A000CFF34 /* WorkImageView.swift */,
+				CFCE3E3A25B60C85000CFF34 /* AvatarIImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -561,6 +567,7 @@
 				CFE7E5D725A7077D009EB3DC /* RecordView.swift in Sources */,
 				CF08FC1624B9AFC500CD29DD /* ProfileView.swift in Sources */,
 				CF3B2FDB25B484DC0017A7C0 /* WorkMoreButton.swift in Sources */,
+				CFCE3E3925B60B3A000CFF34 /* WorkImageView.swift in Sources */,
 				CFBB73B725A575D700601DCB /* KFImage.swift in Sources */,
 				CF3BC74D25B495E90046631F /* EpisodeView.swift in Sources */,
 				CFE3831E258E628C00CEE318 /* Constants.swift in Sources */,
@@ -590,6 +597,7 @@
 				CF1E5E89259CF69E00035D50 /* API.swift in Sources */,
 				CFBCA06725AB709D00C5386C /* SearchRecommendedWorksView.swift in Sources */,
 				CFE7E5DA25A70826009EB3DC /* SearchView.swift in Sources */,
+				CFCE3E3B25B60C85000CFF34 /* AvatarIImageView.swift in Sources */,
 				CFB9BA76259DCA7500C51708 /* ActivityRecordView.swift in Sources */,
 				CFE7E5C825A6E6D7009EB3DC /* UserView.swift in Sources */,
 				CF08FC0724B9AD1A00CD29DD /* PortannictApp.swift in Sources */,

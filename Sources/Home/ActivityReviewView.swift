@@ -13,10 +13,7 @@ struct ActivityReviewView: View {
 
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
-            KFImage(review.user.avatarUrl)
-                .resizable()
-                .clipShape(Circle())
-                .foregroundColor(.gray)
+            AvatarImageView(review.user.avatarUrl)
                 .frame(width: 40, height: 40, alignment: .leading)
             VStack(alignment: .leading, spacing: 12) {
                 HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {

@@ -24,10 +24,7 @@ struct ActivityRecordView: View {
 
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
-            KFImage(record.user.avatarUrl)
-                .resizable()
-                .clipShape(Circle())
-                .foregroundColor(.gray)
+            AvatarImageView(record.user.avatarUrl)
                 .frame(width: 40, height: 40, alignment: .leading)
                 .onTapGesture {
                     isPresentedUserView = true

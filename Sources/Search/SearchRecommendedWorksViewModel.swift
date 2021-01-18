@@ -63,7 +63,7 @@ final class SearchRecommendedWorksViewModel: ViewModel {
     }
 
     private func fetch(season: AnnictSeason) -> AnyPublisher<SearchWorksBySeasonQuery.Data, Error> {
-        let query = SearchWorksBySeasonQuery(first: 100, after: nil, seasons: [season.id])
+        let query = SearchWorksBySeasonQuery(first: 30, after: nil, seasons: [season.id])
         return Network.shared.apollo.fetch(query: query)
     }
 }
