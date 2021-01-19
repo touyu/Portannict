@@ -153,28 +153,6 @@ struct WorkView: View {
         }
     }
 
-    private func charactorsSection(work: SearchWorksByIdQuery.Data.SearchWork.Node) -> some View {
-        LazyVStack(alignment: .leading, spacing: 16) {
-            Text("Charactors \(work.episodesCount)")
-                .font(.title2)
-                .fontWeight(.bold)
-            ForEach(episodes.indices) { index in
-                if let episode = episodes[index] {
-                    WorkEpisodeCell(episode: episode)
-                }
-            }
-            Button(action: {
-
-            }, label: {
-                Spacer()
-                Text("もっと見る")
-                    .font(.system(size: 14))
-                Spacer()
-
-            })
-        }
-    }
-
     private func fetch() {
         Network.shared.apollo.fetch(query: SearchWorksByIdQuery(annictId: workID)) { result in
             switch result {
