@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "combine-schedulers",
+        "repositoryURL": "https://github.com/pointfreeco/combine-schedulers",
+        "state": {
+          "branch": null,
+          "revision": "ff42ec9061d864de7982162011321d3df5080c10",
+          "version": "0.1.2"
+        }
+      },
+      {
         "package": "Fluxer",
         "repositoryURL": "git@github.com:touyu/Fluxer.git",
         "state": {
@@ -89,6 +98,24 @@
           "branch": null,
           "revision": "94197b3adbbf926348ad8765476a158aa4e54f8a",
           "version": "0.14.0"
+        }
+      },
+      {
+        "package": "swift-case-paths",
+        "repositoryURL": "https://github.com/pointfreeco/swift-case-paths",
+        "state": {
+          "branch": null,
+          "revision": "1aa1bf7c4069d9ba2f7edd36dbfc96ff1c58cbff",
+          "version": "0.1.3"
+        }
+      },
+      {
+        "package": "swift-composable-architecture",
+        "repositoryURL": "https://github.com/pointfreeco/swift-composable-architecture",
+        "state": {
+          "branch": null,
+          "revision": "37c6312ba43ec697063abe5956908db6b71aa68a",
+          "version": "0.11.0"
         }
       },
       {

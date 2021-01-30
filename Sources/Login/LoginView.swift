@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Combine
-import SafariServices
 import Fluxer
 
 struct LoginView: View {
@@ -19,12 +18,34 @@ struct LoginView: View {
     }
 
     var body: some View {
-        VStack(spacing: 60) {
-            Text("Login Screen")
-            Button(viewModel: viewModel, action: .login) {
-                Text("Login")
+        ZStack {
+            MonochromeImage("killlakill")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+
+            Rectangle()
+                .fill(Color.black)
+                .opacity(0.7)
+
+            VStack(spacing: 160) {
+                Text("Portannict")
+                    .font(.system(size: 62, weight: .black))
+                    .foregroundColor(Color(hex: 0xF85B73))
+                    .kerning(1.4)
+                Button(viewModel: viewModel, action: .login) {
+                    Text("ログイン")
+                        .font(.system(size: 18), weight: .bold)
+                        .foregroundColor(.black)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
+                .frame(width: 180, height: 44)
+                .background(Color.white)
+                .clipShape(Capsule())
             }
         }
+        .edgesIgnoringSafeArea(.all)
+        .statusBar(hidden: true)
     }
 }
 

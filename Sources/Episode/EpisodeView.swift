@@ -11,6 +11,8 @@ struct EpisodeView: View {
     let episode: EpisodeFragment
 
     @State private var records: [RecordFragment] = []
+    @State private var text: String = ""
+    @State private var selectedRatingState: RatingState?
 
     var body: some View {
         ScrollView(.vertical) {
@@ -21,7 +23,32 @@ struct EpisodeView: View {
                     Text(episode.title)
                         .font(.title, weight: .bold)
                 }
-//                .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0))
+                VStack(alignment: .leading, spacing: 16) {
+                    SelectStatusSegmentedView(state: $selectedRatingState)
+                    ZStack(alignment: .topLeading) {
+                        if text.isEmpty {
+                            Text("見た感想を残しませんか？（自由入力）")
+                                .foregroundColor(.gray)
+                                .padding(EdgeInsets(top: 8, leading: 8, bottom: 0, trailing: 0))
+                        }
+                        TextEditor(text: $text)
+                            .frame(minHeight: 100)
+                        Text(text).opacity(0).padding(.all, 8)
+                    }
+                    if selectedRatingState != nil || !text.isEmpty {
+                        HStack {
+                            Spacer()
+                            Button("記録する") {
+
+                            }
+                            .font(.system(size: 16))
+                            .frame(width: 120, height: 32)
+                            .foregroundColor(.primary)
+                            .background(Color.secondarySystemBackground)
+                            .cornerRadius(16)
+                        }
+                    }
+                }
                 ForEach(records.indices, id: \.self) { index in
                     ActivityRecordView(record: $records[index])
                         .hideQuote()
@@ -31,6 +58,7 @@ struct EpisodeView: View {
         }
         .onAppear {
             fetch()
+            UITextView.appearance().backgroundColor = .clear
         }
     }
 

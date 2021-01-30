@@ -33,9 +33,17 @@ final class LoginViewModel: ViewModel {
     private let presentationContextProvider = AuthPresentationContextProvider()
     private var session: LoginSession
 
+    private var webAuthenticationSession: ASWebAuthenticationSession?
+
     init(session: LoginSession) {
         self.session = session
         initilize()
+
+        NotificationCenter.default.publisher(for: .init(rawValue: "URLSchema"))
+            .sink(receiveValue: { [weak self] notification in
+                self?.webAuthenticationSession?.cancel()
+            })
+            .store(in: &cancellables)
     }
 
     func mutate(action: Action) -> AnyPublisher<Mutation, Never> {
@@ -68,6 +76,8 @@ final class LoginViewModel: ViewModel {
     private func startWebAuthentication() -> Future<String, Error> {
         return Future<String, Error> { [weak self] resolve in
             let session = ASWebAuthenticationSession(url: Constants.oauthURL, callbackURLScheme: Constants.callbackURLScheme) { url, error in
+                print(url)
+                
                 if let error = error {
                     return resolve(.failure(error))
                 }
@@ -84,6 +94,7 @@ final class LoginViewModel: ViewModel {
             session.presentationContextProvider = self?.presentationContextProvider
             session.prefersEphemeralWebBrowserSession = true
             session.start()
+            self?.webAuthenticationSession = session
         }
     }
 }

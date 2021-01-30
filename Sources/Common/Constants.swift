@@ -11,8 +11,8 @@ struct Constants {
     @Environment(\.envValues) static var envValues
 
     static let rootURI = "https://api.annict.com"
-    static let callbackURLScheme = "porannict://"
-    static let redirectURI = "porannict://oauth"
+    static let callbackURLScheme = "portannict"
+    static let redirectURI = "portannict://oauth"
     static var clientID = envValues["AnnictClientID"] as! String
     static var clientSecret = envValues["AnnictClientSecret"] as! String
     static let baseImageURL = envValues["BaseImageURL"] as! String

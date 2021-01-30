@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF08FC0724B9AD1A00CD29DD /* PortannictApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF08FC0624B9AD1A00CD29DD /* PortannictApp.swift */; };
 		CF08FC0924B9AD1A00CD29DD /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF08FC0824B9AD1A00CD29DD /* RootTabView.swift */; };
 		CF08FC0B24B9AD1A00CD29DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF08FC0A24B9AD1A00CD29DD /* Assets.xcassets */; };
 		CF08FC0E24B9AD1A00CD29DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF08FC0D24B9AD1A00CD29DD /* Preview Assets.xcassets */; };
@@ -33,6 +32,11 @@
 		CF3BC74D25B495E90046631F /* EpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3BC74C25B495E90046631F /* EpisodeView.swift */; };
 		CF3BC74F25B4A0590046631F /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3BC74E25B4A0590046631F /* Identifiable.swift */; };
 		CF3BC75125B4A1A70046631F /* SearchEpisodes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CF3BC75025B4A1A70046631F /* SearchEpisodes.graphql */; };
+		CF644C6925C32C10005A2779 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF644C6825C32C10005A2779 /* LaunchScreen.storyboard */; };
+		CF7A9D9225C5B8AE00B29C68 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = CF7A9D9125C5B8AE00B29C68 /* ComposableArchitecture */; };
+		CF809AAB25C31A9100A4794C /* MonochromeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF809AAA25C31A9100A4794C /* MonochromeImage.swift */; };
+		CF809AAD25C3230C00A4794C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF809AAC25C3230C00A4794C /* SceneDelegate.swift */; };
+		CF809AAF25C3245800A4794C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF809AAE25C3245800A4794C /* AppDelegate.swift */; };
 		CF841D3D24CA626400F3723B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D3C24CA626400F3723B /* HomeViewModel.swift */; };
 		CF841D4524CA69A600F3723B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4424CA69A600F3723B /* LoginView.swift */; };
 		CF9A375D25AB3EF8003077D5 /* AnnictSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */; };
@@ -59,6 +63,7 @@
 		CFCE3E3925B60B3A000CFF34 /* WorkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCE3E3825B60B3A000CFF34 /* WorkImageView.swift */; };
 		CFCE3E3B25B60C85000CFF34 /* AvatarIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCE3E3A25B60C85000CFF34 /* AvatarIImageView.swift */; };
 		CFCE3E3D25B610C8000CFF34 /* Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCE3E3C25B610C8000CFF34 /* Safe.swift */; };
+		CFCE3E6325B6DC0D000CFF34 /* SelectStatusSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCE3E6225B6DC0D000CFF34 /* SelectStatusSegmentedView.swift */; };
 		CFD82D3525A630E7005401AF /* RatingStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD82D3425A630E7005401AF /* RatingStateView.swift */; };
 		CFD82D3725A63915005401AF /* Model+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD82D3625A63915005401AF /* Model+Extension.swift */; };
 		CFD82D3A25A63F8E005401AF /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = CFD82D3925A63F8E005401AF /* SwiftDate */; };
@@ -100,7 +105,6 @@
 
 /* Begin PBXFileReference section */
 		CF08FC0324B9AD1A00CD29DD /* Portannict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portannict.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF08FC0624B9AD1A00CD29DD /* PortannictApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortannictApp.swift; sourceTree = "<group>"; };
 		CF08FC0824B9AD1A00CD29DD /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
 		CF08FC0A24B9AD1A00CD29DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF08FC0D24B9AD1A00CD29DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -127,6 +131,10 @@
 		CF3BC74C25B495E90046631F /* EpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeView.swift; sourceTree = "<group>"; };
 		CF3BC74E25B4A0590046631F /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		CF3BC75025B4A1A70046631F /* SearchEpisodes.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchEpisodes.graphql; sourceTree = "<group>"; };
+		CF644C6825C32C10005A2779 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CF809AAA25C31A9100A4794C /* MonochromeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeImage.swift; sourceTree = "<group>"; };
+		CF809AAC25C3230C00A4794C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CF809AAE25C3245800A4794C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF841D3C24CA626400F3723B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CF841D4424CA69A600F3723B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnictSeason.swift; sourceTree = "<group>"; };
@@ -151,6 +159,7 @@
 		CFCE3E3825B60B3A000CFF34 /* WorkImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkImageView.swift; sourceTree = "<group>"; };
 		CFCE3E3A25B60C85000CFF34 /* AvatarIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarIImageView.swift; sourceTree = "<group>"; };
 		CFCE3E3C25B610C8000CFF34 /* Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Safe.swift; sourceTree = "<group>"; };
+		CFCE3E6225B6DC0D000CFF34 /* SelectStatusSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectStatusSegmentedView.swift; sourceTree = "<group>"; };
 		CFD82D3425A630E7005401AF /* RatingStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStateView.swift; sourceTree = "<group>"; };
 		CFD82D3625A63915005401AF /* Model+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model+Extension.swift"; sourceTree = "<group>"; };
 		CFD82D3B25A64157005401AF /* GetViewer.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetViewer.graphql; sourceTree = "<group>"; };
@@ -181,6 +190,7 @@
 			files = (
 				CFFDC8B3259C7E63001C8E29 /* KingfisherSwiftUI in Frameworks */,
 				CFADCD0825A5A78000939DA7 /* SkeletonUI in Frameworks */,
+				CF7A9D9225C5B8AE00B29C68 /* ComposableArchitecture in Frameworks */,
 				CFD82D3A25A63F8E005401AF /* SwiftDate in Frameworks */,
 				CFE7E5DF25A72F63009EB3DC /* SwiftUIX in Frameworks */,
 				CF1E5E60259CEA5300035D50 /* Apollo in Frameworks */,
@@ -213,8 +223,10 @@
 		CF08FC0524B9AD1A00CD29DD /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				CF809AAE25C3245800A4794C /* AppDelegate.swift */,
+				CF809AAC25C3230C00A4794C /* SceneDelegate.swift */,
+				CF644C6825C32C10005A2779 /* LaunchScreen.storyboard */,
 				CF1E5E88259CF69E00035D50 /* API.swift */,
-				CF08FC0824B9AD1A00CD29DD /* RootTabView.swift */,
 				CFE38316258E621400CEE318 /* Common */,
 				CFB8D8B9255D18740092764B /* Root */,
 				CF841D3E24CA67F600F3723B /* Login */,
@@ -226,7 +238,6 @@
 				CFE7E5D525A70764009EB3DC /* Record */,
 				CFE7E5D825A7081A009EB3DC /* Search */,
 				CFCE3E2A25B5AEFD000CFF34 /* Setting */,
-				CF08FC0624B9AD1A00CD29DD /* PortannictApp.swift */,
 				CF08FC0A24B9AD1A00CD29DD /* Assets.xcassets */,
 				CF1E5E5C259CE88500035D50 /* Envfile */,
 				CF08FC0F24B9AD1A00CD29DD /* Info.plist */,
@@ -266,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				CF3BC74C25B495E90046631F /* EpisodeView.swift */,
+				CFCE3E6225B6DC0D000CFF34 /* SelectStatusSegmentedView.swift */,
 			);
 			path = Episode;
 			sourceTree = "<group>";
@@ -289,6 +301,7 @@
 				CF3B2FE225B493960017A7C0 /* AllRatingsStateView.swift */,
 				CFCE3E3825B60B3A000CFF34 /* WorkImageView.swift */,
 				CFCE3E3A25B60C85000CFF34 /* AvatarIImageView.swift */,
+				CF809AAA25C31A9100A4794C /* MonochromeImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -298,6 +311,7 @@
 			children = (
 				CFE38312258E603300CEE318 /* RootView.swift */,
 				CFE38314258E610F00CEE318 /* RootViewModel.swift */,
+				CF08FC0824B9AD1A00CD29DD /* RootTabView.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -455,6 +469,7 @@
 				CFADCD0725A5A78000939DA7 /* SkeletonUI */,
 				CFD82D3925A63F8E005401AF /* SwiftDate */,
 				CFE7E5DE25A72F63009EB3DC /* SwiftUIX */,
+				CF7A9D9125C5B8AE00B29C68 /* ComposableArchitecture */,
 			);
 			productName = Portannict;
 			productReference = CF08FC0324B9AD1A00CD29DD /* Portannict.app */;
@@ -490,6 +505,7 @@
 				CFADCD0625A5A78000939DA7 /* XCRemoteSwiftPackageReference "SkeletonUI" */,
 				CFD82D3825A63F8E005401AF /* XCRemoteSwiftPackageReference "SwiftDate" */,
 				CFE7E5DD25A72F63009EB3DC /* XCRemoteSwiftPackageReference "SwiftUIX" */,
+				CF7A9D9025C5B8AE00B29C68 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = CF08FC0424B9AD1A00CD29DD /* Products */;
 			projectDirPath = "";
@@ -514,6 +530,7 @@
 				CFB9BA78259DCD0D00C51708 /* Fragments.graphql in Resources */,
 				CFBCA06525AB6B0E00C5386C /* UpdateStatus.graphql in Resources */,
 				CFE7E5CE25A6EC6B009EB3DC /* GetUser.graphql in Resources */,
+				CF644C6925C32C10005A2779 /* LaunchScreen.storyboard in Resources */,
 				CFCE3E2E25B5B77F000CFF34 /* Settings.bundle in Resources */,
 				CF1E5E5D259CE88500035D50 /* Envfile in Resources */,
 				CF08FC0E24B9AD1A00CD29DD /* Preview Assets.xcassets in Resources */,
@@ -562,16 +579,19 @@
 				CFD82D3725A63915005401AF /* Model+Extension.swift in Sources */,
 				CFE38320258E64F600CEE318 /* Env.swift in Sources */,
 				CFE7E5E125A737A5009EB3DC /* LibraryWorkView.swift in Sources */,
+				CFCE3E6325B6DC0D000CFF34 /* SelectStatusSegmentedView.swift in Sources */,
 				CF08FC1824B9B04900CD29DD /* HomeView.swift in Sources */,
 				CFE38313258E603300CEE318 /* RootView.swift in Sources */,
 				CF841D3D24CA626400F3723B /* HomeViewModel.swift in Sources */,
 				CFBB73B425A5718900601DCB /* Network.swift in Sources */,
 				CFC03F0725959BDD001516D3 /* LoginSession.swift in Sources */,
+				CF809AAD25C3230C00A4794C /* SceneDelegate.swift in Sources */,
 				CFE7E5D725A7077D009EB3DC /* RecordView.swift in Sources */,
 				CF08FC1624B9AFC500CD29DD /* ProfileView.swift in Sources */,
 				CF3B2FDB25B484DC0017A7C0 /* WorkMoreButton.swift in Sources */,
 				CFCE3E3925B60B3A000CFF34 /* WorkImageView.swift in Sources */,
 				CFBB73B725A575D700601DCB /* KFImage.swift in Sources */,
+				CF809AAF25C3245800A4794C /* AppDelegate.swift in Sources */,
 				CF3BC74D25B495E90046631F /* EpisodeView.swift in Sources */,
 				CFE3831E258E628C00CEE318 /* Constants.swift in Sources */,
 				CFFE4FFC24C9C00D003AECE5 /* ActivityStatusView.swift in Sources */,
@@ -580,6 +600,7 @@
 				CFFDC8A8259C6EF6001C8E29 /* WorkView.swift in Sources */,
 				CF3B2FD925B484AD0017A7C0 /* WorkEpisodeCell.swift in Sources */,
 				CFE7E5D025A6F6BA009EB3DC /* ActivityReviewView.swift in Sources */,
+				CF809AAB25C31A9100A4794C /* MonochromeImage.swift in Sources */,
 				CF3B2FDD25B484F20017A7C0 /* Color.swift in Sources */,
 				CFCE3E3325B5BC09000CFF34 /* WebView.swift in Sources */,
 				CFE7E5C525A6D65A009EB3DC /* LibraryWorksView.swift in Sources */,
@@ -604,7 +625,6 @@
 				CFCE3E3B25B60C85000CFF34 /* AvatarIImageView.swift in Sources */,
 				CFB9BA76259DCA7500C51708 /* ActivityRecordView.swift in Sources */,
 				CFE7E5C825A6E6D7009EB3DC /* UserView.swift in Sources */,
-				CF08FC0724B9AD1A00CD29DD /* PortannictApp.swift in Sources */,
 				CF3BC74F25B4A0590046631F /* Identifiable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -810,6 +830,14 @@
 				minimumVersion = 0.39.0;
 			};
 		};
+		CF7A9D9025C5B8AE00B29C68 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.11.0;
+			};
+		};
 		CFADCD0625A5A78000939DA7 /* XCRemoteSwiftPackageReference "SkeletonUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CSolanaM/SkeletonUI";
@@ -857,6 +885,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CF1E5E5E259CEA5300035D50 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;
+		};
+		CF7A9D9125C5B8AE00B29C68 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF7A9D9025C5B8AE00B29C68 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
 		};
 		CFADCD0725A5A78000939DA7 /* SkeletonUI */ = {
 			isa = XCSwiftPackageProductDependency;
