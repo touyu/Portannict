@@ -9,8 +9,20 @@ import Foundation
 import Apollo
 import Combine
 
-enum NetworkError: Error {
+enum NetworkError: Error, Equatable {
+    case serverError(Error)
     case notFoundData
+
+    static func == (lhs: NetworkError, rhs: NetworkError) -> Bool {
+        switch (lhs, rhs) {
+        case (.serverError(let a), .serverError(let b)):
+            return a.localizedDescription == b.localizedDescription
+        case (.notFoundData, notFoundData):
+            return true
+        default:
+            return false
+        }
+    }
 }
 
 final class Network {
@@ -57,6 +69,24 @@ extension ApolloClient {
                     promise(.success(data))
                 case .failure(let error):
                     promise(.failure(error))
+                }
+            }
+        }
+        .eraseToAnyPublisher()
+    }
+
+    func fetch2<Query: GraphQLQuery>(query: Query) -> AnyPublisher<Query.Data, NetworkError> {
+        return Future<Query.Data, NetworkError> { [weak self] promise in
+            self?.fetch(query: query) { result in
+                switch result {
+                case .success(let data):
+                    guard let data = data.data else {
+                        promise(.failure(NetworkError.notFoundData))
+                        return
+                    }
+                    promise(.success(data))
+                case .failure(let error):
+                    promise(.failure(.serverError(error)))
                 }
             }
         }

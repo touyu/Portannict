@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct RootTabView: View {
     @State private var selection = 0
 
     var body: some View {
         TabView(selection: $selection) {
-            HomeView(viewModel: HomeViewModel())
+            HomeView(store: homeStore)
                 .tabItem {
                     RootTabItem(normalIcon: "house", selectedIcon: "house.fill", selection: selection == 0)
                 }
@@ -35,6 +36,13 @@ struct RootTabView: View {
         }
         .accentColor(.annictPink)
     }
+
+    private let homeStore = Store(initialState: HomeState(),
+                                  reducer: homeReducer,
+                                  environment: HomeEnvironment(
+                                    mainQueue: DispatchQueue.main.eraseToAnyScheduler()
+                                  )
+    )
 }
 
 struct RootTabItem: View {

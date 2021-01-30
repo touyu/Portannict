@@ -76,8 +76,6 @@ final class LoginViewModel: ViewModel {
     private func startWebAuthentication() -> Future<String, Error> {
         return Future<String, Error> { [weak self] resolve in
             let session = ASWebAuthenticationSession(url: Constants.oauthURL, callbackURLScheme: Constants.callbackURLScheme) { url, error in
-                print(url)
-                
                 if let error = error {
                     return resolve(.failure(error))
                 }
