@@ -40,7 +40,8 @@ struct RootTabView: View {
     private let homeStore = Store(initialState: HomeState(),
                                   reducer: homeReducer,
                                   environment: HomeEnvironment(
-                                    mainQueue: DispatchQueue.main.eraseToAnyScheduler()
+                                    mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
+                                    fetchActivities: Service.fetchHomeActivities
                                   )
     )
 }

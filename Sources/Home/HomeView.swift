@@ -21,7 +21,7 @@ struct HomeState: Equatable {
 
     var activities: [Activity] = []
     var pageInfo: PageInfo?
-    var error: NetworkError?
+    var error: APIError?
 }
 
 enum HomeAction: Equatable {
@@ -29,12 +29,13 @@ enum HomeAction: Equatable {
     case fetchMore
     case updateWork
 
-    case setActivities(Result<GetFollowingActivitiesQuery.Data, NetworkError>)
-    case appendActivities(Result<GetFollowingActivitiesQuery.Data, NetworkError>)
+    case setActivities(Result<GetFollowingActivitiesQuery.Data, APIError>)
+    case appendActivities(Result<GetFollowingActivitiesQuery.Data, APIError>)
 }
 
 struct HomeEnvironment {
     var mainQueue: AnySchedulerOf<DispatchQueue>
+    var fetchActivities: (_ first: Int?, _ after: String?) -> Effect<GetFollowingActivitiesQuery.Data, APIError>
 }
 
 let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment> { state, action, environment in
@@ -42,8 +43,9 @@ let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment> { state, actio
 
     switch action {
     case .fetch:
-        let query = GetFollowingActivitiesQuery(first: 30, after: nil)
-        return Network.shared.apollo.fetch2(query: query)
+//        let query = GetFollowingActivitiesQuery(first: 30, after: nil)
+//        return Network.shared.apollo.fetch2(query: query)
+        return environment.fetchActivities(30, nil)
             .receive(on: environment.mainQueue)
             .catchToEffect()
             .map(HomeAction.setActivities)
@@ -51,8 +53,9 @@ let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment> { state, actio
     case .fetchMore:
         guard let pageInfo = state.pageInfo else { return .none }
         guard pageInfo.hasNextPage else { return .none }
-        let query = GetFollowingActivitiesQuery(first: 30, after: pageInfo.endCursor)
-        return Network.shared.apollo.fetch2(query: query)
+//        let query = GetFollowingActivitiesQuery(first: 30, after: pageInfo.endCursor)
+//        return Network.shared.apollo.fetch2(query: query)
+        return environment.fetchActivities(30, pageInfo.endCursor)
             .receive(on: environment.mainQueue)
             .catchToEffect()
             .map(HomeAction.appendActivities)
@@ -70,6 +73,7 @@ let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment> { state, actio
     case .appendActivities(.success(let data)):
         let activities = data.viewer?.followingActivities?.edges?.compactMap { $0?.node } ?? []
         state.activities.append(contentsOf: activities)
+        state.pageInfo = data.viewer?.followingActivities?.pageInfo
         return .none
     case .appendActivities(.failure(let error)):
         state.error = error
@@ -120,9 +124,9 @@ struct HomeView: View {
             let activity = viewStore.binding(get: { $0.activities[index] }, send: { _ in HomeAction.updateWork })
             if let _ = activity.wrappedValue.asRecord {
                 ActivityRecordView(record: activity.map(\.asRecord!.fragments.recordFragment))
-                    .onSelectState { state in
-//                        viewModel.action.send(.updateWork(record.work.fragments.workFragment.id, state))
-                    }
+                //                    .onSelectState { state in
+                //                        viewModel.action.send(.updateWork(record.work.fragments.workFragment.id, state))
+                //                    }
             } else if let _ = activity.wrappedValue.asReview {
                 ActivityReviewView(review: activity.map(\.asReview!.fragments.reviewFragment))
             } else if let _ = activity.wrappedValue.asStatus {
@@ -139,8 +143,12 @@ struct HomeView_Previews: PreviewProvider {
         let store = Store(initialState: HomeState(),
                           reducer: homeReducer,
                           environment: HomeEnvironment(
-                            mainQueue: DispatchQueue.main.eraseToAnyScheduler()
+                            mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
+                            fetchActivities: { (_, _) -> Effect<GetFollowingActivitiesQuery.Data, APIError> in
+                                return .init(value: .init())
+                            }
                           )
+
         )
         HomeView(store: store)
     }
