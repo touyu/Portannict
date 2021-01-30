@@ -51,8 +51,7 @@ let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment> { state, actio
             .map(HomeAction.setActivities)
             .cancellable(id: RequestId())
     case .fetchMore:
-        guard let pageInfo = state.pageInfo else { return .none }
-        guard pageInfo.hasNextPage else { return .none }
+        guard let pageInfo = state.pageInfo, pageInfo.hasNextPage else { return .none }
 //        let query = GetFollowingActivitiesQuery(first: 30, after: pageInfo.endCursor)
 //        return Network.shared.apollo.fetch2(query: query)
         return environment.fetchActivities(30, pageInfo.endCursor)
