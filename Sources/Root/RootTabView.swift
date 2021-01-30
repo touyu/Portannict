@@ -41,7 +41,7 @@ struct RootTabView: View {
                                   reducer: homeReducer,
                                   environment: HomeEnvironment(
                                     mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
-                                    fetchActivities: Service.fetchHomeActivities
+                                    service: Service()
                                   )
     )
 }

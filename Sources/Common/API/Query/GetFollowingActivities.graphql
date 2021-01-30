@@ -4,23 +4,11 @@ query GetFollowingActivities($first: Int, $after: String) {
 			edges {
 				cursor
 				node {
-					... on Record {
-						...RecordFragment
-					}
-					... on Review {
-						...ReviewFragment
-					}
-					... on Status {
-						...StatusFragment
-					}
-					... on MultipleRecord {
-						id
-					}
+					...ActivityItemFragment
 				}
 			}
 			pageInfo {
-				endCursor
-				hasNextPage
+				...PageInfoFragment
 			}
 		}
 	}

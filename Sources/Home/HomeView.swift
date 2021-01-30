@@ -11,16 +11,13 @@ import SkeletonUI
 import Apollo
 import ComposableArchitecture
 
-extension GetFollowingActivitiesQuery.Data.Viewer.FollowingActivity.Edge.Node: Equatable {}
 extension GetFollowingActivitiesQuery.Data: Equatable {}
-extension GetFollowingActivitiesQuery.Data.Viewer.FollowingActivity.PageInfo: Equatable {}
+extension PageInfoFragment: Equatable {}
+extension ActivityItemFragment: Equatable {}
 
 struct HomeState: Equatable {
-    typealias Activity = GetFollowingActivitiesQuery.Data.Viewer.FollowingActivity.Edge.Node
-    typealias PageInfo = GetFollowingActivitiesQuery.Data.Viewer.FollowingActivity.PageInfo
-
-    var activities: [Activity] = []
-    var pageInfo: PageInfo?
+    var activities: [ActivityItemFragment] = []
+    var pageInfo: PageInfoFragment?
     var error: APIError?
 }
 
@@ -35,7 +32,7 @@ enum HomeAction: Equatable {
 
 struct HomeEnvironment {
     var mainQueue: AnySchedulerOf<DispatchQueue>
-    var fetchActivities: (_ first: Int?, _ after: String?) -> Effect<GetFollowingActivitiesQuery.Data, APIError>
+    var service: ServiceType
 }
 
 let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment> { state, action, environment in
@@ -45,7 +42,7 @@ let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment> { state, actio
     case .fetch:
 //        let query = GetFollowingActivitiesQuery(first: 30, after: nil)
 //        return Network.shared.apollo.fetch2(query: query)
-        return environment.fetchActivities(30, nil)
+        return environment.service.fetchHomeActivities(first: 30, after: nil)
             .receive(on: environment.mainQueue)
             .catchToEffect()
             .map(HomeAction.setActivities)
@@ -54,7 +51,7 @@ let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment> { state, actio
         guard let pageInfo = state.pageInfo, pageInfo.hasNextPage else { return .none }
 //        let query = GetFollowingActivitiesQuery(first: 30, after: pageInfo.endCursor)
 //        return Network.shared.apollo.fetch2(query: query)
-        return environment.fetchActivities(30, pageInfo.endCursor)
+        return environment.service.fetchHomeActivities(first: 30, after: pageInfo.endCursor)
             .receive(on: environment.mainQueue)
             .catchToEffect()
             .map(HomeAction.appendActivities)
@@ -62,17 +59,17 @@ let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment> { state, actio
     case .updateWork:
         return .none
     case .setActivities(.success(let data)):
-        let activities = data.viewer?.followingActivities?.edges?.compactMap { $0?.node } ?? []
+        let activities = data.viewer?.followingActivities?.edges?.compactMap { $0?.node?.fragments.activityItemFragment } ?? []
         state.activities = activities
-        state.pageInfo = data.viewer?.followingActivities?.pageInfo
+        state.pageInfo = data.viewer?.followingActivities?.pageInfo.fragments.pageInfoFragment
         return .none
     case .setActivities(.failure(let error)):
         state.error = error
         return .none
     case .appendActivities(.success(let data)):
-        let activities = data.viewer?.followingActivities?.edges?.compactMap { $0?.node } ?? []
+        let activities = data.viewer?.followingActivities?.edges?.compactMap { $0?.node?.fragments.activityItemFragment } ?? []
         state.activities.append(contentsOf: activities)
-        state.pageInfo = data.viewer?.followingActivities?.pageInfo
+        state.pageInfo = data.viewer?.followingActivities?.pageInfo.fragments.pageInfoFragment
         return .none
     case .appendActivities(.failure(let error)):
         state.error = error
@@ -143,9 +140,7 @@ struct HomeView_Previews: PreviewProvider {
                           reducer: homeReducer,
                           environment: HomeEnvironment(
                             mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
-                            fetchActivities: { (_, _) -> Effect<GetFollowingActivitiesQuery.Data, APIError> in
-                                return .init(value: .init())
-                            }
+                            service: PreviewService()
                           )
 
         )
