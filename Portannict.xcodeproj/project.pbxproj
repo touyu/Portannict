@@ -194,7 +194,7 @@
 		CF08FBFA24B9AD1A00CD29DD = {
 			isa = PBXGroup;
 			children = (
-				CFCE3E2F25B5BB88000CFF34 /* Resource */,
+				CFCE3E2F25B5BB88000CFF34 /* Resources */,
 				CF08FC0524B9AD1A00CD29DD /* Sources */,
 				CF08FC0424B9AD1A00CD29DD /* Products */,
 			);
@@ -225,7 +225,6 @@
 				CFE7E5D525A70764009EB3DC /* Record */,
 				CFE7E5D825A7081A009EB3DC /* Search */,
 				CFCE3E2A25B5AEFD000CFF34 /* Setting */,
-				CF1E5E5C259CE88500035D50 /* Envfile */,
 				CF08FC0C24B9AD1A00CD29DD /* Preview Content */,
 			);
 			path = Sources;
@@ -322,16 +321,17 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
-		CFCE3E2F25B5BB88000CFF34 /* Resource */ = {
+		CFCE3E2F25B5BB88000CFF34 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CF1E5E5C259CE88500035D50 /* Envfile */,
 				CF08FC0F24B9AD1A00CD29DD /* Info.plist */,
 				CF08FC0A24B9AD1A00CD29DD /* Assets.xcassets */,
 				CF2A8E8525B00418001D2AF1 /* Portannict.entitlements */,
 				CFCE3E2D25B5B77F000CFF34 /* Settings.bundle */,
 				CFCE3E3625B5C425000CFF34 /* Licenses.html */,
 			);
-			path = Resource;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		CFE38316258E621400CEE318 /* Common */ = {
@@ -733,12 +733,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Resource/Portannict.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/Portannict.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Sources/Preview Content\"";
 				DEVELOPMENT_TEAM = V8AZ23YEL4;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Resource/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -758,12 +758,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Resource/Portannict.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/Portannict.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Sources/Preview Content\"";
 				DEVELOPMENT_TEAM = V8AZ23YEL4;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Resource/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
