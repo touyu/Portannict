@@ -228,7 +228,11 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
     query GetFollowingActivities($first: Int, $after: String) {
       viewer {
         __typename
-        followingActivities(first: $first, after: $after, orderBy: {field: CREATED_AT, direction: DESC}) {
+        followingActivities(
+          first: $first
+          after: $after
+          orderBy: {field: CREATED_AT, direction: DESC}
+        ) {
           __typename
           edges {
             __typename
@@ -249,9 +253,20 @@ public final class GetFollowingActivitiesQuery: GraphQLQuery {
 
   public let operationName: String = "GetFollowingActivities"
 
-  public let operationIdentifier: String? = "160404fdd4339b49a4f6123c5c6207609a92a8f670368d5869c16a80341cfe93"
+  public let operationIdentifier: String? = "9db9720107cef99189470fd0988bb66d02e8379af2d55ca8ae34d29cb6732335"
 
-  public var queryDocument: String { return operationDefinition.appending(ActivityItemFragment.fragmentDefinition).appending(RecordFragment.fragmentDefinition).appending(UserFragment.fragmentDefinition).appending(WorkFragment.fragmentDefinition).appending(EpisodeFragment.fragmentDefinition).appending(ReviewFragment.fragmentDefinition).appending(StatusFragment.fragmentDefinition).appending(PageInfoFragment.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + ActivityItemFragment.fragmentDefinition)
+    document.append("\n" + RecordFragment.fragmentDefinition)
+    document.append("\n" + UserFragment.fragmentDefinition)
+    document.append("\n" + WorkFragment.fragmentDefinition)
+    document.append("\n" + EpisodeFragment.fragmentDefinition)
+    document.append("\n" + ReviewFragment.fragmentDefinition)
+    document.append("\n" + StatusFragment.fragmentDefinition)
+    document.append("\n" + PageInfoFragment.fragmentDefinition)
+    return document
+  }
 
   public var first: Int?
   public var after: String?
@@ -2088,7 +2103,11 @@ public final class GetUserQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "82718d3fac6860babf60481e49f8bd842e44727cf17acaeffcc20de77669d214"
 
-  public var queryDocument: String { return operationDefinition.appending(UserFragment.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + UserFragment.fragmentDefinition)
+    return document
+  }
 
   public var username: String
 
@@ -2441,7 +2460,12 @@ public final class GetViewerWorksQuery: GraphQLQuery {
     query GetViewerWorks($first: Int, $after: String, $state: StatusState!) {
       viewer {
         __typename
-        works(first: $first, after: $after, state: $state, orderBy: {direction: DESC, field: WATCHERS_COUNT}) {
+        works(
+          first: $first
+          after: $after
+          state: $state
+          orderBy: {direction: DESC, field: WATCHERS_COUNT}
+        ) {
           __typename
           edges {
             __typename
@@ -2457,9 +2481,13 @@ public final class GetViewerWorksQuery: GraphQLQuery {
 
   public let operationName: String = "GetViewerWorks"
 
-  public let operationIdentifier: String? = "da28f4048d2537a3ee229489ef3b24356ca568d5e5f5354efd9e258195cf29b7"
+  public let operationIdentifier: String? = "594366543613d7c5c96868f93c2d5349b72895140ef152c0f844aaac954f1644"
 
-  public var queryDocument: String { return operationDefinition.appending(WorkFragment.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + WorkFragment.fragmentDefinition)
+    return document
+  }
 
   public var first: Int?
   public var after: String?
@@ -2792,7 +2820,12 @@ public final class SearchEpisodeRecordsQuery: GraphQLQuery {
           node {
             __typename
             ...EpisodeFragment
-            records(first: $first, after: $after, orderBy: {direction: DESC, field: CREATED_AT}, hasComment: true) {
+            records(
+              first: $first
+              after: $after
+              orderBy: {direction: DESC, field: CREATED_AT}
+              hasComment: true
+            ) {
               __typename
               edges {
                 __typename
@@ -2810,9 +2843,16 @@ public final class SearchEpisodeRecordsQuery: GraphQLQuery {
 
   public let operationName: String = "SearchEpisodeRecords"
 
-  public let operationIdentifier: String? = "163a13c98eb8c34ab6b6ee97db879d653683ea4bbd1b4c735119412762ab203e"
+  public let operationIdentifier: String? = "a0a044b113baef7f1f2b1ae722f79303cf45c9bbcab1c85de30f190ddea0039c"
 
-  public var queryDocument: String { return operationDefinition.appending(EpisodeFragment.fragmentDefinition).appending(RecordFragment.fragmentDefinition).appending(UserFragment.fragmentDefinition).appending(WorkFragment.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + EpisodeFragment.fragmentDefinition)
+    document.append("\n" + RecordFragment.fragmentDefinition)
+    document.append("\n" + UserFragment.fragmentDefinition)
+    document.append("\n" + WorkFragment.fragmentDefinition)
+    return document
+  }
 
   public var annictId: Int
   public var first: Int?
@@ -3648,7 +3688,11 @@ public final class SearchWorkEpisodesQuery: GraphQLQuery {
         nodes {
           __typename
           ...WorkFragment
-          episodes(first: $first, after: $after, orderBy: {direction: ASC, field: SORT_NUMBER}) {
+          episodes(
+            first: $first
+            after: $after
+            orderBy: {direction: ASC, field: SORT_NUMBER}
+          ) {
             __typename
             edges {
               __typename
@@ -3670,9 +3714,14 @@ public final class SearchWorkEpisodesQuery: GraphQLQuery {
 
   public let operationName: String = "SearchWorkEpisodes"
 
-  public let operationIdentifier: String? = "bc7fdd907a96b06744895095e150fc76b0f84cf9bb99393a4a531d13618a376d"
+  public let operationIdentifier: String? = "498b834fbaa3af5f1ef362265b102b9ee78f81e69a354f30a34163c26699c1bf"
 
-  public var queryDocument: String { return operationDefinition.appending(WorkFragment.fragmentDefinition).appending(EpisodeFragment.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + WorkFragment.fragmentDefinition)
+    document.append("\n" + EpisodeFragment.fragmentDefinition)
+    return document
+  }
 
   public var workAnnictId: Int
   public var first: Int?
@@ -4182,7 +4231,12 @@ public final class SearchWorkReviewsQuery: GraphQLQuery {
         nodes {
           __typename
           ...WorkFragment
-          reviews(first: $first, after: $after, orderBy: {direction: DESC, field: CREATED_AT}, hasBody: true) {
+          reviews(
+            first: $first
+            after: $after
+            orderBy: {direction: DESC, field: CREATED_AT}
+            hasBody: true
+          ) {
             __typename
             edges {
               __typename
@@ -4203,9 +4257,16 @@ public final class SearchWorkReviewsQuery: GraphQLQuery {
 
   public let operationName: String = "SearchWorkReviews"
 
-  public let operationIdentifier: String? = "e67b4908d042fb41b1fdc01d085ca5651cb89d9187b3dcd1483ad1ad1dd953b2"
+  public let operationIdentifier: String? = "3a8808e57bd6ff5d279237adc43b52c3b906bc417df6c2cba675e6214621c58b"
 
-  public var queryDocument: String { return operationDefinition.appending(WorkFragment.fragmentDefinition).appending(ReviewFragment.fragmentDefinition).appending(UserFragment.fragmentDefinition).appending(PageInfoFragment.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + WorkFragment.fragmentDefinition)
+    document.append("\n" + ReviewFragment.fragmentDefinition)
+    document.append("\n" + UserFragment.fragmentDefinition)
+    document.append("\n" + PageInfoFragment.fragmentDefinition)
+    return document
+  }
 
   public var workAnnictId: Int
   public var first: Int?
@@ -5116,7 +5177,11 @@ public final class SearchWorksByIdQuery: GraphQLQuery {
 
   public let operationIdentifier: String? = "5e9902975ee56d522b235f58534e946edcdcda99e767b6c9a23b7edbe894263e"
 
-  public var queryDocument: String { return operationDefinition.appending(WorkFragment.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + WorkFragment.fragmentDefinition)
+    return document
+  }
 
   public var annictId: Int
   public var after: String?
@@ -5490,7 +5555,12 @@ public final class SearchWorksBySeasonQuery: GraphQLQuery {
   public let operationDefinition: String =
     """
     query SearchWorksBySeason($first: Int, $after: String, $seasons: [String!]) {
-      searchWorks(first: $first, after: $after, seasons: $seasons, orderBy: {direction: DESC, field: WATCHERS_COUNT}) {
+      searchWorks(
+        first: $first
+        after: $after
+        seasons: $seasons
+        orderBy: {direction: DESC, field: WATCHERS_COUNT}
+      ) {
         __typename
         edges {
           __typename
@@ -5505,9 +5575,13 @@ public final class SearchWorksBySeasonQuery: GraphQLQuery {
 
   public let operationName: String = "SearchWorksBySeason"
 
-  public let operationIdentifier: String? = "fff6f2046042c3480b6ca07916908d909201b786fa6455087e14763668c215e5"
+  public let operationIdentifier: String? = "fcf1f9a914fef8164e978916480d32bfcb71d324d884816ad2a01762394e5787"
 
-  public var queryDocument: String { return operationDefinition.appending(WorkFragment.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + WorkFragment.fragmentDefinition)
+    return document
+  }
 
   public var first: Int?
   public var after: String?
@@ -5794,7 +5868,12 @@ public final class SearchWorksByTitlesQuery: GraphQLQuery {
   public let operationDefinition: String =
     """
     query SearchWorksByTitles($first: Int, $after: String, $titles: [String!]) {
-      searchWorks(first: $first, after: $after, titles: $titles, orderBy: {direction: DESC, field: WATCHERS_COUNT}) {
+      searchWorks(
+        first: $first
+        after: $after
+        titles: $titles
+        orderBy: {direction: DESC, field: WATCHERS_COUNT}
+      ) {
         __typename
         edges {
           __typename
@@ -5809,9 +5888,13 @@ public final class SearchWorksByTitlesQuery: GraphQLQuery {
 
   public let operationName: String = "SearchWorksByTitles"
 
-  public let operationIdentifier: String? = "9b9adbe8fd1d8928932d3a15ad2c0b84532046c617d12a05ac13ca68d6f9fe6f"
+  public let operationIdentifier: String? = "e3a8146d0ddb1bef6f695d8153aeb9cb7fb1ba23a38184bf4514d821b876d5a2"
 
-  public var queryDocument: String { return operationDefinition.appending(WorkFragment.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + WorkFragment.fragmentDefinition)
+    return document
+  }
 
   public var first: Int?
   public var after: String?
@@ -6112,7 +6195,11 @@ public final class UpdateStatusMutation: GraphQLMutation {
 
   public let operationIdentifier: String? = "5c9ffdf0f3800cd1291a6377b7e44f9b166390ba9b3912a596692cc79aecddd7"
 
-  public var queryDocument: String { return operationDefinition.appending(WorkFragment.fragmentDefinition) }
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + WorkFragment.fragmentDefinition)
+    return document
+  }
 
   public var workId: GraphQLID
   public var state: StatusState

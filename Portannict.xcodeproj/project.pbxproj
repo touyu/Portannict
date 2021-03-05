@@ -12,17 +12,11 @@
 		CF08FC0E24B9AD1A00CD29DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF08FC0D24B9AD1A00CD29DD /* Preview Assets.xcassets */; };
 		CF08FC1624B9AFC500CD29DD /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF08FC1524B9AFC500CD29DD /* ProfileView.swift */; };
 		CF08FC1824B9B04900CD29DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF08FC1724B9B04900CD29DD /* HomeView.swift */; };
-		CF13E35025AAF38D005D11F8 /* SearchWorksBySeason.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CF13E34F25AAF38D005D11F8 /* SearchWorksBySeason.graphql */; };
 		CF13E35225AAF78A005D11F8 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF13E35125AAF78A005D11F8 /* SearchViewModel.swift */; };
 		CF1E5E5D259CE88500035D50 /* Envfile in Resources */ = {isa = PBXBuildFile; fileRef = CF1E5E5C259CE88500035D50 /* Envfile */; };
 		CF1E5E60259CEA5300035D50 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = CF1E5E5F259CEA5300035D50 /* Apollo */; };
-		CF1E5E87259CF4CE00035D50 /* SearchWorksByID.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CF1E5E86259CF4CE00035D50 /* SearchWorksByID.graphql */; };
-		CF1E5E89259CF69E00035D50 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1E5E88259CF69E00035D50 /* API.swift */; };
-		CF2E1D93259DC19100824A3C /* GetFollowingActivities.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CF2E1D92259DC19100824A3C /* GetFollowingActivities.graphql */; };
 		CF3B2FCF25B411600017A7C0 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B2FCE25B411600017A7C0 /* SearchResultView.swift */; };
-		CF3B2FD125B42D1E0017A7C0 /* SearchWorkEpisodes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CF3B2FD025B42D1E0017A7C0 /* SearchWorkEpisodes.graphql */; };
 		CF3B2FD325B44F680017A7C0 /* StatusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B2FD225B44F680017A7C0 /* StatusButton.swift */; };
-		CF3B2FD725B46F710017A7C0 /* SearchWorkReviews.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CF3B2FD625B46F710017A7C0 /* SearchWorkReviews.graphql */; };
 		CF3B2FD925B484AD0017A7C0 /* WorkEpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B2FD825B484AD0017A7C0 /* WorkEpisodeCell.swift */; };
 		CF3B2FDB25B484DC0017A7C0 /* WorkMoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B2FDA25B484DC0017A7C0 /* WorkMoreButton.swift */; };
 		CF3B2FDD25B484F20017A7C0 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B2FDC25B484F20017A7C0 /* Color.swift */; };
@@ -31,22 +25,19 @@
 		CF3B2FE325B493960017A7C0 /* AllRatingsStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B2FE225B493960017A7C0 /* AllRatingsStateView.swift */; };
 		CF3BC74D25B495E90046631F /* EpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3BC74C25B495E90046631F /* EpisodeView.swift */; };
 		CF3BC74F25B4A0590046631F /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3BC74E25B4A0590046631F /* Identifiable.swift */; };
-		CF3BC75125B4A1A70046631F /* SearchEpisodes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CF3BC75025B4A1A70046631F /* SearchEpisodes.graphql */; };
 		CF644C6925C32C10005A2779 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF644C6825C32C10005A2779 /* LaunchScreen.storyboard */; };
 		CF7A9D9225C5B8AE00B29C68 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = CF7A9D9125C5B8AE00B29C68 /* ComposableArchitecture */; };
 		CF7A9D9425C5D0D600B29C68 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7A9D9325C5D0D600B29C68 /* APIClient.swift */; };
 		CF809AAB25C31A9100A4794C /* MonochromeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF809AAA25C31A9100A4794C /* MonochromeImage.swift */; };
 		CF809AAD25C3230C00A4794C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF809AAC25C3230C00A4794C /* SceneDelegate.swift */; };
 		CF809AAF25C3245800A4794C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF809AAE25C3245800A4794C /* AppDelegate.swift */; };
+		CF8291B925F20EB800214425 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8291B825F20EB800214425 /* API.swift */; };
 		CF841D4524CA69A600F3723B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4424CA69A600F3723B /* LoginView.swift */; };
 		CF9A375D25AB3EF8003077D5 /* AnnictSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */; };
 		CFADCD0825A5A78000939DA7 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = CFADCD0725A5A78000939DA7 /* SkeletonUI */; };
 		CFB9BA76259DCA7500C51708 /* ActivityRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB9BA75259DCA7500C51708 /* ActivityRecordView.swift */; };
-		CFB9BA78259DCD0D00C51708 /* Fragments.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFB9BA77259DCD0D00C51708 /* Fragments.graphql */; };
 		CFBB73B425A5718900601DCB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB73B325A5718900601DCB /* Network.swift */; };
 		CFBB73B725A575D700601DCB /* KFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB73B625A575D700601DCB /* KFImage.swift */; };
-		CFBCA06325AB49FB00C5386C /* SearchWorksByTitle.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFBCA06225AB49FB00C5386C /* SearchWorksByTitle.graphql */; };
-		CFBCA06525AB6B0E00C5386C /* UpdateStatus.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFBCA06425AB6B0E00C5386C /* UpdateStatus.graphql */; };
 		CFBCA06725AB709D00C5386C /* SearchRecommendedWorksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBCA06625AB709D00C5386C /* SearchRecommendedWorksView.swift */; };
 		CFBCA06925AB70C600C5386C /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBCA06825AB70C600C5386C /* SearchResultsView.swift */; };
 		CFBCA06B25AB719B00C5386C /* SearchRecommendedWorksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBCA06A25AB719B00C5386C /* SearchRecommendedWorksViewModel.swift */; };
@@ -67,7 +58,6 @@
 		CFD82D3525A630E7005401AF /* RatingStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD82D3425A630E7005401AF /* RatingStateView.swift */; };
 		CFD82D3725A63915005401AF /* Model+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD82D3625A63915005401AF /* Model+Extension.swift */; };
 		CFD82D3A25A63F8E005401AF /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = CFD82D3925A63F8E005401AF /* SwiftDate */; };
-		CFD82D3C25A64157005401AF /* GetViewer.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFD82D3B25A64157005401AF /* GetViewer.graphql */; };
 		CFE38313258E603300CEE318 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE38312258E603300CEE318 /* RootView.swift */; };
 		CFE38315258E610F00CEE318 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE38314258E610F00CEE318 /* RootViewModel.swift */; };
 		CFE3831E258E628C00CEE318 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE3831D258E628C00CEE318 /* Constants.swift */; };
@@ -76,9 +66,7 @@
 		CFE7E5C825A6E6D7009EB3DC /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7E5C725A6E6D7009EB3DC /* UserView.swift */; };
 		CFE7E5CA25A6E71C009EB3DC /* UserHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7E5C925A6E71C009EB3DC /* UserHeaderView.swift */; };
 		CFE7E5CC25A6E8D8009EB3DC /* UserRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7E5CB25A6E8D8009EB3DC /* UserRepresentable.swift */; };
-		CFE7E5CE25A6EC6B009EB3DC /* GetUser.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFE7E5CD25A6EC6B009EB3DC /* GetUser.graphql */; };
 		CFE7E5D025A6F6BA009EB3DC /* ActivityReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7E5CF25A6F6BA009EB3DC /* ActivityReviewView.swift */; };
-		CFE7E5D425A700E8009EB3DC /* GetViewerWorks.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFE7E5D325A700E8009EB3DC /* GetViewerWorks.graphql */; };
 		CFE7E5D725A7077D009EB3DC /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7E5D625A7077D009EB3DC /* RecordView.swift */; };
 		CFE7E5DA25A70826009EB3DC /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7E5D925A70826009EB3DC /* SearchView.swift */; };
 		CFE7E5DF25A72F63009EB3DC /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = CFE7E5DE25A72F63009EB3DC /* SwiftUIX */; };
@@ -116,7 +104,6 @@
 		CF13E35125AAF78A005D11F8 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		CF1E5E5C259CE88500035D50 /* Envfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Envfile; sourceTree = "<group>"; };
 		CF1E5E86259CF4CE00035D50 /* SearchWorksByID.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchWorksByID.graphql; sourceTree = "<group>"; };
-		CF1E5E88259CF69E00035D50 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CF2A8E8525B00418001D2AF1 /* Portannict.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Portannict.entitlements; sourceTree = "<group>"; };
 		CF2E1D92259DC19100824A3C /* GetFollowingActivities.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetFollowingActivities.graphql; sourceTree = "<group>"; };
 		CF3B2FCE25B411600017A7C0 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
@@ -137,6 +124,7 @@
 		CF809AAA25C31A9100A4794C /* MonochromeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeImage.swift; sourceTree = "<group>"; };
 		CF809AAC25C3230C00A4794C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CF809AAE25C3245800A4794C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CF8291B825F20EB800214425 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = Sources/API.swift; sourceTree = SOURCE_ROOT; };
 		CF841D4424CA69A600F3723B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnictSeason.swift; sourceTree = "<group>"; };
 		CFB9BA75259DCA7500C51708 /* ActivityRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRecordView.swift; sourceTree = "<group>"; };
@@ -228,7 +216,6 @@
 				CF809AAE25C3245800A4794C /* AppDelegate.swift */,
 				CF809AAC25C3230C00A4794C /* SceneDelegate.swift */,
 				CF644C6825C32C10005A2779 /* LaunchScreen.storyboard */,
-				CF1E5E88259CF69E00035D50 /* API.swift */,
 				CFE38316258E621400CEE318 /* Common */,
 				CFB8D8B9255D18740092764B /* Root */,
 				CF841D3E24CA67F600F3723B /* Login */,
@@ -364,6 +351,7 @@
 		CFE38317258E621A00CEE318 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				CF8291B825F20EB800214425 /* API.swift */,
 				CF1E5E85259CF4B800035D50 /* Query */,
 				CFE38318258E623700CEE318 /* REST */,
 				CFBB73B325A5718900601DCB /* Network.swift */,
@@ -454,7 +442,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF08FC1224B9AD1A00CD29DD /* Build configuration list for PBXNativeTarget "Portannict" */;
 			buildPhases = (
-				CF1E5E8A259CF79B00035D50 /* Apollo Codegen */,
+				CF8291B725F20E7200214425 /* Apollo Codegen */,
 				CF08FBFF24B9AD1A00CD29DD /* Sources */,
 				CF08FC0024B9AD1A00CD29DD /* Frameworks */,
 				CF08FC0124B9AD1A00CD29DD /* Resources */,
@@ -524,31 +512,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFBCA06325AB49FB00C5386C /* SearchWorksByTitle.graphql in Resources */,
-				CFD82D3C25A64157005401AF /* GetViewer.graphql in Resources */,
-				CF3B2FD125B42D1E0017A7C0 /* SearchWorkEpisodes.graphql in Resources */,
 				CFCE3E3725B5C425000CFF34 /* Licenses.html in Resources */,
-				CF2E1D93259DC19100824A3C /* GetFollowingActivities.graphql in Resources */,
-				CF3B2FD725B46F710017A7C0 /* SearchWorkReviews.graphql in Resources */,
-				CFB9BA78259DCD0D00C51708 /* Fragments.graphql in Resources */,
-				CFBCA06525AB6B0E00C5386C /* UpdateStatus.graphql in Resources */,
-				CFE7E5CE25A6EC6B009EB3DC /* GetUser.graphql in Resources */,
 				CF644C6925C32C10005A2779 /* LaunchScreen.storyboard in Resources */,
 				CFCE3E2E25B5B77F000CFF34 /* Settings.bundle in Resources */,
 				CF1E5E5D259CE88500035D50 /* Envfile in Resources */,
 				CF08FC0E24B9AD1A00CD29DD /* Preview Assets.xcassets in Resources */,
 				CF08FC0B24B9AD1A00CD29DD /* Assets.xcassets in Resources */,
-				CF13E35025AAF38D005D11F8 /* SearchWorksBySeason.graphql in Resources */,
-				CFE7E5D425A700E8009EB3DC /* GetViewerWorks.graphql in Resources */,
-				CF3BC75125B4A1A70046631F /* SearchEpisodes.graphql in Resources */,
-				CF1E5E87259CF4CE00035D50 /* SearchWorksByID.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		CF1E5E8A259CF79B00035D50 /* Apollo Codegen */ = {
+		CF8291B725F20E7200214425 /* Apollo Codegen */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -564,7 +540,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"${SRCROOT}\"/Codegen\nxcrun -sdk macosx swift run\n";
+			shellScript = "cd \"${SRCROOT}\"/ApolloCodegen\nxcrun -sdk macosx swift run ApolloCodegen generate\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -574,6 +550,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFBCA06B25AB719B00C5386C /* SearchRecommendedWorksViewModel.swift in Sources */,
+				CF8291B925F20EB800214425 /* API.swift in Sources */,
 				CF13E35225AAF78A005D11F8 /* SearchViewModel.swift in Sources */,
 				CF3B2FE125B485DC0017A7C0 /* Dummy.swift in Sources */,
 				CFBCA06925AB70C600C5386C /* SearchResultsView.swift in Sources */,
@@ -623,7 +600,6 @@
 				CFFE4FFE24C9C266003AECE5 /* QuoteWorkView.swift in Sources */,
 				CFC03F0525948EF2001516D3 /* OauthTokenRequest.swift in Sources */,
 				CFC03F012594895F001516D3 /* LoginViewModel.swift in Sources */,
-				CF1E5E89259CF69E00035D50 /* API.swift in Sources */,
 				CFBCA06725AB709D00C5386C /* SearchRecommendedWorksView.swift in Sources */,
 				CFE7E5DA25A70826009EB3DC /* SearchView.swift in Sources */,
 				CFCE3E3B25B60C85000CFF34 /* AvatarIImageView.swift in Sources */,
