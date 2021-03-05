@@ -1,3 +1,3 @@
-# Codegen
+# ApolloCodegen
 
 A description of this package.

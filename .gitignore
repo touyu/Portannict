@@ -15,4 +15,5 @@ Envfile
 node_modules
 
 # Apollo
-Codegen/ApolloCLI
+ApolloCodegen/ApolloCLI
+ApolloCodegen/.build

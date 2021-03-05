@@ -1,7 +1,7 @@
 import XCTest
 import class Foundation.Bundle
 
-final class CodegenTests: XCTestCase {
+final class ApolloCodegenTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
@@ -12,7 +12,7 @@ final class CodegenTests: XCTestCase {
             return
         }
 
-        let fooBinary = productsDirectory.appendingPathComponent("Codegen")
+        let fooBinary = productsDirectory.appendingPathComponent("ApolloCodegen")
 
         let process = Process()
         process.executableURL = fooBinary
