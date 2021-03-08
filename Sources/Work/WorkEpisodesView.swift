@@ -10,30 +10,15 @@ import ComposableArchitecture
 import SwiftUIX
 
 struct WorkEpisodesState: Equatable {
-    enum Presentation: View, Identifiable, Hashable {
-        case episode(EpisodeFragment)
-
-        var body: some View {
-            switch self {
-            case .episode(let episode):
-                EpisodeView(episode: episode)
-            }
-        }
-    }
-
-
     var work: WorkFragment
     var episodeCellStates: [WorkEpisodeCellState] = []
     var pageInfo: PageInfoFragment?
     var isEpisodesLoading: Bool = false
-    var presentation: Presentation?
 }
 
 enum WorkEpisodesAction: Equatable {
     case fetch
     case fetchMore
-    case episodeCellTapped(Int)
-    case episodeDismissed
     case setIsEpisodesLoading(Bool)
 
     case setEpisodes(Result<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError>)
@@ -87,12 +72,6 @@ let workEpisodesReducer = Reducer<WorkEpisodesState, WorkEpisodesAction, WorkEpi
                 .map(WorkEpisodesAction.appendEpisodes)
             let finished = Effect<WorkEpisodesAction, Never>(value: .setIsEpisodesLoading(false))
             return Effect.concatenate(loading, fetchMoreStream, finished)
-        case .episodeCellTapped(let index):
-            //        state.presentation = .episode(state.episodes[index])
-            return .none
-        case .episodeDismissed:
-            state.presentation = nil
-            return .none
         case .setIsEpisodesLoading(let isLoading):
             state.isEpisodesLoading = isLoading
             return .none
