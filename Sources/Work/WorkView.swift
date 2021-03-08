@@ -39,7 +39,7 @@ let workReducer = Reducer<WorkState, WorkAction, WorkEnvironment>
     .combine(
         workEpisodesReducer
             .optional()
-            .pullback(state: \WorkState.episodesState,
+            .pullback(state: \.episodesState,
                       action: /WorkAction.episodes,
                       environment: { WorkEpisodesEnvironment(mainQueue: $0.mainQueue) }),
         Reducer { state, action, env in
@@ -86,8 +86,7 @@ let workReducer = Reducer<WorkState, WorkAction, WorkEnvironment>
                 return .none
             case .setWork(.failure(let error)):
                 return .none
-            case .episodes(let action):
-                print("Action!!!", action)
+            case .episodes(let action2):
                 return .none
             }
 
