@@ -51,6 +51,13 @@ let workReducer = Reducer<WorkState, WorkAction, WorkEnvironment>
                     .eraseToEffect()
             }
 
+            func updateStatus(statusState: StatusState) -> Effect<WorkFragment, APIError> {
+                guard let id = state.work?.id else { return .none }
+                return APIClient.shared.performEffect(mutation: UpdateStatusMutation(workId: id, state: statusState))
+                    .compactMap { $0.updateStatus?.work?.fragments.workFragment }
+                    .eraseToEffect()
+            }
+
             switch action {
             case .fetch:
                 let fetchStream = fetch()
@@ -62,7 +69,11 @@ let workReducer = Reducer<WorkState, WorkAction, WorkEnvironment>
                     .eraseToEffect()
                     .cancellable(id: RequestId())
             case .updateStatus(let status):
-                return .none
+                state.work?.viewerStatusState = status
+                return updateStatus(statusState: status)
+                    .catchToEffect()
+                    .map(WorkAction.setWork)
+                    .cancellable(id: RequestId())
             case .statusButtonTapped:
                 state.actionSheet = .init(
                     title: TextState("ステータスを変更"),
@@ -214,18 +225,18 @@ struct WorkView: View {
     //        }
     //    }
     //
-    //    private func updateStatus(id: GraphQLID, state: StatusState) {
-    //        let mutation = UpdateStatusMutation(workId: id, state: state)
-    //        Network.shared.apollo.perform(mutation: mutation) { result in
-    //            switch result {
-    //            case .success(let data):
-    //                guard let work = data.data?.updateStatus?.work?.fragments.workFragment else { return }
-    //                self.work?.viewerStatusState = work.viewerStatusState
-    //            case .failure(let error):
-    //                print(error)
-    //            }
-    //        }
-    //    }
+//        private func updateStatus(id: GraphQLID, state: StatusState) {
+//            let mutation = UpdateStatusMutation(workId: id, state: state)
+//            Network.shared.apollo.perform(mutation: mutation) { result in
+//                switch result {
+//                case .success(let data):
+//                    guard let work = data.data?.updateStatus?.work?.fragments.workFragment else { return }
+//                    self.work?.viewerStatusState = work.viewerStatusState
+//                case .failure(let error):
+//                    print(error)
+//                }
+//            }
+//        }
     //
     //    private func fetchReviews() {
     //        Network.shared.apollo.fetch(query: SearchWorkReviewsQuery(workAnnictId: workID, first: 5, after: nil)) { result in

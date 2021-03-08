@@ -41,10 +41,26 @@ final class APIClient {
         return fetch(query: query).eraseToEffect()
     }
 
-    func perform<Mutation: GraphQLMutation>(mutation: Mutation) {
-        apollo.perform(mutation: mutation) { result in
-
+    func perform<Mutation: GraphQLMutation>(mutation: Mutation) -> AnyPublisher<Mutation.Data, APIError> {
+        return Future<Mutation.Data, APIError> { [weak self] promise in
+            self?.apollo.perform(mutation: mutation) { result in
+                switch result {
+                case .success(let data):
+                    guard let data = data.data else {
+                        promise(.failure(.notFoundData))
+                        return
+                    }
+                    promise(.success(data))
+                case .failure(let error):
+                    promise(.failure(APIError.failed(error as NSError)))
+                }
+            }
         }
+        .eraseToAnyPublisher()
+    }
+
+    func performEffect<Mutation: GraphQLMutation>(mutation: Mutation) -> Effect<Mutation.Data, APIError> {
+        return perform(mutation: mutation).eraseToEffect()
     }
 
     private var headers: [String: String] {
