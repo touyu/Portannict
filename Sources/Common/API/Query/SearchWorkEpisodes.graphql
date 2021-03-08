@@ -9,8 +9,7 @@ query SearchWorkEpisodes($workAnnictId: Int!, $first: Int, $after: String) {
 					}
 				}
 				pageInfo {
-					endCursor
-					hasNextPage
+					...PageInfoFragment
 				}
 			}
 		}

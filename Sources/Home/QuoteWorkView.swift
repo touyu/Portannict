@@ -7,6 +7,7 @@
 
 import SwiftUI
 import KingfisherSwiftUI
+import ComposableArchitecture
 
 struct QuoteWorkView: View {
     @Binding var work: WorkFragment
@@ -85,7 +86,13 @@ struct QuoteWorkView: View {
                         .background(Color(.tertiarySystemBackground))
                         .cornerRadius(20)
                         .sheet(isPresented: $isPresentedWorkView) {
-                            WorkView(workID: work.annictId)
+                            WorkView(store: Store(initialState: WorkState(workID: work.annictId),
+                                                  reducer: workReducer,
+                                                  environment: WorkEnvironment(
+                                                    mainQueue: DispatchQueue.main.eraseToAnyScheduler()
+                                                  )
+                                    )
+                            )
                         }
                     }
                     .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))

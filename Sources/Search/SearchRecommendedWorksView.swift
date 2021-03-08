@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftUIX
+import ComposableArchitecture
 
 struct SearchRecommendedWorksView: View {
     @StateObject var viewModel: SearchRecommendedWorksViewModel
@@ -20,7 +21,13 @@ struct SearchRecommendedWorksView: View {
         var body: some View {
             switch self {
             case .work(let work):
-                WorkView(workID: work.annictId)
+                WorkView(store: Store(initialState: WorkState(workID: work.annictId),
+                                      reducer: workReducer,
+                                      environment: WorkEnvironment(
+                                        mainQueue: DispatchQueue.main.eraseToAnyScheduler()
+                                      )
+                        )
+                )
             }
         }
     }

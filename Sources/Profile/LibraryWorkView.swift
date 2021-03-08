@@ -7,6 +7,7 @@
 
 import SwiftUI
 import KingfisherSwiftUI
+import ComposableArchitecture
 
 struct LibraryWorkView: View {
     let work: WorkFragment
@@ -34,9 +35,15 @@ struct LibraryWorkView: View {
                 }
                 .cornerRadius(4)
             })
-//            .frame(height: geometry.size.width * 5/3)
+            //            .frame(height: geometry.size.width * 5/3)
             .sheet(isPresented: $isPresent) {
-                WorkView(workID: work.annictId)
+                WorkView(store: Store(initialState: WorkState(workID: work.annictId),
+                                      reducer: workReducer,
+                                      environment: WorkEnvironment(
+                                        mainQueue: DispatchQueue.main.eraseToAnyScheduler()
+                                      )
+                    )
+                )
             }
         }
     }

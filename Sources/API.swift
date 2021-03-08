@@ -3703,8 +3703,7 @@ public final class SearchWorkEpisodesQuery: GraphQLQuery {
             }
             pageInfo {
               __typename
-              endCursor
-              hasNextPage
+              ...PageInfoFragment
             }
           }
         }
@@ -3714,12 +3713,13 @@ public final class SearchWorkEpisodesQuery: GraphQLQuery {
 
   public let operationName: String = "SearchWorkEpisodes"
 
-  public let operationIdentifier: String? = "498b834fbaa3af5f1ef362265b102b9ee78f81e69a354f30a34163c26699c1bf"
+  public let operationIdentifier: String? = "09152b0fef3de8c21c78a3d22922f742bbc7402c9e1aa00e6c4341320e4a653d"
 
   public var queryDocument: String {
     var document: String = operationDefinition
     document.append("\n" + WorkFragment.fragmentDefinition)
     document.append("\n" + EpisodeFragment.fragmentDefinition)
+    document.append("\n" + PageInfoFragment.fragmentDefinition)
     return document
   }
 
@@ -4171,8 +4171,11 @@ public final class SearchWorkEpisodesQuery: GraphQLQuery {
             public static var selections: [GraphQLSelection] {
               return [
                 GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-                GraphQLField("endCursor", type: .scalar(String.self)),
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
                 GraphQLField("hasNextPage", type: .nonNull(.scalar(Bool.self))),
+                GraphQLField("hasPreviousPage", type: .nonNull(.scalar(Bool.self))),
+                GraphQLField("endCursor", type: .scalar(String.self)),
+                GraphQLField("startCursor", type: .scalar(String.self)),
               ]
             }
 
@@ -4182,8 +4185,8 @@ public final class SearchWorkEpisodesQuery: GraphQLQuery {
               self.resultMap = unsafeResultMap
             }
 
-            public init(endCursor: String? = nil, hasNextPage: Bool) {
-              self.init(unsafeResultMap: ["__typename": "PageInfo", "endCursor": endCursor, "hasNextPage": hasNextPage])
+            public init(hasNextPage: Bool, hasPreviousPage: Bool, endCursor: String? = nil, startCursor: String? = nil) {
+              self.init(unsafeResultMap: ["__typename": "PageInfo", "hasNextPage": hasNextPage, "hasPreviousPage": hasPreviousPage, "endCursor": endCursor, "startCursor": startCursor])
             }
 
             public var __typename: String {
@@ -4192,6 +4195,26 @@ public final class SearchWorkEpisodesQuery: GraphQLQuery {
               }
               set {
                 resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            /// When paginating forwards, are there more items?
+            public var hasNextPage: Bool {
+              get {
+                return resultMap["hasNextPage"]! as! Bool
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "hasNextPage")
+              }
+            }
+
+            /// When paginating backwards, are there more items?
+            public var hasPreviousPage: Bool {
+              get {
+                return resultMap["hasPreviousPage"]! as! Bool
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "hasPreviousPage")
               }
             }
 
@@ -4205,13 +4228,39 @@ public final class SearchWorkEpisodesQuery: GraphQLQuery {
               }
             }
 
-            /// When paginating forwards, are there more items?
-            public var hasNextPage: Bool {
+            /// When paginating backwards, the cursor to continue.
+            public var startCursor: String? {
               get {
-                return resultMap["hasNextPage"]! as! Bool
+                return resultMap["startCursor"] as? String
               }
               set {
-                resultMap.updateValue(newValue, forKey: "hasNextPage")
+                resultMap.updateValue(newValue, forKey: "startCursor")
+              }
+            }
+
+            public var fragments: Fragments {
+              get {
+                return Fragments(unsafeResultMap: resultMap)
+              }
+              set {
+                resultMap += newValue.resultMap
+              }
+            }
+
+            public struct Fragments {
+              public private(set) var resultMap: ResultMap
+
+              public init(unsafeResultMap: ResultMap) {
+                self.resultMap = unsafeResultMap
+              }
+
+              public var pageInfoFragment: PageInfoFragment {
+                get {
+                  return PageInfoFragment(unsafeResultMap: resultMap)
+                }
+                set {
+                  resultMap += newValue.resultMap
+                }
               }
             }
           }

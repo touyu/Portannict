@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftUIX
 import KingfisherSwiftUI
+import ComposableArchitecture
 
 struct SearchResultsView: View {
     @Binding var works: [WorkFragment]
@@ -19,7 +20,13 @@ struct SearchResultsView: View {
         var body: some View {
             switch self {
             case .work(let work):
-                WorkView(workID: work.annictId)
+                WorkView(store: Store(initialState: WorkState(workID: work.annictId),
+                                      reducer: workReducer,
+                                      environment: WorkEnvironment(
+                                        mainQueue: DispatchQueue.main.eraseToAnyScheduler()
+                                      )
+                        )
+                )
             }
         }
     }
