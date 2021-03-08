@@ -35,6 +35,7 @@
 		CF841D4524CA69A600F3723B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4424CA69A600F3723B /* LoginView.swift */; };
 		CF9A375D25AB3EF8003077D5 /* AnnictSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */; };
 		CFADCD0825A5A78000939DA7 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = CFADCD0725A5A78000939DA7 /* SkeletonUI */; };
+		CFB4B0C325F6471700D773D0 /* WorkEpisodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB4B0C225F6471700D773D0 /* WorkEpisodesView.swift */; };
 		CFB9BA76259DCA7500C51708 /* ActivityRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB9BA75259DCA7500C51708 /* ActivityRecordView.swift */; };
 		CFBB73B425A5718900601DCB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB73B325A5718900601DCB /* Network.swift */; };
 		CFBB73B725A575D700601DCB /* KFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB73B625A575D700601DCB /* KFImage.swift */; };
@@ -127,6 +128,7 @@
 		CF8291B825F20EB800214425 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = Sources/API.swift; sourceTree = SOURCE_ROOT; };
 		CF841D4424CA69A600F3723B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnictSeason.swift; sourceTree = "<group>"; };
+		CFB4B0C225F6471700D773D0 /* WorkEpisodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkEpisodesView.swift; sourceTree = "<group>"; };
 		CFB9BA75259DCA7500C51708 /* ActivityRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRecordView.swift; sourceTree = "<group>"; };
 		CFB9BA77259DCD0D00C51708 /* Fragments.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fragments.graphql; sourceTree = "<group>"; };
 		CFBB73B325A5718900601DCB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -415,6 +417,7 @@
 			isa = PBXGroup;
 			children = (
 				CFFDC8A7259C6EF6001C8E29 /* WorkView.swift */,
+				CFB4B0C225F6471700D773D0 /* WorkEpisodesView.swift */,
 				CF3B2FDA25B484DC0017A7C0 /* WorkMoreButton.swift */,
 				CFFDC8B4259CCAFE001C8E29 /* WorkHeaderView.swift */,
 				CF3B2FD825B484AD0017A7C0 /* WorkEpisodeCell.swift */,
@@ -568,6 +571,7 @@
 				CFE7E5D725A7077D009EB3DC /* RecordView.swift in Sources */,
 				CF08FC1624B9AFC500CD29DD /* ProfileView.swift in Sources */,
 				CF3B2FDB25B484DC0017A7C0 /* WorkMoreButton.swift in Sources */,
+				CFB4B0C325F6471700D773D0 /* WorkEpisodesView.swift in Sources */,
 				CFCE3E3925B60B3A000CFF34 /* WorkImageView.swift in Sources */,
 				CFBB73B725A575D700601DCB /* KFImage.swift in Sources */,
 				CF809AAF25C3245800A4794C /* AppDelegate.swift in Sources */,

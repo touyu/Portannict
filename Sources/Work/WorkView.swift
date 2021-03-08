@@ -28,6 +28,7 @@ struct WorkState: Equatable {
     let workID: Int
     var work: WorkFragment?
 
+    var episodesState: WorkEpisodesState?
     var episodes: [EpisodeFragment] = []
     var episodePageInfo: PageInfoFragment?
     var isEpisodesLoading: Bool = false
@@ -49,110 +50,123 @@ enum WorkAction: Equatable {
     case setEpisodes(Result<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError>)
     case appendEpisodes(Result<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError>)
     case setIsEpisodesLoading(Bool)
+
+    case episodes(WorkEpisodesAction)
 }
 
 struct WorkEnvironment {
     var mainQueue: AnySchedulerOf<DispatchQueue>
 }
 
-let workReducer = Reducer<WorkState, WorkAction, WorkEnvironment> { state, action, env in
-    struct RequestId: Hashable {}
+let workReducer = Reducer<WorkState, WorkAction, WorkEnvironment>
+    .combine(
+        workEpisodesReducer
+            .optional()
+            .pullback(state: \WorkState.episodesState,
+                      action: /WorkAction.episodes,
+                      environment: { WorkEpisodesEnvironment(mainQueue: $0.mainQueue) }),
+        Reducer { state, action, env in
+            struct RequestId: Hashable {}
 
-    func fetch() -> Effect<WorkFragment, APIError> {
-        return APIClient.shared.fetchEffect(query: SearchWorksByIdQuery(annictId: state.workID))
-            .compactMap { $0.searchWorks?.nodes?.first??.fragments.workFragment }
-            .eraseToEffect()
-    }
+            func fetch() -> Effect<WorkFragment, APIError> {
+                return APIClient.shared.fetchEffect(query: SearchWorksByIdQuery(annictId: state.workID))
+                    .compactMap { $0.searchWorks?.nodes?.first??.fragments.workFragment }
+                    .eraseToEffect()
+            }
 
-    func fetchEpisodes() -> Effect<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError> {
-        return APIClient.shared.fetchEffect(query: SearchWorkEpisodesQuery(workAnnictId: state.workID, first: 5))
-            .compactMap { $0.searchWorks?.nodes?.first??.episodes }
-            .eraseToEffect()
-    }
+            func fetchEpisodes() -> Effect<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError> {
+                return APIClient.shared.fetchEffect(query: SearchWorkEpisodesQuery(workAnnictId: state.workID, first: 5))
+                    .compactMap { $0.searchWorks?.nodes?.first??.episodes }
+                    .eraseToEffect()
+            }
 
-    func fetchMoreEpisodes() -> Effect<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError> {
-        guard let pageInfo = state.episodePageInfo else { return .none }
-        guard pageInfo.hasNextPage else { return .none }
-        return APIClient.shared.fetchEffect(query: SearchWorkEpisodesQuery(workAnnictId: state.workID,
-                                                                           first: 30,
-                                                                           after: pageInfo.endCursor))
-            .compactMap { $0.searchWorks?.nodes?.first??.episodes }
-            .eraseToEffect()
-    }
+            func fetchMoreEpisodes() -> Effect<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError> {
+                guard let pageInfo = state.episodePageInfo else { return .none }
+                guard pageInfo.hasNextPage else { return .none }
+                return APIClient.shared.fetchEffect(query: SearchWorkEpisodesQuery(workAnnictId: state.workID,
+                                                                                   first: 30,
+                                                                                   after: pageInfo.endCursor))
+                    .compactMap { $0.searchWorks?.nodes?.first??.episodes }
+                    .eraseToEffect()
+            }
 
-    switch action {
-    case .fetch:
-        let fetchStream = fetch()
-            .receive(on: env.mainQueue)
-            .catchToEffect()
-            .map(WorkAction.setWork)
+            switch action {
+            case .fetch:
+                let fetchStream = fetch()
+                    .receive(on: env.mainQueue)
+                    .catchToEffect()
+                    .map(WorkAction.setWork)
 
-        let fetchEpisodesStream = fetchEpisodes()
-            .receive(on: env.mainQueue)
-            .catchToEffect()
-            .map(WorkAction.setEpisodes)
+                let fetchEpisodesStream = fetchEpisodes()
+                    .receive(on: env.mainQueue)
+                    .catchToEffect()
+                    .map(WorkAction.setEpisodes)
 
-        return fetchStream
-            .merge(with: fetchEpisodesStream)
-            .eraseToEffect()
-            .cancellable(id: RequestId())
-    case .updateStatus(let status):
-        return .none
-    case .statusButtonTapped:
-        state.actionSheet = .init(
-            title: TextState("ステータスを変更"),
-            buttons: [
-                .default(TextState("選択解除"), send: .updateStatus(.noState)),
-                .default(TextState("見たい"), send: .updateStatus(.wannaWatch)),
-                .default(TextState("見てる"), send: .updateStatus(.watching)),
-                .default(TextState("見た"), send: .updateStatus(.watched)),
-                .default(TextState("一時中断"), send: .updateStatus(.onHold)),
-                .default(TextState("視聴中止"), send: .updateStatus(.stopWatching)),
-                .cancel(),
-            ]
-        )
-        return .none
-    case .actionSheetDismissed:
-        state.actionSheet = nil
-        return .none
-    case .episodeCellTapped(let index):
-        state.presentation = .episode(state.episodes[index])
-        return .none
-    case .episodeDismissed:
-        state.presentation = nil
-        return .none
-    case .fetchMoreEpisode:
-        let loading = Effect<WorkAction, Never>(value: .setIsEpisodesLoading(true))
-        let fetchMoreStream = fetchMoreEpisodes()
-            .receive(on: env.mainQueue)
-            .catchToEffect()
-            .map(WorkAction.appendEpisodes)
-        let finished = Effect<WorkAction, Never>(value: .setIsEpisodesLoading(false))
-        return Effect.concatenate(loading, fetchMoreStream, finished)
+                return fetchStream
+                    .merge(with: fetchEpisodesStream)
+                    .eraseToEffect()
+                    .cancellable(id: RequestId())
+            case .updateStatus(let status):
+                return .none
+            case .statusButtonTapped:
+                state.actionSheet = .init(
+                    title: TextState("ステータスを変更"),
+                    buttons: [
+                        .default(TextState("選択解除"), send: .updateStatus(.noState)),
+                        .default(TextState("見たい"), send: .updateStatus(.wannaWatch)),
+                        .default(TextState("見てる"), send: .updateStatus(.watching)),
+                        .default(TextState("見た"), send: .updateStatus(.watched)),
+                        .default(TextState("一時中断"), send: .updateStatus(.onHold)),
+                        .default(TextState("視聴中止"), send: .updateStatus(.stopWatching)),
+                        .cancel(),
+                    ]
+                )
+                return .none
+            case .actionSheetDismissed:
+                state.actionSheet = nil
+                return .none
+            case .episodeCellTapped(let index):
+                state.presentation = .episode(state.episodes[index])
+                return .none
+            case .episodeDismissed:
+                state.presentation = nil
+                return .none
+            case .fetchMoreEpisode:
+                let loading = Effect<WorkAction, Never>(value: .setIsEpisodesLoading(true))
+                let fetchMoreStream = fetchMoreEpisodes()
+                    .receive(on: env.mainQueue)
+                    .catchToEffect()
+                    .map(WorkAction.appendEpisodes)
+                let finished = Effect<WorkAction, Never>(value: .setIsEpisodesLoading(false))
+                return Effect.concatenate(loading, fetchMoreStream, finished)
 
-    case .setWork(.success(let work)):
-        print(work)
-        state.work = work
-        return .none
-    case .setWork(.failure(let error)):
-        return .none
-    case .setEpisodes(.success(let episodes)):
-        state.episodes = episodes.edges?.compactMap { $0?.node?.fragments.episodeFragment } ?? []
-        state.episodePageInfo = episodes.pageInfo.fragments.pageInfoFragment
-        return .none
-    case .setEpisodes(.failure(let error)):
-        return .none
-    case .appendEpisodes(.success(let episodes)):
-        state.episodes += episodes.edges?.compactMap { $0?.node?.fragments.episodeFragment } ?? []
-        state.episodePageInfo = episodes.pageInfo.fragments.pageInfoFragment
-        return .none
-    case .appendEpisodes(.failure(let error)):
-        return .none
-    case .setIsEpisodesLoading(let isEpisodesLoading):
-        state.isEpisodesLoading = isEpisodesLoading
-        return .none
-    }
-}
+            case .setWork(.success(let work)):
+                state.work = work
+                state.episodesState = WorkEpisodesState(work: work)
+                return .none
+            case .setWork(.failure(let error)):
+                return .none
+            case .setEpisodes(.success(let episodes)):
+                state.episodes = episodes.edges?.compactMap { $0?.node?.fragments.episodeFragment } ?? []
+                state.episodePageInfo = episodes.pageInfo.fragments.pageInfoFragment
+                return .none
+            case .setEpisodes(.failure(let error)):
+                return .none
+            case .appendEpisodes(.success(let episodes)):
+                state.episodes += episodes.edges?.compactMap { $0?.node?.fragments.episodeFragment } ?? []
+                state.episodePageInfo = episodes.pageInfo.fragments.pageInfoFragment
+                return .none
+            case .appendEpisodes(.failure(let error)):
+                return .none
+            case .setIsEpisodesLoading(let isEpisodesLoading):
+                state.isEpisodesLoading = isEpisodesLoading
+                return .none
+            case .episodes:
+                return .none
+            }
+
+        }
+    )
 
 struct WorkView: View {
     let store: Store<WorkState, WorkAction>
@@ -183,7 +197,9 @@ struct WorkView: View {
                             )
                             Group {
                                 if viewStore.episodes.count > 0 {
-                                    WorkEpisodesView(store: store)
+                                    IfLetStore(store.scope(state: \.episodesState,
+                                                           action: WorkAction.episodes),
+                                                           then: WorkEpisodesView.init(store:))
                                 }
                                 //                                if reviews.count > 0 {
                                 //                                    reviewsSection(work: work)
@@ -323,7 +339,7 @@ struct WorkView_Previews: PreviewProvider {
                               environment: WorkEnvironment(
                                 mainQueue: DispatchQueue.main.eraseToAnyScheduler()
                               )
-            )
+        )
         )
     }
 }
@@ -331,49 +347,5 @@ struct WorkView_Previews: PreviewProvider {
 extension EpisodeFragment: Identifiable, Hashable {
     public func hash(into hasher: inout Hasher) {
         id.hash(into: &hasher)
-    }
-}
-
-struct WorkEpisodesView: View {
-    let store: Store<WorkState, WorkAction>
-
-    var body: some View {
-        WithViewStore(store) { viewStore in
-            LazyVStack(alignment: .leading, spacing: 20) {
-                Text("Episodes \(viewStore.work?.episodesCount ?? 0)")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                ForEach(viewStore.episodes.indices, id: \.self) { index in
-                    let episode = viewStore.episodes[index]
-                    Button(action: {
-                        viewStore.send(.episodeCellTapped(index))
-                    }, label: {
-                        WorkEpisodeCell(episode: episode)
-                            .foregroundColor(.primary)
-                    })
-                    .sheet(item: viewStore.binding(
-                            get: { $0.presentation },
-                            send: { _ in WorkAction.episodeDismissed } )
-                    ) { $0 }
-                }
-                if let episodesPageInfo = viewStore.episodePageInfo, episodesPageInfo.hasNextPage == true {
-                    HStack {
-                        Spacer()
-                        if viewStore.isEpisodesLoading {
-                            ActivityIndicator()
-                                .animated(true)
-                                .style(.medium)
-                                .frame(height: 40)
-
-                        } else {
-                            WorkMoreButton {
-                                viewStore.send(.fetchMoreEpisode)
-                            }
-                        }
-                        Spacer()
-                    }
-                }
-            }
-        }
     }
 }
