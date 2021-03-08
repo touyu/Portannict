@@ -14,27 +14,10 @@ import ComposableArchitecture
 extension SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode: Equatable { }
 
 struct WorkState: Equatable {
-    enum Presentation: View, Identifiable, Hashable {
-        case episode(EpisodeFragment)
-
-        var body: some View {
-            switch self {
-            case .episode(let episode):
-                EpisodeView(episode: episode)
-            }
-        }
-    }
-
     let workID: Int
     var work: WorkFragment?
-
     var episodesState: WorkEpisodesState?
-    var episodes: [EpisodeFragment] = []
-    var episodePageInfo: PageInfoFragment?
-    var isEpisodesLoading: Bool = false
-
     var actionSheet: ActionSheetState<WorkAction>?
-    var presentation: Presentation?
 }
 
 enum WorkAction: Equatable {
@@ -42,14 +25,8 @@ enum WorkAction: Equatable {
     case statusButtonTapped
     case actionSheetDismissed
     case updateStatus(StatusState)
-    case episodeCellTapped(Int)
-    case episodeDismissed
-    case fetchMoreEpisode
 
     case setWork(Result<WorkFragment, APIError>)
-    case setEpisodes(Result<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError>)
-    case appendEpisodes(Result<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError>)
-    case setIsEpisodesLoading(Bool)
 
     case episodes(WorkEpisodesAction)
 }
@@ -74,22 +51,6 @@ let workReducer = Reducer<WorkState, WorkAction, WorkEnvironment>
                     .eraseToEffect()
             }
 
-            func fetchEpisodes() -> Effect<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError> {
-                return APIClient.shared.fetchEffect(query: SearchWorkEpisodesQuery(workAnnictId: state.workID, first: 5))
-                    .compactMap { $0.searchWorks?.nodes?.first??.episodes }
-                    .eraseToEffect()
-            }
-
-            func fetchMoreEpisodes() -> Effect<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError> {
-                guard let pageInfo = state.episodePageInfo else { return .none }
-                guard pageInfo.hasNextPage else { return .none }
-                return APIClient.shared.fetchEffect(query: SearchWorkEpisodesQuery(workAnnictId: state.workID,
-                                                                                   first: 30,
-                                                                                   after: pageInfo.endCursor))
-                    .compactMap { $0.searchWorks?.nodes?.first??.episodes }
-                    .eraseToEffect()
-            }
-
             switch action {
             case .fetch:
                 let fetchStream = fetch()
@@ -97,13 +58,7 @@ let workReducer = Reducer<WorkState, WorkAction, WorkEnvironment>
                     .catchToEffect()
                     .map(WorkAction.setWork)
 
-                let fetchEpisodesStream = fetchEpisodes()
-                    .receive(on: env.mainQueue)
-                    .catchToEffect()
-                    .map(WorkAction.setEpisodes)
-
                 return fetchStream
-                    .merge(with: fetchEpisodesStream)
                     .eraseToEffect()
                     .cancellable(id: RequestId())
             case .updateStatus(let status):
@@ -125,43 +80,14 @@ let workReducer = Reducer<WorkState, WorkAction, WorkEnvironment>
             case .actionSheetDismissed:
                 state.actionSheet = nil
                 return .none
-            case .episodeCellTapped(let index):
-                state.presentation = .episode(state.episodes[index])
-                return .none
-            case .episodeDismissed:
-                state.presentation = nil
-                return .none
-            case .fetchMoreEpisode:
-                let loading = Effect<WorkAction, Never>(value: .setIsEpisodesLoading(true))
-                let fetchMoreStream = fetchMoreEpisodes()
-                    .receive(on: env.mainQueue)
-                    .catchToEffect()
-                    .map(WorkAction.appendEpisodes)
-                let finished = Effect<WorkAction, Never>(value: .setIsEpisodesLoading(false))
-                return Effect.concatenate(loading, fetchMoreStream, finished)
-
             case .setWork(.success(let work)):
                 state.work = work
                 state.episodesState = WorkEpisodesState(work: work)
                 return .none
             case .setWork(.failure(let error)):
                 return .none
-            case .setEpisodes(.success(let episodes)):
-                state.episodes = episodes.edges?.compactMap { $0?.node?.fragments.episodeFragment } ?? []
-                state.episodePageInfo = episodes.pageInfo.fragments.pageInfoFragment
-                return .none
-            case .setEpisodes(.failure(let error)):
-                return .none
-            case .appendEpisodes(.success(let episodes)):
-                state.episodes += episodes.edges?.compactMap { $0?.node?.fragments.episodeFragment } ?? []
-                state.episodePageInfo = episodes.pageInfo.fragments.pageInfoFragment
-                return .none
-            case .appendEpisodes(.failure(let error)):
-                return .none
-            case .setIsEpisodesLoading(let isEpisodesLoading):
-                state.isEpisodesLoading = isEpisodesLoading
-                return .none
-            case .episodes:
+            case .episodes(let action):
+                print("Action!!!", action)
                 return .none
             }
 
@@ -196,7 +122,7 @@ struct WorkView: View {
                                 dismiss: .actionSheetDismissed
                             )
                             Group {
-                                if viewStore.episodes.count > 0 {
+                                if work.episodesCount > 0 {
                                     IfLetStore(store.scope(state: \.episodesState,
                                                            action: WorkAction.episodes),
                                                            then: WorkEpisodesView.init(store:))
@@ -339,7 +265,7 @@ struct WorkView_Previews: PreviewProvider {
                               environment: WorkEnvironment(
                                 mainQueue: DispatchQueue.main.eraseToAnyScheduler()
                               )
-        )
+                )
         )
     }
 }

@@ -65,11 +65,14 @@ let workEpisodesReducer = Reducer<WorkEpisodesState, WorkEpisodesAction, WorkEpi
 
     switch action {
     case .fetch:
-        return fetchEpisodes()
+        let loading = Effect<WorkEpisodesAction, Never>(value: .setIsEpisodesLoading(true))
+        let fetchStream = fetchEpisodes()
             .receive(on: env.mainQueue)
             .catchToEffect()
             .map(WorkEpisodesAction.setEpisodes)
             .cancellable(id: RequestId())
+        let finished = Effect<WorkEpisodesAction, Never>(value: .setIsEpisodesLoading(false))
+        return Effect.concatenate(loading, fetchStream, finished)
     case .fetchMore:
         let loading = Effect<WorkEpisodesAction, Never>(value: .setIsEpisodesLoading(true))
         let fetchMoreStream = fetchMoreEpisodes()
