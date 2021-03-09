@@ -10,6 +10,7 @@ import ComposableArchitecture
 
 struct RootState: Equatable {
     var loginState = LoginState()
+    var accessToken: String? = UserDefaults.standard.string(forKey: "accessToken")
 }
 
 enum RootAction: Equatable {
@@ -18,6 +19,7 @@ enum RootAction: Equatable {
 
 struct RootEnvironment {
     let mainQueue: AnySchedulerOf<DispatchQueue>
+    var saveToken: ((String) -> Void)
 }
 
 let rootReducer = Reducer<RootState, RootAction, RootEnvironment>.combine(
@@ -25,7 +27,17 @@ let rootReducer = Reducer<RootState, RootAction, RootEnvironment>.combine(
                           action: /RootAction.login,
                           environment: { LoginEnvironment(mainQueue: $0.mainQueue) }),
     Reducer { state, action, env in
-        return .none
+        switch action {
+        case .login(let loginAction):
+            switch loginAction {
+            case .setAccessToken(.success(let token)):
+                state.accessToken = token
+                env.saveToken(token)
+                return .none
+            default:
+                return .none
+            }
+        }
     }
 )
 
@@ -33,13 +45,14 @@ struct RootView: View {
     let store: Store<RootState, RootAction>
 
     var body: some View {
-        LoginView(store: store.scope(state: \.loginState,
-                                     action: RootAction.login))
-        //        if session.accessToken == nil {
-        //            LoginView(viewModel: .init(session: session))
-        //        } else {
-        //            RootTabView()
-        //        }
+        WithViewStore(store) { viewStore in
+            if viewStore.accessToken == nil {
+                LoginView(store: store.scope(state: \.loginState,
+                                             action: RootAction.login))
+            } else {
+                RootTabView()
+            }
+        }
     }
 }
 
@@ -48,7 +61,8 @@ struct RootView_Previews: PreviewProvider {
         RootView(store: Store(initialState: RootState(),
                               reducer: rootReducer,
                               environment: RootEnvironment(
-                                mainQueue: DispatchQueue.main.eraseToAnyScheduler()
+                                mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
+                                saveToken: { _ in }
                               )))
     }
 }
