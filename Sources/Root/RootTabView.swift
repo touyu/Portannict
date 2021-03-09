@@ -11,11 +11,13 @@ import ComposableArchitecture
 struct RootTabState: Equatable {
     var currentIndex = 0
     var homeState = HomeState()
+    var profileState = ProfileState()
 }
 
 enum RootTabAction: Equatable {
     case updateIndex(Int)
     case home(HomeAction)
+    case profile(ProfileAction)
 }
 
 struct RootTabEnvironment {
@@ -29,12 +31,19 @@ let rootTabReducer = Reducer<RootTabState, RootTabAction, RootTabEnvironment>.co
                             mainQueue: $0.mainQueue,
                             service: Service()
                          )}),
+    profileReducer.pullback(state: \.profileState,
+                            action: /RootTabAction.profile,
+                            environment: { ProfileEnvironment(
+                                mainQueue: $0.mainQueue
+                            )}),
     Reducer { state, action, env in
         switch action {
         case .updateIndex(let index):
             state.currentIndex = index
             return .none
         case .home:
+            return .none
+        case .profile:
             return .none
         }
     }
@@ -66,7 +75,7 @@ struct RootTabView: View {
                         RootTabItem(normalIcon: "magnifyingglass.circle", selectedIcon: "magnifyingglass.circle.fill", selection: viewStore.currentIndex == 2)
                     }
                     .tag(2)
-                ProfileView()
+                ProfileView(store: store.scope(state: \.profileState, action: RootTabAction.profile))
                     .tabItem {
                         RootTabItem(normalIcon: "person", selectedIcon: "person.fill", selection: viewStore.currentIndex == 3)
                     }
