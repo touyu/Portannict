@@ -6,28 +6,43 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
+
+struct RootState: Equatable {
+    
+}
+
+enum RootAction: Equatable {
+    
+}
+
+struct RootEnvironment {
+    let mainQueue: AnySchedulerOf<DispatchQueue>
+}
+
+let rootReducer = Reducer<RootState, RootAction, RootEnvironment> { state, action, env in
+    return .none
+}
 
 struct RootView: View {
-    typealias ViewModel = RootViewModel
-
-    @ObservedObject var viewModel: ViewModel
-    @EnvironmentObject var session: LoginSession
+    let store: Store<RootState, RootAction>
 
     var body: some View {
-        if session.accessToken == nil {
-            LoginView(viewModel: .init(session: session))
-        } else {
-            RootTabView()
-        }
-    }
-
-    init(viewModel: ViewModel) {
-        self.viewModel = viewModel
+        EmptyView()
+//        if session.accessToken == nil {
+//            LoginView(viewModel: .init(session: session))
+//        } else {
+//            RootTabView()
+//        }
     }
 }
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView(viewModel: .init())
+        RootView(store: Store(initialState: RootState(),
+                              reducer: rootReducer,
+                              environment: RootEnvironment(
+                                mainQueue: DispatchQueue.main.eraseToAnyScheduler()
+                              )))
     }
 }

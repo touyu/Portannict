@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 import Fluxer
 
-struct LoginView: View {
+struct LoginView2: View {
     typealias ViewModel = LoginViewModel
     @ObservedObject var viewModel: LoginViewModel
 
@@ -49,8 +49,8 @@ struct LoginView: View {
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct LoginView2_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(viewModel: .init(session: LoginSession()))
+        LoginView2(viewModel: .init(session: LoginSession()))
     }
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import ComposableArchitecture
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -18,9 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-        print(connectionOptions.urlContexts.first?.url)
-
-        let contentView = RootView(viewModel: .init())
+        let contentView = RootView(store: Store(initialState: RootState(),
+                                                reducer: rootReducer,
+                                                environment: RootEnvironment(
+                                                  mainQueue: DispatchQueue.main.eraseToAnyScheduler()
+                                                )))
             .environmentObject(LoginSession())
 
         // Use a UIHostingController as window root view controller.
@@ -33,7 +36,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        print(URLContexts.first?.url)
         NotificationCenter.default.post(name: .init(rawValue: "URLSchema"), object: URLContexts.first?.url)
     }
 
