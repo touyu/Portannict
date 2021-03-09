@@ -9,22 +9,6 @@ import SwiftUI
 import KingfisherSwiftUI
 import ComposableArchitecture
 
-//struct ProfileHeaderState: Equatable {
-//    let viewer: GetViewerQuery.Data.Viewer
-//}
-//
-//enum ProfileHeaderAction {
-//    case settingButtonTapped
-//}
-//
-//struct ProfileHeaderEnvironemnt {
-//
-//}
-//
-//let profileHeaderReducer = Reducer<ProfileHeaderState, ProfileHeaderAction, ProfileHeaderEnvironemnt> { state, action, env in
-//    return .none
-//}
-
 struct ProfileHeaderView: View {
     let store: Store<ProfileState, ProfileAction>
 

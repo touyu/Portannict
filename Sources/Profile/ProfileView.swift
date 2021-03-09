@@ -16,6 +16,7 @@ struct ProfileState: Equatable {
     var curerntIndex: Int = 0
     var isSettingPresented = false
     var settingState: SettingState?
+    var libraryWorksStates: [LibraryWorksState] = []
 }
 
 enum ProfileAction: Equatable {
@@ -27,6 +28,7 @@ enum ProfileAction: Equatable {
     case setViewer(Result<GetViewerQuery.Data.Viewer, APIError>)
 
     case setting(SettingAction)
+    case libraryWorks(index: Int, action: LibraryWorksAction)
 }
 
 struct ProfileEnvironment {
@@ -39,6 +41,12 @@ let profileReducer = Reducer<ProfileState, ProfileAction, ProfileEnvironment>.co
         .pullback(state: \.settingState,
                   action: /ProfileAction.setting,
                   environment: { _ in SettingEnvironment() }),
+    libraryWorksReducer
+        .forEach(state: \.libraryWorksStates,
+                 action: /ProfileAction.libraryWorks(index:action:),
+                 environment: { LibraryWorksEnvironment(
+                    mainQueue: $0.mainQueue
+                 )}),
     Reducer { state, action, env in
         struct RequestId: Hashable {}
 
@@ -65,6 +73,13 @@ let profileReducer = Reducer<ProfileState, ProfileAction, ProfileEnvironment>.co
             return .none
         case .setViewer(.success(let viewer)):
             state.viewer = viewer
+            state.libraryWorksStates = [
+                .init(status: .watching, count: viewer.watchingCount),
+                .init(status: .wannaWatch, count: viewer.wannaWatchCount),
+                .init(status: .watched, count: viewer.watchedCount),
+                .init(status: .onHold, count: viewer.onHoldCount),
+                .init(status: .stopWatching, count: viewer.stopWatchingCount)
+            ]
             return .none
         case .setViewer(.failure(let error)):
             return .none
@@ -73,6 +88,8 @@ let profileReducer = Reducer<ProfileState, ProfileAction, ProfileEnvironment>.co
             case .logout:
                 return Effect(value: .setSettingSheet(isPresented: false))
             }
+        case .libraryWorks:
+            return .none
         }
     }
 )
@@ -101,7 +118,12 @@ struct ProfileView: View {
                             .padding(.init(top: 0, leading: 16, bottom: 0, trailing: 16))
                             switch viewStore.curerntIndex {
                             case 0:
-                                libraryView(viewer: viewer)
+                                ForEachStore(
+                                    store.scope(state: \.libraryWorksStates,
+                                                action: ProfileAction.libraryWorks(index:action:))
+                                ) { childStore in
+                                    LibraryWorksView(store: childStore)
+                                }
                             default:
                                 Text("アクティビティ")
                             }
@@ -125,16 +147,6 @@ struct ProfileView: View {
                     then: SettingView.init(store:)
                 )
             }
-        }
-    }
-
-    func libraryView(viewer: GetViewerQuery.Data.Viewer) -> some View {
-        Group {
-            LibraryWorksView(status: .watching, count: viewer.watchingCount)
-            LibraryWorksView(status: .wannaWatch, count: viewer.wannaWatchCount)
-            LibraryWorksView(status: .watched, count: viewer.watchedCount)
-            LibraryWorksView(status: .onHold, count: viewer.onHoldCount)
-            LibraryWorksView(status: .stopWatching, count: viewer.stopWatchingCount)
         }
     }
 }
