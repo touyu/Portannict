@@ -15,13 +15,16 @@ struct RootState: Equatable {
 }
 
 enum RootAction: Equatable {
+    case logout
+
     case login(LoginAction)
     case rootTab(RootTabAction)
 }
 
 struct RootEnvironment {
     let mainQueue: AnySchedulerOf<DispatchQueue>
-    var saveToken: ((String) -> Void)
+    var saveToken: ((String?) -> Void)
+    var clearCache: (() -> Void)
 }
 
 let rootReducer = Reducer<RootState, RootAction, RootEnvironment>.combine(
@@ -33,6 +36,11 @@ let rootReducer = Reducer<RootState, RootAction, RootEnvironment>.combine(
                             environment: { RootTabEnvironment(mainQueue: $0.mainQueue) }),
     Reducer { state, action, env in
         switch action {
+        case .logout:
+            env.saveToken(nil)
+            env.clearCache()
+            state = .init()
+            return .none
         case .login(let loginAction):
             switch loginAction {
             case .setAccessToken(.success(let token)):
@@ -42,8 +50,21 @@ let rootReducer = Reducer<RootState, RootAction, RootEnvironment>.combine(
             default:
                 return .none
             }
-        case .rootTab:
-            return .none
+        case .rootTab(let rootTabAction):
+            switch rootTabAction {
+            case .profile(let profileAction):
+                switch profileAction {
+                case .setting(let settingAction):
+                    switch settingAction {
+                    case .logout:
+                        return Effect(value: .logout)
+                    }
+                default:
+                    return .none
+                }
+            default:
+                return .none
+            }
         }
     }
 )
@@ -70,7 +91,8 @@ struct RootView_Previews: PreviewProvider {
                               reducer: rootReducer,
                               environment: RootEnvironment(
                                 mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
-                                saveToken: { _ in }
+                                saveToken: { _ in },
+                                clearCache: {}
                               )))
     }
 }

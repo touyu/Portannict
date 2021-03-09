@@ -40,8 +40,8 @@ let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment> { state, actio
 
     switch action {
     case .fetch:
-//        let query = GetFollowingActivitiesQuery(first: 30, after: nil)
-//        return Network.shared.apollo.fetch2(query: query)
+        print("Home fetch")
+        print(state.activities.count)
         return environment.service.fetchHomeActivities(first: 30, after: nil)
             .receive(on: environment.mainQueue)
             .catchToEffect()
@@ -49,8 +49,6 @@ let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment> { state, actio
             .cancellable(id: RequestId())
     case .fetchMore:
         guard let pageInfo = state.pageInfo, pageInfo.hasNextPage else { return .none }
-//        let query = GetFollowingActivitiesQuery(first: 30, after: pageInfo.endCursor)
-//        return Network.shared.apollo.fetch2(query: query)
         return environment.service.fetchHomeActivities(first: 30, after: pageInfo.endCursor)
             .receive(on: environment.mainQueue)
             .catchToEffect()

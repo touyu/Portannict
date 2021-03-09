@@ -51,9 +51,9 @@ struct UserHeaderView: View {
             Text(user.description)
                 .font(.body)
         }
-        .sheet(isPresented: $showingSetting) {
-            SettingView()
-        }
+//        .sheet(isPresented: $showingSetting) {
+//            SettingView()
+//        }
     }
 
     func hideSettingButton() -> UserHeaderView {

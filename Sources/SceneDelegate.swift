@@ -23,7 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                                 reducer: rootReducer,
                                                 environment: RootEnvironment(
                                                     mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
-                                                    saveToken: { UserDefaults.standard.set($0, forKey: "accessToken") }
+                                                    saveToken: { UserDefaults.standard.set($0, forKey: "accessToken") },
+                                                    clearCache: { APIClient.shared.apollo.clearCache() }
                                                 )))
             .environmentObject(LoginSession())
 
