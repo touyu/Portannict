@@ -34,6 +34,8 @@
 		CF8291B925F20EB800214425 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8291B825F20EB800214425 /* API.swift */; };
 		CF841D4524CA69A600F3723B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF841D4424CA69A600F3723B /* LoginView.swift */; };
 		CF9A375D25AB3EF8003077D5 /* AnnictSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */; };
+		CF9E8DDE25F7791100D496B5 /* EpisodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E8DDD25F7791100D496B5 /* EpisodeService.swift */; };
+		CF9E8DE025F7792E00D496B5 /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E8DDF25F7792E00D496B5 /* ReviewService.swift */; };
 		CFADCD0825A5A78000939DA7 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = CFADCD0725A5A78000939DA7 /* SkeletonUI */; };
 		CFB4B0C325F6471700D773D0 /* WorkEpisodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB4B0C225F6471700D773D0 /* WorkEpisodesView.swift */; };
 		CFB4B14125F74AF800D773D0 /* WorkReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB4B14025F74AF800D773D0 /* WorkReviewsView.swift */; };
@@ -129,6 +131,8 @@
 		CF8291B825F20EB800214425 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = Sources/API.swift; sourceTree = SOURCE_ROOT; };
 		CF841D4424CA69A600F3723B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnictSeason.swift; sourceTree = "<group>"; };
+		CF9E8DDD25F7791100D496B5 /* EpisodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeService.swift; sourceTree = "<group>"; };
+		CF9E8DDF25F7792E00D496B5 /* ReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewService.swift; sourceTree = "<group>"; };
 		CFB4B0C225F6471700D773D0 /* WorkEpisodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkEpisodesView.swift; sourceTree = "<group>"; };
 		CFB4B14025F74AF800D773D0 /* WorkReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkReviewsView.swift; sourceTree = "<group>"; };
 		CFB9BA75259DCA7500C51708 /* ActivityRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRecordView.swift; sourceTree = "<group>"; };
@@ -279,6 +283,15 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		CF9E8DDC25F7790500D496B5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CF9E8DDD25F7791100D496B5 /* EpisodeService.swift */,
+				CF9E8DDF25F7792E00D496B5 /* ReviewService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		CFADCD0325A5A34F00939DA7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +354,7 @@
 		CFE38316258E621400CEE318 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CF9E8DDC25F7790500D496B5 /* Services */,
 				CFADCD0325A5A34F00939DA7 /* Views */,
 				CFBB73B525A575CD00601DCB /* Extension */,
 				CFE38317258E621A00CEE318 /* API */,
@@ -588,6 +602,7 @@
 				CFE7E5D025A6F6BA009EB3DC /* ActivityReviewView.swift in Sources */,
 				CFE9F2D325C5ED61004C8FBF /* Service.swift in Sources */,
 				CF809AAB25C31A9100A4794C /* MonochromeImage.swift in Sources */,
+				CF9E8DDE25F7791100D496B5 /* EpisodeService.swift in Sources */,
 				CF3B2FDD25B484F20017A7C0 /* Color.swift in Sources */,
 				CFCE3E3325B5BC09000CFF34 /* WebView.swift in Sources */,
 				CFE7E5C525A6D65A009EB3DC /* LibraryWorksView.swift in Sources */,
@@ -602,6 +617,7 @@
 				CFCE3E3525B5BDDE000CFF34 /* LicensesView.swift in Sources */,
 				CFC03EFF259483DA001516D3 /* HTTPClient.swift in Sources */,
 				CF7A9D9425C5D0D600B29C68 /* APIClient.swift in Sources */,
+				CF9E8DE025F7792E00D496B5 /* ReviewService.swift in Sources */,
 				CFD82D3525A630E7005401AF /* RatingStateView.swift in Sources */,
 				CFE7E5CC25A6E8D8009EB3DC /* UserRepresentable.swift in Sources */,
 				CFFE4FFE24C9C266003AECE5 /* QuoteWorkView.swift in Sources */,

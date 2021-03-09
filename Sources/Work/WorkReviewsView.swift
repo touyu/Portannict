@@ -140,12 +140,3 @@ struct WorkReviewsView_Previews: PreviewProvider {
         )
     }
 }
-
-struct ReviewService {
-    static func fetch(workAnnictId: Int, first: Int, after: String?) -> Effect<SearchWorkReviewsQuery.Data.SearchWork.Node.Review, APIError> {
-        return APIClient.shared.fetchEffect(query: SearchWorkReviewsQuery(workAnnictId: workAnnictId, first: first))
-            .compactMap { $0.searchWorks?.nodes?.first??.reviews }
-            .eraseToEffect()
-    }
-}
-

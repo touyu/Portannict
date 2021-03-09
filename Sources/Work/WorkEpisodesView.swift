@@ -144,14 +144,6 @@ struct WorkEpisodesView_Previews: PreviewProvider {
     }
 }
 
-struct EpisodeService {
-    static func fetch(workAnnictId: Int, first: Int, after: String?) -> Effect<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError> {
-        return APIClient.shared.fetchEffect(query: SearchWorkEpisodesQuery(workAnnictId: workAnnictId, first: first))
-            .compactMap { $0.searchWorks?.nodes?.first??.episodes }
-            .eraseToEffect()
-    }
-}
-
 extension EpisodeFragment {
     static var dummy: EpisodeFragment {
         return .init(id: "", annictId: 0, title: "ABCDEF", numberText: "第１話", viewerRecordsCount: 1)
