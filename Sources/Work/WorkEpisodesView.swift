@@ -13,14 +13,14 @@ struct WorkEpisodesState: Equatable {
     var work: WorkFragment
     var episodeCellStates: [WorkEpisodeCellState] = []
     var pageInfo: PageInfoFragment?
-    var isEpisodesLoading: Bool = false
+    var isLoading: Bool = false
 }
 
 enum WorkEpisodesAction: Equatable {
     case fetch
     case fetchMore
-    case setIsEpisodesLoading(Bool)
 
+    case setIsLoading(Bool)
     case setEpisodes(Result<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError>)
     case appendEpisodes(Result<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError>)
 
@@ -41,28 +41,27 @@ let workEpisodesReducer = Reducer<WorkEpisodesState, WorkEpisodesAction, WorkEpi
 
         switch action {
         case .fetch:
-            let loading = Effect<WorkEpisodesAction, Never>(value: .setIsEpisodesLoading(true))
+            let loading = Effect<WorkEpisodesAction, Never>(value: .setIsLoading(true))
             let fetchStream = env.fetch(state.work.annictId, 5, nil)
                 .catchToEffect()
                 .map(WorkEpisodesAction.setEpisodes)
                 .cancellable(id: RequestId())
-            let finished = Effect<WorkEpisodesAction, Never>(value: .setIsEpisodesLoading(false))
+            let finished = Effect<WorkEpisodesAction, Never>(value: .setIsLoading(false))
             return Effect.concatenate(loading, fetchStream, finished)
                 .receive(on: env.mainQueue)
                 .eraseToEffect()
         case .fetchMore:
-            guard let pageInfo = state.pageInfo else { return .none }
-            guard pageInfo.hasNextPage else { return .none }
-            let loading = Effect<WorkEpisodesAction, Never>(value: .setIsEpisodesLoading(true))
+            guard let pageInfo = state.pageInfo, pageInfo.hasNextPage else { return .none }
+            let loading = Effect<WorkEpisodesAction, Never>(value: .setIsLoading(true))
             let fetchMoreStream = env.fetch(state.work.annictId, 30, pageInfo.endCursor)
                 .catchToEffect()
                 .map(WorkEpisodesAction.appendEpisodes)
-            let finished = Effect<WorkEpisodesAction, Never>(value: .setIsEpisodesLoading(false))
+            let finished = Effect<WorkEpisodesAction, Never>(value: .setIsLoading(false))
             return Effect.concatenate(loading, fetchMoreStream, finished)
                 .receive(on: env.mainQueue)
                 .eraseToEffect()
-        case .setIsEpisodesLoading(let isLoading):
-            state.isEpisodesLoading = isLoading
+        case .setIsLoading(let isLoading):
+            state.isLoading = isLoading
             return .none
         case .setEpisodes(.success(let episodes)):
             state.episodeCellStates = episodes.edges?
@@ -101,20 +100,20 @@ struct WorkEpisodesView: View {
                     WorkEpisodeCell(store: cellStore)
                 }
                 if let pageInfo = viewStore.pageInfo, pageInfo.hasNextPage == true {
-                    if !viewStore.isEpisodesLoading {
+                    if !viewStore.isLoading {
                         HStack {
                             Spacer()
-                                WorkMoreButton {
-                                    viewStore.send(.fetchMore)
-                                }
+                            WorkMoreButton {
+                                viewStore.send(.fetchMore)
+                            }
                             Spacer()
                         }
                     }
                 }
-                if viewStore.isEpisodesLoading {
+                if viewStore.isLoading {
                     HStack {
                         Spacer()
-                            ProgressView()
+                        ProgressView()
                         Spacer()
                     }
                 }
