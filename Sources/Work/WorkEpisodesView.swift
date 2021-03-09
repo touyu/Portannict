@@ -29,6 +29,7 @@ enum WorkEpisodesAction: Equatable {
 
 struct WorkEpisodesEnvironment {
     let mainQueue: AnySchedulerOf<DispatchQueue>
+    var fetch: (_ id: Int, _ first: Int, _ after: String?) -> Effect<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError>
 }
 
 let workEpisodesReducer = Reducer<WorkEpisodesState, WorkEpisodesAction, WorkEpisodesEnvironment>.combine(
@@ -38,26 +39,10 @@ let workEpisodesReducer = Reducer<WorkEpisodesState, WorkEpisodesAction, WorkEpi
     Reducer { state, action, env in
         struct RequestId: Hashable {}
 
-        func fetch() -> Effect<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError> {
-            return APIClient.shared.fetchEffect(query: SearchWorkEpisodesQuery(workAnnictId: state.work.annictId, first: 5))
-                .compactMap { $0.searchWorks?.nodes?.first??.episodes }
-                .eraseToEffect()
-        }
-
-        func fetchMore() -> Effect<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError> {
-            guard let pageInfo = state.pageInfo else { return .none }
-            guard pageInfo.hasNextPage else { return .none }
-            return APIClient.shared.fetchEffect(query: SearchWorkEpisodesQuery(workAnnictId: state.work.annictId,
-                                                                               first: 30,
-                                                                               after: pageInfo.endCursor))
-                .compactMap { $0.searchWorks?.nodes?.first??.episodes }
-                .eraseToEffect()
-        }
-
         switch action {
         case .fetch:
             let loading = Effect<WorkEpisodesAction, Never>(value: .setIsEpisodesLoading(true))
-            let fetchStream = fetch()
+            let fetchStream = env.fetch(state.work.annictId, 5, nil)
                 .receive(on: env.mainQueue)
                 .catchToEffect()
                 .map(WorkEpisodesAction.setEpisodes)
@@ -65,8 +50,10 @@ let workEpisodesReducer = Reducer<WorkEpisodesState, WorkEpisodesAction, WorkEpi
             let finished = Effect<WorkEpisodesAction, Never>(value: .setIsEpisodesLoading(false))
             return Effect.concatenate(loading, fetchStream, finished)
         case .fetchMore:
+            guard let pageInfo = state.pageInfo else { return .none }
+            guard pageInfo.hasNextPage else { return .none }
             let loading = Effect<WorkEpisodesAction, Never>(value: .setIsEpisodesLoading(true))
-            let fetchMoreStream = fetchMore()
+            let fetchMoreStream = env.fetch(state.work.annictId, 30, pageInfo.endCursor)
                 .receive(on: env.mainQueue)
                 .catchToEffect()
                 .map(WorkEpisodesAction.appendEpisodes)
@@ -142,7 +129,10 @@ struct WorkEpisodesView_Previews: PreviewProvider {
         WorkEpisodesView(store: Store(initialState: WorkEpisodesState(work: .dummy),
                                       reducer: workEpisodesReducer,
                                       environment: WorkEpisodesEnvironment(
-                                        mainQueue: DispatchQueue.main.eraseToAnyScheduler()
+                                        mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
+                                        fetch: { _, _, _ in
+                                            return .none
+                                        }
                                       )
             )
         )
@@ -151,10 +141,28 @@ struct WorkEpisodesView_Previews: PreviewProvider {
         WorkEpisodesView(store: Store(initialState: WorkEpisodesState(work: .dummy, isEpisodesLoading: true),
                                       reducer: workEpisodesReducer,
                                       environment: WorkEpisodesEnvironment(
-                                        mainQueue: DispatchQueue.main.eraseToAnyScheduler()
+                                        mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
+                                        fetch: { _, _, _ in
+                                            return .none
+                                        }
                                       )
             )
         )
         .previewLayout(.fixed(width: 375, height: 300))
+    }
+}
+
+struct EpisodeService {
+    func fetch(workAnnictId: Int, first: Int, after: String?) -> Effect<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError> {
+        return APIClient.shared.fetchEffect(query: SearchWorkEpisodesQuery(workAnnictId: workAnnictId, first: first))
+            .compactMap { $0.searchWorks?.nodes?.first??.episodes }
+            .eraseToEffect()
+    }
+
+    func fetch2(workAnnictId: Int, first: Int, after: String?) -> Effect<([EpisodeFragment], PageInfoFragment), APIError> {
+        return APIClient.shared.fetchEffect(query: SearchWorkEpisodesQuery(workAnnictId: workAnnictId, first: first))
+            .compactMap { $0.searchWorks?.nodes?.first??.episodes }
+            .map { ($0.edges?.compactMap { $0?.node?.fragments.episodeFragment } ?? [], $0.pageInfo.fragments.pageInfoFragment) }
+            .eraseToEffect()
     }
 }

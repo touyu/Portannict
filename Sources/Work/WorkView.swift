@@ -43,7 +43,10 @@ let workReducer = Reducer<WorkState, WorkAction, WorkEnvironment>
             .optional()
             .pullback(state: \.episodesState,
                       action: /WorkAction.episodes,
-                      environment: { WorkEpisodesEnvironment(mainQueue: $0.mainQueue) }),
+                      environment: { WorkEpisodesEnvironment(
+                        mainQueue: $0.mainQueue,
+                        fetch: { EpisodeService().fetch(workAnnictId: $0, first: $1, after: $2) })
+                      }),
         workReviewsReducer
             .optional()
             .pullback(state: \.reviewsState,
