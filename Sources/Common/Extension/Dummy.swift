@@ -35,7 +35,7 @@ extension UserFragment {
 
 extension WorkFragment {
     static var dummy: WorkFragment {
-        WorkFragment(id: "", annictId: 6524, title: "PSYCHO-PASS", episodesCount: 0, watchersCount: 0, reviewsCount: 0, media: .tv)
+        WorkFragment(id: "", annictId: 6524, title: "PSYCHO-PASS", episodesCount: 24, watchersCount: 51, reviewsCount: 12, media: .tv)
     }
 
     static var dummy2: WorkFragment {

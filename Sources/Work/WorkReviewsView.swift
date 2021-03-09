@@ -31,6 +31,7 @@ enum WorkReviewsAction: Equatable {
 
 struct WorkReviewsEnvironment {
     let mainQueue: AnySchedulerOf<DispatchQueue>
+    var fetch: (_ id: Int, _ first: Int, _ after: String?) -> Effect<SearchWorkReviewsQuery.Data.SearchWork.Node.Review, APIError>
 }
 
 let workReviewsReducer = Reducer<WorkReviewsState, WorkReviewsAction, WorkReviewsEnvironment>.combine(
@@ -39,41 +40,28 @@ let workReviewsReducer = Reducer<WorkReviewsState, WorkReviewsAction, WorkReview
                                   environment: { _ in WorkReviewCellEnvironment() }),
     Reducer { state, action, env in
         struct RequestId: Hashable {}
-        
-        func fetch() -> Effect<SearchWorkReviewsQuery.Data.SearchWork.Node.Review, APIError> {
-            return APIClient.shared.fetchEffect(query: SearchWorkReviewsQuery(workAnnictId: state.work.annictId, first: 5))
-                .compactMap { $0.searchWorks?.nodes?.first??.reviews }
-                .eraseToEffect()
-        }
-
-        func fetchMore() -> Effect<SearchWorkReviewsQuery.Data.SearchWork.Node.Review, APIError> {
-            guard let pageInfo = state.pageInfo else { return .none }
-            guard pageInfo.hasNextPage else { return .none }
-            return APIClient.shared.fetchEffect(query: SearchWorkReviewsQuery(workAnnictId: state.work.annictId,
-                                                                               first: 30,
-                                                                               after: pageInfo.endCursor))
-                .compactMap { $0.searchWorks?.nodes?.first??.reviews }
-                .eraseToEffect()
-        }
 
         switch action {
         case .fetch:
             let loading = Effect<WorkReviewsAction, Never>(value: .setIsLoading(true))
-            let fetchStream = fetch()
-                .receive(on: env.mainQueue)
+            let fetchStream = env.fetch(state.work.annictId, 5, nil)
                 .catchToEffect()
                 .map(WorkReviewsAction.setReviews)
                 .cancellable(id: RequestId())
             let finished = Effect<WorkReviewsAction, Never>(value: .setIsLoading(false))
             return Effect.concatenate(loading, fetchStream, finished)
-        case .fetchMore:
-            let loading = Effect<WorkReviewsAction, Never>(value: .setIsLoading(true))
-            let fetchMoreStream = fetchMore()
                 .receive(on: env.mainQueue)
+                .eraseToEffect()
+        case .fetchMore:
+            guard let pageInfo = state.pageInfo, pageInfo.hasNextPage else { return .none }
+            let loading = Effect<WorkReviewsAction, Never>(value: .setIsLoading(true))
+            let fetchMoreStream = env.fetch(state.work.annictId, 30, pageInfo.endCursor)
                 .catchToEffect()
                 .map(WorkReviewsAction.appendReviews)
             let finished = Effect<WorkReviewsAction, Never>(value: .setIsLoading(false))
             return Effect.concatenate(loading, fetchMoreStream, finished)
+                .receive(on: env.mainQueue)
+                .eraseToEffect()
         case .setIsLoading(let isLoading):
             state.isLoading = isLoading
             return .none
@@ -117,9 +105,9 @@ struct WorkReviewsView: View {
                     if !viewStore.isLoading {
                         HStack {
                             Spacer()
-                                WorkMoreButton {
-                                    viewStore.send(.fetchMore)
-                                }
+                            WorkMoreButton {
+                                viewStore.send(.fetchMore)
+                            }
                             Spacer()
                         }
                     }
@@ -127,7 +115,7 @@ struct WorkReviewsView: View {
                 if viewStore.isLoading {
                     HStack {
                         Spacer()
-                            ProgressView()
+                        ProgressView()
                         Spacer()
                     }
                 }
@@ -144,7 +132,20 @@ struct WorkReviewsView_Previews: PreviewProvider {
         WorkReviewsView(store: Store(initialState: WorkReviewsState(work: .dummy),
                                      reducer: workReviewsReducer,
                                      environment: WorkReviewsEnvironment(
-                                        mainQueue: DispatchQueue.main.eraseToAnyScheduler()
-                                     )))
+                                        mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
+                                        fetch: { _, _, _ in
+                                            return .none
+                                        }
+                                     ))
+        )
     }
 }
+
+struct ReviewService {
+    static func fetch(workAnnictId: Int, first: Int, after: String?) -> Effect<SearchWorkReviewsQuery.Data.SearchWork.Node.Review, APIError> {
+        return APIClient.shared.fetchEffect(query: SearchWorkReviewsQuery(workAnnictId: workAnnictId, first: first))
+            .compactMap { $0.searchWorks?.nodes?.first??.reviews }
+            .eraseToEffect()
+    }
+}
+

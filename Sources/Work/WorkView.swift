@@ -45,13 +45,16 @@ let workReducer = Reducer<WorkState, WorkAction, WorkEnvironment>
                       action: /WorkAction.episodes,
                       environment: { WorkEpisodesEnvironment(
                         mainQueue: $0.mainQueue,
-                        fetch: { EpisodeService().fetch(workAnnictId: $0, first: $1, after: $2) })
-                      }),
+                        fetch: EpisodeService.fetch
+                      )}),
         workReviewsReducer
             .optional()
             .pullback(state: \.reviewsState,
                       action: /WorkAction.reviews,
-                      environment: { WorkReviewsEnvironment(mainQueue: $0.mainQueue )}),
+                      environment: { WorkReviewsEnvironment(
+                        mainQueue: $0.mainQueue,
+                        fetch: ReviewService.fetch
+                      )}),
         Reducer { state, action, env in
             struct RequestId: Hashable {}
 
