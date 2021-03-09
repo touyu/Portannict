@@ -36,6 +36,7 @@
 		CF9A375D25AB3EF8003077D5 /* AnnictSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */; };
 		CFADCD0825A5A78000939DA7 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = CFADCD0725A5A78000939DA7 /* SkeletonUI */; };
 		CFB4B0C325F6471700D773D0 /* WorkEpisodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB4B0C225F6471700D773D0 /* WorkEpisodesView.swift */; };
+		CFB4B14125F74AF800D773D0 /* WorkReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB4B14025F74AF800D773D0 /* WorkReviewsView.swift */; };
 		CFB9BA76259DCA7500C51708 /* ActivityRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB9BA75259DCA7500C51708 /* ActivityRecordView.swift */; };
 		CFBB73B425A5718900601DCB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB73B325A5718900601DCB /* Network.swift */; };
 		CFBB73B725A575D700601DCB /* KFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB73B625A575D700601DCB /* KFImage.swift */; };
@@ -129,6 +130,7 @@
 		CF841D4424CA69A600F3723B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnictSeason.swift; sourceTree = "<group>"; };
 		CFB4B0C225F6471700D773D0 /* WorkEpisodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkEpisodesView.swift; sourceTree = "<group>"; };
+		CFB4B14025F74AF800D773D0 /* WorkReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkReviewsView.swift; sourceTree = "<group>"; };
 		CFB9BA75259DCA7500C51708 /* ActivityRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRecordView.swift; sourceTree = "<group>"; };
 		CFB9BA77259DCD0D00C51708 /* Fragments.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fragments.graphql; sourceTree = "<group>"; };
 		CFBB73B325A5718900601DCB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 			children = (
 				CFFDC8A7259C6EF6001C8E29 /* WorkView.swift */,
 				CFB4B0C225F6471700D773D0 /* WorkEpisodesView.swift */,
+				CFB4B14025F74AF800D773D0 /* WorkReviewsView.swift */,
 				CF3B2FDA25B484DC0017A7C0 /* WorkMoreButton.swift */,
 				CFFDC8B4259CCAFE001C8E29 /* WorkHeaderView.swift */,
 				CF3B2FD825B484AD0017A7C0 /* WorkEpisodeCell.swift */,
@@ -608,6 +611,7 @@
 				CFE7E5DA25A70826009EB3DC /* SearchView.swift in Sources */,
 				CFCE3E3B25B60C85000CFF34 /* AvatarIImageView.swift in Sources */,
 				CFB9BA76259DCA7500C51708 /* ActivityRecordView.swift in Sources */,
+				CFB4B14125F74AF800D773D0 /* WorkReviewsView.swift in Sources */,
 				CFE7E5C825A6E6D7009EB3DC /* UserView.swift in Sources */,
 				CF3BC74F25B4A0590046631F /* Identifiable.swift in Sources */,
 			);

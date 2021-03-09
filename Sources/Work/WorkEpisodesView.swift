@@ -28,7 +28,7 @@ enum WorkEpisodesAction: Equatable {
 }
 
 struct WorkEpisodesEnvironment {
-    var mainQueue: AnySchedulerOf<DispatchQueue>
+    let mainQueue: AnySchedulerOf<DispatchQueue>
 }
 
 let workEpisodesReducer = Reducer<WorkEpisodesState, WorkEpisodesAction, WorkEpisodesEnvironment>.combine(
@@ -38,13 +38,13 @@ let workEpisodesReducer = Reducer<WorkEpisodesState, WorkEpisodesAction, WorkEpi
     Reducer { state, action, env in
         struct RequestId: Hashable {}
 
-        func fetchEpisodes() -> Effect<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError> {
+        func fetch() -> Effect<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError> {
             return APIClient.shared.fetchEffect(query: SearchWorkEpisodesQuery(workAnnictId: state.work.annictId, first: 5))
                 .compactMap { $0.searchWorks?.nodes?.first??.episodes }
                 .eraseToEffect()
         }
 
-        func fetchMoreEpisodes() -> Effect<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError> {
+        func fetchMore() -> Effect<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError> {
             guard let pageInfo = state.pageInfo else { return .none }
             guard pageInfo.hasNextPage else { return .none }
             return APIClient.shared.fetchEffect(query: SearchWorkEpisodesQuery(workAnnictId: state.work.annictId,
@@ -57,7 +57,7 @@ let workEpisodesReducer = Reducer<WorkEpisodesState, WorkEpisodesAction, WorkEpi
         switch action {
         case .fetch:
             let loading = Effect<WorkEpisodesAction, Never>(value: .setIsEpisodesLoading(true))
-            let fetchStream = fetchEpisodes()
+            let fetchStream = fetch()
                 .receive(on: env.mainQueue)
                 .catchToEffect()
                 .map(WorkEpisodesAction.setEpisodes)
@@ -66,7 +66,7 @@ let workEpisodesReducer = Reducer<WorkEpisodesState, WorkEpisodesAction, WorkEpi
             return Effect.concatenate(loading, fetchStream, finished)
         case .fetchMore:
             let loading = Effect<WorkEpisodesAction, Never>(value: .setIsEpisodesLoading(true))
-            let fetchMoreStream = fetchMoreEpisodes()
+            let fetchMoreStream = fetchMore()
                 .receive(on: env.mainQueue)
                 .catchToEffect()
                 .map(WorkEpisodesAction.appendEpisodes)
@@ -112,19 +112,20 @@ struct WorkEpisodesView: View {
                     WorkEpisodeCell(store: cellStore)
                 }
                 if let pageInfo = viewStore.pageInfo, pageInfo.hasNextPage == true {
+                    if !viewStore.isEpisodesLoading {
+                        HStack {
+                            Spacer()
+                                WorkMoreButton {
+                                    viewStore.send(.fetchMore)
+                                }
+                            Spacer()
+                        }
+                    }
+                }
+                if viewStore.isEpisodesLoading {
                     HStack {
                         Spacer()
-                        if viewStore.isEpisodesLoading {
-                            ActivityIndicator()
-                                .animated(true)
-                                .style(.medium)
-                                .frame(height: 40)
-
-                        } else {
-                            WorkMoreButton {
-                                viewStore.send(.fetchMore)
-                            }
-                        }
+                            ProgressView()
                         Spacer()
                     }
                 }
@@ -143,7 +144,17 @@ struct WorkEpisodesView_Previews: PreviewProvider {
                                       environment: WorkEpisodesEnvironment(
                                         mainQueue: DispatchQueue.main.eraseToAnyScheduler()
                                       )
+            )
         )
+        .previewLayout(.fixed(width: 375, height: 300))
+
+        WorkEpisodesView(store: Store(initialState: WorkEpisodesState(work: .dummy, isEpisodesLoading: true),
+                                      reducer: workEpisodesReducer,
+                                      environment: WorkEpisodesEnvironment(
+                                        mainQueue: DispatchQueue.main.eraseToAnyScheduler()
+                                      )
+            )
         )
+        .previewLayout(.fixed(width: 375, height: 300))
     }
 }

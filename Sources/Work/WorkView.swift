@@ -17,6 +17,7 @@ struct WorkState: Equatable {
     let workID: Int
     var work: WorkFragment?
     var episodesState: WorkEpisodesState?
+    var reviewsState: WorkReviewsState?
     var actionSheet: ActionSheetState<WorkAction>?
 }
 
@@ -29,6 +30,7 @@ enum WorkAction: Equatable {
     case setWork(Result<WorkFragment, APIError>)
 
     case episodes(WorkEpisodesAction)
+    case reviews(WorkReviewsAction)
 }
 
 struct WorkEnvironment {
@@ -42,6 +44,11 @@ let workReducer = Reducer<WorkState, WorkAction, WorkEnvironment>
             .pullback(state: \.episodesState,
                       action: /WorkAction.episodes,
                       environment: { WorkEpisodesEnvironment(mainQueue: $0.mainQueue) }),
+        workReviewsReducer
+            .optional()
+            .pullback(state: \.reviewsState,
+                      action: /WorkAction.reviews,
+                      environment: { WorkReviewsEnvironment(mainQueue: $0.mainQueue )}),
         Reducer { state, action, env in
             struct RequestId: Hashable {}
 
@@ -94,10 +101,13 @@ let workReducer = Reducer<WorkState, WorkAction, WorkEnvironment>
             case .setWork(.success(let work)):
                 state.work = work
                 state.episodesState = WorkEpisodesState(work: work)
+                state.reviewsState = WorkReviewsState(work: work)
                 return .none
             case .setWork(.failure(let error)):
                 return .none
-            case .episodes(let action2):
+            case .episodes:
+                return .none
+            case .reviews:
                 return .none
             }
 
@@ -108,11 +118,6 @@ struct WorkView: View {
     let store: Store<WorkState, WorkAction>
 
     private let black = Color(hex: 0x222222)
-
-    //    @State private var reviews: [ReviewFragment] = []
-    //    @State private var reviewsPageInfo: PageInfoFragment?
-    //    @State private var isReviewsLoading = false
-    //    @State private var selectedEpisode: EpisodeFragment?
 
     var body: some View {
         GeometryReader { geometry in
@@ -137,9 +142,11 @@ struct WorkView: View {
                                                            action: WorkAction.episodes),
                                                            then: WorkEpisodesView.init(store:))
                                 }
-                                //                                if reviews.count > 0 {
-                                //                                    reviewsSection(work: work)
-                                //                                }
+                                if work.reviewsCount > 0 {
+                                    IfLetStore(store.scope(state: \.reviewsState,
+                                                           action: WorkAction.reviews),
+                                                           then: WorkReviewsView.init(store:))
+                                }
                             }
                             .padding(.init(top: 0, leading: 16, bottom: 48, trailing: 16))
                         }
@@ -153,119 +160,6 @@ struct WorkView: View {
             .edgesIgnoringSafeArea(.all)
         }
     }
-
-    //
-    //    private func reviewsSection(work: WorkFragment) -> some View {
-    //        LazyVStack(alignment: .leading, spacing: 24) {
-    //            Text("Reviews \(work.reviewsCount)")
-    //                .font(.title2)
-    //                .fontWeight(.bold)
-    //            ForEach(reviews.indices, id: \.self) { index in
-    //                if let review = reviews[index] {
-    //                    WorkReviewCell(review: review)
-    //                }
-    //            }
-    //            if let reviewsPageInfo = reviewsPageInfo, reviewsPageInfo.hasNextPage == true {
-    //                HStack {
-    //                    Spacer()
-    //                    if isReviewsLoading {
-    //                        ActivityIndicator()
-    //                            .animated(true)
-    //                            .style(.medium)
-    //                            .frame(height: 40)
-    //
-    //                    } else {
-    //                        WorkMoreButton {
-    //                            fetchMoreReviews()
-    //                        }
-    //                    }
-    //                    Spacer()
-    //                }
-    //            }
-    //        }
-    //    }
-
-    //    private func fetch() {
-    //        Network.shared.apollo.fetch(query: SearchWorksByIdQuery(annictId: workID)) { result in
-    //            switch result {
-    //            case .success(let data):
-    //                self.work = data.data?.searchWorks?.nodes?.first??.fragments.workFragment ?? nil
-    //            case .failure(let error):
-    //                print(error)
-    //            }
-    //        }
-    //    }
-    //
-    //        private func fetchEpisodes() {
-    //            Network.shared.apollo.fetch(query: SearchWorkEpisodesQuery(workAnnictId: workID, first: 5)) { result in
-    //                switch result {
-    //                case .success(let data):
-    //                    self.episodes = data.data?.searchWorks?.nodes?.first??.episodes?.edges?.compactMap { $0?.node?.fragments.episodeFragment } ?? []
-    //                    self.episodesPageInfo = data.data?.searchWorks?.nodes?.first??.episodes?.pageInfo
-    //                case .failure(let error):
-    //                    print(error)
-    //                }
-    //            }
-    //        }
-    //
-    //    private func fetchMoreEpisodes() {
-    //        isEpisodesLoading = true
-    //        guard let pageInfo = episodesPageInfo else { return }
-    //        guard pageInfo.hasNextPage else { return }
-    //        Network.shared.apollo.fetch(query: SearchWorkEpisodesQuery(workAnnictId: workID, first: 30, after: pageInfo.endCursor)) { result in
-    //            switch result {
-    //            case .success(let data):
-    //                let nodes = data.data?.searchWorks?.nodes?.first??.episodes?.edges?.compactMap { $0?.node?.fragments.episodeFragment } ?? []
-    //                self.episodes.append(contentsOf: nodes)
-    //                self.episodesPageInfo = data.data?.searchWorks?.nodes?.first??.episodes?.pageInfo
-    //                isEpisodesLoading = false
-    //            case .failure(let error):
-    //                print(error)
-    //            }
-    //        }
-    //    }
-    //
-//        private func updateStatus(id: GraphQLID, state: StatusState) {
-//            let mutation = UpdateStatusMutation(workId: id, state: state)
-//            Network.shared.apollo.perform(mutation: mutation) { result in
-//                switch result {
-//                case .success(let data):
-//                    guard let work = data.data?.updateStatus?.work?.fragments.workFragment else { return }
-//                    self.work?.viewerStatusState = work.viewerStatusState
-//                case .failure(let error):
-//                    print(error)
-//                }
-//            }
-//        }
-    //
-    //    private func fetchReviews() {
-    //        Network.shared.apollo.fetch(query: SearchWorkReviewsQuery(workAnnictId: workID, first: 5, after: nil)) { result in
-    //            switch result {
-    //            case .success(let data):
-    //                self.reviews = data.data?.searchWorks?.nodes?.first??.reviews?.edges?.compactMap { $0?.node?.fragments.reviewFragment } ?? []
-    //                self.reviewsPageInfo = data.data?.searchWorks?.nodes?.first??.reviews?.pageInfo.fragments.pageInfoFragment
-    //            case .failure(let error):
-    //                print(error)
-    //            }
-    //        }
-    //    }
-    //
-    //    private func fetchMoreReviews() {
-    //        isReviewsLoading = true
-    //        guard let pageInfo = reviewsPageInfo else { return }
-    //        guard pageInfo.hasNextPage else { return }
-    //        Network.shared.apollo.fetch(query: SearchWorkReviewsQuery(workAnnictId: workID, first: 30, after: pageInfo.endCursor)) { result in
-    //            switch result {
-    //            case .success(let data):
-    //                let nodes = data.data?.searchWorks?.nodes?.first??.reviews?.edges?.compactMap { $0?.node?.fragments.reviewFragment } ?? []
-    //                self.reviews.append(contentsOf: nodes)
-    //                self.reviewsPageInfo = data.data?.searchWorks?.nodes?.first??.reviews?.pageInfo.fragments.pageInfoFragment
-    //                isReviewsLoading = false
-    //            case .failure(let error):
-    //                print(error)
-    //            }
-    //        }
-    //    }
 }
 
 struct WorkView_Previews: PreviewProvider {
