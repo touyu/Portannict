@@ -36,6 +36,7 @@
 		CF9A375D25AB3EF8003077D5 /* AnnictSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */; };
 		CF9E8DDE25F7791100D496B5 /* EpisodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E8DDD25F7791100D496B5 /* EpisodeService.swift */; };
 		CF9E8DE025F7792E00D496B5 /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E8DDF25F7792E00D496B5 /* ReviewService.swift */; };
+		CF9E8DE225F77C2B00D496B5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E8DE125F77C2B00D496B5 /* LoginView.swift */; };
 		CFADCD0825A5A78000939DA7 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = CFADCD0725A5A78000939DA7 /* SkeletonUI */; };
 		CFB4B0C325F6471700D773D0 /* WorkEpisodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB4B0C225F6471700D773D0 /* WorkEpisodesView.swift */; };
 		CFB4B14125F74AF800D773D0 /* WorkReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB4B14025F74AF800D773D0 /* WorkReviewsView.swift */; };
@@ -132,6 +133,7 @@
 		CF9A375C25AB3EF8003077D5 /* AnnictSeason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnictSeason.swift; sourceTree = "<group>"; };
 		CF9E8DDD25F7791100D496B5 /* EpisodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeService.swift; sourceTree = "<group>"; };
 		CF9E8DDF25F7792E00D496B5 /* ReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewService.swift; sourceTree = "<group>"; };
+		CF9E8DE125F77C2B00D496B5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CFB4B0C225F6471700D773D0 /* WorkEpisodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkEpisodesView.swift; sourceTree = "<group>"; };
 		CFB4B14025F74AF800D773D0 /* WorkReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkReviewsView.swift; sourceTree = "<group>"; };
 		CFB9BA75259DCA7500C51708 /* ActivityRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRecordView.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 		CF841D3E24CA67F600F3723B /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				CF9E8DE125F77C2B00D496B5 /* LoginView.swift */,
 				CF841D4424CA69A600F3723B /* LoginView2.swift */,
 				CFC03F002594895F001516D3 /* LoginViewModel.swift */,
 			);
@@ -608,6 +611,7 @@
 				CFE7E5CA25A6E71C009EB3DC /* UserHeaderView.swift in Sources */,
 				CF3B2FDF25B485230017A7C0 /* WorkReviewCell.swift in Sources */,
 				CF841D4524CA69A600F3723B /* LoginView2.swift in Sources */,
+				CF9E8DE225F77C2B00D496B5 /* LoginView.swift in Sources */,
 				CF3B2FD325B44F680017A7C0 /* StatusButton.swift in Sources */,
 				CFFDC8B5259CCAFE001C8E29 /* WorkHeaderView.swift in Sources */,
 				CFCE3E3525B5BDDE000CFF34 /* LicensesView.swift in Sources */,

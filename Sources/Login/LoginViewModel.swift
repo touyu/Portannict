@@ -96,9 +96,3 @@ final class LoginViewModel: ViewModel {
         }
     }
 }
-
-final class AuthPresentationContextProvider: NSObject, ASWebAuthenticationPresentationContextProviding {
-    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
-        return ASPresentationAnchor()
-    }
-}
