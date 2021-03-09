@@ -20,6 +20,7 @@ struct LibraryWorksState: Equatable, Identifiable {
 
 enum LibraryWorksAction: Equatable {
     case onAppear
+    case workTapped(Int)
 
     case setWorks(Result<[WorkFragment], APIError>)
 }
@@ -38,6 +39,8 @@ let libraryWorksReducer = Reducer<LibraryWorksState, LibraryWorksAction, Library
             .catchToEffect()
             .map(LibraryWorksAction.setWorks)
             .cancellable(id: RequestId())
+    case .workTapped:
+        return .none
     case .setWorks(.success(let works)):
         state.works = works
         return .none
@@ -73,8 +76,12 @@ struct LibraryWorksView: View {
                             }
                         } else {
                             ForEach(viewStore.works.indices, id: \.self) { index in
-                                LibraryWorkView(work: viewStore.works[index])
-                                    .frame(width: 140, height: 140 * 5/3)
+                                Button(action: {
+                                    viewStore.send(.workTapped(index))
+                                }, label: {
+                                    LibraryWorkView(work: viewStore.works[index])
+                                        .frame(width: 140, height: 140 * 5/3)
+                                })
                             }
                         }
                     }

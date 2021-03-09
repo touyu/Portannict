@@ -12,22 +12,29 @@ import ComposableArchitecture
 extension GetViewerQuery.Data.Viewer: Equatable { }
 
 struct ProfileState: Equatable {
+    enum Presentation: Identifiable, Hashable {
+        case setting
+        case work(Int)
+    }
+
     var viewer: GetViewerQuery.Data.Viewer?
     var curerntIndex: Int = 0
-    var isSettingPresented = false
     var settingState: SettingState?
     var libraryWorksStates: [LibraryWorksState] = []
+    var workState: WorkState?
+    var presentation: Presentation?
 }
 
 enum ProfileAction: Equatable {
     case fetch
     case updateIndex(Int)
     case settingButtonTapped
-    case setSettingSheet(isPresented: Bool)
+    case setPresentation(ProfileState.Presentation?)
 
     case setViewer(Result<GetViewerQuery.Data.Viewer, APIError>)
 
     case setting(SettingAction)
+    case work(WorkAction)
     case libraryWorks(index: Int, action: LibraryWorksAction)
 }
 
@@ -41,6 +48,13 @@ let profileReducer = Reducer<ProfileState, ProfileAction, ProfileEnvironment>.co
         .pullback(state: \.settingState,
                   action: /ProfileAction.setting,
                   environment: { _ in SettingEnvironment() }),
+    workReducer
+        .optional()
+        .pullback(state: \.workState,
+                  action: /ProfileAction.work,
+                  environment: { WorkEnvironment(
+                    mainQueue: $0.mainQueue
+                  )}),
     libraryWorksReducer
         .forEach(state: \.libraryWorksStates,
                  action: /ProfileAction.libraryWorks(index:action:),
@@ -62,15 +76,7 @@ let profileReducer = Reducer<ProfileState, ProfileAction, ProfileEnvironment>.co
             state.curerntIndex = index
             return .none
         case .settingButtonTapped:
-            return Effect(value: .setSettingSheet(isPresented: true))
-        case .setSettingSheet(isPresented: true):
-            state.isSettingPresented = true
-            state.settingState = SettingState()
-            return .none
-        case .setSettingSheet(isPresented: false):
-            state.isSettingPresented = false
-            state.settingState = nil
-            return .none
+            return Effect(value: .setPresentation(.setting))
         case .setViewer(.success(let viewer)):
             state.viewer = viewer
             state.libraryWorksStates = [
@@ -83,13 +89,32 @@ let profileReducer = Reducer<ProfileState, ProfileAction, ProfileEnvironment>.co
             return .none
         case .setViewer(.failure(let error)):
             return .none
+        case .setPresentation(let presentation):
+            switch presentation {
+            case .setting:
+                state.settingState = SettingState()
+            case .work(let id):
+                state.workState = WorkState(workID: id)
+            default:
+                break
+            }
+            state.presentation = presentation
+            return .none
         case .setting(let settingActiion):
             switch settingActiion {
             case .logout:
-                return Effect(value: .setSettingSheet(isPresented: false))
+                return Effect(value: .setPresentation(nil))
             }
-        case .libraryWorks:
+        case .work:
             return .none
+        case .libraryWorks(index: let index, action: let libraryWorksAction):
+            switch libraryWorksAction {
+            case .workTapped(let childIndex):
+                let workID = state.libraryWorksStates[index].works[childIndex].annictId
+                return Effect(value: .setPresentation(.work(workID)))
+            default:
+                return .none
+            }
         }
     }
 )
@@ -137,15 +162,24 @@ struct ProfileView: View {
             .onAppear {
                 viewStore.send(.fetch)
             }
-            .sheet(isPresented: viewStore.binding(
-                get: \.isSettingPresented,
-                send: ProfileAction.setSettingSheet(isPresented:)
-            )) {
-                IfLetStore(
-                    store.scope(state: \.settingState,
-                                action: ProfileAction.setting),
-                    then: SettingView.init(store:)
-                )
+            .sheet(item: viewStore.binding(
+                get: \.presentation,
+                send: ProfileAction.setPresentation
+            )) { p in
+                switch p {
+                case .setting:
+                    IfLetStore(
+                        store.scope(state: \.settingState,
+                                    action: ProfileAction.setting),
+                        then: SettingView.init(store:)
+                    )
+                case .work:
+                    IfLetStore(
+                        store.scope(state: \.workState,
+                                    action: ProfileAction.work),
+                        then: WorkView.init(store:)
+                    )
+                }
             }
         }
     }

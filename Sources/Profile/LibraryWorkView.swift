@@ -12,39 +12,33 @@ import ComposableArchitecture
 struct LibraryWorkView: View {
     let work: WorkFragment
 
-    @State private var isPresent: Bool = false
     private let maxWidth: CGFloat = 140
-
 
     var body: some View {
         GeometryReader { geometry in
-            Button(action: {
-                isPresent = true
-            }, label: {
-                ZStack(alignment: .bottom) {
-                    WorkImage(workID: work.annictId)
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: geometry.size.width)
-                    Text(work.title)
-                        .lineLimit(2)
-                        .font(.system(size: 12))
-                        .foregroundColor(.primary)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(8)
-                        .background(Color(.secondarySystemBackground))
-                }
-                .cornerRadius(4)
-            })
-            //            .frame(height: geometry.size.width * 5/3)
-            .sheet(isPresented: $isPresent) {
-                WorkView(store: Store(initialState: WorkState(workID: work.annictId),
-                                      reducer: workReducer,
-                                      environment: WorkEnvironment(
-                                        mainQueue: DispatchQueue.main.eraseToAnyScheduler()
-                                      )
-                    )
-                )
+            ZStack(alignment: .bottom) {
+                WorkImage(workID: work.annictId)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: geometry.size.width)
+                Text(work.title)
+                    .lineLimit(2)
+                    .font(.system(size: 12))
+                    .foregroundColor(.primary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(8)
+                    .background(Color(.secondarySystemBackground))
             }
+            .cornerRadius(4)
+            //            .frame(height: geometry.size.width * 5/3)
+//            .sheet(isPresented: $isPresent) {
+//                WorkView(store: Store(initialState: WorkState(workID: work.annictId),
+//                                      reducer: workReducer,
+//                                      environment: WorkEnvironment(
+//                                        mainQueue: DispatchQueue.main.eraseToAnyScheduler()
+//                                      )
+//                    )
+//                )
+//            }
         }
     }
 }
