@@ -10,11 +10,13 @@ import ComposableArchitecture
 
 struct RootState: Equatable {
     var loginState = LoginState()
+    var rootTabState = RootTabState()
     var accessToken: String? = UserDefaults.standard.string(forKey: "accessToken")
 }
 
 enum RootAction: Equatable {
     case login(LoginAction)
+    case rootTab(RootTabAction)
 }
 
 struct RootEnvironment {
@@ -26,6 +28,9 @@ let rootReducer = Reducer<RootState, RootAction, RootEnvironment>.combine(
     loginReducer.pullback(state: \.loginState,
                           action: /RootAction.login,
                           environment: { LoginEnvironment(mainQueue: $0.mainQueue) }),
+    rootTabReducer.pullback(state: \.rootTabState,
+                            action: /RootAction.rootTab,
+                            environment: { RootTabEnvironment(mainQueue: $0.mainQueue) }),
     Reducer { state, action, env in
         switch action {
         case .login(let loginAction):
@@ -37,6 +42,8 @@ let rootReducer = Reducer<RootState, RootAction, RootEnvironment>.combine(
             default:
                 return .none
             }
+        case .rootTab:
+            return .none
         }
     }
 )
@@ -50,7 +57,8 @@ struct RootView: View {
                 LoginView(store: store.scope(state: \.loginState,
                                              action: RootAction.login))
             } else {
-                RootTabView()
+                RootTabView(store: store.scope(state: \.rootTabState,
+                                               action: RootAction.rootTab))
             }
         }
     }

@@ -8,42 +8,73 @@
 import SwiftUI
 import ComposableArchitecture
 
+struct RootTabState: Equatable {
+    var currentIndex = 0
+    var homeState = HomeState()
+}
+
+enum RootTabAction: Equatable {
+    case updateIndex(Int)
+    case home(HomeAction)
+}
+
+struct RootTabEnvironment {
+    let mainQueue: AnySchedulerOf<DispatchQueue>
+}
+
+let rootTabReducer = Reducer<RootTabState, RootTabAction, RootTabEnvironment>.combine(
+    homeReducer.pullback(state: \.homeState,
+                         action: /RootTabAction.home,
+                         environment: { HomeEnvironment(
+                            mainQueue: $0.mainQueue,
+                            service: Service()
+                         )}),
+    Reducer { state, action, env in
+        switch action {
+        case .updateIndex(let index):
+            state.currentIndex = index
+            return .none
+        case .home:
+            return .none
+        }
+    }
+)
+
 struct RootTabView: View {
-    @State private var selection = 0
+    let store: Store<RootTabState, RootTabAction>
 
     var body: some View {
-        TabView(selection: $selection) {
-            HomeView(store: homeStore)
-                .tabItem {
-                    RootTabItem(normalIcon: "house", selectedIcon: "house.fill", selection: selection == 0)
-                }
-                .tag(0)
-            RecordView()
-                .tabItem {
-                    RootTabItem(normalIcon: "pencil.circle", selectedIcon: "pencil.circle.fill", selection: selection == 1)
-                }
-                .tag(1)
-            SearchView()
-                .tabItem {
-                    RootTabItem(normalIcon: "magnifyingglass.circle", selectedIcon: "magnifyingglass.circle.fill", selection: selection == 2)
-                }
-                .tag(2)
-            ProfileView()
-                .tabItem {
-                    RootTabItem(normalIcon: "person", selectedIcon: "person.fill", selection: selection == 3)
-                }
-                .tag(3)
+        WithViewStore(store) { viewStore in
+            TabView(
+                selection: viewStore.binding(
+                    get: \.currentIndex,
+                    send: RootTabAction.updateIndex
+                )
+            ) {
+                HomeView(store: store.scope(state: \.homeState, action: RootTabAction.home))
+                    .tabItem {
+                        RootTabItem(normalIcon: "house", selectedIcon: "house.fill", selection: viewStore.currentIndex == 0)
+                    }
+                    .tag(0)
+                RecordView()
+                    .tabItem {
+                        RootTabItem(normalIcon: "pencil.circle", selectedIcon: "pencil.circle.fill", selection: viewStore.currentIndex == 1)
+                    }
+                    .tag(1)
+                SearchView()
+                    .tabItem {
+                        RootTabItem(normalIcon: "magnifyingglass.circle", selectedIcon: "magnifyingglass.circle.fill", selection: viewStore.currentIndex == 2)
+                    }
+                    .tag(2)
+                ProfileView()
+                    .tabItem {
+                        RootTabItem(normalIcon: "person", selectedIcon: "person.fill", selection: viewStore.currentIndex == 3)
+                    }
+                    .tag(3)
+            }
+            .accentColor(.annictPink)
         }
-        .accentColor(.annictPink)
     }
-
-    private let homeStore = Store(initialState: HomeState(),
-                                  reducer: homeReducer,
-                                  environment: HomeEnvironment(
-                                    mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
-                                    service: Service()
-                                  )
-    )
 }
 
 struct RootTabItem: View {
@@ -64,9 +95,11 @@ struct RootTabItem: View {
 
 struct RootTabView_Previews: PreviewProvider {
     static var previews: some View {
-        RootTabView()
-            .previewDevice("iPhone 11")
-
+        RootTabView(store: Store(initialState: RootTabState(),
+                                 reducer: rootTabReducer,
+                                 environment: RootTabEnvironment(
+                                    mainQueue: DispatchQueue.main.eraseToAnyScheduler()
+                                 )))
     }
 }
 
