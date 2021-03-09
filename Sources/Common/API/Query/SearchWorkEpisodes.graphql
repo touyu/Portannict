@@ -1,0 +1,17 @@
+query SearchWorkEpisodes($workAnnictId: Int!, $first: Int, $after: String) {
+	searchWorks(annictIds: [$workAnnictId]) {
+		nodes {
+			...WorkFragment
+			episodes(first: $first, after: $after, orderBy:{direction: ASC, field:SORT_NUMBER}) {
+				edges {
+					node {
+						...EpisodeFragment
+					}
+				}
+				pageInfo {
+					...PageInfoFragment
+				}
+			}
+		}
+	}
+}

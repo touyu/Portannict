@@ -1,0 +1,100 @@
+fragment WorkFragment on Work {
+    id
+    annictId
+    title
+    episodesCount
+    watchersCount
+    reviewsCount
+    seasonName
+    seasonYear
+    viewerStatusState
+    media
+}
+
+fragment EpisodeFragment on Episode {
+    id
+    annictId
+    title
+    numberText
+    viewerRecordsCount
+}
+
+fragment RecordFragment on Record {
+    id
+    annictId
+    comment
+    ratingState
+    createdAt
+    user {
+        ...UserFragment
+    }
+    work {
+        ...WorkFragment
+    }
+    episode {
+        ...EpisodeFragment
+    }
+}
+
+fragment StatusFragment on Status {
+    id
+    annictId
+    createdAt
+    state
+    user {
+        ...UserFragment
+    }
+    work {
+        ...WorkFragment
+    }
+}
+
+fragment UserFragment on User {
+    id
+    name
+    username
+    avatarUrl
+    description
+}
+
+fragment ReviewFragment on Review {
+    id
+    annictId
+    title
+    body
+    ratingAnimationState
+    ratingOverallState
+    ratingMusicState
+    ratingStoryState
+    ratingCharacterState
+    createdAt
+    user {
+        ...UserFragment
+    }
+    work {
+        ...WorkFragment
+    }
+}
+
+fragment PageInfoFragment on PageInfo {
+    hasNextPage
+    hasPreviousPage
+    endCursor
+    startCursor
+}
+
+fragment ActivityItemFragment on ActivityItem {
+    ... on Record {
+        ...RecordFragment
+    }
+    ... on Review {
+        ...ReviewFragment
+    }
+    ... on Status {
+        ...StatusFragment
+    }
+    ... on MultipleRecord {
+        id
+    }
+}
+

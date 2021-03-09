@@ -1,7 +1,0 @@
-mutation UpdateStatus($state: StatusState!, $workId: ID!) {
-  updateStatus(input: {state: $state, workId: $workId}) {
-    work {
-      ...MinimumWork
-    }
-  }
-}

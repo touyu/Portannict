@@ -1,0 +1,9 @@
+query SearchWorksBySeason($first: Int, $after: String, $seasons: [String!]) {
+	searchWorks(first: $first, after: $after, seasons: $seasons, orderBy:{direction:DESC, field:WATCHERS_COUNT}) {
+		edges {
+			node{
+				...WorkFragment
+			}
+		}
+	}
+}

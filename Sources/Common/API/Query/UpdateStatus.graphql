@@ -1,0 +1,7 @@
+mutation updateStatus($workId: ID!, $state: StatusState!) {
+	updateStatus(input:{workId: $workId, state: $state}) {
+		work {
+			...WorkFragment
+		}
+	}
+}

@@ -1,0 +1,15 @@
+query GetViewer {
+	viewer {
+		id
+		annictId
+		name
+		username
+		avatarUrl
+		description
+		wannaWatchCount
+		watchingCount
+		watchedCount
+		onHoldCount
+		stopWatchingCount
+	}
+}

@@ -1,8 +1,0 @@
-fragment EpisodeDetails on Episode {
-    id
-    annictId
-    title
-    viewerRecordsCount
-    viewerDidTrack
-    numberText
-}
