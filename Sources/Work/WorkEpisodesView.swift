@@ -19,6 +19,7 @@ struct WorkEpisodesState: Equatable {
 enum WorkEpisodesAction: Equatable {
     case fetch
     case fetchMore
+    case episodeTapped(EpisodeFragment)
 
     case setIsLoading(Bool)
     case setEpisodes(Result<SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode, APIError>)
@@ -60,6 +61,8 @@ let workEpisodesReducer = Reducer<WorkEpisodesState, WorkEpisodesAction, WorkEpi
             return Effect.concatenate(loading, fetchMoreStream, finished)
                 .receive(on: env.mainQueue)
                 .eraseToEffect()
+        case .episodeTapped:
+            return .none
         case .setIsLoading(let isLoading):
             state.isLoading = isLoading
             return .none
@@ -97,7 +100,13 @@ struct WorkEpisodesView: View {
                 ForEachStore(
                     store.scope(state: \.episodeCellStates, action: WorkEpisodesAction.episodeCell(index:action:))
                 ) { cellStore in
-                    WorkEpisodeCell(store: cellStore)
+                    WithViewStore(cellStore) { cellViewStore in
+                        Button(action: {
+                            viewStore.send(.episodeTapped(cellViewStore.episode))
+                        }, label: {
+                            WorkEpisodeCell(store: cellStore)
+                        })
+                    }
                 }
                 if let pageInfo = viewStore.pageInfo, pageInfo.hasNextPage == true {
                     if !viewStore.isLoading {

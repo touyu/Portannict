@@ -14,11 +14,16 @@ import ComposableArchitecture
 extension SearchWorkEpisodesQuery.Data.SearchWork.Node.Episode: Equatable { }
 
 struct WorkState: Equatable {
+    enum Presentation: Identifiable, Hashable {
+        case episode(EpisodeFragment)
+    }
+
     let workID: Int
     var work: WorkFragment?
     var episodesState: WorkEpisodesState?
     var reviewsState: WorkReviewsState?
     var actionSheet: ActionSheetState<WorkAction>?
+    var presentation: Presentation?
 }
 
 enum WorkAction: Equatable {
@@ -28,6 +33,7 @@ enum WorkAction: Equatable {
     case updateStatus(StatusState)
 
     case setWork(Result<WorkFragment, APIError>)
+    case setPresentation(WorkState.Presentation?)
 
     case episodes(WorkEpisodesAction)
     case reviews(WorkReviewsAction)
@@ -111,8 +117,16 @@ let workReducer = Reducer<WorkState, WorkAction, WorkEnvironment>
                 return .none
             case .setWork(.failure(let error)):
                 return .none
-            case .episodes:
+            case .setPresentation(let presentation):
+                state.presentation = presentation
                 return .none
+            case .episodes(let episodesAction):
+                switch episodesAction {
+                case .episodeTapped(let episode):
+                    return Effect(value: .setPresentation(.episode(episode)))
+                default:
+                    return .none
+                }
             case .reviews:
                 return .none
             }
@@ -158,12 +172,21 @@ struct WorkView: View {
                         }
                     }
                 }
+                .background(.systemBackground)
+                .edgesIgnoringSafeArea(.all)
                 .onAppear {
                     viewStore.send(.fetch)
                 }
+                .sheet(item: viewStore.binding(
+                    get: \.presentation,
+                    send: WorkAction.setPresentation
+                )) { p in
+                    switch p {
+                    case .episode(let episode):
+                        EpisodeView(episode: episode)
+                    }
+                }
             }
-            .background(.systemBackground)
-            .edgesIgnoringSafeArea(.all)
         }
     }
 }

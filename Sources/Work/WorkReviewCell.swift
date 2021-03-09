@@ -14,7 +14,6 @@ extension ReviewFragment: Equatable { }
 
 struct WorkReviewCellState: Equatable, Identifiable {
     let review: ReviewFragment
-    var isPresented: Bool = false
 
     var id: GraphQLID {
         return review.id
@@ -22,7 +21,7 @@ struct WorkReviewCellState: Equatable, Identifiable {
 }
 
 enum WorkReviewCellAction: Equatable {
-    case setSheet(isPresented: Bool)
+
 }
 
 struct WorkReviewCellEnvironment {
@@ -30,11 +29,7 @@ struct WorkReviewCellEnvironment {
 }
 
 let workReviewCellReducer = Reducer<WorkReviewCellState, WorkReviewCellAction, WorkReviewCellEnvironment> { state, action, env in
-    switch action {
-    case .setSheet(isPresented: let isPresented):
-        state.isPresented = isPresented
-        return .none
-    }
+    .none
 }
 
 
