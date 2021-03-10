@@ -10,13 +10,12 @@ import ComposableArchitecture
 import Apollo
 
 struct ActivityState: Equatable, Identifiable {
+    var item: ActivityItemFragment
+    var recordState: ActivityRecordState?
+
     var id: GraphQLID {
         return item.id
     }
-
-    var item: ActivityItemFragment
-
-    var recordState: ActivityRecordState?
 
     init(item: ActivityItemFragment) {
         self.item = item
@@ -35,6 +34,8 @@ struct ActivityState: Equatable, Identifiable {
 
 enum ActivityAction: Equatable {
     case record(ActivityRecordAction)
+    case workTapped
+//    case setPresentation(ActivityState.Presentation?)
 }
 
 struct ActivityEnvironment {
@@ -50,7 +51,20 @@ let activityReducer = Reducer<ActivityState, ActivityAction, ActivityEnvironment
                       environment: { _ in ActivityRecordEnvironment() }),
         Reducer { state, action, env in
             switch action {
-            case .record:
+            case .record(let recordAction):
+                switch recordAction {
+                case .quoteWork(let quoteWorkAction):
+                    switch quoteWorkAction {
+                    case .workButtonTapped:
+                        return .init(value: .workTapped)
+                    case .episodeButtonTapped:
+                        break
+                    default:
+                        return .none
+                    }
+                }
+                return .none
+            case .workTapped:
                 return .none
             }
         }

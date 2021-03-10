@@ -16,9 +16,16 @@ extension PageInfoFragment: Equatable {}
 extension ActivityItemFragment: Equatable {}
 
 struct HomeState: Equatable {
+    enum Presentation: Identifiable, Hashable {
+        case work
+        case episode
+    }
+    
     var activityStates: [ActivityState] = []
     var pageInfo: PageInfoFragment?
     var error: APIError?
+    var presentation: Presentation?
+    var workState: WorkState?
 }
 
 enum HomeAction: Equatable {
@@ -28,8 +35,10 @@ enum HomeAction: Equatable {
 
     case setActivities(Result<GetFollowingActivitiesQuery.Data, APIError>)
     case appendActivities(Result<GetFollowingActivitiesQuery.Data, APIError>)
+    case setPresentation(HomeState.Presentation?)
 
     case activityCell(index: Int, action: ActivityAction)
+    case work(WorkAction)
 }
 
 struct HomeEnvironment {
@@ -43,6 +52,13 @@ let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment>
             .forEach(state: \.activityStates,
                      action: /HomeAction.activityCell(index:action:),
                      environment: { _ in ActivityEnvironment( )}),
+        workReducer
+            .optional()
+            .pullback(state: \.workState,
+                      action: /HomeAction.work,
+                      environment: { WorkEnvironment(
+                        mainQueue: $0.mainQueue
+                      )}),
         Reducer { state, action, environment in
             struct RequestId: Hashable {}
 
@@ -78,7 +94,21 @@ let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment>
             case .appendActivities(.failure(let error)):
                 state.error = error
                 return .none
-            case .activityCell:
+            case .setPresentation(let p):
+                state.presentation = p
+                return .none
+            case .activityCell(index: let index, action: let activityAction):
+                switch activityAction {
+                case .workTapped:
+                    if let workID = state.activityStates[index].item.work?.annictId {
+                        state.workState = WorkState(workID: workID)
+                        state.presentation = .work
+                    }
+                    return .none
+                default:
+                    return .none
+                }
+            case .work:
                 return .none
             }
         }
@@ -119,6 +149,16 @@ struct HomeView: View {
                 .navigationBarTitle("Home")
                 .onAppear {
                     viewStore.send(.fetch)
+                }
+                .sheet(item: viewStore.binding(
+                    get: \.presentation,
+                    send: HomeAction.setPresentation
+                )) { _ in
+                    IfLetStore(
+                        store.scope(state: \.workState,
+                                    action: HomeAction.work),
+                        then: WorkView.init(store:)
+                    )
                 }
             }
         }

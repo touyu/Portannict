@@ -53,6 +53,40 @@ extension ActivityItemFragment {
             return GraphQLID(UUID().uuidString)
         }
     }
+
+    var work: WorkFragment? {
+        get {
+            switch activityItem {
+            case .record(let record):
+                return record.work.fragments.workFragment
+            case .review(let review):
+                return review.work.fragments.workFragment
+            case .status(let status):
+                return status.work.fragments.workFragment
+            default:
+                return nil
+            }
+        }
+        set {
+            guard let value = newValue else { return }
+            switch activityItem {
+            case .record(let record):
+                var record = record
+                record.work.fragments.workFragment = value
+                asRecord = record
+            case .review(let review):
+                var review = review
+                review.work.fragments.workFragment = value
+                asReview = review
+            case .status(let status):
+                var status = status
+                status.work.fragments.workFragment = value
+                asStatus = status
+            default:
+                break
+            }
+        }
+    }
 }
 
 
