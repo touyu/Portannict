@@ -32,7 +32,7 @@ struct ActivityReviewView2: View {
                 }
                 Text(review.body)
                     .font(.body)
-                QuoteWorkView(work: $review.work.fragments.workFragment)
+                QuoteWorkView2(work: $review.work.fragments.workFragment)
             }
         }
     }

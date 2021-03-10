@@ -27,6 +27,8 @@
 		CF3BC74D25B495E90046631F /* EpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3BC74C25B495E90046631F /* EpisodeView.swift */; };
 		CF3BC74F25B4A0590046631F /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3BC74E25B4A0590046631F /* Identifiable.swift */; };
 		CF453CAD25F8C9A700A835BA /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF453CAC25F8C9A700A835BA /* ActivityView.swift */; };
+		CF453CAF25F8CEC200A835BA /* ActivityRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF453CAE25F8CEC200A835BA /* ActivityRecordView.swift */; };
+		CF453CB125F8D85E00A835BA /* QuoteWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF453CB025F8D85E00A835BA /* QuoteWorkView.swift */; };
 		CF644C6925C32C10005A2779 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF644C6825C32C10005A2779 /* LaunchScreen.storyboard */; };
 		CF7A9D9225C5B8AE00B29C68 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = CF7A9D9125C5B8AE00B29C68 /* ComposableArchitecture */; };
 		CF7A9D9425C5D0D600B29C68 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7A9D9325C5D0D600B29C68 /* APIClient.swift */; };
@@ -80,7 +82,7 @@
 		CFFDC8B3259C7E63001C8E29 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = CFFDC8B2259C7E63001C8E29 /* KingfisherSwiftUI */; };
 		CFFDC8B5259CCAFE001C8E29 /* WorkHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFDC8B4259CCAFE001C8E29 /* WorkHeaderView.swift */; };
 		CFFE4FFC24C9C00D003AECE5 /* ActivityStatusView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView2.swift */; };
-		CFFE4FFE24C9C266003AECE5 /* QuoteWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE4FFD24C9C266003AECE5 /* QuoteWorkView.swift */; };
+		CFFE4FFE24C9C266003AECE5 /* QuoteWorkView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE4FFD24C9C266003AECE5 /* QuoteWorkView2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -125,6 +127,8 @@
 		CF3BC74E25B4A0590046631F /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		CF3BC75025B4A1A70046631F /* SearchEpisodes.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchEpisodes.graphql; sourceTree = "<group>"; };
 		CF453CAC25F8C9A700A835BA /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		CF453CAE25F8CEC200A835BA /* ActivityRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRecordView.swift; sourceTree = "<group>"; };
+		CF453CB025F8D85E00A835BA /* QuoteWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteWorkView.swift; sourceTree = "<group>"; };
 		CF644C6825C32C10005A2779 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF7A9D9325C5D0D600B29C68 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		CF809AAA25C31A9100A4794C /* MonochromeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeImage.swift; sourceTree = "<group>"; };
@@ -178,7 +182,7 @@
 		CFFDC8A7259C6EF6001C8E29 /* WorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkView.swift; sourceTree = "<group>"; };
 		CFFDC8B4259CCAFE001C8E29 /* WorkHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkHeaderView.swift; sourceTree = "<group>"; };
 		CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatusView2.swift; sourceTree = "<group>"; };
-		CFFE4FFD24C9C266003AECE5 /* QuoteWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteWorkView.swift; sourceTree = "<group>"; };
+		CFFE4FFD24C9C266003AECE5 /* QuoteWorkView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteWorkView2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -447,10 +451,12 @@
 			children = (
 				CF08FC1724B9B04900CD29DD /* HomeView.swift */,
 				CF453CAC25F8C9A700A835BA /* ActivityView.swift */,
+				CF453CAE25F8CEC200A835BA /* ActivityRecordView.swift */,
 				CFB9BA75259DCA7500C51708 /* ActivityRecordView2.swift */,
 				CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView2.swift */,
 				CFE7E5CF25A6F6BA009EB3DC /* ActivityReviewView2.swift */,
-				CFFE4FFD24C9C266003AECE5 /* QuoteWorkView.swift */,
+				CFFE4FFD24C9C266003AECE5 /* QuoteWorkView2.swift */,
+				CF453CB025F8D85E00A835BA /* QuoteWorkView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -597,6 +603,7 @@
 				CF3BC74D25B495E90046631F /* EpisodeView.swift in Sources */,
 				CFE3831E258E628C00CEE318 /* Constants.swift in Sources */,
 				CFFE4FFC24C9C00D003AECE5 /* ActivityStatusView2.swift in Sources */,
+				CF453CB125F8D85E00A835BA /* QuoteWorkView.swift in Sources */,
 				CFCE3E2C25B5AF14000CFF34 /* SettingView.swift in Sources */,
 				CF9A375D25AB3EF8003077D5 /* AnnictSeason.swift in Sources */,
 				CFFDC8A8259C6EF6001C8E29 /* WorkView.swift in Sources */,
@@ -621,10 +628,11 @@
 				CF9E8DE025F7792E00D496B5 /* ReviewService.swift in Sources */,
 				CFD82D3525A630E7005401AF /* RatingStateView.swift in Sources */,
 				CFE7E5CC25A6E8D8009EB3DC /* UserRepresentable.swift in Sources */,
-				CFFE4FFE24C9C266003AECE5 /* QuoteWorkView.swift in Sources */,
+				CFFE4FFE24C9C266003AECE5 /* QuoteWorkView2.swift in Sources */,
 				CFC03F0525948EF2001516D3 /* OauthTokenRequest.swift in Sources */,
 				CFBCA06725AB709D00C5386C /* SearchRecommendedWorksView.swift in Sources */,
 				CFE7E5DA25A70826009EB3DC /* SearchView.swift in Sources */,
+				CF453CAF25F8CEC200A835BA /* ActivityRecordView.swift in Sources */,
 				CFCE3E3B25B60C85000CFF34 /* AvatarIImageView.swift in Sources */,
 				CFB9BA76259DCA7500C51708 /* ActivityRecordView2.swift in Sources */,
 				CFB4B14125F74AF800D773D0 /* WorkReviewsView.swift in Sources */,

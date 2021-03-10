@@ -53,7 +53,7 @@ struct ActivityRecordView2: View {
                         .font(.body)
                 }
                 if !isHiddenQuote {
-                    QuoteWorkView(work: $record.work.fragments.workFragment, episode: record.episode.fragments.episodeFragment)
+                    QuoteWorkView2(work: $record.work.fragments.workFragment, episode: record.episode.fragments.episodeFragment)
                         .onSelectState { state in
                             selectStateAction?(state)
                         }
@@ -75,7 +75,7 @@ struct ActivityRecordView2: View {
     }
 }
 
-struct ActivityRecordView_Previews: PreviewProvider {
+struct ActivityRecordView2_Previews: PreviewProvider {
     static var previews: some View {
         let recordWork = RecordFragment.Work(unsafeResultMap: WorkFragment.dummy.resultMap)
         let recordEpisode = RecordFragment.Episode(id: "", annictId: 124160, title: "Los Angeles Connection", numberText: "Case_1_1", viewerRecordsCount: 0)
@@ -116,10 +116,3 @@ struct ActivityEmptyView: View {
     }
 }
 
-struct ActivityRecordView2_Previews: PreviewProvider {
-    static var previews: some View {
-        ActivityEmptyView()
-            .preferredColorScheme(.dark)
-            .previewLayout(.fixed(width: 375, height: 200))
-    }
-}

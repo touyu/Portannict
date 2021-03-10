@@ -15,19 +15,42 @@ struct ActivityState: Equatable, Identifiable {
     }
 
     var item: ActivityItemFragment
+
+    var recordState: ActivityRecordState?
+
+    init(item: ActivityItemFragment) {
+        self.item = item
+        switch item.activityItem {
+        case .record:
+            recordState = ActivityRecordState(record: item.asRecord!.fragments.recordFragment)
+        case .status:
+            break
+        case .review:
+            break
+        default:
+            break
+        }
+    }
 }
 
 enum ActivityAction: Equatable {
-
+    case record(ActivityRecordAction)
 }
 
 struct ActivityEnvironment {
 
 }
 
-let activityReducer = Reducer<ActivityState, ActivityAction, ActivityEnvironment>{ state, action, env in
-    .none
-}
+let activityReducer = Reducer<ActivityState, ActivityAction, ActivityEnvironment>.combine(
+    activityRecordReducer
+        .optional()
+        .pullback(state: \.recordState,
+                  action: /ActivityAction.record,
+                  environment: { _ in ActivityRecordEnvironment() }),
+    Reducer { state, action, env in
+        .none
+    }
+)
 
 struct ActivityView: View {
     let store: Store<ActivityState, ActivityAction>
@@ -35,16 +58,21 @@ struct ActivityView: View {
     var body: some View {
         WithViewStore(store) { viewStore in
             Group {
-                switch viewStore.item.activityItem {
-                case .record(let record):
-                    ActivityRecordView2(record: .constant(record.fragments.recordFragment))
-                case .status(let status):
-                    ActivityStatusView2(status: .constant(status.fragments.statusFragment))
-                case .review(let review):
-                    ActivityReviewView2(review: .constant(review.fragments.reviewFragment))
-                default:
-                    EmptyView()
-                }
+                IfLetStore(store.scope(state: \.recordState,
+                                       action: ActivityAction.record),
+                           then: ActivityRecordView.init(store:))
+//                switch viewStore.item.activityItem {
+//                case .record:
+//                    IfLetStore(store.scope(state: { ActivityRecordState(record: $0.item.asRecord!.fragments.recordFragment) },
+//                                           action: ActivityAction.record),
+//                               then: ActivityRecordView.init(store:))
+//                case .status(let status):
+//                    ActivityStatusView2(status: .constant(status.fragments.statusFragment))
+//                case .review(let review):
+//                    ActivityReviewView2(review: .constant(review.fragments.reviewFragment))
+//                default:
+//                    EmptyView()
+//                }
             }
         }
     }

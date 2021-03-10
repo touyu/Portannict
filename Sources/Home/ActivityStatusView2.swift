@@ -29,7 +29,7 @@ struct ActivityStatusView2: View {
                 }
                 Text("ステータスを「\(status.state.title)」に変更しました")
                     .font(.body)
-                QuoteWorkView(work: $status.work.fragments.workFragment)
+                QuoteWorkView2(work: $status.work.fragments.workFragment)
             }
         }
     }

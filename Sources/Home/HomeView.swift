@@ -26,10 +26,10 @@ enum HomeAction: Equatable {
     case fetchMore
     case updateWork
 
-    case activityCell(index: Int, action: ActivityAction)
-
     case setActivities(Result<GetFollowingActivitiesQuery.Data, APIError>)
     case appendActivities(Result<GetFollowingActivitiesQuery.Data, APIError>)
+
+    case activityCell(index: Int, action: ActivityAction)
 }
 
 struct HomeEnvironment {
@@ -71,6 +71,8 @@ let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment> { state, actio
         return .none
     case .appendActivities(.failure(let error)):
         state.error = error
+        return .none
+    case .activityCell:
         return .none
     }
 }
