@@ -12,7 +12,7 @@ extension RecordFragment: Equatable {}
 
 struct ActivityRecordState: Equatable {
     var record: RecordFragment
-    var quoteWorkState: QuoteWorkState?
+    var quoteWorkState: QuoteWorkState
 
     init(record: RecordFragment) {
         self.record = record
@@ -32,7 +32,6 @@ struct ActivityRecordEnvironment {
 let activityRecordReducer = Reducer<ActivityRecordState, ActivityRecordAction, ActivityRecordEnvironment>
     .combine(
         quoteWorkReducer
-            .optional()
             .pullback(state: \.quoteWorkState,
                       action: /ActivityRecordAction.quoteWork,
                       environment: { _ in QuoteWorkEnvironment() }),
@@ -72,9 +71,8 @@ struct ActivityRecordView: View {
                         Text(comemnt)
                             .font(.body)
                     }
-                    IfLetStore(store.scope(state: \.quoteWorkState,
-                                           action: ActivityRecordAction.quoteWork),
-                               then: QuoteWorkView.init(store:))
+                    QuoteWorkView(store: store.scope(state: \.quoteWorkState,
+                                                     action: ActivityRecordAction.quoteWork))
                 }
             }
         }
