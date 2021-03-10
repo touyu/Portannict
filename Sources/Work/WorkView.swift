@@ -160,12 +160,12 @@ struct WorkView: View {
                                 if work.episodesCount > 0 {
                                     IfLetStore(store.scope(state: \.episodesState,
                                                            action: WorkAction.episodes),
-                                                           then: WorkEpisodesView.init(store:))
+                                               then: WorkEpisodesView.init(store:))
                                 }
                                 if work.reviewsCount > 0 {
                                     IfLetStore(store.scope(state: \.reviewsState,
                                                            action: WorkAction.reviews),
-                                                           then: WorkReviewsView.init(store:))
+                                               then: WorkReviewsView.init(store:))
                                 }
                             }
                             .padding(.init(top: 0, leading: 16, bottom: 48, trailing: 16))
@@ -198,7 +198,7 @@ struct WorkView_Previews: PreviewProvider {
                               environment: WorkEnvironment(
                                 mainQueue: DispatchQueue.main.eraseToAnyScheduler()
                               )
-                )
+        )
         )
     }
 }
