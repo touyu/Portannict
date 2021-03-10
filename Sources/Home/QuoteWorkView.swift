@@ -6,27 +6,52 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
-struct QuoteWorkView: View {
-    @Namespace private var namespace
-
+struct QuoteWorkState: Equatable {
     let work: WorkFragment
     let episode: EpisodeFragment
+    var isExpanded = false
+}
 
-    @State private var isExpanded = false
+enum QuoteWorkAction: Equatable {
+    case detailTapped
+    case toggle
+}
+
+struct QuoteWorkEnvironment {
+
+}
+
+let quoteWorkReducer = Reducer<QuoteWorkState, QuoteWorkAction, QuoteWorkEnvironment> { state, action, env in
+    switch action {
+    case .detailTapped:
+        return .none
+    case .toggle:
+        state.isExpanded.toggle()
+        return .none
+    }
+}
+
+struct QuoteWorkView: View {
+    let store: Store<QuoteWorkState, QuoteWorkAction>
+
+    @Namespace private var namespace
 
     var body: some View {
-        Button(action: {
-            withAnimation(.easeOut(duration: 0.25)) {
-                isExpanded.toggle()
-            }
-        }, label: {
-            if isExpanded {
-                QuoteWorkExpandedView(work: work, episode: episode, namespace: namespace)
-            } else {
-                QuoteWorkNormalView(work: work, episode: episode, namespace: namespace)
-            }
-        })
+        WithViewStore(store) { viewStore in
+            Button(action: {
+                withAnimation(.easeOut(duration: 0.25)) {
+                    viewStore.send(.toggle)
+                }
+            }, label: {
+                if viewStore.isExpanded {
+                    QuoteWorkExpandedView(work: viewStore.work, episode: viewStore.episode, namespace: namespace)
+                } else {
+                    QuoteWorkNormalView(work: viewStore.work, episode: viewStore.episode, namespace: namespace)
+                }
+            })
+        }
     }
 }
 
@@ -34,7 +59,9 @@ struct QuoteWorkView_Previews: PreviewProvider {
     @Namespace private static var namespace
 
     static var previews: some View {
-        QuoteWorkView(work: .dummy, episode: .dummy)
+        QuoteWorkView(store: Store(initialState: QuoteWorkState(work: .dummy, episode: .dummy),
+                                   reducer: quoteWorkReducer,
+                                   environment: QuoteWorkEnvironment()))
             .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 300, height: 300))
     }

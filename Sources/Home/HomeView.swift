@@ -37,45 +37,52 @@ struct HomeEnvironment {
     var service: ServiceType
 }
 
-let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment> { state, action, environment in
-    struct RequestId: Hashable {}
+let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment>
+    .combine(
+        activityReducer
+            .forEach(state: \.activityStates,
+                     action: /HomeAction.activityCell(index:action:),
+                     environment: { _ in ActivityEnvironment( )}),
+        Reducer { state, action, environment in
+            struct RequestId: Hashable {}
 
-    switch action {
-    case .fetch:
-        return environment.service.fetchHomeActivities(first: 30, after: nil)
-            .receive(on: environment.mainQueue)
-            .catchToEffect()
-            .map(HomeAction.setActivities)
-            .cancellable(id: RequestId())
-    case .fetchMore:
-        guard let pageInfo = state.pageInfo, pageInfo.hasNextPage else { return .none }
-        return environment.service.fetchHomeActivities(first: 30, after: pageInfo.endCursor)
-            .receive(on: environment.mainQueue)
-            .catchToEffect()
-            .map(HomeAction.appendActivities)
-            .cancellable(id: RequestId())
-    case .updateWork:
-        return .none
-    case .setActivities(.success(let data)):
-        let activities = data.viewer?.followingActivities?.edges?.compactMap { $0?.node?.fragments.activityItemFragment } ?? []
-        state.activityStates = activities.map(ActivityState.init)
-        state.pageInfo = data.viewer?.followingActivities?.pageInfo.fragments.pageInfoFragment
-        return .none
-    case .setActivities(.failure(let error)):
-        state.error = error
-        return .none
-    case .appendActivities(.success(let data)):
-        let activities = data.viewer?.followingActivities?.edges?.compactMap { $0?.node?.fragments.activityItemFragment } ?? []
-        state.activityStates.append(contentsOf: activities.map(ActivityState.init))
-        state.pageInfo = data.viewer?.followingActivities?.pageInfo.fragments.pageInfoFragment
-        return .none
-    case .appendActivities(.failure(let error)):
-        state.error = error
-        return .none
-    case .activityCell:
-        return .none
-    }
-}
+            switch action {
+            case .fetch:
+                return environment.service.fetchHomeActivities(first: 30, after: nil)
+                    .receive(on: environment.mainQueue)
+                    .catchToEffect()
+                    .map(HomeAction.setActivities)
+                    .cancellable(id: RequestId())
+            case .fetchMore:
+                guard let pageInfo = state.pageInfo, pageInfo.hasNextPage else { return .none }
+                return environment.service.fetchHomeActivities(first: 30, after: pageInfo.endCursor)
+                    .receive(on: environment.mainQueue)
+                    .catchToEffect()
+                    .map(HomeAction.appendActivities)
+                    .cancellable(id: RequestId())
+            case .updateWork:
+                return .none
+            case .setActivities(.success(let data)):
+                let activities = data.viewer?.followingActivities?.edges?.compactMap { $0?.node?.fragments.activityItemFragment } ?? []
+                state.activityStates = activities.map(ActivityState.init)
+                state.pageInfo = data.viewer?.followingActivities?.pageInfo.fragments.pageInfoFragment
+                return .none
+            case .setActivities(.failure(let error)):
+                state.error = error
+                return .none
+            case .appendActivities(.success(let data)):
+                let activities = data.viewer?.followingActivities?.edges?.compactMap { $0?.node?.fragments.activityItemFragment } ?? []
+                state.activityStates.append(contentsOf: activities.map(ActivityState.init))
+                state.pageInfo = data.viewer?.followingActivities?.pageInfo.fragments.pageInfoFragment
+                return .none
+            case .appendActivities(.failure(let error)):
+                state.error = error
+                return .none
+            case .activityCell:
+                return .none
+            }
+        }
+    )
 
 struct HomeView: View {
     let store: Store<HomeState, HomeAction>
@@ -117,23 +124,23 @@ struct HomeView: View {
         }
     }
 
-//    func activityItemView(viewStore: ViewStore<HomeState, HomeAction>, index: Int) -> some View {
-//        Group {
-//            let activity = viewStore.binding(get: { $0.activities[index] }, send: { _ in HomeAction.updateWork })
-//            if let _ = activity.wrappedValue.asRecord {
-//                ActivityRecordView(record: activity.map(\.asRecord!.fragments.recordFragment))
-//                //                    .onSelectState { state in
-//                //                        viewModel.action.send(.updateWork(record.work.fragments.workFragment.id, state))
-//                //                    }
-//            } else if let _ = activity.wrappedValue.asReview {
-//                ActivityReviewView(review: activity.map(\.asReview!.fragments.reviewFragment))
-//            } else if let _ = activity.wrappedValue.asStatus {
-//                ActivityStatusView(status: activity.map(\.asStatus!.fragments.statusFragment))
-//            } else {
-//                EmptyView()
-//            }
-//        }
-//    }
+    //    func activityItemView(viewStore: ViewStore<HomeState, HomeAction>, index: Int) -> some View {
+    //        Group {
+    //            let activity = viewStore.binding(get: { $0.activities[index] }, send: { _ in HomeAction.updateWork })
+    //            if let _ = activity.wrappedValue.asRecord {
+    //                ActivityRecordView(record: activity.map(\.asRecord!.fragments.recordFragment))
+    //                //                    .onSelectState { state in
+    //                //                        viewModel.action.send(.updateWork(record.work.fragments.workFragment.id, state))
+    //                //                    }
+    //            } else if let _ = activity.wrappedValue.asReview {
+    //                ActivityReviewView(review: activity.map(\.asReview!.fragments.reviewFragment))
+    //            } else if let _ = activity.wrappedValue.asStatus {
+    //                ActivityStatusView(status: activity.map(\.asStatus!.fragments.statusFragment))
+    //            } else {
+    //                EmptyView()
+    //            }
+    //        }
+    //    }
 }
 
 struct HomeView_Previews: PreviewProvider {

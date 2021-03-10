@@ -452,11 +452,11 @@
 				CF08FC1724B9B04900CD29DD /* HomeView.swift */,
 				CF453CAC25F8C9A700A835BA /* ActivityView.swift */,
 				CF453CAE25F8CEC200A835BA /* ActivityRecordView.swift */,
+				CF453CB025F8D85E00A835BA /* QuoteWorkView.swift */,
 				CFB9BA75259DCA7500C51708 /* ActivityRecordView2.swift */,
 				CFFE4FFB24C9C00D003AECE5 /* ActivityStatusView2.swift */,
 				CFE7E5CF25A6F6BA009EB3DC /* ActivityReviewView2.swift */,
 				CFFE4FFD24C9C266003AECE5 /* QuoteWorkView2.swift */,
-				CF453CB025F8D85E00A835BA /* QuoteWorkView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";

@@ -12,23 +12,40 @@ extension RecordFragment: Equatable {}
 
 struct ActivityRecordState: Equatable {
     var record: RecordFragment
+    var quoteWorkState: QuoteWorkState?
+
+    init(record: RecordFragment) {
+        self.record = record
+        self.quoteWorkState = QuoteWorkState(work: record.work.fragments.workFragment,
+                                             episode: record.episode.fragments.episodeFragment)
+    }
 }
 
 enum ActivityRecordAction: Equatable {
-
+    case quoteWork(QuoteWorkAction)
 }
 
 struct ActivityRecordEnvironment {
 
 }
 
-let activityRecordReducer = Reducer<ActivityRecordState, ActivityRecordAction, ActivityRecordEnvironment>{ state, action, env in
-    .none
-}
+let activityRecordReducer = Reducer<ActivityRecordState, ActivityRecordAction, ActivityRecordEnvironment>
+    .combine(
+        quoteWorkReducer
+            .optional()
+            .pullback(state: \.quoteWorkState,
+                      action: /ActivityRecordAction.quoteWork,
+                      environment: { _ in QuoteWorkEnvironment() }),
+        Reducer { state, action, env in
+            switch action {
+            case .quoteWork:
+                return .none
+            }
+        }
+    )
 
 struct ActivityRecordView: View {
     let store: Store<ActivityRecordState, ActivityRecordAction>
-    @Namespace private var namespace
 
     var body: some View {
         WithViewStore(store) { viewStore in
@@ -37,7 +54,7 @@ struct ActivityRecordView: View {
                     .frame(width: 40, height: 40, alignment: .leading)
 
                 VStack(alignment: .leading, spacing: 12) {
-                    HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
+                    HStack(alignment: .center) {
                         Text(viewStore.record.user.name)
                             .font(.system(size: 14, weight: .bold, design: .default))
                         Text("@\(viewStore.record.user.username)")
@@ -55,8 +72,9 @@ struct ActivityRecordView: View {
                         Text(comemnt)
                             .font(.body)
                     }
-                    QuoteWorkView(work: viewStore.record.work.fragments.workFragment,
-                                  episode: viewStore.record.episode.fragments.episodeFragment)
+                    IfLetStore(store.scope(state: \.quoteWorkState,
+                                           action: ActivityRecordAction.quoteWork),
+                               then: QuoteWorkView.init(store:))
                 }
             }
         }
