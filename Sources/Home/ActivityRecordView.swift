@@ -35,12 +35,6 @@ struct ActivityRecordView: View {
             HStack(alignment: .top, spacing: 12) {
                 AvatarImageView(viewStore.record.user.avatarUrl)
                     .frame(width: 40, height: 40, alignment: .leading)
-                    .onTapGesture {
-//                        isPresentedUserView = true
-                    }
-//                    .sheet(isPresented: $isPresentedUserView) {
-//                        UserView(username: record.user.fragments.userFragment.username)
-//                    }
 
                 VStack(alignment: .leading, spacing: 12) {
                     HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
@@ -63,15 +57,6 @@ struct ActivityRecordView: View {
                     }
                     QuoteWorkView(work: viewStore.record.work.fragments.workFragment,
                                   episode: viewStore.record.episode.fragments.episodeFragment)
-                    //                            .onSelectState { state in
-                    //                                selectStateAction?(state)
-                    //                            }
-//                    if !isHiddenQuote {
-//                        QuoteWorkView(work: $record.work.fragments.workFragment, episode: record.episode.fragments.episodeFragment)
-//                            .onSelectState { state in
-//                                selectStateAction?(state)
-//                            }
-//                    }
                 }
             }
         }

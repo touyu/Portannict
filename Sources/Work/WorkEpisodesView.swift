@@ -154,6 +154,6 @@ struct WorkEpisodesView_Previews: PreviewProvider {
 
 extension EpisodeFragment {
     static var dummy: EpisodeFragment {
-        return .init(id: "", annictId: 0, title: "ABCDEF", numberText: "第１話", viewerRecordsCount: 1)
+        return .init(id: "", annictId: 0, title: "たとえば「ネバーランドに１泊２日してくる」波にありえない伝説の村への帰郷たとえば「ネバーランドに１泊２日してくる」波にありえない伝説の村への帰郷", numberText: "第１話", viewerRecordsCount: 1)
     }
 }

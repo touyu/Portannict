@@ -36,7 +36,7 @@ struct QuoteWorkView_Previews: PreviewProvider {
     static var previews: some View {
         QuoteWorkView(work: .dummy, episode: .dummy)
             .preferredColorScheme(.dark)
-            .previewLayout(.fixed(width: 375, height: 300))
+            .previewLayout(.fixed(width: 300, height: 300))
     }
 }
 
@@ -79,7 +79,7 @@ struct QuoteWorkNormalView_Previews: PreviewProvider {
     static var previews: some View {
         QuoteWorkNormalView(work: .dummy, episode: .dummy, namespace: namespace)
             .preferredColorScheme(.dark)
-            .previewLayout(.fixed(width: 375, height: 100))
+            .previewLayout(.fixed(width: 300, height: 100))
     }
 }
 
@@ -98,14 +98,14 @@ struct QuoteWorkExpandedView: View {
                     .frame(height: 80)
                 VStack(alignment: .leading, spacing: 8) {
                     Text(work.title)
-                        .lineLimit(2)
+                        .fixedSize(horizontal: false, vertical: true)
                         .matchedGeometryEffect(id: "Title", in: namespace, anchor: .leading)
                         .font(.system(size: 14))
                         .foregroundColor(Color.primary)
 
                     if let epi = episode {
                         Text("\(epi.numberText ?? "") \(epi.title ?? "")")
-                            .lineLimit(2)
+                            .fixedSize(horizontal: false, vertical: true)
                             .matchedGeometryEffect(id: "Episode", in: namespace)
                             .font(.system(size: 11))
                             .foregroundColor(Color.primary)
@@ -156,6 +156,6 @@ struct QuoteWorkExpandedView_Previews: PreviewProvider {
     static var previews: some View {
         QuoteWorkExpandedView(work: .dummy, episode: .dummy, namespace: namespace)
             .preferredColorScheme(.dark)
-            .previewLayout(.fixed(width: 375, height: 200))
+            .previewLayout(.fixed(width: 300, height: 200))
     }
 }
