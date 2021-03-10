@@ -50,7 +50,7 @@ struct EpisodeView: View {
                     }
                 }
                 ForEach(records.indices, id: \.self) { index in
-                    ActivityRecordView(record: $records[index])
+                    ActivityRecordView2(record: $records[index])
                         .hideQuote()
                 }
             }

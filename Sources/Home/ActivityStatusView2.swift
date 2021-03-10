@@ -8,7 +8,7 @@
 import SwiftUI
 import KingfisherSwiftUI
 
-struct ActivityStatusView: View {
+struct ActivityStatusView2: View {
     @Binding var status: StatusFragment
 
     var body: some View {
@@ -35,13 +35,13 @@ struct ActivityStatusView: View {
     }
 }
 
-struct ActivityStatusView_Previews: PreviewProvider {
+struct ActivityStatusView2_Previews: PreviewProvider {
     static var previews: some View {
         let status = StatusFragment(id: "", annictId: 0, createdAt: "2021-01-06T17:20:54Z",
                            state: .wannaWatch,
                            user: .init(unsafeResultMap: UserFragment.dummy.resultMap),
                            work: .init(unsafeResultMap: WorkFragment.dummy.resultMap))
-        return ActivityStatusView(status: .constant(status))
+        return ActivityStatusView2(status: .constant(status))
             .previewLayout(.fixed(width: 375, height: 200))
     }
 }

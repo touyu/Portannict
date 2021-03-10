@@ -16,7 +16,7 @@ extension PageInfoFragment: Equatable {}
 extension ActivityItemFragment: Equatable {}
 
 struct HomeState: Equatable {
-    var activities: [ActivityItemFragment] = []
+    var activityStates: [ActivityState] = []
     var pageInfo: PageInfoFragment?
     var error: APIError?
 }
@@ -25,6 +25,8 @@ enum HomeAction: Equatable {
     case fetch
     case fetchMore
     case updateWork
+
+    case activityCell(index: Int, action: ActivityAction)
 
     case setActivities(Result<GetFollowingActivitiesQuery.Data, APIError>)
     case appendActivities(Result<GetFollowingActivitiesQuery.Data, APIError>)
@@ -40,8 +42,6 @@ let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment> { state, actio
 
     switch action {
     case .fetch:
-        print("Home fetch")
-        print(state.activities.count)
         return environment.service.fetchHomeActivities(first: 30, after: nil)
             .receive(on: environment.mainQueue)
             .catchToEffect()
@@ -58,7 +58,7 @@ let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment> { state, actio
         return .none
     case .setActivities(.success(let data)):
         let activities = data.viewer?.followingActivities?.edges?.compactMap { $0?.node?.fragments.activityItemFragment } ?? []
-        state.activities = activities
+        state.activityStates = activities.map(ActivityState.init)
         state.pageInfo = data.viewer?.followingActivities?.pageInfo.fragments.pageInfoFragment
         return .none
     case .setActivities(.failure(let error)):
@@ -66,7 +66,7 @@ let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment> { state, actio
         return .none
     case .appendActivities(.success(let data)):
         let activities = data.viewer?.followingActivities?.edges?.compactMap { $0?.node?.fragments.activityItemFragment } ?? []
-        state.activities.append(contentsOf: activities)
+        state.activityStates.append(contentsOf: activities.map(ActivityState.init))
         state.pageInfo = data.viewer?.followingActivities?.pageInfo.fragments.pageInfoFragment
         return .none
     case .appendActivities(.failure(let error)):
@@ -82,7 +82,7 @@ struct HomeView: View {
         WithViewStore(store) { viewStore in
             NavigationView {
                 ScrollView {
-                    if viewStore.activities.isEmpty {
+                    if viewStore.activityStates.isEmpty {
                         VStack {
                             ForEach(0..<10) { i in
                                 ActivityEmptyView()
@@ -92,8 +92,10 @@ struct HomeView: View {
                     }
 
                     LazyVStack(spacing: 20) {
-                        ForEach(viewStore.activities.indices, id: \.self) { index in
-                            activityItemView(viewStore: viewStore, index: index)
+                        ForEachStore(
+                            store.scope(state: \.activityStates, action: HomeAction.activityCell(index:action:))
+                        ) { childStore in
+                            ActivityView(store: childStore)
                         }
                         ActivityIndicator()
                             .animated(true)
@@ -113,23 +115,23 @@ struct HomeView: View {
         }
     }
 
-    func activityItemView(viewStore: ViewStore<HomeState, HomeAction>, index: Int) -> some View {
-        Group {
-            let activity = viewStore.binding(get: { $0.activities[index] }, send: { _ in HomeAction.updateWork })
-            if let _ = activity.wrappedValue.asRecord {
-                ActivityRecordView(record: activity.map(\.asRecord!.fragments.recordFragment))
-                //                    .onSelectState { state in
-                //                        viewModel.action.send(.updateWork(record.work.fragments.workFragment.id, state))
-                //                    }
-            } else if let _ = activity.wrappedValue.asReview {
-                ActivityReviewView(review: activity.map(\.asReview!.fragments.reviewFragment))
-            } else if let _ = activity.wrappedValue.asStatus {
-                ActivityStatusView(status: activity.map(\.asStatus!.fragments.statusFragment))
-            } else {
-                EmptyView()
-            }
-        }
-    }
+//    func activityItemView(viewStore: ViewStore<HomeState, HomeAction>, index: Int) -> some View {
+//        Group {
+//            let activity = viewStore.binding(get: { $0.activities[index] }, send: { _ in HomeAction.updateWork })
+//            if let _ = activity.wrappedValue.asRecord {
+//                ActivityRecordView(record: activity.map(\.asRecord!.fragments.recordFragment))
+//                //                    .onSelectState { state in
+//                //                        viewModel.action.send(.updateWork(record.work.fragments.workFragment.id, state))
+//                //                    }
+//            } else if let _ = activity.wrappedValue.asReview {
+//                ActivityReviewView(review: activity.map(\.asReview!.fragments.reviewFragment))
+//            } else if let _ = activity.wrappedValue.asStatus {
+//                ActivityStatusView(status: activity.map(\.asStatus!.fragments.statusFragment))
+//            } else {
+//                EmptyView()
+//            }
+//        }
+//    }
 }
 
 struct HomeView_Previews: PreviewProvider {

@@ -8,7 +8,7 @@
 import SwiftUI
 import KingfisherSwiftUI
 
-struct ActivityReviewView: View {
+struct ActivityReviewView2: View {
     @Binding var review: ReviewFragment
 
     var body: some View {
@@ -38,10 +38,10 @@ struct ActivityReviewView: View {
     }
 }
 
-struct ActivityReviewView_Previews: PreviewProvider {
+struct ActivityReviewView2_Previews: PreviewProvider {
     static var previews: some View {
         let review = ReviewFragment(id: "", annictId: 0, body: "", createdAt: "", user: .init(unsafeResultMap: UserFragment.dummy.resultMap), work: .init(unsafeResultMap: WorkFragment.dummy.resultMap))
-        ActivityReviewView(review: .constant(review))
+        ActivityReviewView2(review: .constant(review))
             .previewLayout(.fixed(width: 375, height: 200))
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 import KingfisherSwiftUI
 import SkeletonUI
 
-struct ActivityRecordView: View {
+struct ActivityRecordView2: View {
     @Binding var record: RecordFragment
 
     init(record: Binding<RecordFragment>) {
@@ -62,13 +62,13 @@ struct ActivityRecordView: View {
         }
     }
 
-    func onSelectState(_ action: @escaping (StatusState) -> Void) -> ActivityRecordView {
+    func onSelectState(_ action: @escaping (StatusState) -> Void) -> ActivityRecordView2 {
         var result = self
         result.selectStateAction = action
         return result
     }
 
-    func hideQuote() -> ActivityRecordView {
+    func hideQuote() -> ActivityRecordView2 {
         var result = self
         result.isHiddenQuote = true
         return result
@@ -81,7 +81,7 @@ struct ActivityRecordView_Previews: PreviewProvider {
         let recordEpisode = RecordFragment.Episode(id: "", annictId: 124160, title: "Los Angeles Connection", numberText: "Case_1_1", viewerRecordsCount: 0)
         let user = RecordFragment.User(id: "user", name: "touyu", username: "touyu", description: "")
         let record = RecordFragment(id: "", annictId: 0, comment: "いい話だった", ratingState: .good, createdAt: "2021-01-06T17:20:54Z", user: user, work: recordWork, episode: recordEpisode)
-        return ActivityRecordView(record: .constant(record))
+        return ActivityRecordView2(record: .constant(record))
             .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/375.0/*@END_MENU_TOKEN@*/, height: 200))
     }
@@ -116,7 +116,7 @@ struct ActivityEmptyView: View {
     }
 }
 
-struct ActivityEmptyView_Previews: PreviewProvider {
+struct ActivityRecordView2_Previews: PreviewProvider {
     static var previews: some View {
         ActivityEmptyView()
             .preferredColorScheme(.dark)

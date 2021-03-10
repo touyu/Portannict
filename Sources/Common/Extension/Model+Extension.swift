@@ -8,6 +8,53 @@
 import Foundation
 import SwiftUI
 import SwiftDate
+import Apollo
+
+extension ActivityItemFragment {
+    enum ActivityItem {
+        case none
+        case record(AsRecord)
+        case review(AsReview)
+        case status(AsStatus)
+        case multipleRecord(AsMultipleRecord)
+    }
+
+    var activityItem: ActivityItem {
+        if let record = asRecord {
+            return .record(record)
+        }
+
+        if let review = asReview {
+            return .review(review)
+        }
+
+        if let status = asStatus {
+            return .status(status)
+        }
+
+        if let multi = asMultipleRecord {
+            return .multipleRecord(multi)
+        }
+
+        return .none
+    }
+
+    var id: GraphQLID {
+        switch activityItem {
+        case .record(let record):
+            return record.id
+        case .review(let review):
+            return review.id
+        case .status(let status):
+            return status.id
+        case .multipleRecord(let multi):
+            return multi.id
+        case .none:
+            return GraphQLID(UUID().uuidString)
+        }
+    }
+}
+
 
 extension GetFollowingActivitiesQuery.Data.Viewer.FollowingActivity.Edge.Node {
     enum ActivityItem {
