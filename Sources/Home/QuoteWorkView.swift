@@ -9,13 +9,14 @@ import SwiftUI
 import ComposableArchitecture
 
 struct QuoteWorkState: Equatable {
-    let work: WorkFragment
-    let episode: EpisodeFragment
+    var work: WorkFragment
+    var episode: EpisodeFragment?
     var isExpanded = false
 }
 
 enum QuoteWorkAction: Equatable {
     case toggle
+    case statusButtonTapped
     case workButtonTapped
     case episodeButtonTapped
 }
@@ -28,6 +29,8 @@ let quoteWorkReducer = Reducer<QuoteWorkState, QuoteWorkAction, QuoteWorkEnviron
     switch action {
     case .toggle:
         state.isExpanded.toggle()
+        return .none
+    case .statusButtonTapped:
         return .none
     case .workButtonTapped:
         return .none
@@ -44,7 +47,7 @@ struct QuoteWorkView: View {
     var body: some View {
         WithViewStore(store) { viewStore in
             Button(action: {
-                withAnimation(.easeOut(duration: 0.35)) {
+                withAnimation(.easeOut(duration: 0.25)) {
                     viewStore.send(.toggle)
                 }
             }, label: {
@@ -148,7 +151,8 @@ struct QuoteWorkExpandedView: View {
                 }
 
                 Button(viewerStatusStateTitle(state: viewStore.work.viewerStatusState)) {
-                    //                    showingActionSheet = true
+                    print("Tapped")
+                    viewStore.send(.statusButtonTapped)
                 }
                 .font(.system(size: 14))
                 .foregroundColor(viewStore.work.viewerStatusState != .noState ? .white : .primary)
@@ -167,15 +171,17 @@ struct QuoteWorkExpandedView: View {
                 .background(Color(.tertiarySystemBackground))
                 .cornerRadius(20)
 
-                Button("エピソードを開く") {
-                    viewStore.send(.episodeButtonTapped)
+                if let _ = viewStore.episode {
+                    Button("エピソードを開く") {
+                        viewStore.send(.episodeButtonTapped)
+                    }
+                    .font(.system(size: 14))
+                    .foregroundColor(.primary)
+                    .frame(height: 40)
+                    .frame(maxWidth: .infinity)
+                    .background(Color(.tertiarySystemBackground))
+                    .cornerRadius(20)
                 }
-                .font(.system(size: 14))
-                .foregroundColor(.primary)
-                .frame(height: 40)
-                .frame(maxWidth: .infinity)
-                .background(Color(.tertiarySystemBackground))
-                .cornerRadius(20)
             }
             .padding(8)
             .background(Color(.quaternarySystemFill))

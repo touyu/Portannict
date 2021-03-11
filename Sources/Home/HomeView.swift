@@ -19,6 +19,7 @@ struct HomeState: Equatable {
     enum Presentation: Identifiable, Hashable {
         case work
         case episode
+        case actionSheet
     }
     
     var activityStates: [ActivityState] = []
@@ -26,12 +27,13 @@ struct HomeState: Equatable {
     var error: APIError?
     var presentation: Presentation?
     var workState: WorkState?
+    var actionSheetState: ActionSheetState<HomeAction>?
 }
 
 enum HomeAction: Equatable {
     case fetch
     case fetchMore
-    case updateWork
+    case updateWorkStatus(Int, StatusState)
 
     case setActivities(Result<GetFollowingActivitiesQuery.Data, APIError>)
     case appendActivities(Result<GetFollowingActivitiesQuery.Data, APIError>)
@@ -44,6 +46,7 @@ enum HomeAction: Equatable {
 struct HomeEnvironment {
     var mainQueue: AnySchedulerOf<DispatchQueue>
     var service: ServiceType
+    var updateWorkStatus: ((Int, StatusState) -> Effect<WorkFragment, APIError>)
 }
 
 let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment>
@@ -76,7 +79,16 @@ let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment>
                     .catchToEffect()
                     .map(HomeAction.appendActivities)
                     .cancellable(id: RequestId())
-            case .updateWork:
+            case .updateWorkStatus(let id, let statusState):
+                for (i, _) in state.activityStates.enumerated() {
+                    if state.activityStates[i].item.work?.annictId == id {
+                        print(i, statusState)
+//                        var newState = state.activityStates[i]
+//                        newState.item.work?.viewerStatusState = statusState
+//                        state.activityStates[i] = newState
+                        state.activityStates[i].item.work?.viewerStatusState = statusState
+                    }
+                }
                 return .none
             case .setActivities(.success(let data)):
                 let activities = data.viewer?.followingActivities?.edges?.compactMap { $0?.node?.fragments.activityItemFragment } ?? []
@@ -96,14 +108,35 @@ let homeReducer = Reducer<HomeState, HomeAction, HomeEnvironment>
                 return .none
             case .setPresentation(let p):
                 state.presentation = p
+                if p == nil {
+                    state.workState = nil
+                    state.actionSheetState = nil
+                }
                 return .none
             case .activityCell(index: let index, action: let activityAction):
                 switch activityAction {
                 case .workTapped:
-                    if let workID = state.activityStates[index].item.work?.annictId {
-                        state.workState = WorkState(workID: workID)
-                        state.presentation = .work
-                    }
+                    print("workTapped")
+                    guard let workID = state.activityStates[index].item.work?.annictId else { return .none }
+                    state.workState = WorkState(workID: workID)
+                    state.presentation = .work
+                    return .none
+                case  .statusTapped:
+                    print("statusTapped")
+                    guard let workID = state.activityStates[index].item.work?.annictId else { return .none }
+                    state.actionSheetState = .init(
+                        title: TextState("ステータスを変更"),
+                        buttons: [
+                            .default(TextState("選択解除"), send: .updateWorkStatus(workID, .noState)),
+                            .default(TextState("見たい"), send: .updateWorkStatus(workID, .wannaWatch)),
+                            .default(TextState("見てる"), send: .updateWorkStatus(workID, .watching)),
+                            .default(TextState("見た"), send: .updateWorkStatus(workID, .watched)),
+                            .default(TextState("一時中断"), send: .updateWorkStatus(workID, .onHold)),
+                            .default(TextState("視聴中止"), send: .updateWorkStatus(workID, .stopWatching)),
+                            .cancel(),
+                        ]
+                    )
+                    state.presentation = .actionSheet
                     return .none
                 default:
                     return .none
@@ -158,8 +191,13 @@ struct HomeView: View {
                         store.scope(state: \.workState,
                                     action: HomeAction.work),
                         then: WorkView.init(store:)
+                        
                     )
                 }
+                .actionSheet(
+                    store.scope(state: \.actionSheetState),
+                    dismiss: .setPresentation(nil)
+                )
             }
         }
     }
@@ -189,7 +227,8 @@ struct HomeView_Previews: PreviewProvider {
                           reducer: homeReducer,
                           environment: HomeEnvironment(
                             mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
-                            service: PreviewService()
+                            service: PreviewService(),
+                            updateWorkStatus: { _, _ in .none }
                           )
 
         )

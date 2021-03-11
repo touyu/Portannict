@@ -10,8 +10,23 @@ import ComposableArchitecture
 import Apollo
 
 struct ActivityState: Equatable, Identifiable {
-    var item: ActivityItemFragment
     var recordState: ActivityRecordState?
+
+    // Itemが更新されたとき中のStateも変更する
+    var item: ActivityItemFragment {
+        didSet {
+            switch item.activityItem {
+            case .record:
+                recordState?.record = item.asRecord!.fragments.recordFragment
+            case .status:
+                break
+            case .review:
+                break
+            default:
+                break
+            }
+        }
+    }
 
     var id: GraphQLID {
         return item.id
@@ -34,8 +49,8 @@ struct ActivityState: Equatable, Identifiable {
 
 enum ActivityAction: Equatable {
     case record(ActivityRecordAction)
+    case statusTapped
     case workTapped
-//    case setPresentation(ActivityState.Presentation?)
 }
 
 struct ActivityEnvironment {
@@ -58,13 +73,16 @@ let activityReducer = Reducer<ActivityState, ActivityAction, ActivityEnvironment
                     case .workButtonTapped:
                         return .init(value: .workTapped)
                     case .episodeButtonTapped:
-                        break
+                        return .none
+                    case .statusButtonTapped:
+                        return .init(value: .statusTapped)
                     default:
                         return .none
                     }
                 }
-                return .none
             case .workTapped:
+                return .none
+            case .statusTapped:
                 return .none
             }
         }

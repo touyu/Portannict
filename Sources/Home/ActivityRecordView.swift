@@ -11,7 +11,12 @@ import ComposableArchitecture
 extension RecordFragment: Equatable {}
 
 struct ActivityRecordState: Equatable {
-    var record: RecordFragment
+    var record: RecordFragment {
+        didSet {
+            quoteWorkState.episode = record.episode.fragments.episodeFragment
+            quoteWorkState.work = record.work.fragments.workFragment
+        }
+    }
     var quoteWorkState: QuoteWorkState
 
     init(record: RecordFragment) {

@@ -29,7 +29,8 @@ let rootTabReducer = Reducer<RootTabState, RootTabAction, RootTabEnvironment>.co
                          action: /RootTabAction.home,
                          environment: { HomeEnvironment(
                             mainQueue: $0.mainQueue,
-                            service: Service()
+                            service: Service(),
+                            updateWorkStatus: { _, _ in .none }
                          )}),
     profileReducer.pullback(state: \.profileState,
                             action: /RootTabAction.profile,
