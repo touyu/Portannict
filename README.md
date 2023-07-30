@@ -3,6 +3,8 @@
 </p>
 
 # Portannict
+⚠️ 現在、アプリの公開を停止しています。
+
 :iphone: Elegant annict client app for iOS. 
 
 <a href="https://apps.apple.com/jp/app/portannict/id1205227187?mt=8"><img src="https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2017-03-30&kind=iossoftware&bubble=ios_apps"></a>
