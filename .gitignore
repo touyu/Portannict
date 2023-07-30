@@ -5,9 +5,15 @@ Pods/
 
 .DS_Store
 **/*.xcuserstate
+xcuserdata
 node_modules
 vendor/bundle
 
 .env
+Envfile
 
 node_modules
+
+# Apollo
+ApolloCodegen/ApolloCLI
+ApolloCodegen/.build

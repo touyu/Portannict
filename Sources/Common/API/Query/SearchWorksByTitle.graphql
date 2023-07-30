@@ -1,0 +1,10 @@
+query SearchWorksByTitles($first: Int, $after: String, $titles: [String!]) {
+	searchWorks(first: $first, after: $after, titles: $titles, orderBy:{direction:DESC, field:WATCHERS_COUNT}) {
+		edges {
+			node{
+				...WorkFragment
+			}
+		}
+	}
+}
+

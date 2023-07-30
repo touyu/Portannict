@@ -1,0 +1,16 @@
+query SearchEpisodeRecords($annictId: Int!, $first: Int, $after: String) {
+	searchEpisodes(first: 1, annictIds: [$annictId]) {
+		edges {
+			node {
+				...EpisodeFragment
+				records(first: $first, after: $after, orderBy: {direction: DESC, field:CREATED_AT}, hasComment: true) {
+					edges {
+						node {
+							...RecordFragment
+						}
+					}
+				}
+			}
+		}
+	}
+}
